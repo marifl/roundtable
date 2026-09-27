@@ -70,15 +70,11 @@ from pathlib import Path
 
 import ifcopenshell
 import ifcopenshell.api
-import ifcopenshell.api.aggregate
 import ifcopenshell.api.classification
 import ifcopenshell.api.context
-import ifcopenshell.api.feature
 import ifcopenshell.api.material
 import ifcopenshell.api.pset
 import ifcopenshell.api.root
-import ifcopenshell.api.spatial
-import ifcopenshell.api.type
 import ifcopenshell.api.unit
 import ifcopenshell.guid
 from shapely.geometry import Point, Polygon, box
@@ -338,6 +334,20 @@ class IfcWandBauer:
         q = ifcopenshell.api.pset.add_qto(self.f, product=produkt, name=name)
         ifcopenshell.api.pset.edit_qto(self.f, qto=q, properties=werte)
 
+    def beziehung(self, klasse: str, pfad: str, **attr):
+        """Objektbeziehung (IfcRel*) direkt anlegen statt über ifcopenshell.api.
+
+        Grund: Einige API-Funktionen (aggregate.assign_object, unit.assign_unit,
+        type.assign_type, material.assign_material für mehrere Objekte) arbeiten
+        intern mit Python-Mengen (set). Deren Iterationsreihenfolge hängt vom
+        Hash-Seed des Interpreters ab; Platzierungen und Listen wurden dann in
+        wechselnder Reihenfolge erzeugt (im Test mit PYTHONHASHSEED=1/2/3/99
+        nachgewiesen: vier verschiedene Prüfsummen). Mit expliziten Listen ist
+        die Ausgabe byte-identisch."""
+        ent = self.f.create_entity(klasse, GlobalId=ifcopenshell.guid.compress(uuid.uuid5(GUID_NAMENSRAUM, pfad).hex), **attr)
+        self.pfade[ent.id()] = pfad
+        return ent
+
     # --- Aufbau -----------------------------------------------------------
     def baue(self) -> ifcopenshell.file:
         f, w, pj = self.f, self.wand, self.p["projekt"]
@@ -356,7 +366,7 @@ class IfcWandBauer:
             ifcopenshell.api.unit.add_si_unit(f, unit_type="MASSUNIT", prefix="KILO"),
             ifcopenshell.api.unit.add_si_unit(f, unit_type="THERMODYNAMICTEMPERATUREUNIT"),
         ]
-        ifcopenshell.api.unit.assign_unit(f, units=einheiten)
+        projekt.UnitsInContext = f.createIfcUnitAssignment(einheiten)  # feste Reihenfolge
         modell = ifcopenshell.api.context.add_context(f, context_type="Model")
         body = ifcopenshell.api.context.add_context(f, context_type="Model", context_identifier="Body", target_view="MODEL_VIEW", parent=modell)
         axis = ifcopenshell.api.context.add_context(f, context_type="Model", context_identifier="Axis", target_view="GRAPH_VIEW", parent=modell)
@@ -374,9 +384,9 @@ class IfcWandBauer:
         geb = self.neu("IfcBuilding", "/projekt/gebaeude", pj["gebaeude"], ObjectPlacement=self.platzierung(site.ObjectPlacement))
         gs = self.neu("IfcBuildingStorey", "/projekt/gebaeude/" + pj["geschoss"], pj["geschoss"],
                       ObjectPlacement=self.platzierung(geb.ObjectPlacement), Elevation=0.0)
-        ifcopenshell.api.aggregate.assign_object(f, products=[site], relating_object=projekt)
-        ifcopenshell.api.aggregate.assign_object(f, products=[geb], relating_object=site)
-        ifcopenshell.api.aggregate.assign_object(f, products=[gs], relating_object=geb)
+        for eltern, kind in ((projekt, site), (site, geb), (geb, gs)):
+            self.beziehung("IfcRelAggregates", self.pfade[eltern.id()] + "#aggregiert",
+                           RelatingObject=eltern, RelatedObjects=[kind])
 
         # Wandtyp mit Schichtaufbau (IfcMaterialLayerSet)
         wtyp = self.neu("IfcWallType", "/typen/wand/" + w["typ"], w["typ"], "ELEMENTEDWALL")
@@ -390,7 +400,9 @@ class IfcWandBauer:
                 lname = f"{self.p['materialien'][s['material']]['name']} {s['dicke']:g} mm"
             layer = ifcopenshell.api.material.add_layer(f, layer_set=lset, material=self.material(s["material"]), name=lname)
             ifcopenshell.api.material.edit_layer(f, layer=layer, attributes={"LayerThickness": float(s["dicke"])})
-        ifcopenshell.api.material.assign_material(f, products=[wtyp], type="IfcMaterialLayerSet", material=lset)
+        self.beziehung("IfcRelAssociatesMaterial", "/typen/wand/" + w["typ"] + "#material",
+                       RelatingMaterial=lset, RelatedObjects=[wtyp])
+        typen = [wtyp]  # werden am Ende per IfcRelDeclares am Projekt deklariert
 
         # Wand
         L, H = w["laenge"], w["hoehe"]
@@ -398,9 +410,12 @@ class IfcWandBauer:
                         ObjectPlacement=self.platzierung(gs.ObjectPlacement))
         achse = f.createIfcPolyline([f.createIfcCartesianPoint([0.0, 0.0]), f.createIfcCartesianPoint([float(L), 0.0])])
         wand.Representation = self.form(axis, "Curve2D", [achse])
-        ifcopenshell.api.spatial.assign_container(f, products=[wand], relating_structure=gs)
-        ifcopenshell.api.type.assign_type(f, related_objects=[wand], relating_type=wtyp)
-        ifcopenshell.api.material.assign_material(f, products=[wand], type="IfcMaterialLayerSetUsage", material=lset)
+        self.beziehung("IfcRelContainedInSpatialStructure", self.pfade[gs.id()] + "#enthaelt",
+                       RelatingStructure=gs, RelatedElements=[wand])
+        self.beziehung("IfcRelDefinesByType", self.pfade[wtyp.id()] + "#typisiert",
+                       RelatingType=wtyp, RelatedObjects=[wand])
+        usage = f.createIfcMaterialLayerSetUsage(lset, "AXIS2", "POSITIVE", 0.0, None)
+        self.beziehung("IfcRelAssociatesMaterial", "/wand#material", RelatingMaterial=usage, RelatedObjects=[wand])
 
         from b3_uwert_iso6946 import uwert_fuer_ifc
         u = uwert_fuer_ifc(self.p)
@@ -427,7 +442,7 @@ class IfcWandBauer:
             op = self.neu("IfcOpeningElement", o["pfad"], f"{o['art']} {o['id']}", "OPENING",
                           ObjectPlacement=self.platzierung(wand.ObjectPlacement, (o["x0"], 0.0, o["z0"])))
             op.Representation = self.form(body, "SweptSolid", [self.quader_entlang(o["x1"] - o["x0"], dicke_gesamt, o["z1"] - o["z0"], "z")])
-            ifcopenshell.api.feature.add_feature(f, feature=op, element=wand)
+            self.beziehung("IfcRelVoidsElement", o["pfad"] + "#schneidet", RelatingBuildingElement=wand, RelatedOpeningElement=op)
 
         # Hölzer (IfcMember)
         st = w["staender"]
@@ -454,7 +469,7 @@ class IfcWandBauer:
                           Description=kv.get("_zweck"),
                           ObjectPlacement=self.platzierung(m.ObjectPlacement, (0.0, 0.0, kv["z"] - h["z0"])))
             vf.Representation = self.form(body, "SweptSolid", [self.quader_entlang(h["x1"] - h["x0"], kv["tiefe"], kv["hoehe"], "z")])
-            ifcopenshell.api.feature.add_feature(f, feature=vf, element=m)
+            self.beziehung("IfcRelVoidsElement", f"/wand/kerven/{kv['id']}#schneidet", RelatingBuildingElement=m, RelatedOpeningElement=vf)
             abzug[pfad_st] = abzug.get(pfad_st, 0) + (h["x1"] - h["x0"]) * kv["tiefe"] * kv["hoehe"]
 
         for pfad, (m, h, laenge, quer) in holz_obj.items():
@@ -511,8 +526,12 @@ class IfcWandBauer:
             kreis = f.createIfcCircleProfileDef("AREA", None, f.createIfcAxis2Placement2D(f.createIfcCartesianPoint([0.0, 0.0]), None), float(r))
             schaft = f.createIfcExtrudedAreaSolid(kreis, self.achse3d(z=(0, 1, 0), x=(1, 0, 0)), self.richtung(0, 0, 1), float(vm["laenge"]))
             rep = f.createIfcShapeRepresentation(body, "Body", "SweptSolid", [schaft])
-            ftyp.RepresentationMaps = [f.createIfcRepresentationMap(self.achse3d(), rep)]
-            ifcopenshell.api.material.assign_material(f, products=[ftyp], type="IfcMaterial", material=self.material("stahl_verzinkt"))
+            rmap = f.createIfcRepresentationMap(self.achse3d(), rep)
+            ftyp.RepresentationMaps = [rmap]
+            operator = f.createIfcCartesianTransformationOperator3D(None, None, self.punkt(0, 0, 0), None, None)
+            self.beziehung("IfcRelAssociatesMaterial", f"/typen/verbindungsmittel/{vm['id']}#material",
+                           RelatingMaterial=self.material("stahl_verzinkt"), RelatedObjects=[ftyp])
+            typen.append(ftyp)
 
             y_kopf = lage[vm["schicht"]][0]  # Schraubenkopf auf der Raumseite der OSB
             osb_flaeche = unary_union([p for _, p in plattenteilung(w, next(s for s in w["schichten_innen_nach_aussen"] if s["id"] == vm["schicht"]), lay["oeffnungen_union"])])
@@ -528,16 +547,21 @@ class IfcWandBauer:
                         sc = self.neu("IfcMechanicalFastener", f"/wand/verbindungsmittel/{vm['id']}{h['pfad'][5:]}/{i}",
                                       f"{vm['typ_name']} #{len(schrauben) + 1}", vm["art"],
                                       ObjectPlacement=self.platzierung(wand.ObjectPlacement, (xc, y_kopf, z)))
+                        # Geometrie als Verweis auf die Typ-Geometrie (IfcMappedItem)
+                        sc.Representation = self.form(body, "MappedRepresentation", [f.createIfcMappedItem(rmap, operator)])
                         schrauben.append(sc)
                         i += 1
                     z += vm["abstand"]
-            ifcopenshell.api.type.assign_type(f, related_objects=schrauben, relating_type=ftyp)
+            self.beziehung("IfcRelDefinesByType", f"/typen/verbindungsmittel/{vm['id']}#typisiert",
+                           RelatingType=ftyp, RelatedObjects=schrauben)
             teile.extend(schrauben)
 
         # Materialzuordnung (eine Beziehung je Material, feste Reihenfolge)
         for key in sorted(nach_material):
-            ifcopenshell.api.material.assign_material(f, products=nach_material[key], type="IfcMaterial", material=self.material(key))
-        ifcopenshell.api.aggregate.assign_object(f, products=teile, relating_object=wand)
+            self.beziehung("IfcRelAssociatesMaterial", f"/materialien/{key}#zuordnung",
+                           RelatingMaterial=self.material(key), RelatedObjects=nach_material[key])
+        self.beziehung("IfcRelAggregates", "/wand#aggregiert", RelatingObject=wand, RelatedObjects=teile)
+        self.beziehung("IfcRelDeclares", "/projekt#deklariert", RelatingContext=projekt, RelatedDefinitions=typen)
 
         self._setze_guids()
         self._setze_header()
