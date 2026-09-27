@@ -1,0 +1,7790 @@
+[
+ {
+  "rasterposition": "L/-1/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 7343.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    92.87,
+    3.521
+   ],
+   [
+    234.7,
+    -48.55,
+    3.521
+   ],
+   [
+    132.77,
+    53.37,
+    1.992
+   ],
+   [
+    232.77,
+    94.79,
+    3.492
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 14721.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    230.48,
+    97.09,
+    3.474
+   ],
+   [
+    130.48,
+    55.67,
+    1.974
+   ],
+   [
+    55.67,
+    130.48,
+    1.974
+   ],
+   [
+    97.09,
+    230.48,
+    3.474
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 27285.1,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    94.79,
+    232.77,
+    3.492
+   ],
+   [
+    53.37,
+    132.77,
+    1.992
+   ],
+   [
+    -118.85,
+    305.0,
+    4.575
+   ],
+   [
+    -118.85,
+    446.42,
+    6.696
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 8567.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    185.1
+   ],
+   [
+    "gehrung",
+    100.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -660.93,
+    275.39,
+    9.931
+   ],
+   [
+    -831.96,
+    346.23,
+    12.497
+   ],
+   [
+    -831.96,
+    446.42,
+    13.559
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 40867.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    38.0
+   ],
+   [
+    "gratschnitt",
+    191.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    92.87,
+    7.176
+   ],
+   [
+    -478.4,
+    -48.55,
+    7.176
+   ],
+   [
+    -831.96,
+    305.0,
+    12.479
+   ],
+   [
+    -831.96,
+    342.98,
+    12.479
+   ],
+   [
+    -655.38,
+    269.84,
+    9.831
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 36881.6,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    92.87,
+    14.217
+   ],
+   [
+    947.81,
+    -48.55,
+    14.217
+   ],
+   [
+    637.02,
+    262.24,
+    9.555
+   ],
+   [
+    737.02,
+    303.66,
+    11.055
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-1/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 12793.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    734.72,
+    305.95,
+    11.038
+   ],
+   [
+    634.72,
+    264.53,
+    9.538
+   ],
+   [
+    594.26,
+    305.0,
+    9.538
+   ],
+   [
+    594.26,
+    446.42,
+    11.038
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-10/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 37014.7,
+  "schnitte": [
+   [
+    "schraeg",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    213.59,
+    -1197.0,
+    17.955
+   ],
+   [
+    72.17,
+    -1197.0,
+    17.955
+   ],
+   [
+    -118.85,
+    -1005.98,
+    15.09
+   ],
+   [
+    -118.85,
+    -864.56,
+    12.968
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-10/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 11546.4,
+  "schnitte": [
+   [
+    "gerade",
+    100.0
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    711.26,
+    -981.56,
+    17.955
+   ],
+   [
+    640.55,
+    -1052.27,
+    17.955
+   ],
+   [
+    594.26,
+    -1005.98,
+    16.973
+   ],
+   [
+    594.26,
+    -864.56,
+    15.473
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-11/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 16414.7,
+  "schnitte": [
+   [
+    "schraeg",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    67.93,
+    -1197.0,
+    17.955
+   ],
+   [
+    -73.49,
+    -1197.0,
+    17.955
+   ],
+   [
+    -118.85,
+    -1151.64,
+    17.275
+   ],
+   [
+    -118.85,
+    -1010.22,
+    15.153
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-11/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 1950.9,
+  "schnitte": [
+   [
+    "gerade",
+    62.5
+   ],
+   [
+    "gehrung",
+    88.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    638.42,
+    -1054.39,
+    17.955
+   ],
+   [
+    594.26,
+    -1098.56,
+    17.955
+   ],
+   [
+    594.26,
+    -1010.22,
+    17.018
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-12/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 845.3,
+  "schnitte": [
+   [
+    "schraeg",
+    41.1
+   ],
+   [
+    "gehrung",
+    41.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -77.74,
+    -1197.0,
+    17.955
+   ],
+   [
+    -118.85,
+    -1197.0,
+    17.955
+   ],
+   [
+    -118.85,
+    -1155.88,
+    17.338
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 12002.9,
+  "schnitte": [
+   [
+    "gehrung",
+    42.8
+   ],
+   [
+    "gratschnitt",
+    169.6
+   ],
+   [
+    "ablauf",
+    61.4
+   ],
+   [
+    "gratschnitt",
+    56.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -52.8,
+    3.521
+   ],
+   [
+    234.7,
+    -95.59,
+    3.521
+   ],
+   [
+    78.0,
+    -30.69,
+    1.17
+   ],
+   [
+    78.0,
+    30.69,
+    1.17
+   ],
+   [
+    129.77,
+    52.13,
+    1.947
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 3126.6,
+  "schnitte": [
+   [
+    "gratschnitt",
+    53.6
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "gratschnitt",
+    53.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    127.48,
+    54.43,
+    1.929
+   ],
+   [
+    78.0,
+    33.93,
+    1.187
+   ],
+   [
+    78.0,
+    78.0,
+    1.655
+   ],
+   [
+    33.93,
+    78.0,
+    1.187
+   ],
+   [
+    54.43,
+    127.48,
+    1.929
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 13531.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    56.0
+   ],
+   [
+    "ablauf",
+    61.4
+   ],
+   [
+    "gratschnitt",
+    230.4
+   ],
+   [
+    "gehrung",
+    9.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    52.13,
+    129.77,
+    1.947
+   ],
+   [
+    30.69,
+    78.0,
+    1.17
+   ],
+   [
+    -30.69,
+    78.0,
+    1.17
+   ],
+   [
+    -118.85,
+    290.85,
+    4.363
+   ],
+   [
+    -118.85,
+    300.76,
+    4.511
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 5397.0,
+  "schnitte": [
+   [
+    "gehrung",
+    123.7
+   ],
+   [
+    "gratschnitt",
+    221.9
+   ],
+   [
+    "ablauf",
+    3.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    159.33,
+    2.951
+   ],
+   [
+    -118.85,
+    283.01,
+    4.262
+   ],
+   [
+    -33.93,
+    78.0,
+    1.187
+   ],
+   [
+    -37.52,
+    78.0,
+    1.225
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 7753.8,
+  "schnitte": [
+   [
+    "ablauf",
+    3.6
+   ],
+   [
+    "gratschnitt",
+    169.6
+   ],
+   [
+    "gehrung",
+    95.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -194.22,
+    4.549
+   ],
+   [
+    78.0,
+    -37.52,
+    1.225
+   ],
+   [
+    78.0,
+    -33.93,
+    1.187
+   ],
+   [
+    234.7,
+    -98.84,
+    3.538
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -831.96,
+    300.76,
+    12.479
+   ],
+   [
+    -478.4,
+    -52.8,
+    7.176
+   ],
+   [
+    -478.4,
+    -194.22,
+    7.176
+   ],
+   [
+    -831.96,
+    159.33,
+    12.479
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 48882.1,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    85.2
+   ],
+   [
+    "gratschnitt",
+    43.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    -52.8,
+    14.217
+   ],
+   [
+    947.81,
+    -194.22,
+    14.217
+   ],
+   [
+    594.26,
+    159.33,
+    8.914
+   ],
+   [
+    594.26,
+    244.53,
+    8.914
+   ],
+   [
+    634.02,
+    260.99,
+    9.51
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-2/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 992.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    40.6
+   ],
+   [
+    "gehrung",
+    53.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    631.72,
+    263.29,
+    9.493
+   ],
+   [
+    594.26,
+    247.77,
+    8.931
+   ],
+   [
+    594.26,
+    300.76,
+    9.493
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 4426.2,
+  "schnitte": [
+   [
+    "ablauf",
+    36.2
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "gratschnitt",
+    44.2
+   ],
+   [
+    "gehrung",
+    104.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -41.76,
+    78.0,
+    1.27
+   ],
+   [
+    -78.0,
+    78.0,
+    1.655
+   ],
+   [
+    -78.0,
+    33.93,
+    1.187
+   ],
+   [
+    -118.85,
+    50.85,
+    1.8
+   ],
+   [
+    -118.85,
+    155.09,
+    2.906
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 1875.1,
+  "schnitte": [
+   [
+    "gehrung",
+    33.9
+   ],
+   [
+    "gratschnitt",
+    44.2
+   ],
+   [
+    "ablauf",
+    57.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    13.67,
+    1.783
+   ],
+   [
+    -118.85,
+    47.61,
+    1.783
+   ],
+   [
+    -78.0,
+    30.69,
+    1.17
+   ],
+   [
+    -78.0,
+    -27.18,
+    1.17
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 2858.0,
+  "schnitte": [
+   [
+    "ablauf",
+    57.9
+   ],
+   [
+    "gratschnitt",
+    106.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -27.18,
+    -78.0,
+    1.17
+   ],
+   [
+    30.69,
+    -78.0,
+    1.17
+   ],
+   [
+    71.6,
+    -176.78,
+    2.652
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 24504.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    112.9
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "ablauf",
+    36.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -198.46,
+    4.594
+   ],
+   [
+    234.7,
+    -339.88,
+    6.094
+   ],
+   [
+    77.15,
+    -182.33,
+    2.752
+   ],
+   [
+    33.93,
+    -78.0,
+    1.187
+   ],
+   [
+    78.0,
+    -78.0,
+    1.655
+   ],
+   [
+    78.0,
+    -41.76,
+    1.27
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 42736.6,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -479.76,
+    -197.1,
+    7.196
+   ],
+   [
+    -579.76,
+    -238.52,
+    8.696
+   ],
+   [
+    -831.96,
+    13.67,
+    12.479
+   ],
+   [
+    -831.96,
+    155.09,
+    12.479
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 6939.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    107.2
+   ],
+   [
+    "gehrung",
+    140.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -339.88,
+    8.679
+   ],
+   [
+    -577.47,
+    -240.82,
+    8.679
+   ],
+   [
+    -478.4,
+    -199.79,
+    7.193
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-3/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    594.26,
+    155.09,
+    8.914
+   ],
+   [
+    947.81,
+    -198.46,
+    14.217
+   ],
+   [
+    947.81,
+    -339.88,
+    14.217
+   ],
+   [
+    594.26,
+    13.67,
+    8.914
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 1150.1,
+  "schnitte": [
+   [
+    "gratschnitt",
+    43.7
+   ],
+   [
+    "gehrung",
+    57.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -78.52,
+    -30.9,
+    1.178
+   ],
+   [
+    -118.85,
+    -47.61,
+    1.783
+   ],
+   [
+    -118.85,
+    9.43,
+    1.783
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 6819.3,
+  "schnitte": [
+   [
+    "gehrung",
+    81.1
+   ],
+   [
+    "gratschnitt",
+    44.2
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "ablauf",
+    44.1
+   ],
+   [
+    "gratschnitt",
+    106.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    -131.99,
+    2.661
+   ],
+   [
+    -118.85,
+    -50.85,
+    1.8
+   ],
+   [
+    -78.0,
+    -33.93,
+    1.187
+   ],
+   [
+    -78.0,
+    -78.0,
+    1.655
+   ],
+   [
+    -33.93,
+    -78.0,
+    1.187
+   ],
+   [
+    -74.62,
+    -176.23,
+    2.661
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 24920.4,
+  "schnitte": [
+   [
+    "gratschnitt",
+    261.3
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    74.6,
+    -184.03,
+    2.76
+   ],
+   [
+    174.6,
+    -425.45,
+    6.382
+   ],
+   [
+    -72.32,
+    -178.52,
+    2.678
+   ],
+   [
+    -30.9,
+    -78.52,
+    1.178
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 14786.6,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -344.13,
+    6.139
+   ],
+   [
+    234.7,
+    -485.55,
+    7.639
+   ],
+   [
+    180.15,
+    -430.99,
+    6.482
+   ],
+   [
+    80.15,
+    -189.57,
+    2.861
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 28170.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -582.76,
+    -239.77,
+    8.741
+   ],
+   [
+    -682.76,
+    -281.19,
+    10.241
+   ],
+   [
+    -831.96,
+    -131.99,
+    12.479
+   ],
+   [
+    -831.96,
+    9.43,
+    12.479
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 21505.1,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -344.13,
+    8.724
+   ],
+   [
+    -478.4,
+    -485.55,
+    10.224
+   ],
+   [
+    -680.47,
+    -283.48,
+    10.224
+   ],
+   [
+    -580.47,
+    -242.06,
+    8.724
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 42365.5,
+  "schnitte": [
+   [
+    "gehrung",
+    46.8
+   ],
+   [
+    "gratschnitt",
+    174.8
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    -344.13,
+    14.217
+   ],
+   [
+    947.81,
+    -390.97,
+    14.217
+   ],
+   [
+    786.36,
+    -324.1,
+    11.795
+   ],
+   [
+    594.26,
+    -131.99,
+    8.914
+   ],
+   [
+    594.26,
+    9.43,
+    8.914
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-4/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 7119.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    168.8
+   ],
+   [
+    "gehrung",
+    91.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    -485.55,
+    15.203
+   ],
+   [
+    791.9,
+    -329.64,
+    11.896
+   ],
+   [
+    947.81,
+    -394.22,
+    14.234
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 3150.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -75.86,
+    -179.23,
+    2.706
+   ],
+   [
+    -117.28,
+    -279.23,
+    4.206
+   ],
+   [
+    -118.85,
+    -277.66,
+    4.206
+   ],
+   [
+    -118.85,
+    -136.24,
+    2.706
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 44219.1,
+  "schnitte": [
+   [
+    "gratschnitt",
+    149.2
+   ],
+   [
+    "gehrung",
+    60.7
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    177.6,
+    -432.69,
+    6.49
+   ],
+   [
+    234.7,
+    -570.54,
+    8.558
+   ],
+   [
+    234.7,
+    -631.21,
+    9.468
+   ],
+   [
+    -114.99,
+    -281.52,
+    4.223
+   ],
+   [
+    -73.57,
+    -181.52,
+    2.723
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 1879.6,
+  "schnitte": [
+   [
+    "gehrung",
+    72.9
+   ],
+   [
+    "gratschnitt",
+    134.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -489.79,
+    7.684
+   ],
+   [
+    234.7,
+    -562.7,
+    8.458
+   ],
+   [
+    183.15,
+    -438.23,
+    6.591
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 13603.8,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -685.76,
+    -282.43,
+    10.286
+   ],
+   [
+    -785.76,
+    -323.85,
+    11.786
+   ],
+   [
+    -831.96,
+    -277.66,
+    12.479
+   ],
+   [
+    -831.96,
+    -136.24,
+    12.479
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 36071.5,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -489.79,
+    10.269
+   ],
+   [
+    -478.4,
+    -631.21,
+    11.769
+   ],
+   [
+    -783.47,
+    -326.15,
+    11.769
+   ],
+   [
+    -683.47,
+    -284.73,
+    10.269
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 10009.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    200.1
+   ],
+   [
+    "gehrung",
+    108.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    779.12,
+    -321.1,
+    11.687
+   ],
+   [
+    594.26,
+    -244.53,
+    8.914
+   ],
+   [
+    594.26,
+    -136.24,
+    8.914
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-5/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 39381.5,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    29.9
+   ],
+   [
+    "gratschnitt",
+    206.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    -489.79,
+    15.248
+   ],
+   [
+    947.81,
+    -631.21,
+    16.748
+   ],
+   [
+    594.26,
+    -277.66,
+    9.248
+   ],
+   [
+    594.26,
+    -247.77,
+    8.931
+   ],
+   [
+    784.66,
+    -326.64,
+    11.787
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-6/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 49988.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    132.5
+   ],
+   [
+    "gratschnitt",
+    6.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -635.45,
+    9.532
+   ],
+   [
+    234.7,
+    -776.87,
+    11.653
+   ],
+   [
+    -118.85,
+    -423.32,
+    6.35
+   ],
+   [
+    -118.85,
+    -290.85,
+    4.363
+   ],
+   [
+    -116.23,
+    -284.52,
+    4.268
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-6/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 1319.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    46.8
+   ],
+   [
+    "gehrung",
+    61.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -788.76,
+    -325.09,
+    11.831
+   ],
+   [
+    -831.96,
+    -342.98,
+    12.479
+   ],
+   [
+    -831.96,
+    -281.9,
+    12.479
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-6/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 48536.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    77.1
+   ],
+   [
+    "gratschnitt",
+    49.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -635.45,
+    11.814
+   ],
+   [
+    -478.4,
+    -776.87,
+    13.314
+   ],
+   [
+    -831.96,
+    -423.32,
+    13.314
+   ],
+   [
+    -831.96,
+    -346.23,
+    12.497
+   ],
+   [
+    -786.47,
+    -327.39,
+    11.814
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-6/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 49746.1,
+  "schnitte": [
+   [
+    "gehrung",
+    109.6
+   ],
+   [
+    "gerade",
+    22.5
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    -635.45,
+    16.793
+   ],
+   [
+    947.81,
+    -745.0,
+    17.955
+   ],
+   [
+    931.87,
+    -760.94,
+    17.955
+   ],
+   [
+    594.26,
+    -423.32,
+    10.793
+   ],
+   [
+    594.26,
+    -281.9,
+    9.293
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-7/-1",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    -427.56,
+    6.413
+   ],
+   [
+    234.7,
+    -781.12,
+    11.717
+   ],
+   [
+    234.7,
+    -922.54,
+    13.838
+   ],
+   [
+    -118.85,
+    -568.99,
+    8.535
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-7/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -831.96,
+    -427.56,
+    13.359
+   ],
+   [
+    -478.4,
+    -781.12,
+    13.359
+   ],
+   [
+    -478.4,
+    -922.54,
+    14.859
+   ],
+   [
+    -831.96,
+    -568.99,
+    14.859
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-7/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 42446.4,
+  "schnitte": [
+   [
+    "gerade",
+    100.0
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    929.75,
+    -763.06,
+    17.955
+   ],
+   [
+    859.04,
+    -833.77,
+    17.955
+   ],
+   [
+    594.26,
+    -568.99,
+    12.338
+   ],
+   [
+    594.26,
+    -427.56,
+    10.838
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-8/-1",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    -573.23,
+    8.598
+   ],
+   [
+    234.7,
+    -926.78,
+    13.902
+   ],
+   [
+    234.7,
+    -1068.2,
+    16.023
+   ],
+   [
+    -118.85,
+    -714.65,
+    10.72
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-8/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -831.96,
+    -573.23,
+    14.904
+   ],
+   [
+    -478.4,
+    -926.78,
+    14.904
+   ],
+   [
+    -478.4,
+    -1068.2,
+    16.404
+   ],
+   [
+    -831.96,
+    -714.65,
+    16.404
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-8/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 32146.4,
+  "schnitte": [
+   [
+    "gerade",
+    100.0
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    856.92,
+    -835.89,
+    17.955
+   ],
+   [
+    786.21,
+    -906.6,
+    17.955
+   ],
+   [
+    594.26,
+    -714.65,
+    13.883
+   ],
+   [
+    594.26,
+    -573.23,
+    12.383
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-9/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 49857.8,
+  "schnitte": [
+   [
+    "gehrung",
+    124.6
+   ],
+   [
+    "schraeg",
+    16.9
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    -1072.45,
+    16.087
+   ],
+   [
+    234.7,
+    -1197.0,
+    17.955
+   ],
+   [
+    217.84,
+    -1197.0,
+    17.955
+   ],
+   [
+    -118.85,
+    -860.31,
+    12.905
+   ],
+   [
+    -118.85,
+    -718.89,
+    10.783
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-9/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 49422.2,
+  "schnitte": [
+   [
+    "gehrung",
+    78.6
+   ],
+   [
+    "gratschnitt",
+    48.1
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -1072.45,
+    16.449
+   ],
+   [
+    -478.4,
+    -1151.05,
+    17.283
+   ],
+   [
+    -496.8,
+    -1195.47,
+    17.949
+   ],
+   [
+    -831.96,
+    -860.31,
+    17.949
+   ],
+   [
+    -831.96,
+    -718.89,
+    16.449
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-9/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 300.8,
+  "schnitte": [
+   [
+    "schraeg",
+    15.8
+   ],
+   [
+    "gratschnitt",
+    41.2
+   ],
+   [
+    "gehrung",
+    38.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    -1197.0,
+    17.955
+   ],
+   [
+    -494.19,
+    -1197.0,
+    17.955
+   ],
+   [
+    -478.4,
+    -1158.89,
+    17.383
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/-9/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 21846.4,
+  "schnitte": [
+   [
+    "gerade",
+    100.0
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    784.09,
+    -908.72,
+    17.955
+   ],
+   [
+    713.38,
+    -979.44,
+    17.955
+   ],
+   [
+    594.26,
+    -860.31,
+    15.428
+   ],
+   [
+    594.26,
+    -718.89,
+    13.928
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 16355.5,
+  "schnitte": [
+   [
+    "gehrung",
+    139.7
+   ],
+   [
+    "gratschnitt",
+    1.3
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    238.53,
+    5.019
+   ],
+   [
+    234.7,
+    98.84,
+    3.538
+   ],
+   [
+    233.48,
+    98.33,
+    3.519
+   ],
+   [
+    98.33,
+    233.48,
+    3.519
+   ],
+   [
+    139.75,
+    333.48,
+    5.019
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 33318.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    137.46,
+    335.77,
+    5.037
+   ],
+   [
+    96.04,
+    235.77,
+    3.537
+   ],
+   [
+    -118.85,
+    450.66,
+    6.76
+   ],
+   [
+    -118.85,
+    592.08,
+    8.881
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 41001.5,
+  "schnitte": [
+   [
+    "gehrung",
+    38.7
+   ],
+   [
+    "gratschnitt",
+    189.7
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    238.53,
+    7.604
+   ],
+   [
+    -478.4,
+    199.79,
+    7.193
+   ],
+   [
+    -653.68,
+    272.39,
+    9.822
+   ],
+   [
+    -831.96,
+    450.66,
+    13.604
+   ],
+   [
+    -831.96,
+    592.08,
+    15.104
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 8438.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    183.7
+   ],
+   [
+    "gehrung",
+    99.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    97.11,
+    7.176
+   ],
+   [
+    -648.14,
+    266.84,
+    9.722
+   ],
+   [
+    -478.4,
+    196.54,
+    7.176
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 22315.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    238.53,
+    14.217
+   ],
+   [
+    947.81,
+    97.11,
+    14.217
+   ],
+   [
+    740.02,
+    304.9,
+    11.1
+   ],
+   [
+    840.02,
+    346.32,
+    12.6
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/0/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 27360.1,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    837.72,
+    348.62,
+    12.583
+   ],
+   [
+    737.72,
+    307.2,
+    11.083
+   ],
+   [
+    594.26,
+    450.66,
+    11.083
+   ],
+   [
+    594.26,
+    592.08,
+    12.583
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/1/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 10322.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    384.19,
+    6.564
+   ],
+   [
+    234.7,
+    242.77,
+    5.064
+   ],
+   [
+    141.0,
+    336.48,
+    5.064
+   ],
+   [
+    182.42,
+    436.48,
+    6.564
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/1/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 39352.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    180.12,
+    438.77,
+    6.582
+   ],
+   [
+    138.7,
+    338.77,
+    5.082
+   ],
+   [
+    -118.85,
+    596.33,
+    8.945
+   ],
+   [
+    -118.85,
+    737.75,
+    11.066
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/1/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -831.96,
+    737.75,
+    16.649
+   ],
+   [
+    -478.4,
+    384.19,
+    9.149
+   ],
+   [
+    -478.4,
+    242.77,
+    7.649
+   ],
+   [
+    -831.96,
+    596.33,
+    15.149
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/1/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 7748.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    384.19,
+    14.217
+   ],
+   [
+    947.81,
+    242.77,
+    14.217
+   ],
+   [
+    843.02,
+    347.57,
+    12.645
+   ],
+   [
+    943.02,
+    388.99,
+    14.145
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/1/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 41926.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    940.72,
+    391.28,
+    14.128
+   ],
+   [
+    840.72,
+    349.86,
+    12.628
+   ],
+   [
+    594.26,
+    596.33,
+    12.628
+   ],
+   [
+    594.26,
+    737.75,
+    14.128
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 4289.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    529.86,
+    8.109
+   ],
+   [
+    234.7,
+    388.44,
+    6.609
+   ],
+   [
+    183.66,
+    439.48,
+    6.609
+   ],
+   [
+    225.08,
+    539.48,
+    8.109
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/2/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 45385.9,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    222.79,
+    541.77,
+    8.127
+   ],
+   [
+    181.37,
+    441.77,
+    6.627
+   ],
+   [
+    -118.85,
+    741.99,
+    11.13
+   ],
+   [
+    -118.85,
+    883.41,
+    13.251
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/2/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 49872.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    118.9
+   ],
+   [
+    "gerade",
+    15.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    529.86,
+    10.694
+   ],
+   [
+    -478.4,
+    388.44,
+    9.194
+   ],
+   [
+    -831.96,
+    741.99,
+    16.694
+   ],
+   [
+    -831.96,
+    860.86,
+    17.955
+   ],
+   [
+    -820.68,
+    872.13,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/2/0",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 49988.2,
+  "schnitte": [
+   [
+    "gehrung",
+    135.6
+   ],
+   [
+    "gratschnitt",
+    4.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    529.86,
+    15.673
+   ],
+   [
+    947.81,
+    394.22,
+    14.234
+   ],
+   [
+    943.72,
+    392.53,
+    14.173
+   ],
+   [
+    594.26,
+    741.99,
+    14.173
+   ],
+   [
+    594.26,
+    883.41,
+    15.673
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 119.8,
+  "schnitte": [
+   [
+    "gratschnitt",
+    21.9
+   ],
+   [
+    "gehrung",
+    28.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    534.1,
+    8.154
+   ],
+   [
+    226.33,
+    542.48,
+    8.154
+   ],
+   [
+    234.7,
+    562.7,
+    8.458
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/3/-1",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 49805.5,
+  "schnitte": [
+   [
+    "gehrung",
+    105.0
+   ],
+   [
+    "gratschnitt",
+    27.9
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    675.52,
+    10.133
+   ],
+   [
+    234.7,
+    570.54,
+    8.558
+   ],
+   [
+    224.03,
+    544.77,
+    8.172
+   ],
+   [
+    -118.85,
+    887.65,
+    13.315
+   ],
+   [
+    -118.85,
+    1029.08,
+    15.436
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/3/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 43105.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    675.52,
+    12.239
+   ],
+   [
+    -478.4,
+    534.1,
+    10.739
+   ],
+   [
+    -818.56,
+    874.26,
+    17.955
+   ],
+   [
+    -747.85,
+    944.97,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/3/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    594.26,
+    1029.08,
+    17.218
+   ],
+   [
+    947.81,
+    675.52,
+    17.218
+   ],
+   [
+    947.81,
+    534.1,
+    15.718
+   ],
+   [
+    594.26,
+    887.65,
+    15.718
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/4/-1",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -118.85,
+    1174.74,
+    17.621
+   ],
+   [
+    234.7,
+    821.19,
+    12.318
+   ],
+   [
+    234.7,
+    679.77,
+    10.196
+   ],
+   [
+    -118.85,
+    1033.32,
+    15.5
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/4/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 32805.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    821.19,
+    13.784
+   ],
+   [
+    -478.4,
+    679.77,
+    12.284
+   ],
+   [
+    -745.73,
+    947.09,
+    17.955
+   ],
+   [
+    -675.02,
+    1017.8,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/4/0",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 23065.6,
+  "schnitte": [
+   [
+    "gehrung",
+    65.2
+   ],
+   [
+    "gerade",
+    500.0
+   ],
+   [
+    "gehrung",
+    65.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    947.81,
+    679.77,
+    17.263
+   ],
+   [
+    594.26,
+    1033.32,
+    17.263
+   ],
+   [
+    594.26,
+    1098.56,
+    17.955
+   ],
+   [
+    947.81,
+    745.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/5/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 42385.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    18.0
+   ],
+   [
+    "schraeg",
+    123.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    966.85,
+    14.503
+   ],
+   [
+    234.7,
+    825.43,
+    12.381
+   ],
+   [
+    -118.85,
+    1178.98,
+    17.685
+   ],
+   [
+    -118.85,
+    1197.0,
+    17.955
+   ],
+   [
+    4.55,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/5/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 22505.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    966.85,
+    15.329
+   ],
+   [
+    -478.4,
+    825.43,
+    13.829
+   ],
+   [
+    -672.89,
+    1019.92,
+    17.955
+   ],
+   [
+    -602.18,
+    1090.63,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/6/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 21948.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    1112.51,
+    16.688
+   ],
+   [
+    234.7,
+    971.09,
+    14.566
+   ],
+   [
+    8.8,
+    1197.0,
+    17.955
+   ],
+   [
+    150.22,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/6/-2",
+  "motiv": "L",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 12205.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    1112.51,
+    16.874
+   ],
+   [
+    -478.4,
+    971.09,
+    15.374
+   ],
+   [
+    -600.06,
+    1092.75,
+    17.955
+   ],
+   [
+    -529.35,
+    1163.46,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/7/-1",
+  "motiv": "L",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 3219.4,
+  "schnitte": [
+   [
+    "schraeg",
+    80.2
+   ],
+   [
+    "gehrung",
+    80.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    234.7,
+    1116.76,
+    16.751
+   ],
+   [
+    154.46,
+    1197.0,
+    17.955
+   ],
+   [
+    234.7,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/7/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 300.8,
+  "schnitte": [
+   [
+    "gratschnitt",
+    41.2
+   ],
+   [
+    "schraeg",
+    15.8
+   ],
+   [
+    "gehrung",
+    38.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    1158.89,
+    17.383
+   ],
+   [
+    -494.19,
+    1197.0,
+    17.955
+   ],
+   [
+    -478.4,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "L/7/-2",
+  "motiv": "L",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 1796.1,
+  "schnitte": [
+   [
+    "gerade",
+    42.8
+   ],
+   [
+    "gratschnitt",
+    48.5
+   ],
+   [
+    "gehrung",
+    34.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -478.4,
+    1116.76,
+    16.919
+   ],
+   [
+    -527.23,
+    1165.58,
+    17.955
+   ],
+   [
+    -496.96,
+    1195.85,
+    17.955
+   ],
+   [
+    -478.4,
+    1151.05,
+    17.283
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 3214.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    446.42,
+    6.696
+   ],
+   [
+    -121.85,
+    305.0,
+    4.575
+   ],
+   [
+    -123.87,
+    302.98,
+    4.545
+   ],
+   [
+    -165.29,
+    402.98,
+    6.045
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 28821.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -300.68,
+    126.17,
+    4.527
+   ],
+   [
+    -400.68,
+    167.59,
+    6.027
+   ],
+   [
+    -167.59,
+    400.68,
+    6.027
+   ],
+   [
+    -126.17,
+    300.68,
+    4.527
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 17313.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -48.55,
+    7.131
+   ],
+   [
+    -475.4,
+    92.87,
+    7.131
+   ],
+   [
+    -402.98,
+    165.29,
+    6.045
+   ],
+   [
+    -302.98,
+    123.87,
+    4.545
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 3461.4,
+  "schnitte": [
+   [
+    "gehrung",
+    98.9
+   ],
+   [
+    "gratschnitt",
+    75.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    446.42,
+    13.591
+   ],
+   [
+    -834.96,
+    347.47,
+    12.542
+   ],
+   [
+    -904.92,
+    376.45,
+    13.591
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 46307.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    78.2
+   ],
+   [
+    "gehrung",
+    39.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    305.0,
+    12.524
+   ],
+   [
+    -1188.51,
+    -48.55,
+    17.828
+   ],
+   [
+    -1188.51,
+    92.87,
+    17.828
+   ],
+   [
+    -907.22,
+    374.16,
+    13.608
+   ],
+   [
+    -834.96,
+    344.23,
+    12.524
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 18029.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -48.55,
+    3.566
+   ],
+   [
+    237.7,
+    92.87,
+    3.566
+   ],
+   [
+    244.48,
+    99.64,
+    3.667
+   ],
+   [
+    485.9,
+    199.64,
+    7.288
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 31186.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    446.42,
+    11.006
+   ],
+   [
+    591.26,
+    305.0,
+    9.506
+   ],
+   [
+    491.44,
+    205.19,
+    7.389
+   ],
+   [
+    250.02,
+    105.19,
+    3.768
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-1/1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 34816.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -48.55,
+    14.262
+   ],
+   [
+    950.81,
+    92.87,
+    14.262
+   ],
+   [
+    1197.0,
+    339.06,
+    17.955
+   ],
+   [
+    1197.0,
+    197.64,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-10/-1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 37014.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -864.56,
+    12.968
+   ],
+   [
+    -121.85,
+    -1005.98,
+    15.09
+   ],
+   [
+    -312.87,
+    -1197.0,
+    17.955
+   ],
+   [
+    -454.3,
+    -1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-10/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 16466.8,
+  "schnitte": [
+   [
+    "schraeg",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    400.23,
+    -1197.0,
+    17.955
+   ],
+   [
+    258.81,
+    -1197.0,
+    17.955
+   ],
+   [
+    425.25,
+    -1030.56,
+    15.458
+   ],
+   [
+    466.67,
+    -1130.56,
+    16.958
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-10/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 20223.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -864.56,
+    15.441
+   ],
+   [
+    591.26,
+    -1005.98,
+    16.941
+   ],
+   [
+    468.97,
+    -1128.27,
+    16.941
+   ],
+   [
+    427.55,
+    -1028.27,
+    15.441
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-11/-1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 16414.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -1010.22,
+    15.153
+   ],
+   [
+    -121.85,
+    -1151.64,
+    17.275
+   ],
+   [
+    -167.21,
+    -1197.0,
+    17.955
+   ],
+   [
+    -308.63,
+    -1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-11/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 2845.6,
+  "schnitte": [
+   [
+    "gratschnitt",
+    68.7
+   ],
+   [
+    "schraeg",
+    89.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    467.91,
+    -1133.56,
+    17.003
+   ],
+   [
+    494.19,
+    -1197.0,
+    17.955
+   ],
+   [
+    404.48,
+    -1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-11/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 9834.4,
+  "schnitte": [
+   [
+    "gehrung",
+    91.3
+   ],
+   [
+    "gerade",
+    133.4
+   ],
+   [
+    "gratschnitt",
+    69.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -1010.22,
+    16.986
+   ],
+   [
+    591.26,
+    -1101.56,
+    17.955
+   ],
+   [
+    496.96,
+    -1195.85,
+    17.955
+   ],
+   [
+    470.21,
+    -1131.27,
+    16.986
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-12/-1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 845.3,
+  "schnitte": [
+   [
+    "gehrung",
+    41.1
+   ],
+   [
+    "schraeg",
+    41.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -1155.88,
+    17.338
+   ],
+   [
+    -121.85,
+    -1197.0,
+    17.955
+   ],
+   [
+    -162.97,
+    -1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 17778.8,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "gratschnitt",
+    8.0
+   ],
+   [
+    "gehrung",
+    130.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    159.33,
+    2.982
+   ],
+   [
+    -197.68,
+    83.51,
+    2.982
+   ],
+   [
+    -297.68,
+    124.93,
+    4.482
+   ],
+   [
+    -124.93,
+    297.68,
+    4.482
+   ],
+   [
+    -121.85,
+    290.25,
+    4.371
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 31880.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -194.22,
+    7.131
+   ],
+   [
+    -475.4,
+    -52.8,
+    7.131
+   ],
+   [
+    -299.98,
+    122.63,
+    4.5
+   ],
+   [
+    -199.98,
+    81.21,
+    3.0
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    -194.22,
+    17.828
+   ],
+   [
+    -834.96,
+    159.33,
+    12.524
+   ],
+   [
+    -834.96,
+    300.76,
+    12.524
+   ],
+   [
+    -1188.51,
+    -52.8,
+    17.828
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 43827.6,
+  "schnitte": [
+   [
+    "gratschnitt",
+    74.5
+   ],
+   [
+    "gehrung",
+    44.0
+   ],
+   [
+    "gratschnitt",
+    106.2
+   ],
+   [
+    "gehrung",
+    83.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    159.33,
+    8.869
+   ],
+   [
+    306.56,
+    -125.36,
+    4.598
+   ],
+   [
+    237.7,
+    -96.84,
+    3.566
+   ],
+   [
+    237.7,
+    -52.8,
+    3.566
+   ],
+   [
+    493.14,
+    202.64,
+    7.397
+   ],
+   [
+    591.26,
+    243.28,
+    8.869
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 2509.9,
+  "schnitte": [
+   [
+    "gehrung",
+    54.2
+   ],
+   [
+    "gratschnitt",
+    100.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    300.76,
+    9.461
+   ],
+   [
+    591.26,
+    246.53,
+    8.886
+   ],
+   [
+    498.69,
+    208.19,
+    7.498
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 3133.0,
+  "schnitte": [
+   [
+    "gehrung",
+    94.1
+   ],
+   [
+    "gratschnitt",
+    72.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -194.22,
+    4.581
+   ],
+   [
+    237.7,
+    -100.08,
+    3.583
+   ],
+   [
+    304.27,
+    -127.65,
+    4.581
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-2/1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 34816.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -194.22,
+    14.262
+   ],
+   [
+    950.81,
+    -52.8,
+    14.262
+   ],
+   [
+    1197.0,
+    193.39,
+    17.955
+   ],
+   [
+    1197.0,
+    51.97,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 3750.6,
+  "schnitte": [
+   [
+    "gehrung",
+    103.0
+   ],
+   [
+    "gratschnitt",
+    78.8
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    155.09,
+    2.937
+   ],
+   [
+    -121.85,
+    52.1,
+    1.845
+   ],
+   [
+    -194.68,
+    82.26,
+    2.937
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 28173.8,
+  "schnitte": [
+   [
+    "gratschnitt",
+    261.3
+   ],
+   [
+    "gratschnitt",
+    81.3
+   ],
+   [
+    "gehrung",
+    35.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    13.67,
+    1.828
+   ],
+   [
+    -228.58,
+    -93.06,
+    3.429
+   ],
+   [
+    -470.0,
+    -193.06,
+    7.05
+   ],
+   [
+    -196.98,
+    79.97,
+    2.955
+   ],
+   [
+    -121.85,
+    48.85,
+    1.828
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 17051.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.3
+   ],
+   [
+    "gratschnitt",
+    261.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -339.88,
+    8.647
+   ],
+   [
+    -475.4,
+    -198.54,
+    7.148
+   ],
+   [
+    -234.12,
+    -98.6,
+    3.529
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    -339.88,
+    17.828
+   ],
+   [
+    -834.96,
+    13.67,
+    12.524
+   ],
+   [
+    -834.96,
+    155.09,
+    12.524
+   ],
+   [
+    -1188.51,
+    -198.46,
+    17.828
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 32766.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    155.09,
+    8.869
+   ],
+   [
+    591.26,
+    13.67,
+    8.869
+   ],
+   [
+    409.56,
+    -168.02,
+    6.143
+   ],
+   [
+    309.56,
+    -126.6,
+    4.643
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 16908.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -339.88,
+    6.126
+   ],
+   [
+    237.7,
+    -198.46,
+    4.626
+   ],
+   [
+    307.27,
+    -128.9,
+    4.626
+   ],
+   [
+    407.27,
+    -170.32,
+    6.126
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-3/1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 34816.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -339.88,
+    14.262
+   ],
+   [
+    950.81,
+    -198.46,
+    14.262
+   ],
+   [
+    1197.0,
+    47.73,
+    17.955
+   ],
+   [
+    1197.0,
+    -93.69,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 2898.8,
+  "schnitte": [
+   [
+    "gehrung",
+    58.3
+   ],
+   [
+    "gratschnitt",
+    107.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    9.43,
+    1.828
+   ],
+   [
+    -121.85,
+    -48.85,
+    1.828
+   ],
+   [
+    -221.34,
+    -90.06,
+    3.32
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 46769.1,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    113.7
+   ],
+   [
+    "gehrung",
+    79.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -131.99,
+    2.692
+   ],
+   [
+    -475.4,
+    -485.55,
+    10.192
+   ],
+   [
+    -475.4,
+    -344.13,
+    8.692
+   ],
+   [
+    -226.88,
+    -95.6,
+    3.42
+   ],
+   [
+    -121.85,
+    -52.1,
+    1.845
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    -485.55,
+    17.828
+   ],
+   [
+    -834.96,
+    -131.99,
+    12.524
+   ],
+   [
+    -834.96,
+    9.43,
+    12.524
+   ],
+   [
+    -1188.51,
+    -344.13,
+    17.828
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 18200.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    9.43,
+    8.869
+   ],
+   [
+    591.26,
+    -131.99,
+    8.869
+   ],
+   [
+    512.56,
+    -210.69,
+    7.688
+   ],
+   [
+    412.56,
+    -169.27,
+    6.188
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 31475.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -485.55,
+    7.671
+   ],
+   [
+    237.7,
+    -344.13,
+    6.171
+   ],
+   [
+    410.27,
+    -171.56,
+    6.171
+   ],
+   [
+    510.27,
+    -212.98,
+    7.671
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 31736.9,
+  "schnitte": [
+   [
+    "gratschnitt",
+    71.4
+   ],
+   [
+    "gehrung",
+    48.1
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    1016.8,
+    -419.55,
+    15.252
+   ],
+   [
+    950.81,
+    -392.21,
+    14.262
+   ],
+   [
+    950.81,
+    -344.13,
+    14.262
+   ],
+   [
+    1197.0,
+    -97.93,
+    17.955
+   ],
+   [
+    1197.0,
+    -239.36,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-4/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 2869.2,
+  "schnitte": [
+   [
+    "gehrung",
+    90.1
+   ],
+   [
+    "gratschnitt",
+    68.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -485.55,
+    15.235
+   ],
+   [
+    950.81,
+    -395.46,
+    14.279
+   ],
+   [
+    1014.51,
+    -421.85,
+    15.235
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/-1",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -631.21,
+    11.737
+   ],
+   [
+    -121.85,
+    -277.66,
+    4.237
+   ],
+   [
+    -121.85,
+    -136.24,
+    2.737
+   ],
+   [
+    -475.4,
+    -489.79,
+    10.237
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 33141.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    259.7
+   ],
+   [
+    "gehrung",
+    0.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    -489.79,
+    17.828
+   ],
+   [
+    -834.96,
+    -136.24,
+    12.524
+   ],
+   [
+    -834.96,
+    -277.66,
+    12.524
+   ],
+   [
+    -948.6,
+    -391.3,
+    14.229
+   ],
+   [
+    -1188.51,
+    -490.67,
+    17.828
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 12061.7,
+  "schnitte": [
+   [
+    "gerade",
+    89.7
+   ],
+   [
+    "gehrung",
+    10.4
+   ],
+   [
+    "gratschnitt",
+    253.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1125.06,
+    -567.76,
+    17.955
+   ],
+   [
+    -1188.51,
+    -504.3,
+    17.955
+   ],
+   [
+    -1188.51,
+    -493.92,
+    17.845
+   ],
+   [
+    -954.14,
+    -396.84,
+    14.329
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 4051.4,
+  "schnitte": [
+   [
+    "gehrung",
+    107.0
+   ],
+   [
+    "gratschnitt",
+    81.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -136.24,
+    8.869
+   ],
+   [
+    591.26,
+    -243.28,
+    8.869
+   ],
+   [
+    515.56,
+    -211.93,
+    7.733
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 418.0,
+  "schnitte": [
+   [
+    "gehrung",
+    53.4
+   ],
+   [
+    "gratschnitt",
+    40.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -631.21,
+    9.468
+   ],
+   [
+    237.7,
+    -577.78,
+    8.667
+   ],
+   [
+    253.35,
+    -615.56,
+    9.233
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 45149.4,
+  "schnitte": [
+   [
+    "gratschnitt",
+    46.9
+   ],
+   [
+    "gehrung",
+    80.2
+   ],
+   [
+    "gratschnitt",
+    84.4
+   ],
+   [
+    "gehrung",
+    31.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -277.66,
+    9.216
+   ],
+   [
+    255.65,
+    -613.27,
+    9.216
+   ],
+   [
+    237.7,
+    -569.94,
+    8.566
+   ],
+   [
+    237.7,
+    -489.79,
+    7.716
+   ],
+   [
+    513.27,
+    -214.23,
+    7.716
+   ],
+   [
+    591.26,
+    -246.53,
+    8.886
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 17988.1,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    1119.8,
+    -462.21,
+    16.797
+   ],
+   [
+    1019.8,
+    -420.79,
+    15.297
+   ],
+   [
+    1197.0,
+    -243.6,
+    17.955
+   ],
+   [
+    1197.0,
+    -385.02,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-5/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 16503.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -631.21,
+    16.78
+   ],
+   [
+    950.81,
+    -489.79,
+    15.28
+   ],
+   [
+    1017.51,
+    -423.09,
+    15.28
+   ],
+   [
+    1117.51,
+    -464.51,
+    16.78
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 43739.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    8.4
+   ],
+   [
+    "gratschnitt",
+    245.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -776.87,
+    13.282
+   ],
+   [
+    -475.4,
+    -635.45,
+    11.782
+   ],
+   [
+    -121.85,
+    -281.9,
+    4.282
+   ],
+   [
+    -121.85,
+    -290.25,
+    4.371
+   ],
+   [
+    -215.94,
+    -517.41,
+    7.778
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 5544.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    231.4
+   ],
+   [
+    "gehrung",
+    125.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -423.32,
+    6.35
+   ],
+   [
+    -210.4,
+    -511.87,
+    7.678
+   ],
+   [
+    -121.85,
+    -298.09,
+    4.471
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 3315.8,
+  "schnitte": [
+   [
+    "gehrung",
+    62.3
+   ],
+   [
+    "gratschnitt",
+    115.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    -281.9,
+    12.524
+   ],
+   [
+    -834.96,
+    -344.23,
+    12.524
+   ],
+   [
+    -941.36,
+    -388.3,
+    14.12
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 32055.9,
+  "schnitte": [
+   [
+    "gerade",
+    100.0
+   ],
+   [
+    "gratschnitt",
+    121.2
+   ],
+   [
+    "gehrung",
+    75.8
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    -423.32,
+    13.346
+   ],
+   [
+    -1052.23,
+    -640.59,
+    17.955
+   ],
+   [
+    -1122.94,
+    -569.88,
+    17.955
+   ],
+   [
+    -946.9,
+    -393.84,
+    14.221
+   ],
+   [
+    -834.96,
+    -347.47,
+    12.542
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 5317.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -776.87,
+    11.653
+   ],
+   [
+    237.7,
+    -635.45,
+    9.532
+   ],
+   [
+    254.59,
+    -618.56,
+    9.278
+   ],
+   [
+    296.01,
+    -718.56,
+    10.778
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 44357.6,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -281.9,
+    9.261
+   ],
+   [
+    591.26,
+    -423.32,
+    10.761
+   ],
+   [
+    298.31,
+    -716.27,
+    10.761
+   ],
+   [
+    256.89,
+    -616.27,
+    9.261
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 3892.6,
+  "schnitte": [
+   [
+    "schraeg",
+    104.9
+   ],
+   [
+    "gratschnitt",
+    80.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    1197.0,
+    -389.26,
+    17.955
+   ],
+   [
+    1197.0,
+    -494.19,
+    17.955
+   ],
+   [
+    1122.8,
+    -463.46,
+    16.842
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-6/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 22095.7,
+  "schnitte": [
+   [
+    "gratschnitt",
+    81.6
+   ],
+   [
+    "gerade",
+    346.5
+   ],
+   [
+    "gehrung",
+    106.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    -635.45,
+    16.825
+   ],
+   [
+    1120.51,
+    -465.75,
+    16.825
+   ],
+   [
+    1195.85,
+    -496.96,
+    17.955
+   ],
+   [
+    950.81,
+    -742.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-7/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 29198.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -922.54,
+    14.827
+   ],
+   [
+    -475.4,
+    -781.12,
+    13.327
+   ],
+   [
+    -218.94,
+    -524.66,
+    7.887
+   ],
+   [
+    -318.94,
+    -766.08,
+    11.508
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-7/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 20018.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -427.56,
+    6.413
+   ],
+   [
+    -121.85,
+    -568.99,
+    8.535
+   ],
+   [
+    -313.4,
+    -760.53,
+    11.408
+   ],
+   [
+    -213.4,
+    -519.11,
+    7.787
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-7/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 25426.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    -427.56,
+    13.391
+   ],
+   [
+    -834.96,
+    -568.99,
+    14.891
+   ],
+   [
+    -979.39,
+    -713.42,
+    17.955
+   ],
+   [
+    -1050.1,
+    -642.71,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-7/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 11351.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -922.54,
+    13.838
+   ],
+   [
+    237.7,
+    -781.12,
+    11.717
+   ],
+   [
+    297.26,
+    -721.56,
+    10.823
+   ],
+   [
+    338.68,
+    -821.56,
+    12.323
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-7/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 38324.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -427.56,
+    10.806
+   ],
+   [
+    591.26,
+    -568.99,
+    12.306
+   ],
+   [
+    340.97,
+    -819.27,
+    12.306
+   ],
+   [
+    299.55,
+    -719.27,
+    10.806
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-8/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 14631.6,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -1068.2,
+    16.372
+   ],
+   [
+    -475.4,
+    -926.78,
+    14.872
+   ],
+   [
+    -321.94,
+    -773.32,
+    11.617
+   ],
+   [
+    -421.94,
+    -1014.74,
+    15.238
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-8/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 34584.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -573.23,
+    8.598
+   ],
+   [
+    -121.85,
+    -714.65,
+    10.72
+   ],
+   [
+    -416.4,
+    -1009.2,
+    15.138
+   ],
+   [
+    -316.4,
+    -767.78,
+    11.517
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-8/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 15126.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    -573.23,
+    14.936
+   ],
+   [
+    -834.96,
+    -714.65,
+    16.436
+   ],
+   [
+    -906.56,
+    -786.25,
+    17.955
+   ],
+   [
+    -977.27,
+    -715.54,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-8/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 17384.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    -1068.2,
+    16.023
+   ],
+   [
+    237.7,
+    -926.78,
+    13.902
+   ],
+   [
+    339.92,
+    -824.56,
+    12.368
+   ],
+   [
+    381.34,
+    -924.56,
+    13.868
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-8/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 32290.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -573.23,
+    12.351
+   ],
+   [
+    591.26,
+    -714.65,
+    13.851
+   ],
+   [
+    383.64,
+    -922.27,
+    13.851
+   ],
+   [
+    342.22,
+    -822.27,
+    12.351
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-9/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 1800.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    131.9
+   ],
+   [
+    "gehrung",
+    71.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    -1072.45,
+    16.417
+   ],
+   [
+    -424.94,
+    -1021.98,
+    15.347
+   ],
+   [
+    -475.4,
+    -1143.81,
+    17.174
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-9/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 47639.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    16.9
+   ],
+   [
+    "gehrung",
+    45.4
+   ],
+   [
+    "gratschnitt",
+    146.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    -718.89,
+    10.783
+   ],
+   [
+    -121.85,
+    -860.31,
+    12.905
+   ],
+   [
+    -458.54,
+    -1197.0,
+    17.955
+   ],
+   [
+    -475.4,
+    -1197.0,
+    17.955
+   ],
+   [
+    -475.4,
+    -1151.65,
+    17.275
+   ],
+   [
+    -419.4,
+    -1016.44,
+    15.247
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-9/-2",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F5",
+  "flaeche_mm2": 4827.7,
+  "schnitte": [
+   [
+    "gehrung",
+    139.0
+   ],
+   [
+    "gerade",
+    98.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    -718.89,
+    16.481
+   ],
+   [
+    -834.96,
+    -857.86,
+    17.955
+   ],
+   [
+    -904.44,
+    -788.37,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-9/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F6",
+  "flaeche_mm2": 23276.2,
+  "schnitte": [
+   [
+    "schraeg",
+    16.9
+   ],
+   [
+    "gehrung",
+    124.6
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    254.57,
+    -1197.0,
+    17.955
+   ],
+   [
+    237.7,
+    -1197.0,
+    17.955
+   ],
+   [
+    237.7,
+    -1072.45,
+    16.087
+   ],
+   [
+    382.59,
+    -927.56,
+    13.913
+   ],
+   [
+    424.01,
+    -1027.56,
+    15.413
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/-9/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F7",
+  "flaeche_mm2": 26256.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    -718.89,
+    13.896
+   ],
+   [
+    591.26,
+    -860.31,
+    15.396
+   ],
+   [
+    426.3,
+    -1025.27,
+    15.396
+   ],
+   [
+    384.88,
+    -925.27,
+    13.896
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 9248.5,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    592.08,
+    8.881
+   ],
+   [
+    -121.85,
+    450.66,
+    6.76
+   ],
+   [
+    -166.54,
+    405.98,
+    6.09
+   ],
+   [
+    -207.96,
+    505.98,
+    7.59
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 36789.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    77.6
+   ],
+   [
+    "gehrung",
+    40.0
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -403.68,
+    168.83,
+    6.072
+   ],
+   [
+    -475.4,
+    198.54,
+    7.148
+   ],
+   [
+    -475.4,
+    238.53,
+    7.572
+   ],
+   [
+    -210.25,
+    503.68,
+    7.572
+   ],
+   [
+    -168.83,
+    403.68,
+    6.072
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 3408.4,
+  "schnitte": [
+   [
+    "gehrung",
+    98.2
+   ],
+   [
+    "gratschnitt",
+    75.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    97.11,
+    7.131
+   ],
+   [
+    -475.4,
+    195.3,
+    7.131
+   ],
+   [
+    -405.98,
+    166.54,
+    6.09
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 17389.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    592.08,
+    15.136
+   ],
+   [
+    -834.96,
+    450.66,
+    13.636
+   ],
+   [
+    -907.92,
+    377.7,
+    13.636
+   ],
+   [
+    -1007.92,
+    419.12,
+    15.136
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 32285.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    97.11,
+    17.828
+   ],
+   [
+    -1188.51,
+    238.53,
+    17.828
+   ],
+   [
+    -1010.22,
+    416.82,
+    15.153
+   ],
+   [
+    -910.22,
+    375.4,
+    13.653
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 49992.5,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    5.5
+   ],
+   [
+    "gehrung",
+    138.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    238.53,
+    5.051
+   ],
+   [
+    591.26,
+    592.08,
+    12.551
+   ],
+   [
+    591.26,
+    450.66,
+    11.051
+   ],
+   [
+    242.78,
+    102.19,
+    3.659
+   ],
+   [
+    237.7,
+    100.08,
+    3.583
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/0/1",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 34816.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    97.11,
+    14.262
+   ],
+   [
+    950.81,
+    238.53,
+    14.262
+   ],
+   [
+    1197.0,
+    484.72,
+    17.955
+   ],
+   [
+    1197.0,
+    343.3,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 15282.1,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    737.75,
+    11.066
+   ],
+   [
+    -121.85,
+    596.33,
+    8.945
+   ],
+   [
+    -209.2,
+    508.98,
+    7.635
+   ],
+   [
+    -250.62,
+    608.98,
+    9.135
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 34393.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    242.77,
+    7.617
+   ],
+   [
+    -475.4,
+    384.19,
+    9.117
+   ],
+   [
+    -252.92,
+    606.68,
+    9.117
+   ],
+   [
+    -211.5,
+    506.68,
+    7.617
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 31956.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    737.75,
+    16.681
+   ],
+   [
+    -834.96,
+    596.33,
+    15.181
+   ],
+   [
+    -1010.92,
+    420.36,
+    15.181
+   ],
+   [
+    -1110.92,
+    461.78,
+    16.681
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 17719.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    242.77,
+    17.828
+   ],
+   [
+    -1188.51,
+    384.19,
+    17.828
+   ],
+   [
+    -1113.22,
+    459.49,
+    16.698
+   ],
+   [
+    -1013.22,
+    418.07,
+    15.198
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/0",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    242.77,
+    5.096
+   ],
+   [
+    591.26,
+    596.33,
+    12.596
+   ],
+   [
+    591.26,
+    737.75,
+    14.096
+   ],
+   [
+    237.7,
+    384.19,
+    6.596
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F0",
+  "flaeche_mm2": 18983.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    251.7
+   ],
+   [
+    "schraeg",
+    5.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    242.77,
+    14.262
+   ],
+   [
+    950.81,
+    384.19,
+    14.262
+   ],
+   [
+    964.5,
+    397.89,
+    14.467
+   ],
+   [
+    1197.0,
+    494.19,
+    17.955
+   ],
+   [
+    1197.0,
+    488.96,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/1/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 10560.3,
+  "schnitte": [
+   [
+    "gerade",
+    93.5
+   ],
+   [
+    "gratschnitt",
+    244.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    1129.71,
+    563.1,
+    17.955
+   ],
+   [
+    1195.85,
+    496.96,
+    17.955
+   ],
+   [
+    970.04,
+    403.43,
+    14.568
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 21315.7,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    883.41,
+    13.251
+   ],
+   [
+    -121.85,
+    741.99,
+    11.13
+   ],
+   [
+    -251.87,
+    611.98,
+    9.18
+   ],
+   [
+    -293.29,
+    711.98,
+    10.68
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 28359.6,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    388.44,
+    9.162
+   ],
+   [
+    -475.4,
+    529.86,
+    10.662
+   ],
+   [
+    -295.58,
+    709.68,
+    10.662
+   ],
+   [
+    -254.16,
+    609.68,
+    9.162
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 37030.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    80.7
+   ],
+   [
+    "gehrung",
+    10.4
+   ],
+   [
+    "gerade",
+    500.0
+   ],
+   [
+    "gehrung",
+    115.9
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -834.96,
+    741.99,
+    16.726
+   ],
+   [
+    -1113.92,
+    463.03,
+    16.726
+   ],
+   [
+    -1188.51,
+    493.92,
+    17.845
+   ],
+   [
+    -1188.51,
+    504.3,
+    17.955
+   ],
+   [
+    -834.96,
+    857.86,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/-2",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F4",
+  "flaeche_mm2": 3695.5,
+  "schnitte": [
+   [
+    "gehrung",
+    102.2
+   ],
+   [
+    "gratschnitt",
+    78.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -1188.51,
+    388.44,
+    17.828
+   ],
+   [
+    -1188.51,
+    490.67,
+    17.828
+   ],
+   [
+    -1116.22,
+    460.73,
+    16.743
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/0",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 50000.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    388.44,
+    6.641
+   ],
+   [
+    591.26,
+    741.99,
+    14.141
+   ],
+   [
+    591.26,
+    883.41,
+    15.641
+   ],
+   [
+    237.7,
+    529.86,
+    8.141
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/2/1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 19958.9,
+  "schnitte": [
+   [
+    "gratschnitt",
+    13.0
+   ],
+   [
+    "gehrung",
+    134.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    962.8,
+    400.43,
+    14.459
+   ],
+   [
+    950.81,
+    395.46,
+    14.279
+   ],
+   [
+    950.81,
+    529.86,
+    15.705
+   ],
+   [
+    1056.88,
+    635.93,
+    17.955
+   ],
+   [
+    1127.59,
+    565.22,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/3/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 27349.3,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    1029.08,
+    15.436
+   ],
+   [
+    -121.85,
+    887.65,
+    13.315
+   ],
+   [
+    -294.53,
+    714.98,
+    10.725
+   ],
+   [
+    -335.95,
+    814.98,
+    12.225
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/3/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 22326.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    534.1,
+    10.707
+   ],
+   [
+    -475.4,
+    675.52,
+    12.207
+   ],
+   [
+    -338.25,
+    812.68,
+    12.207
+   ],
+   [
+    -296.83,
+    712.68,
+    10.707
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/3/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 46059.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gehrung",
+    35.8
+   ],
+   [
+    "gratschnitt",
+    195.1
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    1029.08,
+    17.186
+   ],
+   [
+    591.26,
+    887.65,
+    15.686
+   ],
+   [
+    237.7,
+    534.1,
+    8.186
+   ],
+   [
+    237.7,
+    569.94,
+    8.566
+   ],
+   [
+    312.36,
+    750.18,
+    11.27
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/3/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 3377.5,
+  "schnitte": [
+   [
+    "gratschnitt",
+    180.6
+   ],
+   [
+    "gehrung",
+    97.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    675.52,
+    10.133
+   ],
+   [
+    306.81,
+    744.63,
+    11.17
+   ],
+   [
+    237.7,
+    577.78,
+    8.667
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/3/1",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 9701.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gerade",
+    100.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    534.1,
+    15.75
+   ],
+   [
+    950.81,
+    675.52,
+    17.25
+   ],
+   [
+    984.05,
+    708.76,
+    17.955
+   ],
+   [
+    1054.76,
+    638.05,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/4/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 33382.9,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    1174.74,
+    17.621
+   ],
+   [
+    -121.85,
+    1033.32,
+    15.5
+   ],
+   [
+    -337.19,
+    817.98,
+    12.27
+   ],
+   [
+    -378.61,
+    917.98,
+    13.77
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/4/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 16292.4,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    679.77,
+    12.252
+   ],
+   [
+    -475.4,
+    821.19,
+    13.752
+   ],
+   [
+    -380.91,
+    915.68,
+    13.752
+   ],
+   [
+    -339.49,
+    815.68,
+    12.252
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/4/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 30607.9,
+  "schnitte": [
+   [
+    "gratschnitt",
+    261.3
+   ],
+   [
+    "gerade",
+    51.7
+   ],
+   [
+    "gehrung",
+    68.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    591.26,
+    1033.32,
+    17.231
+   ],
+   [
+    315.36,
+    757.42,
+    11.379
+   ],
+   [
+    415.36,
+    998.84,
+    15.0
+   ],
+   [
+    554.66,
+    1138.15,
+    17.955
+   ],
+   [
+    591.26,
+    1101.56,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/4/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 17269.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    261.3
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    679.77,
+    10.196
+   ],
+   [
+    237.7,
+    821.19,
+    12.318
+   ],
+   [
+    409.81,
+    993.3,
+    14.899
+   ],
+   [
+    309.81,
+    751.88,
+    11.278
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/4/1",
+  "motiv": "R",
+  "kategorie": "gehrung",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 968.4,
+  "schnitte": [
+   [
+    "gehrung",
+    62.2
+   ],
+   [
+    "gerade",
+    44.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    950.81,
+    679.77,
+    17.295
+   ],
+   [
+    950.81,
+    742.0,
+    17.955
+   ],
+   [
+    981.93,
+    710.88,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/5/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 31802.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "schraeg",
+    123.4
+   ],
+   [
+    "gehrung",
+    18.0
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -121.85,
+    1178.98,
+    17.685
+   ],
+   [
+    -379.86,
+    920.98,
+    13.815
+   ],
+   [
+    -421.28,
+    1020.98,
+    15.315
+   ],
+   [
+    -245.26,
+    1197.0,
+    17.955
+   ],
+   [
+    -121.85,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/5/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 10258.8,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    825.43,
+    13.797
+   ],
+   [
+    -475.4,
+    966.85,
+    15.297
+   ],
+   [
+    -423.57,
+    1018.68,
+    15.297
+   ],
+   [
+    -382.15,
+    918.68,
+    13.797
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/5/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F1",
+  "flaeche_mm2": 7458.3,
+  "schnitte": [
+   [
+    "gratschnitt",
+    205.4
+   ],
+   [
+    "gerade",
+    78.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    418.36,
+    1006.08,
+    15.108
+   ],
+   [
+    496.96,
+    1195.85,
+    17.955
+   ],
+   [
+    552.54,
+    1140.27,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/5/0",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 31243.5,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    26.3
+   ],
+   [
+    "gratschnitt",
+    212.6
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    825.43,
+    12.381
+   ],
+   [
+    237.7,
+    966.85,
+    14.503
+   ],
+   [
+    467.85,
+    1197.0,
+    17.955
+   ],
+   [
+    494.19,
+    1197.0,
+    17.955
+   ],
+   [
+    412.81,
+    1000.54,
+    15.008
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/6/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 17398.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    108.2
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -422.52,
+    1023.98,
+    15.36
+   ],
+   [
+    -463.94,
+    1123.98,
+    16.86
+   ],
+   [
+    -390.92,
+    1197.0,
+    17.955
+   ],
+   [
+    -249.5,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/6/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 4225.2,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "gratschnitt",
+    108.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    971.09,
+    15.342
+   ],
+   [
+    -475.4,
+    1112.51,
+    16.842
+   ],
+   [
+    -466.24,
+    1121.68,
+    16.842
+   ],
+   [
+    -424.82,
+    1021.68,
+    15.342
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/6/0",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 21948.0,
+  "schnitte": [
+   [
+    "gehrung",
+    141.4
+   ],
+   [
+    "schraeg",
+    141.4
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    971.09,
+    14.566
+   ],
+   [
+    237.7,
+    1112.51,
+    16.688
+   ],
+   [
+    322.19,
+    1197.0,
+    17.955
+   ],
+   [
+    463.61,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/7/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 3041.2,
+  "schnitte": [
+   [
+    "gratschnitt",
+    26.7
+   ],
+   [
+    "gehrung",
+    45.4
+   ],
+   [
+    "schraeg",
+    80.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -465.19,
+    1126.98,
+    16.905
+   ],
+   [
+    -475.4,
+    1151.65,
+    17.275
+   ],
+   [
+    -475.4,
+    1197.0,
+    17.955
+   ],
+   [
+    -395.16,
+    1197.0,
+    17.955
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/7/-1",
+  "motiv": "R",
+  "kategorie": "gratschnitt",
+  "gefaelleflaeche": "F3",
+  "flaeche_mm2": 107.2,
+  "schnitte": [
+   [
+    "gehrung",
+    27.1
+   ],
+   [
+    "gratschnitt",
+    20.7
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    -475.4,
+    1116.76,
+    16.887
+   ],
+   [
+    -475.4,
+    1143.81,
+    17.174
+   ],
+   [
+    -467.48,
+    1124.68,
+    16.887
+   ]
+  ]
+ },
+ {
+  "rasterposition": "R/7/0",
+  "motiv": "R",
+  "kategorie": "schraeg",
+  "gefaelleflaeche": "F2",
+  "flaeche_mm2": 3219.4,
+  "schnitte": [
+   [
+    "gehrung",
+    80.2
+   ],
+   [
+    "schraeg",
+    80.2
+   ]
+  ],
+  "polygon_3d_mm": [
+   [
+    237.7,
+    1116.76,
+    16.751
+   ],
+   [
+    237.7,
+    1197.0,
+    17.955
+   ],
+   [
+    317.94,
+    1197.0,
+    17.955
+   ]
+  ]
+ }
+]

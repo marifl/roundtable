@@ -150,7 +150,7 @@ def test_wahl_ist_optimal_je_raum(erg):
 def test_regnauer_mehrfluegelig_nur_ssk2():
     raum = {"fenster": {"S": [{"b": 3.0, "h": 2.2, "mehrfluegelig": True, "rollladen": True}]}}
     assert b19.zulaessige_klassen(raum, "S", b19.katalog_beispiel(), True) == [2]
-    assert b19.zulaessige_klassen(raum, "S", b19.katalog_beispiel(), False) == [2, 5, 6]
+    assert b19.zulaessige_klassen(raum, "S", b19.katalog_beispiel(), False) == [2, 3, 4, 5, 6]  # Fremdprodukte
 
 
 # --- Grundrisstausch -------------------------------------------------------------

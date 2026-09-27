@@ -1,0 +1,1980 @@
+{
+ "_hinweis": "Beispielwerte; Prototyp B16, siehe Recherche 17",
+ "schritte": 6,
+ "faelle": {
+  "gerade_60x60__punkt": {
+   "bester": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.6551,
+    "fugen_m2": 0.1167,
+    "anzahl_stuecke": 32,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 0,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 4,
+     "gehrung": 0,
+     "gratschnitt": 28,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 8,
+     "schraeg": 12,
+     "gehrung": 0,
+     "gratschnitt": 32,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.942,
+     "schraeg": 3.92,
+     "gehrung": 0.0,
+     "gratschnitt": 19.317,
+     "ablauf": 0.586,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 68,
+    "schnittlaenge_gesamt_m": 27.764,
+    "schnittzeit_min": 176.0,
+    "kleinstuecke_unter_flaechenanteil": 12,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 16
+    },
+    "rohlinge_naiv": {
+     "F60x60": 32
+    },
+    "verschnitt_je_position": 0.1918,
+    "verschnitt_naiv": 0.5959,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 14
+    },
+    "aus_reststueck": 18,
+    "verschnitt_nach_wiederverwendung": 0.0764,
+    "verschnitt_stueck": 1.07,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 252.0,
+    "zielwert_eur": 477.29
+   },
+   "mitte_u0_v0": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.6551,
+    "fugen_m2": 0.1167,
+    "anzahl_stuecke": 32,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 0,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 4,
+     "gehrung": 0,
+     "gratschnitt": 28,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 8,
+     "schraeg": 12,
+     "gehrung": 0,
+     "gratschnitt": 32,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.942,
+     "schraeg": 3.92,
+     "gehrung": 0.0,
+     "gratschnitt": 19.317,
+     "ablauf": 0.586,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 68,
+    "schnittlaenge_gesamt_m": 27.764,
+    "schnittzeit_min": 176.0,
+    "kleinstuecke_unter_flaechenanteil": 12,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 16
+    },
+    "rohlinge_naiv": {
+     "F60x60": 32
+    },
+    "verschnitt_je_position": 0.1918,
+    "verschnitt_naiv": 0.5959,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 14
+    },
+    "aus_reststueck": 18,
+    "verschnitt_nach_wiederverwendung": 0.0764,
+    "verschnitt_stueck": 1.07,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 252.0,
+    "zielwert_eur": 477.29
+   },
+   "schlechtester": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "punkt",
+    "u": 0.6667,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.6473,
+    "fugen_m2": 0.1244,
+    "anzahl_stuecke": 53,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 0,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 2,
+     "schraeg": 1,
+     "gehrung": 0,
+     "gratschnitt": 50,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 12,
+     "schraeg": 12,
+     "gehrung": 0,
+     "gratschnitt": 64,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.93,
+     "schraeg": 3.92,
+     "gehrung": 0.0,
+     "gratschnitt": 19.14,
+     "ablauf": 0.598,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 100,
+    "schnittlaenge_gesamt_m": 27.587,
+    "schnittzeit_min": 244.0,
+    "kleinstuecke_unter_flaechenanteil": 43,
+    "kleinstuecke_unter_mindestbreite": 2,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 22
+    },
+    "rohlinge_naiv": {
+     "F60x60": 53
+    },
+    "verschnitt_je_position": 0.4132,
+    "verschnitt_naiv": 0.7564,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 15
+    },
+    "aus_reststueck": 38,
+    "verschnitt_nach_wiederverwendung": 0.1394,
+    "verschnitt_stueck": 2.09,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 270.0,
+    "zielwert_eur": 724.16
+   },
+   "spanne_zielwert_eur": 246.87
+  },
+  "gerade_60x10__punkt": {
+   "bester": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.6667,
+    "v": 0.8333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5348,
+    "fugen_m2": 0.2369,
+    "anzahl_stuecke": 177,
+    "anzahl_ganz": 9,
+    "anzahl_sollform_ganz": 9,
+    "stuecke_nach_kategorie": {
+     "ganz": 9,
+     "gerade": 16,
+     "schraeg": 19,
+     "gehrung": 0,
+     "gratschnitt": 133,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 26,
+     "schraeg": 34,
+     "gehrung": 0,
+     "gratschnitt": 147,
+     "ablauf": 13,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.888,
+     "schraeg": 3.799,
+     "gehrung": 0.0,
+     "gratschnitt": 18.71,
+     "ablauf": 0.531,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 220,
+    "schnittlaenge_gesamt_m": 26.927,
+    "schnittzeit_min": 513.5,
+    "kleinstuecke_unter_flaechenanteil": 76,
+    "kleinstuecke_unter_mindestbreite": 7,
+    "nicht_verlegt_verfugt": 4,
+    "rohlinge_je_position": {
+     "S60x10": 104
+    },
+    "rohlinge_naiv": {
+     "S60x10": 177
+    },
+    "verschnitt_je_position": 0.2733,
+    "verschnitt_naiv": 0.573,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 80
+    },
+    "aus_reststueck": 97,
+    "verschnitt_nach_wiederverwendung": 0.0552,
+    "verschnitt_stueck": 4.42,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 360.0,
+    "zielwert_eur": 1257.26
+   },
+   "mitte_u0_v0": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5366,
+    "fugen_m2": 0.2352,
+    "anzahl_stuecke": 176,
+    "anzahl_ganz": 4,
+    "anzahl_sollform_ganz": 4,
+    "stuecke_nach_kategorie": {
+     "ganz": 4,
+     "gerade": 12,
+     "schraeg": 19,
+     "gehrung": 0,
+     "gratschnitt": 141,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 25,
+     "schraeg": 34,
+     "gehrung": 0,
+     "gratschnitt": 156,
+     "ablauf": 15,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.891,
+     "schraeg": 3.826,
+     "gehrung": 0.0,
+     "gratschnitt": 18.728,
+     "ablauf": 0.589,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 230,
+    "schnittlaenge_gesamt_m": 27.033,
+    "schnittzeit_min": 543.0,
+    "kleinstuecke_unter_flaechenanteil": 81,
+    "kleinstuecke_unter_mindestbreite": 7,
+    "nicht_verlegt_verfugt": 1,
+    "rohlinge_je_position": {
+     "S60x10": 99
+    },
+    "rohlinge_naiv": {
+     "S60x10": 176
+    },
+    "verschnitt_je_position": 0.2363,
+    "verschnitt_naiv": 0.5704,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 83
+    },
+    "aus_reststueck": 93,
+    "verschnitt_nach_wiederverwendung": 0.089,
+    "verschnitt_stueck": 7.39,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 373.5,
+    "zielwert_eur": 1323.47
+   },
+   "schlechtester": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.3333,
+    "v": 0.5,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5327,
+    "fugen_m2": 0.239,
+    "anzahl_stuecke": 187,
+    "anzahl_ganz": 8,
+    "anzahl_sollform_ganz": 8,
+    "stuecke_nach_kategorie": {
+     "ganz": 8,
+     "gerade": 12,
+     "schraeg": 19,
+     "gehrung": 0,
+     "gratschnitt": 148,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 26,
+     "schraeg": 33,
+     "gehrung": 0,
+     "gratschnitt": 165,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.888,
+     "schraeg": 3.761,
+     "gehrung": 0.0,
+     "gratschnitt": 18.615,
+     "ablauf": 0.586,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 240,
+    "schnittlaenge_gesamt_m": 26.85,
+    "schnittzeit_min": 568.5,
+    "kleinstuecke_unter_flaechenanteil": 92,
+    "kleinstuecke_unter_mindestbreite": 23,
+    "nicht_verlegt_verfugt": 7,
+    "rohlinge_je_position": {
+     "S60x10": 106
+    },
+    "rohlinge_naiv": {
+     "S60x10": 187
+    },
+    "verschnitt_je_position": 0.2873,
+    "verschnitt_naiv": 0.596,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 83
+    },
+    "aus_reststueck": 104,
+    "verschnitt_nach_wiederverwendung": 0.0898,
+    "verschnitt_stueck": 7.45,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 373.5,
+    "zielwert_eur": 1482.42
+   },
+   "spanne_zielwert_eur": 225.16
+  },
+  "fischgraet_60x10__punkt": {
+   "bester": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.8333,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5382,
+    "fugen_m2": 0.2335,
+    "anzahl_stuecke": 168,
+    "anzahl_ganz": 7,
+    "anzahl_sollform_ganz": 7,
+    "stuecke_nach_kategorie": {
+     "ganz": 7,
+     "gerade": 12,
+     "schraeg": 15,
+     "gehrung": 0,
+     "gratschnitt": 134,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 24,
+     "schraeg": 32,
+     "gehrung": 0,
+     "gratschnitt": 147,
+     "ablauf": 15,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.894,
+     "schraeg": 3.833,
+     "gehrung": 0.0,
+     "gratschnitt": 18.731,
+     "ablauf": 0.576,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 218,
+    "schnittlaenge_gesamt_m": 27.033,
+    "schnittzeit_min": 515.5,
+    "kleinstuecke_unter_flaechenanteil": 67,
+    "kleinstuecke_unter_mindestbreite": 2,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "S60x10": 96
+    },
+    "rohlinge_naiv": {
+     "S60x10": 168
+    },
+    "verschnitt_je_position": 0.2121,
+    "verschnitt_naiv": 0.5498,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 85
+    },
+    "aus_reststueck": 83,
+    "verschnitt_nach_wiederverwendung": 0.1102,
+    "verschnitt_stueck": 9.36,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 382.5,
+    "zielwert_eur": 1211.64
+   },
+   "mitte_u0_v0": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5382,
+    "fugen_m2": 0.2336,
+    "anzahl_stuecke": 173,
+    "anzahl_ganz": 6,
+    "anzahl_sollform_ganz": 6,
+    "stuecke_nach_kategorie": {
+     "ganz": 6,
+     "gerade": 12,
+     "schraeg": 18,
+     "gehrung": 0,
+     "gratschnitt": 137,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 24,
+     "schraeg": 35,
+     "gehrung": 0,
+     "gratschnitt": 150,
+     "ablauf": 17,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.894,
+     "schraeg": 3.822,
+     "gehrung": 0.0,
+     "gratschnitt": 18.75,
+     "ablauf": 0.568,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 226,
+    "schnittlaenge_gesamt_m": 27.034,
+    "schnittzeit_min": 537.0,
+    "kleinstuecke_unter_flaechenanteil": 73,
+    "kleinstuecke_unter_mindestbreite": 10,
+    "nicht_verlegt_verfugt": 1,
+    "rohlinge_je_position": {
+     "S60x10": 98
+    },
+    "rohlinge_naiv": {
+     "S60x10": 173
+    },
+    "verschnitt_je_position": 0.2282,
+    "verschnitt_naiv": 0.5628,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 84
+    },
+    "aus_reststueck": 89,
+    "verschnitt_nach_wiederverwendung": 0.0996,
+    "verschnitt_stueck": 8.36,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 378.0,
+    "zielwert_eur": 1297.33
+   },
+   "schlechtester": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.5,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5327,
+    "fugen_m2": 0.2391,
+    "anzahl_stuecke": 190,
+    "anzahl_ganz": 9,
+    "anzahl_sollform_ganz": 9,
+    "stuecke_nach_kategorie": {
+     "ganz": 9,
+     "gerade": 16,
+     "schraeg": 20,
+     "gehrung": 0,
+     "gratschnitt": 145,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 28,
+     "schraeg": 34,
+     "gehrung": 0,
+     "gratschnitt": 163,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.882,
+     "schraeg": 3.826,
+     "gehrung": 0.0,
+     "gratschnitt": 18.66,
+     "ablauf": 0.581,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 241,
+    "schnittlaenge_gesamt_m": 26.949,
+    "schnittzeit_min": 567.5,
+    "kleinstuecke_unter_flaechenanteil": 99,
+    "kleinstuecke_unter_mindestbreite": 17,
+    "nicht_verlegt_verfugt": 1,
+    "rohlinge_je_position": {
+     "S60x10": 109
+    },
+    "rohlinge_naiv": {
+     "S60x10": 190
+    },
+    "verschnitt_je_position": 0.3069,
+    "verschnitt_naiv": 0.6024,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 84
+    },
+    "aus_reststueck": 106,
+    "verschnitt_nach_wiederverwendung": 0.1007,
+    "verschnitt_stueck": 8.46,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 378.0,
+    "zielwert_eur": 1490.98
+   },
+   "spanne_zielwert_eur": 279.34
+  },
+  "chevron_60x10__punkt": {
+   "bester": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.6667,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5141,
+    "fugen_m2": 0.2576,
+    "anzahl_stuecke": 192,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 15,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 16,
+     "gehrung": 32,
+     "gratschnitt": 144,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 27,
+     "schraeg": 30,
+     "gehrung": 220,
+     "gratschnitt": 158,
+     "ablauf": 14,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.38,
+     "schraeg": 2.858,
+     "gehrung": 25.251,
+     "gratschnitt": 18.652,
+     "ablauf": 0.583,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 449,
+    "schnittlaenge_gesamt_m": 50.723,
+    "schnittzeit_min": 868.0,
+    "kleinstuecke_unter_flaechenanteil": 78,
+    "kleinstuecke_unter_mindestbreite": 5,
+    "nicht_verlegt_verfugt": 13,
+    "rohlinge_je_position": {
+     "S60x10": 115
+    },
+    "rohlinge_naiv": {
+     "S60x10": 192
+    },
+    "verschnitt_je_position": 0.3458,
+    "verschnitt_naiv": 0.6082,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 98
+    },
+    "aus_reststueck": 94,
+    "verschnitt_nach_wiederverwendung": 0.2323,
+    "verschnitt_stueck": 22.76,
+    "pakete": {
+     "S60x10": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 441.0,
+    "zielwert_eur": 1671.2
+   },
+   "mitte_u0_v0": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5201,
+    "fugen_m2": 0.2516,
+    "anzahl_stuecke": 204,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 10,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 22,
+     "gehrung": 26,
+     "gratschnitt": 156,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 30,
+     "schraeg": 36,
+     "gehrung": 220,
+     "gratschnitt": 166,
+     "ablauf": 19,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.856,
+     "schraeg": 3.825,
+     "gehrung": 25.968,
+     "gratschnitt": 18.627,
+     "ablauf": 0.567,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 471,
+    "schnittlaenge_gesamt_m": 52.842,
+    "schnittzeit_min": 923.0,
+    "kleinstuecke_unter_flaechenanteil": 88,
+    "kleinstuecke_unter_mindestbreite": 10,
+    "nicht_verlegt_verfugt": 4,
+    "rohlinge_je_position": {
+     "S60x10": 122
+    },
+    "rohlinge_naiv": {
+     "S60x10": 204
+    },
+    "verschnitt_je_position": 0.3825,
+    "verschnitt_naiv": 0.6307,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 99
+    },
+    "aus_reststueck": 105,
+    "verschnitt_nach_wiederverwendung": 0.239,
+    "verschnitt_stueck": 23.66,
+    "pakete": {
+     "S60x10": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 445.5,
+    "zielwert_eur": 1802.35
+   },
+   "schlechtester": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "punkt",
+    "u": 0.1667,
+    "v": 0.1667,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.516,
+    "fugen_m2": 0.2557,
+    "anzahl_stuecke": 208,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 14,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 18,
+     "gehrung": 30,
+     "gratschnitt": 160,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 27,
+     "schraeg": 34,
+     "gehrung": 232,
+     "gratschnitt": 176,
+     "ablauf": 18,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.34,
+     "schraeg": 3.81,
+     "gehrung": 26.163,
+     "gratschnitt": 18.579,
+     "ablauf": 0.573,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 487,
+    "schnittlaenge_gesamt_m": 52.465,
+    "schnittzeit_min": 955.0,
+    "kleinstuecke_unter_flaechenanteil": 96,
+    "kleinstuecke_unter_mindestbreite": 29,
+    "nicht_verlegt_verfugt": 8,
+    "rohlinge_je_position": {
+     "S60x10": 120
+    },
+    "rohlinge_naiv": {
+     "S60x10": 208
+    },
+    "verschnitt_je_position": 0.3728,
+    "verschnitt_naiv": 0.6381,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 97
+    },
+    "aus_reststueck": 111,
+    "verschnitt_nach_wiederverwendung": 0.2241,
+    "verschnitt_stueck": 21.73,
+    "pakete": {
+     "S60x10": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 436.5,
+    "zielwert_eur": 1958.4
+   },
+   "spanne_zielwert_eur": 287.2
+  },
+  "chevron_60x10_formteil__punkt": {
+   "bester": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "punkt",
+    "u": 0.6667,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5141,
+    "fugen_m2": 0.2576,
+    "anzahl_stuecke": 192,
+    "anzahl_ganz": 15,
+    "anzahl_sollform_ganz": 15,
+    "stuecke_nach_kategorie": {
+     "ganz": 15,
+     "gerade": 17,
+     "schraeg": 16,
+     "gehrung": 0,
+     "gratschnitt": 144,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 27,
+     "schraeg": 30,
+     "gehrung": 0,
+     "gratschnitt": 158,
+     "ablauf": 14,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.38,
+     "schraeg": 2.858,
+     "gehrung": 0.0,
+     "gratschnitt": 18.652,
+     "ablauf": 0.583,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 229,
+    "schnittlaenge_gesamt_m": 25.472,
+    "schnittzeit_min": 538.0,
+    "kleinstuecke_unter_flaechenanteil": 78,
+    "kleinstuecke_unter_mindestbreite": 5,
+    "nicht_verlegt_verfugt": 13,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 62,
+     "C60x10_formteil_L": 53
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 107,
+     "C60x10_formteil_L": 85
+    },
+    "verschnitt_je_position": 0.2149,
+    "verschnitt_naiv": 0.5298,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 53,
+     "C60x10_formteil_L": 46
+    },
+    "aus_reststueck": 93,
+    "verschnitt_nach_wiederverwendung": 0.0881,
+    "verschnitt_stueck": 8.72,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 2
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 534.6,
+    "zielwert_eur": 1454.87
+   },
+   "mitte_u0_v0": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "punkt",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5201,
+    "fugen_m2": 0.2516,
+    "anzahl_stuecke": 204,
+    "anzahl_ganz": 10,
+    "anzahl_sollform_ganz": 10,
+    "stuecke_nach_kategorie": {
+     "ganz": 10,
+     "gerade": 16,
+     "schraeg": 22,
+     "gehrung": 0,
+     "gratschnitt": 156,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 30,
+     "schraeg": 36,
+     "gehrung": 0,
+     "gratschnitt": 166,
+     "ablauf": 19,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.856,
+     "schraeg": 3.825,
+     "gehrung": 0.0,
+     "gratschnitt": 18.627,
+     "ablauf": 0.567,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 251,
+    "schnittlaenge_gesamt_m": 26.874,
+    "schnittzeit_min": 593.0,
+    "kleinstuecke_unter_flaechenanteil": 88,
+    "kleinstuecke_unter_mindestbreite": 10,
+    "nicht_verlegt_verfugt": 4,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 61,
+     "C60x10_formteil_L": 61
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 102,
+     "C60x10_formteil_L": 102
+    },
+    "verschnitt_je_position": 0.259,
+    "verschnitt_naiv": 0.5569,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 49,
+     "C60x10_formteil_L": 50
+    },
+    "aus_reststueck": 105,
+    "verschnitt_nach_wiederverwendung": 0.0868,
+    "verschnitt_stueck": 8.6,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 3
+    },
+    "pakete_gesamt": 6,
+    "material_eur": 534.6,
+    "zielwert_eur": 1581.53
+   },
+   "schlechtester": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "punkt",
+    "u": 0.8333,
+    "v": 0.5,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5187,
+    "fugen_m2": 0.253,
+    "anzahl_stuecke": 212,
+    "anzahl_ganz": 10,
+    "anzahl_sollform_ganz": 10,
+    "stuecke_nach_kategorie": {
+     "ganz": 10,
+     "gerade": 16,
+     "schraeg": 20,
+     "gehrung": 0,
+     "gratschnitt": 166,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 29,
+     "schraeg": 34,
+     "gehrung": 0,
+     "gratschnitt": 180,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.564,
+     "schraeg": 3.808,
+     "gehrung": 0.0,
+     "gratschnitt": 18.584,
+     "ablauf": 0.584,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 259,
+    "schnittlaenge_gesamt_m": 26.539,
+    "schnittzeit_min": 611.0,
+    "kleinstuecke_unter_flaechenanteil": 94,
+    "kleinstuecke_unter_mindestbreite": 27,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 62,
+     "C60x10_formteil_L": 62
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 106,
+     "C60x10_formteil_L": 106
+    },
+    "verschnitt_je_position": 0.2712,
+    "verschnitt_naiv": 0.5737,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 53,
+     "C60x10_formteil_L": 53
+    },
+    "aus_reststueck": 106,
+    "verschnitt_nach_wiederverwendung": 0.1474,
+    "verschnitt_stueck": 15.63,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 3
+    },
+    "pakete_gesamt": 6,
+    "material_eur": 572.4,
+    "zielwert_eur": 1751.23
+   },
+   "spanne_zielwert_eur": 296.36
+  },
+  "gerade_60x60__zwei_rinnen": {
+   "bester": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.8333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5602,
+    "fugen_m2": 0.2116,
+    "anzahl_stuecke": 22,
+    "anzahl_ganz": 2,
+    "anzahl_sollform_ganz": 2,
+    "stuecke_nach_kategorie": {
+     "ganz": 2,
+     "gerade": 0,
+     "schraeg": 5,
+     "gehrung": 0,
+     "gratschnitt": 13,
+     "ablauf": 2,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 4,
+     "schraeg": 16,
+     "gehrung": 0,
+     "gratschnitt": 13,
+     "ablauf": 8,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.974,
+     "schraeg": 3.885,
+     "gehrung": 0.0,
+     "gratschnitt": 2.874,
+     "ablauf": 2.119,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 41,
+    "schnittlaenge_gesamt_m": 10.852,
+    "schnittzeit_min": 100.5,
+    "kleinstuecke_unter_flaechenanteil": 8,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 18
+    },
+    "rohlinge_naiv": {
+     "F60x60": 22
+    },
+    "verschnitt_je_position": 0.2963,
+    "verschnitt_naiv": 0.4242,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 14
+    },
+    "aus_reststueck": 8,
+    "verschnitt_nach_wiederverwendung": 0.0952,
+    "verschnitt_stueck": 1.33,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 252.0,
+    "zielwert_eur": 386.39
+   },
+   "mitte_u0_v0": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5636,
+    "fugen_m2": 0.2082,
+    "anzahl_stuecke": 20,
+    "anzahl_ganz": 2,
+    "anzahl_sollform_ganz": 2,
+    "stuecke_nach_kategorie": {
+     "ganz": 2,
+     "gerade": 0,
+     "schraeg": 6,
+     "gehrung": 0,
+     "gratschnitt": 12,
+     "ablauf": 0,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 4,
+     "schraeg": 16,
+     "gehrung": 0,
+     "gratschnitt": 12,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.974,
+     "schraeg": 3.892,
+     "gehrung": 0.0,
+     "gratschnitt": 2.887,
+     "ablauf": 2.245,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 44,
+    "schnittlaenge_gesamt_m": 10.998,
+    "schnittzeit_min": 114.0,
+    "kleinstuecke_unter_flaechenanteil": 8,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 16
+    },
+    "rohlinge_naiv": {
+     "F60x60": 20
+    },
+    "verschnitt_je_position": 0.2077,
+    "verschnitt_naiv": 0.3662,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 14
+    },
+    "aus_reststueck": 6,
+    "verschnitt_nach_wiederverwendung": 0.0945,
+    "verschnitt_stueck": 1.32,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 252.0,
+    "zielwert_eur": 399.06
+   },
+   "schlechtester": {
+    "muster": "gerade_60x60",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.6667,
+    "v": 0.6667,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.5533,
+    "fugen_m2": 0.2184,
+    "anzahl_stuecke": 31,
+    "anzahl_ganz": 3,
+    "anzahl_sollform_ganz": 3,
+    "stuecke_nach_kategorie": {
+     "ganz": 3,
+     "gerade": 0,
+     "schraeg": 8,
+     "gehrung": 0,
+     "gratschnitt": 18,
+     "ablauf": 2,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 8,
+     "schraeg": 16,
+     "gehrung": 0,
+     "gratschnitt": 18,
+     "ablauf": 14,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.965,
+     "schraeg": 3.892,
+     "gehrung": 0.0,
+     "gratschnitt": 5.266,
+     "ablauf": 2.239,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 56,
+    "schnittlaenge_gesamt_m": 13.362,
+    "schnittzeit_min": 141.0,
+    "kleinstuecke_unter_flaechenanteil": 18,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "F60x60": 22
+    },
+    "rohlinge_naiv": {
+     "F60x60": 31
+    },
+    "verschnitt_je_position": 0.4251,
+    "verschnitt_naiv": 0.592,
+    "rohlinge_nach_wiederverwendung": {
+     "F60x60": 15
+    },
+    "aus_reststueck": 16,
+    "verschnitt_nach_wiederverwendung": 0.1568,
+    "verschnitt_stueck": 2.35,
+    "pakete": {
+     "F60x60": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 270.0,
+    "zielwert_eur": 492.42
+   },
+   "spanne_zielwert_eur": 106.03
+  },
+  "gerade_60x10__zwei_rinnen": {
+   "bester": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.6667,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4448,
+    "fugen_m2": 0.327,
+    "anzahl_stuecke": 127,
+    "anzahl_ganz": 27,
+    "anzahl_sollform_ganz": 27,
+    "stuecke_nach_kategorie": {
+     "ganz": 27,
+     "gerade": 0,
+     "schraeg": 24,
+     "gehrung": 0,
+     "gratschnitt": 58,
+     "ablauf": 18,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 7,
+     "schraeg": 33,
+     "gehrung": 0,
+     "gratschnitt": 58,
+     "ablauf": 30,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.968,
+     "schraeg": 3.785,
+     "gehrung": 0.0,
+     "gratschnitt": 5.122,
+     "ablauf": 2.191,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 128,
+    "schnittlaenge_gesamt_m": 13.066,
+    "schnittzeit_min": 338.0,
+    "kleinstuecke_unter_flaechenanteil": 38,
+    "kleinstuecke_unter_mindestbreite": 1,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "S60x10": 99
+    },
+    "rohlinge_naiv": {
+     "S60x10": 127
+    },
+    "verschnitt_je_position": 0.2517,
+    "verschnitt_naiv": 0.4167,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 78
+    },
+    "aus_reststueck": 49,
+    "verschnitt_nach_wiederverwendung": 0.0503,
+    "verschnitt_stueck": 3.92,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 351.0,
+    "zielwert_eur": 863.44
+   },
+   "mitte_u0_v0": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4456,
+    "fugen_m2": 0.3262,
+    "anzahl_stuecke": 123,
+    "anzahl_ganz": 26,
+    "anzahl_sollform_ganz": 26,
+    "stuecke_nach_kategorie": {
+     "ganz": 26,
+     "gerade": 0,
+     "schraeg": 25,
+     "gehrung": 0,
+     "gratschnitt": 56,
+     "ablauf": 16,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 6,
+     "schraeg": 38,
+     "gehrung": 0,
+     "gratschnitt": 56,
+     "ablauf": 28,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.97,
+     "schraeg": 3.798,
+     "gehrung": 0.0,
+     "gratschnitt": 4.367,
+     "ablauf": 2.197,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 128,
+    "schnittlaenge_gesamt_m": 12.332,
+    "schnittzeit_min": 334.0,
+    "kleinstuecke_unter_flaechenanteil": 39,
+    "kleinstuecke_unter_mindestbreite": 4,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "S60x10": 99
+    },
+    "rohlinge_naiv": {
+     "S60x10": 123
+    },
+    "verschnitt_je_position": 0.2516,
+    "verschnitt_naiv": 0.3976,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 81
+    },
+    "aus_reststueck": 42,
+    "verschnitt_nach_wiederverwendung": 0.0853,
+    "verschnitt_stueck": 6.91,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 364.5,
+    "zielwert_eur": 893.18
+   },
+   "schlechtester": {
+    "muster": "gerade_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.5,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4408,
+    "fugen_m2": 0.331,
+    "anzahl_stuecke": 137,
+    "anzahl_ganz": 30,
+    "anzahl_sollform_ganz": 30,
+    "stuecke_nach_kategorie": {
+     "ganz": 30,
+     "gerade": 0,
+     "schraeg": 31,
+     "gehrung": 0,
+     "gratschnitt": 58,
+     "ablauf": 18,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 6,
+     "schraeg": 39,
+     "gehrung": 0,
+     "gratschnitt": 58,
+     "ablauf": 30,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 1.971,
+     "schraeg": 3.767,
+     "gehrung": 0.0,
+     "gratschnitt": 5.144,
+     "ablauf": 2.191,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 133,
+    "schnittlaenge_gesamt_m": 13.074,
+    "schnittzeit_min": 349.0,
+    "kleinstuecke_unter_flaechenanteil": 44,
+    "kleinstuecke_unter_mindestbreite": 14,
+    "nicht_verlegt_verfugt": 2,
+    "rohlinge_je_position": {
+     "S60x10": 108
+    },
+    "rohlinge_naiv": {
+     "S60x10": 137
+    },
+    "verschnitt_je_position": 0.3147,
+    "verschnitt_naiv": 0.4598,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 81
+    },
+    "aus_reststueck": 56,
+    "verschnitt_nach_wiederverwendung": 0.0863,
+    "verschnitt_stueck": 6.99,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 364.5,
+    "zielwert_eur": 982.27
+   },
+   "spanne_zielwert_eur": 118.83
+  },
+  "fischgraet_60x10__zwei_rinnen": {
+   "bester": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.1667,
+    "v": 0.1667,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.446,
+    "fugen_m2": 0.3257,
+    "anzahl_stuecke": 117,
+    "anzahl_ganz": 33,
+    "anzahl_sollform_ganz": 33,
+    "stuecke_nach_kategorie": {
+     "ganz": 33,
+     "gerade": 17,
+     "schraeg": 12,
+     "gehrung": 0,
+     "gratschnitt": 43,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 29,
+     "schraeg": 18,
+     "gehrung": 0,
+     "gratschnitt": 43,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.849,
+     "schraeg": 1.885,
+     "gehrung": 0.0,
+     "gratschnitt": 5.136,
+     "ablauf": 2.172,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 114,
+    "schnittlaenge_gesamt_m": 13.042,
+    "schnittzeit_min": 268.5,
+    "kleinstuecke_unter_flaechenanteil": 33,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 4,
+    "rohlinge_je_position": {
+     "S60x10": 96
+    },
+    "rohlinge_naiv": {
+     "S60x10": 117
+    },
+    "verschnitt_je_position": 0.2281,
+    "verschnitt_naiv": 0.3667,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 79
+    },
+    "aus_reststueck": 38,
+    "verschnitt_nach_wiederverwendung": 0.062,
+    "verschnitt_stueck": 4.9,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 355.5,
+    "zielwert_eur": 772.67
+   },
+   "mitte_u0_v0": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4462,
+    "fugen_m2": 0.3256,
+    "anzahl_stuecke": 120,
+    "anzahl_ganz": 34,
+    "anzahl_sollform_ganz": 34,
+    "stuecke_nach_kategorie": {
+     "ganz": 34,
+     "gerade": 16,
+     "schraeg": 14,
+     "gehrung": 0,
+     "gratschnitt": 44,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 26,
+     "schraeg": 21,
+     "gehrung": 0,
+     "gratschnitt": 44,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.868,
+     "schraeg": 1.905,
+     "gehrung": 0.0,
+     "gratschnitt": 5.092,
+     "ablauf": 2.192,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 115,
+    "schnittlaenge_gesamt_m": 13.056,
+    "schnittzeit_min": 274.0,
+    "kleinstuecke_unter_flaechenanteil": 36,
+    "kleinstuecke_unter_mindestbreite": 5,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "S60x10": 98
+    },
+    "rohlinge_naiv": {
+     "S60x10": 120
+    },
+    "verschnitt_je_position": 0.2439,
+    "verschnitt_naiv": 0.3825,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 82
+    },
+    "aus_reststueck": 38,
+    "verschnitt_nach_wiederverwendung": 0.0963,
+    "verschnitt_stueck": 7.9,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 369.0,
+    "zielwert_eur": 831.33
+   },
+   "schlechtester": {
+    "muster": "fischgraet_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.5,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4409,
+    "fugen_m2": 0.3308,
+    "anzahl_stuecke": 133,
+    "anzahl_ganz": 34,
+    "anzahl_sollform_ganz": 34,
+    "stuecke_nach_kategorie": {
+     "ganz": 34,
+     "gerade": 18,
+     "schraeg": 14,
+     "gehrung": 0,
+     "gratschnitt": 48,
+     "ablauf": 19,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 32,
+     "schraeg": 20,
+     "gehrung": 0,
+     "gratschnitt": 48,
+     "ablauf": 29,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.854,
+     "schraeg": 1.909,
+     "gehrung": 0.0,
+     "gratschnitt": 5.088,
+     "ablauf": 2.155,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 129,
+    "schnittlaenge_gesamt_m": 13.006,
+    "schnittzeit_min": 308.0,
+    "kleinstuecke_unter_flaechenanteil": 41,
+    "kleinstuecke_unter_mindestbreite": 7,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "S60x10": 109
+    },
+    "rohlinge_naiv": {
+     "S60x10": 133
+    },
+    "verschnitt_je_position": 0.321,
+    "verschnitt_naiv": 0.4435,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 82
+    },
+    "aus_reststueck": 51,
+    "verschnitt_nach_wiederverwendung": 0.0974,
+    "verschnitt_stueck": 7.98,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 369.0,
+    "zielwert_eur": 898.26
+   },
+   "spanne_zielwert_eur": 125.59
+  },
+  "chevron_60x10__zwei_rinnen": {
+   "bester": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.1667,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4315,
+    "fugen_m2": 0.3402,
+    "anzahl_stuecke": 124,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 49,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 16,
+     "gehrung": 69,
+     "gratschnitt": 27,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 32,
+     "schraeg": 20,
+     "gehrung": 177,
+     "gratschnitt": 27,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.837,
+     "schraeg": 1.89,
+     "gehrung": 24.085,
+     "gratschnitt": 2.8,
+     "ablauf": 2.192,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 280,
+    "schnittlaenge_gesamt_m": 34.804,
+    "schnittzeit_min": 501.0,
+    "kleinstuecke_unter_flaechenanteil": 32,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "S60x10": 120
+    },
+    "rohlinge_naiv": {
+     "S60x10": 124
+    },
+    "verschnitt_je_position": 0.3845,
+    "verschnitt_naiv": 0.4044,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 97
+    },
+    "aus_reststueck": 27,
+    "verschnitt_nach_wiederverwendung": 0.2386,
+    "verschnitt_stueck": 23.14,
+    "pakete": {
+     "S60x10": 5
+    },
+    "pakete_gesamt": 5,
+    "material_eur": 436.5,
+    "zielwert_eur": 1067.02
+   },
+   "mitte_u0_v0": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4312,
+    "fugen_m2": 0.3405,
+    "anzahl_stuecke": 126,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 49,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 17,
+     "gehrung": 71,
+     "gratschnitt": 26,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 34,
+     "schraeg": 22,
+     "gehrung": 178,
+     "gratschnitt": 26,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.836,
+     "schraeg": 1.903,
+     "gehrung": 24.093,
+     "gratschnitt": 2.824,
+     "ablauf": 2.19,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 284,
+    "schnittlaenge_gesamt_m": 34.846,
+    "schnittzeit_min": 506.0,
+    "kleinstuecke_unter_flaechenanteil": 34,
+    "kleinstuecke_unter_mindestbreite": 2,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "S60x10": 122
+    },
+    "rohlinge_naiv": {
+     "S60x10": 126
+    },
+    "verschnitt_je_position": 0.3946,
+    "verschnitt_naiv": 0.4139,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 96
+    },
+    "aus_reststueck": 30,
+    "verschnitt_nach_wiederverwendung": 0.2307,
+    "verschnitt_stueck": 22.15,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 432.0,
+    "zielwert_eur": 1087.22
+   },
+   "schlechtester": {
+    "muster": "chevron_60x10",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.3333,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4282,
+    "fugen_m2": 0.3436,
+    "anzahl_stuecke": 141,
+    "anzahl_ganz": 0,
+    "anzahl_sollform_ganz": 47,
+    "stuecke_nach_kategorie": {
+     "ganz": 0,
+     "gerade": 0,
+     "schraeg": 17,
+     "gehrung": 65,
+     "gratschnitt": 46,
+     "ablauf": 13,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 32,
+     "schraeg": 23,
+     "gehrung": 189,
+     "gratschnitt": 46,
+     "ablauf": 26,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.821,
+     "schraeg": 1.904,
+     "gehrung": 24.424,
+     "gratschnitt": 5.137,
+     "ablauf": 2.175,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 316,
+    "schnittlaenge_gesamt_m": 37.461,
+    "schnittzeit_min": 580.5,
+    "kleinstuecke_unter_flaechenanteil": 44,
+    "kleinstuecke_unter_mindestbreite": 10,
+    "nicht_verlegt_verfugt": 1,
+    "rohlinge_je_position": {
+     "S60x10": 117
+    },
+    "rohlinge_naiv": {
+     "S60x10": 141
+    },
+    "verschnitt_je_position": 0.3692,
+    "verschnitt_naiv": 0.4766,
+    "rohlinge_nach_wiederverwendung": {
+     "S60x10": 94
+    },
+    "aus_reststueck": 47,
+    "verschnitt_nach_wiederverwendung": 0.2149,
+    "verschnitt_stueck": 20.2,
+    "pakete": {
+     "S60x10": 4
+    },
+    "pakete_gesamt": 4,
+    "material_eur": 423.0,
+    "zielwert_eur": 1238.19
+   },
+   "spanne_zielwert_eur": 171.17
+  },
+  "chevron_60x10_formteil__zwei_rinnen": {
+   "bester": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.1667,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4315,
+    "fugen_m2": 0.3402,
+    "anzahl_stuecke": 124,
+    "anzahl_ganz": 49,
+    "anzahl_sollform_ganz": 49,
+    "stuecke_nach_kategorie": {
+     "ganz": 49,
+     "gerade": 20,
+     "schraeg": 16,
+     "gehrung": 0,
+     "gratschnitt": 27,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 32,
+     "schraeg": 20,
+     "gehrung": 0,
+     "gratschnitt": 27,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.837,
+     "schraeg": 1.89,
+     "gehrung": 0.0,
+     "gratschnitt": 2.8,
+     "ablauf": 2.192,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 103,
+    "schnittlaenge_gesamt_m": 10.718,
+    "schnittzeit_min": 235.5,
+    "kleinstuecke_unter_flaechenanteil": 32,
+    "kleinstuecke_unter_mindestbreite": 0,
+    "nicht_verlegt_verfugt": 3,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 60,
+     "C60x10_formteil_L": 60
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 62,
+     "C60x10_formteil_L": 62
+    },
+    "verschnitt_je_position": 0.2614,
+    "verschnitt_naiv": 0.2852,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 49,
+     "C60x10_formteil_L": 49
+    },
+    "aus_reststueck": 26,
+    "verschnitt_nach_wiederverwendung": 0.0956,
+    "verschnitt_stueck": 9.37,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 3
+    },
+    "pakete_gesamt": 6,
+    "material_eur": 529.2,
+    "zielwert_eur": 910.37
+   },
+   "mitte_u0_v0": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.0,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4312,
+    "fugen_m2": 0.3405,
+    "anzahl_stuecke": 126,
+    "anzahl_ganz": 49,
+    "anzahl_sollform_ganz": 49,
+    "stuecke_nach_kategorie": {
+     "ganz": 49,
+     "gerade": 22,
+     "schraeg": 17,
+     "gehrung": 0,
+     "gratschnitt": 26,
+     "ablauf": 12,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 34,
+     "schraeg": 22,
+     "gehrung": 0,
+     "gratschnitt": 26,
+     "ablauf": 24,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.836,
+     "schraeg": 1.903,
+     "gehrung": 0.0,
+     "gratschnitt": 2.824,
+     "ablauf": 2.19,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 106,
+    "schnittlaenge_gesamt_m": 10.753,
+    "schnittzeit_min": 239.0,
+    "kleinstuecke_unter_flaechenanteil": 34,
+    "kleinstuecke_unter_mindestbreite": 2,
+    "nicht_verlegt_verfugt": 0,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 61,
+     "C60x10_formteil_L": 61
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 63,
+     "C60x10_formteil_L": 63
+    },
+    "verschnitt_je_position": 0.2736,
+    "verschnitt_naiv": 0.2966,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 49,
+     "C60x10_formteil_L": 49
+    },
+    "aus_reststueck": 28,
+    "verschnitt_nach_wiederverwendung": 0.0957,
+    "verschnitt_stueck": 9.38,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 3
+    },
+    "pakete_gesamt": 6,
+    "material_eur": 529.2,
+    "zielwert_eur": 933.66
+   },
+   "schlechtester": {
+    "muster": "chevron_60x10_formteil",
+    "entwaesserung": "zwei_rinnen",
+    "u": 0.0,
+    "v": 0.5,
+    "raumflaeche_m2": 4.7717,
+    "verlegt_m2": 4.4283,
+    "fugen_m2": 0.3434,
+    "anzahl_stuecke": 135,
+    "anzahl_ganz": 53,
+    "anzahl_sollform_ganz": 53,
+    "stuecke_nach_kategorie": {
+     "ganz": 53,
+     "gerade": 21,
+     "schraeg": 18,
+     "gehrung": 0,
+     "gratschnitt": 29,
+     "ablauf": 14,
+     "sonstig": 0
+    },
+    "schnitte_anzahl": {
+     "gerade": 35,
+     "schraeg": 22,
+     "gehrung": 0,
+     "gratschnitt": 29,
+     "ablauf": 28,
+     "sonstig": 0
+    },
+    "schnitte_laenge_m": {
+     "gerade": 3.821,
+     "schraeg": 1.903,
+     "gehrung": 0.0,
+     "gratschnitt": 2.811,
+     "ablauf": 2.175,
+     "sonstig": 0.0
+    },
+    "schnitte_gesamt": 114,
+    "schnittlaenge_gesamt_m": 10.71,
+    "schnittzeit_min": 263.5,
+    "kleinstuecke_unter_flaechenanteil": 46,
+    "kleinstuecke_unter_mindestbreite": 11,
+    "nicht_verlegt_verfugt": 1,
+    "rohlinge_je_position": {
+     "C60x10_formteil_R": 63,
+     "C60x10_formteil_L": 64
+    },
+    "rohlinge_naiv": {
+     "C60x10_formteil_R": 67,
+     "C60x10_formteil_L": 68
+    },
+    "verschnitt_je_position": 0.3026,
+    "verschnitt_naiv": 0.344,
+    "rohlinge_nach_wiederverwendung": {
+     "C60x10_formteil_R": 49,
+     "C60x10_formteil_L": 49
+    },
+    "aus_reststueck": 37,
+    "verschnitt_nach_wiederverwendung": 0.0963,
+    "verschnitt_stueck": 9.43,
+    "pakete": {
+     "C60x10_formteil_R": 3,
+     "C60x10_formteil_L": 3
+    },
+    "pakete_gesamt": 6,
+    "material_eur": 529.2,
+    "zielwert_eur": 1061.67
+   },
+   "spanne_zielwert_eur": 151.3
+  }
+ },
+ "ifc": {
+  "gerade_60x60__punkt_einzeln": {
+   "datei": "b16_gerade_60x60__punkt_einzeln.ifc",
+   "bytes": 70346,
+   "entitaeten": 1011,
+   "coverings": 33,
+   "validierung_befunde": 0
+  },
+  "gerade_60x60__punkt_aggregiert": {
+   "datei": "b16_gerade_60x60__punkt_aggregiert.ifc",
+   "bytes": 30647,
+   "entitaeten": 440,
+   "coverings": 1,
+   "validierung_befunde": 0
+  },
+  "chevron_60x10__punkt_einzeln": {
+   "datei": "b16_chevron_60x10__punkt_einzeln.ifc",
+   "bytes": 429779,
+   "entitaeten": 5670,
+   "coverings": 193,
+   "validierung_befunde": 0
+  },
+  "chevron_60x10__punkt_aggregiert": {
+   "datei": "b16_chevron_60x10__punkt_aggregiert.ifc",
+   "bytes": 175961,
+   "entitaeten": 2144,
+   "coverings": 1,
+   "validierung_befunde": 0
+  }
+ }
+}
