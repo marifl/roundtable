@@ -128,7 +128,7 @@ Sonnenberg und vom Brocke kritisieren, dass das Muster „erst bauen, dann evalu
 | EVAL3 | ex post, artifiziell | Funktioniert die Instanziierung? | Tests, Validierung, Handrechnungen, Fehlerinjektion (Kap. 20.1) |
 | EVAL4 | ex post, naturalistisch | Wirkt das Artefakt im Einsatz? | Experteninterviews, Nutzerstudie, Kennzahlen beim Praxispartner (Kap. 20.3, geplant) |
 
-Für die Wahl konkreter Methoden und Muster je Aktivität verweisen Sonnenberg und vom Brocke auf einen Katalog von Evaluationsmustern [@sonnenberg2012patterns].
+Für die Wahl konkreter Methoden je Aktivität beschreiben dieselben Autoren wiederverwendbare Evaluationsmuster [@sonnenberg2012patterns].
 
 ### 2.2.3 Iteration statt Wasserfall
 
@@ -271,7 +271,7 @@ Unter den vier verworfenen Quellen ist eine Dublette: Die KI-Verordnung stand un
 
 Drei Befunde lassen sich aus den Tabellen ablesen:
 
-1. **Die Lückenrecherchen haben gewirkt.** FF4 stieg von 12 auf 113 Quellen mit Relevanz ≥ 2, FF5 von 24 auf 154. Der Anstieg bei FF4 geht vor allem auf Rechtsprechung und Gesetzesmaterialien zurück; 28 Quellen tragen FF4 mit Relevanz 3.
+1. **Die Lückenrecherchen haben gewirkt.** FF4 stieg von 12 auf 113 Quellen mit Relevanz ≥ 2, FF5 von 24 auf 154. 81 der 113 FF4-Quellen stammen aus den Lückenrecherchen 23 und 27, 44 davon sind Gesetze, Gesetzesmaterialien oder Rechtsprechung (Art N); 28 Quellen tragen FF4 mit Relevanz 3.
 2. **FF3 ist am schwächsten belegt.** Nur 72 Quellen stützen die Sprachschnittstelle, nur 7 tragen sie. Das entspricht dem Befund aus Kapitel 1.3.1, dass deutschsprachige Arbeiten zur Intent-Erkennung im Hausentwurf fehlen. Die Schwäche ist also teils ein Befund über das Feld und nicht nur über die Recherche.
 3. **Die Quellenlage ist überwiegend übertragbar mit Anpassung.** 761 von 1.046 Quellen haben die Übertragbarkeit 1. Direkt übertragbar sind vor allem Gesetze, Normen und deutsche Studien; nur 25 Quellen sind nicht übertragbar und dienen der Abgrenzung oder dem Kontext.
 
@@ -439,7 +439,7 @@ Venable, Pries-Heje und Baskerville bieten mit FEDS einen Rahmen, um die Evaluat
 
 Die Arbeit wählt **Technical Risk & Efficacy**. Die Strategie passt, wenn das größte Risiko technischer Natur ist und eine naturalistische Evaluation mit echten Nutzern teuer oder erst spät möglich ist. Beides trifft zu. Ob sich die Kette in einem Standard überhaupt schließen lässt, ist die zentrale technische Unsicherheit (These 3). Eine Evaluation mit echten Bauherren setzt einen Prototyp voraus, der ganze Häuser erzeugt, und Daten des Praxispartners, die noch nicht vorliegen. Die Strategie beginnt deshalb artifiziell und formativ und geht erst zum Schluss zu naturalistischen, summativen Episoden über.
 
-Die Kriterien für die einzelnen Episoden stammen aus der Taxonomie von Prat et al. Sie ordnet Evaluationskriterien nach den Systemdimensionen Ziel, Umgebung, Struktur, Aktivität und Entwicklung [@prat2015taxonomy]. Für diese Arbeit sind vor allem Wirksamkeit und Genauigkeit (Ziel), Konsistenz mit Recht und Norm (Umgebung), Vollständigkeit und Einfachheit (Struktur), Leistung (Aktivität) und Anpassbarkeit (Entwicklung) maßgeblich.
+Die Kriterien für die einzelnen Episoden stammen aus der Taxonomie von Prat et al. Sie ordnet Evaluationskriterien nach den Systemdimensionen Ziel, Umgebung, Struktur, Aktivität und Entwicklung [@prat2015taxonomy]. Für diese Arbeit sind vor allem Wirksamkeit und Gültigkeit (Ziel), Konsistenz mit Menschen, Organisation und Technik, hier vor allem mit Recht und Norm (Umgebung), Vollständigkeit und Einfachheit (Struktur), Genauigkeit und Leistung (Aktivität) sowie Robustheit gegenüber Regeländerungen (Entwicklung) maßgeblich.
 
 **Tabelle 2.12: Evaluationsepisoden**
 
@@ -591,7 +591,7 @@ Zwei Designentscheidungen sind für die Aussagekraft wesentlich:
 
 Zwei methodische Vorkehrungen sind bindend. Erstens wird vor der Messung festgelegt, ob Kundenänderungen als Nacharbeit zählen, denn davon hängt die Größenordnung der Kosten ab [@love2018unpacking]. Zweitens werden Mängel in Planung, Werk und Montage retrospektiv daraufhin geprüft, welcher Anteil durch IDS- oder Regelprüfung abgefangen worden wäre; dieses Audit folgt einer Mängelstudie aus der Holzmodulfertigung [@johnsson2009defects].
 
-**Ethik und Datenschutz.** Sprachaufnahmen sind personenbezogene Daten. Aufnahmen erfolgen nur mit informierter Einwilligung aller Beteiligten; eine Aufzeichnung von Gesprächen ohne Einwilligung wäre strafbar [@stgb201]. Interviewdaten werden pseudonymisiert ausgewertet.
+**Ethik und Datenschutz.** Sprachaufnahmen sind personenbezogene Daten. Aufnahmen erfolgen nur mit informierter Einwilligung aller Beteiligten, auch weil die unbefugte Aufnahme des nichtöffentlich gesprochenen Wortes strafbar ist [@stgb201]. Interviewdaten werden pseudonymisiert ausgewertet.
 
 ### 2.4.5 Zuordnung von Forschungsfragen, Evaluation und Messgrößen
 

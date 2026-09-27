@@ -227,7 +227,7 @@ Gegenstand ist der **Holzbau mit Schwerpunkt Holzrahmenbau** (Holztafelbau), als
 **Bayern ist das Referenzbundesland.** Dafür sprechen vier Gründe:
 
 1. Bayern hat eine überdurchschnittliche Fertigbauquote [@bdf2026quote].
-2. Der Praxispartner der Fallstudie, die Regnauer Hausbau GmbH, hat seinen Sitz in Bayern (Kapitel 3.5).
+2. Das Fallbeispiel der Arbeit, der Fertighaushersteller Regnauer, hat seinen Sitz in Bayern (Kapitel 3.5).
 3. Das bayerische Recht hat Eigenheiten, die eine Formalisierung besonders fordern, etwa die fortgeltende Vollgeschossdefinition von 2007, die Typengenehmigung nach Art. 73a und das Unternehmen als Entwurfsverfasser nach Art. 61 Abs. 6 BayBO (Kapitel 4.3).
 4. Bayern verfügt mit der DBauV über einen digitalen Bauantrag [@dbauv2026] und plant die ausschließlich digitale Einreichung [@bayDigitalisierungEntwurf2026].
 
