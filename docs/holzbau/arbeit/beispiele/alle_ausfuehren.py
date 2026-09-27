@@ -77,6 +77,10 @@ def main() -> None:
     except ImportError:
         kz["b7"] = "übersprungen (compas_timber nicht installiert)"
 
+    # Nachweishefte B1–B5 (nachweis.py); Rechenkerne und ihre Ergebnisse bleiben unverändert
+    lauf("nachweise_b1_b5.py")
+    kz["nachweise"] = json.loads((AUS / "nachweise" / "uebersicht.json").read_text(encoding="utf-8"))
+
     (AUS / "kennzahlen.json").write_text(json.dumps(kz, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"→ {AUS / 'kennzahlen.json'}")
 

@@ -3,7 +3,6 @@ import html.parser
 import json
 import math
 import re
-import xml.etree.ElementTree as ET
 from decimal import Decimal
 
 import pytest
@@ -359,3 +358,35 @@ def test_retrofit_hefte_schema_und_html(alle, tmp_path):
             assert n["grafiken"], n["id"]                                   # jeder Nachweis hat einen grafischen Teil
             assert all(nw.svg_ist_valide(g["svg"]) for g in n["grafiken"])
     pruefe_html(Nachweisheft("B3", {"Projekt": "Test"}, alle["b3"]).html())
+
+
+def test_hash_unabhaengig_vom_einheiten_backend():
+    alt = nw.EINHEITEN
+    try:
+        nw.setze_einheiten_backend("einfach")
+        a = nachweis_r(u_d=2.0, u_l=0.001).hash
+        nw.setze_einheiten_backend("pint")
+        b = nachweis_r(u_d=2.0, u_l=0.001).hash
+    finally:
+        nw.EINHEITEN = alt
+    assert a == b
+
+
+def test_nachweishefte_byte_identisch_ueber_prozesse(tmp_path):
+    """Zwei Läufe in getrennten Prozessen mit verschiedenem PYTHONHASHSEED → identische Dateien."""
+    import hashlib
+    import os
+    import subprocess
+    import sys
+    from pathlib import Path
+    hier = Path(nw.__file__).parent
+    stände = []
+    for seed in ("1", "4711"):
+        ziel = tmp_path / seed
+        env = dict(os.environ, PYTHONHASHSEED=seed)
+        env.pop("SOURCE_DATE_EPOCH", None)
+        subprocess.run([sys.executable, str(hier / "nachweise_b1_b5.py"), "--ausgabe", str(ziel)], cwd=hier, env=env,
+                       check=True, capture_output=True)
+        stände.append({p.relative_to(ziel).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                       for p in sorted(ziel.rglob("*")) if p.is_file()})
+    assert stände[0] == stände[1] and len(stände[0]) > 60

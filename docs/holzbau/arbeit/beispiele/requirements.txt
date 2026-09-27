@@ -4,6 +4,11 @@ ifctester==0.8.5
 shapely==2.1.2
 numpy==2.4.6
 pytest==9.1.1
+# Nachweis-Framework (nachweis.py): Einheitenprüfung, Diagramme, Schema-Prüfung.
+# pint und matplotlib sind optional (eigene Dimensionsprüfung bzw. reines SVG als Rückfallebene).
+pint==0.25.3
+matplotlib==3.11.2
+jsonschema==4.26.0
 # optional für B7 (BTLx-Export); ohne diese Pakete wird B7/test_btlx_export übersprungen
 compas==2.15.1
 compas_timber==2.2.0

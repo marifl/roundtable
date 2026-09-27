@@ -27,7 +27,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
 import tempfile
 from pathlib import Path
 
@@ -55,7 +54,8 @@ def sha_datei(p: Path) -> str:
 
 
 def rel(p: Path) -> str:
-    return str(Path(p).resolve().relative_to(HIER))
+    p = Path(p).resolve()
+    return str(p.relative_to(HIER)) if p.is_relative_to(HIER) else str(p)
 
 
 def projekt_angaben() -> dict:
@@ -473,6 +473,7 @@ def nachweis_b3(modell: Modell, variante: str, fassade: str) -> Nachweis:
 # ===========================================================================
 
 BAYBO = "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft"
+T_RUND = Rundung("dezimalstellen", 2, "auf", "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)")
 
 
 def nachweis_b4(param: dict, sz: dict, modus: str) -> Nachweis:
@@ -499,9 +500,9 @@ def nachweis_b4(param: dict, sz: dict, modus: str) -> Nachweis:
     schritte = [
         Schritt("Dachhöhe über Traufe", G("Dachhöhe", "h_D", None, "m"), "b/2*tan(alpha)"),
         Schritt("Maß H der Traufwände", G("H Traufe", "H_T", None, "m"), "h_w + f_D*h_D", norm_verweis=f"{BAYBO}, Abs. 4"),
-        Schritt("Tiefe der Abstandsfläche Traufe", G("T Traufe", "T_T", None, "m"), "max(c_T*H_T, T_min)", norm_verweis="Abs. 5"),
+        Schritt("Tiefe der Abstandsfläche Traufe", G("T Traufe", "T_T", None, "m", rundung=T_RUND), "max(c_T*H_T, T_min)", norm_verweis="Abs. 5"),
         Schritt("Maß H der Giebelwände am First", G("H Giebel (First)", "H_G", None, "m"), "h_w + f_Gi*h_D", norm_verweis="Abs. 4"),
-        Schritt("Tiefe der Abstandsfläche Giebel (First)", G("T Giebel", "T_G", None, "m"), "max(c_T*H_G, T_min)", norm_verweis="Abs. 5"),
+        Schritt("Tiefe der Abstandsfläche Giebel (First)", G("T Giebel", "T_G", None, "m", rundung=T_RUND), "max(c_T*H_G, T_min)", norm_verweis="Abs. 5"),
     ]
     kriterien = []
     wand_t = {"W": "T_T", "O": "T_T", "S": "T_G", "N": "T_G"}
@@ -510,11 +511,13 @@ def nachweis_b4(param: dict, sz: dict, modus: str) -> Nachweis:
         vorh = b4.vorhandene_tiefe(zul, fl["wand_linie"], fl["normale"])
         aus = fl["polygon"].difference(zul).area
         schritte.append(Schritt(f"vorhandene Tiefe vor Wand {fl['wand']} (Wandmitte bis Grenze der zulässigen Fläche)",
-                                G(f"T vorhanden {k}", f"T_v_{k}", vorh, "m", "shapely 2.1.2"),
+                                G(f"T vorhanden {k}", f"T_v_{k}", vorh, "m", "shapely 2.1.2",
+                                  rundung=Rundung("dezimalstellen", 2, "ab", "vorhandene Tiefe sicherheitsgerichtet abgerundet")),
                                 verfahren="Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von "
                                           "Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)"))
         schritte.append(Schritt(f"Fläche der Abstandsfläche {fl['wand']} außerhalb der zulässigen Fläche",
-                                G(f"A außerhalb {k}", f"A_a_{k}", aus, "m²", "shapely 2.1.2"),
+                                G(f"A außerhalb {k}", f"A_a_{k}", aus, "m²", "shapely 2.1.2",
+                                  rundung=Rundung("dezimalstellen", 2, "auf", "Überschreitung sicherheitsgerichtet aufgerundet")),
                                 verfahren="Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), "
                                           "Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)"))
         kriterien.append(Kriterium(f"{fl['wand']}: Abstandsfläche auf dem Grundstück", f"A_a_{k}", "≤", "A_zul",
@@ -698,6 +701,11 @@ HEFTE = {
 
 
 def main() -> None:
+    import argparse
+    global AUSGABE
+    ap = argparse.ArgumentParser(description="Nachweishefte B1–B5")
+    ap.add_argument("--ausgabe", default=str(AUSGABE), help="Zielordner (Standard: ausgabe/nachweise)")
+    AUSGABE = Path(ap.parse_args().ausgabe)
     AUSGABE.mkdir(parents=True, exist_ok=True)
     projekt = projekt_angaben()
     alle = alle_nachweise()

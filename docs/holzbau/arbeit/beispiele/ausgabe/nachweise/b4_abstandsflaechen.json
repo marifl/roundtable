@@ -38,7 +38,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
+      "hash": "3dd0e05e602e5bb363ab929f8ebc03a6e7f8f3cd6358f303d417e8f8228df369",
       "gegenstand": null
     },
     {
@@ -46,7 +46,7 @@
       "titel": "Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel)",
       "status": "nicht erfüllt",
       "ausnutzung": 1.6333333333333333,
-      "hash": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
+      "hash": "ffa017fae07fdadc13f2d10f07486f4da5925909652f5297f8188094effa9356",
       "gegenstand": null
     },
     {
@@ -54,7 +54,7 @@
       "titel": "Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
+      "hash": "7950e7522ca9d142a0612f833d529ffb068a53e6ccb97893e57579cab6f19a1e",
       "gegenstand": null
     },
     {
@@ -62,7 +62,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
+      "hash": "cd34e887c42e80c3ff78f511ef2676f189d0852957d38d2678c23c244f49eee9",
       "gegenstand": null
     }
   ],
@@ -105,7 +105,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -120,7 +120,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -135,7 +135,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -150,7 +150,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -165,7 +165,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -180,7 +180,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -195,7 +195,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -210,7 +210,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -225,7 +225,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -240,7 +240,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -255,7 +255,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -282,9 +282,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -311,9 +311,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -340,9 +340,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -369,9 +375,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -398,9 +404,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -423,9 +435,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -448,9 +466,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -473,9 +497,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -498,9 +528,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -523,9 +559,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -548,9 +590,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -573,9 +621,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -598,9 +652,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -612,6 +672,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -627,6 +688,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -642,6 +704,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -657,6 +720,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -672,6 +736,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -687,6 +752,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -702,6 +768,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -717,6 +784,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -737,9 +805,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -752,9 +826,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -775,8 +855,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -784,8 +864,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -793,8 +873,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -842,8 +922,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "3dd0e05e602e5bb363ab929f8ebc03a6e7f8f3cd6358f303d417e8f8228df369",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -884,7 +964,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -899,7 +979,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -914,7 +994,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -929,7 +1009,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -944,7 +1024,7 @@
           "bezug": null,
           "anzeige": "2 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -959,7 +1039,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -974,7 +1054,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -989,7 +1069,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -1004,7 +1084,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -1019,7 +1099,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -1034,7 +1114,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -1061,9 +1141,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1090,9 +1170,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1119,9 +1199,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1148,9 +1234,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1177,9 +1263,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1202,9 +1294,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "2 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "2,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1227,9 +1325,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "15,2 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "15,20 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -1252,9 +1356,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "8,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1277,9 +1387,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -1302,9 +1418,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1327,9 +1449,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -1352,9 +1480,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1377,9 +1511,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -1391,6 +1531,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 15.2,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -1406,6 +1547,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 2.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -1421,6 +1563,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -1436,6 +1579,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 8.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -1451,6 +1595,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -1466,6 +1611,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -1481,6 +1627,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -1496,6 +1643,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -1516,9 +1664,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -1531,9 +1685,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 1.6333333333333333,
@@ -1554,8 +1714,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -1563,8 +1723,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -1572,8 +1732,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -1621,8 +1781,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "ffa017fae07fdadc13f2d10f07486f4da5925909652f5297f8188094effa9356",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1663,7 +1823,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -1678,7 +1838,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -1693,7 +1853,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -1708,7 +1868,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -1723,7 +1883,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -1738,7 +1898,7 @@
           "bezug": null,
           "anzeige": "1 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -1753,7 +1913,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -1768,7 +1928,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -1783,7 +1943,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -1798,7 +1958,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -1813,7 +1973,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -1840,9 +2000,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1869,9 +2029,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1898,9 +2058,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1927,9 +2093,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -1956,9 +2122,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -1981,9 +2153,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2006,9 +2184,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2031,9 +2215,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2056,9 +2246,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2081,9 +2277,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2106,9 +2308,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2131,9 +2339,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "17 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "17,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2156,9 +2370,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -2170,6 +2390,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2185,6 +2406,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -2200,6 +2422,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2215,6 +2438,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -2230,6 +2454,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2245,6 +2470,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -2260,6 +2486,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2275,6 +2502,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 17.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -2295,9 +2523,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -2310,9 +2544,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -2333,8 +2573,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -2342,8 +2582,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -2351,8 +2591,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -2400,8 +2640,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "7950e7522ca9d142a0612f833d529ffb068a53e6ccb97893e57579cab6f19a1e",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2442,7 +2682,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -2457,7 +2697,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -2472,7 +2712,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -2487,7 +2727,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -2502,7 +2742,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -2517,7 +2757,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -2532,7 +2772,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -2547,7 +2787,7 @@
           "bezug": null,
           "anzeige": "1",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -2562,7 +2802,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -2577,7 +2817,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -2592,7 +2832,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -2619,9 +2859,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -2648,9 +2888,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -2677,9 +2917,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2706,9 +2952,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "11,5 m",
+            "anzeige": "11,500 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -2735,9 +2981,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,6000000000000005 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "4,61 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2760,9 +3012,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2785,9 +3043,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2810,9 +3074,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2835,9 +3105,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2860,9 +3136,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2885,9 +3167,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -2910,9 +3198,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -2935,9 +3229,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -2949,6 +3249,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2964,6 +3265,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -2979,6 +3281,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -2994,6 +3297,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -3009,6 +3313,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -3024,6 +3329,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 4.6000000000000005,
           "einheit": "m",
@@ -3039,6 +3345,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -3054,6 +3361,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 4.6000000000000005,
           "einheit": "m",
@@ -3074,9 +3382,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -3089,9 +3403,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -3112,8 +3432,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -3121,8 +3441,8 @@
           "wert_rechenkern": 4.6,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.6000000000000005,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         },
         {
           "symbol": "h_D",
@@ -3130,8 +3450,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -3179,8 +3499,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "cd34e887c42e80c3ff78f511ef2676f189d0852957d38d2678c23c244f49eee9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -3202,7 +3522,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "1ddf2abb02422c525ac59a70c220cab593c2ff74a5fd3850004b9d36c9f2efd3",
+    "wert": "fbc337c271176556adae59a06183029a45db8ff6c5451b24d0c74a9d69ef4afd",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

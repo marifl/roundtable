@@ -38,7 +38,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.9339966468899511,
-      "hash": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
+      "hash": "f2f2f2256a8d74ff4e3f4e4ddaac09645e828f4a1f6b9d3934954857a120ed11",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -46,7 +46,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.9174898618235497,
-      "hash": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
+      "hash": "1f1b958a82f1210ad0bc48d3bf5936f1ee54d6c3916d43712e538efb1d1fb5b5",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -54,7 +54,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.812633801272794,
-      "hash": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
+      "hash": "49aaa14d45c96c52e43440a946e83e6cacfe6e938d34d51b36d896c4617dd801",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -62,7 +62,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.8004031209999192,
-      "hash": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
+      "hash": "0a877dbef7779f4f481e7526482cdfa4e548e565145830a16b954062525577c2",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     }
   ],
@@ -105,7 +105,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -120,7 +120,7 @@
           "bezug": null,
           "anzeige": "0,04 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -135,7 +135,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -150,7 +150,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -165,7 +165,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -180,7 +180,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -195,7 +195,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -210,7 +210,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -225,7 +225,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -240,7 +240,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -255,7 +255,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ansichtsfläche aller Hölzer",
@@ -270,7 +270,7 @@
           "bezug": null,
           "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Nettowandfläche (ohne Öffnungen)",
@@ -285,7 +285,7 @@
           "bezug": null,
           "anzeige": "11 454 900 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -306,7 +306,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -333,9 +333,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,22481208914962156",
+            "anzeige": "0,22481",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -361,9 +361,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -389,9 +389,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -417,9 +417,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -445,9 +445,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -473,9 +473,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -505,9 +505,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,269194991055456 m²·K/W",
+            "anzeige": "3,2692 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -537,9 +537,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,99389134733076 m²·K/W",
+            "anzeige": "6,9939 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -564,9 +564,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,7751879108503784",
+            "anzeige": "0,77519",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -594,9 +594,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,567784334633171 m²·K/W",
+            "anzeige": "5,5678 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -624,9 +624,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,058682712201765186 W/(m·K)",
+            "anzeige": "0,058683 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -652,9 +652,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,4081587659471535 m²·K/W",
+            "anzeige": "3,4082 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -684,9 +684,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,138892218541071 m²·K/W",
+            "anzeige": "5,1389 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -720,7 +720,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -755,7 +755,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -788,7 +788,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -800,6 +800,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.18679932937799024,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -828,7 +829,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -849,7 +850,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9339966468899511,
@@ -974,8 +975,8 @@
           "wert_rechenkern": 0.186799,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.18679932937799024,
-          "abweichung": 3.293779902435734e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.29e-07
         },
         {
           "symbol": "R_o",
@@ -983,8 +984,8 @@
           "wert_rechenkern": 5.567784,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.567784334633171,
-          "abweichung": 3.3463317095083767e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.35e-07
         },
         {
           "symbol": "R_u",
@@ -992,8 +993,8 @@
           "wert_rechenkern": 5.138892,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.138892218541071,
-          "abweichung": 2.1854107057350802e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.19e-07
         },
         {
           "symbol": "U",
@@ -1001,8 +1002,8 @@
           "wert_rechenkern": 0.187,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 0.18679932937799024,
-          "abweichung": 0.00020067062200976316,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000201
         }
       ],
       "grafiken": [
@@ -1059,8 +1060,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "f2f2f2256a8d74ff4e3f4e4ddaac09645e828f4a1f6b9d3934954857a120ed11",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1101,7 +1102,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -1116,7 +1117,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -1131,7 +1132,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -1146,7 +1147,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -1161,7 +1162,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -1176,7 +1177,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -1191,7 +1192,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -1206,7 +1207,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -1221,7 +1222,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -1236,7 +1237,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -1251,7 +1252,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ansichtsfläche aller Hölzer",
@@ -1266,7 +1267,7 @@
           "bezug": null,
           "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Nettowandfläche (ohne Öffnungen)",
@@ -1281,7 +1282,7 @@
           "bezug": null,
           "anzeige": "11 454 900 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -1302,7 +1303,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -1329,9 +1330,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,22481208914962156",
+            "anzeige": "0,22481",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -1357,9 +1358,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1385,9 +1386,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1413,9 +1414,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1441,9 +1442,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1469,9 +1470,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1501,9 +1502,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,359194991055456 m²·K/W",
+            "anzeige": "3,3592 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1533,9 +1534,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "7,08389134733076 m²·K/W",
+            "anzeige": "7,0839 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1560,9 +1561,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,7751879108503784",
+            "anzeige": "0,77519",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -1590,9 +1591,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,670410777706296 m²·K/W",
+            "anzeige": "5,6704 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1620,9 +1621,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,058682712201765186 W/(m·K)",
+            "anzeige": "0,058683 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -1648,9 +1649,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,4081587659471535 m²·K/W",
+            "anzeige": "3,4082 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1680,9 +1681,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,228892218541071 m²·K/W",
+            "anzeige": "5,2289 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1716,7 +1717,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -1751,7 +1752,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -1784,7 +1785,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -1796,6 +1797,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.18349797236470997,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -1824,7 +1826,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -1845,7 +1847,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9174898618235497,
@@ -1970,8 +1972,8 @@
           "wert_rechenkern": 0.183498,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.18349797236470997,
-          "abweichung": 2.763529002858256e-08,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.76e-08
         },
         {
           "symbol": "R_o",
@@ -1979,8 +1981,8 @@
           "wert_rechenkern": 5.670411,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.670410777706296,
-          "abweichung": 2.222937034446204e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.22e-07
         },
         {
           "symbol": "R_u",
@@ -1988,8 +1990,8 @@
           "wert_rechenkern": 5.228892,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.228892218541071,
-          "abweichung": 2.1854107057350802e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.19e-07
         }
       ],
       "grafiken": [
@@ -2046,8 +2048,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "1f1b958a82f1210ad0bc48d3bf5936f1ee54d6c3916d43712e538efb1d1fb5b5",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2088,7 +2090,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -2103,7 +2105,7 @@
           "bezug": null,
           "anzeige": "0,04 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -2118,7 +2120,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -2133,7 +2135,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -2148,7 +2150,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -2163,7 +2165,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -2178,7 +2180,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -2193,7 +2195,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -2208,7 +2210,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -2223,7 +2225,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -2238,7 +2240,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ständerbreite",
@@ -2253,7 +2255,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Achsmaß der Ständer",
@@ -2268,7 +2270,7 @@
           "bezug": null,
           "anzeige": "625 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -2289,7 +2291,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -2316,9 +2318,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,096",
+            "anzeige": "0,096000",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -2344,9 +2346,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2372,9 +2374,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2400,9 +2402,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2428,9 +2430,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2456,9 +2458,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2488,9 +2490,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,269194991055456 m²·K/W",
+            "anzeige": "3,2692 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2520,9 +2522,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,99389134733076 m²·K/W",
+            "anzeige": "6,9939 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2547,9 +2549,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,904",
+            "anzeige": "0,90400",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -2577,9 +2579,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,304348160715462 m²·K/W",
+            "anzeige": "6,3043 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2609,7 +2611,7 @@
             "bezug": null,
             "anzeige": "0,046832 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -2635,9 +2637,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,270584215920738 m²·K/W",
+            "anzeige": "4,2706 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2667,9 +2669,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,001317668514656 m²·K/W",
+            "anzeige": "6,0013 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2703,7 +2705,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -2738,7 +2740,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -2771,7 +2773,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -2783,6 +2785,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.1625267602545588,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -2811,7 +2814,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -2832,7 +2835,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.812633801272794,
@@ -2957,8 +2960,8 @@
           "wert_rechenkern": 0.162527,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.1625267602545588,
-          "abweichung": 2.3974544119398367e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.4e-07
         },
         {
           "symbol": "R_o",
@@ -2966,8 +2969,8 @@
           "wert_rechenkern": 6.304348,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.304348160715462,
-          "abweichung": 1.6071546227180988e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 1.61e-07
         },
         {
           "symbol": "R_u",
@@ -2975,8 +2978,8 @@
           "wert_rechenkern": 6.001318,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.001317668514656,
-          "abweichung": 3.314853440627985e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.31e-07
         }
       ],
       "grafiken": [
@@ -3033,8 +3036,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "49aaa14d45c96c52e43440a946e83e6cacfe6e938d34d51b36d896c4617dd801",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -3075,7 +3078,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -3090,7 +3093,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -3105,7 +3108,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -3120,7 +3123,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -3135,7 +3138,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -3150,7 +3153,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -3165,7 +3168,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -3180,7 +3183,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -3195,7 +3198,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -3210,7 +3213,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -3225,7 +3228,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ständerbreite",
@@ -3240,7 +3243,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Achsmaß der Ständer",
@@ -3255,7 +3258,7 @@
           "bezug": null,
           "anzeige": "625 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -3276,7 +3279,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -3303,9 +3306,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,096",
+            "anzeige": "0,096000",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -3331,9 +3334,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3359,9 +3362,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3387,9 +3390,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3415,9 +3418,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3443,9 +3446,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3475,9 +3478,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,359194991055456 m²·K/W",
+            "anzeige": "3,3592 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3507,9 +3510,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "7,08389134733076 m²·K/W",
+            "anzeige": "7,0839 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3534,9 +3537,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,904",
+            "anzeige": "0,90400",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -3564,9 +3567,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,402386738218921 m²·K/W",
+            "anzeige": "6,4024 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3596,7 +3599,7 @@
             "bezug": null,
             "anzeige": "0,046832 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -3622,9 +3625,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,270584215920738 m²·K/W",
+            "anzeige": "4,2706 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3654,9 +3657,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,091317668514656 m²·K/W",
+            "anzeige": "6,0913 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3690,7 +3693,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -3725,7 +3728,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -3758,7 +3761,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -3770,6 +3773,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.16008062419998384,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -3798,7 +3802,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -3819,7 +3823,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.8004031209999192,
@@ -3944,8 +3948,8 @@
           "wert_rechenkern": 0.160081,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.16008062419998384,
-          "abweichung": 3.7580001616133174e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.76e-07
         },
         {
           "symbol": "R_o",
@@ -3953,8 +3957,8 @@
           "wert_rechenkern": 6.402387,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.402386738218921,
-          "abweichung": 2.617810794802722e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.62e-07
         },
         {
           "symbol": "R_u",
@@ -3962,8 +3966,8 @@
           "wert_rechenkern": 6.091318,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.091317668514656,
-          "abweichung": 3.314853440627985e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.31e-07
         }
       ],
       "grafiken": [
@@ -4020,8 +4024,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "0a877dbef7779f4f481e7526482cdfa4e548e565145830a16b954062525577c2",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -4043,7 +4047,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "f39a75819d33ab1d178a801f521a1ffc528e3991d8a2be4a7f0d287837cd0087",
+    "wert": "79948ee77d669d2a1112929fe5942193071f003988dee693da289bfc261b41cf",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

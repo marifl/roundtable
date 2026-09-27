@@ -38,7 +38,7 @@
       "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
       "status": "erfüllt",
       "ausnutzung": 0.9710407239819006,
-      "hash": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
+      "hash": "bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1",
       "gegenstand": null
     }
   ],
@@ -81,7 +81,7 @@
           "bezug": null,
           "anzeige": "2900 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "nutzbare Laufbreite",
@@ -96,7 +96,7 @@
           "bezug": null,
           "anzeige": "900 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fertigungsraster Auftritt",
@@ -111,7 +111,7 @@
           "bezug": null,
           "anzeige": "5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Steigung min.",
@@ -126,7 +126,7 @@
           "bezug": null,
           "anzeige": "140 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Steigung max.",
@@ -141,7 +141,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Auftritt min.",
@@ -156,7 +156,7 @@
           "bezug": null,
           "anzeige": "230 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Auftritt max.",
@@ -171,7 +171,7 @@
           "bezug": null,
           "anzeige": "370 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schrittmaß min.",
@@ -186,7 +186,7 @@
           "bezug": null,
           "anzeige": "590 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schrittmaß max.",
@@ -201,7 +201,7 @@
           "bezug": null,
           "anzeige": "650 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Laufbreite min.",
@@ -216,7 +216,7 @@
           "bezug": null,
           "anzeige": "800 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Zielwert Schrittmaß",
@@ -231,7 +231,7 @@
           "bezug": null,
           "anzeige": "630 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         }
       ],
       "schritte": [
@@ -260,7 +260,7 @@
             "bezug": null,
             "anzeige": "15",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -288,7 +288,7 @@
             "bezug": null,
             "anzeige": "20",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -313,7 +313,7 @@
             "bezug": null,
             "anzeige": "68",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -338,7 +338,7 @@
             "bezug": null,
             "anzeige": "17",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -363,7 +363,7 @@
             "bezug": null,
             "anzeige": "290 mm",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -397,7 +397,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -431,7 +431,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -459,7 +459,7 @@
             "bezug": null,
             "anzeige": "4640 mm",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -493,7 +493,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         }
       ],
@@ -505,6 +505,7 @@
           "grenzwert": "s_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 170.58823529411765,
           "grenz_wert": 140.0,
           "einheit": "mm",
@@ -520,6 +521,7 @@
           "grenzwert": "s_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 170.58823529411765,
           "grenz_wert": 200.0,
           "einheit": "mm",
@@ -535,6 +537,7 @@
           "grenzwert": "a_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 290.0,
           "grenz_wert": 230.0,
           "einheit": "mm",
@@ -550,6 +553,7 @@
           "grenzwert": "a_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 290.0,
           "grenz_wert": 370.0,
           "einheit": "mm",
@@ -565,6 +569,7 @@
           "grenzwert": "S_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 631.1764705882354,
           "grenz_wert": 590.0,
           "einheit": "mm",
@@ -580,6 +585,7 @@
           "grenzwert": "S_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 631.1764705882354,
           "grenz_wert": 650.0,
           "einheit": "mm",
@@ -595,6 +601,7 @@
           "grenzwert": "b_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 900.0,
           "grenz_wert": 800.0,
           "einheit": "mm",
@@ -623,7 +630,7 @@
           "quelle": "",
           "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
         },
-        "dimension": "[length]"
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "Schrittmaß max.",
@@ -638,7 +645,7 @@
         "bezug": null,
         "anzeige": "650 mm",
         "rundung": null,
-        "dimension": "[length]"
+        "dimension": "L"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9710407239819006,
@@ -660,8 +667,8 @@
           "wert_rechenkern": 170.59,
           "toleranz_abs": 0.005,
           "wert_nachweis": 170.58823529411765,
-          "abweichung": 0.0017647058823513362,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.00176
         },
         {
           "symbol": "S",
@@ -669,8 +676,8 @@
           "wert_rechenkern": 631.18,
           "toleranz_abs": 0.005,
           "wert_nachweis": 631.1764705882354,
-          "abweichung": 0.0035294117645889855,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.00353
         },
         {
           "symbol": "l_L",
@@ -678,8 +685,8 @@
           "wert_rechenkern": 4640,
           "toleranz_abs": 1e-09,
           "wert_nachweis": 4640,
-          "abweichung": 0,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.0
         },
         {
           "symbol": "N_L",
@@ -687,8 +694,8 @@
           "wert_rechenkern": 68,
           "toleranz_abs": 0.0,
           "wert_nachweis": 68,
-          "abweichung": 0,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.0
         }
       ],
       "grafiken": [
@@ -736,8 +743,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -759,7 +766,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "52ad671a145cfa54757588382b870f2b8295759eee09f0690e56577b8098f5c1",
+    "wert": "428c8bca2cc2f1eaa0512f78a841a40b6ae15c8f865e46587c3334a8d551a355",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

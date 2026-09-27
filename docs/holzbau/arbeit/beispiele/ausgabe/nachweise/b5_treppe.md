@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `52ad671a145cfa54757588382b870f2b8295759eee09f0690e56577b8098f5c1` |
+| Heft-Hash (SHA-256) | `428c8bca2cc2f1eaa0512f78a841a40b6ae15c8f865e46587c3334a8d551a355` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,7 +28,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `0c03e40e3563` |
+| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `bb6d0e8eb12a` |
 
 <a id="n-n-b5-01"></a>
 
@@ -215,8 +215,8 @@ Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 

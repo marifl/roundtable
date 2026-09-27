@@ -37,8 +37,8 @@
       "id": "N-B1-01",
       "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
       "status": "erfüllt",
-      "ausnutzung": 4.440892098500626e-08,
-      "hash": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
+      "ausnutzung": null,
+      "hash": "6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     }
   ],
@@ -100,7 +100,7 @@
           "bezug": null,
           "anzeige": "4800 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe",
@@ -115,7 +115,7 @@
           "bezug": null,
           "anzeige": "2750 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fensterbreite (Rohbau)",
@@ -130,7 +130,7 @@
           "bezug": null,
           "anzeige": "1260 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fensterhöhe (Rohbau)",
@@ -145,7 +145,7 @@
           "bezug": null,
           "anzeige": "1385 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Holzquerschnittstiefe",
@@ -160,7 +160,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kervenbreite (= Ständerbreite)",
@@ -175,7 +175,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kerventiefe",
@@ -190,7 +190,7 @@
           "bezug": null,
           "anzeige": "25 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kervenhöhe",
@@ -205,7 +205,7 @@
           "bezug": null,
           "anzeige": "40 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke GKF",
@@ -220,7 +220,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -235,7 +235,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -250,7 +250,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -265,7 +265,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schraubendurchmesser",
@@ -280,7 +280,7 @@
           "bezug": null,
           "anzeige": "4 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schraubenlänge",
@@ -295,7 +295,7 @@
           "bezug": null,
           "anzeige": "50 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Rohdichte KVH C24 (Nadelholz)",
@@ -310,7 +310,7 @@
           "bezug": null,
           "anzeige": "420 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Gipsplatte Typ DF (GKF)",
@@ -325,7 +325,7 @@
           "bezug": null,
           "anzeige": "800 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte OSB/3",
@@ -340,7 +340,7 @@
           "bezug": null,
           "anzeige": "600 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Holzfaser-Dämmmatte (flexibel)",
@@ -355,7 +355,7 @@
           "bezug": null,
           "anzeige": "50 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Holzfaserdämmplatte (Putzträger)",
@@ -370,7 +370,7 @@
           "bezug": null,
           "anzeige": "180 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Stahl",
@@ -385,7 +385,7 @@
           "bezug": null,
           "anzeige": "7850 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "zulässige Mengenabweichung Modell/IFC",
@@ -400,7 +400,7 @@
           "bezug": null,
           "anzeige": "1 · 10⁻⁸ m³",
           "rundung": null,
-          "dimension": "[length] ** 3"
+          "dimension": "L^3"
         }
       ],
       "schritte": [
@@ -427,9 +427,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13,2 m²",
+            "anzeige": "13,200 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -455,9 +455,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,7450999999999999 m²",
+            "anzeige": "1,7451 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -483,9 +483,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "11,454899999999999 m²",
+            "anzeige": "11,455 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -510,7 +510,7 @@
             "bezug": null,
             "anzeige": "2,5752 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -536,9 +536,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,879699999999998 m²",
+            "anzeige": "8,8797 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -565,9 +565,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6 · 10⁻⁵ m³",
+            "anzeige": "6,0000 · 10⁻⁵ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -594,9 +594,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,5149800000000001 m³",
+            "anzeige": "0,51498 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -622,9 +622,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,14318625 m³",
+            "anzeige": "0,14319 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -650,9 +650,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,17182349999999996 m³",
+            "anzeige": "0,17182 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -678,9 +678,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,6872939999999998 m³",
+            "anzeige": "0,68729 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -706,9 +706,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,7759399999999996 m³",
+            "anzeige": "1,7759 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -733,7 +733,7 @@
             "bezug": null,
             "anzeige": "176 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -759,9 +759,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "216,29160000000005 kg",
+            "anzeige": "216,29 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -787,9 +787,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "114,54899999999999 kg",
+            "anzeige": "114,55 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -815,9 +815,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "103,09409999999998 kg",
+            "anzeige": "103,09 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -843,9 +843,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "123,71291999999997 kg",
+            "anzeige": "123,71 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -871,9 +871,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "88,79699999999998 kg",
+            "anzeige": "88,797 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -901,9 +901,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,8680848820399317 kg",
+            "anzeige": "0,86808 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -941,7 +941,7 @@
               "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
               "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
             },
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -967,9 +967,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "56,509677507620324 kg/m²",
+            "anzeige": "56,510 kg/m²",
             "rundung": null,
-            "dimension": "[mass] / [length] ** 2"
+            "dimension": "L^-2·M"
           }
         },
         {
@@ -994,7 +994,7 @@
             "bezug": null,
             "anzeige": "0,51498 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1017,9 +1017,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,00230375 m³",
+            "anzeige": "1,0023 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1042,9 +1042,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,77594 m³",
+            "anzeige": "1,7759 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1070,9 +1070,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,1102230246251565 · 10⁻¹⁶ m³",
+            "anzeige": "1,1102 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1100,9 +1100,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "2,220446049250313 · 10⁻¹⁶ m³",
+            "anzeige": "2,2204 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1128,9 +1128,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,440892098500626 · 10⁻¹⁶ m³",
+            "anzeige": "4,4409 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         }
       ],
@@ -1142,10 +1142,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.1102230246251565e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 1.1102230246251565e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1157,10 +1158,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 2.220446049250313e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 2.220446049250313e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1172,10 +1174,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 4.440892098500626e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 4.440892098500626e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1200,7 +1203,7 @@
           "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
           "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
         },
-        "dimension": "[mass]"
+        "dimension": "M"
       },
       "grenzwert": {
         "name": "zulässige Mengenabweichung Modell/IFC",
@@ -1215,10 +1218,10 @@
         "bezug": null,
         "anzeige": "1 · 10⁻⁸ m³",
         "rundung": null,
-        "dimension": "[length] ** 3"
+        "dimension": "L^3"
       },
       "vergleich": "≤",
-      "ausnutzung": 4.440892098500626e-08,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [
         "Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.",
@@ -1354,8 +1357,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -1377,7 +1380,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4",
+    "wert": "37c6e1ee26d4485aba34b151efb770e6a795e38ef5de89b2df9c92a28b9a90ad",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

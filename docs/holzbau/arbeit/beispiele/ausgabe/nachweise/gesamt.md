@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (20 erfüllt, 1 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `6942614b079912cd9099e9b9ed1f3e8c76edf752a3eec1745f0d2a34226e501f` |
+| Heft-Hash (SHA-256) | `69ff803197a8759cb32328cdec89237a45f6dedb9a8a022adfa61a5f576b05a1` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Das Heft bündelt die Nachweise der Beispiele B1–B5. Szenario „zu_nah“ (B4) ist absichtlich unzulässig; der IDS-Fall „fehlerhaft“ steht im eigenen Heft b2_ids_fehlerhaft.
@@ -38,33 +38,33 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `3984bfb486b3` |
-| 2 | [N-B2-bestanden-HRB-01](#n-n-b2-bestanden-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden) | erfüllt | 1,000 | `6761c4520bc5` |
-| 3 | [N-B2-bestanden-HRB-02](#n-n-b2-bestanden-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden) | erfüllt | 1,000 | `1569a8eec950` |
-| 4 | [N-B2-bestanden-HRB-03](#n-n-b2-bestanden-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden) | erfüllt | 1,000 | `4d05e970d8fc` |
-| 5 | [N-B2-bestanden-HRB-04](#n-n-b2-bestanden-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden) | erfüllt | 1,000 | `e117934af800` |
-| 6 | [N-B2-bestanden-HRB-05](#n-n-b2-bestanden-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (bestanden) | erfüllt | 0,067 | `d4dea59fe39f` |
-| 7 | [N-B2-bestanden-HRB-06](#n-n-b2-bestanden-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden) | erfüllt | 0,056 | `1ad6cb8a87d3` |
-| 8 | [N-B2-bestanden-HRB-07](#n-n-b2-bestanden-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden) | erfüllt | 0,025 | `88c4b7bae0f0` |
-| 9 | [N-B2-bestanden-HRB-08](#n-n-b2-bestanden-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden) | erfüllt | 1,000 | `3496ad701b0b` |
-| 10 | [N-B2-bestanden-HRB-09](#n-n-b2-bestanden-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden) | erfüllt | 0,006 | `94a1ed6f892c` |
-| 11 | [N-B2-bestanden-HRB-10](#n-n-b2-bestanden-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden) | erfüllt | 0,084 | `014c8a9805ed` |
-| 12 | [N-B2-bestanden-HRB-11](#n-n-b2-bestanden-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden) | erfüllt | – | `68f2d76b3e98` |
-| 13 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `46b1a54c5c98` |
-| 14 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `8a2c26bee9cd` |
-| 15 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `d83c1467a650` |
-| 16 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `15589a73043a` |
-| 17 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `0676e9b04fab` |
-| 18 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `833f7f6c74c3` |
-| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `c39ad8abf914` |
-| 20 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `e31acb476e7d` |
-| 21 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `0c03e40e3563` |
+| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | – | `6aa8af66527e` |
+| 2 | [N-B2-bestanden-HRB-01](#n-n-b2-bestanden-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden) | erfüllt | – | `efed7f97dd13` |
+| 3 | [N-B2-bestanden-HRB-02](#n-n-b2-bestanden-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden) | erfüllt | – | `167f8e89385b` |
+| 4 | [N-B2-bestanden-HRB-03](#n-n-b2-bestanden-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden) | erfüllt | – | `dca3a7c3689f` |
+| 5 | [N-B2-bestanden-HRB-04](#n-n-b2-bestanden-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden) | erfüllt | – | `2a8caea35af4` |
+| 6 | [N-B2-bestanden-HRB-05](#n-n-b2-bestanden-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (bestanden) | erfüllt | – | `197e7910e0fe` |
+| 7 | [N-B2-bestanden-HRB-06](#n-n-b2-bestanden-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden) | erfüllt | – | `e240b9ed033d` |
+| 8 | [N-B2-bestanden-HRB-07](#n-n-b2-bestanden-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden) | erfüllt | – | `f41548dac89c` |
+| 9 | [N-B2-bestanden-HRB-08](#n-n-b2-bestanden-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden) | erfüllt | – | `7fd66bfde091` |
+| 10 | [N-B2-bestanden-HRB-09](#n-n-b2-bestanden-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden) | erfüllt | – | `bb036b74c9bd` |
+| 11 | [N-B2-bestanden-HRB-10](#n-n-b2-bestanden-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden) | erfüllt | – | `c8b9bb7cc9b7` |
+| 12 | [N-B2-bestanden-HRB-11](#n-n-b2-bestanden-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden) | erfüllt | – | `3410340e7df5` |
+| 13 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `f2f2f2256a8d` |
+| 14 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `1f1b958a82f1` |
+| 15 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `49aaa14d45c9` |
+| 16 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `0a877dbef777` |
+| 17 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `3dd0e05e602e` |
+| 18 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `ffa017fae07f` |
+| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `7950e7522ca9` |
+| 20 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `cd34e887c42e` |
+| 21 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `bb6d0e8eb12a` |
 
 <a id="n-n-b1-01"></a>
 
 ## N-B1-01 – Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,001
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -363,13 +363,13 @@ Ergebnis: $V_{\mathrm{H},\mathrm{IFC}}$ = 0,51498 m³
 
 Verfahren: Summe NetVolume über 10 IfcPlate
 
-Ergebnis: $V_{\mathrm{P},\mathrm{IFC}}$ = 1,00230375 m³
+Ergebnis: $V_{\mathrm{P},\mathrm{IFC}}$ = 1,0023 m³
 
 **Schritt 23: Dämmvolumen laut IFC (Summe Qto_BodyGeometryValidation.NetVolume)**
 
 Verfahren: Summe NetVolume über 12 IfcBuildingElementPart INSULATION
 
-Ergebnis: $V_{\mathrm{D},\mathrm{IFC}}$ = 1,77594 m³
+Ergebnis: $V_{\mathrm{D},\mathrm{IFC}}$ = 1,7759 m³
 
 **Schritt 24: Abweichung Holzvolumen Nachweis/IFC**
 
@@ -411,9 +411,9 @@ Ausdruck (maschinenlesbar): `abs(V_D - V_D_IFC)`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Holzvolumen: Nachweis = IFC | 1,1102 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Beplankung: Nachweis = IFC | 2,2204 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Dämmung: Nachweis = IFC | 4,4409 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Holzvolumen: Nachweis = IFC | 1,1102 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
+| Beplankung: Nachweis = IFC | 2,2204 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
+| Dämmung: Nachweis = IFC | 4,4409 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -455,8 +455,8 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -465,7 +465,7 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ## N-B2-bestanden-HRB-01 – IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -518,7 +518,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-01 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-01 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -536,8 +536,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `efed7f97dd138c1d58173416a5a62fa17194f13c1702cc5f2ea4e41db2cbca12`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -546,7 +546,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-02 – IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -599,7 +599,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-02 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-02 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-02 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -617,8 +617,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `167f8e89385be0bbd87db5e9c33f539d3c9bd1841084964cdba198522ca9f219`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -627,7 +627,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-03 – IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -680,7 +680,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-03 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-03 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-03 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -698,8 +698,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `dca3a7c3689f91270da609581540c5d3d1aae8f2c1e8f01da9bed67f33ef17e9`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -708,7 +708,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-04 – IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -761,7 +761,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-04 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-04 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-04 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -779,8 +779,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `2a8caea35af427c7e80386a2a5f4daef976bf04fc1cd167cdeacb92e972f307a`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -789,7 +789,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-05 – IDS HRB-05: Ständer: Material KVH C24 (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,067
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -843,7 +843,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 15 Stk | ≥ | 1 Stk | 0,067 | erfüllt | holzrahmenbau.ids, HRB-05 |
+| Anwendbarkeit (Kardinalität) | 15 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-05 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-05 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -861,8 +861,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `197e7910e0fe0d78e9450b604fa28ed9c9d10edf23a72206ef2690e543651799`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -871,7 +871,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-06 – IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,056
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -925,7 +925,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 18 Stk | ≥ | 1 Stk | 0,056 | erfüllt | holzrahmenbau.ids, HRB-06 |
+| Anwendbarkeit (Kardinalität) | 18 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-06 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-06 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -943,8 +943,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `e240b9ed033dfbb76f200836b1ea67bd955f2d56985b59d7414da7bb67bbc8a9`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -953,7 +953,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-07 – IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,025
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -1007,7 +1007,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 41 Stk | ≥ | 1 Stk | 0,025 | erfüllt | holzrahmenbau.ids, HRB-07 |
+| Anwendbarkeit (Kardinalität) | 41 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-07 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-07 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -1025,8 +1025,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `f41548dac89c9d9a0dbeb8ba9c75327bfb9895f0045de01b1f8ecdb5eeebdc32`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1035,7 +1035,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-08 – IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -1089,7 +1089,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-08 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-08 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-08 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -1107,8 +1107,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `7fd66bfde0917bf9428a56db4d67880bd95d640f7c1a12077905038af3c5eed7`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1117,7 +1117,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-09 – IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,006
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -1171,7 +1171,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 176 Stk | ≥ | 1 Stk | 0,006 | erfüllt | holzrahmenbau.ids, HRB-09 |
+| Anwendbarkeit (Kardinalität) | 176 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-09 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-09 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -1189,8 +1189,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `bb036b74c9bd2c3416f17788a337b91806420d1928a4e6cb4c11081eb67fd76c`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1199,7 +1199,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-bestanden-HRB-10 – IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,084
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -1253,7 +1253,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 12 Stk | ≥ | 1 Stk | 0,084 | erfüllt | holzrahmenbau.ids, HRB-10 |
+| Anwendbarkeit (Kardinalität) | 12 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-10 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-10 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -1271,8 +1271,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `c8b9bb7cc9b77c9812484c5a74d7994476e0c8804dc9cc198090ef34822dd575`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1350,8 +1350,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `3410340e7df5b335174d534341395a7880f7dda47ea1daf6ab51d2ec3c367410`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1635,7 +1635,7 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
 | U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,186799 | 0,18679932937799024 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3,4 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 | R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,138892 | 5,138892218541071 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 | U | `IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)` = 0,187 | 0,18679932937799024 | 2,0 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
 
@@ -1663,8 +1663,8 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `f2f2f2256a8d74ff4e3f4e4ddaac09645e828f4a1f6b9d3934954857a120ed11`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -1975,8 +1975,8 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `1f1b958a82f1210ad0bc48d3bf5936f1ee54d6c3916d43712e538efb1d1fb5b5`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -2287,8 +2287,8 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `49aaa14d45c96c52e43440a946e83e6cacfe6e938d34d51b36d896c4617dd801`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -2599,8 +2599,8 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `0a877dbef7779f4f481e7526482cdfa4e548e565145830a16b954062525577c2`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -2717,64 +2717,66 @@ Ausdruck (maschinenlesbar): `max(c_T*H_G, T_min)`
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5,00 m
 
 **Schritt 7: Fläche der Abstandsfläche West (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0,00 m²
 
 **Schritt 8: vorhandene Tiefe vor Wand Ost (Traufe) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5,00 m
 
 **Schritt 9: Fläche der Abstandsfläche Ost (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0,00 m²
 
 **Schritt 10: vorhandene Tiefe vor Wand Süd (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13 m
+Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13,00 m
 
 **Schritt 11: Fläche der Abstandsfläche Süd (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0,00 m²
 
 **Schritt 12: vorhandene Tiefe vor Wand Nord (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9 m
+Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9,00 m
 
 **Schritt 13: Fläche der Abstandsfläche Nord (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0,00 m²
 
 ### Nachweis
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 3,2667 m | 0,252 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 3,2667 m | 0,363 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,00 m | ≥ | 3,27 m | 0,252 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,00 m | ≥ | 3,27 m | 0,363 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
+
+Rundung des Ergebnisses: 2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5).
 
 ### Gegenrechnung mit dem Rechenkern
 
@@ -2803,8 +2805,8 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `3dd0e05e602e5bb363ab929f8ebc03a6e7f8f3cd6358f303d417e8f8228df369`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -2921,64 +2923,66 @@ Ausdruck (maschinenlesbar): `max(c_T*H_G, T_min)`
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 2 m
+Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 2,00 m
 
 **Schritt 7: Fläche der Abstandsfläche West (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 15,2 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 15,20 m²
 
 **Schritt 8: vorhandene Tiefe vor Wand Ost (Traufe) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 8 m
+Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 8,00 m
 
 **Schritt 9: Fläche der Abstandsfläche Ost (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0,00 m²
 
 **Schritt 10: vorhandene Tiefe vor Wand Süd (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13 m
+Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13,00 m
 
 **Schritt 11: Fläche der Abstandsfläche Süd (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0,00 m²
 
 **Schritt 12: vorhandene Tiefe vor Wand Nord (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9 m
+Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9,00 m
 
 **Schritt 13: Fläche der Abstandsfläche Nord (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0,00 m²
 
 ### Nachweis
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 15,200 m² | ≤ | 0 m² | – | **nicht erfüllt** | BayBO Art. 6 Abs. 2 [U] |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 2,0000 m | ≥ | 3,2667 m | 1,634 | **nicht erfüllt** | BayBO Art. 6 Abs. 5 [U] |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 8,0000 m | ≥ | 3,2667 m | 0,409 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 3,2667 m | 0,252 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 3,2667 m | 0,363 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 15,20 m² | ≤ | 0 m² | – | **nicht erfüllt** | BayBO Art. 6 Abs. 2 [U] |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 2,00 m | ≥ | 3,27 m | 1,634 | **nicht erfüllt** | BayBO Art. 6 Abs. 5 [U] |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 8,00 m | ≥ | 3,27 m | 0,409 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,00 m | ≥ | 3,27 m | 0,252 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,00 m | ≥ | 3,27 m | 0,363 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
+
+Rundung des Ergebnisses: 2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5).
 
 ### Gegenrechnung mit dem Rechenkern
 
@@ -3007,8 +3011,8 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `ffa017fae07fdadc13f2d10f07486f4da5925909652f5297f8188094effa9356`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -3125,64 +3129,66 @@ Ausdruck (maschinenlesbar): `max(c_T*H_G, T_min)`
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5,00 m
 
 **Schritt 7: Fläche der Abstandsfläche West (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0,00 m²
 
 **Schritt 8: vorhandene Tiefe vor Wand Ost (Traufe) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5,00 m
 
 **Schritt 9: Fläche der Abstandsfläche Ost (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0,00 m²
 
 **Schritt 10: vorhandene Tiefe vor Wand Süd (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 5,00 m
 
 **Schritt 11: Fläche der Abstandsfläche Süd (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0,00 m²
 
 **Schritt 12: vorhandene Tiefe vor Wand Nord (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 17 m
+Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 17,00 m
 
 **Schritt 13: Fläche der Abstandsfläche Nord (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0,00 m²
 
 ### Nachweis
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 17,000 m | ≥ | 3,2667 m | 0,193 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 17,00 m | ≥ | 3,27 m | 0,193 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
+
+Rundung des Ergebnisses: 2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5).
 
 ### Gegenrechnung mit dem Rechenkern
 
@@ -3211,8 +3217,8 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `7950e7522ca9d142a0612f833d529ffb068a53e6ccb97893e57579cab6f19a1e`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -3329,64 +3335,66 @@ Ausdruck (maschinenlesbar): `max(c_T*H_G, T_min)`
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{W}}$ = 5,00 m
 
 **Schritt 7: Fläche der Abstandsfläche West (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{W}}$ = 0,00 m²
 
 **Schritt 8: vorhandene Tiefe vor Wand Ost (Traufe) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5 m
+Ergebnis: $T_{\mathrm{v},\mathrm{O}}$ = 5,00 m
 
 **Schritt 9: Fläche der Abstandsfläche Ost (Traufe) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{O}}$ = 0,00 m²
 
 **Schritt 10: vorhandene Tiefe vor Wand Süd (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13 m
+Ergebnis: $T_{\mathrm{v},\mathrm{S}}$ = 13,00 m
 
 **Schritt 11: Fläche der Abstandsfläche Süd (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{S}}$ = 0,00 m²
 
 **Schritt 12: vorhandene Tiefe vor Wand Nord (Giebel) (Wandmitte bis Grenze der zulässigen Fläche)**
 
 Verfahren: Strahl von der Wandmitte in Richtung der Außennormalen, Schnitt mit dem Rand von Grundstück ∪ halber Straßenbreite (b4_abstandsflaechen.vorhandene_tiefe)
 
-Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9 m
+Ergebnis: $T_{\mathrm{v},\mathrm{N}}$ = 9,00 m
 
 **Schritt 13: Fläche der Abstandsfläche Nord (Giebel) außerhalb der zulässigen Fläche**
 
 Verfahren: Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)
 
-Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
+Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0,00 m²
 
 ### Nachweis
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 4,6000 m | 0,354 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 4,6000 m | 0,512 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,00 m | ≥ | 3,27 m | 0,654 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,00 m | ≥ | 4,61 m | 0,354 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,00 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 Abs. 2 [U] |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,00 m | ≥ | 4,61 m | 0,512 | erfüllt | BayBO Art. 6 Abs. 5 [U] |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
+
+Rundung des Ergebnisses: 2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5).
 
 ### Gegenrechnung mit dem Rechenkern
 
@@ -3415,8 +3423,8 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `cd34e887c42e80c3ff78f511ef2676f189d0852957d38d2678c23c244f49eee9`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -3606,8 +3614,8 @@ Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 

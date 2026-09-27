@@ -47,7 +47,7 @@ from datetime import datetime, timezone
 from decimal import ROUND_CEILING, ROUND_FLOOR, ROUND_HALF_EVEN, ROUND_HALF_UP, Decimal
 from fractions import Fraction
 from pathlib import Path
-from typing import Any, Callable, Iterable, Sequence
+from typing import Any, Callable, Sequence
 
 import numpy as np
 
@@ -189,15 +189,18 @@ class DimWert:
         return o
 
     def __add__(self, o):
-        o = self._pruef(o, "+"); return DimWert(self.si + o.si, self.dim)
+        o = self._pruef(o, "+")
+        return DimWert(self.si + o.si, self.dim)
 
     __radd__ = __add__
 
     def __sub__(self, o):
-        o = self._pruef(o, "−"); return DimWert(self.si - o.si, self.dim)
+        o = self._pruef(o, "−")
+        return DimWert(self.si - o.si, self.dim)
 
     def __rsub__(self, o):
-        o = self._pruef(o, "−"); return DimWert(o.si - self.si, self.dim)
+        o = self._pruef(o, "−")
+        return DimWert(o.si - self.si, self.dim)
 
     def __mul__(self, o):
         o = o if isinstance(o, DimWert) else DimWert(o, _D0)
@@ -569,6 +572,8 @@ class Groesse:
 
     def anzeige(self, rundung: Rundung | None = None) -> str:
         r = rundung or self.rundung
+        if r is None and self.art in ("zwischenergebnis", "ergebnis") and isinstance(self.wert, float):
+            r = ZWISCHENWERT
         if self.wert is None:
             return "–"
         if not self.numerisch:
@@ -1136,8 +1141,10 @@ class Nachweis:
             if g is None or not g.numerisch:
                 raise NachweisFehler(f"{self.id}: Gegenrechnung für unbekanntes Symbol {gr['symbol']}")
             gr["wert_nachweis"] = g.wert
-            gr["abweichung"] = abs(g.wert - gr["wert_rechenkern"])
-            gr["uebereinstimmung"] = gr["abweichung"] <= gr["toleranz_abs"]
+            diff = abs(g.wert - gr["wert_rechenkern"])
+            gr["uebereinstimmung"] = diff <= gr["toleranz_abs"]
+            # Differenz fast gleicher Zahlen: nur 3 Stellen sind aussagekräftig (Auslöschung)
+            gr["abweichung"] = float(f"{diff:.3g}")
 
     # --- Export -------------------------------------------------------------
     def _sicher(self):
@@ -1177,7 +1184,8 @@ class Nachweis:
         }
         if mit_hash:
             d["hash"] = {"algorithmus": "SHA-256", "wert": inhalts_hash(d),
-                         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"}
+                         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; "
+                                   "Gleitkommazahlen auf 12 signifikante Stellen normiert"}
         return d
 
     def _alle_hinweise(self) -> list[str]:
@@ -1215,9 +1223,26 @@ class Nachweis:
         return _schreibe([self], ordner, basis or self.id, heft=None)
 
 
+HASH_STELLEN = 12
+
+
+def _hash_normalform(x: Any) -> Any:
+    """Gleitkommazahlen für den Hash auf 12 signifikante Stellen normieren: Abweichungen im
+    letzten Bit (z. B. andere Rechenreihenfolge eines Einheitenpakets, 1e-15 relativ) sollen
+    den Hash nicht ändern; fachlich relevante Änderungen (≥ 1e-12 relativ) ändern ihn."""
+    if isinstance(x, float):
+        return float(f"{x:.{HASH_STELLEN}g}")
+    if isinstance(x, dict):
+        return {k: _hash_normalform(v) for k, v in x.items()}
+    if isinstance(x, list):
+        return [_hash_normalform(v) for v in x]
+    return x
+
+
 def inhalts_hash(d: dict) -> str:
+    """SHA-256 über das kanonische JSON ohne hash, zeitstempel und umgebung, Zahlen in Hash-Normalform."""
     kern = {k: v for k, v in d.items() if k not in ("hash", "zeitstempel", "umgebung")}
-    return hashlib.sha256(kanonisch_json(kern).encode("utf-8")).hexdigest()
+    return hashlib.sha256(kanonisch_json(_hash_normalform(kern)).encode("utf-8")).hexdigest()
 
 
 # ===========================================================================

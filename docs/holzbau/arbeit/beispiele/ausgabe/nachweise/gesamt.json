@@ -73,88 +73,88 @@
       "id": "N-B1-01",
       "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
       "status": "erfüllt",
-      "ausnutzung": 4.440892098500626e-08,
-      "hash": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
+      "ausnutzung": null,
+      "hash": "6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-bestanden-HRB-01",
       "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6",
+      "ausnutzung": null,
+      "hash": "efed7f97dd138c1d58173416a5a62fa17194f13c1702cc5f2ea4e41db2cbca12",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-bestanden-HRB-02",
       "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b",
+      "ausnutzung": null,
+      "hash": "167f8e89385be0bbd87db5e9c33f539d3c9bd1841084964cdba198522ca9f219",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-bestanden-HRB-03",
       "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e",
+      "ausnutzung": null,
+      "hash": "dca3a7c3689f91270da609581540c5d3d1aae8f2c1e8f01da9bed67f33ef17e9",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-bestanden-HRB-04",
       "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e",
+      "ausnutzung": null,
+      "hash": "2a8caea35af427c7e80386a2a5f4daef976bf04fc1cd167cdeacb92e972f307a",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-bestanden-HRB-05",
       "titel": "IDS HRB-05: Ständer: Material KVH C24 (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 0.06666666666666667,
-      "hash": "d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242",
+      "ausnutzung": null,
+      "hash": "197e7910e0fe0d78e9450b604fa28ed9c9d10edf23a72206ef2690e543651799",
       "gegenstand": null
     },
     {
       "id": "N-B2-bestanden-HRB-06",
       "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 0.05555555555555555,
-      "hash": "1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0",
+      "ausnutzung": null,
+      "hash": "e240b9ed033dfbb76f200836b1ea67bd955f2d56985b59d7414da7bb67bbc8a9",
       "gegenstand": null
     },
     {
       "id": "N-B2-bestanden-HRB-07",
       "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 0.024390243902439025,
-      "hash": "88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd",
+      "ausnutzung": null,
+      "hash": "f41548dac89c9d9a0dbeb8ba9c75327bfb9895f0045de01b1f8ecdb5eeebdc32",
       "gegenstand": null
     },
     {
       "id": "N-B2-bestanden-HRB-08",
       "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b",
+      "ausnutzung": null,
+      "hash": "7fd66bfde0917bf9428a56db4d67880bd95d640f7c1a12077905038af3c5eed7",
       "gegenstand": null
     },
     {
       "id": "N-B2-bestanden-HRB-09",
       "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 0.005681818181818182,
-      "hash": "94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f",
+      "ausnutzung": null,
+      "hash": "bb036b74c9bd2c3416f17788a337b91806420d1928a4e6cb4c11081eb67fd76c",
       "gegenstand": null
     },
     {
       "id": "N-B2-bestanden-HRB-10",
       "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden)",
       "status": "erfüllt",
-      "ausnutzung": 0.08333333333333333,
-      "hash": "014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047",
+      "ausnutzung": null,
+      "hash": "c8b9bb7cc9b77c9812484c5a74d7994476e0c8804dc9cc198090ef34822dd575",
       "gegenstand": null
     },
     {
@@ -162,7 +162,7 @@
       "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden)",
       "status": "erfüllt",
       "ausnutzung": null,
-      "hash": "68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f",
+      "hash": "3410340e7df5b335174d534341395a7880f7dda47ea1daf6ab51d2ec3c367410",
       "gegenstand": null
     },
     {
@@ -170,7 +170,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.9339966468899511,
-      "hash": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
+      "hash": "f2f2f2256a8d74ff4e3f4e4ddaac09645e828f4a1f6b9d3934954857a120ed11",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -178,7 +178,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.9174898618235497,
-      "hash": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
+      "hash": "1f1b958a82f1210ad0bc48d3bf5936f1ee54d6c3916d43712e538efb1d1fb5b5",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -186,7 +186,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.812633801272794,
-      "hash": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
+      "hash": "49aaa14d45c96c52e43440a946e83e6cacfe6e938d34d51b36d896c4617dd801",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -194,7 +194,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.8004031209999192,
-      "hash": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
+      "hash": "0a877dbef7779f4f481e7526482cdfa4e548e565145830a16b954062525577c2",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -202,7 +202,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
+      "hash": "3dd0e05e602e5bb363ab929f8ebc03a6e7f8f3cd6358f303d417e8f8228df369",
       "gegenstand": null
     },
     {
@@ -210,7 +210,7 @@
       "titel": "Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel)",
       "status": "nicht erfüllt",
       "ausnutzung": 1.6333333333333333,
-      "hash": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
+      "hash": "ffa017fae07fdadc13f2d10f07486f4da5925909652f5297f8188094effa9356",
       "gegenstand": null
     },
     {
@@ -218,7 +218,7 @@
       "titel": "Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
+      "hash": "7950e7522ca9d142a0612f833d529ffb068a53e6ccb97893e57579cab6f19a1e",
       "gegenstand": null
     },
     {
@@ -226,7 +226,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
+      "hash": "cd34e887c42e80c3ff78f511ef2676f189d0852957d38d2678c23c244f49eee9",
       "gegenstand": null
     },
     {
@@ -234,7 +234,7 @@
       "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
       "status": "erfüllt",
       "ausnutzung": 0.9710407239819006,
-      "hash": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
+      "hash": "bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1",
       "gegenstand": null
     }
   ],
@@ -296,7 +296,7 @@
           "bezug": null,
           "anzeige": "4800 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe",
@@ -311,7 +311,7 @@
           "bezug": null,
           "anzeige": "2750 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fensterbreite (Rohbau)",
@@ -326,7 +326,7 @@
           "bezug": null,
           "anzeige": "1260 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fensterhöhe (Rohbau)",
@@ -341,7 +341,7 @@
           "bezug": null,
           "anzeige": "1385 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Holzquerschnittstiefe",
@@ -356,7 +356,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kervenbreite (= Ständerbreite)",
@@ -371,7 +371,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kerventiefe",
@@ -386,7 +386,7 @@
           "bezug": null,
           "anzeige": "25 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Kervenhöhe",
@@ -401,7 +401,7 @@
           "bezug": null,
           "anzeige": "40 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke GKF",
@@ -416,7 +416,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -431,7 +431,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -446,7 +446,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -461,7 +461,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schraubendurchmesser",
@@ -476,7 +476,7 @@
           "bezug": null,
           "anzeige": "4 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schraubenlänge",
@@ -491,7 +491,7 @@
           "bezug": null,
           "anzeige": "50 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Rohdichte KVH C24 (Nadelholz)",
@@ -506,7 +506,7 @@
           "bezug": null,
           "anzeige": "420 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Gipsplatte Typ DF (GKF)",
@@ -521,7 +521,7 @@
           "bezug": null,
           "anzeige": "800 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte OSB/3",
@@ -536,7 +536,7 @@
           "bezug": null,
           "anzeige": "600 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Holzfaser-Dämmmatte (flexibel)",
@@ -551,7 +551,7 @@
           "bezug": null,
           "anzeige": "50 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Holzfaserdämmplatte (Putzträger)",
@@ -566,7 +566,7 @@
           "bezug": null,
           "anzeige": "180 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "Rohdichte Stahl",
@@ -581,7 +581,7 @@
           "bezug": null,
           "anzeige": "7850 kg/m³",
           "rundung": null,
-          "dimension": "[mass] / [length] ** 3"
+          "dimension": "L^-3·M"
         },
         {
           "name": "zulässige Mengenabweichung Modell/IFC",
@@ -596,7 +596,7 @@
           "bezug": null,
           "anzeige": "1 · 10⁻⁸ m³",
           "rundung": null,
-          "dimension": "[length] ** 3"
+          "dimension": "L^3"
         }
       ],
       "schritte": [
@@ -623,9 +623,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13,2 m²",
+            "anzeige": "13,200 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -651,9 +651,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,7450999999999999 m²",
+            "anzeige": "1,7451 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -679,9 +679,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "11,454899999999999 m²",
+            "anzeige": "11,455 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -706,7 +706,7 @@
             "bezug": null,
             "anzeige": "2,5752 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -732,9 +732,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,879699999999998 m²",
+            "anzeige": "8,8797 m²",
             "rundung": null,
-            "dimension": "[length] ** 2"
+            "dimension": "L^2"
           }
         },
         {
@@ -761,9 +761,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6 · 10⁻⁵ m³",
+            "anzeige": "6,0000 · 10⁻⁵ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -790,9 +790,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,5149800000000001 m³",
+            "anzeige": "0,51498 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -818,9 +818,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,14318625 m³",
+            "anzeige": "0,14319 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -846,9 +846,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,17182349999999996 m³",
+            "anzeige": "0,17182 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -874,9 +874,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,6872939999999998 m³",
+            "anzeige": "0,68729 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -902,9 +902,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,7759399999999996 m³",
+            "anzeige": "1,7759 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -929,7 +929,7 @@
             "bezug": null,
             "anzeige": "176 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -955,9 +955,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "216,29160000000005 kg",
+            "anzeige": "216,29 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -983,9 +983,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "114,54899999999999 kg",
+            "anzeige": "114,55 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1011,9 +1011,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "103,09409999999998 kg",
+            "anzeige": "103,09 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1039,9 +1039,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "123,71291999999997 kg",
+            "anzeige": "123,71 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1067,9 +1067,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "88,79699999999998 kg",
+            "anzeige": "88,797 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1097,9 +1097,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,8680848820399317 kg",
+            "anzeige": "0,86808 kg",
             "rundung": null,
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1137,7 +1137,7 @@
               "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
               "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
             },
-            "dimension": "[mass]"
+            "dimension": "M"
           }
         },
         {
@@ -1163,9 +1163,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "56,509677507620324 kg/m²",
+            "anzeige": "56,510 kg/m²",
             "rundung": null,
-            "dimension": "[mass] / [length] ** 2"
+            "dimension": "L^-2·M"
           }
         },
         {
@@ -1190,7 +1190,7 @@
             "bezug": null,
             "anzeige": "0,51498 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1213,9 +1213,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,00230375 m³",
+            "anzeige": "1,0023 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1238,9 +1238,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,77594 m³",
+            "anzeige": "1,7759 m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1266,9 +1266,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,1102230246251565 · 10⁻¹⁶ m³",
+            "anzeige": "1,1102 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1296,9 +1296,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "2,220446049250313 · 10⁻¹⁶ m³",
+            "anzeige": "2,2204 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         },
         {
@@ -1324,9 +1324,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,440892098500626 · 10⁻¹⁶ m³",
+            "anzeige": "4,4409 · 10⁻¹⁶ m³",
             "rundung": null,
-            "dimension": "[length] ** 3"
+            "dimension": "L^3"
           }
         }
       ],
@@ -1338,10 +1338,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.1102230246251565e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 1.1102230246251565e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1353,10 +1354,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 2.220446049250313e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 2.220446049250313e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1368,10 +1370,11 @@
           "grenzwert": "dV_zul",
           "norm_verweis": "Konsistenz Modell/IFC",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 4.440892098500626e-16,
           "grenz_wert": 1e-08,
           "einheit": "m³",
-          "ausnutzung": 4.440892098500626e-08,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1396,7 +1399,7 @@
           "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
           "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
         },
-        "dimension": "[mass]"
+        "dimension": "M"
       },
       "grenzwert": {
         "name": "zulässige Mengenabweichung Modell/IFC",
@@ -1411,10 +1414,10 @@
         "bezug": null,
         "anzeige": "1 · 10⁻⁸ m³",
         "rundung": null,
-        "dimension": "[length] ** 3"
+        "dimension": "L^3"
       },
       "vergleich": "≤",
-      "ausnutzung": 4.440892098500626e-08,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [
         "Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.",
@@ -1550,8 +1553,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1592,7 +1595,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -1607,7 +1610,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -1622,7 +1625,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -1637,7 +1640,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1690,7 +1693,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1702,10 +1705,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1717,6 +1721,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1739,7 +1744,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -1754,10 +1759,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -1801,8 +1806,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "efed7f97dd138c1d58173416a5a62fa17194f13c1702cc5f2ea4e41db2cbca12",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1843,7 +1848,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -1858,7 +1863,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -1873,7 +1878,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -1888,7 +1893,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1941,7 +1946,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1953,10 +1958,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-02",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1968,6 +1974,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-02",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1990,7 +1997,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -2005,10 +2012,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2052,8 +2059,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "167f8e89385be0bbd87db5e9c33f539d3c9bd1841084964cdba198522ca9f219",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2094,7 +2101,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2109,7 +2116,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2124,7 +2131,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2139,7 +2146,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2192,7 +2199,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2204,10 +2211,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-03",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2219,6 +2227,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-03",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2241,7 +2250,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -2256,10 +2265,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2303,8 +2312,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "dca3a7c3689f91270da609581540c5d3d1aae8f2c1e8f01da9bed67f33ef17e9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2345,7 +2354,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2360,7 +2369,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2375,7 +2384,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2390,7 +2399,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2443,7 +2452,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2455,10 +2464,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-04",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2470,6 +2480,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-04",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2492,7 +2503,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -2507,10 +2518,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2554,8 +2565,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "2a8caea35af427c7e80386a2a5f4daef976bf04fc1cd167cdeacb92e972f307a",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2612,7 +2623,7 @@
           "bezug": null,
           "anzeige": "15 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2627,7 +2638,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2642,7 +2653,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2657,7 +2668,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2710,7 +2721,7 @@
             "bezug": null,
             "anzeige": "15 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2722,10 +2733,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-05",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 15.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.06666666666666667,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2737,6 +2749,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-05",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2759,7 +2772,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -2774,10 +2787,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.06666666666666667,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2821,8 +2834,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "197e7910e0fe0d78e9450b604fa28ed9c9d10edf23a72206ef2690e543651799",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2882,7 +2895,7 @@
           "bezug": null,
           "anzeige": "18 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2897,7 +2910,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2912,7 +2925,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2927,7 +2940,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2980,7 +2993,7 @@
             "bezug": null,
             "anzeige": "18 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2992,10 +3005,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-06",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 18.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.05555555555555555,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -3007,6 +3021,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-06",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -3029,7 +3044,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -3044,10 +3059,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.05555555555555555,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -3091,8 +3106,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "e240b9ed033dfbb76f200836b1ea67bd955f2d56985b59d7414da7bb67bbc8a9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -3175,7 +3190,7 @@
           "bezug": null,
           "anzeige": "41 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -3190,7 +3205,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -3205,7 +3220,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -3220,7 +3235,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -3273,7 +3288,7 @@
             "bezug": null,
             "anzeige": "41 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -3285,10 +3300,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-07",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 41.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.024390243902439025,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -3300,6 +3316,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-07",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -3322,7 +3339,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -3337,10 +3354,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.024390243902439025,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -3384,8 +3401,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "f41548dac89c9d9a0dbeb8ba9c75327bfb9895f0045de01b1f8ecdb5eeebdc32",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -3428,7 +3445,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -3443,7 +3460,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -3458,7 +3475,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -3473,7 +3490,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -3526,7 +3543,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -3538,10 +3555,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-08",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -3553,6 +3571,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-08",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -3575,7 +3594,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -3590,10 +3609,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -3637,8 +3656,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "7fd66bfde0917bf9428a56db4d67880bd95d640f7c1a12077905038af3c5eed7",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -3856,7 +3875,7 @@
           "bezug": null,
           "anzeige": "176 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -3871,7 +3890,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -3886,7 +3905,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -3901,7 +3920,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -3954,7 +3973,7 @@
             "bezug": null,
             "anzeige": "176 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -3966,10 +3985,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-09",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 176.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.005681818181818182,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -3981,6 +4001,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-09",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -4003,7 +4024,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -4018,10 +4039,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.005681818181818182,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -4065,8 +4086,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "bb036b74c9bd2c3416f17788a337b91806420d1928a4e6cb4c11081eb67fd76c",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -4120,7 +4141,7 @@
           "bezug": null,
           "anzeige": "12 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -4135,7 +4156,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -4150,7 +4171,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -4165,7 +4186,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -4218,7 +4239,7 @@
             "bezug": null,
             "anzeige": "12 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -4230,10 +4251,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-10",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 12.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.08333333333333333,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -4245,6 +4267,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-10",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -4267,7 +4290,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -4282,10 +4305,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.08333333333333333,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -4329,8 +4352,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "c8b9bb7cc9b77c9812484c5a74d7994476e0c8804dc9cc198090ef34822dd575",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -4371,7 +4394,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -4386,7 +4409,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "höchstzulässige Anzahl",
@@ -4401,7 +4424,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -4454,7 +4477,7 @@
             "bezug": null,
             "anzeige": "0 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -4466,6 +4489,7 @@
           "grenzwert": "n_max",
           "norm_verweis": "holzrahmenbau.ids, HRB-11",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -4488,7 +4512,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "höchstzulässige Anzahl",
@@ -4503,7 +4527,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -4550,8 +4574,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "3410340e7df5b335174d534341395a7880f7dda47ea1daf6ab51d2ec3c367410",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -4592,7 +4616,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -4607,7 +4631,7 @@
           "bezug": null,
           "anzeige": "0,04 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -4622,7 +4646,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -4637,7 +4661,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -4652,7 +4676,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -4667,7 +4691,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -4682,7 +4706,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -4697,7 +4721,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -4712,7 +4736,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -4727,7 +4751,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -4742,7 +4766,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ansichtsfläche aller Hölzer",
@@ -4757,7 +4781,7 @@
           "bezug": null,
           "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Nettowandfläche (ohne Öffnungen)",
@@ -4772,7 +4796,7 @@
           "bezug": null,
           "anzeige": "11 454 900 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -4793,7 +4817,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -4820,9 +4844,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,22481208914962156",
+            "anzeige": "0,22481",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -4848,9 +4872,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -4876,9 +4900,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -4904,9 +4928,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -4932,9 +4956,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -4960,9 +4984,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -4992,9 +5016,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,269194991055456 m²·K/W",
+            "anzeige": "3,2692 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5024,9 +5048,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,99389134733076 m²·K/W",
+            "anzeige": "6,9939 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5051,9 +5075,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,7751879108503784",
+            "anzeige": "0,77519",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -5081,9 +5105,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,567784334633171 m²·K/W",
+            "anzeige": "5,5678 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5111,9 +5135,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,058682712201765186 W/(m·K)",
+            "anzeige": "0,058683 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -5139,9 +5163,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,4081587659471535 m²·K/W",
+            "anzeige": "3,4082 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5171,9 +5195,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,138892218541071 m²·K/W",
+            "anzeige": "5,1389 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5207,7 +5231,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5242,7 +5266,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -5275,7 +5299,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -5287,6 +5311,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.18679932937799024,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -5315,7 +5340,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -5336,7 +5361,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9339966468899511,
@@ -5461,8 +5486,8 @@
           "wert_rechenkern": 0.186799,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.18679932937799024,
-          "abweichung": 3.293779902435734e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.29e-07
         },
         {
           "symbol": "R_o",
@@ -5470,8 +5495,8 @@
           "wert_rechenkern": 5.567784,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.567784334633171,
-          "abweichung": 3.3463317095083767e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.35e-07
         },
         {
           "symbol": "R_u",
@@ -5479,8 +5504,8 @@
           "wert_rechenkern": 5.138892,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.138892218541071,
-          "abweichung": 2.1854107057350802e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.19e-07
         },
         {
           "symbol": "U",
@@ -5488,8 +5513,8 @@
           "wert_rechenkern": 0.187,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 0.18679932937799024,
-          "abweichung": 0.00020067062200976316,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000201
         }
       ],
       "grafiken": [
@@ -5546,8 +5571,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "f2f2f2256a8d74ff4e3f4e4ddaac09645e828f4a1f6b9d3934954857a120ed11",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -5588,7 +5613,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -5603,7 +5628,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -5618,7 +5643,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -5633,7 +5658,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -5648,7 +5673,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -5663,7 +5688,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -5678,7 +5703,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -5693,7 +5718,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -5708,7 +5733,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -5723,7 +5748,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -5738,7 +5763,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ansichtsfläche aller Hölzer",
@@ -5753,7 +5778,7 @@
           "bezug": null,
           "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Nettowandfläche (ohne Öffnungen)",
@@ -5768,7 +5793,7 @@
           "bezug": null,
           "anzeige": "11 454 900 mm²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -5789,7 +5814,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -5816,9 +5841,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,22481208914962156",
+            "anzeige": "0,22481",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -5844,9 +5869,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5872,9 +5897,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5900,9 +5925,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5928,9 +5953,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5956,9 +5981,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -5988,9 +6013,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,359194991055456 m²·K/W",
+            "anzeige": "3,3592 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6020,9 +6045,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "7,08389134733076 m²·K/W",
+            "anzeige": "7,0839 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6047,9 +6072,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,7751879108503784",
+            "anzeige": "0,77519",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -6077,9 +6102,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,670410777706296 m²·K/W",
+            "anzeige": "5,6704 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6107,9 +6132,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,058682712201765186 W/(m·K)",
+            "anzeige": "0,058683 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -6135,9 +6160,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,4081587659471535 m²·K/W",
+            "anzeige": "3,4082 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6167,9 +6192,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,228892218541071 m²·K/W",
+            "anzeige": "5,2289 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6203,7 +6228,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6238,7 +6263,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -6271,7 +6296,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -6283,6 +6308,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.18349797236470997,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -6311,7 +6337,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -6332,7 +6358,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9174898618235497,
@@ -6457,8 +6483,8 @@
           "wert_rechenkern": 0.183498,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.18349797236470997,
-          "abweichung": 2.763529002858256e-08,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.76e-08
         },
         {
           "symbol": "R_o",
@@ -6466,8 +6492,8 @@
           "wert_rechenkern": 5.670411,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.670410777706296,
-          "abweichung": 2.222937034446204e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.22e-07
         },
         {
           "symbol": "R_u",
@@ -6475,8 +6501,8 @@
           "wert_rechenkern": 5.228892,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 5.228892218541071,
-          "abweichung": 2.1854107057350802e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.19e-07
         }
       ],
       "grafiken": [
@@ -6533,8 +6559,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "1f1b958a82f1210ad0bc48d3bf5936f1ee54d6c3916d43712e538efb1d1fb5b5",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -6575,7 +6601,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -6590,7 +6616,7 @@
           "bezug": null,
           "anzeige": "0,04 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -6605,7 +6631,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -6620,7 +6646,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -6635,7 +6661,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -6650,7 +6676,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -6665,7 +6691,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -6680,7 +6706,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -6695,7 +6721,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -6710,7 +6736,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -6725,7 +6751,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ständerbreite",
@@ -6740,7 +6766,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Achsmaß der Ständer",
@@ -6755,7 +6781,7 @@
           "bezug": null,
           "anzeige": "625 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -6776,7 +6802,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -6803,9 +6829,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,096",
+            "anzeige": "0,096000",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -6831,9 +6857,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6859,9 +6885,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6887,9 +6913,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6915,9 +6941,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6943,9 +6969,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -6975,9 +7001,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,269194991055456 m²·K/W",
+            "anzeige": "3,2692 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7007,9 +7033,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,99389134733076 m²·K/W",
+            "anzeige": "6,9939 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7034,9 +7060,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,904",
+            "anzeige": "0,90400",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -7064,9 +7090,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,304348160715462 m²·K/W",
+            "anzeige": "6,3043 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7096,7 +7122,7 @@
             "bezug": null,
             "anzeige": "0,046832 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -7122,9 +7148,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,270584215920738 m²·K/W",
+            "anzeige": "4,2706 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7154,9 +7180,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,001317668514656 m²·K/W",
+            "anzeige": "6,0013 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7190,7 +7216,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7225,7 +7251,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -7258,7 +7284,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -7270,6 +7296,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.1625267602545588,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -7298,7 +7325,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -7319,7 +7346,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.812633801272794,
@@ -7444,8 +7471,8 @@
           "wert_rechenkern": 0.162527,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.1625267602545588,
-          "abweichung": 2.3974544119398367e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.4e-07
         },
         {
           "symbol": "R_o",
@@ -7453,8 +7480,8 @@
           "wert_rechenkern": 6.304348,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.304348160715462,
-          "abweichung": 1.6071546227180988e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 1.61e-07
         },
         {
           "symbol": "R_u",
@@ -7462,8 +7489,8 @@
           "wert_rechenkern": 6.001318,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.001317668514656,
-          "abweichung": 3.314853440627985e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.31e-07
         }
       ],
       "grafiken": [
@@ -7520,8 +7547,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "49aaa14d45c96c52e43440a946e83e6cacfe6e938d34d51b36d896c4617dd801",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -7562,7 +7589,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Wärmeübergangswiderstand außen",
@@ -7577,7 +7604,7 @@
           "bezug": null,
           "anzeige": "0,13 m²·K/W",
           "rundung": null,
-          "dimension": "[temperature] * [time] ** 3 / [mass]"
+          "dimension": "M^-1·T^3·Θ"
         },
         {
           "name": "Dicke GKF",
@@ -7592,7 +7619,7 @@
           "bezug": null,
           "anzeige": "12,5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke OSB/3",
@@ -7607,7 +7634,7 @@
           "bezug": null,
           "anzeige": "15 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Gefach",
@@ -7622,7 +7649,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dicke Holzfaserdämmplatte",
@@ -7637,7 +7664,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Bemessungswert λ GKF",
@@ -7652,7 +7679,7 @@
           "bezug": null,
           "anzeige": "0,25 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ OSB/3",
@@ -7667,7 +7694,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holz (KVH C24)",
@@ -7682,7 +7709,7 @@
           "bezug": null,
           "anzeige": "0,13 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Gefachdämmung",
@@ -7697,7 +7724,7 @@
           "bezug": null,
           "anzeige": "0,038 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Bemessungswert λ Holzfaserdämmplatte",
@@ -7712,7 +7739,7 @@
           "bezug": null,
           "anzeige": "0,043 W/(m·K)",
           "rundung": null,
-          "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+          "dimension": "L·M·T^-3·Θ^-1"
         },
         {
           "name": "Ständerbreite",
@@ -7727,7 +7754,7 @@
           "bezug": null,
           "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Achsmaß der Ständer",
@@ -7742,7 +7769,7 @@
           "bezug": null,
           "anzeige": "625 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -7763,7 +7790,7 @@
             "quelle": "Angabe wie in HRB-01",
             "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
           },
-          "dimension": "[mass] / [temperature] / [time] ** 3"
+          "dimension": "M·T^-3·Θ^-1"
         }
       ],
       "schritte": [
@@ -7790,9 +7817,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,096",
+            "anzeige": "0,096000",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -7818,9 +7845,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,05 m²·K/W",
+            "anzeige": "0,050000 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7846,9 +7873,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,11538461538461539 m²·K/W",
+            "anzeige": "0,11538 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7874,9 +7901,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,3953488372093026 m²·K/W",
+            "anzeige": "1,3953 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7902,9 +7929,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "1,5384615384615383 m²·K/W",
+            "anzeige": "1,5385 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7930,9 +7957,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5,2631578947368425 m²·K/W",
+            "anzeige": "5,2632 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7962,9 +7989,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,359194991055456 m²·K/W",
+            "anzeige": "3,3592 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -7994,9 +8021,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "7,08389134733076 m²·K/W",
+            "anzeige": "7,0839 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -8021,9 +8048,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,904",
+            "anzeige": "0,90400",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -8051,9 +8078,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,402386738218921 m²·K/W",
+            "anzeige": "6,4024 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -8083,7 +8110,7 @@
             "bezug": null,
             "anzeige": "0,046832 W/(m·K)",
             "rundung": null,
-            "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
+            "dimension": "L·M·T^-3·Θ^-1"
           }
         },
         {
@@ -8109,9 +8136,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,270584215920738 m²·K/W",
+            "anzeige": "4,2706 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -8141,9 +8168,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "6,091317668514656 m²·K/W",
+            "anzeige": "6,0913 m²·K/W",
             "rundung": null,
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -8177,7 +8204,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)",
               "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.6 (sinngemäß)"
             },
-            "dimension": "[temperature] * [time] ** 3 / [mass]"
+            "dimension": "M^-1·T^3·Θ"
           }
         },
         {
@@ -8212,7 +8239,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -8245,7 +8272,7 @@
               "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
               "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
             },
-            "dimension": "[mass] / [temperature] / [time] ** 3"
+            "dimension": "M·T^-3·Θ^-1"
           }
         }
       ],
@@ -8257,6 +8284,7 @@
           "grenzwert": "U_max",
           "norm_verweis": "holzrahmenbau.ids HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 0.16008062419998384,
           "grenz_wert": 0.2,
           "einheit": "W/(m²·K)",
@@ -8285,7 +8313,7 @@
           "quelle": "DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]",
           "text": "2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V]"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "grenzwert": {
         "name": "Höchstwert des U-Werts",
@@ -8306,7 +8334,7 @@
           "quelle": "Angabe wie in HRB-01",
           "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
         },
-        "dimension": "[mass] / [temperature] / [time] ** 3"
+        "dimension": "M·T^-3·Θ^-1"
       },
       "vergleich": "≤",
       "ausnutzung": 0.8004031209999192,
@@ -8431,8 +8459,8 @@
           "wert_rechenkern": 0.160081,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 0.16008062419998384,
-          "abweichung": 3.7580001616133174e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.76e-07
         },
         {
           "symbol": "R_o",
@@ -8440,8 +8468,8 @@
           "wert_rechenkern": 6.402387,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.402386738218921,
-          "abweichung": 2.617810794802722e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 2.62e-07
         },
         {
           "symbol": "R_u",
@@ -8449,8 +8477,8 @@
           "wert_rechenkern": 6.091318,
           "toleranz_abs": 5e-07,
           "wert_nachweis": 6.091317668514656,
-          "abweichung": 3.314853440627985e-07,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 3.31e-07
         }
       ],
       "grafiken": [
@@ -8507,8 +8535,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "0a877dbef7779f4f481e7526482cdfa4e548e565145830a16b954062525577c2",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -8549,7 +8577,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -8564,7 +8592,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -8579,7 +8607,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -8594,7 +8622,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -8609,7 +8637,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -8624,7 +8652,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -8639,7 +8667,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -8654,7 +8682,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -8669,7 +8697,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -8684,7 +8712,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -8699,7 +8727,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -8726,9 +8754,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -8755,9 +8783,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -8784,9 +8812,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -8813,9 +8847,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -8842,9 +8876,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -8867,9 +8907,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -8892,9 +8938,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -8917,9 +8969,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -8942,9 +9000,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -8967,9 +9031,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -8992,9 +9062,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -9017,9 +9093,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9042,9 +9124,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -9056,6 +9144,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9071,6 +9160,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9086,6 +9176,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9101,6 +9192,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9116,6 +9208,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9131,6 +9224,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9146,6 +9240,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9161,6 +9256,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9181,9 +9277,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -9196,9 +9298,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -9219,8 +9327,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -9228,8 +9336,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -9237,8 +9345,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -9286,8 +9394,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "3dd0e05e602e5bb363ab929f8ebc03a6e7f8f3cd6358f303d417e8f8228df369",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -9328,7 +9436,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -9343,7 +9451,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -9358,7 +9466,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -9373,7 +9481,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -9388,7 +9496,7 @@
           "bezug": null,
           "anzeige": "2 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -9403,7 +9511,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -9418,7 +9526,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -9433,7 +9541,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -9448,7 +9556,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -9463,7 +9571,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -9478,7 +9586,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -9505,9 +9613,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -9534,9 +9642,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -9563,9 +9671,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9592,9 +9706,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -9621,9 +9735,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9646,9 +9766,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "2 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "2,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9671,9 +9797,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "15,2 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "15,20 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -9696,9 +9828,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "8,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9721,9 +9859,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -9746,9 +9890,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9771,9 +9921,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -9796,9 +9952,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -9821,9 +9983,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -9835,6 +10003,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 15.2,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9850,6 +10019,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 2.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9865,6 +10035,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9880,6 +10051,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 8.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9895,6 +10067,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9910,6 +10083,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9925,6 +10099,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -9940,6 +10115,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -9960,9 +10136,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -9975,9 +10157,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 1.6333333333333333,
@@ -9998,8 +10186,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -10007,8 +10195,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -10016,8 +10204,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -10065,8 +10253,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "ffa017fae07fdadc13f2d10f07486f4da5925909652f5297f8188094effa9356",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -10107,7 +10295,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -10122,7 +10310,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -10137,7 +10325,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -10152,7 +10340,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -10167,7 +10355,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -10182,7 +10370,7 @@
           "bezug": null,
           "anzeige": "1 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -10197,7 +10385,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -10212,7 +10400,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -10227,7 +10415,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -10242,7 +10430,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -10257,7 +10445,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -10284,9 +10472,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -10313,9 +10501,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -10342,9 +10530,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10371,9 +10565,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -10400,9 +10594,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10425,9 +10625,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10450,9 +10656,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -10475,9 +10687,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10500,9 +10718,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -10525,9 +10749,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10550,9 +10780,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -10575,9 +10811,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "17 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "17,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -10600,9 +10842,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -10614,6 +10862,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -10629,6 +10878,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -10644,6 +10894,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -10659,6 +10910,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -10674,6 +10926,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -10689,6 +10942,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -10704,6 +10958,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -10719,6 +10974,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 17.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -10739,9 +10995,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -10754,9 +11016,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -10777,8 +11045,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -10786,8 +11054,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "h_D",
@@ -10795,8 +11063,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -10844,8 +11112,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "7950e7522ca9d142a0612f833d529ffb068a53e6ccb97893e57579cab6f19a1e",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -10886,7 +11154,7 @@
           "bezug": null,
           "anzeige": "10 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Trauflänge",
@@ -10901,7 +11169,7 @@
           "bezug": null,
           "anzeige": "12 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Wandhöhe bis Schnitt Wand/Dachhaut",
@@ -10916,7 +11184,7 @@
           "bezug": null,
           "anzeige": "6,5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Dachneigung",
@@ -10931,7 +11199,7 @@
           "bezug": null,
           "anzeige": "45 °",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Lage Südwestecke x",
@@ -10946,7 +11214,7 @@
           "bezug": null,
           "anzeige": "5 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Lage Südwestecke y",
@@ -10961,7 +11229,7 @@
           "bezug": null,
           "anzeige": "9 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Anrechnung Dachhöhe (Neigung ≤ 70°)",
@@ -10976,7 +11244,7 @@
           "bezug": null,
           "anzeige": "0,3333333333333333",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Anrechnung Giebeldreieck",
@@ -10991,7 +11259,7 @@
           "bezug": null,
           "anzeige": "1",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Faktor Tiefe",
@@ -11006,7 +11274,7 @@
           "bezug": null,
           "anzeige": "0,4",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindesttiefe",
@@ -11021,7 +11289,7 @@
           "bezug": null,
           "anzeige": "3 m",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "zulässige Fläche außerhalb",
@@ -11036,7 +11304,7 @@
           "bezug": null,
           "anzeige": "0 m²",
           "rundung": null,
-          "dimension": "[length] ** 2"
+          "dimension": "L^2"
         }
       ],
       "schritte": [
@@ -11063,9 +11331,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,999999999999999 m",
+            "anzeige": "5,0000 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -11092,9 +11360,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "8,166666666666666 m",
+            "anzeige": "8,1667 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -11121,9 +11389,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "3,2666666666666666 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "3,27 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11150,9 +11424,9 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "11,5 m",
+            "anzeige": "11,500 m",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -11179,9 +11453,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "4,6000000000000005 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "4,61 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11204,9 +11484,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11229,9 +11515,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -11254,9 +11546,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "5 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "5,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11279,9 +11577,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -11304,9 +11608,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "13 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "13,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11329,9 +11639,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         },
         {
@@ -11354,9 +11670,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "9 m",
-            "rundung": null,
-            "dimension": "[length]"
+            "anzeige": "9,00 m",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "ab",
+              "quelle": "vorhandene Tiefe sicherheitsgerichtet abgerundet",
+              "text": "2 Dezimalstellen, Abrunden (Richtung −∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: vorhandene Tiefe sicherheitsgerichtet abgerundet"
+            },
+            "dimension": "L"
           }
         },
         {
@@ -11379,9 +11701,15 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0 m²",
-            "rundung": null,
-            "dimension": "[length] ** 2"
+            "anzeige": "0,00 m²",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 2,
+              "verfahren": "auf",
+              "quelle": "Überschreitung sicherheitsgerichtet aufgerundet",
+              "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: Überschreitung sicherheitsgerichtet aufgerundet"
+            },
+            "dimension": "L^2"
           }
         }
       ],
@@ -11393,6 +11721,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -11408,6 +11737,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -11423,6 +11753,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -11438,6 +11769,7 @@
           "grenzwert": "T_T",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
           "einheit": "m",
@@ -11453,6 +11785,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -11468,6 +11801,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 13.0,
           "grenz_wert": 4.6000000000000005,
           "einheit": "m",
@@ -11483,6 +11817,7 @@
           "grenzwert": "A_zul",
           "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
+          "mit_ausnutzung": true,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "m²",
@@ -11498,6 +11833,7 @@
           "grenzwert": "T_G",
           "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 9.0,
           "grenz_wert": 4.6000000000000005,
           "einheit": "m",
@@ -11518,9 +11854,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "T Traufe",
@@ -11533,9 +11875,15 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "3,2666666666666666 m",
-        "rundung": null,
-        "dimension": "[length]"
+        "anzeige": "3,27 m",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "auf",
+          "quelle": "erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)",
+          "text": "2 Dezimalstellen, Aufrunden (Richtung +∞), sicherheitsgerichtet nach ISO 80000-1:2022 Anh. B.5; Begründung: erforderliche Tiefe sicherheitsgerichtet auf cm aufgerundet (ISO 80000-1:2022, B.5)"
+        },
+        "dimension": "L"
       },
       "vergleich": "≥",
       "ausnutzung": 0.6533333333333333,
@@ -11556,8 +11904,8 @@
           "wert_rechenkern": 3.267,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 3.2666666666666666,
-          "abweichung": 0.0003333333333332966,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.000333
         },
         {
           "symbol": "T_G",
@@ -11565,8 +11913,8 @@
           "wert_rechenkern": 4.6,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.6000000000000005,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         },
         {
           "symbol": "h_D",
@@ -11574,8 +11922,8 @@
           "wert_rechenkern": 5.0,
           "toleranz_abs": 0.0005,
           "wert_nachweis": 4.999999999999999,
-          "abweichung": 8.881784197001252e-16,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 8.88e-16
         }
       ],
       "grafiken": [
@@ -11623,8 +11971,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "cd34e887c42e80c3ff78f511ef2676f189d0852957d38d2678c23c244f49eee9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -11665,7 +12013,7 @@
           "bezug": null,
           "anzeige": "2900 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "nutzbare Laufbreite",
@@ -11680,7 +12028,7 @@
           "bezug": null,
           "anzeige": "900 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Fertigungsraster Auftritt",
@@ -11695,7 +12043,7 @@
           "bezug": null,
           "anzeige": "5 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Steigung min.",
@@ -11710,7 +12058,7 @@
           "bezug": null,
           "anzeige": "140 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Steigung max.",
@@ -11725,7 +12073,7 @@
           "bezug": null,
           "anzeige": "200 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Auftritt min.",
@@ -11740,7 +12088,7 @@
           "bezug": null,
           "anzeige": "230 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Auftritt max.",
@@ -11755,7 +12103,7 @@
           "bezug": null,
           "anzeige": "370 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schrittmaß min.",
@@ -11770,7 +12118,7 @@
           "bezug": null,
           "anzeige": "590 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Schrittmaß max.",
@@ -11785,7 +12133,7 @@
           "bezug": null,
           "anzeige": "650 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Laufbreite min.",
@@ -11800,7 +12148,7 @@
           "bezug": null,
           "anzeige": "800 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         },
         {
           "name": "Zielwert Schrittmaß",
@@ -11815,7 +12163,7 @@
           "bezug": null,
           "anzeige": "630 mm",
           "rundung": null,
-          "dimension": "[length]"
+          "dimension": "L"
         }
       ],
       "schritte": [
@@ -11844,7 +12192,7 @@
             "bezug": null,
             "anzeige": "15",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -11872,7 +12220,7 @@
             "bezug": null,
             "anzeige": "20",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -11897,7 +12245,7 @@
             "bezug": null,
             "anzeige": "68",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -11922,7 +12270,7 @@
             "bezug": null,
             "anzeige": "17",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         },
         {
@@ -11947,7 +12295,7 @@
             "bezug": null,
             "anzeige": "290 mm",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -11981,7 +12329,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -12015,7 +12363,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -12043,7 +12391,7 @@
             "bezug": null,
             "anzeige": "4640 mm",
             "rundung": null,
-            "dimension": "[length]"
+            "dimension": "L"
           }
         },
         {
@@ -12077,7 +12425,7 @@
               "quelle": "",
               "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
             },
-            "dimension": "[length]"
+            "dimension": "L"
           }
         }
       ],
@@ -12089,6 +12437,7 @@
           "grenzwert": "s_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 170.58823529411765,
           "grenz_wert": 140.0,
           "einheit": "mm",
@@ -12104,6 +12453,7 @@
           "grenzwert": "s_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 170.58823529411765,
           "grenz_wert": 200.0,
           "einheit": "mm",
@@ -12119,6 +12469,7 @@
           "grenzwert": "a_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 290.0,
           "grenz_wert": 230.0,
           "einheit": "mm",
@@ -12134,6 +12485,7 @@
           "grenzwert": "a_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 290.0,
           "grenz_wert": 370.0,
           "einheit": "mm",
@@ -12149,6 +12501,7 @@
           "grenzwert": "S_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 631.1764705882354,
           "grenz_wert": 590.0,
           "einheit": "mm",
@@ -12164,6 +12517,7 @@
           "grenzwert": "S_max",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 631.1764705882354,
           "grenz_wert": 650.0,
           "einheit": "mm",
@@ -12179,6 +12533,7 @@
           "grenzwert": "b_min",
           "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
           "toleranz": 0.0,
+          "mit_ausnutzung": true,
           "ist_wert": 900.0,
           "grenz_wert": 800.0,
           "einheit": "mm",
@@ -12207,7 +12562,7 @@
           "quelle": "",
           "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
         },
-        "dimension": "[length]"
+        "dimension": "L"
       },
       "grenzwert": {
         "name": "Schrittmaß max.",
@@ -12222,7 +12577,7 @@
         "bezug": null,
         "anzeige": "650 mm",
         "rundung": null,
-        "dimension": "[length]"
+        "dimension": "L"
       },
       "vergleich": "≤",
       "ausnutzung": 0.9710407239819006,
@@ -12244,8 +12599,8 @@
           "wert_rechenkern": 170.59,
           "toleranz_abs": 0.005,
           "wert_nachweis": 170.58823529411765,
-          "abweichung": 0.0017647058823513362,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.00176
         },
         {
           "symbol": "S",
@@ -12253,8 +12608,8 @@
           "wert_rechenkern": 631.18,
           "toleranz_abs": 0.005,
           "wert_nachweis": 631.1764705882354,
-          "abweichung": 0.0035294117645889855,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.00353
         },
         {
           "symbol": "l_L",
@@ -12262,8 +12617,8 @@
           "wert_rechenkern": 4640,
           "toleranz_abs": 1e-09,
           "wert_nachweis": 4640,
-          "abweichung": 0,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.0
         },
         {
           "symbol": "N_L",
@@ -12271,8 +12626,8 @@
           "wert_rechenkern": 68,
           "toleranz_abs": 0.0,
           "wert_nachweis": 68,
-          "abweichung": 0,
-          "uebereinstimmung": true
+          "uebereinstimmung": true,
+          "abweichung": 0.0
         }
       ],
       "grafiken": [
@@ -12320,8 +12675,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "bb6d0e8eb12aa6d34d9f585e84e12072879c1735fe4c318974683091c5892bf1",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -12343,7 +12698,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "6942614b079912cd9099e9b9ed1f3e8c76edf752a3eec1745f0d2a34226e501f",
+    "wert": "69ff803197a8759cb32328cdec89237a45f6dedb9a8a022adfa61a5f576b05a1",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

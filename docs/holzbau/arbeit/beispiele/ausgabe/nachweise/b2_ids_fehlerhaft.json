@@ -38,15 +38,15 @@
       "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "bf12eefe06ac119137a9171a8b1664d24f31c0dec7f2fa90403e048f7d31108d",
+      "hash": "08c8bbbd9b9ec17e2dbcfb238be90193070b69bfad0900655f1a8efbcd24830c",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-fehlerhaft-HRB-02",
       "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "04871a656ddeb2f402bcb8f0e6249371f0cdbad28e949b36b40555b59ee83491",
+      "ausnutzung": null,
+      "hash": "f204351dc2bbb402445e1ce155f148946fdcec4d35a99b5df17597c7e41bec0d",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -54,15 +54,15 @@
       "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "b6e972fbf21970df62d6c7766406a1d477fc8c9ab76600c5d75f332e1d2c867c",
+      "hash": "d3bc24f0a2e9be5801e71c78896f3fada85a0b9fab2d6c9764150ce39f65bfc4",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-fehlerhaft-HRB-04",
       "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft)",
       "status": "erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "f17eac599b129fbefb8e36d9af67b76372d62cd21c02aeec11d28ad355967182",
+      "ausnutzung": null,
+      "hash": "fc1183243069b9149754ac8d0751e87027f6c91c1d4d424726a7e4681252d2e9",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -70,23 +70,23 @@
       "titel": "IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "966c1ff4ef6129d2633fd62255774ff92e19abf728c97c340e95749470878c29",
+      "hash": "1d42373c3c5ceda04e41106aa7209ea43d322f7f08dcc40463a82a7cbd4814bd",
       "gegenstand": null
     },
     {
       "id": "N-B2-fehlerhaft-HRB-06",
       "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft)",
       "status": "erfüllt",
-      "ausnutzung": 0.05555555555555555,
-      "hash": "b29de8bd3acd29c03cc0cb103faca0f9b4d2dc8847d5bcdf4f1b7b1709eecf99",
+      "ausnutzung": null,
+      "hash": "afbc2b3ee83e621fbc711615f756e9856c387dc8163b86330f6691177f9a9715",
       "gegenstand": null
     },
     {
       "id": "N-B2-fehlerhaft-HRB-07",
       "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft)",
       "status": "erfüllt",
-      "ausnutzung": 0.024390243902439025,
-      "hash": "35231a0b0ea217d594196676c6425308297cc737ed0746acd6a7f3b2e7fcc79d",
+      "ausnutzung": null,
+      "hash": "965f69bc17e738ef437a5ddf945fa6d5ae2651a8484b68d44e40a40595164fc3",
       "gegenstand": null
     },
     {
@@ -94,7 +94,7 @@
       "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "1dcf3fb0ce29cb793b0f728101d78914b7257f00d1da2914d67e4a3629291c06",
+      "hash": "6145f7e5b6311097b75e96a93695f3f928ad20da5e706fa7d6e6d2a80c25921a",
       "gegenstand": null
     },
     {
@@ -102,15 +102,15 @@
       "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "b388a1a2858a5cdc3a8468cf5a281375dacacf715b4972d8fff8bbd2833bdb4b",
+      "hash": "e584acc76e9154de4358347583ffa19967d25a98d3edfb891deb56c8d78530f9",
       "gegenstand": null
     },
     {
       "id": "N-B2-fehlerhaft-HRB-10",
       "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft)",
       "status": "erfüllt",
-      "ausnutzung": 0.08333333333333333,
-      "hash": "6fec51100a6f117525f19fcd05e2ace233bca66938d24fb9dabc076d4d590596",
+      "ausnutzung": null,
+      "hash": "266e0a5d2624a3776ea15d387541cc5e423ee45834ebb71c41f6833baa017af8",
       "gegenstand": null
     },
     {
@@ -118,7 +118,7 @@
       "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "1873cbe4717710591c74ccd5b57d9cd513c858c5ed3396fcabbaeb53bbadc98f",
+      "hash": "07d029d971750e00e75ad695ac98872f81224e417dfeeb71e591aaad803f4f93",
       "gegenstand": null
     }
   ],
@@ -161,7 +161,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -176,7 +176,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -191,7 +191,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -206,7 +206,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -259,7 +259,7 @@
             "bezug": null,
             "anzeige": "0 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -271,10 +271,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -286,6 +287,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-01",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -308,7 +310,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "zulässige Verstöße",
@@ -323,7 +325,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -371,8 +373,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "bf12eefe06ac119137a9171a8b1664d24f31c0dec7f2fa90403e048f7d31108d",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "08c8bbbd9b9ec17e2dbcfb238be90193070b69bfad0900655f1a8efbcd24830c",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -413,7 +415,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -428,7 +430,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -443,7 +445,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -458,7 +460,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -511,7 +513,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -523,10 +525,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-02",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -538,6 +541,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-02",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -560,7 +564,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -575,10 +579,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -622,8 +626,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "04871a656ddeb2f402bcb8f0e6249371f0cdbad28e949b36b40555b59ee83491",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "f204351dc2bbb402445e1ce155f148946fdcec4d35a99b5df17597c7e41bec0d",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -664,7 +668,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -679,7 +683,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -694,7 +698,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -709,7 +713,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -762,7 +766,7 @@
             "bezug": null,
             "anzeige": "0 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -774,10 +778,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-03",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -789,6 +794,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-03",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -811,7 +817,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "zulässige Verstöße",
@@ -826,7 +832,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -874,8 +880,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "b6e972fbf21970df62d6c7766406a1d477fc8c9ab76600c5d75f332e1d2c867c",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "d3bc24f0a2e9be5801e71c78896f3fada85a0b9fab2d6c9764150ce39f65bfc4",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -916,7 +922,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -931,7 +937,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -946,7 +952,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -961,7 +967,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1014,7 +1020,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1026,10 +1032,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-04",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1041,6 +1048,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-04",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1063,7 +1071,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -1078,10 +1086,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -1125,8 +1133,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "f17eac599b129fbefb8e36d9af67b76372d62cd21c02aeec11d28ad355967182",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "fc1183243069b9149754ac8d0751e87027f6c91c1d4d424726a7e4681252d2e9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1183,7 +1191,7 @@
           "bezug": null,
           "anzeige": "15 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -1198,7 +1206,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -1213,7 +1221,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -1228,7 +1236,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1281,7 +1289,7 @@
             "bezug": null,
             "anzeige": "14 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1293,10 +1301,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-05",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 15.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.06666666666666667,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1308,6 +1317,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-05",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1330,7 +1340,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "zulässige Verstöße",
@@ -1345,7 +1355,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -1393,8 +1403,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "966c1ff4ef6129d2633fd62255774ff92e19abf728c97c340e95749470878c29",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "1d42373c3c5ceda04e41106aa7209ea43d322f7f08dcc40463a82a7cbd4814bd",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1454,7 +1464,7 @@
           "bezug": null,
           "anzeige": "18 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -1469,7 +1479,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -1484,7 +1494,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -1499,7 +1509,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1552,7 +1562,7 @@
             "bezug": null,
             "anzeige": "18 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1564,10 +1574,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-06",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 18.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.05555555555555555,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1579,6 +1590,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-06",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1601,7 +1613,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -1616,10 +1628,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.05555555555555555,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -1663,8 +1675,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "b29de8bd3acd29c03cc0cb103faca0f9b4d2dc8847d5bcdf4f1b7b1709eecf99",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "afbc2b3ee83e621fbc711615f756e9856c387dc8163b86330f6691177f9a9715",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -1747,7 +1759,7 @@
           "bezug": null,
           "anzeige": "41 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -1762,7 +1774,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -1777,7 +1789,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -1792,7 +1804,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -1845,7 +1857,7 @@
             "bezug": null,
             "anzeige": "41 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -1857,10 +1869,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-07",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 41.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.024390243902439025,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -1872,6 +1885,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-07",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -1894,7 +1908,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -1909,10 +1923,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.024390243902439025,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -1956,8 +1970,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "35231a0b0ea217d594196676c6425308297cc737ed0746acd6a7f3b2e7fcc79d",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "965f69bc17e738ef437a5ddf945fa6d5ae2651a8484b68d44e40a40595164fc3",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2000,7 +2014,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2015,7 +2029,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2030,7 +2044,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2045,7 +2059,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2098,7 +2112,7 @@
             "bezug": null,
             "anzeige": "0 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2110,10 +2124,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-08",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 1.0,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2125,6 +2140,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-08",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2147,7 +2163,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "zulässige Verstöße",
@@ -2162,7 +2178,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -2210,8 +2226,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "1dcf3fb0ce29cb793b0f728101d78914b7257f00d1da2914d67e4a3629291c06",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "6145f7e5b6311097b75e96a93695f3f928ad20da5e706fa7d6e6d2a80c25921a",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2429,7 +2445,7 @@
           "bezug": null,
           "anzeige": "176 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2444,7 +2460,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2459,7 +2475,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2474,7 +2490,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2527,7 +2543,7 @@
             "bezug": null,
             "anzeige": "175 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2539,10 +2555,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-09",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 176.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.005681818181818182,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2554,6 +2571,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-09",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2576,7 +2594,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "zulässige Verstöße",
@@ -2591,7 +2609,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -2639,8 +2657,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "b388a1a2858a5cdc3a8468cf5a281375dacacf715b4972d8fff8bbd2833bdb4b",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "e584acc76e9154de4358347583ffa19967d25a98d3edfb891deb56c8d78530f9",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2694,7 +2712,7 @@
           "bezug": null,
           "anzeige": "12 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2709,7 +2727,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Mindestanzahl anwendbarer Elemente",
@@ -2724,7 +2742,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "zulässige Verstöße",
@@ -2739,7 +2757,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -2792,7 +2810,7 @@
             "bezug": null,
             "anzeige": "12 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -2804,10 +2822,11 @@
           "grenzwert": "n_min",
           "norm_verweis": "holzrahmenbau.ids, HRB-10",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 12.0,
           "grenz_wert": 1.0,
           "einheit": "Stk",
-          "ausnutzung": 0.08333333333333333,
+          "ausnutzung": null,
           "erfuellt": true,
           "rundungsempfindlich": false,
           "innerhalb_unsicherheit": null
@@ -2819,6 +2838,7 @@
           "grenzwert": "n_zul",
           "norm_verweis": "holzrahmenbau.ids, HRB-10",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -2841,7 +2861,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "Mindestanzahl anwendbarer Elemente",
@@ -2856,10 +2876,10 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≥",
-      "ausnutzung": 0.08333333333333333,
+      "ausnutzung": null,
       "status": "erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2903,8 +2923,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "6fec51100a6f117525f19fcd05e2ace233bca66938d24fb9dabc076d4d590596",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "266e0a5d2624a3776ea15d387541cc5e423ee45834ebb71c41f6833baa017af8",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     },
     {
@@ -2947,7 +2967,7 @@
           "bezug": null,
           "anzeige": "1 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "Elemente mit Verstoß",
@@ -2962,7 +2982,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         },
         {
           "name": "höchstzulässige Anzahl",
@@ -2977,7 +2997,7 @@
           "bezug": null,
           "anzeige": "0 Stk",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "1"
         }
       ],
       "schritte": [
@@ -3030,7 +3050,7 @@
             "bezug": null,
             "anzeige": "1 Stk",
             "rundung": null,
-            "dimension": "dimensionless"
+            "dimension": "1"
           }
         }
       ],
@@ -3042,6 +3062,7 @@
           "grenzwert": "n_max",
           "norm_verweis": "holzrahmenbau.ids, HRB-11",
           "toleranz": 0.0,
+          "mit_ausnutzung": false,
           "ist_wert": 1.0,
           "grenz_wert": 0.0,
           "einheit": "Stk",
@@ -3064,7 +3085,7 @@
         "bezug": null,
         "anzeige": "1 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "grenzwert": {
         "name": "höchstzulässige Anzahl",
@@ -3079,7 +3100,7 @@
         "bezug": null,
         "anzeige": "0 Stk",
         "rundung": null,
-        "dimension": "dimensionless"
+        "dimension": "1"
       },
       "vergleich": "≤",
       "ausnutzung": null,
@@ -3127,8 +3148,8 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "1873cbe4717710591c74ccd5b57d9cd513c858c5ed3396fcabbaeb53bbadc98f",
-        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+        "wert": "07d029d971750e00e75ad695ac98872f81224e417dfeeb71e591aaad803f4f93",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert"
       }
     }
   ],
@@ -3150,7 +3171,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "c8f247dd98509cee6f17049a14ceacbea4845eec713f8c747269936f9bf62f3b",
+    "wert": "35a954e584ff0fe0769ca6a6bca729ec4317e357df6a34710a384921cd0cca58",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

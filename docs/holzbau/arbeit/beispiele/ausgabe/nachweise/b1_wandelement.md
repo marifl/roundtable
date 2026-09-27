@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4` |
+| Heft-Hash (SHA-256) | `37c6e1ee26d4485aba34b151efb770e6a795e38ef5de89b2df9c92a28b9a90ad` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,13 +28,13 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `3984bfb486b3` |
+| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | – | `6aa8af66527e` |
 
 <a id="n-n-b1-01"></a>
 
 ## N-B1-01 – Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,001
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -333,13 +333,13 @@ Ergebnis: $V_{\mathrm{H},\mathrm{IFC}}$ = 0,51498 m³
 
 Verfahren: Summe NetVolume über 10 IfcPlate
 
-Ergebnis: $V_{\mathrm{P},\mathrm{IFC}}$ = 1,00230375 m³
+Ergebnis: $V_{\mathrm{P},\mathrm{IFC}}$ = 1,0023 m³
 
 **Schritt 23: Dämmvolumen laut IFC (Summe Qto_BodyGeometryValidation.NetVolume)**
 
 Verfahren: Summe NetVolume über 12 IfcBuildingElementPart INSULATION
 
-Ergebnis: $V_{\mathrm{D},\mathrm{IFC}}$ = 1,77594 m³
+Ergebnis: $V_{\mathrm{D},\mathrm{IFC}}$ = 1,7759 m³
 
 **Schritt 24: Abweichung Holzvolumen Nachweis/IFC**
 
@@ -381,9 +381,9 @@ Ausdruck (maschinenlesbar): `abs(V_D - V_D_IFC)`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Holzvolumen: Nachweis = IFC | 1,1102 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Beplankung: Nachweis = IFC | 2,2204 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Dämmung: Nachweis = IFC | 4,4409 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Holzvolumen: Nachweis = IFC | 1,1102 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
+| Beplankung: Nachweis = IFC | 2,2204 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
+| Dämmung: Nachweis = IFC | 4,4409 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | – | erfüllt | Konsistenz Modell/IFC |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -425,8 +425,8 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `6aa8af66527e793035f40c3407da9ce2fb08a20b318a963061682425ae861db2`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 

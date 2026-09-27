@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (5 erfüllt, 6 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `c8f247dd98509cee6f17049a14ceacbea4845eec713f8c747269936f9bf62f3b` |
+| Heft-Hash (SHA-256) | `35a954e584ff0fe0769ca6a6bca729ec4317e357df6a34710a384921cd0cca58` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Die Datei enthält sechs absichtlich eingebaute Fehler (F1–F6, siehe b2_ids_pruefung.py); die zugehörigen Nachweise müssen scheitern.
@@ -30,17 +30,17 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B2-fehlerhaft-HRB-01](#n-n-b2-fehlerhaft-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft) | nicht erfüllt | – | `bf12eefe06ac` |
-| 2 | [N-B2-fehlerhaft-HRB-02](#n-n-b2-fehlerhaft-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft) | erfüllt | 1,000 | `04871a656dde` |
-| 3 | [N-B2-fehlerhaft-HRB-03](#n-n-b2-fehlerhaft-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft) | nicht erfüllt | – | `b6e972fbf219` |
-| 4 | [N-B2-fehlerhaft-HRB-04](#n-n-b2-fehlerhaft-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft) | erfüllt | 1,000 | `f17eac599b12` |
-| 5 | [N-B2-fehlerhaft-HRB-05](#n-n-b2-fehlerhaft-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft) | nicht erfüllt | – | `966c1ff4ef61` |
-| 6 | [N-B2-fehlerhaft-HRB-06](#n-n-b2-fehlerhaft-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft) | erfüllt | 0,056 | `b29de8bd3acd` |
-| 7 | [N-B2-fehlerhaft-HRB-07](#n-n-b2-fehlerhaft-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft) | erfüllt | 0,025 | `35231a0b0ea2` |
-| 8 | [N-B2-fehlerhaft-HRB-08](#n-n-b2-fehlerhaft-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft) | nicht erfüllt | – | `1dcf3fb0ce29` |
-| 9 | [N-B2-fehlerhaft-HRB-09](#n-n-b2-fehlerhaft-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft) | nicht erfüllt | – | `b388a1a2858a` |
-| 10 | [N-B2-fehlerhaft-HRB-10](#n-n-b2-fehlerhaft-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft) | erfüllt | 0,084 | `6fec51100a6f` |
-| 11 | [N-B2-fehlerhaft-HRB-11](#n-n-b2-fehlerhaft-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft) | nicht erfüllt | – | `1873cbe47177` |
+| 1 | [N-B2-fehlerhaft-HRB-01](#n-n-b2-fehlerhaft-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft) | nicht erfüllt | – | `08c8bbbd9b9e` |
+| 2 | [N-B2-fehlerhaft-HRB-02](#n-n-b2-fehlerhaft-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft) | erfüllt | – | `f204351dc2bb` |
+| 3 | [N-B2-fehlerhaft-HRB-03](#n-n-b2-fehlerhaft-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft) | nicht erfüllt | – | `d3bc24f0a2e9` |
+| 4 | [N-B2-fehlerhaft-HRB-04](#n-n-b2-fehlerhaft-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft) | erfüllt | – | `fc1183243069` |
+| 5 | [N-B2-fehlerhaft-HRB-05](#n-n-b2-fehlerhaft-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft) | nicht erfüllt | – | `1d42373c3c5c` |
+| 6 | [N-B2-fehlerhaft-HRB-06](#n-n-b2-fehlerhaft-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft) | erfüllt | – | `afbc2b3ee83e` |
+| 7 | [N-B2-fehlerhaft-HRB-07](#n-n-b2-fehlerhaft-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft) | erfüllt | – | `965f69bc17e7` |
+| 8 | [N-B2-fehlerhaft-HRB-08](#n-n-b2-fehlerhaft-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft) | nicht erfüllt | – | `6145f7e5b631` |
+| 9 | [N-B2-fehlerhaft-HRB-09](#n-n-b2-fehlerhaft-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft) | nicht erfüllt | – | `e584acc76e91` |
+| 10 | [N-B2-fehlerhaft-HRB-10](#n-n-b2-fehlerhaft-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft) | erfüllt | – | `266e0a5d2624` |
+| 11 | [N-B2-fehlerhaft-HRB-11](#n-n-b2-fehlerhaft-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft) | nicht erfüllt | – | `07d029d97175` |
 
 <a id="n-n-b2-fehlerhaft-hrb-01"></a>
 
@@ -99,7 +99,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-01 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-01 |
 | alle Anforderungen erfüllt | 1 Stk | ≤ | 0 Stk | – | **nicht erfüllt** | holzrahmenbau.ids, HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -118,8 +118,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `bf12eefe06ac119137a9171a8b1664d24f31c0dec7f2fa90403e048f7d31108d`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `08c8bbbd9b9ec17e2dbcfb238be90193070b69bfad0900655f1a8efbcd24830c`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -128,7 +128,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-fehlerhaft-HRB-02 – IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -181,7 +181,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-02 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-02 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-02 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -199,8 +199,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `04871a656ddeb2f402bcb8f0e6249371f0cdbad28e949b36b40555b59ee83491`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `f204351dc2bbb402445e1ce155f148946fdcec4d35a99b5df17597c7e41bec0d`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -262,7 +262,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-03 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-03 |
 | alle Anforderungen erfüllt | 1 Stk | ≤ | 0 Stk | – | **nicht erfüllt** | holzrahmenbau.ids, HRB-03 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -281,8 +281,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `b6e972fbf21970df62d6c7766406a1d477fc8c9ab76600c5d75f332e1d2c867c`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `d3bc24f0a2e9be5801e71c78896f3fada85a0b9fab2d6c9764150ce39f65bfc4`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -291,7 +291,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-fehlerhaft-HRB-04 – IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 1,000
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -344,7 +344,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-04 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-04 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-04 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -362,8 +362,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `f17eac599b129fbefb8e36d9af67b76372d62cd21c02aeec11d28ad355967182`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `fc1183243069b9149754ac8d0751e87027f6c91c1d4d424726a7e4681252d2e9`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -426,7 +426,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 15 Stk | ≥ | 1 Stk | 0,067 | erfüllt | holzrahmenbau.ids, HRB-05 |
+| Anwendbarkeit (Kardinalität) | 15 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-05 |
 | alle Anforderungen erfüllt | 1 Stk | ≤ | 0 Stk | – | **nicht erfüllt** | holzrahmenbau.ids, HRB-05 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -445,8 +445,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `966c1ff4ef6129d2633fd62255774ff92e19abf728c97c340e95749470878c29`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `1d42373c3c5ceda04e41106aa7209ea43d322f7f08dcc40463a82a7cbd4814bd`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -455,7 +455,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-fehlerhaft-HRB-06 – IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,056
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -509,7 +509,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 18 Stk | ≥ | 1 Stk | 0,056 | erfüllt | holzrahmenbau.ids, HRB-06 |
+| Anwendbarkeit (Kardinalität) | 18 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-06 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-06 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -527,8 +527,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `b29de8bd3acd29c03cc0cb103faca0f9b4d2dc8847d5bcdf4f1b7b1709eecf99`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `afbc2b3ee83e621fbc711615f756e9856c387dc8163b86330f6691177f9a9715`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -537,7 +537,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-fehlerhaft-HRB-07 – IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,025
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -591,7 +591,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 41 Stk | ≥ | 1 Stk | 0,025 | erfüllt | holzrahmenbau.ids, HRB-07 |
+| Anwendbarkeit (Kardinalität) | 41 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-07 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-07 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -609,8 +609,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `35231a0b0ea217d594196676c6425308297cc737ed0746acd6a7f3b2e7fcc79d`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `965f69bc17e738ef437a5ddf945fa6d5ae2651a8484b68d44e40a40595164fc3`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -673,7 +673,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | 1,000 | erfüllt | holzrahmenbau.ids, HRB-08 |
+| Anwendbarkeit (Kardinalität) | 1 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-08 |
 | alle Anforderungen erfüllt | 1 Stk | ≤ | 0 Stk | – | **nicht erfüllt** | holzrahmenbau.ids, HRB-08 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -692,8 +692,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `1dcf3fb0ce29cb793b0f728101d78914b7257f00d1da2914d67e4a3629291c06`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `6145f7e5b6311097b75e96a93695f3f928ad20da5e706fa7d6e6d2a80c25921a`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -756,7 +756,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 176 Stk | ≥ | 1 Stk | 0,006 | erfüllt | holzrahmenbau.ids, HRB-09 |
+| Anwendbarkeit (Kardinalität) | 176 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-09 |
 | alle Anforderungen erfüllt | 1 Stk | ≤ | 0 Stk | – | **nicht erfüllt** | holzrahmenbau.ids, HRB-09 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -775,8 +775,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `b388a1a2858a5cdc3a8468cf5a281375dacacf715b4972d8fff8bbd2833bdb4b`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `e584acc76e9154de4358347583ffa19967d25a98d3edfb891deb56c8d78530f9`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -785,7 +785,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ## N-B2-fehlerhaft-HRB-10 – IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft)
 
-**Ergebnis: [ERFÜLLT]** · maßgebende Ausnutzung η = 0,084
+**Ergebnis: [ERFÜLLT]**
 
 ### Gegenstand
 
@@ -839,7 +839,7 @@ Ausdruck (maschinenlesbar): `n_anw - n_fehl`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Anwendbarkeit (Kardinalität) | 12 Stk | ≥ | 1 Stk | 0,084 | erfüllt | holzrahmenbau.ids, HRB-10 |
+| Anwendbarkeit (Kardinalität) | 12 Stk | ≥ | 1 Stk | – | erfüllt | holzrahmenbau.ids, HRB-10 |
 | alle Anforderungen erfüllt | 0 Stk | ≤ | 0 Stk | – | erfüllt | holzrahmenbau.ids, HRB-10 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
@@ -857,8 +857,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `6fec51100a6f117525f19fcd05e2ace233bca66938d24fb9dabc076d4d590596`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `266e0a5d2624a3776ea15d387541cc5e423ee45834ebb71c41f6833baa017af8`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
@@ -938,8 +938,8 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `1873cbe4717710591c74ccd5b57d9cd513c858c5ed3396fcabbaeb53bbadc98f`
-- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
+- Hash (SHA-256): `07d029d971750e00e75ad695ac98872f81224e417dfeeb71e591aaad803f4f93`
+- Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung; Gleitkommazahlen auf 12 signifikante Stellen normiert
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
 
