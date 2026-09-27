@@ -1324,6 +1324,7 @@
    ]
   },
   "URL": "https://www.iso.org/standard/84123.html",
+  "abstract": "This document represents an open international standard for information used in Building Information Modeling (BIM) that is exchanged and shared among software applications used by the various participants in the construction or facility management industry sector. This document includes definitions that cover information required for buildings and infrastructure works over their life cycle. This edition of the document added coverage of information required for infrastructure facilities including bridges, roads, railways, waterways and port facilities. This document comprises the publication of a data schema, its documentation, the property and quantity set definitions and the mechanism of an exchange file format structure. Definitions from this document are used to support different recognized work flows in the construction and facility management industry sector, representing information deliveries. Such information deliveries can be described according to ISO 29481. Different implementation levels of this document can be defined to better support multiple information deliveries, they are referred to as a Model View Definition (MVD). Each MVD identifies which subset of the definitions of this document imposes requirements for implementation in software applications. Conforming software applications need to identify the model view definition they conform to when applying for software certification.",
   "keyword": "Q039, FF1=3, FF2=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5065,6 +5066,7 @@
    ]
   },
   "URL": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+  "abstract": "Zweck dieser Verordnung ist es, das Funktionieren des Binnenmarkts zu verbessern und die Einführung einer auf den Menschen ausgerichteten und vertrauenswürdigen künstlichen Intelligenz (KI) zu fördern und gleichzeitig ein hohes Schutzniveau in Bezug auf Gesundheit, Sicherheit und die in der Charta verankerten Grundrechte, einschließlich Demokratie, Rechtsstaatlichkeit und Umweltschutz, vor schädlichen Auswirkungen von KI-Systemen in der Union zu gewährleisten und die Innovation zu unterstützen.",
   "keyword": "Q150, FF3=2, FF4=2, Nutzung:verwerfen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5378,6 +5380,7 @@
    ]
   },
   "URL": "https://www.gesetze-bayern.de/Content/Document/BayBO",
+  "abstract": "Dieses Gesetz gilt für alle baulichen Anlagen und Bauprodukte. Es gilt auch für Grundstücke sowie für andere Anlagen und Einrichtungen, an die nach diesem Gesetz oder in Vorschriften auf Grund dieses Gesetzes Anforderungen gestellt werden.",
   "keyword": "Q160, FF1=1, FF2=3, FF4=3, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5398,6 +5401,7 @@
    ]
   },
   "URL": "https://www.gesetze-bayern.de/Content/Document/BayBauVorlV2008",
+  "abstract": "Bauvorlagen sind die einzureichenden Unterlagen, die für die Beurteilung des Bauvorhabens und die Bearbeitung des Bauantrags (Art. 64 Abs. 2 Satz 1 BayBO), für die Anzeige der beabsichtigten Beseitigung (Art. 57 Abs. 5 Satz 2 BayBO) oder für die Genehmigungsfreistellung (Art. 58 Abs. 3 Satz 1 Halbsatz 1 BayBO) erforderlich sind. Bautechnische Nachweise gelten auch dann als Bauvorlagen im Sinn dieser Verordnung, wenn sie der Bauaufsichtsbehörde nicht vorzulegen sind.",
   "keyword": "Q161, FF1=3, FF2=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5418,6 +5422,7 @@
    ]
   },
   "URL": "https://www.gesetze-bayern.de/Content/Document/BayDBauV/true",
+  "abstract": "Diese Verordnung findet Anwendung auf Anträge, Anzeigen, Unterlagen und Bauvorlagen, die digital eingereicht werden. Digital eingereicht ist, was unter Verwendung der zu diesem Zweck vom Staatsministerium für Wohnen, Bau und Verkehr vorgegebenen digitalen Formulare (Online-Assistenten) eingereicht wird.",
   "keyword": "Q162, FF1=2, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5439,6 +5444,7 @@
    ]
   },
   "URL": "https://www.bayika.de/bayika-wAssets/docs/aktuelles/2026/2026-07-21_StMB_Entwurf_Gesetz_zur_Digitalisierung_bauaufsichtlicher_Verfahren.pdf",
+  "abstract": "Die Digitalisierung der bauaufsichtlichen Verfahren konnte in den vergangenen Jahren große Fortschritte verzeichnen. Waren es zum 1. März 2021 lediglich fünf Bauaufsichtsbehörden, die erstmals eine Möglichkeit zur elektronischen Einreichung von Anträgen und Anzeigen angeboten haben, ist dieses bislang zusätzliche Angebot inzwischen bayernweit nahezu flächendeckend verfügbar. Die Regelungen der Bayerischen Bauordnung (BayBO) spiegeln die immer größere Bedeutung des digitalen Verfahrens nur unzureichend wider, sie gehen bislang standardmäßig von einem papierbasierten Verfahren aus. Für das digitale Verfahren notwendige, abweichende Regelungen finden sich hingegen bislang in der Verordnung über die digitale Einreichung bauaufsichtlicher Anträge und Anzeigen (Digitale Bauantragsverordnung – DBauV). Die bislang bestehende Möglichkeit, Anträge und Anzeigen sowohl in Papierform als auch elektronisch einreichen zu können, führt bei den zuständigen Bauaufsichtsbehörden zudem zu einem erhöhten Aufwand: Papieranträge müssen entweder aufwändig gescannt werden, um eine einheitliche digitale Bearbeitung zu ermöglichen, oder die Prüfung erfolgt je nach Einreichungsform entweder analog oder digital. Bei der Einführung der Umweltverträglichkeitsprüfungen im Jahr 1999 hat sich der Gesetzgeber entschieden, für die bis dahin im Baugenehmigungsverfahren zu prüfenden Abgrabungen mit dem Bayerischen Abgrabungsgesetz (BayAbgrG) ein eigenes Stammgesetz zu schaffen. Die dadurch geschaffenen zusätzlichen Verfahren mit abweichenden Zuständigkeiten haben sich für die Umsetzung digitaler Lösungen als hinderlich erwiesen.",
   "keyword": "Q163, FF1=1, FF4=2, Nutzung:Kontext, Qualitaet:C, Kernbestand"
  },
  {
@@ -5478,6 +5484,7 @@
     ]
    ]
   },
+  "abstract": "Diese Richtlinie regelt hochfeuerhemmende Bauteile nach § 26 Absatz 2 Satz 2 Nummer 3 der Musterbauordnung sowie abweichend hochfeuerhemmende und abweichend feuerbeständige Bauteile im Sinne von § 26 Absatz 2 Satz 4 der Musterbauordnung. Feuerwiderstandsfähige Bauteile nach dieser Richtlinie sind mit brandschutztechnisch wirksamer Bekleidung (Brandschutzbekleidung) nach Abschnitt 3.4 und soweit erforderlich mit Dämmstoffen nach Abschnitt 3.3 auszuführen. Bei Beachtung der Regelungen entsprechen hochfeuerhemmende Bauteile mit Brandschutzbekleidung § 26 Absatz 2 Satz 2 Nummer 3 der Musterbauordnung. Sie gilt auch für Wände anstelle von Brandwänden gemäß § 30 Absatz 3 Satz 2 Nummer 1 und 2 der Musterbauordnung.",
   "keyword": "Q165, FF2=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5498,6 +5505,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/bgb/",
+  "abstract": "Ein Bauvertrag ist ein Vertrag über die Herstellung, die Wiederherstellung, die Beseitigung oder den Umbau eines Bauwerks, einer Außenanlage oder eines Teils davon. Für den Bauvertrag gelten ergänzend die folgenden Vorschriften dieses Kapitels.",
   "keyword": "Q166, FF1=2, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5518,6 +5526,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/bgbeg/art_249__1.html",
+  "abstract": "Der Unternehmer ist nach § 650j des Bürgerlichen Gesetzbuchs verpflichtet, dem Verbraucher rechtzeitig vor Abgabe von dessen Vertragserklärung eine Baubeschreibung in Textform zur Verfügung zu stellen.",
   "keyword": "Q167, FF1=3, FF2=2, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5538,6 +5547,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/geg/GModG.pdf",
+  "abstract": "Ziel dieses Gesetzes ist es, einen wesentlichen Beitrag zur Erreichung der nationalen Klimaschutzziele zu leisten. Dies soll durch wirtschaftliche, sozialverträgliche und effizienzsteigernde Maßnahmen zur Einsparung von Treibhausgasemissionen sowie der zunehmenden Nutzung von erneuerbaren Energien oder unvermeidbarer Abwärme für die Energieversorgung von Gebäuden erreicht werden.",
   "keyword": "Q168, FF1=2, FF2=3, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5558,6 +5568,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/baunvo/",
+  "abstract": "Im Flächennutzungsplan können die für die Bebauung vorgesehenen Flächen nach der allgemeinen Art ihrer baulichen Nutzung (Bauflächen) dargestellt werden als 1. Wohnbauflächen (W) 2. gemischte Bauflächen (M) 3. gewerbliche Bauflächen (G) 4. Sonderbauflächen (S).",
   "keyword": "Q169, FF2=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5578,6 +5589,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/urhg/__5.html",
+  "abstract": "Gesetze, Verordnungen, amtliche Erlasse und Bekanntmachungen sowie Entscheidungen und amtlich verfaßte Leitsätze zu Entscheidungen genießen keinen urheberrechtlichen Schutz.",
   "keyword": "Q170, FF2=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5637,6 +5649,7 @@
    ]
   },
   "URL": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+  "abstract": "Zweck dieser Verordnung ist es, das Funktionieren des Binnenmarkts zu verbessern und die Einführung einer auf den Menschen ausgerichteten und vertrauenswürdigen künstlichen Intelligenz (KI) zu fördern und gleichzeitig ein hohes Schutzniveau in Bezug auf Gesundheit, Sicherheit und die in der Charta verankerten Grundrechte, einschließlich Demokratie, Rechtsstaatlichkeit und Umweltschutz, vor schädlichen Auswirkungen von KI-Systemen in der Union zu gewährleisten und die Innovation zu unterstützen.",
   "keyword": "Q173, FF3=2, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5657,6 +5670,7 @@
    ]
   },
   "URL": "https://dserver.bundestag.de/btd/21/042/2104297.pdf",
+  "abstract": "Dieser Entwurf soll das deutsche Produkthaftungsrecht zum ersten Mal seit 1989 umfassend reformieren. Er dient der Umsetzung der Richtlinie (EU) 2024/2853 des Europäischen Parlaments und des Rates vom 23. Oktober 2024 über die Haftung für fehlerhafte Produkte und zur Aufhebung der Richtlinie 85/374/EWG des Rates (ABl. L, 2024/2853, 18.11.2024), im Weiteren: „ProdHaftRL“. Die ProdHaftRL modernisiert das bisherige EU-Produkthaftungsrecht und hat das Ziel, zum Funktionieren des Binnenmarktes beizutragen und gleichzeitig ein hohes Schutzniveau für Verbraucher und andere natürliche Personen sicherzustellen. Die Umsetzung hat gemäß Artikel 22 Absatz 1 ProdHaftRL bis zum 9. Dezember 2026 zu erfolgen. Wegen der Vielzahl der Änderungen soll das Produkthaftungsgesetz, das 1989 die ursprüngliche Produkthaftungsrichtlinie von 1985 umgesetzt hatte, neu gefasst werden. Im Vordergrund der Modernisierung steht dabei die Anpassung an die Digitalisierung, an die Kreislaufwirtschaft und an die globalen Wertschöpfungsketten. Im digitalen Zeitalter hat Software nicht nur im Rahmen der Steuerung anderer Produkte, sondern auch als eigenständiges Produkt erhebliche Bedeutung erlangt. Sie wird daher zukünftig unabhängig von der Art ihrer Bereitstellung oder Nutzung in die Produkthaftung einbezogen. Damit gilt das Produkthaftungsrecht auch für die Haftung von Herstellern von Systemen künstlicher Intelligenz (KI-Systemen). Das neue Produkthaftungsrecht trägt dem Umstand Rechnung, dass Hersteller häufig auch nach dem Inverkehrbringen noch Kontrolle über ihr Produkt ausüben, etwa durch Software-Updates oder durch die Anbindung an digitale Dienste. Damit sind sie auch noch zur Vermeidung von Fehlern in der Lage, nach dem das Produkt den Herstellungsprozess verlassen hat, was zukünftig bei der Beurteilung der Fehlerhaftigkeit zu berücksichtigen sein wird. Open-Source-Software, die außerhalb einer Geschäftstätigkeit entwickelt oder bereitgestellt wird, bleibt von der Produkthaftung ausgenommen. Zur Anpassung an die Kreislaufwirtschaft enthält das neue Produkthaftungsrecht Regelungen zu Produkten, die nach ihrem Inverkehrbringen wesentlich verändert werden. Beispielsweise können durch „Upcycling“ Produkte so umgestaltet werden, dass sie ein geändertes Risikoprofil erhalten und infolgedessen haftungsrechtlich als neue Produkte anzusehen sind. In diesem Fall ist es sachgerecht, dass derjenige als Hersteller haftet, der das wesentlich veränderte Produkt in Verkehr bringt. Er kann sich von der Haftung befreien, wenn er nachweist, dass der Fehler, der die Rechtsgutsverletzung verursacht hat, mit einem Teil des Produkts zusammenhängt, der von der Änderung nicht betroffen ist. In Zeiten globaler Wertschöpfungsketten sind zunehmend Produkte auf dem Unionsmarkt erhältlich, deren Hersteller außerhalb der Europäischen Union ansässig sind. Daraus können sich für geschädigte Personen Schwierigkeiten bei der Durchsetzung ihrer Ansprüche ergeben. Deshalb sollen sie neben dem Hersteller unter bestimmten Voraussetzungen auch weitere Akteure in Anspruch nehmen können, nämlich Importeure, Beauftragte des Herstellers, Fulfilment-Dienstleister, Lieferanten und bestimmte Anbieter von Online-Plattformen. Darüber hinaus enthält das neue Produkthaftungsrecht Regelungen über die Offenlegung von Beweismitteln und zur Beweislast, die Klägerinnen und Klägern die Geltendmachung von Schadensersatzansprüchen erleichtern sollen und mit denen insbesondere auf die zunehmende Komplexität moderner Produkte reagiert werden soll. Dabei müssen eine angemessene Balance der betroffenen Interessen und ein effektiver Schutz von Geschäftsgeheimnissen sichergestellt werden. Dieser Entwurf steht im Kontext der gefährdeten rechtzeitigen Erreichung der Ziele der Resolution der Generalversammlung der Vereinten Nationen vom 25. September 2015 „Transformation unserer Welt: die Agenda 2030 für nachhaltige Entwicklung“ und trägt insbesondere zur Erreichung des Nachhaltigkeitsziels 12 bei, nachhaltige Konsum- und Produktionsmuster sicherzustellen.",
   "keyword": "Q174, FF4=2, Nutzung:übernehmen, Qualitaet:C, Kernbestand"
  },
  {
@@ -5677,6 +5691,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/bfsg/",
+  "abstract": "Zweck dieses Gesetzes ist es, im Interesse der Verbraucher und Nutzer die Barrierefreiheit von Produkten und Dienstleistungen nach Maßgabe der folgenden Vorschriften zu gewährleisten. Dadurch wird für Menschen mit Behinderungen ihr Recht auf Teilhabe am Leben in der Gesellschaft gestärkt und der Harmonisierung des Binnenmarktes Rechnung getragen.",
   "keyword": "Q175, FF3=1, FF4=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5691,6 +5706,7 @@
     ]
    ]
   },
+  "abstract": "Mit dieser Überarbeitung der Norm werden einige Regelungen deutlicher formuliert und DIN 18065:2015-03 dadurch inhaltlich verbessert. Diese Norm legt Begriffe, Messregeln, Hauptmaße und Toleranzen für Treppen im Bauwesen fest.",
   "keyword": "Q176, FF2=3, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5705,6 +5721,7 @@
     ]
    ]
   },
+  "abstract": "In DIN 68800-2 sind vorbeugende bauliche Maßnahmen zur Sicherung der Dauerhaftigkeit von Bauteilen aus Holz oder Holzwerkstoffen festgelegt. Durch die Änderung A1 wurden Festlegungen zum klimabedingten Feuchteschutz in 5.2.4 und Anhang A an DIN 4108-3 angepasst sowie Anhang B zu Anforderungen an feuchtevariable Schichten ergänzt werden. Außerdem wurde der Anhang A mit Beispielen für Konstruktionen, bei denen die Bedingungen der Gebrauchsklasse GK 0 erfüllt sind überarbeitet. Für diese Norm ist das DIN-Gremium NA 042-03-02 AA \"Baulicher Holzschutz\" zuständig.",
   "keyword": "Q177, FF2=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5719,6 +5736,7 @@
     ]
    ]
   },
+  "abstract": "Dieses Dokument wurde vom Arbeitsausschuss NA 005-56-91 AA \"Wärmetransport (SpA zu CEN/TC 89 (teilweise), CEN/TC 89/WG 12 (teilweise), ISO/TC 163 (teilweise), ISO/TC 163/SC 2/WG 9 (ohne transparente Bauteile))\" im DIN-Normenausschuss Bauwesen (NABau) erarbeitet. Dieses Dokument legt den Mindestwärmeschutz von Bauteilen und im Bereich von Wärmebrücken in der Gebäudehülle von Hochbauten fest, und Anforderungen an die Luftdichtheit von Bauteilen der wärmeübertragenden Umfassungsfläche. Dieses Dokument legt Anforderungen an den Sommerlichen Wärmeschutz fest, und legt die Randbedingungen und Verfahren für den Nachweis fest. Die Anforderungen an die Mindestwerte von Wärmedurchlasswiderständen (Abschnitt 5) gelten für alle Räume, die ihrer Bestimmung nach auf eine Raum-Solltemperatur von mindestens 12 °C beheizt werden, und alle Räume, die über Raumverbund durch solche Räume beheizt werden. Die Anforderungen an den Mindestwärmeschutz im Bereich von Wärmebrücken (Abschnitt 6) gelten für alle Räume, die ihrer Bestimmung nach auf eine Raum-Solltemperatur von mindestens 19 °C beheizt werde, wiederum inklusive Räumen, die über Raumverbund beheizt werden. Die Anforderungen an die Luftdichtheit (Abschnitt 7) gelten für die Bauteile der wärmeübertragenden Umfassungsfläche. Die Anforderungen an den sommerlichen Wärmeschutz (Abschnitt 8) gelten für Aufenthaltsräume. Es werden wärmeschutztechnische Hinweise (Abschnitt 4) für die Planung und Ausführung von Aufenthaltsräumen in Hochbauten gegeben, für den Wärmeschutz im Winter und den Wärmeschutz im Sommer. Die Anforderungen gelten für zu errichtende Gebäude, für Erweiterungen bestehender Gebäude und für neue Bauteile wie zum Beispiel Verschließen von Fensteröffnungen in bestehenden Gebäuden. Weitergehende Festlegungen, zum Beispiel Arbeitsschutz, bleiben von diesem Dokument unberührt.",
   "keyword": "Q178, FF2=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5733,6 +5751,7 @@
     ]
    ]
   },
+  "abstract": "Diese Norm enthält wärmeschutztechnische Kennwerte, die für den rechnerischen Nachweis des Wärmeschutzes von Gebäuden und deren Bauteilen anzuwenden sind. Die in dieser Norm angegebenen Bemessungswerte berücksichtigen unter anderem Einflüsse der Temperatur, des Ausgleichsfeuchtegehalts sowie Schwankungen der Stoffeigenschaften und Alterung der Produkte. Die in dieser Norm aufgeführten Werte der Wasserdampf-Diffusionswiderstandszahlen sind Richtwerte und können erheblichen Schwankungen unterliegen. Für diese Norm ist das Gremium NA 005-56-92 AA \"Kennwerte und Anforderungsbedingungen\" im DIN-Normenausschuss Bauwesen (NABau) zuständig.",
   "keyword": "Q179, FF1=1, FF2=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5789,6 +5808,7 @@
     ]
    ]
   },
+  "abstract": "Diese Norm enthält schalltechnische Daten von Bauteilen und Konstruktionen für den Holz-, Leicht- und Trockenbau, die ohne bauakustische Prüfungen in den in DIN 4109-2 genannten Berechnungsverfahren für die rechnerischen Nachweise der DIN 4109-1 verwendet werden dürfen. Diese Norm gilt nur in Verbindung mit dem Rahmendokument DIN 4109-3-1.",
   "keyword": "Q183, FF2=2, FF6=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5803,6 +5823,7 @@
     ]
    ]
   },
+  "abstract": "Die DIN 4102-4:2016-05 enthält, katalogartig geordnet, die Ergebnisse von Brandprüfungen an Baustoffen, Bauteilen und Bauarten. Durch die Zuordnung zu den Baustoffklassen nach DIN 4102-1 beziehungsweise in der Feuerwiderstandsklasse der anderen Teile der Reihe DIN 4102 sind weitere Brandprüfungen für den bauaufsichtlich geforderten Nachweis der Brauchbarkeit nicht erforderlich.",
   "keyword": "Q184, FF2=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5817,6 +5838,7 @@
     ]
    ]
   },
+  "abstract": "Tageslicht in Innenräumen kann unter verschiedenen Aspekten betrachtet werden: - die psychische Wirkung, hierunter fallen der subjektive Helligkeitseindruck und die Sichtverbindung nach außen; - die Sehbedingungen, sie betreffen zum Beispiel eine zur Erfüllung der Sehaufgabe angemessene Beleuchtungsstärke und die Begrenzung von Blendung; - die thermische Behaglichkeit, sie betrifft die Begrenzung von unzuträglicher Strahlungs- und Wärmebelastung; - die Energieeffizienz, sie betrifft die Verringerung des Energiebedarfs in Gebäuden durch Tageslichtnutzung. DIN 5034-1 legt Mindestanforderungen fest, um in Aufenthaltsräumen einen hinreichenden subjektiven Helligkeitseindruck mit Tageslicht zu erzielen. Das Dokument enthält grundlegende Begriffe und Definitionen für die Beleuchtung von Innenräumen mit Tageslicht. Das Dokument wurde vom NA 058-00-06 AA \"Innenraumbeleuchtung mit Tageslicht\" im DIN-Normenausschuss Lichttechnik (FNL) erarbeitet.",
   "keyword": "Q185, FF2=2, FF6=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5845,6 +5867,7 @@
     ]
    ]
   },
+  "abstract": "Dieses Dokument legt Anforderungen an den verlinkten BIM-Datenaustausch von standardisierten Bauwerksinformationsmodellen, zum Beispiel nach DIN EN ISO 16739-1 (IFC) und Kosten- und Leistungsverzeichnissen, zum Beispiel nach GAEB-DA ab XML 3.3 fest. Es werden inhaltliche Anforderungen an das Bauwerksinformationsmodell, das Leistungsverzeichnis, das Linkmodell sowie an die beschreibenden Metadaten festgelegt. Die Definitionen der für die verschiedenen Datenaustauschphasen erforderlichen Metadaten werden als fachspezifische Ausprägung des Multimodell-Containers für die im BIM-Prozess praktizierten Datenaustauschphasen zur Verfügung gestellt. Dieses Dokument orientiert sich an dem in Deutschland üblichen GAEB-Prozess, der durch standardisierte Datenaustauschphasen definiert ist. Dieses Dokument wurde vom Arbeitsausschuss NA 005-13-02 AA \"Datenaustausch (SpA zu CEN/TC 442/WG 2, ISO/TC 59/SC 13/WG 8, ISO/TC 59/SC 13/JWG 12, ISO/TC 59/SC 13/JWG 14)\" im DIN-Normenausschuss Bauwesen (NABau) erarbeitet.",
   "keyword": "Q187, FF1=3, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -5859,6 +5882,7 @@
     ]
    ]
   },
+  "abstract": "This document outlines the concepts and principles for information management at a stage of maturity described as \"building information modelling (BIM) according to the ISO 19650 series\". This document provides recommendations for a framework to manage information including exchanging, recording, versioning and organizing for all actors. This document is applicable to the whole life cycle of any built asset, including strategic planning, initial design, engineering, development, documentation and construction, day-to-day operation, maintenance, refurbishment, repair and end-of-life. This document can be adapted to assets or projects of any scale and complexity, so as not to hamper the flexibility and versatility that characterize the large range of potential procurement strategies and so as to address the cost of implementing this document.",
   "keyword": "Q188, FF1=2, FF4=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -9873,6 +9897,7 @@
     ]
    ]
   },
+  "abstract": "Dieses Dokument legt Empfehlungen zur Erreichung eines hinreichenden subjektiven Helligkeitseindrucks in Innenräumen durch Tageslicht und einer ausreichenden Aussicht fest. Darüber hinaus enthält das Dokument Empfehlungen für die Dauer der Besonnung in Aufenthaltsräumen. Dieses Dokument bietet Informationen zur Nutzung des Tageslichts für die Beleuchtung von Innenräumen und die Beschränkung von Blendung. Darüber hinaus legt dieses Dokument Messgrößen für die Bewertung der Tageslichtbeleuchtungsbedingungen fest und enthält Grundsätze für die Berechnung und Verifizierung. Diese Grundsätze ermöglichen es, die Variabilität des Tageslichts zu verschiedenen Tages- und Jahreszeiten zu berücksichtigen. Dieses Dokument gilt für alle regelmäßig und über längere Zeit von Menschen genutzten Räume, mit Ausnahme von Räumen, in denen eine Tageslichtbeleuchtung der Nutzung des Raumes entgegensteht. Die Festlegungen der Beleuchtungsanforderungen für Personen an Arbeitsplätzen in Innenräumen einschließlich visueller Aufgaben sind in EN 12464-1 enthalten und nicht Teil dieses Dokuments. Dieses Dokument (EN 17037:2018) wurde vom Technischen Komitee CEN/TC 169 \"Licht und Beleuchtung\" erarbeitet, dessen Sekretariat von DIN (Deutschland) gehalten wird. Das zuständige deutsche Normungsgremium ist der Arbeitsausschuss NA 058-00-06 AA \"Innenraumbeleuchtung mit Tageslicht\" im DIN-Normenausschuss Lichttechnik (FNL).",
   "keyword": "Q319, FF2=2, FF6=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -14671,6 +14696,7 @@
    ]
   },
   "URL": "http://data.europa.eu/eli/dir/2024/2853/oj",
+  "abstract": "Mit dieser Richtlinie werden gemeinsame Vorschriften über die Haftung von Wirtschaftsakteuren für Schäden, die natürlichen Personen durch fehlerhafte Produkte entstanden sind, und über den Ersatz derartiger Schäden festgelegt. Ziel dieser Richtlinie ist es, zum reibungslosen Funktionieren des Binnenmarkts beizutragen und gleichzeitig ein hohes Schutzniveau für Verbraucher und andere natürliche Personen sicherzustellen.",
   "keyword": "Q479, FF3=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -14691,6 +14717,7 @@
    ]
   },
   "URL": "http://data.europa.eu/eli/reg/2014/910/oj",
+  "abstract": "Diese Verordnung dient dem ordnungsgemäßen Funktionieren des Binnenmarkts und der Gewährleistung eines angemessenen Sicherheitsniveaus bei unionsweit genutzten elektronischen Identifizierungsmitteln und Vertrauensdiensten, um natürlichen und juristischen Personen die Ausübung des Rechts auf sichere Teilhabe an der digitalen Gesellschaft und auf Zugang zu öffentlichen und privaten Online-Diensten in der gesamten Union zu ermöglichen und zu erleichtern.",
   "keyword": "Q480, FF1=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -14711,6 +14738,7 @@
    ]
   },
   "URL": "https://dejure.org/dienste/vernetzung/rechtsprechung?Text=ZfBR+2003%2C+31",
+  "abstract": "a) Ein Architekt, der sich zur Erstellung einer Genehmigungsplanung verpflichtet, schuldet als Werkerfolg eine dauerhaft genehmigungsfähige Planung. b) Die Parteien eines Architektenvertrages können im Rahmen der Privatautonomie vereinbaren, daß und in welchem Umfang der Auftraggeber das Risiko übernimmt, daß die vom Architekten zu erstellende Planung nicht genehmigungsfähig ist. c) Die Kenntnis des Genehmigungsrisikos bietet keine hinreichende Grundlage für die Annahme, daß die Parteien abweichend von dem schriftlichen Vertrag vereinbart haben, daß der Auftraggeber das Genehmigungsrisiko tragen soll. d) Der Auftraggeber eines Architektenvertrages ist grundsätzlich nicht verpflichtet, die vereinbarte Planung nachträglich in der Weise zu ändern, daß die geänderte Planung dauerhaft genehmigungsfähig ist.",
   "keyword": "Q481, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -31857,6 +31885,7 @@
   },
   "URL": "https://www.bundesgerichtshof.de/SharedDocs/Entscheidungen/DE/Zivilsenate/VII_ZS/2024/VII_ZR_119-24.pdf",
   "issue": "VII ZR 119/24",
+  "abstract": "a) Den Besteller trifft im Vertragsverhältnis zu dem mit der Ausführungsplanung beauftragten Architekten regelmäßig die Obliegenheit, diesem eine mangelfreie Entwurfsplanung zur Verfügung zu stellen. Überlässt der Besteller dem mit der Ausführungsplanung beauftragten Architekten fehlerhafte Pläne, verletzt er die ihn gemäß § 254 Abs. 1 BGB treffende Obliegenheit zur Mitwirkung und er muss sich nach § 254 Abs. 2 Satz 2, § 278 BGB die Mitverursachung des Schadens durch den von ihm mit der Entwurfsplanung beauftragten Architekten zurechnen lassen, weil er sich dieses Architekten zur Erfüllung seiner Obliegenheit bedient hat (Fortführung von BGH, Urteil vom 14. Juli 2016 - VII ZR 193/14, BauR 2016, 1943 = NZBau 2017, 164; Urteil vom 15. Mai 2013 - VII ZR 257/11, BGHZ 197, 252; Urteil vom 27. November 2008 - VII ZR 206/06, BGHZ 179, 55). b) Es obliegt dem Besteller, der verschiedene planende Architekten und ausführende Unternehmer mit Leistungen für ein Bauvorhaben beauftragt, den Ablauf des Bauvorhabens zu koordinieren, insbesondere die einzelnen Leistungen abzustimmen und die gegebenenfalls für die Planung und Ausführung notwendigen Entscheidungen zu treffen. Im Vertragsverhältnis zu den an dem Bauvorhaben beteiligten planenden Architekten und ausführenden Unternehmern ist die Koordinierung eine dem Besteller im eigenen Interesse obliegende notwendige Mitwirkung bei der Herstellung des Bauwerks. Bedient er sich zur Erfüllung dieser Obliegenheit eines Dritten, muss er sich dessen Verschulden gemäß § 254 Abs. 2 Satz 2, § 278 BGB als Mitverschulden zurechnen lassen (Fortführung von BGH, Urteil vom 27. Juni 1985 - VII ZR 23/84, BGHZ 95, 128; Urteil vom 29. November 1971 - VII ZR 101/70, NJW 1972, 447; Urteil vom 15. Dezember 1969 - VII ZR 8/68, WM 1970, 354). c) Da der mit der Koordination eines Bauvorhabens beauftragte Architekt zur Wahrnehmung von Koordinationsaufgaben keiner mangelfreien Pläne bedarf, obliegt es dem Besteller insoweit regelmäßig nicht, diesem solche Pläne zur Verfügung zu stellen. Der Besteller muss sich daher das Verschulden des planenden Architekten im Vertragsverhältnis zu dem mit der Koordination beauftragten Architekten nicht gemäß § 254 Abs. 2 Satz 2, § 278 BGB als Mitverschulden zurechnen lassen.",
   "keyword": "Q974, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -31878,6 +31907,7 @@
   },
   "URL": "https://dejure.org/2011,702",
   "issue": "VII ZR 8/10",
+  "abstract": "1. Ein Architekt, der sich zur Erstellung einer Genehmigungsplanung verpflichtet, schuldet als Werkerfolg grundsätzlich eine dauerhaft genehmigungsfähige Planung. Etwas anderes gilt dann, wenn der Auftraggeber das Risiko der Genehmigungsfähigkeit der Planung aufgrund vertraglicher Vereinbarung übernimmt. 2. Es können bauordnungsrechtliche Bedenken von solchem Gewicht gegen die Zulässigkeit eines Bauvorhabens bestehen, dass der Bauherr ihretwegen nicht ohne weiteres auf die Rechtmäßigkeit der erteilten Baugenehmigung vertrauen darf (im Anschluss an BGH, Urteil vom 12. Juni 1975, III ZR 34/73, NJW 1975, 1968, 1969). 3. Sind dem Auftraggeber Umstände bekannt, aufgrund derer sich die Fehlerhaftigkeit der Genehmigungsplanung des Architekten aufdrängt, und macht er von der erteilten Baugenehmigung dennoch Gebrauch, verstößt er regelmäßig gegen die im eigenen Interesse bestehende Obliegenheit, sich selbst vor Schäden zu bewahren (§ 254 Abs. 1 BGB).",
   "keyword": "Q975, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -31899,6 +31929,7 @@
   },
   "URL": "https://dejure.org/2007,52",
   "issue": "VII ZR 183/05",
+  "abstract": "a) Auch nach der Änderung des § 633 BGB durch das Gesetz zur Modernisierung des Schuldrechts entspricht ein Werk nicht der vereinbarten Beschaffenheit, wenn es nicht die vereinbarte Funktionstauglichkeit aufweist. b) Beruht der Mangel der Funktionstauglichkeit auf einer unzureichenden Vorleistung eines anderen Unternehmers, wird der Unternehmer auch nach dem durch das Gesetz zur Modernisierung des Schuldrechts geänderten Werkvertragsrecht von der Mängelhaftung frei, wenn er seine Prüfungs- und Hinweispflicht erfüllt hat. c) Der Unternehmer trägt die Darlegungs- und Beweislast für die Erfüllung der Prüfungs- und Hinweispflicht. d) Zur Mängelhaftung des Unternehmers für eine Heizungsanlage, die deshalb nicht funktioniert, weil das von einem anderen Unternehmer errichtete Blockheizkraftwerk keine ausreichende Wärme erzeugt.",
   "keyword": "Q976, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -31920,6 +31951,7 @@
   },
   "URL": "https://dejure.org/2008,124",
   "issue": "VII ZR 206/06",
+  "abstract": "BGB § 638 a.F., § 634a Abs. 3 F: 2. Januar 2002 a) Die Rechtsprechung des Senats zur Organisationsobliegenheit des arbeitsteilig tätigen Werkunternehmers (zuletzt BGH, Urteil vom 11. Oktober 2007 - VII ZR 99/06, BGHZ 174, 32) ist auch dann anwendbar, wenn Ansprüche gegen ein Architektenbüro geltend gemacht werden, das die Bauüberwachung arbeitsteilig organisiert. b) Die Gleichstellung der Verjährung im Falle der Verletzung einer Organisationsobliegenheit mit der Verjährung bei arglistigem Verschweigen eines Mangels ist nur gerechtfertigt, wenn die Verletzung der Organisationsobliegenheit ein dem arglistigen Verschweigen vergleichbares Gewicht hat. c) Die Schwere eines Baumangels lässt grundsätzlich nicht den Rückschluss auf eine derart schwere Verletzung der Obliegenheit zu, eine arbeitsteilige Bauüberwachung richtig zu organisieren. BGB §§ 254 Ec, 278 a) Den Bauherrn trifft jedenfalls die Obliegenheit, dem bauaufsichtsführenden Architekten mangelfreie Pläne zur Verfügung zu stellen. b) Nimmt er den bauaufsichtsführenden Architekten wegen eines übersehenen Planungsmangels in Anspruch, muss er sich das Verschulden des von ihm eingesetzten Planers zurechnen lassen. c) Der Verursachungsbeitrag des bauaufsichtsführenden Architekten an dem Bauwerksschaden muss unter Berücksichtigung seiner besonderen Aufgabenstellung gewichtet werden. Ein vollständiges Zurücktreten seiner Haftung kommt nur in Ausnahmefällen in Betracht.",
   "keyword": "Q977, FF4=2, Nutzung:adaptieren, Qualitaet:A, Kernbestand"
  },
  {
@@ -31941,6 +31973,7 @@
   },
   "URL": "https://dejure.org/2013,14751",
   "issue": "VII ZR 257/11",
+  "abstract": "1. Die von einem Tragwerksplaner für ein Gebäude erstellte Statik ist mangelhaft, wenn sie den vereinbarten Zweck, die Standfestigkeit des Gebäudes unter Berücksichtigung des Baugrundes und seiner Tragfähigkeit zu gewährleisten, nicht erfüllt, weil sie die nach den konkreten Boden- und Grundwasserverhältnissen erforderlichen Maßnahmen nicht vorsieht. 2. Den Auftraggeber trifft grundsätzlich die Obliegenheit, dem Tragwerksplaner die für die mangelfreie Erstellung der Statik erforderlichen Angaben zu den Boden- und Grundwasserverhältnissen zu machen. Hat er unzutreffende Angaben gemacht und ist deshalb die Statik mangelhaft, trifft den Auftraggeber für einen daraus entstehenden Schaden eine Mithaftung wegen Verschuldens gegen sich selbst. 3. Hat der von dem Auftraggeber beauftragte planende Architekt die unzutreffenden Angaben gemacht, muss sich der Auftraggeber dessen Verschulden gemäß §§ 254, 278 BGB zurechnen lassen.",
   "keyword": "Q978, FF1=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32025,6 +32058,7 @@
   },
   "URL": "https://dejure.org/2001,1330",
   "issue": "VII ZR 391/99",
+  "abstract": "BGB § 631 Aus Vorschriften, die im öffentlichen Bauordnungsrecht für die Erteilung einer Baugenehmigung im vereinfachten Genehmigungsverfahren gelten, kann nicht geschlossen werden, eine von einem Architekten vertraglich geschuldete Planungsleistung umfasse nur die dort geregelten Anforderungen. NRWBauO § 64 Abs. 2 i.d.F. vom 26. Juni 1984 Das vereinfachte Genehmigungsverfahren stellt eine Erleichterung des formellen Rechts und zugleich einen Abbau staatlicher Bauaufsicht unter gleichzeitiger bewußter Verstärkung der Verantwortlichkeit der am Bau Beteiligten dar.",
   "keyword": "Q982, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32088,6 +32122,7 @@
   },
   "URL": "https://dejure.org/2017,21789",
   "issue": "2 U 68/16",
+  "abstract": "1. Die Haftung eines Ingenieurs für Fehler des von ihm beauftragten Tragwerksplaners gegenüber dem Besteller kommt unter anderem in Betracht, wenn die Leistung des Tragwerkplaners für den Ingenieur erkennbar fehlerhaft war. Das ist der Fall, wenn der Bezugswert für maximal Rissbreiten in der statischen Berechnung zu hoch angesetzt ist und der zutreffende wert sich aus dem für den Ingenieur maßgeblichen Regelwerk der Technik ergibt. 2. Die Kürzung eines Schadensersatzanspruchs aus dem werkvertraglichen Gewährleistungsrecht unter dem Gesichtspunkt des \"Abzugs neu für Alt\" wegen einer verlängerten Lebensdauer kommt überhaupt nur dann in Betracht, wenn der Mangel sich verhältnismäßig spät auswirkt und der Auftraggeber bis dahin keine Gebrauchsnachteile hinnehmen musste. Hinsichtlich der Gebrauchsnachteile ist es bei einem in sich geschlossenen Bauwerk unerheblich, ob diese sich aus dem Mangel ergeben, auf dem der Schadensersatzanspruch beruht, oder sie die Folge anderer Mängeln der Werkleistung sind. 3. Die Kosten eines Vorprozesses des Bauherrn gegen den ausführenden Unternehmer wegen Baumängeln können zum Schadensersatzanspruch des Bauherrn wegen Baumängeln als Folge von Planungsfehlern des Architekten / Ingenieurs gehören. Voraussetzung ist, dass der Vorprozess verloren geht, weil der Bauherr sich das Planungsverschulden des Architekten / Ingenieurs zurechnen lassen muss und der Architekten / Ingenieurs seine Gewährleistungspflicht im Vorfeld verneint hat.",
   "keyword": "Q985, FF4=2, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
  },
  {
@@ -32192,6 +32227,7 @@
   },
   "URL": "https://dejure.org/2005,261",
   "issue": "VII ZR 183/04",
+  "abstract": "a) Ein Vertrag, in dem sich ein Unternehmer zur Lieferung und Errichtung eines Ausbauhauses gegen Teilzahlungen verpflichtet, ist ein Werkvertrag (im Anschluss an BGH, Urteil vom 10. März 1983 - VII ZR 302/82, BGHZ 87, 112). b) Ein Verbraucher kann einen solchen Vertrag weder nach §§ 505 Abs. 1 Nr. 1, 355 Abs. 1 BGB (Ratenlieferungsverträge) noch nach §§ 501 Satz 1, 499 Abs. 2, 495 Abs. 1, 355 Abs. 1 BGB (Teilzahlungsgeschäfte) widerrufen.",
   "keyword": "Q990, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -32213,6 +32249,7 @@
   },
   "URL": "https://recht.nulegal.eu/rechtsprechung/bgh/2006-04-27/vii-zr-175-05",
   "issue": "VII ZR 175/05",
+  "abstract": "Die Klausel in einem Vertrag über die Errichtung eines Fertighauses \"Erfolgt eine Kündigung gleich aus welchem Grund, ohne dass sie von W. Haus (= Unternehmer) zu vertreten ist, hat W. Haus das Recht, eine pauschale Vergütung bzw. einen pauschalierten Schadensersatz in Höhe von 10 % des zur Zeit der Kündigung vereinbarten Gesamtpreises zu verlangen, sofern nicht der Bauherr oder W. Haus im Einzelfall andere Nachweise erbringen\" ermöglicht wirksam bei freier Kündigung des Bestellers eine pauschale Abrechnung in dieser Höhe, wenn der Unternehmer nicht daneben noch weitere Ansprüche geltend macht.",
   "keyword": "Q991, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -32234,6 +32271,7 @@
   },
   "URL": "https://dejure.org/2024,29299",
   "issue": "6 O 151/23",
+  "abstract": "1. Wer zur Beantwortung von Suchanfragen für Unternehmensauskünfte bewusst eine Kl-Software nutzt, die Informationen aus veröffentlichten Pflichtmitteilungen abruft, aufbereitet und auf einem Internet-Portal veröffentlicht, ist unmittelbarer Störer. Der Störer kann sich nicht darauf berufen, an einem vollautomatisierten Vorgang nicht beteiligt gewesen zu sein, wenn die KI-Software unzulänglich programmiert ist. 2. Bei einer Veröffentlichung von Informationen auf einem eigenen Internet-Portal liegt aus Sicht eines verständigen Durchschnittsnutzers ein Zueigenmachen dieser Informationen vor und es wird nach außen hin erkennbar die inhaltliche Verantwortung für diese Inhalte übernommen. Dies gilt auch, wenn es sich um eine Bündelung und ein Verknüpfen von aus Pflichtinformationen stammenden Informationen und deren Veröffentlichung durch eine KI-Software handelt. 3. Unbeachtlich ist dann ein Hinweis in den Nutzungsbedingungen des Internet-Portals, dass die Informationen in einem vollautomatisierten Prozess gewonnen wurden und fehlerbehaftet sein können. Dasselbe gilt für einen Haftungsausschluss für die Aktualität, Richtigkeit, Vollständigkeit, Qualität und jederzeitige Verfügbarkeit der bereitgestellten Informationen.",
   "keyword": "Q992, FF3=1, FF4=1, Nutzung:Kontext, Qualitaet:C, Peripherie"
  },
  {
@@ -32254,6 +32292,7 @@
    ]
   },
   "URL": "https://dserver.bundestag.de/btd/18/084/1808486.pdf",
+  "abstract": "Die Baubranche ist einer der größten und wichtigsten Wirtschaftszweige der Bundesrepublik Deutschland. Die Bautechnik hat sich in den vergangenen Jahrzehnten stetig weiterentwickelt. Auch das Baurecht ist – teilweise parallel dazu – zu einer komplexen Spezialmaterie geworden, zu der eine umfangreiche Rechtsprechung ergangen ist. Diese ist für den Rechtsanwender kaum noch zu überblicken. Das geltende Werkvertragsrecht ist mit Blick auf die unterschiedlichen möglichen Vertragsgegenstände sehr allgemein gehalten. Für die komplexen, auf eine längere Erfüllungszeit angelegten Bauverträge sind die Regelungen des Werkvertragsrechts häufig nicht detailliert genug. Wesentliche Fragen des Bauvertragsrechts sind nicht gesetzlich geregelt, sondern der Vereinbarung der Parteien und der Rechtsprechung überlassen. Das Fehlen klarer gesetzlicher Vorgaben erschwert eine interessengerechte und ökonomisch sinnvolle Gestaltung und Abwicklung von Bauverträgen. Für Verbraucher birgt die Durchführung eines Bauvorhabens darüber hinaus weitere Risiken: Ein Verbraucher wendet für die Errichtung oder den Umbau eines Hauses häufig einen wesentlichen Teil seiner wirtschaftlichen Ressourcen auf. Unerwartete Mehrkosten durch eine nicht rechtzeitige Fertigstellung des Baus oder die Insolvenz des beauftragten Bauunternehmers können daher gravierende Auswirkungen haben. Gleichwohl enthält das geltende Werkvertragsrecht, abgesehen von einigen Einzelvorschriften, keine besonderen Verbraucherschutzvorschriften, wie es sie in anderen für den Verbraucher wichtigen Rechtsbereichen gibt. Der Europäische Gerichtshof (EuGH) hat durch Urteil vom 16. Juni 2011 (C 65/09 und C 87/09) entschieden, dass der Verkäufer einer beweglichen Sache im Rahmen einer Nacherfüllung gegenüber dem Verbraucher verpflichtet sein kann, die bereits in eine andere Sache eingebaute mangelhafte Kaufsache auszubauen und die Ersatzsache einzubauen oder die Kosten für beides zu tragen. Für einen Kaufvertrag zwischen Unternehmern (B2B-Geschäft) gilt dies nach der Rechtsprechung des Bundesgerichtshofs (BGH) jedoch nicht (vgl. BGH, Urteil vom 17. Oktober 2012 – VIII ZR 226/11; Urteil vom 16. April 2013 – VIII ZR 375/11; Urteil vom 2. April 2014 – VIII ZR 46/13). Dies bedeutet für einen Werkunternehmer, der mangelhaftes Baumaterial gekauft und dieses in Unkenntnis des Mangels bei einem Dritten verbaut hat, dass er diesem aus dem geschlossenen Werkvertrag zum Ausbau des mangelhaften und zum Einbau von mangelfreiem Baumaterial verpflichtet ist. Von dem Verkäufer kann er dagegen nach geltendem Recht nur die Lieferung des dafür benötigten neuen Baumaterials verlangen. Die Aus- und Einbaukosten muss er – von den Fällen eines schuldhaften Verhaltens des Verkäufers abgesehen – selbst tragen.",
   "keyword": "Q993, FF1=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32275,6 +32314,7 @@
    ]
   },
   "URL": "https://dserver.bundestag.de/btd/18/114/1811437.pdf",
+  "abstract": "Der Gesetzentwurf sieht im Schwerpunkt vor, spezielle Regelungen für den Bauvertrag, den Verbraucherbauvertrag sowie den Architektenvertrag und den Ingenieurvertrag in das Werkvertragsrecht des Bürgerlichen Gesetzbuchs (BGB) aufzunehmen. Damit soll dem Umstand Rechnung getragen werden, dass das Baurecht – parallel zur stetigen Weiterentwicklung der Bautechnik – zu einer komplexen Spezialmaterie mit umfangreicher Rechtsprechung geworden ist. Diese ist für den Rechtsanwender kaum noch zu überblicken. Das geltende Werkvertragsrecht ist mit Blick auf die unterschiedlichen möglichen Vertragsgegenstände sehr allgemein gehalten. Für die komplexen, auf eine längere Erfüllungszeit angelegten Bauverträge sind die Regelungen des Werkvertragsrechts häufig nicht detailliert genug. Wesentliche Fragen des Bauvertragsrechts sind nicht gesetzlich geregelt, sondern der Vereinbarung der Parteien und der Rechtsprechung überlassen. Das Fehlen klarer gesetzlicher Vorgaben erschwert eine interessengerechte und ökonomisch sinnvolle Gestaltung und Abwicklung von Bauverträgen. Für Verbraucher kann die Durchführung eines Bauvorhabens darüber hinaus weitere Risiken bergen; gleichwohl enthält das geltende Werkvertragsrecht, abgesehen von einigen Einzelvorschriften, keine besonderen Verbraucherschutzvorschriften. Den aufgezeigten Schwierigkeiten soll mit dem Gesetzentwurf begegnet werden, unter anderem durch die Einführung eines Anordnungsrechts des Bestellers einschließlich Regelungen zur Preisanpassung bei Mehr- oder Minderleistungen, durch die Änderung und Ergänzung der Regelungen zur Abnahme sowie die Normierung einer Kündigung aus wichtigem Grund. Speziell für Bauverträge von Verbrauchern sollen Regelungen zur Einführung einer Baubeschreibungspflicht des Unternehmers, zur Pflicht der Parteien, eine verbindliche Vereinbarung über die Bauzeit zu treffen, zum Recht des Verbrauchers zum Widerruf des Vertrags und zur Einführung einer Obergrenze für Abschlagszahlungen getroffen werden. Außerdem soll das Recht der Mängelhaftung an die Rechtsprechung des Gerichtshofs der Europäischen Union (EuGH) angepasst werden.",
   "keyword": "Q994, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -32295,6 +32335,7 @@
    ]
   },
   "URL": "https://www.bayern.landtag.de/www/ElanTextAblage_WP15/Drucksachen/Basisdrucksachen/0000004000/0000004107.pdf",
+  "abstract": "Die Bayerische Bauordnung (BayBO) ist in den vergangenen zwölf Jahren in zwei Reformschritten mit dem Ziel eines möglichst weitgehenden Verzichts auf bauaufsichtliche Genehmigungsverfahren, eines Rückbaus der bauaufsichtlichen Prüfungen in den verbleibenden Genehmigungsverfahren unter Stärkung privater Eigenverantwortlichkeit anstatt obrigkeitlicher Betreuung und einer Straffung und Vereinfachung der materiell-rechtlichen Anforderungen tiefgreifend dereguliert worden. Am 7./8. November 2002 hat die Bauministerkonferenz eine weitgehend neu gefasste Musterbauordnung (MBO) einstimmig beschlossen. Diese MBO wurde auf bayerische Initiative und unter bayerischer Federführung erarbeitet. Im Verfahrensrecht lehnt sich die neue MBO eng an das bayerische Modell an (z. B. Genehmigungsfreistellung, vereinfachtes Baugenehmigungsverfahren). Sie bietet aber (teilweise optional) die Möglichkeit zu weiterem Verfahrensabbau (z. B. Ausweitung der Genehmigungsfreistellung bis zur Sonderbautengrenze auch im gewerblichen Bereich, Reduzierung des Prüfprogramms in den Baugenehmigungsverfahren; Ermöglichung der vollständigen „Privatisierung“ der Prüfung der bautechnischen Nachweise für Standsicherheit und Brandschutz). Im materiellen Recht sind die Anforderungen in einer Reihe von Anforderungsbereichen deutlich und über die derzeitige bayerische Rechtslage hinausgehend reduziert worden (z. B. Vereinfachung des Abstandsflächenrechts, Erleichterung insbesondere der Verwendung der Holzbauweise im neuen Brandschutzkonzept, Absenkung der Anforderungen an Wohnungen und Aufenthaltsräume, Verlagerung der Stellplatzregelungen auf die Gemeinden, Beseitigung überflüssiger Doppelregelungen im Verhältnis zum Fachrecht).",
   "keyword": "Q995, FF2=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32355,6 +32396,7 @@
    ]
   },
   "URL": "https://www.byak.de/data/Recht/Berufsordnung2020.pdf",
+  "abstract": "Diese Berufsordnung ist unser gemeinsamer Wertekanon und verpflichtende Grundlage für unser Handeln. Nur ein geschlossener Auftritt aller Fachrichtungen verleiht unserem Berufsstand eine starke Position in der Gesellschaft.",
   "keyword": "Q998, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32629,6 +32671,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/zpo/__371a.html",
+  "abstract": "Die Vorschriften über die Beweiskraft privater Urkunden sind entsprechend anzuwenden auf private elektronische Dokumente, die versehen sind mit 1. einer qualifizierten elektronischen Signatur oder 2. einer notariell beglaubigten elektronischen Unterschrift oder einem notariell beglaubigten elektronischen Handzeichen.",
   "keyword": "Q1009, FF1=1, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32649,6 +32692,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/vdg/",
+  "abstract": "Sofern hierfür Bedarf besteht, sind qualifiziert elektronisch signierte, gesiegelte oder zeitgestempelte Daten durch geeignete Maßnahmen neu zu schützen, bevor der Sicherheitswert der vorhandenen Signaturen, Siegel oder Zeitstempel durch Zeitablauf geringer wird. Die neue Sicherung muss nach dem Stand der Technik erfolgen.",
   "keyword": "Q1010, FF1=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32669,6 +32713,7 @@
    ]
   },
   "URL": "https://dserver.bundestag.de/btd/18/124/1812494.pdf",
+  "abstract": "Die Verordnung (EU) Nr. 910/2014 des Europäischen Parlaments und des Rates vom 23. Juli 2014 über elektronische Identifizierung und Vertrauensdienste für elektronische Transaktionen im Binnenmarkt und zur Aufhebung der Richtlinie 1999/93/EG (eIDAS-Verordnung) bildet den europäischen Rechtsrahmen für die elektronische Identifizierung und für elektronische Vertrauensdienste. Gegenstand des vorliegenden Gesetzes sind jedoch ausschließlich die elektronischen Vertrauensdienste. Ziel der eIDAS-Verordnung ist es insoweit, einen umfassenden, sektorenübergreifenden EU-Rahmen zu schaffen, um sichere, vertrauenswürdige und nahtlose elektronische Transaktionen zwischen Unternehmen, Bürgern und öffentlichen Verwaltungen grenzüberschreitend in der gesamten Europäischen Union zu ermöglichen. Die eIDAS-Verordnung soll den Rechtsrahmen für elektronische Signaturen weiterentwickeln. Sie enthält hierzu Anforderungen an Vertrauensdiensteanbieter sowie Regelungen zu einzelnen Vertrauensdiensten (elektronische Signatur, elektronisches Siegel, elektronische Zeitstempel, elektronische Zustelldienste und Zertifizierungsdienste für Webseiten-Authentifizierung) einschließlich ihrer Rechtswirkungen. Als unmittelbar geltendes Unionsrecht hat die eIDAS-Verordnung die bisher geltende Richtlinie 1999/93/EG des Europäischen Parlaments und des Rates vom 13. Dezember 1999 über gemeinschaftliche Rahmenbedingungen für elektronische Signaturen mit Wirkung vom 1. Juli 2016 abgelöst. Als unmittelbar geltendes Unionsrecht bedarf die eIDAS-Verordnung hinsichtlich ihrer materiellen Vorschriften grundsätzlich keiner Umsetzung in nationales Recht. Es sind jedoch die erforderlichen Voraussetzungen für einen effektiven Vollzug der eIDAS-Verordnung zu schaffen. Dabei sind insbesondere Regelungen zu Zuständigkeiten und Befugnissen der beteiligten Behörden sowie zu Ordnungswidrigkeiten zu treffen. Nationale Regelungen sind zudem dort erforderlich, wo die eIDAS-Verordnung der Präzisierung bedarf oder der Gesetzgeber von in der Verordnung vorgesehenen Optionen Gebrauch macht. Eine effektive Durchführung der eIDAS-Verordnung bedeutet darüber hinaus, dass ausreichende Sach- und Personalmittel zur Verfügung zu stellen sind. Um dem Ziel der eIDAS-Verordnung nach effektiveren elektronischen Transaktionen gerecht zu werden, sind die Anwendungsmöglichkeiten für elektronische Vertrauensdienste zu erweitern. Dies gilt insbesondere für das in der eIDAS-Verordnung erstmals geregelte elektronische Siegel. Im Wege von Folgeänderungen sind Fachgesetze, die auf aufzuhebende Rechtsvorschriften verweisen oder überholte Begrifflichkeiten verwenden, anzupassen.",
   "keyword": "Q1011, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -32690,6 +32735,7 @@
   },
   "URL": "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr03125/TR-03125_node.html",
   "issue": "TR-03125",
+  "abstract": "Mit der Technischen Richtlinie BSI-TR 03125 \"Beweiswerterhaltung kryptographisch signierter Dokumente\" stellt das BSI einen Leitfaden zur Verfügung, der beschreibt, wie elektronisch signierte Daten und Dokumente über lange Zeiträume – bis zum Ende der Aufbewahrungsfristen – im Sinne eines rechtswirksamen Beweiswerterhalts vertrauenswürdig gespeichert werden können.",
   "keyword": "Q1012, FF1=2, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32732,6 +32778,7 @@
   },
   "URL": "https://www.gesetze-bayern.de/Content/Document/Y-300-Z-BECKRS-B-2021-N-22636",
   "issue": "8 U 1139/21",
+  "abstract": "Im Unfallversicherungsprozess ist es dem Gericht nicht gestattet, die Einholung eines vom Versicherungsnehmer beantragten Sachverständigengutachtens mit der Begründung abzulehnen, aufgrund zweier vom Versicherer beauftragten Privatgutachten sei erwiesen, dass die auf medizinischem Gebiet zu beurteilenden Anspruchsvoraussetzungen nicht gegeben seien. Ein solche Verfahrensweise verletzt den Anspruch des Klägers auf rechtliches Gehör und stellt einen wesentlichen Mangel i.S.d. § 538 Abs. 2 Satz 1 Nr. 1 ZPO dar.",
   "keyword": "Q1014, FF4=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -32752,6 +32799,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/vwvfg/__35a.html",
+  "abstract": "Ein Verwaltungsakt kann vollständig durch automatische Einrichtungen erlassen werden, sofern dies durch Rechtsvorschrift zugelassen ist und weder ein Ermessen noch ein Beurteilungsspielraum besteht.",
   "keyword": "Q1015, FF2=1, FF4=2, Nutzung:abgrenzen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32814,6 +32862,7 @@
    ]
   },
   "URL": "https://www.stmb.bayern.de/assets/stmi/ser/gesetzentwuerfe/2020_06_23_gesetzentwurf_18_8547.pdf",
+  "abstract": "Wohnen ist ein elementares Bedürfnis aller, in Stadt und Land. Das zügige Schaffen von Wohnraum setzt voraus, dass einerseits Verfahren nur da stattfinden, wo eine präventive Kontrolle notwendig ist, andererseits Verfahren, die notwendig sind, sich auf das Wesentliche konzentrieren und so rasch wie möglich durchgeführt werden. Wohnungsbau setzt auch voraus, dass dichter gebaut werden kann und materiell-rechtliche Anforderungen, die Ortsbezug haben, in der Verantwortung der Gemeinden stehen. Die digitale Antragstellung im bauaufsichtlichen Genehmigungsverfahren ist ein Erfordernis moderner Kommunikation und Verwaltung, für das die gesetzlichen Voraussetzungen geschaffen werden müssen.",
   "keyword": "Q1018, FF2=2, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32834,6 +32883,7 @@
    ]
   },
   "URL": "https://www.bayern.landtag.de/plon-webanzeige/dokumentanzeige?format=pdf&nr=3023&wp=19",
+  "abstract": "Für eine starke Wirtschaft und zufriedene Gesellschaft braucht es einen leistungsfähigen Staat. Die Bürokratie in Deutschland hat sich inzwischen zu einem echten Hemmnis entwickelt. Unternehmen sowie Bürgerinnen und Bürger brauchen wieder deutlich mehr Freiraum, damit sich ihr Schwung und ihre Motivation voll entfalten können.",
   "keyword": "Q1019, FF2=2, FF4=3, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -32875,6 +32925,7 @@
    ]
   },
   "URL": "https://www.dibt.de/de/service/faqs/das-deutsche-regelungssystem-fuer-bauprodukte-und-bauarten",
+  "abstract": "Dieses Gesetz gilt für bauliche Anlagen und Bauprodukte. Es gilt auch für Grundstücke sowie für andere Anlagen und Einrichtungen, an die in diesem Gesetz oder in Vorschriften aufgrund dieses Gesetzes Anforderungen gestellt werden.",
   "keyword": "Q1021, FF2=1, FF4=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -32939,6 +32990,7 @@
   },
   "URL": "https://dejure.org/2010,34",
   "issue": "III ZR 79/09",
+  "abstract": "1. Zur rechtlichen Einordnung eines \"Internet-System-Vertrags\", der die Erstellung und Betreuung einer Internetpräsentation (Website) des Kunden sowie die Gewährleistung der Abrufbarkeit dieser Website im Internet für einen festgelegten Zeitraum zum Gegenstand hat. 2. Zur Frage der Wirksamkeit einer Klausel, die in einem \"Internet-System-Vertrag\" eine Vorleistungspflicht des Kunden begründet.",
   "keyword": "Q1024, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -32960,6 +33012,7 @@
   },
   "URL": "https://dejure.org/2006,247",
   "issue": "XII ZR 120/04",
+  "abstract": "Zur Rechtsnatur der Softwareüberlassung im Rahmen eines ASP-Vertrages.",
   "keyword": "Q1025, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -33047,6 +33100,7 @@
    ]
   },
   "URL": "https://eur-lex.europa.eu/procedure/EN/2022_303",
+  "abstract": "This Directive lays down common rules on: (a) the disclosure of evidence on high-risk artificial intelligence (AI) systems to enable a claimant to substantiate a non-contractual fault-based civil law claim for damages; (b) the burden of proof in the case of non-contractual fault-based civil law claims brought before national courts for damages caused by an AI system.",
   "keyword": "Q1029, FF4=1, Nutzung:Kontext, Qualitaet:C, Peripherie"
  },
  {
@@ -33266,6 +33320,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/ki-mig/",
+  "abstract": "Dieses Gesetz dient der Durchführung der Verordnung (EU) 2024/1689. Es gilt für KI-Systeme im Sinne des Artikels 3 Nummer 1 der Verordnung (EU) 2024/1689 und regelt ergänzend zu den in der Verordnung enthaltenen Bestimmungen die zuständigen Behörden gemäß Artikel 70 Absatz 1 Satz 1 der Verordnung (EU) 2024/1689, Maßnahmen zur Innovationsförderung sowie Bußgelder bei Verstößen gegen die Vorschriften der Verordnung gemäß Artikel 99 Absatz 1 Satz 1 der Verordnung (EU) 2024/1689.",
   "keyword": "Q1039, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33287,6 +33342,7 @@
    ]
   },
   "URL": "https://dserver.bundestag.de/btd/21/064/2106407.pdf",
+  "abstract": "Der Entwurf für das Gesetz zur Durchführung der Verordnung über künstliche Intelligenz dient der Umsetzung der EU-Verordnung 2024/1689. Diese ist am 1. August 2024 in Kraft getreten und legt einen einheitlichen Rechtsrahmen für die Entwicklung, das Inverkehrbringen, die Inbetriebnahme und die Verwendung von Systemen künstlicher Intelligenz (KI-Systeme) in der Europäischen Union fest.",
   "keyword": "Q1040, FF4=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  },
  {
@@ -33388,6 +33444,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/ttdsg/__25.html",
+  "abstract": "Die Speicherung von Informationen in der Endeinrichtung des Endnutzers oder der Zugriff auf Informationen, die bereits in der Endeinrichtung gespeichert sind, sind nur zulässig, wenn der Endnutzer auf der Grundlage von klaren und umfassenden Informationen eingewilligt hat. Die Information des Endnutzers und die Einwilligung haben gemäß der Verordnung (EU) 2016/679 zu erfolgen.",
   "keyword": "Q1045, FF3=2, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33408,6 +33465,7 @@
    ]
   },
   "URL": "https://www.gesetze-im-internet.de/stgb/__201.html",
+  "abstract": "Mit Freiheitsstrafe bis zu drei Jahren oder mit Geldstrafe wird bestraft, wer unbefugt 1. das nichtöffentlich gesprochene Wort eines anderen auf einen Tonträger aufnimmt oder 2. eine so hergestellte Aufnahme gebraucht oder einem Dritten zugänglich macht.",
   "keyword": "Q1046, FF3=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33823,6 +33881,7 @@
   },
   "DOI": "10.59161/JCGM100-2008E",
   "URL": "https://www.bipm.org/en/committees/jc/jcgm/publications",
+  "abstract": "This Guide establishes general rules for evaluating and expressing uncertainty in measurement that can be followed at various levels of accuracy and in many fields — from the shop floor to fundamental research. Therefore, the principles of this Guide are intended to be applicable to a broad spectrum of measurements, including those required for: - maintaining quality control and quality assurance in production; - complying with and enforcing laws and regulations; - conducting basic research, and applied research and development, in science and engineering; - calibrating standards and instruments and performing tests throughout a national measurement system in order to achieve traceability to national standards; - developing, maintaining, and comparing international and national physical reference standards, including reference materials.",
   "keyword": "Q1057, FF2=2, FF4=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33839,6 +33898,7 @@
   },
   "DOI": "10.59161/JCGM101-2008",
   "URL": "https://www.bipm.org/en/committees/jc/jcgm/publications",
+  "abstract": "This Supplement provides a general numerical approach, consistent with the broad principles of the GUM [GUM:1995 G.1.5], for carrying out the calculations required as part of an evaluation of measurement uncertainty. The approach applies to arbitrary models having a single output quantity where the input quantities are characterized by any specified PDFs [GUM:1995 G.1.4, G.5.3].",
   "keyword": "Q1058, FF2=1, FF4=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33854,6 +33914,7 @@
    ]
   },
   "URL": "https://www.iso.org/standard/76921.html",
+  "abstract": "This document gives general information and definitions concerning quantities, systems of quantities, units, quantity and unit symbols, and coherent unit systems, especially the International System of Quantities (ISQ). The principles laid down in this document are intended for general use within the various fields of science and technology, and as an introduction to other parts of this International Standard. The ISO/IEC 80000 series does not, as yet, cover ordinal quantities and nominal properties.",
   "keyword": "Q1059, FF1=1, FF2=2, FF4=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
  },
  {
@@ -33917,6 +33978,7 @@
    ]
   },
   "URL": "https://www.iso.org/standard/65296.html",
+  "abstract": "This document gives general rules for the execution of technical drawings (2D and 3D), as well as presenting the structure of the other parts of the ISO 128 series. This document is applicable to technical drawing in the fields of mechanical engineering, construction, architecture and shipbuilding. It is applicable to both manual and computer-based technical drawings. For the purpose of this document the term \"technical drawing\" shall be interpreted in the broadest possible sense, encompassing the total package of documentation specifying the product (workpiece, subassembly, assembly).",
   "keyword": "Q1063, FF6=1, Nutzung:Kontext, Qualitaet:A, Peripherie"
  },
  {
@@ -33933,6 +33995,7 @@
   },
   "DOI": "10.31030/2518301",
   "URL": "https://www.dinmedia.de/de/norm/din-en-iso-6946/255315365",
+  "abstract": "Dieses Dokument legt das Verfahren zur Berechnung des Wärmedurchlasswiderstandes und des Wärmedurchgangskoeffizienten von Bauteilkomponenten und Bauteilen fest, wobei Türen, Fenster und andere verglaste Einheiten, Vorhangfassaden, Bauteilkomponenten, über die ein Wärmeaustausch mit dem Baugrund stattfindet, und als luftdurchlässig konzipierte Bauteilkomponenten ausgenommen sind. Das Berechnungsverfahren beruht auf den entsprechenden Bemessungswerten der Wärmeleitfähigkeit oder des Wärmedurchlasswiderstands der Baustoffe und Produkte für die jeweilige Anwendung. Das Verfahren gilt für Bauteilkomponenten und Bauteile aus thermisch homogenen Schichten (die auch Luftschichten enthalten können). Dieses Dokument stellt auch ein Näherungsverfahren bereit, welches für Bauteile mit inhomogenen Schichten genutzt werden kann, wobei die Wirkung von Befestigungselementen aus Metall durch den in Anhang F angegebenen Korrekturfaktor berücksichtigt wird. Andere Fälle, in denen die Wärmedämmung durch Metall überbrückt wird, sind nicht Gegenstand dieses Dokuments. In Deutschland wird die Richtlinie 2010/31/EU des Europäischen Parlaments und des Rates über die Gesamtenergieeffizienz von Gebäuden im Wesentlichen durch das nationale Energieeinsparrecht umgesetzt. Das nationale Energieeinsparrecht nimmt datierte nationale und Europäische Normen und nationale Vornormen in Bezug, die für die Umsetzung in Deutschland festgelegt wurden. Die Anwendung im Zusammenhang mit dem Energieeinsparrecht für Gebäude ist in Deutschland durch die dortigen Festlegungen definiert. Die Regelungen des deutschen Energieeinsparrechts sind mit dem Normenpaket des EPBD-Mandats M/480 und den dort in Bezug genommenen Internationalen und Europäischen Normen systematisch nicht vollständig und identisch abbildbar. Bei Anwendung der Normen des Mandates ist weder bei der Vorgehensweise, noch beim Ergebnis, noch bei der Bewertung des Ergebnisses die Identität mit dem deutschen Energieeinsparrecht erreichbar. Derzeit ist das Normenpaket des EPBD-Mandats M/480, auch unter Berücksichtigung der Verweisungen auf nationale Regelungen in den jeweiligen nationalen Anhängen NA, in Deutschland nicht für die Zwecke des Energieeinsparrechts anwendbar. Im Gegensatz dazu werden die DIN EN ISO-Ausgaben der ISO-Berechnungsnormen ISO 6946, ISO 10211, ISO 13370, ISO 13786, ISO 13789 im Energieeinsparrecht seit etlichen Jahren unmittelbar oder mittelbar in Bezug genommen. Die wichtigsten dabei für die Anwendung in Deutschland geltenden Festlegungen und Auswahlen sind in den jeweiligen nationalen Anhängen dieser Normen zusammengefasst. Im nationalen Energieeinsparrecht sowie in den Landesbauordnungen und in weiteren öffentlich-rechtlich verbindlichen Dokumenten können weitere oder davon abweichende Festlegungen gemacht sein, die - für den Fall eines Widerspruchs - die Festlegungen der betreffenden Norm beziehungsweise des betreffenden nationalen Anhangs überschreiben. Das zuständige nationale Gremium ist der Arbeitsausschuss NA 005-56-91 AA \"Wärmetransport (SpA zu CEN/TC 89 (teilweise), CEN/TC 89/WG 12 (teilweise), ISO/TC 163 (teilweise), ISO/TC 163/SC 2/WG 9 (ohne transparente Bauteile))\" im DIN-Normenausschuss Bauwesen (NABau).",
   "keyword": "Q1064, FF2=2, FF6=2, Nutzung:abgrenzen, Qualitaet:A, Kernbestand"
  },
  {
