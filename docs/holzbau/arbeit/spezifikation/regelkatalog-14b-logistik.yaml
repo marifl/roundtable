@@ -1,0 +1,544 @@
+# Regelkatalog Kapitel 14b: Baustellenlogistik und Montageplanung.
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt |
+# nicht_anwendbar | freigabepflichtig (Kapitel 9.2.1).
+# Alle Kran-, Fahrzeug- und Kostenwerte in B18 sind Beispielwerte (Recherche 19); die Regeln liefern eine
+# Vorauswahl, die Hubfreigabe bleibt beim Kranunternehmen (M.Firma.Kranfreigabe).
+# Schemabefund: Das Muster für "anforderungen" in regel.schema.json (^ANF-[0-9]{2}a?-[0-9]{2}$) lässt
+# ANF-14b-xx nicht zu. Die Anforderungen stehen deshalb im Feld "hinweis" (Kapitel 14b.8.1).
+# Neu verwendete Profile, in regelprofile.yaml noch nachzutragen:
+#   DE-Arbeitsschutz-Bau (S1), DE-StVO-StVZO (S1), BY-AGBGB (S1), BY-M-Mobilitaetsreferat (S1), DE-Normen-Krane (S3).
+
+katalog:
+  name: HRB-Regelkatalog-14b-Logistik
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["14b"]
+  hinweis: "Regeln aus Kapitel 14b (Recherche 19, Beispiel B18). Anforderungen ANF-14b-xx in Abschnitt 14b.8.2."
+
+regeln:
+
+- id: M.Firma.Kran-Auslastung
+  version: 0.1.0
+  titel: Hublast gegen Traglast beim größten Radius
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel Kranvorauswahl; Lastmomentprinzip (Liebherr, DGUV)", fundstelle: "Recherche 19, Lastmoment-Prinzip", fassung: "0.1", status: U, recherche: ["19"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTask INSTALLATION mit Kraneinsatz"
+    r2_voraussetzung: [HRB-R2-Elementgewicht, HRB-R2-Krandatensatz]
+  eingaben:
+    - {name: masse_element, einheit: t, quelle: "Qto_*BaseQuantities.GrossWeight"}
+    - {name: anschlagmittel, einheit: t, quelle: Parameter}
+    - {name: hakenflasche, einheit: t, quelle: Krandatensatz}
+    - {name: r_aufnahme, einheit: m, quelle: Modell}
+    - {name: r_absetzen, einheit: m, quelle: Modell}
+    - {name: traglast_tabelle, einheit: "t(m)", quelle: "kran-traglast.schema.json"}
+  pruefung:
+    typ: rechnung
+    funktion: kran_auslastung@0.1
+    formel: "Hublast = masse_element + anschlagmittel + hakenflasche; r = max(r_aufnahme, r_absetzen); verletzt, wenn Hublast > auslastung_max · T_K(r) oder r außerhalb [r_min, r_max] oder erforderliche Hakenhöhe > verfügbare; T_K nach Interpolationsregel des Datensatzes"
+    parameter: {auslastung_max: 0.8}
+    auslegung: {auslastung_max: "Firmenparameter [U], vom Kranpartner zu bestätigen"}
+  grenzwerte:
+    - {name: auslastung_max, wert: 0.8, einheit: "-", richtung: max, fundstelle: "Annahme B18", status: U}
+  meldung: "Der Hub {element} ist mit {ausl:.0%} ausgelastet ({last:.2f} t bei r = {r:.1f} m, Traglast {T:.2f} t)."
+  alternative:
+    - {art: A3_variante, beschreibung: "größeren Kran oder anderen Stellplatz wählen", frei: [kran.id, kran.stellplatz]}
+    - {art: A1_grenzwert, beschreibung: "Element teilen, bis die Hublast passt", frei: [elementierung]}
+  status: U
+  beispiel: [B18]
+  kapitel: "14b.2.2"
+  tests: [tests/test_b18.py::test_traglastkurve, tests/test_b18.py::test_kranwahl_basis]
+  hinweis: "Anforderungen ANF-14b-02, ANF-14b-03. Referenz: basis W-N2 1,73 t bei r = 20,0 m, 78,4 %."
+
+- id: DE.EN13000.Wind-Last
+  version: 0.1.0
+  titel: Zulässige Windgeschwindigkeit bei großer Windangriffsfläche der Last
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN EN 13000; FEM 5.016; Liebherr Einfluss des Windes (P403)", fundstelle: "Windangriffsfläche 1,2 m²/t; v_max = v_TAB·sqrt(1,2·m_H/A_W)", fassung: "2010 + FprA1", status: V, recherche: ["19"]}
+  profil: {name: DE-Normen-Krane, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: EU
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTask INSTALLATION mit Mobilkran"
+  eingaben:
+    - {name: m_H, einheit: t, quelle: Hublast}
+    - {name: A_P, einheit: "m²", quelle: "projizierte Elementfläche"}
+    - {name: c_W, einheit: "-", quelle: Parameter}
+    - {name: v_TAB, einheit: "m/s", quelle: Krandatensatz}
+    - {name: v_plan, einheit: "m/s", quelle: "3-s-Böe in Hubhöhe (Prognose/Messung)"}
+  pruefung:
+    typ: rechnung
+    funktion: wind_zulaessig@0.1
+    formel: "A_W = A_P·c_W; v_max = min(v_TAB, v_TAB·sqrt(1,2·m_H/A_W)); verletzt, wenn v_plan > v_max; Hinweis Sonderprüfung, wenn A_W/m_H > 1,2 m²/t"
+    parameter: {referenz_m2_je_t: 1.2, c_W: 1.2}
+  grenzwerte:
+    - {name: referenz_windflaeche, wert: 1.2, einheit: "m²/t", richtung: max, fundstelle: "DIN EN 13000 (Leseprobe FprA1)", status: V}
+  meldung: "Für den Hub {element} ist höchstens eine Böe von {v_max:.1f} m/s zulässig; geplant sind {v_plan:.1f} m/s."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Hub mit dem Windrechner des Herstellers freigeben lassen; Windmesser am Kran"}
+    - {art: A1_grenzwert, beschreibung: "Hub auf ein Zeitfenster mit geringerer Böe verlegen", frei: [montage.termin]}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.2.4"
+  tests: [tests/test_b18.py::test_windformel_gegen_quellen]
+  hinweis: "Anforderung ANF-14b-05. B18: zulässige Böe 2,85-4,07 m/s. Nie mit dem 10-m-Mittelwind rechnen (FEM 5.016)."
+
+- id: DE.DGUV208-059.Bodenpressung
+  version: 0.1.0
+  titel: Bodenpressung unter den Stützplatten
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DGUV Information 208-059; DGUV Information 208-019 Anh. 1", fundstelle: "Abschn. 4, Formel 4.3, Tab. 4.1 (nach DIN 1054:1976-11)", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-Normen-Krane, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTransportElement LIFTINGGEAR mit Abstützung"
+    r2_voraussetzung: [HRB-R2-Bodenzonen]
+  eingaben:
+    - {name: F_max, einheit: kN, quelle: "Krandatensatz (maximale Stützkraft) oder Einsatzplaner"}
+    - {name: platte, einheit: m, quelle: Plattenliste}
+    - {name: p_zul, einheit: "kN/m²", quelle: "Bodenzone unter der Platte"}
+  pruefung:
+    typ: rechnung
+    funktion: bodenpressung@0.1
+    formel: "p = F_max / A_Platte <= min p_zul der Zonen unter der Platte; kleinste passende Platte wählen; Hinweis ohne Reserve, wenn p = p_zul; Stützteller allein mit 80 % tragender Fläche"
+    parameter: {teller_tragend_anteil: 0.8}
+  grenzwerte:
+    - {name: p_zul_schotter_verdichtet, wert: 250, einheit: "kN/m²", richtung: max, fundstelle: "DGUV Information 208-019 Anh. 1", status: V}
+    - {name: p_zul_asphalt, wert: 200, einheit: "kN/m²", richtung: max, fundstelle: "DGUV Information 208-019 Anh. 1", status: V}
+    - {name: p_zul_wiese, wert: 100, einheit: "kN/m²", richtung: max, fundstelle: "DGUV Information 208-019 Anh. 1", status: V}
+  meldung: "Die Bodenpressung beträgt {p:.0f} kN/m² und übersteigt {p_zul:.0f} kN/m²; es passt keine Platte bis {pmax} m."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "größere Platte oder Lastverteilung", frei: [kran.platte]}
+    - {art: A5_freigabeweg, beschreibung: "Stützkraft aus dem Einsatzplaner oder Baugrundaussage einholen"}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.2.3"
+  tests: [tests/test_b18.py::test_bodenpressung_beispiele]
+  hinweis: "Anforderung ANF-14b-04. Referenz: 120 kN / 0,035 m² = 3 430 kN/m²; Liebherr 1 109 kN auf 0,6 x 0,6 m mit 80 %: 3 851 kN/m²."
+
+- id: DE.DGUV-V52.39.Freileitung
+  version: 0.1.0
+  titel: Schutzabstand zu Freileitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "DGUV Vorschrift 52 (Krane); DGUV Vorschrift 38; BG BAU C 412", fundstelle: "§ 39 bzw. § 16", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-Arbeitsschutz-Bau, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Kranstellung und Freileitung im Umkreis"
+  eingaben:
+    - {name: spannung, einheit: kV, quelle: "Netzbetreiber oder unbekannt"}
+    - {name: abstand_min, einheit: m, quelle: "min. Abstand Hakenweg ⊕ halbe Elementlänge, Ausleger, Heck"}
+    - {name: zuschlag, einheit: m, quelle: Parameter}
+  pruefung:
+    typ: geometrie
+    funktion: freileitung@0.1
+    formel: "Schutzabstand = 1 m (<= 1 kV), 3 m (<= 110 kV), 4 m (<= 220 kV), 5 m (<= 380 kV oder unbekannt); verletzt, wenn abstand_min < Schutzabstand + zuschlag; Prüfung 2D (konservativ)"
+    parameter: {zuschlag_m: 1.0}
+  grenzwerte:
+    - {name: bis_1kV, wert: 1.0, einheit: m, richtung: min, fundstelle: "DGUV V 52 § 39", status: V}
+    - {name: bis_110kV, wert: 3.0, einheit: m, richtung: min, fundstelle: "DGUV V 52 § 39", status: V}
+    - {name: bis_220kV, wert: 4.0, einheit: m, richtung: min, fundstelle: "DGUV V 52 § 39", status: V}
+    - {name: bis_380kV_unbekannt, wert: 5.0, einheit: m, richtung: min, fundstelle: "DGUV V 52 § 39", status: V}
+  meldung: "Der Kran kommt der Freileitung ({U} kV) bis auf {d:.2f} m nahe; gefordert sind {soll:.2f} m."
+  alternative:
+    - {art: A3_variante, beschreibung: "anderen Stellplatz oder Kran mit kürzerem Ausleger", frei: [kran.stellplatz, kran.id]}
+    - {art: A5_freigabeweg, beschreibung: "Freischaltung oder Abdeckung beim Netzbetreiber beantragen"}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.3.1"
+  tests: [tests/test_b18.py::test_schutzabstand_und_baugrube, tests/test_b18.py::test_freileitung_harte_regel]
+  hinweis: "Anforderung ANF-14b-06. Zuschlag 1 m ist Annahme [U]. BaustellV Anh. II Nr. 4 (< 5 m zu Hochspannung) koppelt an DE.BaustellV.2-3.Vorankuendigung-SiGe."
+
+- id: DE.DIN4124.Abstand-Boeschung
+  version: 0.1.0
+  titel: Abstand der Kranabstützung zur Böschungskante
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 4124 in der Wiedergabe BG BAU B 213", fundstelle: "Abstand Abstützung – Böschungskante", fassung: "Wiedergabe geprüft, Normtext nicht", status: U, recherche: ["19"]}
+  profil: {name: DE-Normen-Krane, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Kranstellung in der Nähe einer Baugrube oder Böschung"
+  eingaben:
+    - {name: gesamtgewicht, einheit: t, quelle: Krandatensatz}
+    - {name: abstand_boeschung, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: abstand_baugrube@0.1
+    formel: "gesamtgewicht <= 12 t: >= 1,00 m; <= 40 t: >= 2,00 m; > 40 t: rechnerischer Nachweis (freigabepflichtig); ohne Nachweis Böschungswinkel 45° (nichtbindig), 60° (steif/halbfest), 80° (Fels)"
+    parameter: {bis_12t_m: 1.0, bis_40t_m: 2.0}
+  grenzwerte:
+    - {name: abstand_bis_12t, wert: 1.0, einheit: m, richtung: min, fundstelle: "BG BAU B 213", status: V}
+    - {name: abstand_bis_40t, wert: 2.0, einheit: m, richtung: min, fundstelle: "BG BAU B 213", status: V}
+  meldung: "Die Abstützung steht {ist:.2f} m von der Böschungskante; gefordert sind {soll:.2f} m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Stellplatz um den Fehlbetrag von der Böschung weg verschieben", frei: [kran.stellplatz]}
+    - {art: A5_freigabeweg, beschreibung: "Standsicherheitsnachweis der Böschung"}
+  status: U
+  beispiel: [B18]
+  kapitel: "14b.3.1"
+  tests: [tests/test_b18.py::test_schutzabstand_und_baugrube]
+  hinweis: "Anforderung ANF-14b-07."
+
+- id: DE.BGBAU-B213.Heckabstand
+  version: 0.1.0
+  titel: Sicherheitsabstand bewegter Kranteile
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "BG BAU B 213", fundstelle: "Sicherheitsabstand 0,5 m (für Turmdrehkrane formuliert)", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-Normen-Krane, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Kranstellung"
+  eingaben:
+    - {name: heckradius, einheit: m, quelle: Krandatensatz}
+    - {name: abstand_drehmitte_hindernis, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: heckabstand@0.1
+    formel: "verletzt, wenn abstand_drehmitte_hindernis < heckradius + 0,5 m (Haus, Gerüst, Stapel, Baumkrone)"
+    parameter: {abstand_m: 0.5}
+  grenzwerte:
+    - {name: sicherheitsabstand, wert: 0.5, einheit: m, richtung: min, fundstelle: "BG BAU B 213", status: V}
+  meldung: "Das Heck des Krans kommt {hindernis} auf {ist:.2f} m nahe; gefordert sind 0,50 m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Stellplatz verschieben", frei: [kran.stellplatz]}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.3.1"
+  hinweis: "Anforderung ANF-14b-08. Übertragung von Turmdrehkranen auf Mobilkrane ist Auslegung [U]."
+
+- id: DE.DGUV-R109-017.Anschlag
+  version: 0.1.0
+  titel: Neigungswinkel und Tragfähigkeit der Anschlagmittel
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DGUV Regel 109-017 Lastaufnahme- und Anschlagmittel; ETA-12/0373 (RAPID T-Lift); ETA-11/0030 (WASP)", fundstelle: "4.1.2.1, Anhang A", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-Normen-Krane, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTask INSTALLATION mit Anschlagsystem"
+    r2_voraussetzung: [HRB-R2-Anschlagpunkte]
+  eingaben:
+    - {name: neigungswinkel, einheit: "°", quelle: "Anschlaggeometrie"}
+    - {name: T_0, einheit: t, quelle: Anschlagmittel}
+    - {name: anzahl_anschlagpunkte, einheit: "-", quelle: Werkplanung}
+    - {name: system, einheit: "-", quelle: Werkplanung}
+  pruefung:
+    typ: rechnung
+    funktion: anschlag@0.1
+    formel: "neigungswinkel <= 60°; T_beta = T_0·cos(beta) >= Stranglast; WASP: > 3 Anschlagpunkte nur mit Traverse; Schraubsysteme nach ETA (einmalige Verwendung, Belastung <= 30 min)"
+    parameter: {winkel_max_grad: 60, wasp_punkte_ohne_traverse_max: 3}
+  grenzwerte:
+    - {name: neigungswinkel, wert: 60, einheit: "°", richtung: max, fundstelle: "DGUV Regel 109-017, 4.1.2.1", status: V}
+  meldung: "Der Anschlag von {element} ist unzulässig ({grund})."
+  alternative:
+    - {art: A3_variante, beschreibung: "Traverse oder längere Stränge verwenden", frei: [anschlag.system]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14b.2.5"
+  hinweis: "Anforderung ANF-14b-20. DGUV Regel 100-500 Kap. 2.8 ist zurückgezogen."
+
+- id: DE.StVZO.32-34.Fahrzeug
+  version: 0.1.0
+  titel: Abmessungen und Gewichte der Transportfahrzeuge
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: StVZO, fundstelle: "§ 32, § 34, § 70", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-StVO-StVZO, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcVehicle mit Ladung (IfcTask MOVE)"
+  eingaben:
+    - {name: breite_mit_ladung, einheit: m, quelle: Ladeplan}
+    - {name: hoehe_mit_ladung, einheit: m, quelle: Ladeplan}
+    - {name: laenge, einheit: m, quelle: Fahrzeug}
+    - {name: gesamtgewicht, einheit: t, quelle: Ladeplan}
+  pruefung:
+    typ: rechnung
+    funktion: fahrzeugmasse@0.1
+    formel: "breite <= 2,55 m; hoehe <= 4,00 m; Sattelkfz <= 16,50 m, Zug <= 18,75 m; Kombination > 4 Achsen <= 40 t; sonst Übermaß mit Hinweis § 29 Abs. 3 StVO / § 70 StVZO"
+    parameter: {breite_max_m: 2.55, hoehe_max_m: 4.00, sattel_max_m: 16.50, zug_max_m: 18.75, gesamt_max_t: 40}
+  grenzwerte:
+    - {name: breite, wert: 2.55, einheit: m, richtung: max, fundstelle: "§ 32 StVZO", status: V}
+    - {name: hoehe, wert: 4.00, einheit: m, richtung: max, fundstelle: "§ 32 StVZO", status: V}
+    - {name: gesamtgewicht, wert: 40, einheit: t, richtung: max, fundstelle: "§ 34 StVZO", status: V}
+  meldung: "Die Ladung von LKW {nr} ist {groesse} {ist:.2f} ({grenze:.2f} zulässig); das ist ein Übermaßtransport mit Erlaubnispflicht."
+  alternative:
+    - {art: A3_variante, beschreibung: "Element teilen oder stehend im Innenlader laden", frei: [elementierung, ladeplan]}
+    - {art: A5_freigabeweg, beschreibung: "Erlaubnis nach § 29 Abs. 3 StVO bzw. Ausnahme nach § 70 StVZO"}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.4"
+  tests: [tests/test_b18.py::test_lkw_ladungen]
+  hinweis: "Anforderung ANF-14b-11."
+
+- id: DE.StVO.22.Ladung
+  version: 0.1.0
+  titel: Ladung und Überstand
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: StVO, fundstelle: "§ 22 Abs. 2-4", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-StVO-StVZO, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTask MOVE"
+  eingaben:
+    - {name: ueberstand_hinten, einheit: m, quelle: Ladeplan}
+    - {name: fahrtstrecke, einheit: km, quelle: Tourplanung}
+    - {name: laenge_gesamt, einheit: m, quelle: Ladeplan}
+  pruefung:
+    typ: rechnung
+    funktion: ladung@0.1
+    formel: "ueberstand_hinten <= 1,50 m (bis 100 km Fahrt: 3,00 m); Fahrzeug und Ladung <= 20,75 m; Breite und Höhe wie DE.StVZO.32-34.Fahrzeug"
+    parameter: {ueberstand_m: 1.5, ueberstand_kurz_m: 3.0, kurzstrecke_km: 100, gesamt_m: 20.75}
+  grenzwerte:
+    - {name: ueberstand_hinten, wert: 1.5, einheit: m, richtung: max, fundstelle: "§ 22 Abs. 4 StVO", status: V}
+    - {name: laenge_gesamt, wert: 20.75, einheit: m, richtung: max, fundstelle: "§ 22 Abs. 4 StVO", status: V}
+  meldung: "Die Ladung ragt {ist:.2f} m hinaus; zulässig sind {soll:.2f} m."
+  alternative:
+    - {art: A3_variante, beschreibung: "Plateau mit größerer Ladelänge oder Element teilen", frei: [fahrzeug.art, elementierung]}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.4"
+  hinweis: "Anforderung ANF-14b-11."
+
+- id: BY.AGBGB.46b.Ueberschwenken
+  version: 0.1.0
+  titel: Anzeige des Überschwenkens des Nachbargrundstücks
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "BayAGBGB; BGB", fundstelle: "Art. 46b Abs. 1, 3 BayAGBGB; § 905 BGB; OLG München 8 U 5531/20", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: BY-AGBGB, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Hakenweg, Ausleger oder Heck über fremdem Grundstück (mit oder ohne Last)"
+  eingaben:
+    - {name: huebe_ueber_nachbar, einheit: "-", quelle: Hubplanung}
+    - {name: montagetermin, einheit: "-", quelle: IfcWorkSchedule}
+    - {name: anzeige_datum, einheit: "-", quelle: Dokument}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: ueberschwenken@0.1
+    formel: "wenn huebe_ueber_nachbar > 0 oder Ausleger lastfrei über Nachbar: Anzeige an Eigentümer und Nutzungsberechtigte spätestens montagetermin − 1 Monat; ohne Anzeige: verletzt; bei Ablehnung: freigabepflichtig (Duldungsklage, keine Selbsthilfe)"
+    parameter: {frist_monate: 1}
+  grenzwerte:
+    - {name: vorlauf, wert: 1, einheit: Monat, richtung: min, fundstelle: "Art. 46b Abs. 3 BayAGBGB (über OLG München)", status: V}
+  meldung: "{n} Hübe führen über das Grundstück {flst}. Die Anzeige an Eigentümer und Nutzungsberechtigte muss bis {frist} erfolgen."
+  alternative:
+    - {art: A3_variante, beschreibung: "Stellplatz ohne Lasthub über Nachbargrund", frei: [kran.stellplatz]}
+    - {art: A5_freigabeweg, beschreibung: "schriftliche Zustimmung des Nachbarn"}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.3.2"
+  hinweis: "Anforderungen ANF-14b-10, ANF-14b-15. Gesetzestext nur über das Urteil zitiert [V mittelbar]; keine Rechtsauskunft."
+
+- id: BY.M-MOR.Haltverbot
+  version: 0.1.0
+  titel: Vorübergehendes Haltverbot für die Abladezone
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "Mobilitätsreferat München (MOR-GB2.3), verkehrsrechtliche Anordnung", fundstelle: "Leistung 1072585; Antrag HV Umzug/Baustelle (29.01.2025)", fassung: "Stand 2025/26", status: V, recherche: ["19"]}
+  profil: {name: BY-M-Mobilitaetsreferat, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcSpatialZone TRANSPORT (Abladezone) auf öffentlichem Verkehrsgrund"
+  eingaben:
+    - {name: gueltig_ab, einheit: "-", quelle: IfcWorkSchedule}
+    - {name: antrag_datum, einheit: "-", quelle: Dokument}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: haltverbot@0.1
+    formel: "Schilder spätestens am 4. Tag vor gueltig_ab (3 volle Kalendertage); Antrag spätestens 10 Arbeitstage vor dem Aufstelldatum; Unterlagen: Antrag, bemaßte Skizze, Vornotierungsliste"
+    parameter: {bearbeitung_arbeitstage: 10, schilder_vorlauf_tage: 3}
+  grenzwerte:
+    - {name: bearbeitung, wert: 10, einheit: Arbeitstag, richtung: min, fundstelle: "stadt.muenchen.de 1072585", status: V}
+    - {name: schilder_vorlauf, wert: 3, einheit: d, richtung: min, fundstelle: "stadt.muenchen.de 1072585", status: V}
+  meldung: "Für die Abladezone am {datum} muss das Haltverbot bis {antrag} beantragt und die Beschilderung bis {schilder} aufgestellt sein."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Montagetermin verschieben", frei: [montage.termin]}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.5"
+  hinweis: "Anforderung ANF-14b-15. T = 12.10.2026: Schilder bis 08.10.2026, Antrag spätestens 24.09.2026 (Plan 21.09.2026)."
+
+- id: BY.M-MOR.Sondernutzung-Kran
+  version: 0.1.0
+  titel: Kran auf öffentlichem Grund
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "Mobilitätsreferat München; StVO § 45", fundstelle: "Leistung 1072250; Antragsformular Baustelle privat", fassung: "Stand 2025/26", status: V, recherche: ["19"]}
+  profil: {name: BY-M-Mobilitaetsreferat, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Kranstellung oder Abstützung auf öffentlichem Verkehrsgrund"
+  eingaben:
+    - {name: auf_strasse, einheit: "-", quelle: Stellplatzwahl}
+    - {name: antrag_datum, einheit: "-", quelle: Dokument}
+    - {name: montagetermin, einheit: "-", quelle: IfcWorkSchedule}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: sondernutzung_kran@0.1
+    formel: "wenn auf_strasse: Sondernutzungserlaubnis und verkehrsrechtliche Anordnung; Antrag mit Vorlauf (Planwert 6 Wochen [U]), MVAS-Zertifikat, Verkehrszeichenplan nach RSA 21, bemaßter Plan, Angabe vor benachbartem Anwesen"
+    parameter: {vorlauf_plan_wochen: 6}
+    auslegung: {vorlauf: "Bearbeitungsdauer schwankt; 2018/19 im Mittel 3,2 bzw. 5,3 Wochen, Spitzen 7 Wochen [U aktuell]"}
+  grenzwerte:
+    - {name: vorlauf_plan, wert: 6, einheit: Woche, richtung: min, fundstelle: "Zeitstrahl Recherche 19 (abgeleitet)", status: U}
+  meldung: "Der Kran steht auf öffentlichem Grund. Sondernutzung und verkehrsrechtliche Anordnung sind bis {frist} zu beantragen."
+  alternative:
+    - {art: A3_variante, beschreibung: "Stellplatz auf dem Grundstück (gegebenenfalls größerer Kran)", frei: [kran.stellplatz, kran.id]}
+  status: U
+  beispiel: [B18]
+  kapitel: "14b.5"
+  hinweis: "Anforderung ANF-14b-15. Szenario einfahrt_belegt: AK-60 auf der Straße."
+
+- id: DE.BaustellV.2-3.Vorankuendigung-SiGe
+  version: 0.1.0
+  titel: Vorankündigung, SiGe-Plan und Koordinator
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "Baustellenverordnung (BaustellV)", fundstelle: "§§ 2, 3, Anhang I und II", fassung: "geltend 2026-09", status: V, recherche: ["19"]}
+  profil: {name: DE-Arbeitsschutz-Bau, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "Baustelle (IfcWorkSchedule)"
+  eingaben:
+    - {name: arbeitstage, einheit: d, quelle: Bauzeitplan}
+    - {name: beschaeftigte_gleichzeitig, einheit: "-", quelle: Bauzeitplan}
+    - {name: personentage, einheit: d, quelle: Bauzeitplan}
+    - {name: arbeitgeber, einheit: "-", quelle: Beteiligte}
+    - {name: gefaehrliche_arbeiten, einheit: "-", quelle: "Anhang II (Absturz > 7 m, < 5 m Hochspannung, Massivbauelemente mit Hebezeug)"}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: baustellv@0.1
+    formel: "Vorankündigung >= 2 Wochen vor Einrichtung, wenn (arbeitstage > 30 und beschaeftigte_gleichzeitig > 20) oder personentage > 500; SiGe-Plan, wenn arbeitgeber > 1 und (Vorankündigung oder gefaehrliche_arbeiten); Koordinator, wenn arbeitgeber > 1; Holzelemente als Massivbauelemente: unbestimmt mit Empfehlung SiGe-Plan"
+    parameter: {arbeitstage: 30, beschaeftigte: 20, personentage: 500, vorlauf_wochen: 2}
+  grenzwerte:
+    - {name: vorlauf, wert: 2, einheit: Woche, richtung: min, fundstelle: "§ 2 Abs. 2 BaustellV", status: V}
+    - {name: personentage, wert: 500, einheit: d, richtung: max, fundstelle: "§ 2 Abs. 2 BaustellV", status: V}
+  meldung: "Für die Baustelle ist {pflicht} erforderlich (Frist {frist})."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "SiGe-Koordinator bestellen und SiGe-Plan erstellen lassen"}
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.5"
+  hinweis: "Anforderung ANF-14b-16. Einordnung von Holztafeln unter Anhang II Nr. 10 ungeklärt [U]."
+
+- id: M.Firma.Montagereihenfolge
+  version: 0.1.0
+  titel: Montagereihenfolge der Elemente
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel Montage", fundstelle: "B18 prüfe_reihenfolge", fassung: "0.1", status: U, recherche: ["19"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcTask INSTALLATION mit IfcRelSequence"
+  eingaben:
+    - {name: reihenfolge, einheit: "-", quelle: IfcWorkSchedule}
+    - {name: elementtyp, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: topologie
+    funktion: montagereihenfolge@0.1
+    formel: "Rang(EG-Wand) < Rang(Decke) < Rang(DG-Giebel) < Rang(Dach); Beladereihenfolge = Umkehrung der Montagereihenfolge je LKW; keine Ladung über Nacht geteilt"
+  grenzwerte: []
+  meldung: "Das Element {e1} wird vor {e2} montiert; das verletzt die Montagereihenfolge."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Reihenfolge und Beladeplan neu erzeugen", frei: [montage.reihenfolge]}
+  status: U
+  beispiel: [B18]
+  kapitel: "14b.6.1"
+  tests: [tests/test_b18.py::test_haus_und_reihenfolge, tests/test_b18.py::test_zeitplan]
+  hinweis: "Anforderungen ANF-14b-12, ANF-14b-13, ANF-14b-14."
+
+- id: M.Firma.Kranfreigabe
+  version: 0.1.0
+  titel: Hubfreigabe durch das Kranunternehmen
+  klasse: R3
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel Montage; Hersteller-Einsatzplaner (LICCON, Crane Planner 2.0)", fundstelle: "Recherche 19, Ergebnis Punkt 5", fassung: "0.1", status: V, recherche: ["19"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcConstructionEquipmentResource ERECTING"
+  eingaben:
+    - {name: einsatzplan, einheit: "-", quelle: "IfcDocumentReference des Kranunternehmens"}
+    - {name: beispielwerte, einheit: "-", quelle: Krandatensatz}
+  pruefung:
+    typ: freigabe
+    funktion: kranfreigabe@0.1
+    formel: "freigabepflichtig bis IfcApproval mit Einsatzplan (Stützkräfte, Windgrenzen, Hubliste) des Kranunternehmens; Krandatensatz mit beispielwerte = true: Vermerk keine Einsatzfreigabe"
+  grenzwerte: []
+  meldung: "Kran und Hubplanung sind eine Vorauswahl. Für die Montage ist der Einsatzplan des Kranunternehmens erforderlich."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Einsatzplan beim Kranunternehmen anfordern"}
+  freigabe_rolle: Kranunternehmen
+  status: V
+  beispiel: [B18]
+  kapitel: "14b.2.5"
+  hinweis: "Anforderungen ANF-14b-09, ANF-14b-19."

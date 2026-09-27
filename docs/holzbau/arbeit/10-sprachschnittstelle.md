@@ -48,7 +48,7 @@ Recherche 03 hat die für Deutsch verfügbaren offenen Modelle gesichtet. Tabell
 
 Für den Favoriten fehlt eine Angabe zum Fachvokabular, für Parakeet ist Boosting dokumentiert. Die einzige deutsche Fehlerrate ist eine Modellangabe ohne Bauvokabular. Welches Modell besser passt, entscheidet deshalb nur das eigene Testset (10.5).
 
-> **E10.1 (Spracherkennung).** Die Spracherkennung läuft lokal hinter einer austauschbaren Schnittstelle. Diese liefert n-beste Hypothesen mit Konfidenz und Wortzeiten. Voxtral Realtime ist das Primärmodell, Parakeet v3 mit Boosting wird parallel gemessen, Whisper ist die Rückfallebene. Die endgültige Wahl trifft die Messung von WER, Fachbegriff-Fehlerrate und Zahlfehlerrate am Audio-Testset (10.5.2), nicht die Modellangabe.
+> **E10.1 (Spracherkennung).** Die Spracherkennung läuft lokal hinter einer austauschbaren Schnittstelle. Diese liefert n-beste Hypothesen mit Konfidenz und Wortzeiten. Voxtral Realtime ist das Primärmodell, Parakeet v3 mit Boosting wird parallel gemessen, Whisper ist die Rückfallebene. Die endgültige Wahl trifft die Messung von WER, Fachbegriff-Fehlerrate und Zahlfehlerrate am Audio-Testset (10.5.3), nicht die Modellangabe.
 
 Die n-besten Hypothesen haben einen Zweck. Bei Kou und Tan erkannte eine CAD-spezifische Grammatik deutlich besser als freies Diktat [@kou2008design]; die Folgearbeit filtert Kandidaten nach dem Modellkontext und fragt bei Mehrdeutigkeit nach [@kou2010knowledge]. Nennt die beste Hypothese etwa einen Raum, den es nicht gibt, prüft das System die zweite und dritte, bevor es zurückfragt.
 
@@ -86,9 +86,7 @@ Der deterministische Teil ist nicht der Engpass: Parser, Referenz und Regelprüf
 
 ### 10.2.1 Aufgabenteilung: was das Modell entscheidet
 
-In der klassischen Tradition des Spoken Language Understanding wird eine Äußerung in Domäne, Absicht (Intent) und Attribut-Wert-Paare (Slots) überführt [@tur2011spoken]. Gemeinsame Modelle für Intent und Slots sind der Stand der Technik [@chen2019bert; @weld2022survey]. Im Bauwesen zerlegt T2S4BIM Nutzeranfragen mit Transformer-Modellen in Intent und Slots und führt sie als Revit-Aktion aus. Laut Abstract erreichen dort Encoder-Decoder-Modelle wie T5 und FLAN-T5 mit synthetisch erzeugten Trainingsdaten ähnliche Werte wie deutlich größere Decoder-Modelle, bei höherer Effizienz [@wei2025texttostructure]. NADIA-S gliedert eine Speech-to-BIM-Anwendung in sechs Schritte: interpret, fill, match, structure, execute, check [@lee2024generalized].
-
-Die Arbeit übernimmt diese Zerlegung, verteilt die Schritte aber strenger als die Vorbilder. Tabelle 10.3 stellt die Schritte von NADIA-S der eigenen Kette gegenüber und nennt für jeden Schritt, wer entscheidet.
+Spoken Language Understanding überführt eine Äußerung in Domäne, Absicht (Intent) und Attribut-Wert-Paare (Slots) [@tur2011spoken]; gemeinsame Modelle für beides sind Stand der Technik [@chen2019bert; @weld2022survey]. Im Bauwesen zerlegt T2S4BIM Nutzeranfragen in Intent und Slots und führt sie als Revit-Aktion aus; laut Abstract erreichen T5 und FLAN-T5 mit synthetischen Trainingsdaten ähnliche Werte wie deutlich größere Decoder-Modelle [@wei2025texttostructure]. NADIA-S gliedert Speech-to-BIM in sechs Schritte: interpret, fill, match, structure, execute, check [@lee2024generalized]. Die Arbeit übernimmt die Zerlegung, verteilt die Schritte aber strenger (Tabelle 10.3).
 
 **Tabelle 10.3: Aufgabenteilung zwischen Modell und Code**
 
@@ -101,23 +99,23 @@ Die Arbeit übernimmt diese Zerlegung, verteilt die Schritte aber strenger als d
 | execute | Änderung des Parametermodells, Solver | Code | neuer Zustand und Änderungsliste |
 | check | Regelprüfung R1–R4, Empfehlungen R5 | Regelmaschine (Code) | Nachweis, Ablehnung mit Alternative |
 
-Das Intent-Modell erzeugt also keinen Code, keine Geometrie und keinen Wert. Es wählt nur aus Optionen, die der Katalog vorgibt. Drei Befunde der Literatur begründen diese Grenze:
+Das Intent-Modell erzeugt keinen Code, keine Geometrie und keinen Wert; es wählt nur aus Optionen des Katalogs. Drei Befunde begründen die Grenze:
 
-- **Rechnen gehört in den Interpreter.** Sprachmodelle, die das Rechnen an einen Interpreter abgeben, lösen Rechenaufgaben deutlich besser als solche, die selbst schrittweise rechnen [@gao2023pal]. In der Architekturgeneration machte die Selbstprüfung von GPT-4 Rechenfehler (Recherche 12) [@kodnongbua2024zeroshot].
-- **Räumliches Schließen ist unzuverlässig.** Sprachmodelle bilden Text zuverlässig auf räumliche Relationen ab, scheitern aber am mehrstufigen Schließen [@li2024spatial]. „Das Bad oben“ erkennen sie, welcher Raum das im aktuellen Modell ist, sollen sie nicht entscheiden.
-- **Freie Ausgaben halluzinieren.** Flüssige, aber falsche Ausgaben sind ein systematisches Merkmal generativer Modelle [@ji2023hallucination]. Bei geschlossenen Optionen kann eine Halluzination nur die Wahl einer falschen Option sein, und diesen Fehler begrenzt der Schwellwert (10.2.5).
+- **Rechnen gehört in den Interpreter.** Sprachmodelle, die das Rechnen an einen Interpreter abgeben, lösen Rechenaufgaben deutlich besser [@gao2023pal]; die Selbstprüfung von GPT-4 machte Rechenfehler (Recherche 12) [@kodnongbua2024zeroshot].
+- **Räumliches Schließen ist unzuverlässig.** Sprachmodelle bilden Text auf räumliche Relationen ab, scheitern aber am mehrstufigen Schließen [@li2024spatial]. „Das Bad oben“ erkennen sie; welcher Raum das ist, entscheidet der Code.
+- **Freie Ausgaben halluzinieren** [@ji2023hallucination]. Bei geschlossenen Optionen ist eine Halluzination nur die Wahl einer falschen Option, und diese begrenzt der Schwellwert (10.2.5).
 
-Die Grenze ist zugleich die rechtliche. Nach den Leitlinien der Kommission fallen rein menschlich definierte Regeln und einfache Datenverarbeitung aus dem Begriff des KI-Systems heraus [@eu2025aidefinition]. In der hier gewählten Architektur ist deshalb voraussichtlich nur das Intent-Modell ein KI-System, die Regelmaschine nicht (Recherche 27). Haftungsrechtlich entspricht das der Auslegung als automatisiertes System mit festen, nachvollziehbaren Regeln, nicht als autonomes System [@wilhelmi2020haftung]. Kapitel 7 dokumentiert diese Grenze in der Architektur.
+Die Grenze ist auch die rechtliche. Rein menschlich definierte Regeln und einfache Datenverarbeitung fallen nach den Leitlinien der Kommission aus dem Begriff des KI-Systems [@eu2025aidefinition]; voraussichtlich ist nur das Intent-Modell ein KI-System, die Regelmaschine nicht (Recherche 27). Haftungsrechtlich entspricht das einem automatisierten, nicht autonomen System [@wilhelmi2020haftung].
 
 ### 10.2.2 Fragetypen: choice, score, noul
 
-Die Intent-Schicht folgt dem Schnittstellenmuster von Jev (Recherche 03) [V]. Eingabe ist ein Zustand und eine Menge typisierter Fragen, Ausgabe sind typisierte Antworten mit Wahrscheinlichkeiten. Das Modell erzeugt keinen Text. Drei Fragetypen werden verwendet:
+Die Intent-Schicht folgt dem Schnittstellenmuster von Jev (Recherche 03) [V]: Eingabe sind ein Zustand und typisierte Fragen, Ausgabe typisierte Antworten mit Wahrscheinlichkeiten, kein Text.
 
-- **choice:** eine Frage mit 1 bis 255 festen Optionen. Die Antwort ist eine Wahrscheinlichkeitsverteilung über die Optionen. Beispiel: „Welche Dachform ist gemeint?“ mit acht Optionen.
-- **score:** eine Rubrik mit 2 bis 10 Stufen. Beispiel: „Wie stark soll die Änderung sein?“ mit den Stufen „sehr wenig“ bis „sehr stark“. Die Frage ersetzt keinen Zahlwert. Sie wird nur gestellt, wenn der Parser keinen Wert gefunden hat („a bissl größer“), und die Stufe führt immer zu einer Vorschau (Regel D10 der Grammatik).
-- **noul:** eine Ja/Nein-Frage, die P(wahr) zwischen 0 und 1 liefert, keinen Wahrheitswert. Den Schwellwert legt der eigene Code je Frage fest, abhängig davon, wie teuer ein Fehler ist (Recherche 03) [V].
+- **choice:** 1 bis 255 feste Optionen, Antwort ist eine Verteilung, z. B. „Welche Dachform ist gemeint?“.
+- **score:** Rubrik mit 2 bis 10 Stufen, z. B. „Wie stark soll die Änderung sein?“. Sie ersetzt keinen Zahlwert, wird nur ohne erkannten Wert gestellt („a bissl größer“) und führt immer zu einer Vorschau (Regel D10).
+- **noul:** Ja/Nein-Frage mit P(wahr) zwischen 0 und 1; den Schwellwert setzt der Code je Frage nach den Fehlerkosten (Recherche 03) [V].
 
-Alle Fragen eines Aufrufs laufen parallel. Der Katalog nutzt 112 choice-, 11 score- und 15 noul-Fragen. Von den choice-Fragen sind eine die Gruppenfrage `q.gruppe`, 16 die Intent-Fragen der Gruppen (`q.intent.<gruppe>`) und 95 Slotfragen. Fünf Fragen sind global und werden bei jeder Äußerung gestellt: `q.gruppe` und vier noul-Fragen. Tabelle 10.4 zeigt die vier noul-Fragen.
+Alle Fragen eines Aufrufs laufen parallel. Der Katalog nutzt 112 choice-Fragen (die Gruppenfrage `q.gruppe`, 16 Intent-Fragen `q.intent.<gruppe>` und 95 Slotfragen), 11 score- und 15 noul-Fragen. Global, also bei jeder Äußerung, laufen `q.gruppe` und die vier noul-Fragen der Tabelle 10.4.
 
 **Tabelle 10.4: Globale noul-Fragen**
 
@@ -128,68 +126,49 @@ Alle Fragen eines Aufrufs laufen parallel. Der Katalog nutzt 112 choice-, 11 sco
 | `n.bezug_vorher` | Bezieht sich die Äußerung auf das zuletzt genannte oder ausgewählte Objekt? | 0,60 | Referenz aus dem Dialogkontext |
 | `n.verneinung` | Enthält die Äußerung eine Verneinung des Wunsches? | 0,60 | Aktion invertieren oder zurückfragen |
 
-Die globalen noul-Fragen fangen Dialogphänomene ab, die ein reiner Intent-Klassifikator übersieht. „Nein, nicht das Bad, das Kinderzimmer 1“ ist kein neuer Intent, sondern die Korrektur eines Slots im vorigen Frame. „Wie breit ist das Bad oben?“ und „Mach das Bad oben breiter“ teilen fast alle Wörter, gehören aber zu verschiedenen Gruppen. Laut Model Card meldet der noul-Typ von Laya „wahr“ teils zu selten (Recherche 03) [V]. Die Schwellen der noul-Fragen liegen deshalb unter denen der Intent-Wahl und werden nach der Kalibrierung neu festgelegt (10.2.5).
+Sie fangen Dialogphänomene ab, die ein Intent-Klassifikator übersieht: „Nein, nicht das Bad, das Kinderzimmer 1“ korrigiert einen Slot im vorigen Frame; „Wie breit ist das Bad oben?“ und „Mach das Bad oben breiter“ teilen fast alle Wörter, gehören aber zu verschiedenen Gruppen. Weil der noul-Typ von Laya laut Model Card „wahr“ teils zu selten meldet (Recherche 03) [V], liegen diese Schwellen niedriger und werden nach der Kalibrierung neu gesetzt.
 
 ### 10.2.3 Hierarchie unter 20 Optionen
 
-Laut Model Card verschlechtert sich Laya bei mehr als etwa 20 Optionen einer choice-Frage deutlich (Recherche 03) [V]. Ein flacher Katalog mit 138 Intents ist damit ausgeschlossen. Der Katalog ist deshalb ein Baum mit drei Ebenen:
+Laut Model Card verschlechtert sich Laya bei mehr als etwa 20 Optionen deutlich (Recherche 03) [V]. Ein flacher Katalog mit 138 Intents scheidet aus. Der Katalog ist ein Baum mit drei Ebenen: **Gruppe** (`q.gruppe`, 16 Optionen, dazu die globalen noul-Fragen), **Intent** (`q.intent.<gruppe>`, höchstens 13 Optionen) und **Slotfragen** des Intents, etwa „Welche Dachform?“. Die größte choice-Frage hat 18 Optionen (Nutzung eines Raums); der Validator lehnt jede Frage mit mehr als 19 ab.
 
-1. **Gruppe:** eine choice-Frage mit 16 Optionen (`q.gruppe`), dazu die globalen noul-Fragen.
-2. **Intent:** die choice-Frage `q.intent.<gruppe>` der gewählten Gruppe, mit höchstens 13 Optionen.
-3. **Slotfragen:** die choice-, score- und noul-Fragen des gewählten Intents, etwa „Welche Dachform?“. Diese Ebene entfällt, wenn der Intent keine vom Modell zu beantwortenden Slots hat.
+Ein Fehler auf der Gruppenebene ist auf der Intent-Ebene nicht mehr korrigierbar. Zwei Maßnahmen begrenzen das. Liegt die beste Gruppe unter ihrer Schwelle, wird die Intent-Frage für die zwei besten Gruppen parallel gestellt, und maßgeblich ist P(Gruppe) · P(Intent | Gruppe). Ein **Kontextfilter** bietet unzulässige Optionen gar nicht an: „Bestätigen“ nur bei offener Rückfrage, „Alternative wählen“ nur nach einer angebotenen Alternative. Das entspricht der kontextbewussten Inferenz nach Kou et al. [@kou2010knowledge].
 
-Die größte choice-Frage des Katalogs hat 18 Optionen (Nutzung eines Raums). Der Validator lehnt jede Frage mit mehr als 19 Optionen ab (10.7.1).
-
-Die Hierarchie hat eine bekannte Schwäche: Ein Fehler auf der Gruppenebene lässt sich auf der Intent-Ebene nicht mehr korrigieren. Zwei Maßnahmen begrenzen das.
-
-- **Zwei Gruppen parallel.** Liegt die beste Gruppe unter ihrer Schwelle, wird die Intent-Frage für die beiden besten Gruppen parallel gestellt. Maßgeblich ist dann die Verbundwahrscheinlichkeit P(Gruppe) · P(Intent | Gruppe).
-- **Kontextfilter.** Optionen, die im aktuellen Zustand nicht zulässig sind, werden gar nicht angeboten. „Bestätigen“ und „Verneinen“ gibt es nur bei offener Rückfrage, „Alternative wählen“ nur nach einer angebotenen Alternative, „Bemusterung abschließen“ nur in der Bemusterungsphase. Das entspricht der kontextbewussten Inferenz nach Kou et al. [@kou2010knowledge] und verkleinert zugleich die Optionsmengen.
-
-> **E10.3 (Intent-Modell).** Das Intent-Modell ist Laya, lokal betrieben, feinabgestimmt und kalibriert (10.5.4). Jev wird nur mit ausdrücklicher Einwilligung als Cloud-Rückfallebene mit Zero Data Retention genutzt. Ist kein Modell verfügbar, übernimmt ein Schlüsselwortklassifikator nach dem Muster von Shapeshift (Recherche 03) die Intents der Risikoklassen R0 und R1. Alle anderen Intents werden dann über die Oberfläche angeboten.
+> **E10.3 (Intent-Modell).** Laya, lokal, feinabgestimmt und kalibriert (10.5.4). Jev nur mit Einwilligung als Cloud-Rückfallebene mit Zero Data Retention. Ohne Modell übernimmt ein Schlüsselwortklassifikator nach dem Muster von Shapeshift (Recherche 03) die Intents von R0 und R1; alle anderen gehen über die Oberfläche.
 >
-> **E10.4 (Hierarchie).** Der Katalog ist ein Baum aus Gruppe, Intent und Slotfragen. Keine choice-Frage hat mehr als 19 Optionen. Unter der Gruppenschwelle werden zwei Gruppen parallel bewertet, und unzulässige Optionen werden vorab herausgefiltert.
+> **E10.4 (Hierarchie).** Baum aus Gruppe, Intent und Slotfragen mit höchstens 19 Optionen je Frage, zwei Gruppen parallel unter der Gruppenschwelle, Kontextfilter.
 
 ### 10.2.4 Der Intent-Katalog
 
-Der Katalog `spezifikation/intents.yaml` (Version 0.1.0) deckt alle Themen der Gliederung ab. Tabelle 10.5 zeigt die Gruppen mit ihren Intents.
+Der Katalog `spezifikation/intents.yaml` (v0.1.0) deckt alle Themen der Gliederung ab (Tabelle 10.5).
 
 **Tabelle 10.5: Intent-Katalog (Gruppen → Intents)**
 
 | Gruppe | Intents | Beispiele für Intents | betroffene Kapitel |
 |---|---:|---|---|
-| grundriss | 10 | raum_groesse_aendern, raum_hinzufuegen, raeume_tauschen, raeume_zusammenlegen, innenwand_versetzen, innentuer_setzen | 9, 9b |
-| geschosse_baukoerper | 10 | kniestock_aendern, geschosshoehe_aendern, keller_festlegen, dachgeschoss_ausbau, haus_verschieben, hoehenlage_aendern | 4.3, 9 |
-| huelle | 10 | fenster_einfuegen, fenster_groesse_aendern, fenster_typ_aendern, terrassentuer_setzen, wandaufbau_waehlen, sonnenschutz_setzen | 8, 15 |
-| dach | 10 | dachform_aendern, dachneigung_aendern, dachueberstand_aendern, gaube_hinzufuegen, dachfenster_einfuegen, dacheindeckung_waehlen | 14 |
-| fassade | 6 | fassade_material_waehlen, schalung_art_waehlen, fassade_teilflaeche, sockel_gestalten | 14.7 |
-| bemusterung_interior | 13 | bodenbelag_waehlen, fliese_waehlen, fliese_muster_fuge, wandoberflaeche_waehlen, treppe_bemustern, sanitaerobjekt_setzen, kueche_planen | 12 |
-| tga | 10 | steckdose_setzen, netzwerk_setzen, heizsystem_waehlen, waermepumpe_aufstellen, lueftung_waehlen, wallbox_setzen | 13 |
-| licht | 5 | leuchte_setzen, lichtschalter_setzen, lichtsteuerung_waehlen, aussenbeleuchtung_setzen | 13.7 |
+| grundriss | 10 | raum_groesse_aendern, raeume_tauschen, raeume_zusammenlegen, innenwand_versetzen | 9, 9b |
+| geschosse_baukoerper | 10 | kniestock_aendern, geschosshoehe_aendern, keller_festlegen, haus_verschieben | 4.3, 9 |
+| huelle | 10 | fenster_einfuegen, fenster_typ_aendern, wandaufbau_waehlen, sonnenschutz_setzen | 8, 15 |
+| dach | 10 | dachform_aendern, dachneigung_aendern, gaube_hinzufuegen, dacheindeckung_waehlen | 14 |
+| fassade | 6 | fassade_material_waehlen, schalung_art_waehlen, sockel_gestalten | 14.7 |
+| bemusterung_interior | 13 | bodenbelag_waehlen, fliese_muster_fuge, treppe_bemustern, sanitaerobjekt_setzen | 12 |
+| tga | 10 | steckdose_setzen, heizsystem_waehlen, waermepumpe_aufstellen, lueftung_waehlen | 13 |
+| licht | 5 | leuchte_setzen, lichtschalter_setzen, lichtsteuerung_waehlen | 13.7 |
 | pv | 4 | pv_belegen, pv_modul_waehlen, batteriespeicher_waehlen | 14.6 |
-| aussenanlagen | 9 | terrasse_anlegen, garage_carport_hinzufuegen, zisterne_hinzufuegen, versickerung_waehlen, rueckstausicherung_waehlen, gelaende_modellieren | 14a |
-| moeblierung | 6 | moebel_platzieren, moebel_verschieben, raum_moeblieren, einbauschrank_planen | 12.3 |
-| gebaeudetyp_nutzung | 8 | einliegerwohnung_hinzufuegen, wohnung_hinzufuegen, anbauart_aendern, barrierefreiheit_vorsehen, nutzerprofil_waehlen, kulturprofil_waehlen | 9a, 9b |
-| steuerung | 12 | rueckgaengig, variante_anlegen, varianten_vergleichen, ansicht_wechseln, bestaetigen, alternative_waehlen | 7.3 |
-| anzeigen_auswerten | 12 | kosten_anzeigen, energie_anzeigen, schall_anzeigen, masse_abfragen, begruendung_erfragen, regelstatus_anzeigen | 15, 9.5 |
-| freigabe_prozess | 7 | zur_pruefung_senden, angebot_anfordern, bemusterung_abschliessen, abweichung_beantragen, freigabe_erklaeren | 18 |
-| meta | 6 | hilfe, ki_transparenz, datenschutz_steuern, ausschluss_thema, ausserhalb_umfang, unklar | 4.8, 9b.6 |
+| aussenanlagen | 9 | terrasse_anlegen, zisterne_hinzufuegen, versickerung_waehlen, rueckstausicherung_waehlen | 14a |
+| moeblierung | 6 | moebel_platzieren, raum_moeblieren, einbauschrank_planen | 12.3 |
+| gebaeudetyp_nutzung | 8 | einliegerwohnung_hinzufuegen, anbauart_aendern, nutzerprofil_waehlen, kulturprofil_waehlen | 9a, 9b |
+| steuerung | 12 | rueckgaengig, variante_anlegen, ansicht_wechseln, alternative_waehlen | 7.3 |
+| anzeigen_auswerten | 12 | kosten_anzeigen, schall_anzeigen, masse_abfragen, begruendung_erfragen | 15, 9.5 |
+| freigabe_prozess | 7 | zur_pruefung_senden, bemusterung_abschliessen, abweichung_beantragen, freigabe_erklaeren | 18 |
+| meta | 6 | ki_transparenz, datenschutz_steuern, ausschluss_thema, unklar | 4.8, 9b.6 |
 | **Summe** | **138** | | |
 
-Jeder Intent trägt die Felder, die die App zur Laufzeit braucht:
+Jeder Intent trägt Beschreibung, Risikoklasse (10.2.5), mindestens drei deutsche Beispielsätze (zusammen 415), Slots mit Typ, Einheit, Wertebereich, Pflichtkennzeichen und Quelle (`parser`, `referenz`, `katalog`, `modell`; zusammen 316), die Fragen mit Schwellwert, die betroffenen Regel-IDs aus `regelkatalog.yaml` und `empfehlungen.yaml`, noch zu formalisierende Regeln (`regeln_geplant`), Module und Rückfragetext. Zwei Gestaltungsregeln folgen aus früheren Kapiteln.
 
-- Beschreibung und Risikoklasse R0–R3 (10.2.5)
-- mindestens drei deutsche Beispielsätze, insgesamt 415
-- Slots mit Typ, Einheit, Wertebereich, Pflichtkennzeichen und Quelle (`parser`, `referenz`, `katalog` oder `modell`), insgesamt 316
-- die Fragen an das Intent-Modell mit Schwellwert
-- die betroffenen Regeln als IDs aus `regelkatalog.yaml` und `empfehlungen.yaml`, dazu die noch zu formalisierenden Regeln als `regeln_geplant`
-- die betroffenen Module
-- der Rückfragetext
+**Der Gebäudetyp wird nicht gewählt.** Ein Etikett „Haustyp“ würde veralten, weil Gebäudeklasse und Profil aus Merkmalen folgen, die der Kunde im Entwurf ändert (Abschnitt 9a.2.1). Die Gruppe `gebaeudetyp_nutzung` ändert deshalb Merkmale (Einliegerwohnung, weitere Wohnung, Anbauart), und die Profilableitung folgt daraus. Diese Intents sind mindestens R2, das Zurücknehmen einer Wohnung ist R3.
 
-Zwei Gestaltungsregeln des Katalogs folgen aus früheren Kapiteln.
-
-**Der Gebäudetyp wird nicht gewählt.** Kapitel 9a hat gezeigt, dass ein gewähltes Etikett „Haustyp“ veralten würde, weil Gebäudeklasse und Profil aus Merkmalen folgen, die der Kunde im Entwurf ändert (Abschnitt 9a.2.1). Die Gruppe `gebaeudetyp_nutzung` enthält deshalb keinen Intent „Typ wählen“. Sie enthält Intents, die Merkmale ändern: eine Einliegerwohnung anlegen, eine weitere Wohnung anlegen, die Anbauart ändern. Das Regelprofil ermittelt anschließend die Profilableitung aus dem geänderten Merkmalsvektor. Diese Intents haben mindestens die Risikoklasse R2, weil sie Gebäudeklasse, Schallschutz und Bauvorlageberechtigung verschieben können; das Zurücknehmen einer Wohnung ist R3.
-
-**Freigaben gehen nicht per Sprache.** Die Gruppe `freigabe_prozess` stößt Prozessschritte nur an. Der Intent `freigabe_erklaeren` erkennt den Versuch, per Sprache eine rechtserhebliche Erklärung abzugeben, etwa „Ich gebe den Bauantrag frei“ oder „Hiermit bestelle ich das Haus verbindlich“. Er führt sie aber nie aus, sondern verweist auf das Freigabe-Gate der Oberfläche (E10.9).
+**Freigaben gehen nicht per Sprache.** Der Intent `freigabe_erklaeren` erkennt Äußerungen wie „Ich gebe den Bauantrag frei“, führt sie aber nie aus, sondern öffnet das Freigabe-Gate der Oberfläche (E10.9).
 
 > **Beispiel 10.1 (Katalogeintrag `kniestock_aendern`).** Gruppe `geschosse_baukoerper`, Risikoklasse R2.
 >
@@ -198,19 +177,19 @@ Zwei Gestaltungsregeln des Katalogs folgen aus früheren Kapiteln.
 > - **Regeln:** `BY.BayBO.2-5.aF2007.Vollgeschoss`, `BY.BayBO.6.T`, `BY.BayBO.2-3.Gebaeudeklasse`, `BY.Profil.Schwellenwarnung`.
 > - **Rückfrage:** „Auf welche Höhe soll der Kniestock? Ab {k_stern} wird das Dachgeschoss zum Vollgeschoss.“
 >
-> Der Platzhalter {k_stern} ist die Vollgeschoss-Schwelle aus Beispiel 4.2. Das System meldet sie vor der Ausführung (ANF-09-19). Der Kunde erfährt also nicht erst nach der Änderung, dass sein Haus ein Geschoss zu viel hat. Er erfährt es in der Vorschau, die die Risikoklasse R2 ohnehin verlangt.
+> {k_stern} ist die Vollgeschoss-Schwelle aus Beispiel 4.2. Der Kunde erfährt in der Vorschau, die R2 ohnehin verlangt, und nicht erst nach der Änderung, dass sein Haus ein Geschoss zu viel hätte (ANF-09-19).
 
 ### 10.2.5 Kalibrierung und Schwellwerte
 
-Ein Schwellwert ist nur so gut wie die Wahrscheinlichkeit, auf die er angewendet wird. Laya wird laut Model Card **unkalibriert** ausgeliefert. Ohne Fine-Tuning liegt die Genauigkeit bei 0,342, das Zufallsniveau wäre 0,318 (Recherche 03) [V]. Eine Ausgabe „p = 0,9“ bedeutet vor der Kalibrierung also nicht, dass das Modell in neun von zehn Fällen richtig liegt.
+Ein Schwellwert ist nur so gut wie die Wahrscheinlichkeit, auf die er wirkt. Laya wird laut Model Card **unkalibriert** ausgeliefert; ohne Fine-Tuning liegt die Genauigkeit bei 0,342 bei einem Zufallsniveau von 0,318 (Recherche 03) [V]. „p = 0,9“ heißt vor der Kalibrierung nicht, dass das Modell in neun von zehn Fällen richtig liegt.
 
-**Kalibrierungsfehler.** Gemessen wird der erwartete Kalibrierungsfehler (ECE). Die Vorhersagen werden nach ihrer Konfidenz in *B* = 15 gleich breite Intervalle $B_b$ geteilt, und je Intervall wird die mittlere Konfidenz mit der beobachteten Trefferquote verglichen:
+**Kalibrierungsfehler.** Gemessen wird der erwartete Kalibrierungsfehler (ECE) über *B* = 15 gleich breite Konfidenzintervalle $B_b$:
 
 $$\mathrm{ECE} = \sum_{b=1}^{B} \frac{|B_b|}{n}\,\bigl|\,\mathrm{acc}(B_b) - \mathrm{conf}(B_b)\,\bigr|$$
 
-Die Definition ist ein Standardmaß der Kalibrierungsforschung. Ein Literaturnachweis dafür fehlt im Bestand und ist nachzutragen [U].
+Das Maß ist Standard der Kalibrierungsforschung; ein Literaturnachweis fehlt im Bestand [U].
 
-**Temperaturskalierung.** Kalibriert wird je Fragetyp mit einer Temperatur *T*, die auf dem Entwicklungsset die negative Log-Likelihood minimiert: $\hat p_i = p_i^{1/T} / \sum_j p_j^{1/T}$. Das Verfahren braucht nur die Wahrscheinlichkeiten, nicht die internen Logits, und funktioniert damit auch mit dem Jev-Protokoll. Für noul-Fragen wird dieselbe Transformation auf das Paar (p, 1 − p) angewendet. *T* ist Teil der Modellversion und steht im Protokoll jeder Äußerung.
+**Temperaturskalierung.** Je Fragetyp wird eine Temperatur *T* bestimmt, die auf dem Entwicklungsset die negative Log-Likelihood minimiert: $\hat p_i = p_i^{1/T} / \sum_j p_j^{1/T}$. Das braucht nur Wahrscheinlichkeiten, keine Logits, und passt damit auch zum Jev-Protokoll; für noul gilt es für das Paar (p, 1 − p). *T* gehört zur Modellversion und steht im Protokoll.
 
 **Entscheidungsregel.** Für einen Intent der Risikoklasse *k* mit bester kalibrierter Wahrscheinlichkeit $\hat p_1$ und zweitbester $\hat p_2$ gilt:
 
@@ -227,31 +206,23 @@ Sonst folgt eine Rückfrage. Die Werte $\tau_k$ und $\delta_k$ stehen in Tabelle
 | R2 | Folgen für Profil, Gebäudeklasse, Kosten über einer Schwelle oder mehrere Gewerke | 0,80 | 0,25 | Vorschau mit Folgen, Bestätigung per Sprache oder Klick | 27 |
 | R3 | schwer umkehrbar oder rechtserheblich (Löschen, Senden, Abschließen) | 0,90 | 0,30 | ausdrücklich auf dem Bildschirm; Sprache genügt nie | 7 |
 
-Die Staffelung folgt dem Grundsatz aus Recherche 03, die Schwelle nach den Fehlerkosten zu wählen. Ein Fehler in R1 kostet einen Undo-Schritt, in R2 eine falsch verstandene Kostenfolge, in R3 unter Umständen eine verlorene Variante oder eine Erklärung gegenüber der Firma. Die Startwerte sind Designentscheidungen [U]. Sie werden nach der Kalibrierung so gesetzt, dass die Fehlausführungsrate am Entwicklungsset die Zielwerte aus Tabelle 10.10 einhält. Das ist ein Verfahren der selektiven Vorhersage: Die Rückfrage ist die Enthaltung, und berichtet wird das Paar aus Abdeckung und Fehlerrate.
+Die Staffelung folgt den Fehlerkosten (Recherche 03): In R1 kostet ein Fehler einen Undo-Schritt, in R2 eine missverstandene Kostenfolge, in R3 unter Umständen eine verlorene Variante oder eine Erklärung gegenüber der Firma. Die Startwerte sind Designentscheidungen [U]; nach der Kalibrierung werden sie so gesetzt, dass die Fehlausführungsrate am Entwicklungsset die Ziele aus Tabelle 10.10 einhält. Die Rückfrage ist dabei die Enthaltung einer selektiven Vorhersage, berichtet wird das Paar aus Abdeckung und Fehlerrate.
 
-> **E10.5 (Schwellen).** Schwellen gelten nur für kalibrierte Wahrscheinlichkeiten und je Risikoklasse. Sie sind Konfiguration mit Version, nicht Code. Jede Änderung einer Schwelle oder einer Temperatur erzeugt eine neue Katalog- bzw. Modellversion im Protokoll.
+> **E10.5 (Schwellen).** Schwellen gelten je Risikoklasse für kalibrierte Wahrscheinlichkeiten. Sie sind versionierte Konfiguration; jede Änderung von Schwelle oder Temperatur erzeugt eine neue Katalog- bzw. Modellversion.
 
 ## 10.3 Deterministischer Werteparser und Referenzauflösung
 
 ### 10.3.1 Warum ein eigener Parser
 
-Laut Recherche 03 beantworten Jev und Laya typisierte Fragen, liefern aber keine Werte wie „1,20 m“ oder „35 Grad“ [V]. Die Recherche nennt zwei Wege, die Werte zu gewinnen: einen deutschen Parser für Zahlen und Einheiten oder ein Sprachmodell mit JSON-Schema bzw. Constrained Decoding. Kakadoo geht einen Mittelweg und parst strukturierte Befehle wie „Set the Height to 12“ deterministisch. Das Sprachmodell kommt dort nur bei unscharfen Angaben wie „höher“ zum Zug [@atakan2025kakadoo]. Die Arbeit geht einen Schritt weiter.
+Jev und Laya liefern keine Werte wie „1,20 m“ oder „35 Grad“ (Recherche 03) [V]. Die Recherche nennt zwei Wege: einen deutschen Parser oder ein Sprachmodell mit JSON-Schema bzw. Constrained Decoding. Kakadoo parst strukturierte Befehle deterministisch und ruft das Sprachmodell nur für unscharfe Angaben wie „höher“ [@atakan2025kakadoo]. Die Arbeit geht weiter.
 
 > **E10.6 (Werte).** Zahlwerte, Einheiten, Richtungen und Ordinale entstehen im Betrieb ausschließlich im deterministischen Werteparser. Ein Sprachmodell mit JSON-Schema wird nicht zur Wertgewinnung eingesetzt. Offline darf es Paraphrasen für Trainingsdaten erzeugen, die ein Mensch prüft (10.5.4). Unscharfe Angaben ohne Zahl ergeben eine Stufe der score-Frage und eine Vorschau, nie einen stillschweigend gesetzten Wert.
 
-Die Begründung ist die des ganzen Kapitels: Ein Wert, der in das Modell und damit in Nachweis und Vertrag eingeht, muss sich auf eine Regel zurückführen lassen. Der Parser ist eine Funktion ohne Zustand und Zufall. Der Test `test_pipeline_deterministisch` bestätigt, dass zweimaliges Verarbeiten der neun B6-Sätze identische Protokolle ergibt.
+Ein Wert, der in Nachweis und Vertrag eingeht, muss auf eine Regel zurückführbar sein. Der Parser hat weder Zustand noch Zufall; `test_pipeline_deterministisch` bestätigt identische Protokolle bei wiederholter Verarbeitung.
 
 ### 10.3.2 Grammatik
 
-Die Datei `spezifikation/werteparser-grammatik.md` beschreibt die Sprache des Parsers in EBNF nach ISO/IEC 14977 auf zwei Ebenen. Die **Wortebene** kennt fünf Muster für Maßausdrücke, geordnet nach Priorität:
-
-- **A:** Zahl, „Meter“, Zahl unter 100: „zwei Meter sechzig“ = 2,60 m, „ein Meter fünf“ = 1,05 m
-- **B:** Zahl mit Einheit: „1,20 m“, „35 Grad“, „zwölf Quadratmeter“
-- **C:** umgangssprachliches Maß: „eins zwanzig“ = 1,20 m, erweitert um „eins null fünf“ und die Zusammenschreibung „einsachtzig“
-- **F:** Produkt: „vier mal sechs Meter“
-- **D:** Zahl ohne Einheit
-
-Hinzu kommen Modus-, Richtungs-, Ordinal- und Anzahlausdrücke. Die **Morphemebene** zerlegt Zahlwörter wie „fünfunddreißig“ oder „zweihundertzwanzig“ innerhalb eines Wortes und erweitert den Bereich von B6 (bis 999) auf Tausender. Vierzehn Disambiguierungsregeln D1–D14 legen fest, wie Mehrdeutigkeiten entschieden werden. Die wichtigsten sind:
+`spezifikation/werteparser-grammatik.md` beschreibt den Parser in EBNF nach ISO/IEC 14977. Die **Wortebene** kennt fünf Muster für Maßausdrücke in fester Priorität: **A** „zwei Meter sechzig“ = 2,60 m; **B** Zahl mit Einheit („1,20 m“, „35 Grad“); **C** Umgangsmaß („eins zwanzig“ = 1,20 m, neu auch „eins null fünf“ und „einsachtzig“); **F** Produkt („vier mal sechs Meter“); **D** Zahl ohne Einheit. Dazu kommen Modus-, Richtungs-, Ordinal- und Anzahlausdrücke. Die **Morphemebene** zerlegt Zahlwörter wie „fünfunddreißig“ und erweitert B6 (bis 999) auf Tausender. Vierzehn Disambiguierungsregeln entscheiden Mehrdeutigkeiten, darunter:
 
 - **D1 Tausenderpunkt:** Ein Punkt mit genau drei Ziffern danach trennt Tausender, sonst ist er Dezimaltrenner. „2.500 mm“ = 2,50 m, „1.20m“ = 1,20 m.
 - **D3 Mehrdeutiges Umgangsmaß:** „eins fünf“ hat die Kandidaten 1,05 m und 1,50 m. Liegt nur ein Kandidat im Wertebereich des Slots, gilt er, sonst folgt eine Rückfrage.
@@ -259,11 +230,11 @@ Hinzu kommen Modus-, Richtungs-, Ordinal- und Anzahlausdrücke. Die **Morphemebe
 - **D5 Nummer gehört zur Referenz:** In „Kinderzimmer 2 auf 3,20 m“ gehört die 2 zum Raum, nicht zum Wert.
 - **D9 Komparativ macht relativ:** „zwanzig Zentimeter schmaler“ ergibt −0,20 m relativ. Bei Widerspruch gewinnt der Komparativ, und die Anzeige zeigt beide Lesarten.
 
-Jeder Messwert trägt seine Herkunft: Textausschnitt, Muster, Herkunft der Einheit (Text, Slot oder Konvention), Mehrdeutigkeit und Kandidaten. Die Dimensionen umfassen Länge, Fläche, Winkel, Anteil, Leistung, Energie, Volumen, Farbtemperatur, U-Wert und Anzahl. B6 kennt davon die ersten drei.
+Jeder Messwert trägt Textausschnitt, Muster, Herkunft der Einheit, Mehrdeutigkeit und Kandidaten. Von den zehn Dimensionen (Länge, Fläche, Winkel, Anteil, Leistung, Energie, Volumen, Farbtemperatur, U-Wert, Anzahl) kennt B6 die ersten drei.
 
 ### 10.3.3 Was B6 kann: neun Sätze, 16 Parserfälle
 
-Die Testdatei `tests/test_b6_b7.py` enthält 23 Tests, darunter 16 parametrisierte Parserfälle, einen Test für mehrdeutige Maße und Zahlwörter, Tests für Raumreferenzen, Annahme mit Ausgleich, Ablehnung, Flächenangabe mit Rückfragen und Determinismus (`beispiele/ergebnisse.md`). Im Lauf vom 27.09.2026 in der Arbeitsumgebung dieses Kapitels bestanden 22 Tests. Einer wurde übersprungen, weil `compas_timber` für den BTLx-Test (B7) nicht installiert war. Beispiel 10.2 zeigt das Ergebnis der neun Beispielsätze.
+`tests/test_b6_b7.py` enthält 23 Tests: 16 Parserfälle, mehrdeutige Maße und Zahlwörter, Raumreferenzen, Annahme mit Ausgleich, Ablehnung, Fläche mit Rückfragen, Determinismus und BTLx (`beispiele/ergebnisse.md`). Am 27.09.2026 bestanden in der Arbeitsumgebung 22; der BTLx-Test (B7) wurde mangels `compas_timber` übersprungen.
 
 > **Beispiel 10.2 (B6, `ausgabe/intent_protokoll.json`).** Referenzzustand `daten/haus_state.json`: Innenbreite 9,40 m, Raster 5 cm, Projektregeln Mindestbreite Bad 1,70 m, Kinderzimmer 2,60 m und 10,00 m². Die Intent-Wahrscheinlichkeiten sind Stub-Werte.
 >
@@ -281,13 +252,13 @@ Die Testdatei `tests/test_b6_b7.py` enthält 23 Tests, darunter 16 parametrisier
 >
 > Die Raumreferenz „das Bad oben“ wird zur IfcSpace-GlobalId `1cRQfmv29HlfHiIPofgLWT` aufgelöst. Die Summe der Breiten der Zeile OG-Nord bleibt 9,40 m, das Außenmaß ist unverändert (Test `test_intent_angenommen_mit_ausgleich`).
 
-Das Beispiel belegt die Arbeitsteilung aus Tabelle 10.3 am lauffähigen Code. Von neun Äußerungen werden drei angenommen, zwei nach Regeln abgelehnt und drei zurückgefragt, eine ist nicht umgesetzt. Die Rückfragen haben drei verschiedene Ursachen: eine unsichere Absicht, einen mehrdeutigen Wert und eine mehrdeutige Referenz. Keine davon hätte ein Sprachmodell mit gleicher Sicherheit auflösen können, alle lassen sich mit einer geschlossenen Frage an den Kunden klären.
+Drei Äußerungen werden angenommen, zwei nach Regeln abgelehnt, drei zurückgefragt, eine ist nicht umgesetzt. Die Rückfragen haben drei Ursachen: unsichere Absicht, mehrdeutiger Wert, mehrdeutige Referenz. Alle lassen sich mit einer geschlossenen Frage klären.
 
-Beispiel 10.2 zeigt aber auch eine **implizite Annahme** des Prototyps. Bei „Mach das Kinderzimmer 2 auf 3,20 m“ setzt B6 stillschweigend die Breite. Der Satz nennt aber weder Breite noch Tiefe, und das Kinderzimmer misst 3,50 × 3,40 m. Chen et al. lassen fehlende Angaben nach „gesundem Menschenverstand“ ergänzen. Kapitel 5 hat das als offene Annahme kritisiert (Abschnitt 5.6.4) [@chen2025agent], und B6 tut an dieser Stelle dasselbe. Das Testset erwartet deshalb für diesen Satz eine Rückfrage „Breite oder Tiefe?“ (Testfall T004, ANF-10-14). Eine Voreinstellung ist nur dort zulässig, wo der Katalog sie ausdrücklich festlegt: `geschosshoehe_aendern` versteht „höher“ als lichte Höhe (`standard: lichte_hoehe`), und die Interpretationsanzeige weist das aus.
+Das Beispiel zeigt aber auch eine **implizite Annahme**: Bei „Mach das Kinderzimmer 2 auf 3,20 m“ setzt B6 stillschweigend die Breite, obwohl der Satz weder Breite noch Tiefe nennt und der Raum 3,50 × 3,40 m misst. Kapitel 5 hat dasselbe Vorgehen bei Chen et al., die fehlende Angaben nach „gesundem Menschenverstand“ ergänzen, kritisiert (Abschnitt 5.6.4) [@chen2025agent]. Das Testset erwartet hier die Rückfrage „Breite oder Tiefe?“ (T004, ANF-10-14). Voreinstellungen gibt es nur, wo der Katalog sie festlegt, etwa `standard: lichte_hoehe` bei `geschosshoehe_aendern`, und die Interpretationsanzeige weist sie aus.
 
 ### 10.3.4 Was B6 nicht kann: Messung am Testset
 
-Das Testset enthält 76 Zahlslots, deren Wert im Satz steht. Die Funktion `parse_masse` aus B6 wurde am 27.09.2026 auf alle Sätze angewendet (`spezifikation/pruefe_sprache.py`). Gezählt wurde ein Slot als richtig, wenn ein erkannter Messwert der richtigen Dimension genau den erwarteten Wert hat bzw. ein mehrdeutiger Wert als mehrdeutig markiert ist. Tabelle 10.7 zeigt das Ergebnis.
+Das Testset enthält 76 Zahlslots, deren Wert im Satz steht. `parse_masse` aus B6 wurde am 27.09.2026 auf alle Sätze angewendet (`spezifikation/pruefe_sprache.py`). Richtig heißt: ein Messwert der richtigen Dimension mit genau dem Sollwert, bzw. bei Mehrdeutigkeit die Markierung (Tabelle 10.7).
 
 **Tabelle 10.7: B6-Werteparser am Testset (Messung 27.09.2026)**
 
@@ -302,41 +273,31 @@ Das Testset enthält 76 Zahlslots, deren Wert im Satz steht. Die Funktion `parse
 | Produkt („vier mal sechs Meter“) | 2 von 4 | erster Faktor ohne Einheit | D7 |
 | andere Dimensionen (Anzahl, %, kW, kWp, kWh, l, m³, K, U-Wert, Format) | 0 von 21 | nicht implementiert | 3.3 |
 
-Innerhalb seines Geltungsbereichs liest B6 also 46 von 54 Werten richtig. Über das gesamte Testset sind es 47 von 76. Die Fehler sind keine Zufallsfehler, sondern fehlende Regeln, und jede ist in der Grammatik benannt. Zwei Fehler sind gefährlicher als die übrigen:
+Im eigenen Geltungsbereich liest B6 46 von 54 Werten richtig, über das ganze Testset 47 von 76. Die Fehler sind fehlende Regeln, jede ist in der Grammatik benannt. Zwei wiegen schwerer:
 
-- **Tausenderpunkt.** „Die Terrassentür im Wohnzimmer 2.500 mm breit“ ergibt in B6 einen gültigen Messwert von 0,0025 m. Das ist ein stiller Fehler: Der Wert hat die richtige Dimension und würde nur an der Plausibilitätsprüfung scheitern, die B6 für Türbreiten nicht hat. Die Sondierung mit „1.250 mm“ ergab ebenso 0,0013 m. Regel D1 und die Wertebereichsprüfung D13 schließen diesen Fehler aus (ANF-10-11).
-- **Einheit fehlt.** „Mach die Dachneigung auf fünfunddreißig“ ist eine natürliche Äußerung. Ohne D4 fehlt der Wert, und das System müsste nachfragen, obwohl die Absicht klar ist.
+- **Tausenderpunkt.** „Die Terrassentür im Wohnzimmer 2.500 mm breit“ ergibt einen gültig aussehenden Wert von 0,0025 m, ebenso „1.250 mm“ 0,0013 m. Dieser stille Fehler hat die richtige Dimension; ihn fangen erst D1 und die Wertebereichsprüfung D13 (ANF-10-11).
+- **Einheit fehlt.** Ohne D4 fehlt bei „Mach die Dachneigung auf fünfunddreißig“ der Wert, obwohl die Absicht klar ist.
 
-Dass B6 für „eins fünf“ die Mehrdeutigkeit erkennt, obwohl es nur den ersten Kandidaten 1,05 m ausgibt, ist dagegen richtig gelöst. Die Grammatik ergänzt nur die Kandidatenliste, damit die Rückfrage beide Werte nennen kann.
+Richtig gelöst ist dagegen „eins fünf“: B6 markiert die Mehrdeutigkeit; die Grammatik ergänzt nur die Kandidatenliste für die Rückfrage.
 
 ### 10.3.5 Referenzauflösung über das State-JSON
 
-„Das Bad oben“ ist kein Wert, sondern ein Verweis auf ein Objekt im Modell. B6 löst solche Verweise gegen ein kompaktes State-JSON auf. Es enthält je Raum GlobalId, Typ, Name, Geschoss, Zeile und Maße. Die GlobalIds sind deterministisch aus einem UUID-5 über den Pfad `/haus/raeume/<id>` erzeugt, mit demselben Verfahren wie in B1 (Abschnitt 8.6.2). Die Auflösung filtert die Kandidaten schrittweise:
+B6 löst Verweise wie „das Bad oben“ gegen ein kompaktes State-JSON auf, das je Raum GlobalId, Typ, Name, Geschoss, Zeile und Maße enthält. Die GlobalIds entstehen deterministisch per UUID-5 über `/haus/raeume/<id>` wie in B1 (Abschnitt 8.6.2). Gefiltert wird schrittweise nach **Raumtyp** (Synonyme: „Bad“, „Duschbad“, „Dusche“ → Bad), **Geschoss** („oben“ = höchstes Geschoss mit Kandidat, „unten“ = niedrigstes, „OG“, „EG“), **Nummer oder Ordinal** und **Größe**. Ergebnis ist eine GlobalId, „mehrdeutig“ mit Kandidaten oder „keine“.
 
-1. **Raumtyp** über eine Synonymtabelle: „Bad“, „Badezimmer“, „Duschbad“ und „Dusche“ ergeben den Typ Bad.
-2. **Geschoss** über Lagewörter: „oben“ ist das höchste Geschoss, in dem ein Kandidat liegt, „unten“ das niedrigste, „OG“ und „EG“ sind explizit.
-3. **Nummer oder Ordinal**: „Kinderzimmer 2“, „das zweite Kinderzimmer“.
-4. **Größenattribut**: „das größere“, „das kleine“.
+Im Testset löst B6 55 von 58 Raumslots richtig auf (ohne Kontextfälle). Die drei Fehler zeigen zwei fehlende Kriterien:
 
-Bleibt genau ein Kandidat, ist das Ergebnis dessen GlobalId. Bleiben mehrere, lautet das Ergebnis „mehrdeutig“ mit Kandidatenliste, bleibt keiner, „keine“. Im Testset löst B6 55 von 58 Raumslots richtig auf. Die Kontextfälle sind dabei ausgenommen. Die drei Fehler zeigen zwei fehlende Kriterien:
+- **Name vor Typ.** „Die Diele“ ergibt „mehrdeutig“, weil „Diele“ als Synonym für Flur gilt und es zwei Flure gibt; der Raum im Erdgeschoss heißt aber „Diele“.
+- **Mengen.** „In jedes Kinderzimmer zwei Netzwerkdosen“ meint beide Kinderzimmer; Quantoren machen aus der Mehrdeutigkeit eine Menge.
 
-- **Name vor Typ.** „Die Diele“ und „In der Diele“ ergeben „mehrdeutig“, weil „Diele“ als Synonym des Typs Flur geführt wird und es zwei Flure gibt. Der Raum im Erdgeschoss heißt aber „Diele“. Die Auflösung muss einen exakten Namensvergleich vor den Typvergleich stellen.
-- **Mengen.** „In jedes Kinderzimmer zwei Netzwerkdosen“ meint beide Kinderzimmer. Ein Quantor wie „jedes“ oder „alle“ macht aus der Mehrdeutigkeit eine Menge, auf die die Aktion für jedes Element angewendet wird.
+Darüber hinaus verlangt das Testset den **Dialogkontext** („Mach es zwanzig Zentimeter breiter“ nach „Wie breit ist das Bad oben?“; ob der Kontext gilt, entscheidet `n.bezug_vorher`, welches Objekt, der Code) und **Relationen** („die Wand zwischen Bad und Kinderzimmer 1“ über `IfcRelSpaceBoundary`, Kapitel 8). Katalogartikel findet eine deterministische unscharfe Suche in der Projektbibliothek (Kapitel 12); mehr als ein Treffer führt zur Rückfrage mit höchstens fünf Kandidaten.
 
-Zwei weitere Kriterien verlangt das Testset über B6 hinaus:
-
-- **Dialogkontext:** „Mach es zwanzig Zentimeter breiter“ nach „Wie breit ist das Bad oben?“. Die noul-Frage `n.bezug_vorher` entscheidet, ob der Verweis im Kontext aufgelöst wird. Welches Objekt gemeint ist, entscheidet dann der Code aus dem Dialogprotokoll.
-- **Relationen:** „die Wand zwischen Bad und Kinderzimmer 1“ wird über die Raumbegrenzungen im Modell aufgelöst (`IfcRelSpaceBoundary`, Kapitel 8).
-
-Katalogartikel wie Fliesen, Farben oder Möbel werden analog über eine deterministische unscharfe Suche in der Projektbibliothek gefunden (Kapitel 12). Auch dort gilt: Mehr als ein Treffer führt zur Rückfrage mit höchstens fünf Kandidaten.
-
-> **E10.7 (Referenzen).** Referenzen werden ausschließlich deterministisch gegen den Modellzustand aufgelöst. Die Kriterien sind in dieser Reihenfolge: exakter Name, Typ, Geschoss, Nummer oder Ordinal, Größe, Relation, Dialogkontext. Bei Mehrdeutigkeit fragt das System mit den Kandidaten zurück und wählt nie den „wahrscheinlichsten“ Raum. Quantoren erzeugen Mengen. Das Ergebnis ist immer eine GlobalId oder eine Liste von GlobalIds, nie ein Name.
+> **E10.7 (Referenzen).** Referenzen werden nur deterministisch gegen den Modellzustand aufgelöst, in der Reihenfolge exakter Name, Typ, Geschoss, Nummer, Größe, Relation, Dialogkontext. Bei Mehrdeutigkeit fragt das System zurück und wählt nie den „wahrscheinlichsten“ Raum. Quantoren erzeugen Mengen. Ergebnis ist immer eine GlobalId oder eine Liste davon.
 
 ## 10.4 Dialogsteuerung, Fehlerbehandlung und Transparenz
 
 ### 10.4.1 Zustände einer Äußerung
 
-Jede Äußerung endet in genau einem von acht Ergebnissen. Tabelle 10.8 zeigt sie mit ihren Auslösern. Die Häufigkeiten stammen aus der Spalte `erwartet` des Testsets.
+Jede Äußerung endet in genau einem von acht Ergebnissen (Tabelle 10.8; Häufigkeiten aus der Spalte `erwartet` des Testsets).
 
 **Tabelle 10.8: Ergebnisse einer Äußerung**
 
@@ -351,77 +312,63 @@ Jede Äußerung endet in genau einem von acht Ergebnissen. Tabelle 10.8 zeigt si
 | Verweis auf die Oberfläche | rechtserhebliche Erklärung | Freigabeseite öffnen | 2 |
 | Abweisung | Ausschlussthema oder außerhalb des Umfangs | fester Katalogtext | 2 |
 
-Die Reihenfolge der Prüfungen ist fest. Zuerst kommen die Intent-Schwellen, dann die Vollständigkeit und Eindeutigkeit der Slots und Referenzen, dann die Regeln. Eine Regel wird also nie gegen eine unsichere Absicht geprüft. Damit hat eine Ablehnung immer eine eindeutig verstandene Absicht zum Gegenstand.
+Die Prüfreihenfolge ist fest: Intent-Schwellen, dann Vollständigkeit und Eindeutigkeit von Slots und Referenzen, dann Regeln. Eine Ablehnung betrifft deshalb immer eine eindeutig verstandene Absicht.
 
 ### 10.4.2 Rückfrage ist nicht Ablehnung
 
-Kapitel 9 hat verlangt, Rückfragen zur Absicht von Ablehnungen nach Regeln zu trennen (Abschnitt 9.5.3, ANF-09-15). Die Oberfläche macht den Unterschied sichtbar:
+Kapitel 9 verlangt, Rückfragen zur Absicht von Ablehnungen nach Regeln zu trennen (ANF-09-15). Die **Rückfrage** klärt die Absicht; sie hat keine Regel, keinen Nachweis und keinen roten Status, ihr Text steht im Feld `rueckfrage` („Welchen Raum meinen Sie: Duschbad EG oder Bad OG?“). Die **Ablehnung** ist eine Aussage über den Entwurf mit Konfliktmenge, Begründung, Quelle, Alternative und rotem Nachweis (Abschnitt 9.5.1, ANF-09-16).
 
-- **Die Rückfrage** ist eine Frage des Systems an sich selbst, die der Kunde beantwortet. Sie hat keine Regel, keinen Nachweis und keinen roten Status. Ihr Text steht im Feld `rueckfrage` des Intents mit Platzhaltern für Kandidaten, zum Beispiel „Welchen Raum meinen Sie: Duschbad EG oder Bad OG?“.
-- **Die Ablehnung** ist eine Aussage über den Entwurf. Sie nennt nach Abschnitt 9.5.1 die Konfliktmenge, die Begründung mit Werten und Quelle und mindestens eine Alternative. Sie erzeugt einen Nachweis mit rotem Status (ANF-09-16).
+Die Alternative ist die gemeinsame Projektion auf alle Regeln. Bei „Mach das Kinderzimmer 1 einen Meter zwanzig schmaler“ bindet nicht die zuerst gemeldete Mindestbreite, sondern die Mindestfläche: „höchstens 0,55 m schmaler (2,95 m; 10,03 m²)“ (ANF-09-13). Der Kunde übernimmt sie mit `alternative_waehlen` („Dann nimm das“).
 
-Für die Alternative gilt die gemeinsame Projektion auf alle Regeln. Beim Satz „Mach das Kinderzimmer 1 einen Meter zwanzig schmaler“ ist nicht die zuerst gemeldete Mindestbreite bindend, sondern die Mindestfläche. Die richtige Alternative lautet deshalb „höchstens 0,55 m schmaler (2,95 m; 10,03 m²)“ (Abschnitt 9.5.3, ANF-09-13). Sie wird im Dialog als Option angeboten und lässt sich mit dem Intent `alternative_waehlen` („Dann nimm das“) übernehmen.
+Alle Texte stammen aus dem Katalog. Ein meinungsgeprägter Schreibassistent verschob bei 1.506 Teilnehmenden auch die später erhobene Einstellung [@jakesch2023cowriting]; Kapitel 9b schließt deshalb Laufzeittexte aus Sprachmodellen aus (ANF-09b-09). Erklärungen sind kontrastiv und selektiv [@miller2019explanation]. Weil Vollständigkeit wichtiger ist als Genauigkeit und starke Vereinfachung Vertrauen kostet [@kulesza2013explanations], nennt eine Ablehnung alle Regeln der Konfliktmenge.
 
-Die Texte von Rückfrage, Ablehnung und Auskunft stammen aus dem Katalog, nicht von einem Sprachmodell. In einem Experiment mit 1.506 Teilnehmenden verschob ein meinungsgeprägter Schreibassistent nicht nur die Texte, sondern auch die später erhobene Einstellung [@jakesch2023cowriting]. Kapitel 9b hat daraus abgeleitet, dass kein Meldungstext zur Laufzeit von einem Sprachmodell erzeugt wird (ANF-09b-09). Erklärungen folgen den dort beschriebenen Grundsätzen: kontrastiv, selektiv, höchstens drei Gründe [@miller2019explanation]. Eine Nutzerstudie zu Erklärungen fand außerdem, dass Vollständigkeit wichtiger ist als Genauigkeit und dass starke Vereinfachung Vertrauen kostet [@kulesza2013explanations]. Für die Ablehnung heißt das, dass sie alle verletzten Regeln der Konfliktmenge nennt, nicht nur die erste.
-
-> **E10.8 (Dialog).** Rückfrage und Ablehnung sind getrennte Ergebnisse mit getrennter Darstellung. Eine Rückfrage ist immer eine geschlossene Frage mit höchstens fünf Optionen. Nach zwei erfolglosen Rückfragen in Folge wechselt das System zur Auswahl am Bildschirm, etwa zum Antippen des gemeinten Raums. Alle Texte kommen aus dem Katalog.
+> **E10.8 (Dialog).** Rückfrage und Ablehnung sind getrennt dargestellt. Eine Rückfrage ist geschlossen mit höchstens fünf Optionen; nach zwei erfolglosen Rückfragen folgt die Auswahl am Bildschirm. Alle Texte kommen aus dem Katalog.
 
 ### 10.4.3 Fehlertoleranz
 
-Keine Sprachschnittstelle ist fehlerfrei. Entscheidend ist, dass Fehler sichtbar, billig und umkehrbar sind. Das System setzt fünf Mechanismen ein:
+Fehler müssen sichtbar, billig und umkehrbar sein. Dazu dienen fünf Mechanismen:
 
-1. **Interpretationsanzeige.** Vor bzw. mit jeder Ausführung zeigt die App, was sie verstanden hat, in der Form „Bad (OG) · Breite · 2,60 m (absolut)“. Ergänzte Einheiten und Voreinstellungen sind markiert. Die Anzeige ist zugleich das wichtigste Transparenzmittel (10.4.4).
-2. **Undo als Sprachbefehl.** „Mach das rückgängig“, „Nimm das zurück“ und „Nein, das war besser vorher“ gehören zum Intent `rueckgaengig` der Klasse R1. Weil jede R1-Änderung mit einem Schritt umkehrbar ist, kann ihre Schwelle niedriger liegen als die von R2.
-3. **Korrektur im Satz.** „Nein, nicht das Bad, das Kinderzimmer 1“ und „Ach nein, lieber achtundzwanzig“ werden über `n.korrektur` als Ersetzung eines Slots im vorigen Frame behandelt. Das Testset enthält drei Korrektur- und drei Anapherfälle.
-4. **n-beste Hypothesen mit Kontextfilter.** Wie in 10.1.2 beschrieben, wird eine im Kontext unzulässige Hypothese durch die nächste ersetzt, bevor das System nachfragt [@kou2010knowledge].
-5. **Automatische Variante vor R3.** Vor dem Löschen eines Geschosses oder einer Wohnung legt das System eine Variante an. Der Rückweg bleibt auch dann offen, wenn der Undo-Stapel verworfen wird.
+1. **Interpretationsanzeige** „Bad (OG) · Breite · 2,60 m (absolut)“ mit markierten Ergänzungen, zugleich das wichtigste Transparenzmittel (10.4.4).
+2. **Undo per Sprache** („Mach das rückgängig“, „Nimm das zurück“). Weil jede R1-Änderung mit einem Schritt umkehrbar ist, darf ihre Schwelle niedriger liegen.
+3. **Korrektur im Satz** („Nein, nicht das Bad, das Kinderzimmer 1“) über `n.korrektur` als Ersetzung eines Slots im vorigen Frame; das Testset enthält je drei Korrektur- und Anapherfälle.
+4. **n-beste Hypothesen mit Kontextfilter** (10.1.2) [@kou2010knowledge].
+5. **Automatische Variante vor R3**, damit der Rückweg auch ohne Undo-Stapel offen bleibt.
 
-Ein Mechanismus wird bewusst **nicht** eingesetzt: die Bestätigung jeder Änderung per Klick. Sie würde die Sprache für R1-Änderungen entwerten. Außerdem zeigt die Forschung zu Automation Bias, dass Bestätigungen unter Last zur Routine werden. Complacency und Automation Bias treten bei Laien und Experten auf und lassen sich durch Übung oder Anweisung nicht beseitigen [@parasuraman2010complacency]. Eine Bestätigung ist deshalb nur dort vorgesehen, wo sie einen Inhalt hat, nämlich die Vorschau der Folgen in R2. Bei R3 ist sie keine Bestätigung im Dialogfluss, sondern ein eigener Bildschirmschritt.
+Bewusst **nicht** eingesetzt wird die Klickbestätigung jeder Änderung. Sie entwertet die Sprache und wird zur Routine: Complacency und Automation Bias treten bei Laien und Experten auf und lassen sich durch Übung oder Anweisung nicht beseitigen [@parasuraman2010complacency]. Bestätigt wird nur, wo die Bestätigung einen Inhalt hat, nämlich die Folgenvorschau in R2; R3 ist ein eigener Bildschirmschritt.
 
 > **E10.9 (Rechtserhebliche Erklärungen).** Freigaben, Unterschriften, Bestellungen und der Abschluss einer Bemusterungskategorie werden nie per Sprache ausgeführt. Die Sprache kann den Schritt anstoßen, erklärt wird er am Bildschirm mit dem Freigabe-Gate aus Kapitel 18.
 
 ### 10.4.4 Transparenz nach Art. 50 KI-VO
 
-Gebäudeentwurf gehört nicht zu den Hochrisiko-Anwendungen der KI-Verordnung (Kapitel 4.8.2) [@aiact2024]. Recherche 27 hat das auch für den Produktweg über Anhang I bestätigt. Es bleiben zwei Pflichten: die Transparenzpflicht nach Art. 50 und die durch die Omnibus-Verordnung abgeschwächte Pflicht zu Maßnahmen der KI-Kompetenz nach Art. 4 [@eu2026omnibus]. Art. 50 Abs. 1 verlangt, dass Nutzer erkennen können, dass sie mit einem KI-System interagieren. Die Umsetzung hat drei Teile:
+Gebäudeentwurf ist keine Hochrisiko-Anwendung der KI-Verordnung (Kapitel 4.8.2) [@aiact2024], auch nicht über Anhang I (Recherche 27). Es bleiben Art. 50 und die durch die Omnibus-Verordnung abgeschwächte Pflicht zur KI-Kompetenz nach Art. 4 [@eu2026omnibus]. Für Art. 50 Abs. 1, nach dem Nutzer die Interaktion mit einem KI-System erkennen müssen, gilt:
 
 - **Hinweis bei der ersten Aktivierung des Mikrofons** mit festem Katalogtext: „Ihre Sprache wird von einer KI verstanden. Die KI erkennt nur, was Sie ändern möchten. Maße, Regeln, Kosten und Nachweise berechnet ein festes Programm. Sie sehen vor jeder Änderung, was verstanden wurde.“
 - **Dauerhaftes Symbol** während der Spracheingabe, dazu die Interpretationsanzeige (10.4.3).
 - **Auskunft auf Nachfrage** über den Intent `ki_transparenz` („Rede ich hier mit einem Computer?“, „Wer entscheidet hier eigentlich?“), ebenfalls mit festem Text.
 
-Art. 50 Abs. 2 verlangt die maschinenlesbare Kennzeichnung synthetisch erzeugter Audio- und Textinhalte. Für Altsysteme gilt er nach der Omnibus-Verordnung ab dem 02.12.2026 [@eu2026omnibus]. Die App erzeugt keine Texte mit einem Sprachmodell. Ob das Vorlesen fester Katalogtexte durch eine Sprachsynthese als Erzeugung synthetischer Audioinhalte gilt, ist ungeklärt [U]. Bis zur Klärung wird eine Sprachausgabe, falls sie angeboten wird, maschinenlesbar gekennzeichnet (ANF-10-22).
-
-Die Transparenz hat neben der rechtlichen eine funktionale Seite. Die Interpretationsanzeige macht den Fehler des Modells sichtbar, bevor er zum Fehler im Modell wird. Rechtliche Pflicht und Fehlertoleranz fallen hier zusammen.
+Art. 50 Abs. 2 verlangt die maschinenlesbare Kennzeichnung synthetischer Audio- und Textinhalte, für Altsysteme ab dem 02.12.2026 [@eu2026omnibus]. Die App erzeugt keine Texte mit Sprachmodellen; ob das Vorlesen fester Katalogtexte per Sprachsynthese darunter fällt, ist ungeklärt [U]. Eine Sprachausgabe wird bis zur Klärung gekennzeichnet (ANF-10-22). Funktional macht die Interpretationsanzeige den Fehler des Modells sichtbar, bevor er zum Fehler im Modell wird; Rechtspflicht und Fehlertoleranz fallen zusammen.
 
 > **E10.10 (Interpretationsanzeige).** Jede ausgeführte oder vorgeschaute Änderung zeigt den verstandenen Frame in Klartext. Ergänzte Einheiten und Voreinstellungen sind gekennzeichnet.
 
 ### 10.4.5 Datenschutz
 
-Sprachaufnahmen sind personenbezogene Daten (Kapitel 4.8.3). Die Leitlinien des EDPB zu Sprachassistenten verlangen, die Speicherung zu begrenzen und versehentliche Aufnahmen zu löschen. Stimmdaten sind danach nur dann biometrisch, wenn sie zur Identifizierung verarbeitet werden [@edpb2021vva]. Für den Zugriff auf das Mikrofon gilt § 25 TDDDG. Die Einwilligung ist entbehrlich, wenn der Zugriff für den angefragten Dienst unbedingt erforderlich ist [@tdddg25]. Die DSK verlangt datenschutzfreundliche Voreinstellungen, kein Training mit Eingaben ohne Grundlage und keine automatisierte Letztentscheidung [@dsk2024ki]. Daraus folgt:
+Sprachaufnahmen sind personenbezogene Daten (Kapitel 4.8.3). Nach den EDPB-Leitlinien ist die Speicherung zu begrenzen, versehentliche Aufnahmen sind zu löschen, und Stimmdaten sind nur bei Identifizierung biometrisch [@edpb2021vva]. Für den Mikrofonzugriff gilt § 25 TDDDG mit Ausnahme bei unbedingter Erforderlichkeit [@tdddg25]. Die DSK verlangt datenschutzfreundliche Voreinstellungen und keine automatisierte Letztentscheidung [@dsk2024ki].
 
-> **E10.11 (Datenschutz).** Spracherkennung und Intent-Modell laufen lokal. Rohaudio wird nicht über die Sitzung hinaus gespeichert. Das Protokoll enthält nur Transkript, Hypothesen und Frame. Es gibt keine Sprechererkennung, damit entstehen keine biometrischen Daten. Aufnahmen werden nur mit gesonderter Einwilligung für Training und Evaluation verwendet. Jev als Cloud-Rückfallebene erhält nur Transkripte, nie Audio, mit Zero Data Retention und nur nach Einwilligung. Beratungsgespräche mit dem Vertrieb werden nur mit Einwilligung aller Beteiligten aufgezeichnet [@stgb201].
+> **E10.11 (Datenschutz).** Spracherkennung und Intent-Modell laufen lokal. Rohaudio wird nicht über die Sitzung hinaus gespeichert, protokolliert werden nur Transkript, Hypothesen und Frame. Es gibt keine Sprechererkennung. Aufnahmen dienen Training und Evaluation nur mit gesonderter Einwilligung. Jev erhält nur Transkripte, mit Zero Data Retention und Einwilligung. Beratungsgespräche werden nur mit Einwilligung aller Beteiligten aufgezeichnet [@stgb201].
 
-Die DSK-Forderung nach einer menschlichen Letztentscheidung trifft auch die Ablehnung. Nach dem SCHUFA-Urteil kann eine automatisierte Bewertung schon dann eine Entscheidung im Sinne von Art. 22 DSGVO sein, wenn ein Vertragsschluss maßgeblich von ihr abhängt [@eugh2023schufa]. Die Sprachschnittstelle bietet deshalb zu jeder Ablehnung den Intent `abweichung_beantragen` an („Das hätten wir gern als Abweichung geprüft“). Er merkt den Wunsch zur menschlichen Prüfung vor und öffnet den Anfechtungsweg aus Recherche 27. Über eine Abweichung entscheidet dann die Behörde bzw. die Firma, nicht die App.
+Die menschliche Letztentscheidung betrifft auch die Ablehnung: Nach dem SCHUFA-Urteil kann eine automatisierte Bewertung eine Entscheidung nach Art. 22 DSGVO sein, wenn ein Vertragsschluss maßgeblich von ihr abhängt [@eugh2023schufa]. Zu jeder Ablehnung bietet der Dialog deshalb `abweichung_beantragen` an. Der Wunsch wird zur menschlichen Prüfung vorgemerkt (Anfechtungsweg nach Recherche 27); entscheiden Behörde oder Firma, nicht die App.
 
-Barrierefreiheit ist die Kehrseite. Die Sprachsteuerung kann Menschen mit motorischen Einschränkungen helfen, schließt aber Menschen mit Sprech- oder Hörbeeinträchtigung aus, wenn sie der einzige Weg ist. Elghaish et al. bauten ihren Sprachassistenten für BIM ausdrücklich auch für Nutzer mit Behinderung [@elghaish2022voice]. Fällt die App unter das Barrierefreiheitsstärkungsgesetz (Kapitel 4.8.3) [@bfsg], muss jede Funktion auch ohne Sprache erreichbar sein (ANF-10-25).
+Sprache hilft Menschen mit motorischen Einschränkungen [@elghaish2022voice], schließt aber Menschen mit Sprech- oder Hörbeeinträchtigung aus, wenn sie der einzige Weg ist. Unter dem Barrierefreiheitsstärkungsgesetz (Kapitel 4.8.3) [@bfsg] muss jede Funktion auch ohne Sprache erreichbar sein (ANF-10-25).
 
 ## 10.5 Evaluationsdesign
 
 ### 10.5.1 Testset
 
-Die NL-BIM-Datensätze sind englisch, und die Arbeiten evaluieren überwiegend mit Fachleuten (Lücken L7, L8). IFC-Bench ist der einzige offene Datensatz mit Referenz-IFCs, deckt aber nur Abfragen ab [@hellin2026bim]. Das Review von Park et al. findet über 61 BIM-LLM-Studien eine industrielle Validierung in nur 44,3 % der Fälle [@park2026bimllm]. Die Arbeit baut deshalb ein eigenes deutsches Testset, `spezifikation/sprach-testset.jsonl`. Es umfasst 216 Sätze und deckt alle 138 Intents und alle 16 Gruppen ab. Jeder Eintrag enthält:
-
-- Satz, erwartete Gruppe, erwarteten Intent und erwartete Slots mit Werten in SI-Einheiten
-- für Raumslots die erwartete `raum_id` im Referenzzustand `beispiele/daten/haus_state.json` oder die erwartete Mehrdeutigkeit
-- das erwartete Ergebnis nach Tabelle 10.8 und die Risikoklasse
-- Kategorien für die Auswertung nach Teilmengen, gegebenenfalls einen Dialogkontext
-
-Die Kategorien stehen für die Schwierigkeiten, die in den Abschnitten 10.1 bis 10.4 beschrieben sind: 40 Sätze mit Fachbegriffen, 22 mit Zahlwörtern, 18 Abfragen, 9 vage Angaben, je 3 Sätze mit Dialekt, Erkennungsartefakten, Korrekturen und Anaphern, 4 mit mehrdeutiger Referenz, dazu die 9 B6-Sätze. Die Sätze des Testsets sind nicht die Beispielsätze des Katalogs. Der Validator prüft das und meldet eine Überschneidung als Fehler. Bei der ersten Prüfung fand er 42 solche Leckagen. Sie wurden durch Umformulierung der Beispielsätze beseitigt.
-
-Das Testset ist ein Textset. Es prüft Intent-Erkennung, Werteparser, Referenzauflösung und Dialogentscheidung unter der Annahme eines korrekten Transkripts. Für die Spracherkennung wird es zum Audio-Testset erweitert (10.5.2).
+NL-BIM-Datensätze sind englisch, evaluiert wird meist mit Fachleuten (Lücken L7, L8). IFC-Bench deckt nur Abfragen ab [@hellin2026bim], und über 61 BIM-LLM-Studien finden Park et al. eine industrielle Validierung in nur 44,3 % der Fälle [@park2026bimllm]. Das eigene Testset `spezifikation/sprach-testset.jsonl` umfasst 216 Sätze über alle 138 Intents. Jeder Eintrag nennt Satz, Gruppe, Intent, Slots in SI-Einheiten, für Raumslots die `raum_id` im Referenzzustand `beispiele/daten/haus_state.json` oder die erwartete Mehrdeutigkeit, das erwartete Ergebnis nach Tabelle 10.8, die Risikoklasse, Kategorien und gegebenenfalls einen Dialogkontext. Die Kategorien umfassen unter anderem 40 Sätze mit Fachbegriffen, 22 mit Zahlwörtern, 18 Abfragen, 9 vage Angaben, je 3 mit Dialekt, Erkennungsartefakten, Korrekturen und Anaphern sowie die 9 B6-Sätze. Testsätze dürfen keine Beispielsätze des Katalogs sein; der Validator fand bei der ersten Prüfung 42 solche Leckagen, die durch Umformulierung beseitigt wurden. Das Textset setzt ein korrektes Transkript voraus; für die Spracherkennung wird es zum Audio-Testset erweitert (10.5.3).
 
 ### 10.5.2 Messgrößen
 
-Tabelle 10.9 fasst die Messgrößen zusammen. Die Zielwerte in Tabelle 10.10 sind Designentscheidungen [U]. Sie werden vor der Messung festgelegt, damit das Ergebnis sie nicht nachträglich rechtfertigt.
+Die Zielwerte in Tabelle 10.10 sind Designentscheidungen [U], festgelegt vor der Messung.
 
 **Tabelle 10.9: Messgrößen der Sprachschnittstelle**
 
@@ -453,21 +400,21 @@ Tabelle 10.9 fasst die Messgrößen zusammen. Die Zielwerte in Tabelle 10.10 sin
 | Fehlausführungsrate R1 / R2 / R3 | ≤ 2 % / ≤ 1 % / 0 |
 | End-to-End-Erfolg in der Nutzerstudie | ≥ 0,80 |
 
-Zwei Messgrößen verdienen eine Begründung. Die **Fehlausführungsrate** ist wichtiger als die Accuracy, weil eine falsche Ausführung Schaden anrichtet, eine Rückfrage nur Zeit kostet. Ein System, das häufiger zurückfragt, kann eine niedrigere Accuracy auf Platz 1 haben und trotzdem besser sein. Deshalb wird immer das Paar aus Abdeckung und Fehlausführungsrate berichtet. pass@k passt für Codegeneratoren, nicht für eine Intent-Schicht. Recherche 12 empfiehlt stattdessen Intent-Accuracy@1/@3 plus Slot-F1 je Ebene. Die **Slot-F1** der deterministischen Slots kann auf den Kategorien, die die Grammatik abdeckt, 1,0 erreichen. Ein Wert darunter zeigt dort einen Implementierungsfehler, keinen Modellfehler. Die Messung aus Tabelle 10.7 ist in diesem Sinn die Ausgangsmessung für B6.
+Die **Fehlausführungsrate** zählt mehr als die Accuracy: Eine falsche Ausführung richtet Schaden an, eine Rückfrage kostet Zeit. Berichtet wird deshalb immer das Paar aus Abdeckung und Fehlausführungsrate. Statt pass@k, das für Codegeneratoren gedacht ist, empfiehlt Recherche 12 Intent-Accuracy@1/@3 und Slot-F1 je Ebene. Die **Slot-F1** deterministischer Slots kann auf den von der Grammatik abgedeckten Kategorien 1,0 erreichen; ein Wert darunter ist ein Implementierungsfehler. Tabelle 10.7 ist die Ausgangsmessung für B6.
 
 ### 10.5.3 Studiendesign
 
 Die Evaluation hat drei Stufen.
 
-1. **Textstufe.** Das Textset wird automatisch gegen die Pipeline gefahren, bei jeder Änderung von Katalog, Grammatik oder Modell (ANF-10-26). Vergleichssysteme sind der Schlüsselwortklassifikator (Rückfallebene nach E10.3), Laya ohne Fine-Tuning und Laya mit Fine-Tuning. Jev dient als externer Vergleich, nur mit dem Textset, weil es keine personenbezogenen Daten enthält.
-2. **Audiostufe.** Jeder Satz des Textsets wird von mindestens 12 Sprecherinnen und Sprechern aufgenommen, mit einer Mischung aus Hochdeutsch und regionaler Färbung, in zwei Umgebungen: ruhig sowie Wohnraum mit Hintergrundgeräusch. Das ergibt mindestens 2.592 Aufnahmen. Gemessen werden WER, Fachbegriff- und Zahlfehlerrate für Voxtral, Parakeet mit Boosting und Whisper mit Hotwords (E10.1). Synthetische Sprache dient nur der Trainingsaugmentation, nie dem Test. Alle Aufnahmen setzen eine Einwilligung voraus (E10.11).
-3. **Nutzerstudie.** Laien lösen Aufgabenkarten wie „Bad vergrößern, Dachgaube hinzufügen“. Das Muster stammt aus Recherche 12 und lehnt sich an Niemeijer an, der Studierende Constraints zu fehlerhaften Entwürfen formulieren ließ [@niemeijer2011constraint]. Jede Aufgabe wird einmal per Sprache und einmal per Direktbedienung gelöst, mit ausbalancierter Reihenfolge. Das entspricht dem Vergleich von Drag-and-Drop- und Konversationsoberfläche bei Dahlem et al. [@dahlem2026comparing]. Gemessen werden Aufgabenerfolg, Zeit, Dialogrunden, Rückfragen und Abbrüche. Die Gebrauchstauglichkeit wird nach ISO 9241-11 operationalisiert [@iso2018usability], die Zufriedenheit mit SUS [@brooke1996sus; @lewis2018system] und BUS-15. BUS-15 ist ein Instrument speziell für Konversationsagenten mit einer Reliabilität von 0,76 bis 0,87, eine deutsche Fassung fehlt allerdings [@borsci2022chatbot]. Formative Runden mit je fünf Personen finden nach Virzi rund 80 % der Probleme [@virzi1992subjects]. Die summative Runde braucht eine größere Stichprobe, die Kapitel 20 festlegt.
+1. **Textstufe.** Das Textset läuft bei jeder Änderung von Katalog, Grammatik oder Modell (ANF-10-26), verglichen werden Schlüsselwortklassifikator, Laya ohne und mit Fine-Tuning sowie Jev als externer Vergleich (nur mit dem Textset, das keine personenbezogenen Daten enthält).
+2. **Audiostufe.** Jeder Satz wird von mindestens 12 Sprecherinnen und Sprechern (Hochdeutsch und regionale Färbung) in zwei Umgebungen (ruhig, Wohnraum mit Hintergrundgeräusch) aufgenommen, also mindestens 2.592 Aufnahmen mit Einwilligung (E10.11). Gemessen werden WER, Fachbegriff- und Zahlfehlerrate für Voxtral, Parakeet mit Boosting und Whisper mit Hotwords (E10.1). Synthetische Sprache dient nur der Trainingsaugmentation.
+3. **Nutzerstudie.** Laien lösen Aufgabenkarten wie „Bad vergrößern, Dachgaube hinzufügen“, ein Muster nach Recherche 12 in Anlehnung an Niemeijer [@niemeijer2011constraint], je einmal per Sprache und per Direktbedienung in ausbalancierter Reihenfolge wie bei Dahlem et al. [@dahlem2026comparing]. Gemessen werden Erfolg, Zeit, Dialogrunden, Rückfragen und Abbrüche, die Gebrauchstauglichkeit nach ISO 9241-11 [@iso2018usability], SUS [@brooke1996sus; @lewis2018system] und BUS-15, ein Instrument für Konversationsagenten mit Reliabilität 0,76 bis 0,87, aber ohne deutsche Fassung [@borsci2022chatbot]. Formative Runden mit fünf Personen finden rund 80 % der Probleme [@virzi1992subjects]; die summative Stichprobe legt Kapitel 20 fest.
 
-Die Nutzerstudie prüft auch die Hypothese aus Chen et al.: Sprache lohnt sich bei zusammengesetzten Änderungen, der Schieberegler bei einzelnen Parametern [@chen2025agent]. Aufgabenkarten beider Art gehören deshalb in die Studie. Ein Ergebnis zugunsten der Direktbedienung bei Einzelparametern wäre kein Misserfolg, sondern ein Gestaltungshinweis für die Oberfläche. Ein Evaluationsmuster aus dem Bauwesen liefert VISA4D: Dort wurden 71 von 80 baubezogenen Sprachbefehlen (89 %) richtig klassifiziert, ergänzt durch eine Befragung [@jaff2025visa4d].
+Die Studie prüft auch, ob sich Sprache bei zusammengesetzten und der Schieberegler bei einzelnen Parametern lohnt [@chen2025agent]; ein Vorteil der Direktbedienung wäre ein Gestaltungshinweis, kein Misserfolg. VISA4D klassifizierte 71 von 80 baubezogenen Sprachbefehlen (89 %) richtig und ergänzte eine Befragung [@jaff2025visa4d]; das ist das nächste Evaluationsmuster aus dem Bauwesen.
 
 ### 10.5.4 Fine-Tuning-Plan für Laya
 
-Ohne Fine-Tuning liegt Laya nahe am Zufallsniveau (10.2.5). Tabelle 10.11 beschreibt die Schritte bis zur Abnahme.
+Ohne Fine-Tuning liegt Laya nahe am Zufallsniveau (10.2.5); Tabelle 10.11 zeigt den Weg zur Abnahme.
 
 **Tabelle 10.11: Fine-Tuning und Kalibrierung von Laya**
 
@@ -482,11 +429,11 @@ Ohne Fine-Tuning liegt Laya nahe am Zufallsniveau (10.2.5). Tabelle 10.11 beschr
 | 7 Abnahme | Messgrößen nach Tabelle 10.9 am Textset gegen die Zielwerte von Tabelle 10.10; Vergleich mit Schlüsselwortklassifikator und Laya ohne Fine-Tuning | Abnahmebericht |
 | 8 Pflege | neuer Intent ⇒ nur die betroffene Gruppenfrage neu trainieren und kalibrieren; Modell- und Katalogversion im Protokoll | Versionierung |
 
-Der Plan übernimmt zwei Befunde aus T2S4BIM: die synthetische Erzeugung von Trainingsdaten und die Beobachtung, dass kleinere Encoder-Decoder-Modelle bei dieser Aufgabe mit größeren Decoder-Modellen mithalten können [@wei2025texttostructure]. Wang et al. stützen dasselbe Muster aus der Konfiguratorforschung. Dort bilden Text-Embeddings mit einem mehrschichtigen Perzeptron vage Bedarfsbeschreibungen genauso gut auf Attribute ab wie aufwendigere Verfahren [@wang2022natural]. Die Hierarchie hat beim Training einen weiteren Vorteil: Ein neuer Intent verändert nur die Frage seiner Gruppe. Das Modell muss also nicht vollständig neu kalibriert werden.
+Der Plan übernimmt aus T2S4BIM die synthetischen Trainingsdaten und den Befund, dass kleinere Modelle mit größeren mithalten [@wei2025texttostructure]. Aus der Konfiguratorforschung stützen Wang et al. das Muster: Ein leichter Klassifikator bildet vage Bedarfsbeschreibungen so gut auf Attribute ab wie aufwendigere Verfahren [@wang2022natural]. Die Hierarchie begrenzt zudem den Aufwand, weil ein neuer Intent nur die Frage seiner Gruppe ändert.
 
 ## 10.6 Grenzen und Zwischenfazit
 
-**Grenzen.** Erstens ist die Intent-Schicht nicht gemessen. Alle Wahrscheinlichkeiten in B6 sind Stub-Werte, und keine Aussage dieses Kapitels über die Güte von Laya, Jev oder Voxtral stammt aus eigener Messung. Die Modelle sind seit etwa Mitte September 2026 öffentlich und damit sehr jung (Recherche 03) [V]. Zweitens deckt B6 nur einen Intent ab. Der Katalog ist eine Spezifikation, keine Implementierung. Drittens ist das Testset von einem Autor geschrieben. Es bildet die Sprache der Kunden nur so weit ab, wie der Autor sie vorhersieht. Die Datenlieferung DAT-10-02 soll das beheben. Viertens sind Zielwerte, Schwellen und Latenzbudget begründete Designentscheidungen ohne empirische Grundlage im Anwendungsfeld. Fünftens fehlt für die Definition des Kalibrierungsfehlers ein Literaturnachweis im Bestand.
+**Grenzen.** Erstens ist die Intent-Schicht nicht gemessen: Alle Wahrscheinlichkeiten in B6 sind Stub-Werte, und keine Aussage über die Güte von Laya, Jev oder Voxtral stammt aus eigener Messung; die Modelle sind erst seit etwa Mitte September 2026 öffentlich (Recherche 03) [V]. Zweitens deckt B6 nur einen Intent ab; der Katalog ist Spezifikation, nicht Implementierung. Drittens stammt das Testset von einem Autor und bildet die Sprache der Kunden nur so weit ab, wie er sie vorhersieht (DAT-10-02). Viertens sind Zielwerte, Schwellen und Latenzbudget empirisch ungeprüfte Designentscheidungen. Fünftens fehlt ein Literaturnachweis für den ECE.
 
 **Zwischenfazit.** Das Kapitel beantwortet FF3 in vier Punkten:
 
@@ -497,7 +444,7 @@ Der Plan übernimmt zwei Befunde aus T2S4BIM: die synthetische Erzeugung von Tra
 
 ## 10.7 Umsetzungsvorgaben für die App
 
-Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren soll. Es gelten die Regeln aus Kapitel 3.7: „Muss“ heißt, dass ohne die Anforderung ein Rechts-, Nachweis- oder Fehlausführungsfehler entstehen kann. „Soll“ heißt, dass sie Qualität oder Nutzen erhöht. Jedes Abnahmekriterium ist ein Testfall. Testfälle mit der Kennung T*nnn* stehen in `spezifikation/sprach-testset.jsonl`.
+Es gelten die Regeln aus Kapitel 3.7: „Muss“ verhindert einen Rechts-, Nachweis- oder Fehlausführungsfehler, „Soll“ erhöht Qualität oder Nutzen. Testfälle T*nnn* stehen in `spezifikation/sprach-testset.jsonl`.
 
 ### 10.7.1 Maschinenlesbare Spezifikation
 
@@ -508,7 +455,7 @@ Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren
 | `spezifikation/sprach-testset.jsonl` | 216 Testsätze mit erwarteter Gruppe, erwartetem Intent, Slots, Ergebnis, Risikoklasse, Kategorien und gegebenenfalls Dialogkontext; Referenzzustand `beispiele/daten/haus_state.json` |
 | `spezifikation/pruefe_sprache.py` | Validator und Messung: Struktur des Katalogs, höchstens 19 Optionen, Regel-IDs gegen `regelkatalog.yaml` und `empfehlungen.yaml`, Testset gegen Katalog, Leckage, EBNF-Konsistenz, Messung von B6 |
 
-**Prüfung (Python 3.11.15, PyYAML 6.0.1, 27.09.2026).** Aufruf aus `arbeit/`: `python spezifikation/pruefe_sprache.py`. Ergebnis:
+**Prüfung** (Python 3.11.15, PyYAML 6.0.1, 27.09.2026; `python spezifikation/pruefe_sprache.py` aus `arbeit/`):
 
 - **Katalog:** 16 Gruppen, 138 Intents, 415 Beispielsätze, 316 Slots, Fragen 112 choice, 15 noul, 11 score, höchstens 18 Optionen je choice-Frage. Risikoklassen R0 29, R1 75, R2 27, R3 7. Alle Regel-IDs existieren.
 - **Testset:** 216 Sätze, 138 Intents abgedeckt, keine Leckage.
@@ -516,7 +463,7 @@ Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren
 - **Messung B6:** Werteparser 47 von 76 Zahlslots, Raumreferenz 55 von 58.
 - **Fehler: 0.**
 
-Eine Gegenprobe mit einem absichtlich undefinierten Nichtterminal wurde als Fehler gemeldet. Neue Regeln im Schema von `regel.schema.json` entstehen in diesem Kapitel nicht. Die geplanten Regeln stehen als Text im Feld `regeln_geplant` und sind in den Kapiteln 12 bis 15 zu formalisieren.
+Eine Gegenprobe mit undefiniertem Nichtterminal wurde als Fehler gemeldet. Neue Regeln nach `regel.schema.json` entstehen nicht; `regeln_geplant` ist in den Kapiteln 12 bis 15 zu formalisieren.
 
 ### 10.7.2 Anforderungen
 
@@ -524,18 +471,18 @@ Eine Gegenprobe mit einem absichtlich undefinierten Nichtterminal wurde als Fehl
 
 | ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
 |---|---|---|---|---|
-| ANF-10-01 | Muss | Die Spracherkennung läuft lokal und im Strom. Das Teiltranskript erscheint während des Sprechens, das Endtranskript ≤ 0,8 s nach Sprechende. | 10.1.4, E10.1 | Referenzaufnahme „Mach das Bad oben zwei Meter sechzig breit“ auf Zielhardware: Teiltranskript sichtbar vor Sprechende; Endtranskript ≤ 0,8 s danach; kein Netzwerkverkehr während der Erkennung. |
-| ANF-10-02 | Muss | Die ASR-Schnittstelle liefert mindestens drei Hypothesen mit Konfidenz und Wortzeiten. Das Modell ist per Konfiguration austauschbar. | 10.1.2 | Umschalten Voxtral → Whisper in der Konfiguration ohne Codeänderung; beide liefern JSON mit `nbest[≥3]`, `konfidenz`, `woerter[].start/ende`. |
-| ANF-10-03 | Muss | Fachbegriffe aus `intents.yaml/fachbegriffe` werden als Boosting-Liste übergeben und nach der Erkennung deterministisch nachkorrigiert. Die Korrektur steht im Protokoll. | 10.1.3 | Transkript „Den Knie Stock auf eins zwanzig“ (T034) ⇒ normalisiert „Den Kniestock auf eins zwanzig“, Protokolleintrag `nachkorrektur: Knie Stock → Kniestock`; Intent `kniestock_aendern`, Wert 1,20 m. |
+| ANF-10-01 | Muss | Spracherkennung lokal und im Strom; Endtranskript ≤ 0,8 s nach Sprechende. | 10.1.4, E10.1 | Aufnahme von T001 auf Zielhardware: Teiltranskript vor Sprechende sichtbar, Endtranskript ≤ 0,8 s danach, kein Netzwerkverkehr. |
+| ANF-10-02 | Muss | ASR liefert ≥ 3 Hypothesen mit Konfidenz und Wortzeiten; Modell per Konfiguration austauschbar. | 10.1.2 | Umschalten Voxtral → Whisper ohne Codeänderung; beide liefern `nbest[≥3]`, `konfidenz`, `woerter[].start/ende`. |
+| ANF-10-03 | Muss | Fachbegriffe aus `fachbegriffe` als Boosting-Liste; deterministische Nachkorrektur mit Protokoll. | 10.1.3 | T034 „Den Knie Stock auf eins zwanzig“ ⇒ „Kniestock“, Protokoll `nachkorrektur`; Intent `kniestock_aendern`, 1,20 m. |
 | ANF-10-04 | Muss | Das Mikrofon ist nur nach Nutzeraktion aktiv (Push-to-talk); der Status ist sichtbar. | E10.2 | Ohne Tastendruck keine Audiodaten im Puffer (Test mit Mikrofonattrappe); Statussymbol wechselt innerhalb von 100 ms. |
 
 **Intent-Erkennung**
 
 | ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
 |---|---|---|---|---|
-| ANF-10-05 | Muss | Das Intent-Modell beantwortet nur Fragen aus `intents.yaml`. Antworten außerhalb der Optionen werden verworfen, freier Text wird nie ausgeführt. | 10.2.1, 10.2.2 | Modellattrappe liefert die Option „dach_loeschen“, die nicht im Katalog steht ⇒ Ergebnis `rueckfrage_intent`, Protokoll „Option unbekannt“. |
-| ANF-10-06 | Muss | Der Katalog wird beim Start validiert; jede choice-Frage hat höchstens 19 Optionen. | 10.2.3, 10.7.1 | `pruefe_sprache.py` meldet 0 Fehler. Kopie mit 20 Optionen in `q.gruppe` ⇒ Ladefehler „mehr als 19“. |
-| ANF-10-07 | Muss | Die Erkennung ist hierarchisch (Gruppe → Intent → Slotfragen). Unter der Gruppenschwelle werden zwei Gruppen parallel bewertet. Ein Kontextfilter entfernt unzulässige Optionen. | 10.2.3, E10.4 | „Ja, genau so“ (T177) mit offener Rückfrage ⇒ `bestaetigen`; derselbe Satz ohne offene Rückfrage ⇒ `bestaetigen` nicht unter den Optionen, Ergebnis `rueckfrage_intent`. |
+| ANF-10-05 | Muss | Das Intent-Modell beantwortet nur Katalogfragen; Antworten außerhalb der Optionen werden verworfen. | 10.2.1 | Attrappe liefert „dach_loeschen“ (nicht im Katalog) ⇒ `rueckfrage_intent`, Protokoll „Option unbekannt“. |
+| ANF-10-06 | Muss | Der Katalog wird beim Start validiert; jede choice-Frage hat höchstens 19 Optionen. | 10.2.3, 10.7.1 | `pruefe_sprache.py` meldet 0 Fehler. Kopie mit einer choice-Frage mit 20 Optionen ⇒ Ladefehler „> 19 Optionen“. |
+| ANF-10-07 | Muss | Hierarchie Gruppe → Intent → Slotfragen, zwei Gruppen parallel unter der Gruppenschwelle, Kontextfilter. | 10.2.3, E10.4 | „Ja, genau so“ (T177) mit offener Rückfrage ⇒ `bestaetigen`; derselbe Satz ohne offene Rückfrage ⇒ `bestaetigen` nicht unter den Optionen, Ergebnis `rueckfrage_intent`. |
 | ANF-10-08 | Muss | Wahrscheinlichkeiten werden je Fragetyp und Modellversion per Temperatur kalibriert; *T* steht im Protokoll. | 10.2.5 | Kalibrierbericht am Entwicklungsset: ECE (15 Intervalle) ≤ 0,05 je Fragetyp; jedes Äußerungsprotokoll enthält `kalibrierung.T` und `modell_version`. |
 | ANF-10-09 | Muss | Ausgeführt wird nur bei $\hat p_1 \ge \tau_k$ und $\hat p_1 - \hat p_2 \ge \delta_k$ der Risikoklasse *k*; Schwellen sind versionierte Konfiguration. | 10.2.5, Tab. 10.6 | B6 „Kannst du das mal anders machen“ (p = 0,46; Abstand 0,15) ⇒ Rückfrage. Attrappe R1 mit (0,75; 0,40) ⇒ ausführen; R2 mit (0,75; 0,40) ⇒ Rückfrage (τ = 0,80). |
 | ANF-10-10 | Soll | Ohne verfügbares Intent-Modell übernimmt ein Schlüsselwortklassifikator die Intents von R0 und R1; R2 und R3 werden auf die Oberfläche umgeleitet. | E10.3 | Modell abgeschaltet: „Mach das rückgängig“ ⇒ Undo ausgeführt; „Wir wollen einen Keller“ ⇒ Hinweis und Bildschirmauswahl, keine Änderung. |
@@ -548,7 +495,7 @@ Eine Gegenprobe mit einem absichtlich undefinierten Nichtterminal wurde als Fehl
 | ANF-10-12 | Muss | Mehrdeutige Werte führen zu einer Rückfrage mit allen Kandidaten im Wertebereich. | D3, 10.3.4 | „Das Bad oben eins fünf breiter“ (T007) ⇒ Rückfrage „1,05 m oder 1,50 m?“. |
 | ANF-10-13 | Muss | Eine Zahl ohne Einheit erhält die Einheit des Slots (D4); die Interpretationsanzeige kennzeichnet das. | D4 | „Mach die Dachneigung auf fünfunddreißig“ (T070) ⇒ 35°, Anzeige „35° (Einheit ergänzt)“; Vorschau wegen R2. |
 | ANF-10-14 | Muss | Keine implizite Dimension: Fehlt ein Pflichtslot ohne Voreinstellung im Katalog, folgt eine Rückfrage. | 10.3.3 | „Mach das Kinderzimmer 2 auf 3,20 m“ (T004) ⇒ Rückfrage „Breite oder Tiefe?“ (B6 heute: stillschweigend Breite). „Das Obergeschoss zehn Zentimeter höher“ (T037) ⇒ lichte Höhe nach `standard`, gekennzeichnet. |
-| ANF-10-15 | Muss | Referenzen werden gegen das State-JSON aufgelöst: exakter Name vor Typ, dann Geschoss, Nummer, Größe, Relation, Kontext; Quantoren ergeben Mengen. Ergebnis ist eine GlobalId oder eine Liste. | 10.3.5, E10.7 | Alle 58 Raumslots des Testsets ohne Kontextfälle richtig (B6: 55); „Die Diele zwanzig Zentimeter schmaler“ (T018) ⇒ `3VNmzLkorKaPT3n1GT$V3f`; „In jedes Kinderzimmer …“ (T114) ⇒ beide Kinderzimmer. |
+| ANF-10-15 | Muss | Referenzauflösung gegen das State-JSON nach E10.7; Ergebnis GlobalId oder Liste. | 10.3.5, E10.7 | Alle 58 Raumslots des Testsets ohne Kontextfälle richtig (B6: 55); „Die Diele zwanzig Zentimeter schmaler“ (T018) ⇒ `3VNmzLkorKaPT3n1GT$V3f`; „In jedes Kinderzimmer …“ (T114) ⇒ beide Kinderzimmer. |
 | ANF-10-16 | Muss | Bei mehrdeutiger Referenz fragt das System mit höchstens fünf Kandidaten zurück und wählt nie selbst. | E10.7 | „Das Bad soll zwanzig Zentimeter breiter werden“ (T003) ⇒ Rückfrage „Duschbad EG oder Bad OG?“, keine Änderung. |
 | ANF-10-17 | Muss | Korrekturen und Anaphern werden über den Dialogkontext der letzten drei Äußerungen aufgelöst (`n.korrektur`, `n.bezug_vorher`). | 10.4.3 | Testfälle T212–T216 mit Kontext: erwarteter Intent und alle Slots richtig; „Nein, nicht das Bad, das Kinderzimmer 1“ ersetzt nur den Raum im vorigen Frame. |
 
@@ -562,7 +509,7 @@ Eine Gegenprobe mit einem absichtlich undefinierten Nichtterminal wurde als Fehl
 | ANF-10-21 | Muss | Nach zwei erfolglosen Rückfragen in Folge wechselt der Dialog zur Auswahl am Bildschirm. | E10.8 | Skript: „Das Bad größer“ → Rückfrage → „das andere“ → Rückfrage → „weiß nicht“ ⇒ Grundriss mit markierten Kandidaten zum Antippen. |
 | ANF-10-22 | Muss | KI-Hinweis nach Art. 50 Abs. 1 KI-VO bei der ersten Mikrofonaktivierung, dauerhaftes Symbol während der Spracheingabe, fester Antworttext für `ki_transparenz`; eine Sprachausgabe wird maschinenlesbar gekennzeichnet. | 10.4.4 | UI-Test: Hinweistext aus dem Katalog erscheint vor der ersten Erkennung; „Bist du eine KI“ (T204) ⇒ Katalogtext; Audiodatei der Sprachausgabe enthält die Kennzeichnung. |
 | ANF-10-23 | Muss | Kein Rohaudio über die Sitzung hinaus, keine Sprechererkennung. Jev nur mit Einwilligung, Zero Data Retention und nur mit Transkript. Aufnahmen für Training nur mit gesonderter Einwilligung. | 10.4.5, E10.11 | Nach Sitzungsende keine Audiodatei im Speicher (Dateisystem- und Datenbankprüfung); ohne Einwilligung kein Aufruf des Jev-Endpunkts (Netzwerkprotokoll); „Lösch bitte meine Sprachaufnahmen“ (T206) entfernt alle Aufnahmen des Nutzers. |
-| ANF-10-24 | Muss | Jede Äußerung wird mit ASR-Modell und Version, Hypothesen, Fragen und Wahrscheinlichkeiten, Katalogversion, Parser- und Referenzergebnis, Entscheidung, betroffenen GlobalIds und Zustands-Hash protokolliert. Das Protokoll ist ohne Modell reproduzierbar. | 10.3.1, 4.8.1 | Protokoll nach Tabelle 10.12 für T001; Wiedergabe mit den protokollierten Modellantworten ergibt bitgleichen Frame und Zustand (Erweiterung von `test_pipeline_deterministisch`). |
+| ANF-10-24 | Muss | Jede Äußerung wird als Frame nach Tabelle 10.12 protokolliert und ist ohne Modell reproduzierbar. | 10.3.1, 4.8.1 | Protokoll nach Tabelle 10.12 für T001; Wiedergabe mit den protokollierten Modellantworten ergibt bitgleichen Frame und Zustand (Erweiterung von `test_pipeline_deterministisch`). |
 | ANF-10-25 | Muss | Jede Funktion, die per Sprache erreichbar ist, ist auch ohne Sprache erreichbar. | 10.4.5 | Abbildungstest: Für jeden der 138 Intents existiert ein Bedienpfad der Oberfläche; fehlender Pfad ⇒ Testfehler. |
 | ANF-10-26 | Soll | Das Textset läuft bei jeder Änderung von Katalog, Grammatik oder Modell; die Abnahme folgt den Zielwerten aus Tabelle 10.10. | 10.5 | CI-Lauf erzeugt Bericht mit Intent-Accuracy@1/@3, Slot-F1, Frame-Accuracy, ECE, Abdeckung und Fehlausführungsrate je Risikoklasse; Unterschreitung eines Zielwerts ⇒ Freigabe gesperrt. |
 | ANF-10-27 | Soll | Fine-Tuning und Kalibrierung von Laya sind reproduzierbar dokumentiert (Datensatz-Hash, Katalogversion, Modell-Hash, *T*). | 10.5.4 | Abnahmebericht nennt alle vier Werte; Leckageprüfung Testset ↔ Trainingsdaten: 0 Treffer. |
@@ -570,7 +517,7 @@ Eine Gegenprobe mit einem absichtlich undefinierten Nichtterminal wurde als Fehl
 
 ### 10.7.3 Datenstrukturen
 
-Tabelle 10.12 beschreibt den Frame, den die Pipeline je Äußerung erzeugt und protokolliert. Er erweitert das Format von `beispiele/ausgabe/intent_protokoll.json`.
+Tabelle 10.12 beschreibt den Frame je Äußerung; er erweitert `beispiele/ausgabe/intent_protokoll.json`.
 
 **Tabelle 10.12: Frame einer Äußerung**
 

@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/holzbau/spezifikation/kran-traglast.schema.json",
+  "title": "Krandatensatz für die Kranvorauswahl (Kapitel 14b.2)",
+  "description": "Ein Datensatz je Kranmodell und Einsatzkonfiguration, abgeleitet aus dem Herstellerdatenblatt (PDF) oder dem Einsatzplan des Kranunternehmens. Traglast als Tabelle Radius -> Traglast je Konfiguration (Auslegerlänge, Ballast, Abstützbasis, Schwenkbereich) mit ausdrücklicher Interpolationsregel. Einheiten: m, t, kN, m/s. Datensätze mit beispielwerte = true (etwa aus B18) dürfen nie zu einer Einsatzfreigabe führen (Regel M.Firma.Kranfreigabe). Die Vorauswahl ersetzt nicht den Einsatzplaner des Herstellers.",
+  "type": "object",
+  "required": ["id", "typ", "traglasttabellen", "geometrie", "abstuetzung", "quelle", "beispielwerte", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9_\\-]+$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "hersteller": {"type": "string"},
+    "modell": {"type": "string"},
+    "typ": {"enum": ["autokran", "mobilbaukran", "schnelleinsatzkran", "turmdrehkran", "raupenkran", "lkw_ladekran"]},
+    "norm": {"type": "array", "items": {"type": "string"}, "description": "z. B. DIN EN 13000 (Mobilkrane), DIN EN 14439 (Turmdrehkrane)"},
+    "traglasttabellen": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["konfiguration", "interpolation", "punkte"],
+        "additionalProperties": false,
+        "properties": {
+          "konfiguration": {
+            "type": "object",
+            "required": ["schwenkbereich"],
+            "additionalProperties": false,
+            "properties": {
+              "auslegerlaenge_m": {"type": ["number", "null"], "exclusiveMinimum": 0, "description": "null = Hüllkurve über alle Auslegerlängen (nur für Vorauswahl)"},
+              "ballast_t": {"type": "number", "minimum": 0},
+              "abstuetzbasis_m": {"type": "array", "items": {"type": "number", "exclusiveMinimum": 0}, "minItems": 2, "maxItems": 2},
+              "schwenkbereich": {"enum": ["360", "hinten", "vorn", "seitlich"]},
+              "hakenflasche_inbegriffen": {"type": "boolean", "description": "true: Traglast brutto einschließlich Hakenflasche"},
+              "wind_tabelle_ms": {"type": "number", "exclusiveMinimum": 0, "description": "Windgeschwindigkeit (3-s-Böe), für die die Tabelle gilt"}
+            }
+          },
+          "interpolation": {"enum": ["naechstgroesserer_radius", "linear"], "description": "Herstellertabellen: naechstgroesserer_radius (konservativ). linear nur für geglättete Beispielkurven wie in B18"},
+          "punkte": {
+            "type": "array",
+            "minItems": 2,
+            "description": "Paare [Radius m, Traglast t], Radius streng steigend, Traglast nicht steigend",
+            "items": {"type": "array", "prefixItems": [{"type": "number", "minimum": 0}, {"type": "number", "minimum": 0}], "minItems": 2, "maxItems": 2}
+          },
+          "hakenhoehe_m": {
+            "type": "array",
+            "description": "optionale Paare [Radius m, größte Hakenhöhe m] für diese Konfiguration",
+            "items": {"type": "array", "prefixItems": [{"type": "number", "minimum": 0}, {"type": "number", "minimum": 0}], "minItems": 2, "maxItems": 2}
+          }
+        }
+      }
+    },
+    "geometrie": {
+      "type": "object",
+      "required": ["r_min_m", "heckradius_m"],
+      "additionalProperties": false,
+      "properties": {
+        "r_min_m": {"type": "number", "minimum": 0},
+        "r_max_m": {"type": "number", "exclusiveMinimum": 0},
+        "auslegerlaenge_max_m": {"type": "number", "exclusiveMinimum": 0},
+        "ausleger_fest_m": {"type": "number", "exclusiveMinimum": 0, "description": "Mobilbaukran: fester Ausleger (Prüfung Freileitung über den überstrichenen Drehwinkel)"},
+        "hakenhoehe_fest_m": {"type": "number", "exclusiveMinimum": 0},
+        "anlenkhoehe_m": {"type": "number", "minimum": 0},
+        "heckradius_m": {"type": "number", "exclusiveMinimum": 0, "description": "Sicherheitsabstand 0,5 m nach BG BAU B 213 kommt hinzu"}
+      }
+    },
+    "abstuetzung": {
+      "type": "object",
+      "required": ["abstuetzbasis_m", "stuetzkraft_max_kn"],
+      "additionalProperties": false,
+      "properties": {
+        "abstuetzbasis_m": {"type": "array", "items": {"type": "number", "exclusiveMinimum": 0}, "minItems": 2, "maxItems": 2, "description": "volle Abstützbasis Länge × Breite"},
+        "abstuetzbasis_reduziert_m": {"type": "array", "items": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}},
+        "stuetzteller_m": {"type": "array", "items": {"type": "number", "exclusiveMinimum": 0}, "minItems": 2, "maxItems": 2},
+        "tragender_tellerteil": {"type": "number", "exclusiveMinimum": 0, "maximum": 1, "default": 0.8, "description": "Liebherr rechnet mit 80 % der Tellerfläche"},
+        "stuetzkraft_max_kn": {"type": "number", "exclusiveMinimum": 0, "description": "maximale Stützkraft; ohne Einsatzplaner für die Bodenpressung anzusetzen (DGUV Information 208-059)"},
+        "stuetzkraft_quelle": {"enum": ["datenblatt_maximum", "einsatzplaner", "beispiel"]}
+      }
+    },
+    "fahrzeug": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gesamtgewicht_t": {"type": "number", "exclusiveMinimum": 0, "description": "bestimmt den Böschungsabstand nach DIN 4124 (<= 12 t: 1 m, <= 40 t: 2 m, darüber Nachweis)"},
+        "achsen": {"type": "integer", "minimum": 1},
+        "achslast_t": {"type": "number", "exclusiveMinimum": 0},
+        "laenge_m": {"type": "number", "exclusiveMinimum": 0},
+        "breite_m": {"type": "number", "exclusiveMinimum": 0},
+        "hoehe_m": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "wind": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "v_max_tabelle_ms": {"type": "number", "exclusiveMinimum": 0},
+        "referenz_windflaeche_m2_je_t": {"type": "number", "exclusiveMinimum": 0, "default": 1.2, "description": "DIN EN 13000: 1,0 m²/t · c_W 1,2"},
+        "windrechner": {"type": "string", "description": "Verweis auf den Windrechner des Herstellers"}
+      }
+    },
+    "hakenflasche_t": {"type": "number", "minimum": 0},
+    "kosten": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "nur für die Vorauswahl; Beispielsätze sind keine Marktpreise",
+      "properties": {
+        "tagessatz_eur": {"type": "number", "minimum": 0},
+        "anfahrt_eur": {"type": "number", "minimum": 0},
+        "ruestzeit_h": {"type": "number", "minimum": 0}
+      }
+    },
+    "quelle": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["titel"],
+        "additionalProperties": false,
+        "properties": {
+          "titel": {"type": "string"},
+          "url": {"type": "string"},
+          "stand": {"type": "string"},
+          "abgerufen": {"type": "string", "format": "date"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "status": {"enum": ["V", "U"]}
+        }
+      }
+    },
+    "beispielwerte": {"type": "boolean", "description": "true: fiktive oder geglättete Werte; nie für eine Einsatzfreigabe"},
+    "status": {"enum": ["V", "U"]},
+    "hinweis": {"type": "string"}
+  },
+  "examples": [
+    {
+      "id": "AK-35",
+      "version": "0.1.0",
+      "modell": "Autokran 2-Achser, 35-t-Klasse (BEISPIEL)",
+      "typ": "autokran",
+      "norm": ["DIN EN 13000"],
+      "traglasttabellen": [
+        {
+          "konfiguration": {"auslegerlaenge_m": null, "schwenkbereich": "360", "hakenflasche_inbegriffen": false, "wind_tabelle_ms": 9.0},
+          "interpolation": "linear",
+          "punkte": [[3, 30.0], [5, 18.0], [8, 10.0], [10, 7.5], [12, 5.5], [14, 4.3], [16, 3.4], [18, 2.7], [20, 2.2], [22, 1.8], [24, 1.4], [26, 1.1]]
+        }
+      ],
+      "geometrie": {"r_min_m": 3.0, "auslegerlaenge_max_m": 30.0, "anlenkhoehe_m": 2.5, "heckradius_m": 3.5},
+      "abstuetzung": {"abstuetzbasis_m": [6.0, 5.6], "stuetzteller_m": [0.45, 0.45], "stuetzkraft_max_kn": 250.0, "stuetzkraft_quelle": "beispiel"},
+      "fahrzeug": {"gesamtgewicht_t": 24.0},
+      "wind": {"v_max_tabelle_ms": 9.0, "referenz_windflaeche_m2_je_t": 1.2},
+      "hakenflasche_t": 0.2,
+      "kosten": {"tagessatz_eur": 1150, "anfahrt_eur": 350, "ruestzeit_h": 1.0},
+      "quelle": [{"titel": "beispiele/daten/b18_baustelle.json (Beispielwerte in der Größenordnung öffentlicher Datenblätter)", "stand": "2026-01-01", "status": "U"}],
+      "beispielwerte": true,
+      "status": "U",
+      "hinweis": "Hüllkurve über alle Auslegerlängen wie in B18; keine Herstellerdaten, keine Einsatzfreigabe."
+    }
+  ]
+}
