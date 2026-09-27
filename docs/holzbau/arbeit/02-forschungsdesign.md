@@ -258,15 +258,17 @@ Drei Befunde folgen daraus:
 
 Fünf Quellen fanden beide Teile der Runde 1; sie stehen nur einmal im Verzeichnis. Die 286 Aufnahmen entsprechen deshalb 281 Einträgen. Über die drei Runden wurden **14.989 Datensätze gesichtet und 469 neue Einträge aufgenommen**; die Anschlussprüfung (c) sichtete weitere 108 Datensätze ohne Aufnahme. Ausgeschlossen wurden in Runde 2 177 Kandidaten: 102 wegen Relevanz < 2 oder anderer Forschungsfrage, 49 als redundant, 10 als Vorfassung, 9 als nicht verifizierbar, 4 Preprints und 3 nicht begutachtete Hochschulschriften. In Runde 3 waren es 278: 217 wegen Relevanz < 2, 37 als redundant, 15 als Vorfassung, Tagungsfassung oder Preprint und 9 als nicht verifizierbar. Die Preprints sind als Hinweise festgehalten und werden nach einer Begutachtung erneut geprüft.
 
-**Abbruchkriterium und Abweichung vom Protokoll.** Das Protokoll sah vor, das Verfahren zu beenden, wenn eine Runde keine neue Quelle mit Relevanz ≥ 2 mehr liefert (2a.3 Nr. 3). Bei einem so breiten Feld ist das praktisch unerreichbar; Runde 2 lieferte noch 162 solcher Quellen. Für Runde 2 wurde das Kriterium deshalb ersetzt: Die Aufnahmequote liegt deutlich unter Runde 1, **und** keine neue Quelle erreicht Relevanz 3. Für Runde 3 wurde es präzisiert: keine neue Relevanz-3-Quelle **und** eine Rohquote unter 2 %. Diese Änderungen sind eine **Abweichung vom Protokoll**. Sie sind in den Recherchen 26 und 28 begründet.
+**Abbruchkriterium und Abweichung vom Protokoll.** Das Protokoll sah vor, das Verfahren zu beenden, wenn eine Runde keine neue Quelle mit Relevanz ≥ 2 mehr liefert (2a.3 Nr. 3). Bei einem so breiten Feld ist das praktisch unerreichbar; Runde 2 lieferte noch 162 solcher Quellen. Für Runde 2 wurde das Kriterium deshalb ersetzt: Die Aufnahmequote liegt deutlich unter Runde 1, **und** keine neue Quelle erreicht Relevanz 3. Für Runde 3 wurde es präzisiert: keine neue Relevanz-3-Quelle **und** eine Rohquote unter 2 %, also unter der Hälfte von Runde 1. Kommt doch eine Relevanz-3-Quelle hinzu, wird nur von ihr aus weitergesucht. Diese Änderungen sind eine **Abweichung vom Protokoll**. Sie sind in den Recherchen 26 und 28 begründet.
 
 **Sättigung.**
 
 - **Runde 2 ist nicht gesättigt.** Die Rohquote sank nur um ein Viertel (4,4 % → 3,3 %), und drei neue Quellen erreichten Relevanz 3: eine Zerlegung von Nutzeranfragen in Intent und Slots für BIM [@wei2025texttostructure], eine automatische Fertigbarkeitsprüfung von Holzrahmen-Baugruppen [@an2020bimbased] und ein automatischer Entwässerungsentwurf im Tafelbau [@zhang2022bimbased]. Der Ertrag an Relevanz-3-Funden brach aber um 90 % ein, und der Anteil redundanter Funde und Vorfassungen verfünffachte sich etwa (3,5 % → 17,4 %). Cluster mit Quoten zwischen 1,1 und 3,2 % (Dach, Schall und Licht, Wirkung, Informationsmodell allgemein) wurden nicht weiter verfolgt.
-- **Runde 3 wurde nach Teil (a) abgebrochen.** Nach den Abfragen für die drei Relevanz-3-Startquellen war das Kontingent des Suchdienstes erschöpft (HTTP 402 am 27.09.2026); alle anderen Wege zu Zitationsdaten waren durch die Netzwerkkonfiguration gesperrt (HTTP 403). Bearbeitet sind 3 von 53 Startquellen. Offen sind 50 mit laut OpenAlex rund 1.760 Referenzen und 2.590 Zitierenden.
-- **Auch Teil (a) ist nicht gesättigt.** Die Rohquote liegt mit 3,6 % über 2 %, und mit einer ontologiebasierten Fertigbarkeitsprüfung für den Holztafelbau kam eine Relevanz-3-Quelle hinzu [@cao2022ontologybased]. Die Anzeichen einer nahen Sättigung nehmen aber zu: Die Trefferquote je neuem Kandidaten halbierte sich nahezu (47,8 % → 25,9 %), der Anteil der Bestandsdubletten unter den Kandidaten stieg von 17,5 % auf 40,8 %. Mit 193 Datensätzen ist die Basis klein; eine Aufnahme mehr oder weniger verschiebt die Quote um 0,5 Prozentpunkte.
+- **Runde 3 lief in zwei Abschnitten.** Nach den Abfragen für die drei Relevanz-3-Startquellen (Teil a) war das Kontingent des Suchdienstes erschöpft (HTTP 402 am 27.09.2026). Alle anderen Wege zu Zitationsdaten waren durch die Netzwerkkonfiguration gesperrt (HTTP 403). Die Runde wurde deshalb unterbrochen. Nach dem Aufladen des Kontingents wurde sie mit den übrigen 50 Startquellen fortgesetzt (Teil b). Nach der Abbruchregel folgte eine Anschlussprüfung ab dem einzigen Relevanz-3-Fund aus Teil (a) (Teil c).
+- **Teil (a) allein war nicht gesättigt.** Die Rohquote lag mit 5,2 % über 2 %, und mit einer ontologiebasierten Fertigbarkeitsprüfung für den Holztafelbau kam eine Relevanz-3-Quelle hinzu [@cao2022ontologybased]. Mit 193 Datensätzen war die Basis aber klein.
+- **Teil (b) erfüllt beide Bedingungen.** Keine neue Quelle erreicht Relevanz 3, die Rohquote liegt bei 0,46 %. Die beiden Cluster, die in Runde 2 noch über dem Durchschnitt lagen, fallen deutlich ab: Sprache und Konfiguration (FF3) von 9,6 % auf 0,86 %, Regelprüfung und Bauantrag (FF2/FF4) von 6,6 % auf 0,29 %. Ein Drittel der Kandidaten sind Bestandsdubletten, mehr als die Hälfte (54 %) Wiederholungen. Die 16 Aufnahmen bestätigen und verfeinern vorhandene Argumente, etwa zu Genehmigungsverfahren im europäischen Vergleich [@fauth2024investigating], zur Zuverlässigkeit sprachmodellgenerierter BIM-Skripte [@alwashah2026reliable] und zur Diagnose unvereinbarer Kundenwünsche im Konfigurator [@felfernig2011personalized]. Eine neue Argumentlinie eröffnen sie nicht.
+- **Die Anschlussprüfung (c) liefert keine Aufnahme.** Ab `cao2022ontologybased` wurden 108 Datensätze gesichtet. Von 26 Kandidaten waren 12 Bestand oder früher ausgeschlossen. Alle 14 neuen wurden ausgeschlossen, 13 wegen Relevanz < 2 und einer als redundant (Rohquote 0 %). Die Linie der Fertigbarkeitsprüfung im Entwurf ist damit ausgeschöpft.
 
-**Folge.** Die Suche kann **nicht als gesättigt gelten**, für FF3 und FF2/FF4 fehlt die Messung ganz. Die Neuheitsbehauptung (Kapitel 1.3.1) steht deshalb unter dem Vorbehalt „nach dem dokumentierten Stand“. Teil (b) und eine Runde ab `cao2022ontologybased` werden nachgeholt, sobald der Zugang zu den Zitationsdatenbanken wiederhergestellt ist.
+**Folge.** Die Suche ist **nach dem Kriterium gesättigt**, und das Schneeballverfahren ist mit Runde 3 und der Anschlussprüfung abgeschlossen. Über alle drei Runden fällt die Rohquote von 4,4 % über 3,3 % auf 0,71 %, die Trefferquote je neuem Kandidaten von 67,6 % über 47,8 % auf 8,6 % und die Zahl der Relevanz-3-Funde von 29 über 3 auf 1. Eine vierte Runde ist nicht nötig. Das strenge Ursprungskriterium des Protokolls („keine neue Quelle mit Relevanz ≥ 2“) ist mit 26 Aufnahmen weiterhin nicht erfüllt; an seine Stelle tritt die oben begründete Abbruchregel. Ein Vorbehalt bleibt für FF4: Juristische Literatur wie Kommentare zur BayBO oder Aufsätze zur Haftung des Entwurfsverfassers steht nicht in den Zitationsnetzen. Diese Lücke ist eine Aufgabe der Rechtsrecherche (2.3.10) und kein Mangel der Sättigung. Der Vorbehalt „nach dem dokumentierten Stand“ für die Neuheitsbehauptung (Kapitel 1.3.1) betrifft damit vor allem diese juristische Literatur.
 
 ### 2.3.8 PRISMA-Flussdiagramm
 
@@ -275,29 +277,31 @@ Abbildung 2.1 fasst die Recherche in Anlehnung an PRISMA 2020 zusammen [@page202
 ```mermaid
 flowchart TD
   subgraph ID["Identifikation"]
-    T["Themenrecherchen 01–20, Lückenrecherchen 21, 23, 27<br/>9 Bib-Dateien (lit-A bis lit-H, lit-K)<br/><b>607 Einträge</b>"]
+    T["Themenrecherchen 01–20, Lückenrecherchen 21, 23, 27,<br/>Quellen zur Nachweisführung (Kap. 7a)<br/>10 Bib-Dateien (lit-A bis lit-H, lit-K, lit-M)<br/><b>620 Einträge</b>"]
     R1["Schneeball Runde 1<br/>61 Startquellen (56 verschieden)<br/><b>6.437 Datensätze</b>"]
     R2["Schneeball Runde 2<br/>47 Startquellen<br/><b>4.911 Datensätze</b>"]
-    R3["Schneeball Runde 3, nur Teil (a)<br/>3 von 53 Startquellen, danach abgebrochen<br/><b>193 Datensätze</b>"]
+    R3["Schneeball Runde 3<br/>53 Startquellen: Teil (a) 3, Teil (b) 50<br/>nach (a) unterbrochen (Kontingent), fortgesetzt, abgeschlossen<br/><b>3.641 Datensätze</b>"]
   end
   subgraph SC["Screening"]
     K1["Abstract-Prüfung: 468 Kandidaten<br/>− Dubletten Bestand/intern (Teil B): 45<br/>= 423 neue Kandidaten"]
     K2["Abstract-Prüfung: 411 Kandidaten<br/>− Dubletten Bestand: 72<br/>= 339 neue Kandidaten"]
-    K3["Abstract-Prüfung: 49 Kandidaten<br/>− Bestand 20, früher ausgeschlossen 2<br/>= 27 neue Kandidaten"]
+    K3["Abstract-Prüfung: 545 Kandidaten<br/>− Bestand 187, früher ausgeschlossen 54<br/>= 304 neue Kandidaten"]
     X1["ausgeschlossen: 137"]
     X2["ausgeschlossen: 177"]
-    X3["ausgeschlossen: 20"]
+    X3["ausgeschlossen: 278"]
+    C3["Anschlussprüfung (c) ab cao2022ontologybased<br/>108 Datensätze, 26 Kandidaten<br/>aufgenommen: 0 → Sättigung erreicht"]
   end
   subgraph EL["Aufnahme und Zusammenführung"]
     A1["aufgenommen R1: 286<br/>(281 Einträge)"]
     A2["aufgenommen R2: 162"]
-    A3["aufgenommen R3: 7"]
-    M["607 + 281 + 162 + 7 = 1.057 Bib-Einträge<br/>− 3 Dubletten zwischen Bib-Dateien<br/><b>1.054 eindeutige Quellen</b>"]
+    A3["aufgenommen R3: 26<br/>(Teil a: 7 + 3 Nachträge; Teil b: 16)"]
+    M["620 + 281 + 162 + 26 = 1.089 Bib-Einträge<br/>− 3 Dubletten zwischen Bib-Dateien<br/><b>1.086 eindeutige Quellen</b>"]
   end
   subgraph IN["Bewertung und Einschluss"]
-    B["einzeln bewertet: <b>1.046</b><br/>(8 ausstehend: Q1047–Q1054)<br/>alle R ≥ 1; [V] 1.038, [U] 8"]
+    B["einzeln bewertet: <b>1.086</b><br/>alle R ≥ 1; [V] 1.078, [U] 8"]
     V["Nutzung „verwerfen“: 4<br/>(davon 1 Dublette)"]
-    C["<b>Kernbestand P ≥ 5: 317</b>"]
+    C["<b>Kernbestand P ≥ 5: 334</b>"]
+    D["Referenzdatenbank: 1.086 Datensätze<br/>871 mit Originalabstract"]
   end
   R1 --> K1 --> A1
   K1 --> X1
@@ -305,6 +309,7 @@ flowchart TD
   K2 --> X2
   R3 --> K3 --> A3
   K3 --> X3
+  A3 -.-> C3
   T --> M
   A1 --> M
   A2 --> M
@@ -312,9 +317,10 @@ flowchart TD
   M --> B
   B --> V
   B --> C
+  B --> D
 ```
 
-*Abbildung 2.1: Flussdiagramm der Recherche in Anlehnung an PRISMA 2020. In Runde 1 Teil A wurden 99 Bestandsdubletten und 410 rundeninterne Dubletten vor dem Titel-Screening entfernt (Tabelle 2.9, Fußnote 1).*
+*Abbildung 2.1: Flussdiagramm der Recherche in Anlehnung an PRISMA 2020. In Runde 1 Teil A wurden 99 Bestandsdubletten und 410 rundeninterne Dubletten vor dem Titel-Screening entfernt (Tabelle 2.9, Fußnote 1). Die Anschlussprüfung (c) folgt der Abbruchregel und liefert keine Einträge; sie gehört nicht zu Runde 3 im engeren Sinn.*
 
 ### 2.3.9 Beurteilerübereinstimmung
 
@@ -357,12 +363,12 @@ Für die neun abweichenden Kernbestandsentscheidungen ist ein Konsensgespräch b
 ### 2.3.10 Grenzen der Recherche
 
 - **Proxy-Sperren.** Direkte Abfragen an Crossref, OpenAlex, Semantic Scholar, doi.org und einige amtliche Portale wies die Netzwerkkonfiguration der Arbeitsumgebung ab. Metadaten und Zitationsgraphen wurden über einen Suchdienst abgerufen, der die Primärschnittstellen spiegelt; der Prüfweg steht je Quelle im `note`-Feld. Semantic Scholar war nicht nutzbar, ein Abgleich mit einer zweiten Zitationsdatenbank fehlt. Vor der Abgabe ist ein zentraler Crossref-Abgleich aller DOIs vorgesehen.
-- **Abbruch der dritten Schneeballrunde** (2.3.7): Für FF3 und FF2/FF4 ist die Sättigung nicht gemessen.
+- **Unterbrechung der dritten Schneeballrunde** (2.3.7): Teil (a) wurde zunächst über die Websuche statt über Crossref verifiziert; der Crossref-Abgleich hat alle sieben Einträge bestätigt. Vier Aufnahmen aus Runde 3 beruhen auf Titel, Venue und Referenzliste, weil kein Abstract zugänglich war. Kleine Startquellen wurden in Teil (b) gemeinsam abgefragt und die Kandidaten nach Thema zugeordnet.
 - **Lückenhafte Zitationsdaten.** OpenAlex löste in Runde 2 nur 2.385 von 2.621 gemeldeten Referenzen auf; Tagungsbände ohne DOI fehlen häufig. Bei sehr oft zitierten Startquellen wurde die Vorwärtssuche mit Themenfiltern eingegrenzt.
 - **Kostenpflichtige Normen.** DIN-, VDI- und DWA-Volltexte lagen nicht vor. Kennwerte stammen aus amtlichen Verweisen, Entwürfen oder Sekundärquellen und sind entsprechend gekennzeichnet.
 - **Keine juristischen Datenbanken.** beck-online und juris waren nicht zugänglich; Aufsätze in BauR, NZBau und ZfBR sowie Kommentare zur BayBO fehlen. Recherche 27 hat die Lücke mit frei zugänglicher Rechtsprechung, Gesetzesmaterialien und Open-Access-Aufsätzen teilweise geschlossen (74 Einträge). Eine Recherche in beck-online bleibt vor der Abgabe nötig.
 - **Primärtexte nicht immer erreichbar.** Wo eine Lesart deshalb nicht am Primärtext geprüft ist, trägt der Befund [U], etwa die Behandlung der Giebelfläche in Beispiel B4.
-- **Ein Erstbewerter.** Die Zweitbewertung deckt 80 von 1.046 Quellen ab (7,6 %). Einstufungen als „redundant“ sind Ermessensentscheidungen; sie sind in den Anhängen der Recherchen 26 und 28 begründet und lassen sich nachholen.
+- **Ein Erstbewerter.** Die Zweitbewertung deckt 80 von 1.086 Quellen ab (7,4 %). Einstufungen als „redundant“ sind Ermessensentscheidungen; sie sind in den Anhängen der Recherchen 26 und 28 begründet und lassen sich nachholen.
 - **Sprache und Stichtag.** Gesucht wurde auf Deutsch und Englisch; Rechtslage und Bestand sind auf den 27.09.2026 datiert.
 
 ## 2.4 Evaluationsdesign
@@ -537,12 +543,12 @@ Drei Gefährdungen der Validität sind schon absehbar und werden in Kapitel 21.2
 
 ## 2.6 Zwischenfazit
 
-**Design Science Research** gibt den Rahmen: Die Arbeit entwirft Artefakte auf den Ebenen der Instanziierung und der entstehenden Designtheorie und ordnet ihren Beitrag als Exaptation mit Anteilen von Improvement ein. Eine **systematische Recherche** mit 1.054 Quellen, davon 1.046 einzeln bewertet und 317 im Kernbestand, trägt Problem, Lücke und Entwurf. Ihre Grenzen sind benannt: Die dritte Schneeballrunde ist abgebrochen, die Sättigung nicht nachgewiesen, und das Merkmal Nutzung muss mit Ankerbeispielen geschärft werden. Das **Evaluationsdesign** nach FEDS beginnt technisch mit 209 Tests, erweitert sich analytisch über die Abdeckungsmatrix und schließt empirisch mit Experteninterviews, Nutzerstudie und Kennzahlen beim Praxispartner. Die technischen und analytischen Episoden sind weit fortgeschritten, die empirischen geplant. Diese Asymmetrie folgt aus der Strategie *Technical Risk & Efficacy* und ist zugleich die wichtigste offene Aufgabe der Arbeit.
+**Design Science Research** gibt den Rahmen: Die Arbeit entwirft Artefakte auf den Ebenen der Instanziierung und der entstehenden Designtheorie und ordnet ihren Beitrag als Exaptation mit Anteilen von Improvement ein. Eine **systematische Recherche** mit 1.086 Quellen, alle einzeln bewertet und 334 im Kernbestand, trägt Problem, Lücke und Entwurf. Das Schneeballverfahren ist nach drei Runden gesättigt und abgeschlossen: Die Rohquote fiel von 4,4 % auf 0,71 %, die Anschlussprüfung lieferte keine Aufnahme. Die Grenzen der Recherche sind benannt: Juristische Literatur liegt außerhalb der Zitationsnetze, und das Merkmal Nutzung muss mit Ankerbeispielen geschärft werden. Das **Evaluationsdesign** nach FEDS beginnt technisch mit 209 Tests, erweitert sich analytisch über die Abdeckungsmatrix und schließt empirisch mit Experteninterviews, Nutzerstudie und Kennzahlen beim Praxispartner. Die technischen und analytischen Episoden sind weit fortgeschritten, die empirischen geplant. Diese Asymmetrie folgt aus der Strategie *Technical Risk & Efficacy* und ist zugleich die wichtigste offene Aufgabe der Arbeit.
 
 ---
 
 ## Verwendete Keys
 
-an2020bimbased, bangor2008empirical, barr2015oracle, blessing2009drm, bogner2014interviews, borsci2022chatbot, brooke1996sus, brynjolfsson2025generative, bsi2024ids, bsiValidation, cao2022ontologybased, cheung2026institutionalizing, cohen1960coefficient, darocha2016managing, dellacqua2026navigating, eastman2009automatic, faulkner2003beyond, fuchs2025challenge, glaeser2010experteninterviews, gregor2013positioning, hart1988development, hart2006tlx, haug2011impact, hevner2004design, hwang2009measuring, ibbs2005impact, iso2018usability, iso2020interaction, iso2024ifc, jeong2009benchmark, johnsson2009defects, kitchenham2007guidelines, kodnongbua2024zeroshot, kristjansdottir2018return, kuckartz2024inhaltsanalyse, kwiecinski2019customers, kwiecinski2023interactive, landis1977measurement, lewis2018system, love2004determinants, love2018unpacking, ma2006testing, march1995design, mayring2022inhaltsanalyse, mubashar2026unlocking, nielsen1993mathematical, noy2023experimental, page2021prisma, parasuraman2010complacency, pazlar2008interoperability, peffers2007design, prat2015taxonomy, rosemann2008improving, sacks2008impact, segura2016survey, sein2011action, sonnenberg2012evaluations, sonnenberg2012patterns, stgb201, swanenburg2016towards, tremblay2010focus, tur2011spoken, venable2016feds, virzi1992subjects, voordijk2009construction, vombrocke2020introduction, weld2022survey, wei2025texttostructure, wohlin2014guidelines, zhang2022bimbased
+alwashah2026reliable, an2020bimbased, bangor2008empirical, barr2015oracle, blessing2009drm, bogner2014interviews, borsci2022chatbot, brooke1996sus, brynjolfsson2025generative, bsi2024ids, bsiValidation, cao2022ontologybased, cheung2026institutionalizing, cohen1960coefficient, darocha2016managing, dellacqua2026navigating, eastman2009automatic, faulkner2003beyond, fauth2024investigating, felfernig2011personalized, fuchs2025challenge, glaeser2010experteninterviews, gregor2013positioning, hart1988development, hart2006tlx, haug2011impact, hevner2004design, hwang2009measuring, ibbs2005impact, iso2018usability, iso2020interaction, iso2024ifc, jeong2009benchmark, johnsson2009defects, kitchenham2007guidelines, kodnongbua2024zeroshot, kristjansdottir2018return, kuckartz2024inhaltsanalyse, kwiecinski2019customers, kwiecinski2023interactive, landis1977measurement, lewis2018system, love2004determinants, love2018unpacking, ma2006testing, march1995design, mayring2022inhaltsanalyse, mubashar2026unlocking, nielsen1993mathematical, noy2023experimental, page2021prisma, parasuraman2010complacency, pazlar2008interoperability, peffers2007design, prat2015taxonomy, rosemann2008improving, sacks2008impact, segura2016survey, sein2011action, sonnenberg2012evaluations, sonnenberg2012patterns, stgb201, swanenburg2016towards, tremblay2010focus, tur2011spoken, venable2016feds, virzi1992subjects, vombrocke2020introduction, voordijk2009construction, wei2025texttostructure, weld2022survey, wohlin2014guidelines, zhang2022bimbased
 
-**Key-Prüfung (Python, 27.09.2026):** Alle `[@key]`-Zitate im Text wurden per regulärem Ausdruck extrahiert und gegen die Keys aller `literatur/lit-*.bib` (1055 Keys) abgeglichen. Ergebnis: 80 Zitatstellen, 70 verschiedene Keys, **0 fehlende Keys**.
+**Key-Prüfung (Python, 27.09.2026, nach Aktualisierung v0.2):** Alle `[@key]`-Zitate im Text wurden per regulärem Ausdruck extrahiert und gegen die Keys aller `literatur/lit-*.bib` (1087 Keys) abgeglichen. Ergebnis: 83 Zitatstellen, 73 verschiedene Keys, **0 fehlende Keys**.
