@@ -1,0 +1,131 @@
+{
+  "_hinweis": "Eingabe fuer B14 (Fussbodenaufbau und Hoehenausgleich). ALLE Zahlen sind BEISPIELWERTE zur Demonstration des Rechenwegs. Normwerte sind nur als einzelne Kennwerte mit Normverweis eingetragen (keine Tabellenkopie); Herstellerwerte sind als solche markiert; Kosten sind fiktiv. Laengen in mm, Dichten in kg/m3, Waermeleitfaehigkeit in W/(m K).",
+  "projekt": {
+    "name": "Beispielhaus Holzrahmenbau",
+    "gebaeude": "Einfamilienhaus (fiktiv)",
+    "autor": "Entwurfsgenerator (Beispiel)",
+    "organisation": "Arbeit Holzrahmenbau",
+    "zeitstempel": "2026-01-01T00:00:00"
+  },
+  "okff_toleranz_mm": 2,
+  "materialien": {
+    "bitumen_abdichtung": {"name": "Bitumen-Schweissbahn (Abdichtung nach DIN 18533)", "kategorie": "Abdichtung", "rho": 1100, "lambda": 0.17, "toleranz_mm": 1.0, "nivellierend": false, "kosten_fix": 18.0, "kosten_mm": 0.0, "quelle": "Beispielwert"},
+    "eps_deo_035": {"name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)", "kategorie": "Waermedaemmung", "rho": 20, "lambda": 0.035, "toleranz_mm": 1.0, "nivellierend": false, "c_mm": 0, "kosten_fix": 0.0, "kosten_mm": 0.12, "quelle": "Beispielwert (Handelsdicken); DEO >= 100 kPa als Ausgleichsschicht nach DIN 18560-2:2022 5.2"},
+    "eps_t_tacker": {"name": "EPS-T Tackerplatte 30-2 fuer Fussbodenheizung", "kategorie": "Trittschalldaemmung", "rho": 15, "lambda": 0.040, "toleranz_mm": 1.0, "nivellierend": false, "c_mm": 2, "kosten_fix": 9.0, "kosten_mm": 0.0, "quelle": "Beispielwert (Bezeichnung dL-c: 30 mm Lieferdicke, 2 mm Zusammendrueckbarkeit)"},
+    "holzfaser_tsd": {"name": "Holzfaser-Trittschalldaemmplatte", "kategorie": "Trittschalldaemmung", "rho": 200, "lambda": 0.045, "toleranz_mm": 1.0, "nivellierend": false, "c_mm": 1, "kosten_fix": 0.0, "kosten_mm": 0.35, "quelle": "Beispielwert; Holzfaser-TSD im Holzbau (Fermacell, DEGA-Beitrag Rabold u. a. 2018)"},
+    "fbh_systemplatte_trocken": {"name": "FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)", "kategorie": "Heizung", "rho": 60, "lambda": 0.035, "toleranz_mm": 0.5, "nivellierend": false, "c_mm": 0, "kosten_fix": 38.0, "kosten_mm": 0.0, "quelle": "Herstellertypischer Beispielwert [U]; Fermacell empfiehlt 2E22 (25 mm) auf Waermeleitblechen"},
+    "wabe_schuettung": {"name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)", "kategorie": "Schuettung", "rho": 1500, "lambda": 0.70, "toleranz_mm": 1.0, "nivellierend": false, "kosten_fix": 0.0, "kosten_mm": 0.60, "nimmt_leitungen_auf": {"max_breite_mm": 100}, "quelle": "Herstellerwert Fermacell: 30/60 mm, ca. 45/90 kg/m2, Leitungen bis 10 cm Breite einschneidbar, Wabe direkt auf Rohdecke"},
+    "ausgleichsschuettung": {"name": "Ausgleichsschuettung (mechanisch gebunden)", "kategorie": "Schuettung", "rho": 450, "lambda": 0.09, "toleranz_mm": 1.0, "nivellierend": true, "kosten_fix": 0.0, "kosten_mm": 0.25, "quelle": "Einsatzbereich 10-60 mm nach Herstellerangabe Fermacell; Dichte, Lambda Beispielwert [U]"},
+    "gebundene_schuettung": {"name": "Gebundene Schuettung (EPS-Zement)", "kategorie": "Schuettung", "rho": 350, "lambda": 0.07, "toleranz_mm": 1.0, "nivellierend": true, "ueberdeckung_leitung_mm": 10, "kosten_fix": 0.0, "kosten_mm": 0.30, "quelle": "Schuetthoehe ab 30 mm nach Herstellerangabe Fermacell; Ueberdeckung, Dichte, Lambda Beispielwert [U]"},
+    "spachtelmasse": {"name": "Spachtel-/Nivelliermasse", "kategorie": "Ausgleich", "rho": 1700, "lambda": 0.9, "toleranz_mm": 0.3, "nivellierend": true, "kosten_fix": 4.0, "kosten_mm": 1.5, "quelle": "Beispielwert; Fermacell Boden-Nivelliermasse 0-20 mm"},
+    "caf": {"name": "Calciumsulfat-Fliessestrich CAF-F4", "kategorie": "Estrich", "rho": 2000, "lambda": 1.2, "toleranz_mm": 1.0, "nivellierend": true, "kosten_fix": 0.0, "kosten_mm": 0.35, "quelle": "Dichte, Lambda Beispielwert"},
+    "ct": {"name": "Zementestrich CT-F4", "kategorie": "Estrich", "rho": 2000, "lambda": 1.4, "toleranz_mm": 1.0, "nivellierend": true, "kosten_fix": 0.0, "kosten_mm": 0.30, "quelle": "Dichte, Lambda Beispielwert"},
+    "te_gipsfaser": {"name": "Trockenestrich Gipsfaser 2 x 12,5 mm", "kategorie": "Estrich", "rho": 1200, "lambda": 0.32, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 28.0, "kosten_mm": 0.0, "quelle": "m' ca. 30 kg/m2 fuer 25 mm (DAGA 2018, Rabold u. a.); Lambda Beispielwert"},
+    "te_zement": {"name": "Trockenestrich zementgebunden 2 x 12,5 mm (Nassraum)", "kategorie": "Estrich", "rho": 1000, "lambda": 0.35, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 45.0, "kosten_mm": 0.0, "quelle": "Aufbau 2 x 12,5 mm nach Herstellerangabe (Fermacell Powerpanel TE); Dichte, Lambda Beispielwert [U]"},
+    "aiv_mineralisch": {"name": "Verbundabdichtung AIV-F, mineralisch (W2-I)", "kategorie": "Abdichtung", "rho": 1500, "lambda": 1.0, "toleranz_mm": 0.3, "nivellierend": false, "kosten_fix": 22.0, "kosten_mm": 0.0, "quelle": "DIN 18534-1/-3: in W2-I am Boden keine Dispersionsabdichtung; Dicke Beispielwert"},
+    "parkettklebstoff": {"name": "Parkettklebstoff (schubfest)", "kategorie": "Verlegewerkstoff", "rho": 1500, "lambda": 0.20, "toleranz_mm": 0.3, "nivellierend": false, "kosten_fix": 4.0, "kosten_mm": 1.0, "quelle": "ca. 1 mm Kleberbett (Handel, Beispielwert)"},
+    "duennbettmoertel": {"name": "Duennbettmoertel C2 (DIN EN 12004)", "kategorie": "Verlegewerkstoff", "rho": 1600, "lambda": 0.8, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 3.0, "kosten_mm": 1.2, "quelle": "Duennbett 1-5 mm (Sopro, BauNetz Wissen)"},
+    "mittelbettmoertel": {"name": "Mittelbettmoertel", "kategorie": "Verlegewerkstoff", "rho": 1800, "lambda": 1.0, "toleranz_mm": 0.5, "nivellierend": true, "kosten_fix": 3.0, "kosten_mm": 0.8, "quelle": "Mittelbett 5-20 mm (Sopro, BauNetz Wissen)"},
+    "mikrozement_grund": {"name": "Grundierung und Armierungsschicht Mikrozement", "kategorie": "Verlegewerkstoff", "rho": 1500, "lambda": 0.8, "toleranz_mm": 0.3, "nivellierend": false, "kosten_fix": 12.0, "kosten_mm": 0.0, "quelle": "Grundierharz 0,5-1 mm (Herstellerdatenblatt Stoneage Beton Cire)"},
+    "parkett_eiche": {"name": "Mehrschichtparkett Eiche", "kategorie": "Belag", "rho": 650, "lambda": 0.13, "toleranz_mm": 0.3, "nivellierend": false, "kosten_fix": 60.0, "kosten_mm": 0.0, "quelle": "Lambda konservativer Beispielwert; R-Richtwert Fertigparkett 10-15 mm 0,07-0,11 m2K/W (Holz Reinlein)"},
+    "feinsteinzeug": {"name": "Feinsteinzeug", "kategorie": "Belag", "rho": 2300, "lambda": 1.3, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 45.0, "kosten_mm": 0.0, "quelle": "Beispielwert"},
+    "naturstein": {"name": "Naturstein (z. B. Kalkstein), kalibriert", "kategorie": "Belag", "rho": 2700, "lambda": 2.3, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 110.0, "kosten_mm": 0.0, "quelle": "Beispielwert"},
+    "mikrozement": {"name": "Mikrozement / Beton Cire (2 Lagen + Versiegelung)", "kategorie": "Belag", "rho": 1900, "lambda": 1.0, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 95.0, "kosten_mm": 0.0, "quelle": "2-3 mm Gesamtschicht (Stoneage, Bodentrik)"},
+    "vinyl": {"name": "Designbelag Vinyl zum Kleben", "kategorie": "Belag", "rho": 1500, "lambda": 0.25, "toleranz_mm": 0.2, "nivellierend": false, "kosten_fix": 35.0, "kosten_mm": 0.0, "quelle": "2-2,5 mm (Handel)"},
+    "dispersionskleber": {"name": "Dispersionsklebstoff", "kategorie": "Verlegewerkstoff", "rho": 1300, "lambda": 0.2, "toleranz_mm": 0.2, "nivellierend": false, "kosten_fix": 3.0, "kosten_mm": 0.0, "quelle": "ca. 0,5 mm (Handel)"},
+    "teppich": {"name": "Teppich (Velours)", "kategorie": "Belag", "rho": 250, "lambda": 0.06, "toleranz_mm": 1.0, "nivellierend": false, "kosten_fix": 30.0, "kosten_mm": 0.0, "quelle": "Beispielwert [U]"},
+    "filzunterlage": {"name": "Teppich-Filzunterlage", "kategorie": "Verlegewerkstoff", "rho": 150, "lambda": 0.05, "toleranz_mm": 0.5, "nivellierend": false, "kosten_fix": 5.0, "kosten_mm": 0.0, "quelle": "Beispielwert [U]"}
+  },
+  "belaege": {
+    "parkett_14_geklebt": {"name": "Mehrschichtparkett 14 mm, vollflaechig geklebt", "material": "parkett_eiche", "dicke_mm": 14, "verlegewerkstoff": {"material": "parkettklebstoff", "nenn_mm": 1, "max_mm": 2}, "untergrund_zulaessig": ["CT", "CAF", "TE_GF", "TE_ZEM"], "untergrund_mit_freigabe": [], "cm_gruppe": "parkett", "ueberbrueckt_bewegungsfugen": false},
+    "feinsteinzeug_10": {"name": "Feinsteinzeug 10 mm im Duennbett", "material": "feinsteinzeug", "dicke_mm": 10, "verlegewerkstoff": {"material": "duennbettmoertel", "nenn_mm": 4, "max_mm": 5}, "untergrund_zulaessig": ["CT", "CAF", "TE_ZEM"], "untergrund_mit_freigabe": ["TE_GF"], "cm_gruppe": "keramik", "ueberbrueckt_bewegungsfugen": false},
+    "naturstein_20_mittelbett": {"name": "Naturstein 20 mm im Mittelbett", "material": "naturstein", "dicke_mm": 20, "verlegewerkstoff": {"material": "mittelbettmoertel", "nenn_mm": 10, "max_mm": 20}, "untergrund_zulaessig": ["CT", "CAF", "TE_ZEM"], "untergrund_mit_freigabe": ["TE_GF"], "cm_gruppe": "keramik", "ueberbrueckt_bewegungsfugen": false},
+    "beton_cire_3": {"name": "Beton Cire / Mikrozement 3 mm", "material": "mikrozement", "dicke_mm": 3, "verlegewerkstoff": {"material": "mikrozement_grund", "nenn_mm": 1, "max_mm": 1}, "untergrund_zulaessig": ["CT", "CAF"], "untergrund_mit_freigabe": ["TE_GF", "TE_ZEM"], "cm_gruppe": "mikrozement", "ueberbrueckt_bewegungsfugen": false},
+    "vinyl_2_5_geklebt": {"name": "Vinyl-Designbelag 2,5 mm geklebt", "material": "vinyl", "dicke_mm": 3, "verlegewerkstoff": {"material": "dispersionskleber", "nenn_mm": 1, "max_mm": 1}, "untergrund_zulaessig": ["CT", "CAF", "TE_GF", "TE_ZEM"], "untergrund_mit_freigabe": [], "cm_gruppe": "elastisch_textil", "ueberbrueckt_bewegungsfugen": false},
+    "teppich_8_filz": {"name": "Teppich 8 mm auf Filzunterlage 5 mm", "material": "teppich", "dicke_mm": 8, "verlegewerkstoff": {"material": "filzunterlage", "nenn_mm": 5, "max_mm": 5}, "untergrund_zulaessig": ["CT", "CAF", "TE_GF", "TE_ZEM"], "untergrund_mit_freigabe": [], "cm_gruppe": "elastisch_textil", "ueberbrueckt_bewegungsfugen": true}
+  },
+  "estriche": {
+    "CT_F4": {"name": "Zement-Heizestrich CT-F4 schwimmend", "material": "ct", "art": "nass", "bindemittel": "CT", "nenndicke_min_mm": 45, "rohrueberdeckung_min_mm": 45, "mehrdicke_max_mm": 40, "feuchteunempfindlich": true, "norm": "DIN 18560-2:2022-08, Tab. 1 (lotrechte Nutzlast <= 2 kN/m2), 4.2.2 Heizestrich Bauart A: Nenndicke + Rohr-Aussendurchmesser, Rohrueberdeckung F4 >= 45 mm"},
+    "CAF_F4": {"name": "Calciumsulfat-Fliess-Heizestrich CAF-F4 schwimmend", "material": "caf", "art": "nass", "bindemittel": "CAF", "nenndicke_min_mm": 35, "rohrueberdeckung_min_mm": 40, "mehrdicke_max_mm": 40, "feuchteunempfindlich": false, "norm": "DIN 18560-2:2022-08, Tab. 1; Rohrueberdeckung CAF-F4 >= 40 mm (Fassung 2004, von Herstellern 2023 weiter genannt)"},
+    "TE_GF_25": {"name": "Trockenestrich Gipsfaser 25 mm", "material": "te_gipsfaser", "art": "trocken", "bindemittel": "TE_GF", "dicke_mm": 25, "feuchteunempfindlich": false, "norm": "Herstellersystem (kein DIN-18560-Estrich); Anwendungsbereich W0-I/W1-I laut Hersteller"},
+    "TE_ZEM_25": {"name": "Trockenestrich zementgebunden 25 mm", "material": "te_zement", "art": "trocken", "bindemittel": "TE_ZEM", "dicke_mm": 25, "feuchteunempfindlich": true, "norm": "Herstellersystem; Hersteller nennt Beanspruchungsklasse A (ZDB), Zuordnung zu W2-I nach DIN 18534 [U]"}
+  },
+  "cm_grenzwerte": {
+    "_quelle": "Richtwerte Belegreife CM-% [unbeheizt, beheizt]; TKB-Merkblatt 16 (12/2024), BG BAU Bauportal 4/2021; Mikrozement: Herstellerdatenblatt Stoneage. Zeilenzuordnung TKB-16 im Auszug nicht eindeutig [U].",
+    "parkett": {"CT": [2.0, 1.8], "CAF": [0.5, 0.3]},
+    "keramik": {"CT": [2.0, 2.0], "CAF": [0.5, 0.3]},
+    "elastisch_textil": {"CT": [2.0, 1.8], "CAF": [0.5, 0.3]},
+    "mikrozement": {"CT": [2.3, 1.5], "CAF": [0.5, 0.3]}
+  },
+  "rinnen": {
+    "rinne_dn50_h90": {"name": "Duschrinne mit Ablauf DN 50 (Beispiel Geberit CleanLine, Estrichhoehe am Einlauf 90-220 mm)", "dn": 50, "estrichhoehe_min_mm": 90, "estrichhoehe_max_mm": 220, "ablaufleistung_l_s": 0.8, "quelle": "Herstellerkatalog Geberit (Art. 154.150.00.1)"},
+    "rinne_dn40_h65": {"name": "Duschrinne flach mit Ablauf DN 40 (Beispiel Geberit, Estrichhoehe am Einlauf 65-90 mm)", "dn": 40, "estrichhoehe_min_mm": 65, "estrichhoehe_max_mm": 90, "ablaufleistung_l_s": 0.4, "quelle": "Herstellerkatalog Geberit (Art. 154.152.00.1)"}
+  },
+  "raeume": [
+    {"id": "R01", "name": "Wohnen", "belag": "parkett_14_geklebt", "x0": 0, "y0": 0, "breite": 5000, "tiefe": 5000, "leitungen": []},
+    {"id": "R02", "name": "Kueche", "belag": "feinsteinzeug_10", "x0": 5000, "y0": 0, "breite": 3500, "tiefe": 2500,
+     "leitungen": [
+       {"bezeichnung": "PWC 16x2 Mehrschichtverbundrohr", "medium": "trinkwasser_kalt", "da_mm": 16, "di_mm": 12, "daemmung_mm": 9, "fuehrung": "im_aufbau"},
+       {"bezeichnung": "PWH 16x2 Stichleitung (1,2 l, ohne Zirkulation)", "medium": "trinkwasser_warm", "da_mm": 16, "di_mm": 12, "daemmung_mm": 9, "stichleitung_volumen_l": 1.2, "zirkulation": false, "fuehrung": "im_aufbau"}
+     ]},
+    {"id": "R03", "name": "Bad", "belag": "naturstein_20_mittelbett", "x0": 5000, "y0": 2500, "breite": 3500, "tiefe": 2500,
+     "dusche": {"bodengleich": true, "gefaelle_prozent": 2.0, "gefaelle_laenge_m": 1.0, "rinne": "rinne_dn50_h90", "x": 8200, "y": 3700},
+     "leitungen": [
+       {"bezeichnung": "Abwasser DN 50 Duschrinne", "medium": "abwasser", "da_mm": 50, "laenge_m": 1.2, "gefaelle_prozent": 1.0, "fuehrung": "unter_rohdecke"}
+     ]},
+    {"id": "R04", "name": "Flur", "belag": "beton_cire_3", "x0": 0, "y0": 5000, "breite": 8500, "tiefe": 1500,
+     "leitungen": [
+       {"bezeichnung": "Elektro-Leerrohr M25", "medium": "elektro", "da_mm": 25, "fuehrung": "im_aufbau"}
+     ]}
+  ],
+  "uebergaenge": [
+    {"a": "R01", "b": "R02", "art": "offen (ohne Tuer)"},
+    {"a": "R04", "b": "R01", "art": "Tuer T01"},
+    {"a": "R04", "b": "R03", "art": "Tuer T02 (Bad)"}
+  ],
+  "varianten": {
+    "A_bodenplatte_nass": {
+      "name": "EG auf Stahlbeton-Bodenplatte, Heizestrich nass (Bauart A)",
+      "geschoss": "EG",
+      "rohdecke": {"typ": "bodenplatte", "name": "Stahlbeton-Bodenplatte 250 mm", "dicke_mm": 250, "rho": 2400, "lambda": 2.3, "ebenheit_toleranz_mm": 8, "unten": "erdreich", "quelle_toleranz": "DIN 18202 Tab. 3 Zeile 2 (1 m Messpunktabstand, Beispiel)"},
+      "ziel_aufbauhoehe_mm": 210,
+      "fbh": {"aktiv": true, "system": "nass_A", "rohr_da_mm": 17},
+      "estrich_standard": "CAF_F4",
+      "estrich_gefaellebereich": "CT_F4",
+      "toleranz_im_estrich_anrechnen": true,
+      "schichten": [
+        {"rolle": "abdichtung", "pflicht": true, "optionen": [{"material": "bitumen_abdichtung", "dicken": [5]}]},
+        {"rolle": "installationsebene", "pflicht": false, "optionen": [
+          {"material": "eps_deo_035", "dicken": [20, 25, 30, 35, 40, 50, 60], "ausgleich": "daemmplatte"},
+          {"material": "gebundene_schuettung", "bereich": [30, 120], "ausgleich": "schuettung"}]},
+        {"rolle": "waermedaemmung", "pflicht": false, "optionen": [{"material": "eps_deo_035", "dicken": [20, 30, 40, 50, 60, 80, 100, 120], "lagen_max": 2}]},
+        {"rolle": "trittschall", "pflicht": true, "optionen": [{"material": "eps_t_tacker", "dicken": [30]}]}
+      ],
+      "oberhalb_estrich": [],
+      "grenzen": {"u_wert_max": 0.30, "r_ins_min": 1.25, "summe_c_max_mm": 5, "buendig_toleranz_mm": 5, "max_flaechenmasse_kg_m2": null, "masse_unter_trittschall_min_kg_m2": null},
+      "abwasser_fuehrung_hinweis": "Anschlussleitung der Rinne senkrecht durch Bodenplatten-Aussparung zur Grundleitung (Rohbau)",
+      "gewichte": {"masse": 1.0, "kosten": 1.0, "lagen": 0.1}
+    },
+    "B_holzbalkendecke_trocken": {
+      "name": "OG auf Holzbalkendecke, Trockenaufbau mit Beschwerung und FBH-Trockensystem",
+      "geschoss": "OG",
+      "rohdecke": {"typ": "holzbalkendecke", "name": "Holzbalkendecke, OSB 22 mm auf KVH 100/240 (e = 625 mm)", "dicke_mm": 22, "rho": 600, "lambda": 0.13, "ebenheit_toleranz_mm": 4, "unten": "beheizt", "quelle_toleranz": "Beispielwert (Werksfertigung) [U]"},
+      "ziel_aufbauhoehe_mm": 160,
+      "fbh": {"aktiv": true, "system": "trocken"},
+      "estrich_standard": "TE_GF_25",
+      "estrich_gefaellebereich": "TE_ZEM_25",
+      "toleranz_im_estrich_anrechnen": false,
+      "schichten": [
+        {"rolle": "installationsebene", "pflicht": false, "optionen": [{"material": "gebundene_schuettung", "bereich": [30, 120], "ausgleich": "schuettung"}]},
+        {"rolle": "beschwerung", "pflicht": false, "optionen": [{"material": "wabe_schuettung", "dicken": [30, 60]}]},
+        {"rolle": "ausgleich", "pflicht": false, "optionen": [{"material": "ausgleichsschuettung", "bereich": [10, 60]}]},
+        {"rolle": "trittschall", "pflicht": true, "optionen": [{"material": "holzfaser_tsd", "dicken": [20, 30, 40]}]},
+        {"rolle": "fbh", "pflicht": true, "optionen": [{"material": "fbh_systemplatte_trocken", "dicken": [25]}]}
+      ],
+      "oberhalb_estrich": [{"rolle": "spachtelung", "pflicht": false, "optionen": [{"material": "spachtelmasse", "bereich": [2, 5]}]}],
+      "grenzen": {"u_wert_max": null, "r_ins_min": 0.75, "summe_c_max_mm": 5, "buendig_toleranz_mm": 5, "max_flaechenmasse_kg_m2": 180, "masse_unter_trittschall_min_kg_m2": 45},
+      "abwasser_fuehrung_hinweis": "Anschlussleitung der Rinne in der Balkenlage (parallel zu den Balken) - Durchbruchspruefung siehe B15",
+      "gewichte": {"masse": 1.0, "kosten": 1.0, "lagen": 0.1}
+    }
+  }
+}

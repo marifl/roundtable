@@ -132,6 +132,9 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
 | Elektro, Netzwerk | Leitungen in Installationszonen, Dosen, Zählerschrank, Netzwerk, Smart Home |
 | Wasser | Trinkwasser kalt und warm, Zirkulation, Abwasser mit Lüftung über Dach |
 | Dimensionen und Durchdringungen | Nennweite jeder Leitung berechnet. Jede Bohrung, jeder Durchbruch, jeder Wechsel und jede Manschette ist geplant, regelgeprüft und als Fertigungsbearbeitung übergeben |
+| Fliesen und Parkett in 3D | jede Fliese als echtes 3D-Objekt. Verschnitt, Reststücke und Mehraufwand werden real berechnet, auch bei Chevron oder Fischgrät in einem achteckigen Duschraum mit mehrfachem Gefälle |
+| Grundstücksentwässerung | Grundleitungen, Kontroll- und Revisionsschächte, Rückstausicherung, Versickerung über Rigolen mit Bemessung nach DWA-A 138-1, Entwässerungsantrag nach kommunaler Satzung (z. B. MSE München) |
+| Baustellenlogistik | Elementgewichte, Kranwahl nach Ausleger und Traglast, Kranstellplatz, Abstellflächen für Wechselbrücken, Transportgenehmigungen, Montagereihenfolge |
 | Fußbodenaufbau | Estrich- und Dämmhöhen werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei jedem Belag gleich bleibt (Parkett, Fliese, Naturstein, Beton Ciré). Keine Kante an Übergängen |
 | Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |
 | Licht, PV | Lichtplanung mit Leuchtendaten, Photovoltaik mit Belegung und Ertrag |

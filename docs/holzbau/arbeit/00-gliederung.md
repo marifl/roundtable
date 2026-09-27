@@ -2,7 +2,7 @@
 
 **Untertitel:** Ein Design-Science-Ansatz für kundengesteuerten Entwurf mit Sprachschnittstelle, Regelprüfung nach deutschem Bau- und Handwerksrecht und Ableitung von Bauvorlagen und Maschinendaten aus einem einzigen Informationsmodell
 
-Status: Gliederung v0.3 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit Routing, Dach und Fassade im Detail, 3D-Präsentation, vollständigen Innenausbau- und Interior-Katalog sowie alle Wohngebäudetypen
+Status: Gliederung v0.4 (27.09.2026): zusätzlich Fliesen als 3D-Einzelobjekte, Grundstücksentwässerung, Baustellenlogistik; Umfang erweitert um Bemusterung, TGA mit Routing, Dach und Fassade im Detail, 3D-Präsentation, vollständigen Innenausbau- und Interior-Katalog sowie alle Wohngebäudetypen
 
 ---
 
@@ -148,6 +148,11 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 1. Taxonomie der Bemusterung: Fenster, Türen, Treppe, Böden, Fliesen, Sanitär, Elektro-Schalterprogramm, Heizung, Lüftung, Oberflächen, Fassade, Dach, Außenanlagen
 2. Innenausbau im Detail:
    - Fliesen: Format, Rutschhemmung, Verlegemuster, Fugenbild und Fugenfarbe, Abdichtung
+   - Fliesen und Parkett als echte 3D-Einzelobjekte:
+     - Verschnitt real berechnet, auch bei Chevron oder Fischgrät in polygonalen Räumen mit mehrfachem Gefälle
+     - Reststücke werden wiederverwendet
+     - Mehraufwand aus Schnittanzahl und Schnittlänge
+     - Abrechnung nach ATV DIN 18352
    - Parkett und Böden: Holzart, Sortierung, Oberfläche, Verlegemuster, Sockelleisten, Übergänge
    - Fußbodenaufbau mit Höhenausgleich: Estrich-, Dämm- und Ausgleichsschichten werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei Parkett, Feinsteinzeug, Naturstein, Beton Ciré und Vinyl gleich bleibt. So entstehen keine Kanten an Übergängen, einschließlich schwellenfreier Duschen
    - Wandfarben, Putze einschließlich Keller, Oberflächenqualität Q1–Q4
@@ -184,6 +189,19 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 5. Dachentwässerung nach DIN 1986-100 mit Regenspende (KOSTRA-DWD)
 6. Photovoltaik: Belegung, Randabstände, Ertrag (pvlib, PVGIS), Anmeldung
 7. Fassadenvarianten: Holzschalung nach Fachregel 01, Putz auf Holzfaser, Farben, Gestaltungssatzungen
+
+### 14a. Grundstücksentwässerung und Außenanlagen
+1. Schmutzwasser: Grundleitungen, Gefälle, Überdeckung, Reinigungsöffnungen, Kontroll- und Revisionsschächte, Rückstauebene, Hebeanlage (DIN 1986-100, DIN EN 752)
+2. Niederschlagswasser: Versickerung über Mulde, Rigole und Schacht nach DWA-A 138-1; erlaubnisfreie Versickerung nach NWFreiV/TRENGW; Zisterne, Gründach, Drosselabfluss
+3. Kommunale Anforderungen am Beispiel München (MSE, Entwässerungssatzung, Entwässerungsantrag)
+4. Routing auf dem Grundstück aus dem Geländemodell, Schachtpositionen, Hydraulik (SWMM)
+
+### 14b. Baustellenlogistik und Montageplanung
+1. Elementgewichte aus dem Modell (Volumen × Dichte)
+2. Kranwahl: Autokran, Mobilbaukran, Schnelleinsatz- und Turmdrehkran; Ausleger, Traglast nach Radius, Abstützung, Bodenpressung
+3. Kranstellplatz, Abladezone, Abstellflächen für Wechselbrücken, Abstände zu Baugrube, Freileitung und Nachbar
+4. Transport: Maße, Gewichte, Ladungen, Genehmigungen (StVO, Sondernutzung)
+5. Montagereihenfolge und Zeitplan (IfcTask, IfcWorkSchedule), Baustelleneinrichtungsplan, SiGe-Plan
 
 ### 15. Fachmodule
 1. Energie: H'T, Modellgebäudeverfahren, Monatsbilanz, Space Boundaries
@@ -227,6 +245,9 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B12 (geplant) Wechsel des Gebäudetyps EFH → ZFH mit automatisch umgeschaltetem Regelprofil
 - B14 Fußbodenaufbau-Solver: gleiche Fertigfußbodenhöhe über vier Beläge mit Fußbodenheizung
 - B15 (geplant) Durchdringung einer Abwasserleitung DN 100 durch Holzbalkendecke und Ständerwand mit Bohrungsprüfung, Durchbruch, Wechsel und Manschette
+- B16 Fliesenverlegung als 3D-Einzelobjekte: Chevron im achteckigen Duschraum mit Gefälle, Verschnitt und Wiederverwendung der Reststücke
+- B17 Grundstücksentwässerung: Grundleitung, Schächte, Rigolenbemessung
+- B18 Kranplanung: Elementgewichte aus IFC, Kranwahl, Stellplatz, BE-Plan
 - B13 (geplant) Assistenz: Grundriss-Score (Tageslicht, Zonierung, Space-Syntax-Integration) mit Empfehlung, Begründung und Evidenzgrad; optional Feng-Shui-Profil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 
