@@ -114,6 +114,21 @@ Status: Gliederung v0.3 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 4. Holzbau in GK 4/5 nach HolzBauRL 2024
 5. Gebäudetyp E und Typengenehmigung für serielles Bauen
 
+### 9b. Entwurfsqualität: Architekturpsychologie und Kulturprofile
+Assistenz statt Vorschrift. Das System hilft Laien, gute Räume zu planen, ohne sie zu bevormunden.
+
+1. Regelklasse R5 „Empfehlungen“: weiche Regeln mit Score, Begründung und Evidenzgrad; getrennt von den harten Regeln R1–R4
+2. Evidenzbasierte Wirkfaktoren:
+   - Tageslicht, Blick ins Grüne, Prospect-Refuge
+   - Raumhöhe, Privatheitsgradient, Crowding, Akustik
+   - Orientierung (Space Syntax)
+3. Rechenbares Grundrisswissen:
+   - Raumbeziehungen, Zonierung, Himmelsrichtungen
+   - Möblierbarkeit, Stauraum, Verkehrsflächenanteil
+4. Wohnqualitäts-Scoring, z. B. nach dem Schweizer Wohnungs-Bewertungs-System (WBS)
+5. Kulturprofile als optionale Wahl des Kunden: Feng Shui, Vastu, Baubiologie. Jede Regel wird mit Evidenzgrad gekennzeichnet und mit evidenzbasierten Faktoren abgeglichen (z. B. Feng-Shui-„Kommandoposition“ ≈ Prospect-Refuge)
+6. Evidenzgrad-Schema (A Meta-Analyse bis D Tradition ohne empirische Prüfung) und Ethik der Assistenz (Nudging, Transparenz)
+
 ### 10. Sprachschnittstelle
 1. Spracherkennung Deutsch: Streaming, Fachbegriffe
 2. Intent-Erkennung mit typisierten Fragen (choice, score, noul), Kalibrierung, Hierarchie unter 20 Optionen
@@ -205,6 +220,7 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B9 (geplant) Bemusterungsoption Wand-WC mit Folgeänderungen an Vorwand, Ständer und Abwasser
 - B11 (geplant) Fliesenverlegung mit Verlegemuster, Fugenbild und Schnittplan als festgeschriebene Auswahl
 - B12 (geplant) Wechsel des Gebäudetyps EFH → ZFH mit automatisch umgeschaltetem Regelprofil
+- B13 (geplant) Assistenz: Grundriss-Score (Tageslicht, Zonierung, Space-Syntax-Integration) mit Empfehlung, Begründung und Evidenzgrad; optional Feng-Shui-Profil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 
 ### 20. Evaluation

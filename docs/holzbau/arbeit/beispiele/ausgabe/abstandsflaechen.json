@@ -1,0 +1,638 @@
+[
+  {
+    "szenario": "mittig",
+    "beschreibung": "Haus mittig, 5 m zu den seitlichen Grenzen",
+    "giebel_modus": "drittel",
+    "x": 5.0,
+    "y": 9.0,
+    "zulaessig": true,
+    "waende": [
+      {
+        "wand": "West (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            1.733,
+            9.0
+          ],
+          [
+            5.0,
+            9.0
+          ],
+          [
+            5.0,
+            21.0
+          ],
+          [
+            1.733,
+            21.0
+          ],
+          [
+            1.733,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Ost (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            9.0
+          ],
+          [
+            18.267,
+            9.0
+          ],
+          [
+            18.267,
+            21.0
+          ],
+          [
+            15.0,
+            21.0
+          ],
+          [
+            15.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Süd (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 13.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            5.0,
+            9.0
+          ],
+          [
+            5.0,
+            6.0
+          ],
+          [
+            8.0,
+            6.0
+          ],
+          [
+            10.0,
+            5.733
+          ],
+          [
+            12.0,
+            6.0
+          ],
+          [
+            15.0,
+            6.0
+          ],
+          [
+            15.0,
+            9.0
+          ],
+          [
+            5.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Nord (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 9.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            21.0
+          ],
+          [
+            15.0,
+            24.0
+          ],
+          [
+            12.0,
+            24.0
+          ],
+          [
+            10.0,
+            24.267
+          ],
+          [
+            8.0,
+            24.0
+          ],
+          [
+            5.0,
+            24.0
+          ],
+          [
+            5.0,
+            21.0
+          ],
+          [
+            15.0,
+            21.0
+          ]
+        ]
+      }
+    ],
+    "dachhoehe": 5.0
+  },
+  {
+    "szenario": "zu_nah",
+    "beschreibung": "Haus 2 m an die westliche Grenze gerückt",
+    "giebel_modus": "drittel",
+    "x": 2.0,
+    "y": 9.0,
+    "zulaessig": false,
+    "waende": [
+      {
+        "wand": "West (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 2.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 15.2,
+        "zulaessig": false,
+        "polygon": [
+          [
+            -1.267,
+            9.0
+          ],
+          [
+            2.0,
+            9.0
+          ],
+          [
+            2.0,
+            21.0
+          ],
+          [
+            -1.267,
+            21.0
+          ],
+          [
+            -1.267,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Ost (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 8.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            12.0,
+            9.0
+          ],
+          [
+            15.267,
+            9.0
+          ],
+          [
+            15.267,
+            21.0
+          ],
+          [
+            12.0,
+            21.0
+          ],
+          [
+            12.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Süd (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 13.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            2.0,
+            9.0
+          ],
+          [
+            2.0,
+            6.0
+          ],
+          [
+            5.0,
+            6.0
+          ],
+          [
+            7.0,
+            5.733
+          ],
+          [
+            9.0,
+            6.0
+          ],
+          [
+            12.0,
+            6.0
+          ],
+          [
+            12.0,
+            9.0
+          ],
+          [
+            2.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Nord (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 9.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            12.0,
+            21.0
+          ],
+          [
+            12.0,
+            24.0
+          ],
+          [
+            9.0,
+            24.0
+          ],
+          [
+            7.0,
+            24.267
+          ],
+          [
+            5.0,
+            24.0
+          ],
+          [
+            2.0,
+            24.0
+          ],
+          [
+            2.0,
+            21.0
+          ],
+          [
+            12.0,
+            21.0
+          ]
+        ]
+      }
+    ],
+    "dachhoehe": 5.0
+  },
+  {
+    "szenario": "an_strasse",
+    "beschreibung": "Haus 1 m hinter der Straßengrenze (Süd)",
+    "giebel_modus": "drittel",
+    "x": 5.0,
+    "y": 1.0,
+    "zulaessig": true,
+    "waende": [
+      {
+        "wand": "West (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            1.733,
+            1.0
+          ],
+          [
+            5.0,
+            1.0
+          ],
+          [
+            5.0,
+            13.0
+          ],
+          [
+            1.733,
+            13.0
+          ],
+          [
+            1.733,
+            1.0
+          ]
+        ]
+      },
+      {
+        "wand": "Ost (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            1.0
+          ],
+          [
+            18.267,
+            1.0
+          ],
+          [
+            18.267,
+            13.0
+          ],
+          [
+            15.0,
+            13.0
+          ],
+          [
+            15.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "wand": "Süd (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            5.0,
+            1.0
+          ],
+          [
+            5.0,
+            -2.0
+          ],
+          [
+            8.0,
+            -2.0
+          ],
+          [
+            10.0,
+            -2.267
+          ],
+          [
+            12.0,
+            -2.0
+          ],
+          [
+            15.0,
+            -2.0
+          ],
+          [
+            15.0,
+            1.0
+          ],
+          [
+            5.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "wand": "Nord (Giebel)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 17.0,
+        "flaeche_m2": 30.533,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            13.0
+          ],
+          [
+            15.0,
+            16.0
+          ],
+          [
+            12.0,
+            16.0
+          ],
+          [
+            10.0,
+            16.267
+          ],
+          [
+            8.0,
+            16.0
+          ],
+          [
+            5.0,
+            16.0
+          ],
+          [
+            5.0,
+            13.0
+          ],
+          [
+            15.0,
+            13.0
+          ]
+        ]
+      }
+    ],
+    "dachhoehe": 5.0
+  },
+  {
+    "szenario": "mittig",
+    "beschreibung": "Haus mittig, 5 m zu den seitlichen Grenzen",
+    "giebel_modus": "voll",
+    "x": 5.0,
+    "y": 9.0,
+    "zulaessig": true,
+    "waende": [
+      {
+        "wand": "West (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            1.733,
+            9.0
+          ],
+          [
+            5.0,
+            9.0
+          ],
+          [
+            5.0,
+            21.0
+          ],
+          [
+            1.733,
+            21.0
+          ],
+          [
+            1.733,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Ost (Traufe)",
+        "H": 8.167,
+        "T_erforderlich": 3.267,
+        "T_vorhanden_mitte": 5.0,
+        "flaeche_m2": 39.2,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            9.0
+          ],
+          [
+            18.267,
+            9.0
+          ],
+          [
+            18.267,
+            21.0
+          ],
+          [
+            15.0,
+            21.0
+          ],
+          [
+            15.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Süd (Giebel)",
+        "H": 11.5,
+        "T_erforderlich": 4.6,
+        "T_vorhanden_mitte": 13.0,
+        "flaeche_m2": 36.4,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            5.0,
+            9.0
+          ],
+          [
+            5.0,
+            6.0
+          ],
+          [
+            6.0,
+            6.0
+          ],
+          [
+            10.0,
+            4.4
+          ],
+          [
+            14.0,
+            6.0
+          ],
+          [
+            15.0,
+            6.0
+          ],
+          [
+            15.0,
+            9.0
+          ],
+          [
+            5.0,
+            9.0
+          ]
+        ]
+      },
+      {
+        "wand": "Nord (Giebel)",
+        "H": 11.5,
+        "T_erforderlich": 4.6,
+        "T_vorhanden_mitte": 9.0,
+        "flaeche_m2": 36.4,
+        "ueberschreitung_m2": 0.0,
+        "zulaessig": true,
+        "polygon": [
+          [
+            15.0,
+            21.0
+          ],
+          [
+            15.0,
+            24.0
+          ],
+          [
+            14.0,
+            24.0
+          ],
+          [
+            10.0,
+            25.6
+          ],
+          [
+            6.0,
+            24.0
+          ],
+          [
+            5.0,
+            24.0
+          ],
+          [
+            5.0,
+            21.0
+          ],
+          [
+            15.0,
+            21.0
+          ]
+        ]
+      }
+    ],
+    "dachhoehe": 5.0
+  }
+]

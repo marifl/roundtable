@@ -65,7 +65,8 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
 7. **Die KI versteht, der Code entscheidet.**
    - Das Intent-Modell (Laya lokal, Jev als Fallback) erkennt nur die Absicht und liefert Wahrscheinlichkeiten.
    - Werte, Regeln, Statik und Kosten berechnet deterministischer Code.
-8. **Menschen unterschreiben, was das Gesetz verlangt.**
+8. **Assistieren statt bevormunden.** Neben den harten Regeln gibt es Empfehlungen aus Architektur- und Umweltpsychologie, etwa zu Tageslicht, Zonierung, Blickbeziehungen und Möblierbarkeit. Jede Empfehlung kommt mit Begründung und Evidenzgrad. Kulturprofile wie Feng Shui, Vastu oder Baubiologie kann der Kunde wählen. Sie sind transparent als Tradition gekennzeichnet und werden nie als Wissenschaft ausgegeben. So plant niemand aus Versehen Unsinn, und trotzdem entscheidet der Kunde.
+9. **Menschen unterschreiben, was das Gesetz verlangt.**
    - Die Firma ist Entwurfsverfasser unter Leitung einer namentlich benannten bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Bei GK 1–3 mit höchstens 3 Wohnungen kann das auch ein Zimmerermeister sein (Abs. 3). Bei größeren Gebäuden, etwa Mehrfamilienhäusern, braucht es Architekt oder Ingenieur mit Listeneintrag. Für GK 4/5 kommen Prüfingenieure und Prüfsachverständige hinzu. Das System wählt das Freigabe-Gate passend zum Gebäudetyp.
    - Jede Freigabe steht als `IfcApproval` im Modell.
 
