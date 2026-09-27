@@ -9,10 +9,10 @@ Automatisch erzeugt von `../referenzdatenbank.py`. Nicht von Hand bearbeiten; Ä
 | Quellen | 811 |
 | einzeln bewertet | 811 |
 | zweitbewertet (blind) | 0 |
-| Abstract-Datensätze | 403 |
-| davon mit Originalabstract | 316 |
+| Abstract-Datensätze | 656 |
+| davon mit Originalabstract | 504 |
 
-Open-Access-Status: closed: 158, gold: 63, hybrid: 55, green: 54, bronze: 38, unbekannt: 18, frei (amtlich): 13, diamond: 4
+Open-Access-Status: closed: 279, green: 106, gold: 93, hybrid: 68, bronze: 51, unbekannt: 36, frei (amtlich): 19, diamond: 4
 
 ## Dateien
 
