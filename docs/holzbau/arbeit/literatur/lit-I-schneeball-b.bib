@@ -1,0 +1,1851 @@
+% lit-I-schneeball-b.bib -- Schneeballverfahren Runde 1, Teil B (FF3 Sprache, FF5 Wirkung, FF6 Detailtiefe), Stand 27.09.2026
+% Begleitdokument: ../../recherche/25-schneeball-ff3-ff5-ff6.md
+% Verfahren: Wohlin (2014), rückwärts = Referenzen der Startquelle, vorwärts = zitierende Arbeiten.
+% Prüfweg: OpenAlex (api.openalex.org, Filter cited_by:/cites:/doi:) über Exa-Fetch, da Direktzugriff auf
+%   Semantic Scholar, OpenAlex und Crossref per Proxy gesperrt ist (403); Crossref-Records über Exa-Fetch für
+%   Tagungsbände/Buchkapitel. Existenz jeder Quelle ist über den DOI-Record belegt.
+% Dubletten zu quellen-master.csv und allen vorhandenen .bib-Dateien sind NICHT enthalten (Abgleich über DOI und
+%   normalisierten Titel). Keine Key-Kollision mit vorhandenen .bib-Dateien (geprüft beim Erzeugen).
+% [V] = bibliografisch verifiziert; [U] = Teilangaben unsicher (Grund im note-Feld).
+% Zeichen: UTF-8.
+
+
+% ===================== FF3 Sprachschnittstelle: Sprache -> deterministische Modelländerung, Intent, LLM + Solver =====================
+
+@inproceedings{chen2026critiquecrew,
+  author       = {Chen, Xiaojiao and Zhou, Jiahuan and Shu, Yunfeng and Wang, Ruihan and Liu, Qinghua},
+  title        = {{CritiqueCrew}: Orchestrating Multi-Perspective Conversational Design Critique},
+  booktitle    = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  pages        = {1--20},
+  year         = {2026},
+  doi          = {10.1145/3772318.3791391},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von fischer1991critiquing, vorwärts.}
+}
+
+@inproceedings{dieng2026hvac,
+  author       = {Dieng, Ousmane and Zhao, Kaiwen and Lee, Stephen},
+  title        = {Knowledge-Guided Self-Reflection {LLM} Agents for {HVAC} Simulation in {EnergyPlus}},
+  booktitle    = {Proceedings of the 13th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation},
+  pages        = {103--114},
+  year         = {2026},
+  doi          = {10.1145/3744256.3812593},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{dinis2024nui,
+  author       = {Dinis, Fábio Matoseiro and Rodrigues, Raquel and Poças Martins, João Pedro da Silva},
+  title        = {Development and validation of natural user interfaces for semantic enrichment of {BIM} models using open formats},
+  journal      = {Construction Innovation},
+  volume       = {24},
+  number       = {1},
+  pages        = {196--220},
+  year         = {2024},
+  doi          = {10.1108/ci-12-2022-0348},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2023. Schneeball von brooke1996sus, vorwärts.}
+}
+
+@article{elghaish2022voice,
+  author       = {Elghaish, Faris and Chauhan, Jatin Kumar and Matarneh, Sandra and Pour Rahimian, Farzad and Hosseini, M. Reza},
+  title        = {Artificial intelligence-based voice assistant for {BIM} data management},
+  journal      = {Automation in Construction},
+  volume       = {140},
+  pages        = {104320},
+  year         = {2022},
+  doi          = {10.1016/j.autcon.2022.104320},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kodnongbua2024zeroshot, rückwärts.}
+}
+
+@inproceedings{erculiani2019layout,
+  author       = {Erculiani, Luca and Dragone, Paolo and Teso, Stefano and Passerini, Andrea},
+  title        = {Automating Layout Synthesis with Constructive Preference Elicitation},
+  booktitle    = {Machine Learning and Knowledge Discovery in Databases},
+  series       = {Lecture Notes in Computer Science},
+  pages        = {254--270},
+  publisher    = {Springer International Publishing},
+  year         = {2019},
+  doi          = {10.1007/978-3-030-10997-4_16},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von meseguer2006soft, vorwärts.}
+}
+
+@article{fernandes2024gptassistant,
+  author       = {Fernandes, David and Garg, Sahej and Nikkel, Matthew and Guven, Gursans},
+  title        = {A {GPT-Powered} Assistant for Real-Time Interaction with Building Information Models},
+  journal      = {Buildings},
+  volume       = {14},
+  number       = {8},
+  pages        = {2499},
+  year         = {2024},
+  doi          = {10.3390/buildings14082499},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, rückwärts.}
+}
+
+@inproceedings{gao2023pal,
+  author       = {Gao, Luyu and Madaan, Aman and Zhou, Shuyan and Alon, Uri and Liu, Pengfei and Yang, Yiming and Callan, Jamie and Neubig, Graham},
+  title        = {{PAL}: Program-aided Language Models},
+  booktitle    = {Proceedings of the 40th International Conference on Machine Learning},
+  series       = {Proceedings of Machine Learning Research},
+  volume       = {202},
+  pages        = {10764--10799},
+  publisher    = {PMLR},
+  url          = {https://proceedings.mlr.press/v202/gao23f.html},
+  eprint       = {2211.10435},
+  archiveprefix = {arXiv},
+  year         = {2023},
+  doi          = {10.48550/arxiv.2211.10435},
+  note         = {[V] PMLR-Seite (proceedings.mlr.press/v202/gao23f, Exa-Fetch) und OpenAlex-Record des arXiv-Preprints 2211.10435; Abstract gelesen. Schneeball von kodnongbua2024zeroshot, rückwärts.}
+}
+
+@article{gregor1999explanations,
+  author       = {Gregor, Shirley and Benbasat, Izak},
+  title        = {Explanations from Intelligent Systems: Theoretical Foundations and Implications for Practice},
+  journal      = {MIS Quarterly},
+  volume       = {23},
+  number       = {4},
+  pages        = {497--530},
+  year         = {1999},
+  doi          = {10.2307/249487},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von silverman1992critiquing, vorwärts.}
+}
+
+@article{huang2024semanticgap,
+  author       = {Huang, Jianhui and Wang, Yue and Ng, Stephen C.H. and Tsung, Fugee},
+  title        = {Overcoming the semantic gap in the customer-to-manufacturer ({C2M}) platform: A soft prompts-based approach with pretrained language models},
+  journal      = {International Journal of Production Economics},
+  volume       = {272},
+  pages        = {109248},
+  year         = {2024},
+  doi          = {10.1016/j.ijpe.2024.109248},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{ibrahim2026llmreview,
+  author       = {Ibrahim, Adnan and Alsukkar, Muna and Xu, Yonghong and Hermaputi, Roosmayri Lovina and Yin, Shi and Xiao, Yiqiang},
+  title        = {The potential of large language models for sustainable building performance: A review of applications, evaluation practices, and reliability},
+  journal      = {Energy for Sustainable Development},
+  volume       = {95},
+  pages        = {102104},
+  year         = {2026},
+  doi          = {10.1016/j.esd.2026.102104},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{jaff2025visa4d,
+  author       = {Jaff, Larin and Garg, Sahej and Guven, Gursans},
+  title        = {A Novel Framework for Natural Language Interaction with 4D {BIM}},
+  journal      = {Buildings},
+  volume       = {15},
+  number       = {11},
+  pages        = {1840},
+  year         = {2025},
+  doi          = {10.3390/buildings15111840},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von sonnenberg2012evaluations, vorwärts.}
+}
+
+@inproceedings{jang2024interactivedesign,
+  author       = {Jang, Suhyung and Lee, Ghang},
+  title        = {Interactive Design by Integrating a Large Pre-Trained Language Model and Building Information Modeling},
+  booktitle    = {Computing in Civil Engineering 2023},
+  pages        = {291--299},
+  publisher    = {American Society of Civil Engineers},
+  year         = {2024},
+  doi          = {10.1061/9780784485231.035},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, rückwärts; Schneeball von lee2024generalized, rückwärts.}
+}
+
+@article{jiang2024epluslm,
+  author       = {Jiang, Gang and Ma, Zhihao and Zhang, Liang and Chen, Jianli},
+  title        = {{EPlus-LLM}: A large language model-based computing platform for automated building energy modeling},
+  journal      = {Applied Energy},
+  volume       = {367},
+  pages        = {123431},
+  year         = {2024},
+  doi          = {10.1016/j.apenergy.2024.123431},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, rückwärts.}
+}
+
+@inproceedings{li2024spatial,
+  author       = {Li, Fangjun and Hogg, David C. and Cohn, Anthony G.},
+  title        = {Advancing Spatial Reasoning in Large Language Models: An In-Depth Evaluation and Enhancement Using the {StepGame} Benchmark},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume       = {38},
+  number       = {17},
+  pages        = {18500--18507},
+  year         = {2024},
+  doi          = {10.1609/aaai.v38i17.29811},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, rückwärts.}
+}
+
+@article{li2026functioncalling,
+  author       = {Li, Yinsheng and Dong, Zhen and Shao, Yi},
+  title        = {Efficient function-calling agents based on expert-planned coding for out-of-domain applications: A civil drafting case},
+  journal      = {Advanced Engineering Informatics},
+  volume       = {76},
+  pages        = {105022},
+  year         = {2026},
+  doi          = {10.1016/j.aei.2026.105022},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{lin2026defects,
+  author       = {Lin, Jia-Rui and Cai, Yunhong and Ni, Xiang-Rui and Pan, Peng},
+  title        = {Intelligent identification and correction of property-related design defects in {BIM} via large language models},
+  journal      = {Automation in Construction},
+  volume       = {192},
+  pages        = {107218},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.107218},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{makatura2024llm,
+  author       = {Makatura, Liane and Foshey, Michael and Wang, Bohan and Hähnlein, Felix and Ma, Pingchuan and Deng, Bolei and Tjandrasuwita, Megan and Spielberg, Andrew and Owens, Crystal and Chen, Peter Yichen and Zhao, Allan and Zhu, Amy and Norton, Wil and Gu, Edward and Jacob, Joshua and Li, Yifei and Schulz, Adriana and Matusik, Wojciech},
+  title        = {How Can Large Language Models Help Humans in Design and Manufacturing? Part 1: Elements of the {LLM-Enabled} Computational Design and Manufacturing Pipeline},
+  journal      = {Harvard Data Science Review},
+  number       = {Special Issue 5},
+  year         = {2024},
+  doi          = {10.1162/99608f92.cc80fe30},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kodnongbua2024zeroshot, rückwärts.}
+}
+
+@article{moshari2026material,
+  author       = {Moshari, Amirhosein and Javanroodi, Kavan and Nik, Vahid M.},
+  title        = {{LLM-enabled} bidirectional material semantic alignment for automated {BIM-to-building} performance assessment},
+  journal      = {Automation in Construction},
+  volume       = {192},
+  pages        = {107258},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.107258},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{park2026bimllm,
+  author       = {Park, Ingeon and Kim, Yije and Kim, Kyoungmin and Chin, Sangyoon},
+  title        = {{BIM–LLM} integration in {AECO} workflows: Applications, validation, and future directions},
+  journal      = {Automation in Construction},
+  volume       = {187},
+  pages        = {106905},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.106905},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{ratul2026handdrawn,
+  author       = {Ratul, Abir Khan and Acharjee, Sanjay and Park, Somin and Sakib, Md Nazmus},
+  title        = {Multi-agent {human-AI} collaborative framework for converting hand-drawn floor plans to 3D {BIM}},
+  journal      = {Automation in Construction},
+  volume       = {189},
+  pages        = {106984},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.106984},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@inproceedings{schick2023toolformer,
+  author       = {Schick, Timo and Dwivedi-Yu, Jane and Dessì, Roberto and Raileanu, Roberta and Lomeli, Maria and Hambro, Eric and Zettlemoyer, Luke and Cancedda, Nicola and Scialom, Thomas},
+  title        = {Toolformer: Language Models Can Teach Themselves to Use Tools},
+  booktitle    = {Advances in Neural Information Processing Systems 36},
+  pages        = {68539--68551},
+  publisher    = {Neural Information Processing Systems Foundation, Inc. (NeurIPS)},
+  year         = {2023},
+  doi          = {10.52202/075280-2997},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kodnongbua2024zeroshot, rückwärts.}
+}
+
+@article{wang2021knowledge,
+  author       = {Wang, Yue and Li, Xiang and Mo, Daniel},
+  title        = {Knowledge-Empowered Multitask Learning to Address the Semantic Gap Between Customer Needs and Design Specifications},
+  journal      = {IEEE Transactions on Industrial Informatics},
+  volume       = {17},
+  number       = {12},
+  pages        = {8397--8405},
+  year         = {2021},
+  doi          = {10.1109/tii.2021.3067141},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von randall2007user, vorwärts.}
+}
+
+@article{wang2021needsbased,
+  author       = {Wang, Yue and Zhao, Wenlong and Wan, Wayne Xinwei},
+  title        = {Needs-Based Product Configurator Design for Mass Customization Using Hierarchical Attention Network},
+  journal      = {IEEE Transactions on Automation Science and Engineering},
+  volume       = {18},
+  number       = {1},
+  pages        = {195--204},
+  year         = {2021},
+  doi          = {10.1109/tase.2019.2957136},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2020. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{wang2022natural,
+  author       = {Wang, Yue and Li, Xiang and Zhang, Linda L. and Mo, Daniel},
+  title        = {Configuring products with natural language: a simple yet effective approach based on text embeddings and multilayer perceptron},
+  journal      = {International Journal of Production Research},
+  volume       = {60},
+  number       = {17},
+  pages        = {5394--5406},
+  year         = {2022},
+  doi          = {10.1080/00207543.2021.1957508},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2021. Schneeball von trentin2013sales, vorwärts; Schneeball von randall2007user, vorwärts.}
+}
+
+@article{wu2019retrieval,
+  author       = {Wu, Songfei and Shen, Qiyu and Deng, Yichuan and Cheng, Jack},
+  title        = {Natural-language-based intelligent retrieval engine for {BIM} object database},
+  journal      = {Computers in Industry},
+  volume       = {108},
+  pages        = {73--88},
+  year         = {2019},
+  doi          = {10.1016/j.compind.2019.02.016},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kodnongbua2024zeroshot, rückwärts.}
+}
+
+@article{wu2026alterations,
+  author       = {Wu, Jiabin and Fuchs, Stefan and Pauwels, Pieter and Borrmann, André},
+  title        = {Automated building component alterations driven by {LLM-formalized} human strategies to achieve code compliance},
+  journal      = {Automation in Construction},
+  volume       = {190},
+  pages        = {107148},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.107148},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{yin2023ontology,
+  author       = {Yin, Mengtian and Tang, Llewellyn and Webster, Chris and Xu, Shen and Li, Xiongyi and Ying, Huaquan},
+  title        = {An ontology-aided, natural language-based approach for multi-constraint {BIM} model querying},
+  journal      = {Journal of Building Engineering},
+  volume       = {76},
+  pages        = {107066},
+  year         = {2023},
+  doi          = {10.1016/j.jobe.2023.107066},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{zhang2026multiagent,
+  author       = {Zhang, Haolan and Zhang, Ruichuan},
+  title        = {A Multiagent Large Language Model–Based System for Early-Stage Building Layout Planning},
+  journal      = {Journal of Computing in Civil Engineering},
+  volume       = {40},
+  number       = {6},
+  year         = {2026},
+  doi          = {10.1061/jccee5.cpeng-7723},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von du2026text2bim, vorwärts.}
+}
+
+
+% ===================== FF5 Wirkung: Konfiguratoren, Laien-/Expertenevaluation, Durchlaufzeit, Fehlerquote =====================
+
+@article{bakhshi2021dfma,
+  author       = {Bakhshi, Sajjad and Chenaghlou, Mohammad Reza and Pour Rahimian, Farzad and Edwards, David J. and Dawood, Nashwan},
+  title        = {Integrated {BIM} and {DfMA} parametric and algorithmic design based collaboration for supporting client engagement within offsite construction},
+  journal      = {Automation in Construction},
+  volume       = {133},
+  pages        = {104015},
+  year         = {2021},
+  doi          = {10.1016/j.autcon.2021.104015},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{borsci2022chatbot,
+  author       = {Borsci, Simone and Malizia, Alessio and Schmettow, Martin and van der Velde, Frank and Tariverdiyeva, Gunay and Balaji, Divyaa and Chamberlain, Alan},
+  title        = {The Chatbot Usability Scale: the Design and Pilot of a Usability Scale for Interaction with {AI-Based} Conversational Agents},
+  journal      = {Personal and Ubiquitous Computing},
+  volume       = {26},
+  number       = {1},
+  pages        = {95--119},
+  year         = {2022},
+  doi          = {10.1007/s00779-021-01582-9},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2021. Schneeball von brooke1996sus, vorwärts.}
+}
+
+@article{boumova2016apartment,
+  author       = {Boumová, Irena and Zdráhalová, Jana},
+  title        = {The Apartment with the Best Floor Plan Layout: Architects versus Non-architects},
+  journal      = {Critical Housing Analysis},
+  volume       = {3},
+  number       = {1},
+  pages        = {1},
+  year         = {2016},
+  doi          = {10.13060/23362839.2016.3.1.264},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von hanson1998decoding, vorwärts.}
+}
+
+@article{campogay2026quality,
+  author       = {Campo Gay, Irene and Sandrin, Enrico and Hvam, Lars and Forza, Cipriano and Jensen, Patrik and Adén, Erik and Ernfors, Johan},
+  title        = {Impact of configuration systems on quality. A longitudinal case study in the construction industry},
+  journal      = {International Journal of Construction Management},
+  pages        = {1--21},
+  year         = {2026},
+  doi          = {10.1080/15623599.2026.2724955},
+  note         = {[U] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Unsicher: Band/Heft im Record noch nicht vergeben (Online-First). Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{cannas2022eto,
+  author       = {Cannas, Violetta Giada and Masi, Antonio and Pero, Margherita and Brunø, Thomas Ditlev},
+  title        = {Implementing configurators to enable mass customization in the Engineer-to-Order industry: a multiple case study research},
+  journal      = {Production Planning & Control},
+  volume       = {33},
+  number       = {9-10},
+  pages        = {974--994},
+  year         = {2022},
+  doi          = {10.1080/09537287.2020.1837941},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2020. Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{chen2023factors,
+  author       = {Chen, Yifei and Zhu, Demi and Tian, Ze and Guo, Qun},
+  title        = {Factors influencing construction time performance of prefabricated house building: A multi-case study},
+  journal      = {Habitat International},
+  volume       = {131},
+  pages        = {102731},
+  year         = {2023},
+  doi          = {10.1016/j.habitatint.2022.102731},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2022. Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@mastersthesis{darwish2020estimating,
+  author       = {Darwish, Mohammad},
+  title        = {Residential construction manufacturing estimating framework: the case of lightweight timber framing},
+  school       = {University of Alberta, Department of Civil and Environmental Engineering},
+  type         = {MSc thesis},
+  url          = {https://era.library.ualberta.ca/items/3d7973d8-3c64-496d-adae-46490839d1a7},
+  year         = {2020},
+  doi          = {10.7939/r3-f5kg-w112},
+  note         = {[V] ERA-Katalogseite University of Alberta (Exa) und OpenAlex-Record; Abschluss Master of Science 2020; Abstract gelesen. Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{dellaert2005marketing,
+  author       = {Dellaert, Benedict G.C. and Stremersch, Stefan},
+  title        = {Marketing Mass-Customized Products: Striking a Balance between Utility and Complexity},
+  journal      = {Journal of Marketing Research},
+  volume       = {42},
+  number       = {2},
+  pages        = {219--227},
+  year         = {2005},
+  doi          = {10.1509/jmkr.42.2.219.62293},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{duncheva2019productivity,
+  author       = {Duncheva, Tsvetomila and Bradley, Fiona F.},
+  title        = {Multifaceted Productivity Comparison of Off-Site Timber Manufacturing Strategies in Mainland Europe and the United Kingdom},
+  journal      = {Journal of Construction Engineering and Management},
+  volume       = {145},
+  number       = {8},
+  year         = {2019},
+  doi          = {10.1061/(asce)co.1943-7862.0001641},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{fogliatto2012mass,
+  author       = {Fogliatto, Flavio S. and da Silveira, Giovani J. C. and Borenstein, Denis},
+  title        = {The mass customization decade: An updated review of the literature},
+  journal      = {International Journal of Production Economics},
+  volume       = {138},
+  number       = {1},
+  pages        = {14--25},
+  year         = {2012},
+  doi          = {10.1016/j.ijpe.2012.03.002},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{forcada2016handover,
+  author       = {Forcada, Nuria and Macarulla, Marcel and Gangolells, Marta and Casals, Miquel},
+  title        = {Handover defects: comparison of construction and post-handover housing defects},
+  journal      = {Building Research & Information},
+  volume       = {44},
+  number       = {3},
+  pages        = {279--288},
+  year         = {2016},
+  doi          = {10.1080/09613218.2015.1039284},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2015. Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{franke2003toolkits,
+  author       = {Franke, Nikolaus and Piller, Frank T.},
+  title        = {Key research issues in user interaction with user toolkits in a mass customisation system},
+  journal      = {International Journal of Technology Management},
+  volume       = {26},
+  number       = {5/6},
+  pages        = {578},
+  year         = {2003},
+  doi          = {10.1504/ijtm.2003.003424},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{franke2009testing,
+  author       = {Franke, Nikolaus and Keinz, Peter and Steger, Christoph J.},
+  title        = {Testing the Value of Customization: When Do Customers Really Prefer Products Tailored to Their Preferences?},
+  journal      = {Journal of Marketing},
+  volume       = {73},
+  number       = {5},
+  pages        = {103--121},
+  year         = {2009},
+  doi          = {10.1509/jmkg.73.5.103},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von randall2007user, vorwärts.}
+}
+
+@article{franke2010selfdesigned,
+  author       = {Franke, Nikolaus and Schreier, Martin},
+  title        = {Why Customers Value Self‐Designed Products: The Importance of Process Effort and Enjoyment*},
+  journal      = {Journal of Product Innovation Management},
+  volume       = {27},
+  number       = {7},
+  pages        = {1020--1031},
+  year         = {2010},
+  doi          = {10.1111/j.1540-5885.2010.00768.x},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts; Schneeball von randall2007user, vorwärts.}
+}
+
+@article{franke2014niche,
+  author       = {Franke, Nikolaus and Hader, Christopher},
+  title        = {Mass or Only “Niche Customization”? Why We Should Interpret Configuration Toolkits as Learning Instruments},
+  journal      = {Journal of Product Innovation Management},
+  volume       = {31},
+  number       = {6},
+  pages        = {1214--1234},
+  year         = {2014},
+  doi          = {10.1111/jpim.12137},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2013. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{grenzfurtner2026failure,
+  author       = {Grenzfurtner, Wolfgang and Gronalt, Manfred},
+  title        = {From failure to function: applying failure mode and effects analysis for continuous process improvement in industrialised housebuilding},
+  journal      = {Frontiers in Built Environment},
+  volume       = {12},
+  year         = {2026},
+  doi          = {10.3389/fbuil.2026.1784642},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{haubl2000decisionaids,
+  author       = {Häubl, Gerald and Trifts, Valerie},
+  title        = {Consumer Decision Making in Online Shopping Environments: The Effects of Interactive Decision Aids},
+  journal      = {Marketing Science},
+  volume       = {19},
+  number       = {1},
+  pages        = {4--21},
+  year         = {2000},
+  doi          = {10.1287/mksc.19.1.4.15178},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von randall2007user, rückwärts.}
+}
+
+@article{hentschke2019conjoint,
+  author       = {Hentschke, Cynthia dos Santos and Tillmann, Patricia André and Formoso, Carlos Torres and Martins, Vera Lúcia Milani and Echeveste, Marcia Elisa Soares},
+  title        = {Using conjoint analysis to understand customer preferences in customized low-income housebuilding projects},
+  journal      = {Ambiente Construído},
+  volume       = {20},
+  number       = {1},
+  pages        = {247--262},
+  year         = {2019},
+  doi          = {10.1590/s1678-86212020000100372},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{hentschke2020customer,
+  author       = {Hentschke, Cynthia dos Santos and Formoso, Carlos Torres and Echeveste, Marcia Elisa},
+  title        = {A Customer Integration Framework for the Development of Mass Customised Housing Projects},
+  journal      = {Sustainability},
+  volume       = {12},
+  number       = {21},
+  pages        = {8901},
+  year         = {2020},
+  doi          = {10.3390/su12218901},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{hentschke2022method,
+  author       = {Hentschke, Cynthia dos S. and Echeveste, Márcia Elisa S. and Formoso, Carlos T. and Ribeiro, José Luis D.},
+  title        = {Method for capturing demands for housing customisation: balancing value for customers and operations costs},
+  journal      = {Journal of Housing and the Built Environment},
+  volume       = {37},
+  number       = {1},
+  pages        = {311--337},
+  year         = {2022},
+  doi          = {10.1007/s10901-021-09838-9},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2021. Schneeball von schoenwitz2017product, vorwärts.}
+}
+
+@article{hofman2006variation,
+  author       = {Hofman, Erwin and Halman, Johannes I. M. and Ion, Roxana A.},
+  title        = {Variation in Housing Design: Identifying Customer Preferences},
+  journal      = {Housing Studies},
+  volume       = {21},
+  number       = {6},
+  pages        = {929--943},
+  year         = {2006},
+  doi          = {10.1080/02673030600917842},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, rückwärts.}
+}
+
+@article{huffman1998variety,
+  author       = {Huffman, Cynthia and Kahn, Barbara E.},
+  title        = {Variety for sale: Mass customization or mass confusion?},
+  journal      = {Journal of Retailing},
+  volume       = {74},
+  number       = {4},
+  pages        = {491--513},
+  year         = {1998},
+  doi          = {10.1016/s0022-4359(99)80105-5},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts; Schneeball von schoenwitz2017product, rückwärts.}
+}
+
+@article{hvam2006quotation,
+  author       = {Hvam, Lars and Pape, Simon and Nielsen, Michael K.},
+  title        = {Improving the quotation process with product configuration},
+  journal      = {Computers in Industry},
+  volume       = {57},
+  number       = {7},
+  pages        = {607--621},
+  year         = {2006},
+  doi          = {10.1016/j.compind.2005.10.001},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{hyun2020rework,
+  author       = {Hyun, Hosang and Kim, Hyunsoo and Lee, Hyun-Soo and Park, Moonseo and Lee, Jeonghoon},
+  title        = {Integrated Design Process for Modular Construction Projects to Reduce Rework},
+  journal      = {Sustainability},
+  volume       = {12},
+  number       = {2},
+  pages        = {530},
+  year         = {2020},
+  doi          = {10.3390/su12020530},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{krause2024abandonment,
+  author       = {Krause, Franziska and Franke, Nikolaus},
+  title        = {Understanding Consumer Self-Design Abandonment: A Dynamic Perspective},
+  journal      = {Journal of Marketing},
+  volume       = {88},
+  number       = {2},
+  pages        = {79--98},
+  year         = {2024},
+  doi          = {10.1177/00222429231183977},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2023. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{kristjansdottir2018challenges,
+  author       = {Kristjansdottir, Katrin and Shafiee, Sara and Hvam, Lars and Forza, Cipriano and Mortensen, Niels Henrik},
+  title        = {The main challenges for manufacturing companies in implementing and utilizing configurators},
+  journal      = {Computers in Industry},
+  volume       = {100},
+  pages        = {196--211},
+  year         = {2018},
+  doi          = {10.1016/j.compind.2018.05.001},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von trentin2013sales, vorwärts.}
+}
+
+@article{leclercq2022expectations,
+  author       = {Leclercq, Tony and Abbasi, Ebrahim Khalil and Dumas, Bruno and Remiche, Marie-Ange and Heymans, Patrick},
+  title        = {Essential Expectations of Users of Web Configurators: An Empirical Survey},
+  journal      = {Proceedings of the ACM on Human-Computer Interaction},
+  volume       = {6},
+  number       = {EICS},
+  pages        = {1--26},
+  year         = {2022},
+  doi          = {10.1145/3534519},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, vorwärts.}
+}
+
+@article{lee2020augmented,
+  author       = {Lee, Jin Gang and Seo, JoonOh and Abbas, Ali and Choi, Minji},
+  title        = {End-Users’ Augmented Reality Utilization for Architectural Design Review},
+  journal      = {Applied Sciences},
+  volume       = {10},
+  number       = {15},
+  pages        = {5363},
+  year         = {2020},
+  doi          = {10.3390/app10155363},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brooke1996sus, vorwärts.}
+}
+
+@article{leishman2006substitution,
+  author       = {Leishman, Chris and Warren, Fran},
+  title        = {Private housing design customization through house type substitution},
+  journal      = {Construction Management and Economics},
+  volume       = {24},
+  number       = {2},
+  pages        = {149--158},
+  year         = {2006},
+  doi          = {10.1080/01446190500204754},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, rückwärts.}
+}
+
+@article{leite2011modeling,
+  author       = {Leite, Fernanda and Akcamete, Asli and Akinci, Burcu and Atasoy, Guzide and Kiziltas, Semiha},
+  title        = {Analysis of modeling effort and impact of different levels of detail in building information models},
+  journal      = {Automation in Construction},
+  volume       = {20},
+  number       = {5},
+  pages        = {601--609},
+  year         = {2011},
+  doi          = {10.1016/j.autcon.2010.11.027},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2010. Schneeball von abualdenien2019metamodel, rückwärts.}
+}
+
+@article{liu2022offsite,
+  author       = {Liu, Yan and Yao, Fuyi and Ji, Yingbo and Tong, Wenjing and Liu, Guiwen and Li, Hong Xian and Hu, Xin},
+  title        = {Quality Control for Offsite Construction: Review and Future Directions},
+  journal      = {Journal of Construction Engineering and Management},
+  volume       = {148},
+  number       = {8},
+  year         = {2022},
+  doi          = {10.1061/(asce)co.1943-7862.0002317},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{macarulla2013defects,
+  author       = {Macarulla, Marcel and Forcada, Nuria and Casals, Miquel and Gangolells, Marta and Fuertes, Alba and Roca, Xavier},
+  title        = {Standardizing Housing Defects: Classification, Validation, and Benefits},
+  journal      = {Journal of Construction Engineering and Management},
+  volume       = {139},
+  number       = {8},
+  pages        = {968--976},
+  year         = {2013},
+  doi          = {10.1061/(asce)co.1943-7862.0000669},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2012. Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{mahlamaki2020adoption,
+  author       = {Mahlamäki, Tommi and Storbacka, Kaj and Pylkkönen, Samuli and Ojala, Mika},
+  title        = {Adoption of digital sales force automation tools in supply chain: Customers' acceptance of sales configurators},
+  journal      = {Industrial Marketing Management},
+  volume       = {91},
+  pages        = {162--173},
+  year         = {2020},
+  doi          = {10.1016/j.indmarman.2020.08.024},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, vorwärts.}
+}
+
+@book{piroozfar2013mass,
+  title        = {Mass Customisation and Personalisation in Architecture and Construction},
+  editor       = {Piroozfar, Poorang A. E. and Piller, Frank T.},
+  publisher    = {Routledge},
+  address      = {London},
+  year         = {2013},
+  doi          = {10.4324/9780203437735},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, rückwärts.}
+}
+
+@article{randall2005principles,
+  author       = {Randall, Taylor and Terwiesch, Christian and Ulrich, Karl T.},
+  title        = {Principles for User Design of Customized Products},
+  journal      = {California Management Review},
+  volume       = {47},
+  number       = {4},
+  pages        = {68--85},
+  year         = {2005},
+  doi          = {10.2307/41166317},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts; Schneeball von randall2007user, rückwärts.}
+}
+
+@article{raposo2024bridging,
+  author       = {Raposo, Micaela and Eloy, Sara and Sales Dias, Miguel},
+  title        = {Bridging the gap in customised housing design: Integrating a graphic user interface for user collaboration},
+  journal      = {PLoS ONE},
+  volume       = {19},
+  number       = {12},
+  pages        = {e0313291},
+  year         = {2024},
+  doi          = {10.1371/journal.pone.0313291},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brooke1996sus, vorwärts.}
+}
+
+@article{renner2025copilot,
+  author       = {Renner, Markus and Hornung, Matthias and Elshani, Diellza and Niepert, Mathias and Wortmann, Thomas},
+  title        = {Training and evaluating a Co-pilot tool using graph neural networks for generating non-orthogonal building typologies in architectural autocompletion},
+  journal      = {International Journal of Architectural Computing},
+  volume       = {23},
+  number       = {3},
+  pages        = {775--795},
+  year         = {2025},
+  doi          = {10.1177/14780771251354914},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brooke1996sus, vorwärts.}
+}
+
+@inproceedings{sonnenberg2012patterns,
+  author       = {Sonnenberg, Christian and vom Brocke, Jan},
+  title        = {Evaluation Patterns for Design Science Research Artefacts},
+  booktitle    = {Practical Aspects of Design Science (EDSS 2011)},
+  editor       = {Helfert, Markus and Donnellan, Brian},
+  series       = {Communications in Computer and Information Science},
+  volume       = {286},
+  pages        = {71--83},
+  publisher    = {Springer},
+  year         = {2012},
+  doi          = {10.1007/978-3-642-33681-2_7},
+  note         = {[V] OpenAlex- und Crossref-Record (Exa-Fetch); Band/Herausgeber nach Publikationsseiten Univ. Liechtenstein und WWU Münster (Exa). Schneeball von sonnenberg2012evaluations, rückwärts.}
+}
+
+@article{stablein2011variety,
+  author       = {Stäblein, Thomas and Holweg, Matthias and Miemczyk, Joe},
+  title        = {Theoretical versus actual product variety: how much customisation do customers really demand?},
+  journal      = {International Journal of Operations & Production Management},
+  volume       = {31},
+  number       = {3},
+  pages        = {350--370},
+  year         = {2011},
+  doi          = {10.1108/01443571111111955},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von schoenwitz2017product, rückwärts.}
+}
+
+@article{suznjevic2025longitudinal,
+  author       = {Sužnjević, Mirko and Srebot, Sara and Moslavac, Mirta and Mišura, Katarina and Boban, Lovro and Jović, Ana},
+  title        = {Longitudinal Usability and {UX} Analysis of a Multiplatform House Design Pipeline: Insights from Extended Use Across Web, {VR}, and Mobile {AR}},
+  journal      = {Applied Sciences},
+  volume       = {15},
+  number       = {19},
+  pages        = {10765},
+  year         = {2025},
+  doi          = {10.3390/app151910765},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brooke1996sus, vorwärts.}
+}
+
+@article{tang2017novice,
+  author       = {Tang, Heng and Lee, Chang Boon Patrick and Choong, Kwee Keong},
+  title        = {Consumer decision support systems for novice buyers – a design science approach},
+  journal      = {Information Systems Frontiers},
+  volume       = {19},
+  number       = {4},
+  pages        = {881--897},
+  year         = {2017},
+  doi          = {10.1007/s10796-016-9639-9},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2016. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{terwiesch2004collaborative,
+  author       = {Terwiesch, Christian and Loch, Christoph H.},
+  title        = {Collaborative Prototyping and the Pricing of Custom-Designed Products},
+  journal      = {Management Science},
+  volume       = {50},
+  number       = {2},
+  pages        = {145--158},
+  year         = {2004},
+  doi          = {10.1287/mnsc.1030.0178},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von randall2007user, rückwärts.}
+}
+
+@article{trentin2011overcoming,
+  author       = {Trentin, Alessio and Perin, Elisa and Forza, Cipriano},
+  title        = {Overcoming the customization-responsiveness squeeze by using product configurators: Beyond anecdotal evidence},
+  journal      = {Computers in Industry},
+  volume       = {62},
+  number       = {3},
+  pages        = {260--268},
+  year         = {2011},
+  doi          = {10.1016/j.compind.2010.09.002},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2010. Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{trentin2014increasing,
+  author       = {Trentin, Alessio and Perin, Elisa and Forza, Cipriano},
+  title        = {Increasing the consumer-perceived benefits of a mass-customization experience through sales-configurator capabilities},
+  journal      = {Computers in Industry},
+  volume       = {65},
+  number       = {4},
+  pages        = {693--705},
+  year         = {2014},
+  doi          = {10.1016/j.compind.2014.02.004},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von trentin2013sales, vorwärts; Schneeball von randall2007user, vorwärts.}
+}
+
+@article{valenzuela2009contingent,
+  author       = {Valenzuela, Ana and Dhar, Ravi and Zettelmeyer, Florian},
+  title        = {Contingent Response to Self-Customization Procedures: Implications for Decision Satisfaction and Choice},
+  journal      = {Journal of Marketing Research},
+  volume       = {46},
+  number       = {6},
+  pages        = {754--763},
+  year         = {2009},
+  doi          = {10.1509/jmkr.46.6.754},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@incollection{vombrocke2020introduction,
+  author       = {vom Brocke, Jan and Hevner, Alan and Maedche, Alexander},
+  title        = {Introduction to Design Science Research},
+  booktitle    = {Design Science Research. Cases},
+  series       = {Progress in IS},
+  pages        = {1--13},
+  publisher    = {Springer International Publishing},
+  year         = {2020},
+  doi          = {10.1007/978-3-030-46781-4_1},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, rückwärts.}
+}
+
+@article{vonhippel2001user,
+  author       = {von Hippel, Eric},
+  title        = {User toolkits for innovation},
+  journal      = {Journal of Product Innovation Management},
+  volume       = {18},
+  number       = {4},
+  pages        = {247--257},
+  year         = {2001},
+  doi          = {10.1111/1540-5885.1840247},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{vonhippel2002shifting,
+  author       = {von Hippel, Eric and Katz, Ralph},
+  title        = {Shifting Innovation to Users via Toolkits},
+  journal      = {Management Science},
+  volume       = {48},
+  number       = {7},
+  pages        = {821--833},
+  year         = {2002},
+  doi          = {10.1287/mnsc.48.7.821.2817},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, rückwärts.}
+}
+
+@article{wang2023perception,
+  author       = {Wang, Yue and Mo, Daniel Y. and Ma, Hoi Lam},
+  title        = {Perception of time in the online product customization process},
+  journal      = {Industrial Management & Data Systems},
+  volume       = {123},
+  number       = {2},
+  pages        = {369--385},
+  year         = {2023},
+  doi          = {10.1108/imds-03-2022-0159},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2022. Schneeball von randall2007user, vorwärts.}
+}
+
+@article{yi2022configurator,
+  author       = {Yi, Minzhe and Huang, Zihao and Yu, Yuxiang},
+  title        = {Creating a Sustainable E-Commerce Environment: The Impact of Product Configurator Interaction Design on Consumer Personalized Customization Experience},
+  journal      = {Sustainability},
+  volume       = {14},
+  number       = {23},
+  pages        = {15903},
+  year         = {2022},
+  doi          = {10.3390/su142315903},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von trentin2013sales, vorwärts.}
+}
+
+@article{zhao2019toolkits3d,
+  author       = {Zhao, Huiwen and McLoughlin, Leigh and Adzhiev, Valery and Pasko, Alexander},
+  title        = {3D Mass Customization Toolkits Design, Part I: Survey and an Evaluation Model},
+  journal      = {Computer-Aided Design and Applications},
+  volume       = {16},
+  number       = {2},
+  pages        = {204--222},
+  year         = {2019},
+  doi          = {10.14733/cadaps.2019.204-222},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2018. Schneeball von randall2007user, vorwärts.}
+}
+
+
+% ===================== FF6 Detailtiefe: Reifegrade/LOIN, Produktdaten, Dach, TGA, Schall, Logistik, Architekturpsychologie =====================
+
+@article{abualdenien2020consistent,
+  author       = {Abualdenien, Jimmy and Schneider-Marin, Patricia and Zahedi, Ata and Harter, Hannes and Exner, Hannah and Steiner, Daniel and Singh, Manav Mahan and Borrmann, André and Lang, Werner and Petzold, Frank and König, Markus and Geyer, Philipp and Schnellenbach-Held, Martina},
+  title        = {Consistent management and evaluation of building models in the early design stages},
+  journal      = {Journal of Information Technology in Construction},
+  volume       = {25},
+  pages        = {212--232},
+  year         = {2020},
+  doi          = {10.36680/j.itcon.2020.013},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2019metamodel, rückwärts.}
+}
+
+@article{abualdenien2020vagueness,
+  author       = {Abualdenien, Jimmy and Borrmann, André},
+  title        = {Vagueness visualization in building models across different design stages},
+  journal      = {Advanced Engineering Informatics},
+  volume       = {45},
+  pages        = {101107},
+  year         = {2020},
+  doi          = {10.1016/j.aei.2020.101107},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2019metamodel, rückwärts.}
+}
+
+@article{abualdenien2022ensemble,
+  author       = {Abualdenien, Jimmy and Borrmann, André},
+  title        = {Ensemble-learning approach for the classification of Levels Of Geometry ({LOG}) of building elements},
+  journal      = {Advanced Engineering Informatics},
+  volume       = {51},
+  pages        = {101497},
+  year         = {2022},
+  doi          = {10.1016/j.aei.2021.101497},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, rückwärts.}
+}
+
+@article{ahn2013roofs,
+  author       = {Ahn, Hee-Kap and Bae, Sang Won and Knauer, Christian and Lee, Mira and Shin, Chan-Su and Vigneron, Antoine},
+  title        = {Realistic roofs over a rectilinear polygon},
+  journal      = {Computational Geometry},
+  volume       = {46},
+  number       = {9},
+  pages        = {1042--1055},
+  year         = {2013},
+  doi          = {10.1016/j.comgeo.2013.06.002},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von aichholzer1995novel, vorwärts.}
+}
+
+@inproceedings{aichholzer1996general,
+  author       = {Aichholzer, Oswin and Aurenhammer, Franz},
+  title        = {Straight skeletons for general polygonal figures in the plane},
+  booktitle    = {Computing and Combinatorics},
+  series       = {Lecture Notes in Computer Science},
+  pages        = {117--126},
+  publisher    = {Springer Berlin Heidelberg},
+  year         = {1996},
+  doi          = {10.1007/3-540-61332-3_144},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kelly2011interactive, rückwärts.}
+}
+
+@article{ali2013critiquing,
+  author       = {Ali, Norhayati Mohd and Hosking, John and Grundy, John},
+  title        = {A Taxonomy and Mapping of Computer-Based Critiquing Tools},
+  journal      = {IEEE Transactions on Software Engineering},
+  volume       = {39},
+  number       = {11},
+  pages        = {1494--1520},
+  year         = {2013},
+  doi          = {10.1109/tse.2013.32},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von silverman1992critiquing, vorwärts.}
+}
+
+@article{alonso2021windows,
+  author       = {Alonso, Alicia and Suárez, Rafael and Patricio, Jorge and Escandón, Rocío and Sendra, Juan J.},
+  title        = {Acoustic retrofit strategies of windows in facades of residential buildings: Requirements and recommendations to reduce exposure to environmental noise},
+  journal      = {Journal of Building Engineering},
+  volume       = {41},
+  pages        = {102773},
+  year         = {2021},
+  doi          = {10.1016/j.jobe.2021.102773},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von basner2014noise, vorwärts.}
+}
+
+@article{alshorafa2020modeluses,
+  author       = {Alshorafa, Raif and Ergen, Esin},
+  title        = {Identification of information requirements for implementing Building Information Modeling based on model uses},
+  journal      = {Journal of Information Technology in Construction},
+  volume       = {25},
+  pages        = {561--574},
+  year         = {2020},
+  doi          = {10.36680/j.itcon.2020.032},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{appleton1984prospects,
+  author       = {Appleton, Jay},
+  title        = {Prospects and Refuges Re-Visited},
+  journal      = {Landscape Journal},
+  volume       = {3},
+  number       = {2},
+  pages        = {91--103},
+  year         = {1984},
+  doi          = {10.3368/lj.3.2.91},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{appolloni2021housing,
+  author       = {Appolloni, Letizia and D’Alessandro, Daniela},
+  title        = {Housing Spaces in Nine European Countries: A Comparison of Dimensional Requirements},
+  journal      = {International Journal of Environmental Research and Public Health},
+  volume       = {18},
+  number       = {8},
+  pages        = {4278},
+  year         = {2021},
+  doi          = {10.3390/ijerph18084278},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von hanson1998decoding, vorwärts.}
+}
+
+@article{asare2026dimensionality,
+  author       = {Asare, Kofi A. B. and Liu, Rui and Anumba, Chimay J.},
+  title        = {Dimensionality of {BIM} {LODs} in the Digital Twin Continuum},
+  journal      = {Journal of Computing in Civil Engineering},
+  volume       = {40},
+  number       = {1},
+  year         = {2026},
+  doi          = {10.1061/jccee5.cpeng-6479},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2025. Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{basner2010guidance,
+  author       = {Basner, Mathias and Müller, Uwe and Griefahn, Barbara},
+  title        = {Practical guidance for risk assessment of traffic noise effects on sleep},
+  journal      = {Applied Acoustics},
+  volume       = {71},
+  number       = {6},
+  pages        = {518--522},
+  year         = {2010},
+  doi          = {10.1016/j.apacoust.2010.01.002},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von basner2014noise, rückwärts.}
+}
+
+@article{biedl2015weighted,
+  author       = {Biedl, Therese and Held, Martin and Huber, Stefan and Kaaser, Dominik and Palfrader, Peter},
+  title        = {Weighted straight skeletons in the plane},
+  journal      = {Computational Geometry},
+  volume       = {48},
+  number       = {2},
+  pages        = {120--133},
+  year         = {2015},
+  doi          = {10.1016/j.comgeo.2014.08.006},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2014. Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{bildsten2011kitchen,
+  author       = {Bildsten, Louise and Björnfot, Anders and Sandberg, Erik},
+  title        = {Value‐driven purchasing of kitchen cabinets in industrialised housing},
+  journal      = {Journal of Financial Management of Property and Construction},
+  volume       = {16},
+  number       = {1},
+  pages        = {73--83},
+  year         = {2011},
+  doi          = {10.1108/13664381111116106},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{biljecki2016lod,
+  author       = {Biljecki, Filip and Ledoux, Hugo and Stoter, Jantien},
+  title        = {An improved {LOD} specification for 3D building models},
+  journal      = {Computers, Environment and Urban Systems},
+  volume       = {59},
+  pages        = {25--37},
+  year         = {2016},
+  doi          = {10.1016/j.compenvurbsys.2016.04.005},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kelly2011interactive, vorwärts; Schneeball von abualdenien2022levels, rückwärts.}
+}
+
+@article{bodin2015quiet,
+  author       = {Bodin, Theo and Björk, Jonas and Ardö, Jonas and Albin, Maria},
+  title        = {Annoyance, Sleep and Concentration Problems due to Combined Traffic Noise and the Benefit of Quiet Side},
+  journal      = {International Journal of Environmental Research and Public Health},
+  volume       = {12},
+  number       = {2},
+  pages        = {1612--1628},
+  year         = {2015},
+  doi          = {10.3390/ijerph120201612},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von basner2014noise, vorwärts.}
+}
+
+@article{brinkmann2025maturity,
+  author       = {Brinkmann, Jens T. and Wynn, David C.},
+  title        = {Aspects of information maturity in design and development},
+  journal      = {Research in Engineering Design},
+  volume       = {36},
+  number       = {2},
+  year         = {2025},
+  doi          = {10.1007/s00163-025-00450-4},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{brown2020melanopic,
+  author       = {Brown, Timothy M.},
+  title        = {Melanopic illuminance defines the magnitude of human circadian light responses under a wide range of conditions},
+  journal      = {Journal of Pineal Research},
+  volume       = {69},
+  number       = {1},
+  pages        = {e12655},
+  year         = {2020},
+  doi          = {10.1111/jpi.12655},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, rückwärts.}
+}
+
+@article{cain2020evening,
+  author       = {Cain, Sean W. and McGlashan, Elise M. and Vidafar, Parisa and Mustafovska, Jona and Curran, Simon P. N. and Wang, Xirun and Mohamed, Anas and Kalavally, Vineetha and Phillips, Andrew J. K.},
+  title        = {Evening home lighting adversely impacts the circadian system and sleep},
+  journal      = {Scientific Reports},
+  volume       = {10},
+  number       = {1},
+  pages        = {19110},
+  year         = {2020},
+  doi          = {10.1038/s41598-020-75622-4},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, rückwärts.}
+}
+
+@article{cajochen2022evening,
+  author       = {Cajochen, C. and Stefani, O and Schöllhorn, I and Lang, D and Chellappa, SL},
+  title        = {Influence of evening light exposure on polysomnographically assessed night-time sleep: A systematic review with meta-analysis},
+  journal      = {Lighting Research & Technology},
+  volume       = {54},
+  number       = {6},
+  pages        = {609--624},
+  year         = {2022},
+  doi          = {10.1177/14771535221078765},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, vorwärts.}
+}
+
+@article{chateauvieuxhellwig2022timber,
+  author       = {Châteauvieux-Hellwig, Camille and Abualdenien, Jimmy and Borrmann, André},
+  title        = {Analysis of early-design timber models for sound insulation},
+  journal      = {Advanced Engineering Informatics},
+  volume       = {53},
+  pages        = {101675},
+  year         = {2022},
+  doi          = {10.1016/j.aei.2022.101675},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract über Verlags-/Repositoriumsseite (Exa) gelesen. Schneeball von abualdenien2019metamodel, vorwärts.}
+}
+
+@incollection{chateauvieuxhellwig2025schallschutz,
+  author       = {Châteauvieux-Hellwig, Camille and Weise, Yvonne},
+  title        = {{BIM} im Schallschutz},
+  booktitle    = {Bauphysik-Kalender 2025},
+  publisher    = {Ernst \& Sohn},
+  address      = {Berlin},
+  pages        = {525--548},
+  year         = {2025},
+  doi          = {10.1002/9783433612095.ch15},
+  note         = {[U] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Unsicher: Herausgeber im Crossref-Record nicht angegeben; Autorname dort fehlerhaft ("Chäteauvieux"), korrigiert nach mediaTUM. Schneeball von chateauvieux2023bim, vorwärts.}
+}
+
+@article{cheung2012cost,
+  author       = {Cheung, Franco K.T. and Rihan, Jonathan and Tah, Joseph and Duce, David and Kurul, Esra},
+  title        = {Early stage multi-level cost estimation for schematic {BIM} models},
+  journal      = {Automation in Construction},
+  volume       = {27},
+  pages        = {67--77},
+  year         = {2012},
+  doi          = {10.1016/j.autcon.2012.05.008},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von abualdenien2019metamodel, rückwärts.}
+}
+
+@article{costa2015catalogues,
+  author       = {Costa, G. and Madrazo, L.},
+  title        = {Connecting building component catalogues with {BIM} models using semantic technologies: an application for precast concrete components},
+  journal      = {Automation in Construction},
+  volume       = {57},
+  pages        = {239--248},
+  year         = {2015},
+  doi          = {10.1016/j.autcon.2015.05.007},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{dawes2014wright,
+  author       = {Dawes, Michael J. and Ostwald, Michael J.},
+  title        = {Prospect-Refuge theory and the textile-block houses of Frank Lloyd Wright: An analysis of spatio-visual characteristics using isovists},
+  journal      = {Building and Environment},
+  volume       = {80},
+  pages        = {228--240},
+  year         = {2014},
+  doi          = {10.1016/j.buildenv.2014.05.026},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{delval2017descriptors,
+  author       = {del Val, Lara and Machimbarrena, María and Herráez, Marta and Monteiro, Carolina and Johansson, Reine},
+  title        = {Translation between existing and proposed harmonized impact sound insulation descriptors and alignment within a proposed common acoustic classification scheme for buildings},
+  journal      = {Applied Acoustics},
+  volume       = {129},
+  pages        = {204--216},
+  year         = {2017},
+  doi          = {10.1016/j.apacoust.2017.07.025},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von basner2014noise, vorwärts.}
+}
+
+@article{deniz2025enter,
+  author       = {Deniz, Fatih Celalettin and Chamilothori, Kynthia and Schoenmakers, Sanne and de Kort, Yvonne A. W.},
+  title        = {Do (not) enter? Objective visual features of indoor scenes predict approach-avoidance responses and core affect},
+  journal      = {Journal of Environmental Psychology},
+  volume       = {106},
+  pages        = {102686},
+  year         = {2025},
+  doi          = {10.1016/j.jenvp.2025.102686},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, vorwärts.}
+}
+
+@standard{dineniso7817-1,
+  title        = {DIN EN ISO 7817-1:2024-11 Bauwerksinformationsmodellierung -- Informationsbedarfstiefe -- Teil 1: Konzepte und Grundsätze (ISO 7817-1:2024); Deutsche Fassung EN ISO 7817-1:2024},
+  organization = {DIN Deutsches Institut für Normung},
+  year         = {2024},
+  doi          = {10.31030/3560617},
+  note         = {[V] OpenAlex-Record zur DIN-Media-DOI 10.31030/3560617 (Titel und Ausgabe); Volltext nicht eingesehen (kostenpflichtig). Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{ding2025fitout,
+  author       = {Ding, Haoran and Zhong, Ray Y. and Huang, George Q.},
+  title        = {Synchronization in prefabricated off-site fit-out with graduation intelligent manufacturing system},
+  journal      = {Automation in Construction},
+  volume       = {176},
+  pages        = {106243},
+  year         = {2025},
+  doi          = {10.1016/j.autcon.2025.106243},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von lee2024generalized, vorwärts.}
+}
+
+@article{dosen2013methodological,
+  author       = {Dosen, Annemarie S. and Ostwald, Michael J.},
+  title        = {Methodological characteristics of research testing prospect–refuge theory: a comparative analysis},
+  journal      = {Architectural Science Review},
+  volume       = {56},
+  number       = {3},
+  pages        = {232--241},
+  year         = {2013},
+  doi          = {10.1080/00038628.2013.809689},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{dosen2017lived,
+  author       = {Dosen, Annemarie S. and Ostwald, Michael J.},
+  title        = {Lived spaceandgeometric space: comparing people’s perceptions of spatial enclosure and exposure with metric room properties and isovist measures},
+  journal      = {Architectural Science Review},
+  volume       = {60},
+  number       = {1},
+  pages        = {62--77},
+  year         = {2017},
+  doi          = {10.1080/00038628.2016.1235545},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2016. Schneeball von dosen2016prospect, vorwärts.}
+}
+
+@inproceedings{edelsbrunner2016roofs,
+  author       = {Edelsbrunner, Johannes and Krispel, Ulrich and Havemann, Sven and Sourin, Alexei and Fellner, Dieter W.},
+  title        = {Constructive Roofs from Solid Building Primitives},
+  booktitle    = {Transactions on Computational Science XXVI},
+  series       = {Lecture Notes in Computer Science},
+  pages        = {17--40},
+  publisher    = {Springer Berlin Heidelberg},
+  year         = {2016},
+  doi          = {10.1007/978-3-662-49247-5_2},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{eder2018volume,
+  author       = {Eder, Günther and Held, Martin and Palfrader, Peter},
+  title        = {Min-/Max-Volume Roofs Induced by Bisector Graphs of Polygonal Footprints of Buildings},
+  journal      = {International Journal of Computational Geometry & Applications},
+  volume       = {28},
+  number       = {4},
+  pages        = {309--340},
+  year         = {2018},
+  doi          = {10.1142/s0218195918500097},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von aichholzer1995novel, vorwärts.}
+}
+
+@article{eder2021exact,
+  author       = {Eder, Günther and Held, Martin and Palfrader, Peter},
+  title        = {Implementing straight skeletons with exact arithmetic: Challenges and experiences},
+  journal      = {Computational Geometry},
+  volume       = {96},
+  pages        = {101760},
+  year         = {2021},
+  doi          = {10.1016/j.comgeo.2021.101760},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{emmitt2023bedroom,
+  author       = {Emmitt, Stephen},
+  title        = {Exploring the nexus between bedroom design and sleep quality in a warming climate},
+  journal      = {Urban Climate},
+  volume       = {51},
+  pages        = {101635},
+  year         = {2023},
+  doi          = {10.1016/j.uclim.2023.101635},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von spoerrle2010sleeping, vorwärts.}
+}
+
+@article{eppstein1999raising,
+  author       = {Eppstein, D. and Erickson, J.},
+  title        = {Raising Roofs, Crashing Cycles, and Playing Pool: Applications of a Data Structure for Finding Pairwise Interactions},
+  journal      = {Discrete & Computational Geometry},
+  volume       = {22},
+  number       = {4},
+  pages        = {569--592},
+  year         = {1999},
+  doi          = {10.1007/pl00009479},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kelly2011interactive, rückwärts.}
+}
+
+@article{femenias2020adaptable,
+  author       = {Femenias, Paula and Geromel, Faustine},
+  title        = {Adaptable housing? A quantitative study of contemporary apartment layouts that have been rearranged by end-users},
+  journal      = {Journal of Housing and the Built Environment},
+  volume       = {35},
+  number       = {2},
+  pages        = {481--505},
+  year         = {2020},
+  doi          = {10.1007/s10901-019-09693-9},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2019. Schneeball von hanson1998decoding, vorwärts.}
+}
+
+@inproceedings{fischer1989environments,
+  author       = {Fischer, G. and McCall, R. and Morch, A.},
+  title        = {Design environments for constructive and argumentative design},
+  booktitle    = {Proceedings of the SIGCHI conference on Human factors in computing systems Wings for the mind - CHI '89},
+  pages        = {269--275},
+  publisher    = {ACM Press},
+  year         = {1989},
+  doi          = {10.1145/67449.67501},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von fischer1991critiquing, rückwärts.}
+}
+
+@article{fischer1993critics,
+  author       = {Fischer, Gerhard and Nakakoji, Kumiyo and Ostwald, Jonathan and Stahl, Gerry and Sumner, Tamara},
+  title        = {Embedding critics in design environments},
+  journal      = {The Knowledge Engineering Review},
+  volume       = {8},
+  number       = {4},
+  pages        = {285--307},
+  year         = {1993},
+  doi          = {10.1017/s026988890000031x},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von fischer1991critiquing, vorwärts.}
+}
+
+@inproceedings{franz2003vr,
+  author       = {Franz, G. and von der Heyde, M. and Bülthoff, H.H.},
+  title        = {An empirical approach to the experience of architectural space in {VR} - Exploring relations between features and affective appraisals of rectangular interiors},
+  booktitle    = {Proceedings of the 21st International Conference on Education and Research in Computer Aided Architectural Design in Europe (eCAADe)},
+  pages        = {17--24},
+  publisher    = {eCAADe},
+  year         = {2003},
+  doi          = {10.52842/conf.ecaade.2003.017},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{held2017roofs,
+  author       = {Held, Martin and Palfrader, Peter},
+  title        = {Straight skeletons with additive and multiplicative weights and their application to the algorithmic generation of roofs and terrains},
+  journal      = {Computer-Aided Design},
+  volume       = {92},
+  pages        = {33--41},
+  year         = {2017},
+  doi          = {10.1016/j.cad.2017.07.003},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{herthogs2019saga,
+  author       = {Herthogs, Pieter and Debacker, Wim and Tunçer, Bige and De Weerdt, Yves and De Temmerman, Niels},
+  title        = {Quantifying the Generality and Adaptability of Building Layouts Using Weighted Graphs: The {SAGA} Method},
+  journal      = {Buildings},
+  volume       = {9},
+  number       = {4},
+  pages        = {92},
+  year         = {2019},
+  doi          = {10.3390/buildings9040092},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von hanson1998decoding, vorwärts.}
+}
+
+@article{hong2016fengshui,
+  author       = {Hong, W. T. and Abdul-Rahman, Hamzah and Wang, Chen},
+  title        = {The application of Form School Feng Shui model in a sleep environment: human preferences and subjective sleep quality evaluation},
+  journal      = {Architectural Engineering and Design Management},
+  volume       = {12},
+  number       = {6},
+  pages        = {442--459},
+  year         = {2016},
+  doi          = {10.1080/17452007.2016.1208076},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von spoerrle2010sleeping, vorwärts.}
+}
+
+@article{hooper2015lod,
+  author       = {Hooper, Martin},
+  title        = {Automated model progression scheduling using level of development},
+  journal      = {Construction Innovation},
+  volume       = {15},
+  number       = {4},
+  pages        = {428--448},
+  year         = {2015},
+  doi          = {10.1108/ci-09-2014-0048},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, rückwärts.}
+}
+
+@article{hwang2018window,
+  author       = {Hwang, Ji Hyoun and Lee, Hyunsoo},
+  title        = {Parametric Model for Window Design Based on Prospect-Refuge Measurement in Residential Environment},
+  journal      = {Sustainability},
+  volume       = {10},
+  number       = {11},
+  pages        = {3888},
+  year         = {2018},
+  doi          = {10.3390/su10113888},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, vorwärts.}
+}
+
+@standard{iso23387,
+  title        = {ISO 23387:2020 Building information modelling ({BIM}) -- Data templates for construction objects used in the life cycle of built assets -- Concepts and principles},
+  organization = {International Organization for Standardization},
+  year         = {2020},
+  doi          = {10.3403/30376819},
+  note         = {[U] OpenAlex-Record zur BSI-Ausgabe BS EN ISO 23387:2020 (DOI 10.3403/30376819); Volltext nicht eingesehen (kostenpflichtig). Unsicher: DIN-Ausgabe (DIN EN ISO 23387) nicht separat geprüft. Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{jalaliyazdi2021clt,
+  author       = {Jalali Yazdi, Alireza and Ahmadian Fard Fini, Alireza and Forsythe, Perry},
+  title        = {Mass-customisation of cross-laminated timber wall systems at early design stages},
+  journal      = {Automation in Construction},
+  volume       = {132},
+  pages        = {103938},
+  year         = {2021},
+  doi          = {10.1016/j.autcon.2021.103938},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{kebede2022manufacturers,
+  author       = {Kebede, Rahel and Moscati, Annika and Tan, He and Johansson, Peter},
+  title        = {Integration of manufacturers' product data in {BIM} platforms using semantic web technologies},
+  journal      = {Automation in Construction},
+  volume       = {144},
+  pages        = {104630},
+  year         = {2022},
+  doi          = {10.1016/j.autcon.2022.104630},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{kozniewski2020roof,
+  author       = {Koźniewski, Edwin and Banaszak, Karolina},
+  title        = {Roof Geometry in Building Design},
+  journal      = {Open Engineering},
+  volume       = {10},
+  number       = {1},
+  pages        = {839--845},
+  year         = {2020},
+  doi          = {10.1515/eng-2020-0094},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von aichholzer1995novel, vorwärts.}
+}
+
+@inproceedings{kulesza2013explanations,
+  author       = {Kulesza, Todd and Stumpf, Simone and Burnett, Margaret and Yang, Sherry and Kwan, Irwin and Wong, Weng-Keen},
+  title        = {Too much, too little, or just right? Ways explanations impact end users' mental models},
+  booktitle    = {2013 IEEE Symposium on Visual Languages and Human Centric Computing},
+  pages        = {3--10},
+  year         = {2013},
+  doi          = {10.1109/vlhcc.2013.6645235},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von miller2019explanation, rückwärts.}
+}
+
+@article{li2026sitelayout,
+  author       = {Li, Rongyan and Lin, Haolei and Chi, Hung-Lin and Li, Fangzheng and Yi, Wen and Chen, Linyan},
+  title        = {Retrieval-augmented {LLM} framework for automated construction site layout planning},
+  journal      = {Automation in Construction},
+  volume       = {192},
+  pages        = {107211},
+  year         = {2026},
+  doi          = {10.1016/j.autcon.2026.107211},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von du2026text2bim, vorwärts.}
+}
+
+@article{locher2018windows,
+  author       = {Locher, Barbara and Piquerez, André and Habermacher, Manuel and Ragettli, Martina and Röösli, Martin and Brink, Mark and Cajochen, Christian and Vienneau, Danielle and Foraster, Maria and Müller, Uwe and Wunderli, Jean},
+  title        = {Differences between Outdoor and Indoor Sound Levels for Open, Tilted, and Closed Windows},
+  journal      = {International Journal of Environmental Research and Public Health},
+  volume       = {15},
+  number       = {1},
+  pages        = {149},
+  year         = {2018},
+  doi          = {10.3390/ijerph15010149},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von basner2014noise, vorwärts.}
+}
+
+@article{lopez2022mep,
+  author       = {Lopez, Robert and Chong, Heap-Yih and Pereira, Conrad},
+  title        = {Obstacles Preventing the Off-Site Prefabrication of Timber and {MEP} Services: Qualitative Analyses from Builders and Suppliers in Australia},
+  journal      = {Buildings},
+  volume       = {12},
+  number       = {7},
+  pages        = {1044},
+  year         = {2022},
+  doi          = {10.3390/buildings12071044},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von johnsson2009defects, vorwärts.}
+}
+
+@article{lovset2013scaffold,
+  author       = {Løvset, Tyge and Ulvang, Dag Magne and Bekkvik, Tor Christian and Villanger, Kåre and Viola, Ivan},
+  title        = {Rule-based method for automatic scaffold assembly from 3D building models},
+  journal      = {Computers & Graphics},
+  volume       = {37},
+  number       = {4},
+  pages        = {256--268},
+  year         = {2013},
+  doi          = {10.1016/j.cag.2013.01.007},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{mellenthinfilardo2026requirements,
+  author       = {Mellenthin Filardo, Martina and Ruppert, Florinda and Melzner, Jürgen},
+  title        = {Information requirements for {BIM}: Current practice and implementation in Germany},
+  journal      = {Journal of Information Technology in Construction},
+  pages        = {225},
+  year         = {2026},
+  doi          = {10.36680/j.itcon.2026.010},
+  note         = {[U] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Unsicher: Band/Heft im Record noch nicht vergeben (Online-First). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{mueller2006procedural,
+  author       = {Müller, Pascal and Wonka, Peter and Haegler, Simon and Ulmer, Andreas and Van Gool, Luc},
+  title        = {Procedural modeling of buildings},
+  journal      = {ACM Transactions on Graphics},
+  volume       = {25},
+  number       = {3},
+  pages        = {614--623},
+  year         = {2006},
+  doi          = {10.1145/1141911.1141931},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kelly2011interactive, rückwärts.}
+}
+
+@article{muta2025granularity,
+  author       = {Muta, Luís Filipe and Giuzio, Giovanni Francesco and Melo, Ana Paula and Buonomano, Annamaria},
+  title        = {Design misdirection: how {BIM} modeling granularity compromises energy performance assessment in integrated {BIM-to-BEM} workflows},
+  journal      = {Energy and Buildings},
+  volume       = {351},
+  pages        = {116739},
+  year         = {2025},
+  doi          = {10.1016/j.enbuild.2025.116739},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@inproceedings{oh2008critiquing,
+  author       = {Oh, Yeonjoo and Gross, Mark D. and Do, Ellen Yi-Luen},
+  title        = {Computer-aided Critiquing systems Lessons Learned and New Research Directions},
+  booktitle    = {Proceedings of the 13th Conference on Computer Aided Architectural Design Research in Asia (CAADRIA)},
+  pages        = {161--167},
+  publisher    = {CAADRIA},
+  year         = {2008},
+  doi          = {10.52842/conf.caadria.2008.161},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von fischer1991critiquing, vorwärts; Schneeball von silverman1992critiquing, vorwärts.}
+}
+
+@article{oh2010furniture,
+  author       = {Oh, Yeonjoo and Gross, Mark D. and Ishizaki, Suguru and Do, Ellen Yi-Luen},
+  title        = {A {CONSTRAINT-BASED} {FURNITURE} {DESIGN} {CRITIC}},
+  journal      = {Research and Practice in Technology Enhanced Learning},
+  volume       = {5},
+  number       = {2},
+  pages        = {97--122},
+  year         = {2010},
+  doi          = {10.1142/s1793206810000864},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von fischer1991critiquing, vorwärts.}
+}
+
+@article{ohrstrom2006quietness,
+  author       = {Öhrström, E. and Skånberg, A. and Svensson, H. and Gidlöf-Gunnarsson, A.},
+  title        = {Effects of road traffic noise and the benefit of access to quietness},
+  journal      = {Journal of Sound and Vibration},
+  volume       = {295},
+  number       = {1-2},
+  pages        = {40--59},
+  year         = {2006},
+  doi          = {10.1016/j.jsv.2005.11.034},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von basner2014noise, rückwärts.}
+}
+
+@article{palos2014productdata,
+  author       = {Palos, Salla and Kiviniemi, Arto and Kuusisto, Johanna},
+  title        = {Future perspectives on product data management in building information modeling},
+  journal      = {Construction Innovation},
+  volume       = {14},
+  number       = {1},
+  pages        = {52--68},
+  year         = {2014},
+  doi          = {10.1108/ci-12-2011-0080},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Jahr = Heftjahrgang; OpenAlex führt Online-Jahr 2013. Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{park2017impact,
+  author       = {Park, Sang Hee and Lee, Pyoung Jik},
+  title        = {Effects of floor impact noise on psychophysiological responses},
+  journal      = {Building and Environment},
+  volume       = {116},
+  pages        = {173--181},
+  year         = {2017},
+  doi          = {10.1016/j.buildenv.2017.02.005},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von basner2014noise, vorwärts.}
+}
+
+@article{pasini2017innovance,
+  author       = {Pasini, Daniela and Caffi, Vittorio and Daniotti, Bruno and Lupica Spagnolo, Sonia and Pavan, Alberto},
+  title        = {The {INNOVance} {BIM} library approach},
+  journal      = {Innovative Infrastructure Solutions},
+  volume       = {2},
+  number       = {1},
+  year         = {2017},
+  doi          = {10.1007/s41062-017-0062-y},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von elsibaii2025open, rückwärts.}
+}
+
+@article{piazzi2022graphical,
+  author       = {Piazzi, Murillo A. and Feng, Haibo and Kassem, Mohamad},
+  title        = {An investigation of concepts for the specification of graphical exchange information requirements in building information modelling},
+  journal      = {Journal of Information Technology in Construction},
+  volume       = {27},
+  pages        = {662--684},
+  year         = {2022},
+  doi          = {10.36680/j.itcon.2022.033},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{potocnik2024daylight,
+  author       = {Potočnik, Jaka and Pajek, Luka and Košir, Mitja},
+  title        = {Experimental investigation of the impact of model complexity on indoor daylight spectral simulations},
+  journal      = {Developments in the Built Environment},
+  volume       = {20},
+  pages        = {100543},
+  year         = {2024},
+  doi          = {10.1016/j.dibe.2024.100543},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, vorwärts.}
+}
+
+@article{potter2025sleep,
+  author       = {Potter, Gregory David Maxwell and Grosicki, Gregory J. and Tinsley, Grant M. and Wood, Thomas R. and Garner, Dan and Galpin, Andrew J.},
+  title        = {Dreamy Dwellings: How the Sleep Environment Affects Sleep Health in {Adults—A} Narrative Review},
+  journal      = {Lifestyle Medicine},
+  volume       = {6},
+  number       = {4},
+  year         = {2025},
+  doi          = {10.1002/lim2.70022},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, vorwärts.}
+}
+
+@article{ren2021roof,
+  author       = {Ren, Jing and Zhang, Biao and Wu, Bojian and Huang, Jianqiang and Fan, Lubin and Ovsjanikov, Maks and Wonka, Peter},
+  title        = {Intuitive and efficient roof modeling for reconstruction and synthesis},
+  journal      = {ACM Transactions on Graphics},
+  volume       = {40},
+  number       = {6},
+  pages        = {1--17},
+  year         = {2021},
+  doi          = {10.1145/3478513.3480494},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kelly2011interactive, vorwärts.}
+}
+
+@article{scott1993interior,
+  author       = {Scott, Suzanne C.},
+  title        = {Visual Attributes Related to Preference in Interior Environments},
+  journal      = {Journal of Interior Design},
+  volume       = {18},
+  number       = {1-2},
+  pages        = {7--16},
+  year         = {1993},
+  doi          = {10.1111/j.1939-1668.1993.tb00067.x},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{spitschan2021luox,
+  author       = {Spitschan, Manuel and Mead, James and Roos, Chris and Lowis, Chris and Griffiths, Ben and Mucur, Paul and Herf, Michael},
+  title        = {luox: novel open-access and open-source web platform for calculating and sharing physiologically relevant quantities for light and lighting},
+  journal      = {Wellcome Open Research},
+  volume       = {6},
+  pages        = {69},
+  year         = {2021},
+  doi          = {10.12688/wellcomeopenres.16595.1},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, rückwärts.}
+}
+
+@article{stamps2006interior,
+  author       = {Stamps, Arthur E.},
+  title        = {Interior Prospect and Refuge},
+  journal      = {Perceptual and Motor Skills},
+  volume       = {103},
+  number       = {3},
+  pages        = {643--653},
+  year         = {2006},
+  doi          = {10.2466/pms.103.3.643-653},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{trinh2023medi,
+  author       = {Trinh, Vinh Quang and Bodrogi, Peter and Khanh, Tran Quoc},
+  title        = {Determination and Measurement of Melanopic Equivalent Daylight (D65) Illuminance ({mEDI}) in the Context of Smart and Integrative Lighting},
+  journal      = {Sensors},
+  volume       = {23},
+  number       = {11},
+  pages        = {5000},
+  year         = {2023},
+  doi          = {10.3390/s23115000},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von brown2022recommendations, vorwärts.}
+}
+
+@article{ulusoy2020semantics,
+  author       = {Ulusoy, Begüm and Olguntürk, Nilgün and Aslanoğlu, Rengin},
+  title        = {Colour semantics in residential interior architecture on different interior types},
+  journal      = {Color Research & Application},
+  volume       = {45},
+  number       = {5},
+  pages        = {941--952},
+  year         = {2020},
+  doi          = {10.1002/col.22519},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, vorwärts.}
+}
+
+@article{ulusoy2024preferences,
+  author       = {Ulusoy, Begüm},
+  title        = {Colour Preferences for Surface Shapes on Residential Interior Walls},
+  journal      = {Architecture},
+  volume       = {4},
+  pages        = {854--876},
+  year         = {2024},
+  doi          = {10.3390/architecture4040045},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, vorwärts.}
+}
+
+@inproceedings{vanberlo2014dutch,
+  author       = {van Berlo, L. A. H. M. and Bomhof, F.},
+  title        = {Creating the Dutch National {BIM} Levels of Development},
+  booktitle    = {Computing in Civil and Building Engineering (2014)},
+  pages        = {129--136},
+  publisher    = {American Society of Civil Engineers},
+  year         = {2014},
+  doi          = {10.1061/9780784413616.017},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von abualdenien2022levels, rückwärts.}
+}
+
+@inproceedings{vareilles2013renovation,
+  author       = {Vareilles, E. and Barco Santa, A. F. and Falcon, M. and Aldanondo, M. and Gaborit, P.},
+  title        = {Configuration of high performance apartment buildings renovation: A constraint based approach},
+  booktitle    = {2013 IEEE International Conference on Industrial Engineering and Engineering Management},
+  pages        = {684--688},
+  publisher    = {IEEE},
+  year         = {2013},
+  doi          = {10.1109/ieem.2013.6962498},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403) und Crossref-Record (Exa-Fetch); Abstract gelesen (OpenAlex). Schneeball von meseguer2006soft, vorwärts.}
+}
+
+@article{wichlinski2022sleep,
+  author       = {Wichlinski, Lawrence J.},
+  title        = {Adaptive Solutions to the Problem of Vulnerability During Sleep},
+  journal      = {Evolutionary Psychological Science},
+  volume       = {8},
+  number       = {4},
+  pages        = {442--477},
+  year         = {2022},
+  doi          = {10.1007/s40806-022-00330-3},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von spoerrle2010sleeping, vorwärts.}
+}
+
+@article{wiener2007isovist,
+  author       = {Wiener, Jan M. and Franz, Gerald and Rossmanith, Nicole and Reichelt, Andreas and Mallot, Hanspeter A. and Bülthoff, Heinrich H.},
+  title        = {Isovist Analysis Captures Properties of Space Relevant for Locomotion and Experience},
+  journal      = {Perception},
+  volume       = {36},
+  number       = {7},
+  pages        = {1066--1083},
+  year         = {2007},
+  doi          = {10.1068/p5587},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von dosen2016prospect, rückwärts.}
+}
+
+@article{wonka2003instant,
+  author       = {Wonka, Peter and Wimmer, Michael and Sillion, François and Ribarsky, William},
+  title        = {Instant architecture},
+  journal      = {ACM Transactions on Graphics},
+  volume       = {22},
+  number       = {3},
+  pages        = {669--677},
+  year         = {2003},
+  doi          = {10.1145/882262.882324},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Abstract gelesen (OpenAlex). Schneeball von kelly2011interactive, rückwärts.}
+}
+
+@article{zhang2026taboos,
+  author       = {Zhang, Yi-Fan and Xiong, Lei and Zhang, Meng-Chen and Tao, Si-Min and Tzeng, Gwo-Hshiung and Zhu, Bo-Wei},
+  title        = {Understanding traditional spatial taboos among half-believers in guestrooms: A Kansei engineering experiment},
+  journal      = {International Journal of Hospitality Management},
+  volume       = {136},
+  pages        = {104662},
+  year         = {2026},
+  doi          = {10.1016/j.ijhm.2026.104662},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von spoerrle2010sleeping, vorwärts.}
+}
+
+@article{zhao2025mep,
+  author       = {Zhao, Xuefeng and Yang, Qiantai and Fan, Xiongtao and Yan, Gangwen and Liu, Liang and Yang, Yinghui and Zhang, Huizhong},
+  title        = {Review of module division methods for mechanical, electrical, and plumbing systems in construction},
+  journal      = {Journal of Building Engineering},
+  volume       = {101},
+  pages        = {111753},
+  year         = {2025},
+  doi          = {10.1016/j.jobe.2024.111753},
+  note         = {[V] OpenAlex-Record per DOI-Filter (api.openalex.org über Exa-Fetch, Direktzugriff 403); Screening nach Titel, Publikationsorgan und Zitationskontext (kein Abstract im Record). Schneeball von johnsson2009defects, vorwärts.}
+}
