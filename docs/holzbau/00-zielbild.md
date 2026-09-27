@@ -1,6 +1,6 @@
 # Zielbild: Vom Kundenwunsch bis ins Werk in einer IFC-Datei
 
-Status: v0.2 (27.09.2026). Die Prüfmarker aus v0.1 sind mit Quellen aufgelöst; die Belege stehen in `recherche/01` bis `07`.
+Status: v0.3 (27.09.2026): Interior-Katalog und alle Gebäudetypen ergänzt. Die Prüfmarker aus v0.1 sind mit Quellen aufgelöst; die Belege stehen in `recherche/01` bis `07`.
 
 Aufbau nach Simon Sineks Golden Circle: erst Why, dann How, dann What.
 
@@ -21,6 +21,17 @@ So kann sich jede Rolle wieder auf ihre eigentliche Arbeit konzentrieren:
 | Werk | bekommt Pläne, modelliert für die Fertigung neu | bekommt ein freigegebenes Modell, leitet Maschinendaten ab |
 
 Kurz: **Niemand tippt etwas ab, was schon im Modell steht.**
+
+**Leitbild:** eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des Baumodus von „Die Sims“. Es ist ein Hausplaner ohne Lebenssimulation. Jede Fliese, jede Farbe und jedes Möbel ist ein realer, bestellbarer und normkonformer Artikel.
+
+**Gebäudetypen:** Abgebildet werden alle Wohngebäudetypen:
+- Einfamilienhaus, auch mit Einliegerwohnung
+- Zweifamilienhaus
+- Doppel- und Reihenhaus
+- Mehrfamilienhaus
+- Geschosswohnungsbau in Holz
+
+Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz zwischen Wohnungen, Barrierefreiheit, Aufzug, Spielplatz und Stellplätze schalten automatisch mit (Beleg folgt in `recherche/14`).
 
 **Belege für den Handlungsdruck** (Recherche 07):
 - Fertigbauquote EFH/ZFH 2025: 26,5 % in Deutschland, 27,5 % in Bayern (3.633 Häuser, +19 % zum Vorjahr).
@@ -55,7 +66,7 @@ Kurz: **Niemand tippt etwas ab, was schon im Modell steht.**
    - Das Intent-Modell (Laya lokal, Jev als Fallback) erkennt nur die Absicht und liefert Wahrscheinlichkeiten.
    - Werte, Regeln, Statik und Kosten berechnet deterministischer Code.
 8. **Menschen unterschreiben, was das Gesetz verlangt.**
-   - Die Firma ist Entwurfsverfasser unter Leitung einer namentlich benannten bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Bei GK 1–3 mit höchstens 3 Wohnungen kann das auch ein Zimmerermeister sein (Abs. 3).
+   - Die Firma ist Entwurfsverfasser unter Leitung einer namentlich benannten bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Bei GK 1–3 mit höchstens 3 Wohnungen kann das auch ein Zimmerermeister sein (Abs. 3). Bei größeren Gebäuden, etwa Mehrfamilienhäusern, braucht es Architekt oder Ingenieur mit Listeneintrag. Für GK 4/5 kommen Prüfingenieure und Prüfsachverständige hinzu. Das System wählt das Freigabe-Gate passend zum Gebäudetyp.
    - Jede Freigabe steht als `IfcApproval` im Modell.
 
 ---
@@ -115,7 +126,8 @@ Kurz: **Niemand tippt etwas ab, was schon im Modell steht.**
 
 | Bereich | Inhalt |
 |---|---|
-| Bemusterung | Fenster, Haustür, Treppe, Böden, Fliesen, Sanitär, Innentüren, Schalterprogramm, Oberflächen und Farben, Außenanlagen, jeweils als bestellbarer Artikel |
+| Bemusterung außen | Fenster, Haustür, Fassade, Dach, Balkon, Terrasse, Außenanlagen |
+| Innenausbau und Interior | jede Fliese mit Format, Verlegemuster, Fugenbild und Fugenfarbe; jeder Boden mit Holzart, Sortierung, Oberfläche, Verlegemuster und Sockelleiste; Wandfarben und Putze einschließlich Keller; Treppenform, Holzart und Geländer; Innentüren und Beschläge; Sanitärobjekte; Küche; Möblierung in 3D. Jeweils festgeschrieben und durchsuchbar |
 | Elektro, Netzwerk | Leitungen in Installationszonen, Dosen, Zählerschrank, Netzwerk, Smart Home |
 | Wasser | Trinkwasser kalt und warm, Zirkulation, Abwasser mit Lüftung über Dach |
 | Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |

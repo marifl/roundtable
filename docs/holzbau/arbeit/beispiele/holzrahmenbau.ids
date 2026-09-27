@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  B2 – IDS-Profil "Holzrahmenbau" (Beispiel), IDS 1.0 (buildingSMART).
+  Prüft die in B1 erzeugten Wandelemente (IFC4X3_ADD2).
+  Die Grenzwerte (z. B. U <= 0,20 W/(m²K)) sind projektspezifische
+  Beispielanforderungen, keine gesetzlichen Werte.
+  Hinweis zur Semantik (IDS 1.0):
+    * Property-Facetten berücksichtigen auch Psets am Typ (Vererbung),
+      Attribut-Facetten NICHT. Daher prüft HRB-08 den Typ und HRB-09 das Exemplar.
+    * Mengen (IfcElementQuantity, Qto_*) werden über die Property-Facette geprüft.
+-->
+<ids:ids xmlns:ids="http://standards.buildingsmart.org/IDS"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+  <ids:info>
+    <ids:title>Holzrahmenbau – Prüfprofil Wandelement (Beispiel)</ids:title>
+    <ids:copyright>Beispiel für eine wissenschaftliche Arbeit</ids:copyright>
+    <ids:version>0.1.0</ids:version>
+    <ids:description>Mindestanforderungen an ein generiertes Holzrahmen-Wandelement: Wärmeschutz, Tragwirkung, Klassifikation, Material, Mengen, Aggregation, Verbindungsmittel.</ids:description>
+    <ids:author>generator@example.org</ids:author>
+    <ids:date>2026-01-01</ids:date>
+    <ids:purpose>Proof of Concept: IDS-Prüfung generierter IFC-Dateien</ids:purpose>
+    <ids:milestone>Entwurf (LP 2–3)</ids:milestone>
+  </ids:info>
+  <ids:specifications>
+
+    <ids:specification name="HRB-01 Außenwand: U-Wert höchstens 0,20 W/(m²K)" ifcVersion="IFC4X3_ADD2" identifier="HRB-01"
+                       description="Jede Außenwand trägt Pset_WallCommon.ThermalTransmittance mit U &lt;= 0,20 W/(m²K) (Projektanforderung, Beispiel)."
+                       instructions="U-Wert nach DIN EN ISO 6946 berechnen (siehe B3) und eintragen.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCWALL</ids:simpleValue></ids:name></ids:entity>
+        <ids:property dataType="IFCBOOLEAN">
+          <ids:propertySet><ids:simpleValue>Pset_WallCommon</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>IsExternal</ids:simpleValue></ids:baseName>
+          <ids:value><ids:simpleValue>TRUE</ids:simpleValue></ids:value>
+        </ids:property>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:property dataType="IFCTHERMALTRANSMITTANCEMEASURE" cardinality="required">
+          <ids:propertySet><ids:simpleValue>Pset_WallCommon</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>ThermalTransmittance</ids:simpleValue></ids:baseName>
+          <ids:value>
+            <xs:restriction base="xs:double">
+              <xs:minExclusive value="0"/>
+              <xs:maxInclusive value="0.20"/>
+            </xs:restriction>
+          </ids:value>
+        </ids:property>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-02 Wand: Außen/Innen und Tragwirkung angegeben" ifcVersion="IFC4X3_ADD2" identifier="HRB-02"
+                       description="Jede Wand gibt Pset_WallCommon.IsExternal und LoadBearing an.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCWALL</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:property dataType="IFCBOOLEAN" cardinality="required">
+          <ids:propertySet><ids:simpleValue>Pset_WallCommon</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>IsExternal</ids:simpleValue></ids:baseName>
+        </ids:property>
+        <ids:property dataType="IFCBOOLEAN" cardinality="required">
+          <ids:propertySet><ids:simpleValue>Pset_WallCommon</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>LoadBearing</ids:simpleValue></ids:baseName>
+        </ids:property>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-03 Wand: Klassifikation nach DIN 276 (KG 33x)" ifcVersion="IFC4X3_ADD2" identifier="HRB-03"
+                       description="Jede Wand ist nach DIN 276 in eine Kostengruppe 330–339 (Außenwände) klassifiziert.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCWALL</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:classification cardinality="required">
+          <ids:value><xs:restriction base="xs:string"><xs:pattern value="33[0-9]"/></xs:restriction></ids:value>
+          <ids:system><ids:simpleValue>DIN 276</ids:simpleValue></ids:system>
+        </ids:classification>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-04 Wand: Material (Schichtaufbau) zugeordnet" ifcVersion="IFC4X3_ADD2" identifier="HRB-04"
+                       description="Jede Wand hat ein Material; im Generator ist das eine IfcMaterialLayerSetUsage.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCWALL</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:material cardinality="required"/>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-05 Ständer: Material KVH C24" ifcVersion="IFC4X3_ADD2" identifier="HRB-05"
+                       description="Jeder Ständer (IfcMember STUD) hat ein Material, dessen Name mit 'KVH C24' beginnt.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity>
+          <ids:name><ids:simpleValue>IFCMEMBER</ids:simpleValue></ids:name>
+          <ids:predefinedType><ids:simpleValue>STUD</ids:simpleValue></ids:predefinedType>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:material cardinality="required">
+          <ids:value><xs:restriction base="xs:string"><xs:pattern value="KVH C24.*"/></xs:restriction></ids:value>
+        </ids:material>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-06 Hölzer: Länge und Nettovolumen als Menge" ifcVersion="IFC4X3_ADD2" identifier="HRB-06"
+                       description="Jedes IfcMember hat Qto_MemberBaseQuantities.Length und NetVolume (für Abbundliste/Kalkulation).">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCMEMBER</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:property dataType="IFCLENGTHMEASURE" cardinality="required">
+          <ids:propertySet><ids:simpleValue>Qto_MemberBaseQuantities</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>Length</ids:simpleValue></ids:baseName>
+        </ids:property>
+        <ids:property dataType="IFCVOLUMEMEASURE" cardinality="required">
+          <ids:propertySet><ids:simpleValue>Qto_MemberBaseQuantities</ids:simpleValue></ids:propertySet>
+          <ids:baseName><ids:simpleValue>NetVolume</ids:simpleValue></ids:baseName>
+        </ids:property>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-07 Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates)" ifcVersion="IFC4X3_ADD2" identifier="HRB-07"
+                       description="Jedes IfcMember, IfcPlate und IfcBuildingElementPart ist über IfcRelAggregates Teil einer IfcWall.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity>
+          <ids:name>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="IFCMEMBER"/>
+              <xs:enumeration value="IFCPLATE"/>
+              <xs:enumeration value="IFCBUILDINGELEMENTPART"/>
+            </xs:restriction>
+          </ids:name>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:partOf relation="IFCRELAGGREGATES" cardinality="required">
+          <ids:entity><ids:name><ids:simpleValue>IFCWALL</ids:simpleValue></ids:name></ids:entity>
+        </ids:partOf>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-08 Verbindungsmitteltyp: Nenndurchmesser und Nennlänge" ifcVersion="IFC4X3_ADD2" identifier="HRB-08"
+                       description="Jeder IfcMechanicalFastenerType gibt NominalDiameter und NominalLength an.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCMECHANICALFASTENERTYPE</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:attribute cardinality="required"><ids:name><ids:simpleValue>NominalDiameter</ids:simpleValue></ids:name></ids:attribute>
+        <ids:attribute cardinality="required"><ids:name><ids:simpleValue>NominalLength</ids:simpleValue></ids:name></ids:attribute>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-09 Verbindungsmittel: Nenndurchmesser am Exemplar" ifcVersion="IFC4X3_ADD2" identifier="HRB-09"
+                       description="Jedes IfcMechanicalFastener gibt NominalDiameter an (zwischen 2 und 12 mm, Projekteinheit mm).">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity><ids:name><ids:simpleValue>IFCMECHANICALFASTENER</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:attribute cardinality="required">
+          <ids:name><ids:simpleValue>NominalDiameter</ids:simpleValue></ids:name>
+          <ids:value>
+            <xs:restriction base="xs:double">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="12"/>
+            </xs:restriction>
+          </ids:value>
+        </ids:attribute>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-10 Gefachdämmung: Dämmstoff zugeordnet" ifcVersion="IFC4X3_ADD2" identifier="HRB-10"
+                       description="Jedes IfcBuildingElementPart INSULATION hat ein Material der Kategorie 'insulation'.">
+      <ids:applicability minOccurs="1" maxOccurs="unbounded">
+        <ids:entity>
+          <ids:name><ids:simpleValue>IFCBUILDINGELEMENTPART</ids:simpleValue></ids:name>
+          <ids:predefinedType><ids:simpleValue>INSULATION</ids:simpleValue></ids:predefinedType>
+        </ids:entity>
+      </ids:applicability>
+      <ids:requirements>
+        <ids:material cardinality="required">
+          <ids:value><ids:simpleValue>insulation</ids:simpleValue></ids:value>
+        </ids:material>
+      </ids:requirements>
+    </ids:specification>
+
+    <ids:specification name="HRB-11 Keine unklassifizierten Proxy-Elemente" ifcVersion="IFC4X3_ADD2" identifier="HRB-11"
+                       description="Das Modell enthält kein IfcBuildingElementProxy (jedes Bauteil hat eine fachliche IFC-Klasse).">
+      <ids:applicability minOccurs="0" maxOccurs="0">
+        <ids:entity><ids:name><ids:simpleValue>IFCBUILDINGELEMENTPROXY</ids:simpleValue></ids:name></ids:entity>
+      </ids:applicability>
+    </ids:specification>
+
+  </ids:specifications>
+</ids:ids>

@@ -1,0 +1,1788 @@
+<!--
+    IfcTester - IDS based model auditing
+    Copyright (C) 2022 Dion Moult <dion@thinkmoult.com>
+
+    This file is part of IfcTester.
+
+    IfcTester is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    IfcTester is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with IfcTester.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html lang=>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="foobaro">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Inconsolata|Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #97cc64;
+            --light-green: #b6cca1;
+            --red: #fb5a3e;
+            --light-red: #fbb4a8;
+        }
+        body { font-family: 'Arial', sans-serif; padding: 10px 40px; }
+        section { padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px; }
+        section>h2 { margin-top: 0px; }
+        span.time { color: #999; font-style: italic; float: right; }
+        span.step-time { float: right; color: #555; font-size: 0.8em; font-style: italic; }
+        span.item { padding: 5px; border-radius: 5px; margin-right: 5px; border: 1px solid #eee; }
+        span.item.pass, span.item.fail { color: #FFF; font-weight: bold; border: 0px; }
+        p.fail { background-color: #fb5a3e; padding: 5px; border-radius: 5px; color: #fff; }
+        p.unspecified { background-color: #994f00; padding: 5px; border-radius: 5px; color: #fff; }
+        p.skipped { background-color: #8b8d8f; padding: 5px; border-radius: 5px; color: #fff; }
+        p.description { background-color: #eee; border-radius: 5px; padding: 20px; margin-left: auto; margin-right: auto; display: inline-block; font-weight: bold;}
+        li { padding: 10px; font-family: monospace; border-radius: 5px; margin-bottom: 5px; }
+        li.pass { background-color: var(--light-green); color: #333; }
+        li.fail { background-color: var(--light-red); color: #900; }
+        li.unspecified { background-color: #ffd37f; color: #a30; }
+        li.skipped { background-color: #f5f5f5; color: #333; }
+        li p { margin-bottom: 0px; }
+        footer { color: #999; font-size: 0.8em; }
+        header { text-align: center; }
+        hr { margin: 20px; margin-left: 0px; margin-right: 0px;  border: none; border-top: 1px solid #ccc; }
+        summary { display: flex; cursor: pointer; }
+        summary::-webkit-details-marker { display: none; }
+        * {box-sizing:border-box}
+        .container { width: 100%; background-color: #ddd; border-radius: 5px}
+        .percent { text-align: left; padding-top: 5px; padding-left: 5px; padding-bottom: 5px; color: white; border-radius: 5px; white-space: nowrap; }
+        .pass { background-color: var(--green); }
+        .fail { background-color: var(--red); }
+        table { width: 100%; border-spacing: 0; border-radius: 5px; margin-top: 10px; }
+        th, td { padding: 5px; color: #000; }
+        table.pass { border-bottom: 2px solid var(--green); }
+        table.fail { border-bottom: 2px solid var(--red); }
+        table thead>tr { font-weight: bold; color: #000; }
+        table.pass tbody tr { border-bottom: 1px solid var(--green); }
+        table.fail tbody tr { border-bottom: 1px solid var(--red); }
+        tbody tr:nth-child(odd) { background-color: rgba(1, 1, 1, 0.05); }
+        tbody tr:nth-child(even) { background-color: rgba(1, 1, 1, 0.1); }
+        tbody tr:hover { background-color: rgba(0, 0, 0, 0); }
+        div.info { float: left; width: 30%; }
+        div.results { float: left; width: calc(70% - 20px); margin-left: 20px; padding: 20px; border-radius: 5px; background-color: #fafafa; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Holzrahmenbau – Prüfprofil Wandelement (Beispiel)</h1>
+        <p><strong>2026-09-27 16:07:07</strong></p>
+    </header>
+    <h2>Summary</h2>
+    <div class="container">
+        <div class="fail percent" style="width: 98%;">98%</div>
+    </div>
+    <p>
+        <span class="item fail">Fail</span>
+        <span class="item">
+            Specifications passed: <strong>5</strong> / <strong>11</strong>
+        </span>
+        <span class="item">
+            Requirements passed: <strong>8</strong> / <strong>13</strong>
+        </span>
+        <span class="item">
+            Checks passed: <strong>282</strong> / <strong>287</strong>
+        </span>
+    </p>
+    <hr>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-01 Außenwand: U-Wert höchstens 0,20 W/(m²K)</h2>
+            <p>Jede Außenwand trägt Pset_WallCommon.ThermalTransmittance mit U &lt;= 0,20 W/(m²K) (Projektanforderung, Beispiel).</p>
+            <p><em>U-Wert nach DIN EN ISO 6946 berechnen (siehe B3) und eintragen.</em></p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 0%;">0%</div>
+            </div>
+            <p>
+                <span class="item fail">Required: Fail</span>
+                <span class="item">
+                    Checks passed: <strong>0</strong> / <strong>1</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>0</strong> / <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCWALL data</li>
+                <li>Elements with IsExternal data of TRUE in the dataset Pset_WallCommon</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="fail">
+                    <details>
+                        <summary>
+                            ThermalTransmittance data shall be {&#x27;minExclusive&#x27;: &#x27;0&#x27;, &#x27;maxInclusive&#x27;: &#x27;0.20&#x27;} and in the dataset Pset_WallCommon
+                        </summary>
+ 
+                        <table class="fail">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Warning</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcWall</td>
+                                    <td>ELEMENTEDWALL</td>
+                                    <td>Außenwand Nord, Element 1</td>
+                                    <td>None</td>
+                                    <td>The property value &quot;0.25&quot; does not match the requirements</td>
+                                    <td>0gsiGQj_bG3wx8M0qwRA0U</td>
+                                    <td>AW-01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-02 Wand: Außen/Innen und Tragwirkung angegeben</h2>
+            <p>Jede Wand gibt Pset_WallCommon.IsExternal und LoadBearing an.</p>
+
+            <div class="container">
+                <div class="
+                
+                pass
+                percent" style="width: 100%;">100%</div>
+            </div>
+            <p>
+                <span class="item pass">Required: Pass</span>
+                <span class="item">
+                    Checks passed: <strong>2</strong> / <strong>2</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>1</strong> / <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCWALL data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            IsExternal data shall be provided in the dataset Pset_WallCommon
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcWall</td>
+                                    <td>ELEMENTEDWALL</td>
+                                    <td>Außenwand Nord, Element 1</td>
+                                    <td>None</td>
+                                    <td>0gsiGQj_bG3wx8M0qwRA0U</td>
+                                    <td>AW-01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            LoadBearing data shall be provided in the dataset Pset_WallCommon
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcWall</td>
+                                    <td>ELEMENTEDWALL</td>
+                                    <td>Außenwand Nord, Element 1</td>
+                                    <td>None</td>
+                                    <td>0gsiGQj_bG3wx8M0qwRA0U</td>
+                                    <td>AW-01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-03 Wand: Klassifikation nach DIN 276 (KG 33x)</h2>
+            <p>Jede Wand ist nach DIN 276 in eine Kostengruppe 330–339 (Außenwände) klassifiziert.</p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 0%;">0%</div>
+            </div>
+            <p>
+                <span class="item fail">Required: Fail</span>
+                <span class="item">
+                    Checks passed: <strong>0</strong> / <strong>1</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>0</strong> / <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCWALL data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="fail">
+                    <details>
+                        <summary>
+                            Shall have a DIN 276 reference of {&#x27;pattern&#x27;: &#x27;33[0-9]&#x27;}
+                        </summary>
+ 
+                        <table class="fail">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Warning</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcWall</td>
+                                    <td>ELEMENTEDWALL</td>
+                                    <td>Außenwand Nord, Element 1</td>
+                                    <td>None</td>
+                                    <td>The entity has no classification</td>
+                                    <td>0gsiGQj_bG3wx8M0qwRA0U</td>
+                                    <td>AW-01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-04 Wand: Material (Schichtaufbau) zugeordnet</h2>
+            <p>Jede Wand hat ein Material; im Generator ist das eine IfcMaterialLayerSetUsage.</p>
+
+            <div class="container">
+                <div class="
+                
+                pass
+                percent" style="width: 100%;">100%</div>
+            </div>
+            <p>
+                <span class="item pass">Required: Pass</span>
+                <span class="item">
+                    Checks passed: <strong>1</strong> / <strong>1</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>1</strong> / <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCWALL data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            Shall have a material
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcWall</td>
+                                    <td>ELEMENTEDWALL</td>
+                                    <td>Außenwand Nord, Element 1</td>
+                                    <td>None</td>
+                                    <td>0gsiGQj_bG3wx8M0qwRA0U</td>
+                                    <td>AW-01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-05 Ständer: Material KVH C24</h2>
+            <p>Jeder Ständer (IfcMember STUD) hat ein Material, dessen Name mit &#x27;KVH C24&#x27; beginnt.</p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 93%;">93%</div>
+            </div>
+            <p>
+                <span class="item fail">Required: Fail</span>
+                <span class="item">
+                    Checks passed: <strong>14</strong> / <strong>15</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>14</strong> / <strong>15</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCMEMBER data of type STUD</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="fail">
+                    <details>
+                        <summary>
+                            Shall have a material of {&#x27;pattern&#x27;: &#x27;KVH C24.*&#x27;}
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 oben</td>
+                                    <td>None</td>
+                                    <td>2iTQbcNzXG0QrtGvQDByPB</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>3ZVVDbGwDO7x2vg7I4UXpp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer links F1</td>
+                                    <td>None</td>
+                                    <td>254V3I5NrHxx6g9J9WAbEp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R6</td>
+                                    <td>None</td>
+                                    <td>3vUFGDn6DHcfHamn5gMQdo</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 unten</td>
+                                    <td>None</td>
+                                    <td>2D$QiiYtvNEfIXBRFteHwH</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R1</td>
+                                    <td>None</td>
+                                    <td>18vNpgLaTOYgpLpdvN0aeA</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R7</td>
+                                    <td>None</td>
+                                    <td>0tHI18naLITuRuul3rI$7I</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturz F1</td>
+                                    <td>None</td>
+                                    <td>2rWYAdwuXR2upUkdv7j_IN</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>1Shh7ZI39PQgxArHuFCIxO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer links F1</td>
+                                    <td>None</td>
+                                    <td>3BO1mSw7HO89jMsBG9Jb7H</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer rechts</td>
+                                    <td>None</td>
+                                    <td>26xC9QsMnO6BHuxmSviBaF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer links</td>
+                                    <td>None</td>
+                                    <td>0ruebnGhrPUPaN5fsim6Vf</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 unten</td>
+                                    <td>None</td>
+                                    <td>3AhW$EEQvKugecqAFgh9u9</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 oben</td>
+                                    <td>None</td>
+                                    <td>34BO68Wo1LCuqY8xgHmwWu</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="fail">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Warning</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R2</td>
+                                    <td>None</td>
+                                    <td>The entity has no material</td>
+                                    <td>02QVWAdt9VqxV8$c1qnuss</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-06 Hölzer: Länge und Nettovolumen als Menge</h2>
+            <p>Jedes IfcMember hat Qto_MemberBaseQuantities.Length und NetVolume (für Abbundliste/Kalkulation).</p>
+
+            <div class="container">
+                <div class="
+                
+                pass
+                percent" style="width: 100%;">100%</div>
+            </div>
+            <p>
+                <span class="item pass">Required: Pass</span>
+                <span class="item">
+                    Checks passed: <strong>36</strong> / <strong>36</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>18</strong> / <strong>18</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCMEMBER data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            Length data shall be provided in the dataset Qto_MemberBaseQuantities
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 oben</td>
+                                    <td>None</td>
+                                    <td>2iTQbcNzXG0QrtGvQDByPB</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>3ZVVDbGwDO7x2vg7I4UXpp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer links F1</td>
+                                    <td>None</td>
+                                    <td>254V3I5NrHxx6g9J9WAbEp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Brüstungsriegel F1</td>
+                                    <td>None</td>
+                                    <td>0AkqIXRtnLZxJbnMw9nqYO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R6</td>
+                                    <td>None</td>
+                                    <td>3vUFGDn6DHcfHamn5gMQdo</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Rähm</td>
+                                    <td>None</td>
+                                    <td>1TymEnbXzHcunnMbwZo5Cm</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R2</td>
+                                    <td>None</td>
+                                    <td>02QVWAdt9VqxV8$c1qnuss</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R1</td>
+                                    <td>None</td>
+                                    <td>18vNpgLaTOYgpLpdvN0aeA</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Schwelle</td>
+                                    <td>None</td>
+                                    <td>3N9BxbmVjJqfMasIm6VCTu</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 unten</td>
+                                    <td>None</td>
+                                    <td>2D$QiiYtvNEfIXBRFteHwH</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R7</td>
+                                    <td>None</td>
+                                    <td>0tHI18naLITuRuul3rI$7I</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturz F1</td>
+                                    <td>None</td>
+                                    <td>2rWYAdwuXR2upUkdv7j_IN</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>1Shh7ZI39PQgxArHuFCIxO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer links F1</td>
+                                    <td>None</td>
+                                    <td>3BO1mSw7HO89jMsBG9Jb7H</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer rechts</td>
+                                    <td>None</td>
+                                    <td>26xC9QsMnO6BHuxmSviBaF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer links</td>
+                                    <td>None</td>
+                                    <td>0ruebnGhrPUPaN5fsim6Vf</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 unten</td>
+                                    <td>None</td>
+                                    <td>3AhW$EEQvKugecqAFgh9u9</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 oben</td>
+                                    <td>None</td>
+                                    <td>34BO68Wo1LCuqY8xgHmwWu</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            NetVolume data shall be provided in the dataset Qto_MemberBaseQuantities
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 oben</td>
+                                    <td>None</td>
+                                    <td>2iTQbcNzXG0QrtGvQDByPB</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>3ZVVDbGwDO7x2vg7I4UXpp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer links F1</td>
+                                    <td>None</td>
+                                    <td>254V3I5NrHxx6g9J9WAbEp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Brüstungsriegel F1</td>
+                                    <td>None</td>
+                                    <td>0AkqIXRtnLZxJbnMw9nqYO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R6</td>
+                                    <td>None</td>
+                                    <td>3vUFGDn6DHcfHamn5gMQdo</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Rähm</td>
+                                    <td>None</td>
+                                    <td>1TymEnbXzHcunnMbwZo5Cm</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R2</td>
+                                    <td>None</td>
+                                    <td>02QVWAdt9VqxV8$c1qnuss</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R1</td>
+                                    <td>None</td>
+                                    <td>18vNpgLaTOYgpLpdvN0aeA</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Schwelle</td>
+                                    <td>None</td>
+                                    <td>3N9BxbmVjJqfMasIm6VCTu</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 unten</td>
+                                    <td>None</td>
+                                    <td>2D$QiiYtvNEfIXBRFteHwH</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R7</td>
+                                    <td>None</td>
+                                    <td>0tHI18naLITuRuul3rI$7I</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturz F1</td>
+                                    <td>None</td>
+                                    <td>2rWYAdwuXR2upUkdv7j_IN</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>1Shh7ZI39PQgxArHuFCIxO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer links F1</td>
+                                    <td>None</td>
+                                    <td>3BO1mSw7HO89jMsBG9Jb7H</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer rechts</td>
+                                    <td>None</td>
+                                    <td>26xC9QsMnO6BHuxmSviBaF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer links</td>
+                                    <td>None</td>
+                                    <td>0ruebnGhrPUPaN5fsim6Vf</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 unten</td>
+                                    <td>None</td>
+                                    <td>3AhW$EEQvKugecqAFgh9u9</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 oben</td>
+                                    <td>None</td>
+                                    <td>34BO68Wo1LCuqY8xgHmwWu</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-07 Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates)</h2>
+            <p>Jedes IfcMember, IfcPlate und IfcBuildingElementPart ist über IfcRelAggregates Teil einer IfcWall.</p>
+
+            <div class="container">
+                <div class="
+                
+                pass
+                percent" style="width: 100%;">100%</div>
+            </div>
+            <p>
+                <span class="item pass">Required: Pass</span>
+                <span class="item">
+                    Checks passed: <strong>41</strong> / <strong>41</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>41</strong> / <strong>41</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All {&#x27;enumeration&#x27;: [&#x27;IFCMEMBER&#x27;, &#x27;IFCPLATE&#x27;, &#x27;IFCBUILDINGELEMENTPART&#x27;]} data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            An element must have an IFCRELAGGREGATES relationship with an IFCWALL
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=655 z=60</td>
+                                    <td>None</td>
+                                    <td>2kOR3SNJLRhvgIkZqCD35O</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Holzfaserdämmplatte (Putzträger) 1</td>
+                                    <td>None</td>
+                                    <td>1HO9HDFOXPLeihHYjbY7KX</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Holzfaserdämmplatte (Putzträger) 2</td>
+                                    <td>None</td>
+                                    <td>3r$LABR7DNEAfy1ODi61PA</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=3780 z=60</td>
+                                    <td>None</td>
+                                    <td>3lsRC1LKzOzeO81ZbRUvP3</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R1</td>
+                                    <td>None</td>
+                                    <td>18vNpgLaTOYgpLpdvN0aeA</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>MEMBRANE</td>
+                                    <td>Dampfbremsbahn (feuchtevariabel)</td>
+                                    <td>None</td>
+                                    <td>3lvMev6E9LueSQsQL9SyqJ</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R7</td>
+                                    <td>None</td>
+                                    <td>0tHI18naLITuRuul3rI$7I</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>OSB/3 1</td>
+                                    <td>None</td>
+                                    <td>1InbNmZlrQfOXcySzuZ0x9</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 oben</td>
+                                    <td>None</td>
+                                    <td>34BO68Wo1LCuqY8xgHmwWu</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>3ZVVDbGwDO7x2vg7I4UXpp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=2530 z=2485</td>
+                                    <td>None</td>
+                                    <td>1Do_$HborOExVic9UwPLxq</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Brüstungsriegel F1</td>
+                                    <td>None</td>
+                                    <td>0AkqIXRtnLZxJbnMw9nqYO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1905 z=2485</td>
+                                    <td>None</td>
+                                    <td>3rhw57K3fGLOwjuPbWNuIt</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Rähm</td>
+                                    <td>None</td>
+                                    <td>1TymEnbXzHcunnMbwZo5Cm</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Gipsplatte Typ DF (GKF) 2</td>
+                                    <td>None</td>
+                                    <td>1C0hrr2XrIIfomNCjfIarV</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>PLATE</td>
+                                    <td>Schwelle</td>
+                                    <td>None</td>
+                                    <td>3N9BxbmVjJqfMasIm6VCTu</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1770 z=60</td>
+                                    <td>None</td>
+                                    <td>0sFfeJ3pvQ$eLlaJ2G66F8</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Gipsplatte Typ DF (GKF) 3</td>
+                                    <td>None</td>
+                                    <td>3q$$zqdE5PjPGlf$E3QvhN</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Gipsplatte Typ DF (GKF) 4</td>
+                                    <td>None</td>
+                                    <td>3ZUwmBxVbOOA29oviTjJmZ</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturz F1</td>
+                                    <td>None</td>
+                                    <td>2rWYAdwuXR2upUkdv7j_IN</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1280 z=60</td>
+                                    <td>None</td>
+                                    <td>0VAqV5cMTKoxFvJZ1sRPIh</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>Gipsplatte Typ DF (GKF) 1</td>
+                                    <td>None</td>
+                                    <td>2nIT03iLDPzfWvcV6bn2Yw</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Königsständer links F1</td>
+                                    <td>None</td>
+                                    <td>254V3I5NrHxx6g9J9WAbEp</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=60 z=60</td>
+                                    <td>None</td>
+                                    <td>1ywZMKJxHHBwmNn$0DLcPP</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=4405 z=60</td>
+                                    <td>None</td>
+                                    <td>3Ea167a$bV2f_2XSF35CFa</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R6</td>
+                                    <td>None</td>
+                                    <td>3vUFGDn6DHcfHamn5gMQdo</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R3 unten</td>
+                                    <td>None</td>
+                                    <td>2D$QiiYtvNEfIXBRFteHwH</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer rechts F1</td>
+                                    <td>None</td>
+                                    <td>1Shh7ZI39PQgxArHuFCIxO</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer rechts</td>
+                                    <td>None</td>
+                                    <td>26xC9QsMnO6BHuxmSviBaF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 oben</td>
+                                    <td>None</td>
+                                    <td>2iTQbcNzXG0QrtGvQDByPB</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=3150 z=60</td>
+                                    <td>None</td>
+                                    <td>2lwpYyXkHJi9POHX6FZxkn</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=2530 z=60</td>
+                                    <td>None</td>
+                                    <td>32e_GlraTGcPYRh18u2qEF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Ständer R2</td>
+                                    <td>None</td>
+                                    <td>02QVWAdt9VqxV8$c1qnuss</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1905 z=60</td>
+                                    <td>None</td>
+                                    <td>1smMtnPdLGAwZZZIO4b8b3</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>OSB/3 2</td>
+                                    <td>None</td>
+                                    <td>2Yn93nLXHLJeXxWtsg73Sv</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1710 z=2485</td>
+                                    <td>None</td>
+                                    <td>1tGyPqPTzVWAaP6qdMPAhC</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>OSB/3 3</td>
+                                    <td>None</td>
+                                    <td>2Fk1z0RJrLoQREzcc91YNK</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcPlate</td>
+                                    <td>SHEET</td>
+                                    <td>OSB/3 4</td>
+                                    <td>None</td>
+                                    <td>3d5dN$q1vMZ91u7g3Gdgto</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Sturzauflagerständer links F1</td>
+                                    <td>None</td>
+                                    <td>3BO1mSw7HO89jMsBG9Jb7H</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Randständer links</td>
+                                    <td>None</td>
+                                    <td>0ruebnGhrPUPaN5fsim6Vf</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMember</td>
+                                    <td>STUD</td>
+                                    <td>Füllständer R4 unten</td>
+                                    <td>None</td>
+                                    <td>3AhW$EEQvKugecqAFgh9u9</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-08 Verbindungsmitteltyp: Nenndurchmesser und Nennlänge</h2>
+            <p>Jeder IfcMechanicalFastenerType gibt NominalDiameter und NominalLength an.</p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 50%;">50%</div>
+            </div>
+            <p>
+                <span class="item fail">Required: Fail</span>
+                <span class="item">
+                    Checks passed: <strong>1</strong> / <strong>2</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>0</strong> / <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCMECHANICALFASTENERTYPE data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="fail">
+                    <details>
+                        <summary>
+                            The NominalDiameter shall be provided
+                        </summary>
+ 
+                        <table class="fail">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Warning</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMechanicalFastenerType</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50</td>
+                                    <td>None</td>
+                                    <td>The attribute value &quot;None&quot; is empty</td>
+                                    <td>10kcZK2DzMauPxIfg5Yrjt</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            The NominalLength shall be provided
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMechanicalFastenerType</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50</td>
+                                    <td>None</td>
+                                    <td>10kcZK2DzMauPxIfg5Yrjt</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-09 Verbindungsmittel: Nenndurchmesser am Exemplar</h2>
+            <p>Jedes IfcMechanicalFastener gibt NominalDiameter an (zwischen 2 und 12 mm, Projekteinheit mm).</p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 99%;">99%</div>
+            </div>
+            <p>
+                <span class="item fail">Required: Fail</span>
+                <span class="item">
+                    Checks passed: <strong>175</strong> / <strong>176</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>175</strong> / <strong>176</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCMECHANICALFASTENER data</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="fail">
+                    <details>
+                        <summary>
+                            The NominalDiameter shall be {&#x27;minInclusive&#x27;: &#x27;2&#x27;, &#x27;maxInclusive&#x27;: &#x27;12&#x27;}
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #101</td>
+                                    <td>None</td>
+                                    <td>1Q5XeEhxvVbvqVNxCBv7UW</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #162</td>
+                                    <td>None</td>
+                                    <td>0oCa0FM39UKfRRp9qkNtbi</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #173</td>
+                                    <td>None</td>
+                                    <td>3g0RnWZ$bJLgBudZ5LaMJ1</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #73</td>
+                                    <td>None</td>
+                                    <td>1OupK4OlfGc94EpCyUEsEh</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #18</td>
+                                    <td>None</td>
+                                    <td>16eQHnUbTU3gzrDWBn58WV</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #84</td>
+                                    <td>None</td>
+                                    <td>2utLo5w7fIghitJigp89q7</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #134</td>
+                                    <td>None</td>
+                                    <td>3cnxTrdV9QhfcSEL5NZdHU</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">... 169 more of the same element type (Spanplattenschraube 4,0x50 with Tag None and GlobalId 10kcZK2DzMauPxIfg5Yrjt) not shown ...</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7"> ... 75 more passing elements not shown out of 175 total ...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="fail">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Warning</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcMechanicalFastener</td>
+                                    <td>SCREW</td>
+                                    <td>Spanplattenschraube 4,0x50 #1</td>
+                                    <td>None</td>
+                                    <td>The attribute value &quot;20.0&quot; does not match the requirement</td>
+                                    <td>39T8Vw55TT3BNaXCjVnHka</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-10 Gefachdämmung: Dämmstoff zugeordnet</h2>
+            <p>Jedes IfcBuildingElementPart INSULATION hat ein Material der Kategorie &#x27;insulation&#x27;.</p>
+
+            <div class="container">
+                <div class="
+                
+                pass
+                percent" style="width: 100%;">100%</div>
+            </div>
+            <p>
+                <span class="item pass">Required: Pass</span>
+                <span class="item">
+                    Checks passed: <strong>12</strong> / <strong>12</strong>
+                </span>
+                <span class="item">
+                    Elements passed: <strong>12</strong> / <strong>12</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCBUILDINGELEMENTPART data of type INSULATION</li>
+            </ul>
+            <p>
+                <strong>Requirements</strong>
+            </p>
+            <ol>
+                <li class="pass">
+                    <details>
+                        <summary>
+                            Shall have a material of insulation
+                        </summary>
+ 
+                        <table class="pass">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>PredefinedType</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>GlobalId</th>
+                                    <th>Tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1280 z=60</td>
+                                    <td>None</td>
+                                    <td>0VAqV5cMTKoxFvJZ1sRPIh</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=3150 z=60</td>
+                                    <td>None</td>
+                                    <td>2lwpYyXkHJi9POHX6FZxkn</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=655 z=60</td>
+                                    <td>None</td>
+                                    <td>2kOR3SNJLRhvgIkZqCD35O</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=2530 z=2485</td>
+                                    <td>None</td>
+                                    <td>1Do_$HborOExVic9UwPLxq</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=60 z=60</td>
+                                    <td>None</td>
+                                    <td>1ywZMKJxHHBwmNn$0DLcPP</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=2530 z=60</td>
+                                    <td>None</td>
+                                    <td>32e_GlraTGcPYRh18u2qEF</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=4405 z=60</td>
+                                    <td>None</td>
+                                    <td>3Ea167a$bV2f_2XSF35CFa</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1905 z=2485</td>
+                                    <td>None</td>
+                                    <td>3rhw57K3fGLOwjuPbWNuIt</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=3780 z=60</td>
+                                    <td>None</td>
+                                    <td>3lsRC1LKzOzeO81ZbRUvP3</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1905 z=60</td>
+                                    <td>None</td>
+                                    <td>1smMtnPdLGAwZZZIO4b8b3</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1770 z=60</td>
+                                    <td>None</td>
+                                    <td>0sFfeJ3pvQ$eLlaJ2G66F8</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>IfcBuildingElementPart</td>
+                                    <td>INSULATION</td>
+                                    <td>Gefachdämmung x=1710 z=2485</td>
+                                    <td>None</td>
+                                    <td>1tGyPqPTzVWAaP6qdMPAhC</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="specification" style="clear: both; overflow: hidden;">
+        <div class="info">
+            <h2>HRB-11 Keine unklassifizierten Proxy-Elemente</h2>
+            <p>Das Modell enthält kein IfcBuildingElementProxy (jedes Bauteil hat eine fachliche IFC-Klasse).</p>
+
+            <div class="container">
+                <div class="
+                
+                fail
+                percent" style="width: 100%;">N/A%</div>
+            </div>
+            <p>
+                <span class="item fail">Prohibited: Fail</span>
+                <span class="item">
+                    Elements matched: <strong>1</strong>
+                </span>
+            </p>
+        </div>
+        <div class="results">
+            <p>
+                <strong>Applicability</strong>
+            </p>
+            <ul>
+                <li>All IFCBUILDINGELEMENTPROXY data</li>
+            </ul>
+            <table class="fail">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>PredefinedType</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>GlobalId</th>
+                        <th>Tag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IfcBuildingElementProxy</td>
+                        <td>None</td>
+                        <td>Unbekanntes Bauteil</td>
+                        <td>None</td>
+                        <td>0000000000000000000001</td>
+                        <td>None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <p>
+            Report by the <a href="https://bonsaibim.org/">Bonsai</a> and <a href="http://ifcopenshell.org/">IfcOpenShell</a>.
+        </p>
+    </footer>
+</body>
+</html>

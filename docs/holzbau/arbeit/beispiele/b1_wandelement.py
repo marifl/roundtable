@@ -551,6 +551,12 @@ class IfcWandBauer:
                         sc = self.neu("IfcMechanicalFastener", f"/wand/verbindungsmittel/{vm['id']}{h['pfad'][5:]}/{i}",
                                       f"{vm['typ_name']} #{len(schrauben) + 1}", vm["art"],
                                       ObjectPlacement=self.platzierung(wand.ObjectPlacement, (xc, y_kopf, z)))
+                        # NominalDiameter/NominalLength stehen am Typ UND redundant am
+                        # Exemplar: IDS 1.0 vererbt Attribute (anders als Properties)
+                        # nicht vom Typ, eine Prüfung "jede Schraube hat einen
+                        # Durchmesser" schlüge sonst fehl (siehe B2).
+                        sc.NominalDiameter = float(vm["durchmesser"])
+                        sc.NominalLength = float(vm["laenge"])
                         # Geometrie als Verweis auf die Typ-Geometrie (IfcMappedItem)
                         sc.Representation = self.form(body, "MappedRepresentation", [f.createIfcMappedItem(rmap, operator)])
                         schrauben.append(sc)

@@ -2,7 +2,7 @@
 
 **Untertitel:** Ein Design-Science-Ansatz für kundengesteuerten Entwurf mit Sprachschnittstelle, Regelprüfung nach deutschem Bau- und Handwerksrecht und Ableitung von Bauvorlagen und Maschinendaten aus einem einzigen Informationsmodell
 
-Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit Routing, Dach und Fassade im Detail, 3D-Präsentation
+Status: Gliederung v0.3 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit Routing, Dach und Fassade im Detail, 3D-Präsentation, vollständigen Innenausbau- und Interior-Katalog sowie alle Wohngebäudetypen
 
 ---
 
@@ -39,7 +39,7 @@ Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 1. Problemstellung: Planungsschleifen, Medienbrüche, Fachkräftemangel
 2. Zielsetzung und Why (Golden Circle, siehe `../00-zielbild.md`)
 3. Forschungsfragen und Thesen
-4. Abgrenzung: Einfamilien- und Doppelhaus, Holzrahmenbau, Bayern, GK 1–3
+4. Abgrenzung: alle Wohngebäudetypen vom Einfamilienhaus über Zweifamilien-, Doppel- und Reihenhaus bis zum Mehrfamilienhaus und Geschosswohnungsbau in Holz (GK 1–5), Holzbau (Schwerpunkt Holzrahmenbau), Bayern als Referenzbundesland
 5. Aufbau der Arbeit
 
 ### 2. Forschungsdesign
@@ -107,6 +107,13 @@ Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 5. Ablehnen mit Begründung und Alternative
 6. Rechtliche Nutzung von Normwerten
 
+### 9a. Gebäudetypen und typabhängige Regelprofile
+1. Typologie: EFH, EFH mit Einliegerwohnung, ZFH, Doppelhaus, Reihenhaus, MFH, Geschosswohnungsbau in Holz
+2. Regeldeltas je Typ: Gebäudeklasse, Bauvorlageberechtigung, Prüfpflichten, Brand- und Schallschutz zwischen Nutzungseinheiten, Barrierefreiheit, Aufzug, Spielplatz, Stellplätze
+3. Wohnfläche (WoFlV), Flächen (DIN 277), Wohnungseigentum (Aufteilungsplan, Abgeschlossenheit)
+4. Holzbau in GK 4/5 nach HolzBauRL 2024
+5. Gebäudetyp E und Typengenehmigung für serielles Bauen
+
 ### 10. Sprachschnittstelle
 1. Spracherkennung Deutsch: Streaming, Fachbegriffe
 2. Intent-Erkennung mit typisierten Fragen (choice, score, noul), Kalibrierung, Hierarchie unter 20 Optionen
@@ -120,11 +127,24 @@ Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 4. Reifegrad A (ausführungsfertig): bestellbare Artikel, Einbauinformation, Fertigungsteile, Maschinendaten
 5. Reifegrade je Bauteilgruppe und Phase, geprüft über IDS je Reifegrad
 
-### 12. Bemusterung und Produktdaten
+### 12. Bemusterung, Innenausbau und Interior-Katalog
+Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des Baumodus von „Die Sims“. Es ist ein Hausplaner, kein Lebenssimulator: Jedes Element ist ein realer, bestellbarer, normkonformer Artikel.
+
 1. Taxonomie der Bemusterung: Fenster, Türen, Treppe, Böden, Fliesen, Sanitär, Elektro-Schalterprogramm, Heizung, Lüftung, Oberflächen, Fassade, Dach, Außenanlagen
-2. Abhängigkeiten zwischen Optionen (z. B. Wand-WC → Vorwand → Tragständer → Abwasser)
-3. Produktdatenstandards: ETIM, ECLASS, BMEcat, VDI 3805, GTIN, Product Data Templates (ISO 23386/23387) und ihre Kopplung an IFC
-4. Konfigurationslogik: wissensbasierte Konfiguration, Kompatibilität, Mehrpreise, Lieferzeiten
+2. Innenausbau im Detail:
+   - Fliesen: Format, Rutschhemmung, Verlegemuster, Fugenbild und Fugenfarbe, Abdichtung
+   - Parkett und Böden: Holzart, Sortierung, Oberfläche, Verlegemuster, Sockelleisten, Übergänge
+   - Wandfarben, Putze einschließlich Keller, Oberflächenqualität Q1–Q4
+   - Treppenformen, Stufenverziehung, Holzarten, Geländer
+   - Innentüren und Beschläge
+   - Sanitärobjekte mit Bewegungsflächen
+   - Küche
+3. Möblierung in 3D: Datenstandards für konfigurierbare Möbel (IDM des DCC, OFML), Stell- und Bewegungsflächen
+4. Festschreibung und Suchbarkeit: eindeutige Spezifikation je Auswahl (Artikel + Farbe + Oberfläche + Format + Muster + Fuge), gestuft nach Reifegrad P/R/A
+5. Abhängigkeiten zwischen Optionen (z. B. Wand-WC → Vorwand → Tragständer → Abwasser)
+6. Produktdatenstandards: ETIM, ECLASS, BMEcat, VDI 3805, GTIN, Product Data Templates (ISO 23386/23387) und ihre Kopplung an IFC
+7. Konfigurationslogik: wissensbasierte Konfiguration, Kompatibilität, Mehrpreise, Lieferzeiten
+8. Abgrenzung zu Consumer-Planern (Planner 5D, Roomle, IKEA Kreativ) und Fachsoftware (Palette CAD, Pytha)
 
 ### 13. Technische Gebäudeausrüstung und automatisches Routing
 1. Elektro und Netzwerk: DIN 18015 mit Installationszonen, Mindestausstattung, Schutzbereiche im Bad, Zählerschrank, Wohnungsverkabelung
@@ -183,6 +203,8 @@ Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 - B7 (geplant) Walmdach über Straight Skeleton mit Deckung, Grat und Kehle
 - B8 (geplant) Routing einer Abwasser- und einer Elektroleitung unter Installationszonen
 - B9 (geplant) Bemusterungsoption Wand-WC mit Folgeänderungen an Vorwand, Ständer und Abwasser
+- B11 (geplant) Fliesenverlegung mit Verlegemuster, Fugenbild und Schnittplan als festgeschriebene Auswahl
+- B12 (geplant) Wechsel des Gebäudetyps EFH → ZFH mit automatisch umgeschaltetem Regelprofil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 
 ### 20. Evaluation
