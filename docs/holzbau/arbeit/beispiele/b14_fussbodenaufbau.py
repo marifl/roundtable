@@ -320,8 +320,14 @@ def bewerte(raum: dict, var: dict, daten: dict, wahl: tuple, estrich_key: str,
         if not any(mat[x.material]["nivellierend"] for x in s[:idx_e]):
             raise Verworfen("trockenestrich_ohne_ausgleich")
 
+    # Wabe direkt auf der Rohdecke (Herstellerangabe); Schüttung darunter nur bei Leitungen
+    rollen = [x.rolle for x in s]
+    if "beschwerung" in rollen and "installationsebene" in rollen and not im_aufbau \
+            and rollen.index("installationsebene") < rollen.index("beschwerung"):
+        raise Verworfen("wabe_nicht_auf_rohdecke")
+
     # --- Stetige Dicken lösen --------------------------------------------
-    H = float(var["ziel_aufbauhoehe_mm"])
+    H = float(var["ziel_aufbauhoehe_mm"]) + absenkung(raum, var)
     fest = sum(x.dicke for x in s if not x.stetig)
     if mit_ziel:
         _loese_stetig(s, H - fest, mat, var["gewichte"])
@@ -380,6 +386,11 @@ def bewerte(raum: dict, var: dict, daten: dict, wahl: tuple, estrich_key: str,
     return res
 
 
+def absenkung(raum: dict, var: dict) -> float:
+    """Rohbauvorgabe: Rohdecke im Raum tiefer gelegt (z. B. Bad mit bodengleicher Dusche)."""
+    return float(var.get("absenkungen_mm", {}).get(raum["id"], 0))
+
+
 def zielwert(res: Ergebnis, gew: dict) -> float:
     k = res.kennwerte
     return gew["masse"] * k["flaechenmasse_kg_m2"] + gew["kosten"] * k["kosten_eur_m2_beispiel"] + gew["lagen"] * k["lagen"]
@@ -395,33 +406,34 @@ def optimiere_raum(raum: dict, var: dict, daten: dict) -> Ergebnis:
     unten_opts = [_slot_optionen(sl, mat) for sl in var["schichten"]]
     oben_opts = [_slot_optionen(sl, mat) for sl in var.get("oberhalb_estrich", [])]
     beste, bester_wert, gruende = None, None, Counter()
-    bereich = [math.inf, -math.inf]
-    for unten in itertools.product(*unten_opts):
-        for oben in itertools.product(*oben_opts):
-            wahl = (unten, oben)
-            try:
-                r = bewerte(raum, var, daten, wahl, estrich_key)
-            except Verworfen as ex:
-                gruende[str(ex)] += 1
-                try:  # erreichbare Höhe dieser Kombination (für die Diagnose)
-                    r0 = bewerte(raum, var, daten, wahl, estrich_key, mit_ziel=False)
-                    lo, hi = r0.kennwerte["h_bereich"]
-                    bereich = [min(bereich[0], lo), max(bereich[1], hi)]
-                except Verworfen:
-                    pass
-                continue
-            w = (round(zielwert(r, var["gewichte"]), 6), " | ".join(x.kurz() for x in r.schichten))
-            if bester_wert is None or w < bester_wert:
-                beste, bester_wert = r, w
+    kombis = [(u, o) for u in itertools.product(*unten_opts) for o in itertools.product(*oben_opts)]
+    for wahl in kombis:
+        try:
+            r = bewerte(raum, var, daten, wahl, estrich_key)
+        except Verworfen as ex:
+            gruende[str(ex)] += 1
+            continue
+        w = (round(zielwert(r, var["gewichte"]), 6), " | ".join(x.kurz() for x in r.schichten))
+        if bester_wert is None or w < bester_wert:
+            beste, bester_wert = r, w
     if beste is None:
+        # Diagnose: erreichbare Aufbauhöhen aller Kombinationen ohne Zielhöhe
+        bereich = [math.inf, -math.inf]
+        for wahl in kombis:
+            try:
+                lo, hi = bewerte(raum, var, daten, wahl, estrich_key, mit_ziel=False).kennwerte["h_bereich"]
+            except Verworfen:
+                continue
+            bereich = [min(bereich[0], lo), max(bereich[1], hi)]
         res = Ergebnis(raum=raum, estrich=estrich_key, zulaessig=False)
-        H = var["ziel_aufbauhoehe_mm"]
-        text = f"Kein zulässiger Aufbau für H = {H} mm."
+        H = var["ziel_aufbauhoehe_mm"] + absenkung(raum, var)
+        text = f"Kein zulässiger Aufbau für H = {H:g} mm."
         if bereich[0] < math.inf:
             if H < bereich[0]:
-                text += f" Mindestens erreichbar: {bereich[0]:g} mm (fehlen {bereich[0] - H:g} mm)."
+                text += (f" Mindestens erreichbar: {bereich[0]:g} mm (fehlen {bereich[0] - H:g} mm) → Rohdecke im Raum "
+                         f"um >= {bereich[0] - H:g} mm absenken (Rohbauvorgabe), Ziel-Aufbauhöhe erhöhen oder dünneres System.")
             elif H > bereich[1]:
-                text += f" Höchstens erreichbar: {bereich[1]:g} mm (zu hoch um {H - bereich[1]:g} mm)."
+                text += f" Höchstens erreichbar: {bereich[1]:g} mm (zu hoch um {H - bereich[1]:g} mm) → dickere Ausgleichsschicht zulassen."
         haeufig = ", ".join(f"{g} ({n}×)" for g, n in sorted(gruende.items(), key=lambda kv: (-kv[1], kv[0]))[:4])
         res.verstoesse.append(text + " Häufigste Ausschlussgründe: " + haeufig)
         res.diagnose = {"h_erreichbar_mm": bereich if bereich[0] < math.inf else None, "gruende": dict(gruende)}
@@ -453,7 +465,7 @@ def weiche_regeln(res: Ergebnis, var: dict, daten: dict) -> None:
         if k["gefaelle_mm"] > 20:
             res.verstoesse.append(f"Absenkung Duschplatz {k['gefaelle_mm']:g} mm > 20 mm (DIN 18040-2 5.5.5).")
         rinne = daten["rinnen"][d["rinne"]]
-        z_est = sum(x.dicke for x in res.schichten[: res.schichten.index(next(x for x in res.schichten if x.rolle == 'estrich')) + 1])
+        z_est = sum(x.dicke for x in res.schichten[: res.schichten.index(next(x for x in res.schichten if x.rolle == 'estrich')) + 1])  # ab OK Rohdecke (abgesenkt)
         h_einlauf = z_est - k["gefaelle_mm"]
         k["estrichhoehe_am_einlauf_mm"] = h_einlauf
         if h_einlauf < rinne["estrichhoehe_min_mm"]:
@@ -503,7 +515,8 @@ def berechne_variante(daten: dict, variante: str) -> dict:
     tol_max = float(daten["okff_toleranz_mm"])
     raeume_out, alle_ok = [], True
     for res in ergebnisse:
-        z, lagen = 0.0, []
+        abs_r = absenkung(res.raum, var)
+        z, lagen = -abs_r, []
         for x in res.schichten:
             if x.dicke <= 0:
                 continue
@@ -516,6 +529,7 @@ def berechne_variante(daten: dict, variante: str) -> dict:
         alle_ok &= ok
         raeume_out.append({
             "id": res.raum["id"], "name": res.raum["name"], "belag": res.raum["belag"], "estrich": res.estrich,
+            "rohdecke_absenkung_mm": abs_r,
             "zulaessig": res.zulaessig, "okff_mm": okff, "okff_toleranz_mm": tol, "nachweis_okff": ok,
             "schichten": lagen, "kennwerte": res.kennwerte, "verstoesse": res.verstoesse, "hinweise": res.hinweise,
             "diagnose": res.diagnose})
@@ -533,7 +547,7 @@ def berechne_variante(daten: dict, variante: str) -> dict:
             if kante > tol_max + 1e-9:
                 eintrag["verstoesse"].append(f"mögliche Kante {kante:.1f} mm > {tol_max:g} mm (Stolperkante).")
             bel_a, bel_b = daten["belaege"][a["belag"]], daten["belaege"][b["belag"]]
-            fuge = a["estrich"] != b["estrich"] or "Tuer" in u["art"]
+            fuge = a["estrich"] != b["estrich"] or u.get("tuer", False)
             if fuge:
                 eintrag["hinweise"].append("Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).")
                 for bel in (bel_a, bel_b):
@@ -542,7 +556,7 @@ def berechne_variante(daten: dict, variante: str) -> dict:
             elif a["belag"] != b["belag"]:
                 eintrag["hinweise"].append("Belagwechsel ohne Estrichfuge: höhengleiche Trennschiene/elastische Fuge "
                                            "(Parkett-Randfuge).")
-            if "Bad" in u["art"]:
+            if u.get("bad", False):
                 eintrag["hinweise"].append("Badtür: schwellenlos (DIN 18040-2 ≤ 2 cm); Abdichtung W2-I in die Türleibung "
                                            "und Gefälle weg von der Tür.")
         uebergaenge.append(eintrag)
@@ -713,10 +727,11 @@ def erzeuge_ifc(daten: dict, ergebnis: dict):
         if not rj["zulaessig"]:
             continue
         h = rj["okff_mm"]
+        z0 = -rj["rohdecke_absenkung_mm"]
         cov = w.root("IfcCovering", pfad + "/fussbodenaufbau", Name=f"Fußbodenaufbau {rr['name']}",
                      PredefinedType="FLOORING",
-                     ObjectPlacement=w.platzierung(storey.ObjectPlacement, (rr["x0"], rr["y0"], 0.0)),
-                     Representation=w.form(w.body, "SweptSolid", [w.quader(rr["breite"], rr["tiefe"], h)]))
+                     ObjectPlacement=w.platzierung(storey.ObjectPlacement, (rr["x0"], rr["y0"], z0)),
+                     Representation=w.form(w.body, "SweptSolid", [w.quader(rr["breite"], rr["tiefe"], h - z0)]))
         lagen = [f.createIfcMaterialLayer(w.material(s["material"], s["name"], daten["materialien"][s["material"]]["kategorie"]),
                                           float(s["dicke_mm"]), None, s["rolle"], None, None, None) for s in rj["schichten"]]
         ls = f.createIfcMaterialLayerSet(lagen, f"FB {rr['id']} {rr['name']}", None)
@@ -731,6 +746,7 @@ def erzeuge_ifc(daten: dict, ergebnis: dict):
             "Flaechenmasse_kg_m2": float(k["flaechenmasse_kg_m2"]),
             "R_lambda_B": ("IfcThermalResistanceMeasure", float(k["R_lambda_B"])),
             "NachweisOKFF": bool(rj["nachweis_okff"]), "BelegreifeCMmax": k.get("belegreife_cm_max"),
+            "RohdeckenAbsenkung": ("IfcLengthMeasure", float(rj["rohdecke_absenkung_mm"])) if rj["rohdecke_absenkung_mm"] else None,
             "Gefaelle": ("IfcLengthMeasure", float(k["gefaelle_mm"])) if k["gefaelle_mm"] else None})
         bel = daten["belaege"][rr["belag"]]
         w.pset([space], pfad, "Pset_SpaceCoveringRequirements", {

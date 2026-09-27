@@ -134,6 +134,7 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
 | Dimensionen und Durchdringungen | Nennweite jeder Leitung berechnet. Jede Bohrung, jeder Durchbruch, jeder Wechsel und jede Manschette ist geplant, regelgeprüft und als Fertigungsbearbeitung übergeben |
 | Fliesen und Parkett in 3D | jede Fliese als echtes 3D-Objekt. Verschnitt, Reststücke und Mehraufwand werden real berechnet, auch bei Chevron oder Fischgrät in einem achteckigen Duschraum mit mehrfachem Gefälle |
 | Grundstücksentwässerung | Grundleitungen, Kontroll- und Revisionsschächte, Rückstausicherung, Versickerung über Rigolen mit Bemessung nach DWA-A 138-1, Entwässerungsantrag nach kommunaler Satzung (z. B. MSE München) |
+| Schallschutz | innen zwischen Wohnungen und außen gegen Autobahn, Bahn, Flughafen und Gewerbe. Lärmkarten liefern den Pegel am Grundstück. Das System wählt Fenster und Lüfter; wo das nicht reicht, schlägt es eine andere Planung vor (Schlafräume zur ruhigen Seite) |
 | Baustellenlogistik | Elementgewichte, Kranwahl nach Ausleger und Traglast, Kranstellplatz, Abstellflächen für Wechselbrücken, Transportgenehmigungen, Montagereihenfolge |
 | Fußbodenaufbau | Estrich- und Dämmhöhen werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei jedem Belag gleich bleibt (Parkett, Fliese, Naturstein, Beton Ciré). Keine Kante an Übergängen |
 | Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |

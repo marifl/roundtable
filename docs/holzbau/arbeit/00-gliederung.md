@@ -206,8 +206,13 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 ### 15. Fachmodule
 1. Energie: H'T, Modellgebäudeverfahren, Monatsbilanz, Space Boundaries
 2. Tragwerk: Vorbemessung nach EC 5 mit deutschem NA
-3. Brand- und Schallschutz
-4. Mengen, Kosten (DIN 276, GAEB), Ökobilanz (ÖKOBAUDAT, QNG)
+3. Brandschutz
+4. Schallschutz:
+   - innen zwischen Nutzungseinheiten (DIN 4109-1)
+   - gegen Außenlärm von Autobahn, Bahn, Flughafen und Gewerbe: Lärmkarten, maßgeblicher Außenlärmpegel, erforderliches R'w,ges je Raum, Fensterklassen, schallgedämmte Lüfter
+   - Planungsstrategien bis zur Umplanung: Schlafräume zur lärmabgewandten Seite, Pufferräume, Lüftungskonzept
+   - Erschütterungen nahe Bahnlinien
+5. Mengen, Kosten (DIN 276, GAEB), Ökobilanz (ÖKOBAUDAT, QNG)
 
 ### 16. 3D-Präsentation
 1. IFC → glTF/USD mit PBR-Materialien
@@ -248,6 +253,7 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B16 Fliesenverlegung als 3D-Einzelobjekte: Chevron im achteckigen Duschraum mit Gefälle, Verschnitt und Wiederverwendung der Reststücke
 - B17 Grundstücksentwässerung: Grundleitung, Schächte, Rigolenbemessung
 - B18 Kranplanung: Elementgewichte aus IFC, Kranwahl, Stellplatz, BE-Plan
+- B19 Außenlärm: Autobahn im Norden, Fassadenpegel, erforderliche Schalldämmung je Raum, automatische Fensterwahl, Grundrissvariante „Schlafräume nach Süden“ im Vergleich
 - B13 (geplant) Assistenz: Grundriss-Score (Tageslicht, Zonierung, Space-Syntax-Integration) mit Empfehlung, Begründung und Evidenzgrad; optional Feng-Shui-Profil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 

@@ -12,33 +12,34 @@
    "name": "Wohnen",
    "belag": "parkett_14_geklebt",
    "estrich": "TE_GF_25",
+   "rohdecke_absenkung_mm": 0.0,
    "zulaessig": true,
    "okff_mm": 160.0,
    "okff_toleranz_mm": 0.6,
    "nachweis_okff": true,
    "schichten": [
     {
-     "rolle": "installationsebene",
-     "material": "gebundene_schuettung",
-     "name": "Gebundene Schuettung (EPS-Zement)",
-     "dicke_mm": 34.0,
-     "uk_mm": 0.0,
-     "ok_mm": 34.0
-    },
-    {
      "rolle": "beschwerung",
      "material": "wabe_schuettung",
      "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
      "dicke_mm": 30.0,
-     "uk_mm": 34.0,
-     "ok_mm": 64.0
+     "uk_mm": -0.0,
+     "ok_mm": 30.0
+    },
+    {
+     "rolle": "ausgleich",
+     "material": "ausgleichsschuettung",
+     "name": "Ausgleichsschuettung (mechanisch gebunden)",
+     "dicke_mm": 24.0,
+     "uk_mm": 30.0,
+     "ok_mm": 54.0
     },
     {
      "rolle": "trittschall",
      "material": "holzfaser_tsd",
      "name": "Holzfaser-Trittschalldaemmplatte",
-     "dicke_mm": 29.0,
-     "uk_mm": 64.0,
+     "dicke_mm": 39.0,
+     "uk_mm": 54.0,
      "ok_mm": 93.0
     },
     {
@@ -84,24 +85,25 @@
    ],
    "kennwerte": {
     "aufbauhoehe_mm": 160.0,
-    "flaechenmasse_kg_m2": 108.2,
-    "kosten_eur_m2_beispiel": 176.35,
+    "flaechenmasse_kg_m2": 109.1,
+    "kosten_eur_m2_beispiel": 175.65,
     "lagen": 8,
     "R_lambda_B": 0.1127,
-    "R_ins": 1.887,
-    "beschwerung_kg_m2": 56.9,
+    "R_ins": 1.89,
+    "beschwerung_kg_m2": 55.8,
     "toleranz_ueber_nivellierhorizont_mm": 0.6,
     "nivellierhorizont": "spachtelung",
     "gefaelle_mm": 0.0,
     "leitungshoehe_mm": 0.0,
-    "zielwert": 285.35,
+    "zielwert": 285.55,
     "kandidaten_verworfen": {
      "beschwerung": 15,
-     "hoehe_zu_gross": 22,
+     "hoehe_zu_gross": 4,
      "hoehe_zu_klein": 3,
      "kein_toleranzausgleich": 9,
      "toleranzausgleich_zu_duenn": 9,
-     "toleranzkette": 7
+     "toleranzkette": 4,
+     "wabe_nicht_auf_rohdecke": 24
     },
     "belegreife_cm_max": null
    },
@@ -116,6 +118,7 @@
    "name": "Kueche",
    "belag": "feinsteinzeug_10",
    "estrich": "TE_GF_25",
+   "rohdecke_absenkung_mm": 0.0,
    "zulaessig": true,
    "okff_mm": 160.0,
    "okff_toleranz_mm": 1.0,
@@ -126,7 +129,7 @@
      "material": "wabe_schuettung",
      "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
      "dicke_mm": 60.0,
-     "uk_mm": 0.0,
+     "uk_mm": -0.0,
      "ok_mm": 60.0
     },
     {
@@ -222,6 +225,7 @@
    "name": "Bad",
    "belag": "naturstein_20_mittelbett",
    "estrich": "TE_ZEM_25",
+   "rohdecke_absenkung_mm": 0.0,
    "zulaessig": true,
    "okff_mm": 160.0,
    "okff_toleranz_mm": 0.5,
@@ -232,7 +236,7 @@
      "material": "wabe_schuettung",
      "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
      "dicke_mm": 30.0,
-     "uk_mm": 0.0,
+     "uk_mm": -0.0,
      "ok_mm": 30.0
     },
     {
@@ -307,9 +311,10 @@
     "zielwert": 420.55,
     "kandidaten_verworfen": {
      "beschwerung": 16,
-     "hoehe_zu_gross": 34,
+     "hoehe_zu_gross": 10,
      "toleranzausgleich_zu_duenn": 9,
-     "trockenestrich_ohne_ausgleich": 9
+     "trockenestrich_ohne_ausgleich": 9,
+     "wabe_nicht_auf_rohdecke": 24
     },
     "estrichhoehe_am_einlauf_mm": 108.0,
     "belegreife_cm_max": null
@@ -329,6 +334,7 @@
    "name": "Flur",
    "belag": "beton_cire_3",
    "estrich": "TE_GF_25",
+   "rohdecke_absenkung_mm": 0.0,
    "zulaessig": true,
    "okff_mm": 160.0,
    "okff_toleranz_mm": 0.8,
@@ -339,7 +345,7 @@
      "material": "gebundene_schuettung",
      "name": "Gebundene Schuettung (EPS-Zement)",
      "dicke_mm": 45.0,
-     "uk_mm": 0.0,
+     "uk_mm": -0.0,
      "ok_mm": 45.0
     },
     {
@@ -434,11 +440,9 @@
   {
    "a": "Wohnen",
    "b": "Kueche",
-   "art": "offen (ohne Tuer)",
+   "art": "offener Uebergang",
    "hinweise": [
-    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
-    "Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
-    "Feinsteinzeug 10 mm im Duennbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil."
+    "Belagwechsel ohne Estrichfuge: höhengleiche Trennschiene/elastische Fuge (Parkett-Randfuge)."
    ],
    "verstoesse": [],
    "delta_okff_mm": 0.0,

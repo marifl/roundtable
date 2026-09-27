@@ -79,9 +79,9 @@
      ]}
   ],
   "uebergaenge": [
-    {"a": "R01", "b": "R02", "art": "offen (ohne Tuer)"},
-    {"a": "R04", "b": "R01", "art": "Tuer T01"},
-    {"a": "R04", "b": "R03", "art": "Tuer T02 (Bad)"}
+    {"a": "R01", "b": "R02", "art": "offener Uebergang", "tuer": false, "bad": false},
+    {"a": "R04", "b": "R01", "art": "Tuer T01", "tuer": true, "bad": false},
+    {"a": "R04", "b": "R03", "art": "Tuer T02 (Bad)", "tuer": true, "bad": true}
   ],
   "varianten": {
     "A_bodenplatte_nass": {
@@ -93,6 +93,8 @@
       "estrich_standard": "CAF_F4",
       "estrich_gefaellebereich": "CT_F4",
       "toleranz_im_estrich_anrechnen": true,
+      "absenkungen_mm": {"R03": 30},
+      "_absenkungen": "Rohbauvorgabe: Bodenplatte im Bad 30 mm tiefer (Ergebnis der Konfliktdiagnose ohne Absenkung: 240 statt 210 mm)",
       "schichten": [
         {"rolle": "abdichtung", "pflicht": true, "optionen": [{"material": "bitumen_abdichtung", "dicken": [5]}]},
         {"rolle": "installationsebene", "pflicht": false, "optionen": [
