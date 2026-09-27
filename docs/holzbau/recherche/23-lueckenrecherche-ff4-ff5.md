@@ -1,6 +1,6 @@
 # 23 Lückenrecherche FF4 (Verantwortung) und FF5 (Wirkung)
 
-Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../arbeit/02a-review-protokoll.md`). Anlass ist die Einzelbewertung (`../arbeit/literatur/bewertung/STATISTIK.md`): Nur 12 Quellen tragen FF4 mit Relevanz ≥ 2, nur 24 tragen FF5. Die 40 neuen Quellen stehen in `../arbeit/literatur/lit-H-ff4-ff5.bib`. Dubletten zu `quellen-master.csv` wurden über DOI und Titel ausgeschlossen. Vorhandene Quellen, auf die hier verwiesen wird, sind mit ihrem Key genannt, zum Beispiel `prodhaftg2026`, `haug2012definition` oder `brooke1996sus`.
+Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../arbeit/02a-review-protokoll.md`). Anlass ist die Einzelbewertung (`../arbeit/literatur/bewertung/STATISTIK.md`): Nur 12 Quellen tragen FF4 mit Relevanz ≥ 2, nur 24 tragen FF5. Die 68 neuen Quellen (40 aus der ersten Runde, 28 im Nachtrag) stehen in `../arbeit/literatur/lit-H-ff4-ff5.bib`. Dubletten zu `quellen-master.csv` wurden über DOI und Titel ausgeschlossen. Vorhandene Quellen, auf die hier verwiesen wird, sind mit ihrem Key genannt, zum Beispiel `prodhaftg2026`, `haug2012definition` oder `brooke1996sus`.
 
 **Prüfweg.** Direkte Abfragen an Crossref weist der Proxy mit 403 ab. Die Metadaten stammen deshalb aus der Crossref-REST-API, abgerufen über den Exa-Fetch (`api.crossref.org/works?filter=doi:…`); in den Tabellen heißt dieser Weg „Crossref“. Kernbefunde und Zahlen sind am Abstract geprüft, bei Open-Access-Fassungen am Volltext. Rechtsquellen sind an der amtlichen Fundstelle geprüft (EUR-Lex, Landtagsdrucksache), das BGH-Urteil über dejure.org.
 
@@ -51,6 +51,13 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 | Ng, Hall & Hsieh: Liability Factors for Design for Digital Fabrication | 2023 | W | Delphi-Studie mit 14 Beteiligten eines Projekts. 163 Haftungsfaktoren in 8 Kategorien, 85 davon wichtig. Am höchsten gewichtet: Managementfähigkeit (4,45) und BIM-Kompetenz (4,43). Vier Vertragsbausteine A–D für DBB, CM, DB und IPD. | **FF4: 2** – nächster Fall zur Kette Digitalplanung → Werk; Einzelfall aus Taiwan. FF5: 1. | [V] Crossref + ETH-Volltext |
 | Parasuraman, Sheridan & Wickens: Types and levels of automation | 2000 | W | Vier Funktionen (Information erfassen, analysieren, entscheiden, handeln) mit je eigener Automatisierungsstufe von 1 bis 10. | **FF4: 2** – Gerüst, um Freigaben im Modell als Stufe je Funktion abzubilden. FF5: 1. | [V] Crossref |
 | Parasuraman & Manzey: Complacency and Bias | 2010 | W | Complacency und Automation Bias treten bei Laien und Experten auf. Übung allein beseitigt sie nicht. Sie verstärken sich unter Mehrfachbelastung. | **FF4: 3** – begründet, warum eine reine Bestätigung per Klick keine Freigabe ist. FF5: 2 (Fehlerquote bei Freigabe messen). | [V] Crossref |
+| Ittmann, Okeil & Friedland: Standard of care for the structural engineer | 2018 | W | Erläutert den rechtlichen Sorgfaltsmaßstab (standard of care) bei Fahrlässigkeitsklagen gegen Tragwerksplaner. Prüft, wie eingeführte Normen, Praxisleitfäden sowie Software und Technik diesen Maßstab verschieben. | **FF4: 2** – Softwareeinsatz ändert den Sorgfaltsmaßstab nicht, sondern wird an ihm gemessen; US-Recht. | [V] Crossref + ASCE |
+| Plevris & Hosamo: Responsible AI in structural engineering | 2025 | W | Acht fiktive, realistische Fallstudien zu ethischen Konflikten, darunter KI-Empfehlung gegen ingenieurliches Urteil. Rahmen in drei Bereichen: technische Grundlagen, Betrieb und Governance mit Human-in-the-loop, berufliche Verantwortung. | **FF4: 2** – Gliederung für Governance und Human-in-the-loop; nicht empirisch. | [V] Crossref (mit Abstract) |
+| Alwash, Love & Olatunji: Legal uncertainties in BIM | 2017 | W | Wirkung rechtlicher Unsicherheiten im BIM und mögliche Abhilfen. | **FF4: 1** – Kontext zu BIM-Rechtsfragen; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
+| Arensman & Ozbek: BIM and potential legal issues | 2012 | W | Überblick über mögliche Rechtsfragen des BIM. | **FF4: 1** – frühe Einordnung; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
+| Matthias: The responsibility gap | 2004 | W | Bei lernenden Automaten ist ihr Verhalten weder dem Hersteller noch dem Betreiber voll zurechenbar. So entsteht eine „Verantwortungslücke“. | **FF4: 2** – theoretische Begründung, lernende Komponenten aus der Freigabekette herauszuhalten. | [V] Crossref |
+| Santoni de Sio & Mecacci: Four responsibility gaps with AI | 2021 | W | Unterscheidet vier Verantwortungslücken (u. a. Schuld, moralische und öffentliche Rechenschaft, aktive Verantwortung). Als Antwort schlägt sie „meaningful human control“ vor. | **FF4: 2** – Begriff der wirksamen menschlichen Kontrolle für die Freigabe. | [V] Crossref |
+| Bainbridge: Ironies of automation | 1983 | W | Automatisierung überlässt dem Menschen die Überwachung und die schwierigen Ausnahmefälle. Beides beherrscht er ohne Übung schlechter; seine Fertigkeiten verkümmern. | **FF4: 2**, **FF5: 2** – Klassiker zu Deskilling und Freigaberisiko; stützt Übungsaufgaben ohne System. | [V] Crossref |
 
 ### A2 Freigabe-Workflows, CDE, Signatur und Audit-Trail
 
@@ -62,6 +69,8 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 | Fakour, Jaud & Poirier: Digital signatures in IFC at object level | 2025 | W | Untersucht, ob sich digitale Signaturen auf Objektebene ins IFC-Schema einbetten lassen. Offen sind die IFC-Struktur, die Langzeitprüfbarkeit und der Umgang mit Teiländerungen. | **FF4: 2** – Grenze der Nachvollziehbarkeit im Modell: Signaturen auf Objektebene sind Forschungsstand, nicht Praxis. | [V] Crossref (EC3) |
 | Alfaro: CHEK D4.5 IFC digital signature module | 2025 | G | DSign signiert IFC-Dateien im Browser mit qualifizierter elektronischer Signatur (QES) nach eIDAS. Ablauf: Hash der Datei, Signatur über einen Vertrauensdiensteanbieter, Zeitstempel, eingebetteter Umschlag, ausdrücklicher Bestätigungsschritt. | **FF4: 2** – funktionierender Prototyp für die Signatur der Bauvorlage auf Dateiebene. FF1: 1. | [V] Projekt-PDF |
 | eIDAS-VO 910/2014 i. d. F. 2024/1183 | 2014/2024 | N | Die qualifizierte elektronische Signatur ist der handschriftlichen gleichgestellt. 2024/1183 ergänzt die EUDI-Wallet. | **FF4: 2** – rechtlicher Rahmen für die digitale Unterschrift des Entwurfsverfassers; das Formerfordernis regelt das Landesrecht (`bayDigitalisierungEntwurf2026`). | [V] EUR-Lex; [U] Seitenangabe ABl. 2014 |
+| Li, Greenwood & Kassem: Blockchain in the built environment | 2019 | W | Systematischer Review mit konzeptionellen Modellen und Anwendungsfällen der Blockchain im Bauwesen. | **FF4: 1** – Überblick; die kritische Einordnung liefert Hunhevicz & Hall. Inhalt nur über die Metadaten geprüft. | [V] Crossref |
+| Kim, Choi, Teo & Sun: K-BIM e-Submission | 2020 | W | Prototyp für die Einreichung von Bauanträgen auf openBIM-Basis in Korea. | **FF4: 1**, FF1: 1 – Vergleich zur digitalen Bauvorlage; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
 
 ### A3 Erklärbarkeit und Rechtswirkung automatisierter Prüfergebnisse
 
@@ -87,6 +96,9 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 | Kristjansdottir et al.: ROI from product configuration systems | 2018 | W | Grundfos, 5 Jahre: 453.419 Personalstunden eingespart (−75 %). Angebotszeit von 9,5 auf 3,4 Tage (−64 %). ROI 316 % nach 1 Jahr und 842 % nach 5 Jahren bei 2,41 Mio. € Gesamtkosten; über Konfigurator 3,94-facher Absatz. | **FF5: 3** – vollständiges Kosten-Nutzen-Schema mit Entwicklung, Einführung und Pflege, übertragbar auf die Evaluation. | [V] Crossref + DTU-Volltext |
 | Forza & Salvador: Managing for variety in the order process | 2002 | W | Fall eines Transformatorenherstellers. Der Konfigurator erhöht Wirksamkeit und Effizienz bei der Übersetzung des Kundenwunsches in die Produktdokumentation, sichert Produktwissen und erfordert anfangs hohen Aufwand und Umorganisation. Laut Sekundärzitat sinkt die Angebotszeit von 5–6 Tagen auf 1 Tag, die Stücklisten sind nahezu fehlerfrei. | **FF5: 2** – Mechanismus hinter der Fehlerreduktion; Arbeitsteilung zwischen Vertrieb und Technik. | [V] Crossref; [U] Zahlen nur sekundär |
 | Trentin, Perin & Forza: Configurator impact on product quality | 2012 | W | Hypothesentest an einer Stichprobe von Fertigungsbetrieben: Die Nutzung eines Konfigurators verbessert die Produktqualität. Der Effekt ist schwächer, wenn der Marktbedarf schwer bestimmbar ist. | **FF5: 2** – quantitativer Beleg für die Qualitätswirkung; Moderator „unklarer Kundenbedarf“ ist im EFH-Laiengeschäft relevant. | [V] Crossref |
+| Myrodia, Kristjansdottir & Hvam: Configurators, profitability and costing accuracy | 2017 | W | Langzeitfall eines Herstellers mit Auftragskonfiguration (CTO), Angebote vor und nach der Einführung. Der Anteil der Projekte mit mehr als 10 % Kostenabweichung sank von 14,6 % (2009) auf 2,2 % (2014). Im ersten Jahr stiegen die Abweichungen zunächst (ungetestetes System, fehlende Schulung). | **FF5: 2** – Messgröße „Kalkulationsgenauigkeit“ und Anlaufeffekt. | [V] Crossref; [U] Zahlen aus der Konferenzfassung |
+| Forza & Salvador: Configuration and inter-firm co-ordination | 2002 | W | Konfigurator als Koordinationsinstrument zwischen Firmen in einem kleinen Fertigungsbetrieb. | **FF5: 1** – Kontext zur Kette Hersteller ↔ Zulieferer; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
+| Zhang: Product configuration – a review | 2014 | W | Review zum Stand der Forschung zur Produktkonfiguration und zu künftigen Forschungsfragen. | **FF5: 1**, FF1: 1 – Überblick; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
 
 ### B2 Nacharbeit, Änderungen und Durchlaufzeit in Bau und Vorfertigung
 
@@ -98,6 +110,14 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 | Ibbs: Impact of change's timing on labor productivity | 2005 | W | 162 Projekte, drei Kurven für frühe, normale und späte Änderungen. Späte Änderungen senken die Produktivität stärker als frühe. | **FF5: 2** – begründet die Messgröße „Zeitpunkt der Änderung relativ zum Planungsfreeze bzw. Fertigungsstart“. | [V] Crossref + ASCE |
 | Mubashar et al.: Variation orders in SMEs using MMC | 2026 | W | Britische KMU mit modernen Baumethoden: Befragung und Fallstudie. Eine Änderung zum Brandschutz 13 Wochen nach Fertigungsbeginn kostete 4 Wochen Verzug („Flaschenhals“ in der Linie). Am höchsten bewertet: Budgetabweichung (4,00), Verzug durch Kundenfreigaben (4,00), Nacharbeit (4,00). | **FF5: 2** – einziger aktueller Beleg zu späten Änderungen in der Vorfertigung mit Zeitangabe. FF4: 1 (Freigabe durch den Kunden als Engpass). | [V] Crossref |
 | da Rocha, Kemmer & Meneses: Customization strategies and workflow variation | 2016 | W | Kundenänderungen im Wohnungsbau: Fehlende Kundeninformation stört den ersten und alle folgenden Arbeitsschritte. Leitlinien zu Informationsfluss und Individualisierungsumfang, dazu ein visueller Indikator für die Schwankung im Arbeitsfluss. | **FF5: 2** – Messidee für die Stabilität des Arbeitsflusses bei individualisierten Häusern; Brasilien. FF6: 1. | [V] Crossref |
+| Love & Li: Quantifying the causes and costs of rework | 2000 | W | Zwei Fallprojekte mit unterschiedlicher Vergabeform: Die Nacharbeit kostete 3,15 % bzw. 2,40 % der Auftragssumme. Hauptursachen sind Änderungen durch Auftraggeber und Nutzer sowie Fehler und Auslassungen in den Vertragsunterlagen. | **FF5: 2** – Ausgangswerte und Ursachen passen zum Hebel „Änderungen früh im Konfigurator“. | [V] Crossref |
+| Love: Project type, procurement method and rework costs | 2002 | W | Nacharbeitskosten nach Projekttyp und Vergabeform. Laut Sekundärzitat trägt Nacharbeit etwa 52 % zur Kostensteigerung bei und verlängert die Bauzeit um 20,7 %. | **FF5: 2** – Größenordnung der Wirkung auf Termine. | [V] Crossref; [U] Zahlen sekundär |
+| Love, Edwards & Irani: Design-induced rework | 2008 | W | Planungsbedingte Nacharbeit macht in der Literatur über 70 % der Nacharbeit aus. Fallstudie (43 Wohnungen, 10,96 Mio. A$): Kostenüberschreitung 10,5 %, davon 42 % durch Nacharbeit; Planungsänderungen und -fehler 2,7 % der Auftragssumme. | **FF5: 2** – belegt, dass der Hebel in der Planung liegt. | [V] Crossref + BURA-Volltext |
+| Josephson & Hammarlund: Causes and costs of defects | 1999 | W | Ursachen und Kosten von Mängeln in sieben schwedischen Bauprojekten. Laut Sekundärzitat betragen die Mängelkosten 2–6 % der Auftragssumme. | **FF5: 2** – skandinavischer Ausgangswert; Abstract nicht eingesehen. | [V] Crossref; [U] Zahlen sekundär |
+| Thomas & Napolitan: Construction changes and labor productivity | 1995 | W | Quantifiziert den Produktivitätsverlust durch Änderungen. Laut Sekundärzitat verliert man an Tagen mit Änderungen 25–50 % der Arbeitsproduktivität. | **FF5: 2** – Wirkung jeder Änderungsschleife in der Ausführung. | [V] Crossref; [U] Zahlen sekundär |
+| Wuni, Shen & Mahmud: Critical risk factors in modular construction | 2019 | W | Systematischer Review über 39 empirische Studien: 73 Risikofaktoren, davon 30 kritische. „Fehlerhafte Planung und Änderungen“ steht auf Rang 7, weil der Fertigungsplan nach dem Start praktisch keine Änderungen zulässt. | **FF5: 2** – begründet den Planungsfreeze vor Produktionsstart. FF4: 1. | [V] Crossref |
+| Abdul Nabi & El-adaway: Schedule benefits of modularization | 2022 | W | Befragung von 48 Fachleuten und Daten aus 68 Modulbauprojekten zur Zeitersparnis, dazu ein Bewertungsmodell. Die wichtigsten Einflussgrößen sind Planung und Engineering, Regulierung und Organisation sowie Ressourcen und Technik. | **FF5: 2** – zeigt, dass die Planung die Zeitersparnis begrenzt; konkrete Werte nicht eingesehen. | [V] Crossref |
+| Lopez & Froese: Panelized vs. modular prefabricated homes | 2016 | W | Zwei Einfamilienhäuser im Vergleich (Tafel- und Modulbau): Der Modulbau ist nur geringfügig kostengünstiger. Qualitative Vor- und Nachteile beider Bauweisen. | **FF5: 1** – Kontext für Tafelbau-EFH; kleine Fallzahl. | [V] Crossref |
 
 ### B3 Wirkung von BIM und Automatisierung auf die Planungszeit
 
@@ -105,6 +125,7 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 |---|---|---|---|---|---|
 | Sacks & Barak: 3D parametric modeling and productivity | 2008 | W | Benchmark und zwei Modellierexperimente: 15–41 % weniger Projektstunden allein durch die Zeichnungserstellung. Erwartet: weniger Zeichner im Verhältnis zu Ingenieuren und eine neue Rolle, der „structural modeler“. | **FF5: 3** – belegt Zeitgewinn *und* Rollenwandel; Stahlbeton, nicht Holz. | [V] Crossref + Technion |
 | Thajudeen, Elgh & Lennartsson: Reuse of design assets in ETO components | 2022 | W | Schwedischer Hersteller von mehrgeschossigen Holzskelettbauten: Parametrische Design-Plattform für ETO-Anschlüsse (Konsolen). Der Modellierprozess wird 20-mal schneller; ETO-Bauteile werden konfigurierbar. | **FF5: 2** – Holzbau-Beleg mit Zahl; Einzelfall eines Bauteils. FF1: 1, FF6: 1. | [V] Crossref + MDPI |
+| Kaner, Sacks, Kassian & Quitt: BIM adoption for precast design | 2008 | W | Vier Fallstudien in zwei mittelgroßen Ingenieurbüros: deutlich mehr fehlerfreie Zeichnungen, stetig steigende Arbeitsproduktivität, Wandel von Arbeitsablauf und Personal. | **FF5: 2** – Begleitstudie zu Sacks & Barak mit Blick auf die Einführung; keine Zahlen im Abstract. | [V] ITcon |
 
 ### B4 Evaluationsdesign für Design-Science-Artefakte
 
@@ -116,8 +137,21 @@ Status: v0.1 (27.09.2026). Diese Recherche setzt Protokoll 2a.3 Nr. 4 um (`../ar
 | Noy & Zhang: Productivity effects of generative AI | 2023 | W | Präregistriertes Experiment mit 453 Akademikern bei Schreibaufgaben: 40 % weniger Zeit, 18 % höhere Qualität. Die Ungleichheit zwischen den Teilnehmern sinkt. | **FF5: 2** – Vorlage für das Design mit Kontrollgruppe und Zeit- und Qualitätsmaß; kein Bauwesen. | [V] Crossref + Science |
 | Brynjolfsson, Li & Raymond: Generative AI at Work | 2025 | W | 5.172 Support-Agenten, gestaffelte Einführung. Die Produktivität steigt im Mittel um 15 % (Fälle je Stunde), bei weniger Erfahrenen um 30 %. Bei den Erfahrensten sinkt die Qualität leicht. Neue Agenten erreichen nach 2 Monaten das Niveau von 6 Monaten. | **FF5: 3** – erwartete Wirkung auf die Arbeitsteilung: Das System hebt den Vertrieb bzw. Laien, nicht den Experten. FF4: 1. | [V] Crossref + OUP |
 | Dell'Acqua et al.: Navigating the jagged technological frontier | 2026 | W | 758 BCG-Berater, randomisiert. Innerhalb der KI-Fähigkeitsgrenze: 12,2 % mehr Aufgaben, 25,1 % schneller, deutlich höhere Qualität. Außerhalb: 19 Prozentpunkte seltener korrekt (84,5 % gegenüber 60 bzw. 70,6 %). | **FF5: 3**, **FF4: 2** – zwingt das Evaluationsdesign, Aufgaben außerhalb des Regelraums zu testen; misst den Automation Bias. | [V] Crossref + INFORMS |
+| Nielsen & Landauer: Mathematical model of finding usability problems | 1993 | W | Modell dazu, wie mit jedem weiteren Testnutzer neue Probleme gefunden werden; Grundlage der „5-Nutzer-Regel“. | **FF5: 2** – Gegenstück zu Faulkner 2003 für die Begründung der Stichprobe. | [V] Crossref |
+| Voordijk: CME as a multidisciplinary design science | 2009 | W | Epistemologische Einordnung von Construction Management als Design Science. | **FF5: 1** – methodische Rechtfertigung von DSR im Bauwesen; ergänzt `hevner2004design`. | [V] Crossref |
 
 ---
+
+### B5 Arbeitsteilung und Rollenwandel
+
+| Quelle | Jahr | Typ | Kernbefund (mit Zahlen) | Passung FF (0–3) mit Begründung | Status |
+|---|---|---|---|---|---|
+| Agri, Le & Phung: AI integration in architectural design management | 2025 | W | 23 Interviews (10 Entwerfer, 13 Design-Manager, VAE); 83 % nutzen KI im Alltag, vor allem für Varianten, Optimierung und den Abgleich mit dem Raumprogramm. Hürden: rechtliche Unsicherheit (Haftung, Eigentum an den Ergebnissen), fehlende Standards, Zuverlässigkeit. | **FF5: 2**, **FF4: 1** – Rollenwandel im Architekturbüro; Haftung als von der Praxis genannte Hürde. | [V] Crossref + Volltext |
+| Bloch, Hamo-Goren, Grobman & Austern: Impact of ML on the AEC sector | 2026 | W | Sicht von Wissenschaft und Industrie auf die Wirkung von maschinellem Lernen im Bauwesen. | **FF5: 1** – Kontext; Inhalt nur über die Metadaten geprüft. | [V] Crossref |
+| Elrawy & Wagdy: Perceptions of GenAI among architects in Egypt | 2025 | W | Wahrnehmung generativer KI im Architektenberuf: Chancen, Bedrohungen, Zukunftssorgen, Verbesserungsschritte. | **FF5: 1** – Kontext zu Berufsbild und Sorgen; Inhalt nur über die Metadaten geprüft, geringe Übertragbarkeit. | [V] Crossref |
+| Frey & Osborne: The future of employment | 2017 | W | Schätzung der Automatisierbarkeit von 702 US-Berufen; rund 47 % der Beschäftigung mit hohem Risiko. | **FF5: 1** – vielzitierte, methodisch umstrittene Obergrenze; nur zur Abgrenzung. | [V] Crossref |
+| Autor: Why are there still so many jobs? | 2015 | W | Automatisierung ersetzt Routineaufgaben und ergänzt zugleich nicht routinemäßige Arbeit. Das Ergebnis ist eine Polarisierung statt Wegfall der Arbeit. | **FF5: 2** – theoretischer Rahmen: Vertrieb und Planer verlieren Routinen, gewinnen Beratung und Prüfung. | [V] Crossref |
+
 
 ## Messgrößen und Zielwerte für die Evaluation
 
@@ -144,35 +178,9 @@ Die Zielwerte sind aus der Literatur *abgeleitet*, nicht übernommen. Sie gelten
 
 ---
 
-## Geprüft, aber zurückgestellt (verifiziert, nicht in der Bib-Datei)
+## Nachtrag
 
-Um bei 40 Quellen zu bleiben, wurden folgende verifizierte Arbeiten nicht aufgenommen. Sie können bei Bedarf ergänzt werden:
-- Love & Li 2000, *CME* 18(4), 10.1080/01446190050024897: zwei Fälle, Nacharbeit 3,15 % und 2,40 % der Auftragssumme.
-- Love 2002, *JCEM* 128(1), 10.1061/(ASCE)0733-9364(2002)128:1(18).
-- Love, Edwards & Irani 2008, *IEEE TEM* 55(2), 10.1109/TEM.2008.919677: Planungsbedingte Nacharbeit macht über 70 % der gesamten Nacharbeit aus.
-- Josephson & Hammarlund 1999, *AutCon* 8(6), 10.1016/S0926-5805(98)00114-9. Zahlen nicht am Abstract geprüft.
-- Thomas & Napolitan 1995, *JCEM* 121(3), 10.1061/(ASCE)0733-9364(1995)121:3(290).
-- Myrodia, Kristjansdottir & Hvam 2017, *Comput. Ind.* 88, 10.1016/j.compind.2017.03.001: Projekte mit mehr als 10 % Kostenabweichung sanken von 14,6 % auf 2,2 %; Zahl aus der Konferenzfassung.
-- Forza & Salvador 2002b, *Comput. Ind.* 49(1), 10.1016/S0166-3615(02)00057-X.
-- Zhang 2014, *IJPR* 52(21), 10.1080/00207543.2014.942012: Review.
-- Wuni, Shen & Mahmud 2019/2022, *IJCM* 22(2), 10.1080/15623599.2019.1613212: „fehlerhafte Planung und Änderungen“ auf Rang 7 von 30 Risiken im Modulbau.
-- Abdul Nabi & El-adaway 2022, *JCEM* 148(7), 10.1061/(ASCE)CO.1943-7862.0002311: 68 Modulbauprojekte; Zahlen zur Zeitersparnis nicht geprüft.
-- Lopez & Froese 2016, *Procedia Eng.* 145, 10.1016/j.proeng.2016.04.166.
-- Li, Greenwood & Kassem 2019, *AutCon* 102, 10.1016/j.autcon.2019.02.005.
-- Arensman & Ozbek 2012, *IJCER* 8(2), 10.1080/15578771.2011.617808.
-- Alwash, Love & Olatunji 2017, *JLADR* 9(3), 10.1061/(ASCE)LA.1943-4170.0000219.
-- Ittmann et al. 2018, *JLADR* 10(3), 10.1061/(ASCE)LA.1943-4170.0000265: Sorgfaltsmaßstab des Tragwerksplaners, US-Recht.
-- Plevris & Hosamo 2025, *Front. Built Environ.* 11, 10.3389/fbuil.2025.1612575.
-- Matthias 2004, 10.1007/s10676-004-3422-1; Santoni de Sio & Mecacci 2021, 10.1007/s13347-021-00450-x: Verantwortungslücken, philosophisch.
-- Bainbridge 1983, 10.1016/0005-1098(83)90046-8.
-- Kim et al. 2020 (K-BIM e-Submission), *JCEM (VGTU)* 26(8), 10.3846/jcem.2020.13756.
-- Agri, Le & Phung 2025, *AEDM* 22(1), 10.1080/17452007.2025.2548911: 23 Interviews, 83 % nutzen KI im Alltag; genannte Hürde: rechtliche Unsicherheit.
-- Bloch et al. 2026, *AEDM* 22(4), 10.1080/17452007.2026.2632103.
-- Elrawy & Wagdy 2025, *AI & Society* 40(6), 10.1007/s00146-025-02193-1.
-- Voordijk 2009, *CME* 27(8), 10.1080/01446190903117777.
-- Nielsen & Landauer 1993, 10.1145/169059.169166.
-- Frey & Osborne 2017, 10.1016/j.techfore.2016.08.019; Autor 2015, 10.1257/jep.29.3.3.
-- Kaner et al. 2008, ITcon 13, 303–323: ohne Zahlen im Abstract.
+Die 28 zunächst zurückgestellten, bereits verifizierten Quellen stehen seit dem Nachtrag vom 27.09.2026 in den Tabellen A1, A2 und B1–B5 und in der Bib-Datei (Abschnitt „Nachtrag“). Wo nur die Metadaten geprüft sind oder Zahlen aus Sekundärzitaten stammen, sagt das die Zeile.
 
 **Nicht verifizierte Hinweise (nur Herstellerangaben, nicht zitierfähig, [U]):**
 - Elecosoft/F.R.E.D.S. Timberframe: Werkplanung von 8–10 Wochen auf 1 Woche.

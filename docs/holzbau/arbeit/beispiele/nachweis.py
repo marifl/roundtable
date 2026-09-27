@@ -248,6 +248,7 @@ class DimWert:
 class EinheitenEinfach:
     """Eigene Dimensionsprüfung ohne Fremdpaket (Fallback, wenn pint fehlt)."""
     name = "einfach"
+    fehlertypen: tuple = (EinheitenFehler,)
 
     def si(self, einheit: str) -> tuple[float, tuple]:
         return _parse_einfach(normiere_einheit(einheit))
@@ -308,6 +309,7 @@ class EinheitenPint:
     def __init__(self):
         import pint
         self.pint = pint
+        self.fehlertypen = (EinheitenFehler, pint.DimensionalityError)
         self.ureg = pint.UnitRegistry(autoconvert_offset_to_baseunit=True)
         self._cache: dict[str, Any] = {}
 
@@ -982,7 +984,7 @@ class Nachweis:
                     if all(isinstance(G[n].wert, int) and not isinstance(G[n].wert, bool) for n in s.eingaben) \
                             and float(erg.wert).is_integer() and abs(erg.wert) < 2 ** 53:
                         erg.wert = int(round(erg.wert))  # ganzzahlige Eingaben, ganzzahliges Ergebnis (Zählgrößen)
-                except EinheitenFehler as e:
+                except EINHEITEN.fehlertypen as e:
                     raise EinheitenFehler(f"{self.id}, Schritt {i} ({s.beschreibung}): {e}") from e
                 if s.formel_latex is None:
                     s.formel_latex = f"{erg.tex} = " + ausdruck_latex(s.ausdruck, lambda n: G[n].tex)
