@@ -72,7 +72,8 @@ Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit R
 4. Mass Customization und Produktkonfiguration im Hausbau
 5. Generatives Design, Grundriss- und Möblierungssolver
 6. Sprach- und Sprachmodell-Schnittstellen in AEC: Text2BIM, NADIA-S, Intent-Modelle
-7. Forschungslücken
+7. Vergleichbare Arbeiten: Dissertationen und Projekte zu Vorfertigung, Konfiguration, Design Automation, Compliance-by-Design, TGA-Routing und Dachautomatisierung, gegenübergestellt in einer Vergleichsmatrix. Dazu, was sich übernehmen lässt und was zu vermeiden ist
+8. Forschungslücken und Abgrenzung der eigenen Arbeit
 
 ---
 
