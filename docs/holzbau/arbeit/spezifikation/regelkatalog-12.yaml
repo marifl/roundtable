@@ -1,0 +1,944 @@
+# Regelkatalog Kapitel 12: Bemusterung, Innenausbau und Interior-Katalog.
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt | nicht_anwendbar | freigabepflichtig.
+# Normwerte sind Einzelkennwerte mit Fundstelle, keine Tabellenkopien (Kapitel 9.7). Status U: vor Produktivbetrieb bestätigen.
+# Neue Profile, in regelprofile.yaml zu registrieren: DE-aRdT-Ausbau (S3), M-Hersteller-Bemusterung (S5), M-Bemusterung-Prozess (S5).
+# Verwendet von: bemusterung-abhaengigkeiten.yaml (Folgen je Option), Beispielauswahlen in beispiele/.
+
+katalog:
+  name: HRB-Regelkatalog Kapitel 12 (Bemusterung und Innenausbau)
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["12"]
+  hinweis: "Kennwerte aus Recherchen 10, 13, 16, 17 und den Beispielen B5, B14, B15, B16. Bestehende Regeln (DE.VDI6000.Bewegungsflaeche, DE.DIN18040-2.Bewegungsflaeche, DE.DIN18065.WG2WE, DE.Fussboden.OKFF-gleich, DE.EC5-NA.NA67.Durchbruch, M.Firma.Staenderbohrung) stehen in regelkatalog.yaml."
+
+regeln:
+
+# ---------------------------------------------------------------------------
+# Sanitär und Vorwand
+# ---------------------------------------------------------------------------
+- id: M.Hersteller.WC-Montageelement
+  version: 0.1.0
+  titel: Wand-WC in der Holzständerwand – Tragkonstruktion des Montageelements
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Montagerichtlinie eines Vorwandsystem-Herstellers (Baustelleneinweisung 06/2018, DIN 4103-4)", fundstelle: "Holzständerwand", fassung: "06/2018", status: V, recherche: ["10"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcSanitaryTerminal TOILETPAN mit PanMounting = WALLHUNG vor einer Holzständerwand"
+    r2_voraussetzung: [IDS.RG-sanitaer-R]
+  eingaben:
+    - {name: staender_querschnitt, einheit: mm, quelle: Wandelement}
+    - {name: beplankung_dicke_je_seite, einheit: mm, quelle: Wandelement}
+    - {name: lichter_staenderabstand, einheit: mm, quelle: Wandelement}
+    - {name: befestigungspunkte, einheit: "-", quelle: Katalogartikel}
+  pruefung:
+    typ: geometrie
+    funktion: wc_montageelement@0.1
+    formel: "Ständer ≥ 60 × 80 mm an beiden Seiten des Elements ∧ Beplankung beidseitig ≥ 18 mm ∧ lichter Ständerabstand = 500 mm (sonst Querriegel einplanen) ∧ 4 Befestigungspunkte im Holz"
+    parameter: {staender_mm: [60, 80], beplankung_min_mm: 18, lichter_abstand_mm: 500, befestigungspunkte: 4}
+  grenzwerte:
+    - {name: beplankung_min, wert: 18, einheit: mm, richtung: min, fundstelle: "Herstellerrichtlinie", status: V}
+    - {name: lichter_abstand, wert: 500, einheit: mm, richtung: gleich, fundstelle: "Herstellerrichtlinie", status: V}
+    - {name: prueflast_wand_wc, wert: 400, einheit: kg, richtung: min, fundstelle: "DIN EN 997 (nicht eingesehen)", status: U}
+  meldung: "Wand-WC {wc}: Montageelement verlangt {forderung}; vorhanden {ist} in Wand {wand}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "zusätzliche Ständer bzw. Querriegel im Wandelement einplanen (Werkplanung)", frei: [wandelement.staenderlage]}
+    - {art: A3_variante, beschreibung: "Vorwandelement vor der Wand statt Einbau in die Ständerwand"}
+  status: V
+  beispiel: [B15]
+  kapitel: "12.2.7"
+  anforderungen: [ANF-12-04]
+  hinweis: "Werte aus Recherche 10 [V]; Prüflast 400 kg [U]. Firmenwerte über DAT-12-02 bestätigen."
+
+- id: M.Hersteller.DuschWC-Strom
+  version: 0.1.0
+  titel: Dusch-WC braucht Stromanschluss und Leerrohr am Montageelement
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Produktübersicht eines Vorwandsystem-Herstellers", fundstelle: "Dusch-WC", fassung: "2025", status: V, recherche: ["10"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung: {auswahl: "Katalogartikel mit Merkmal dusch_wc = true"}
+  eingaben:
+    - {name: dusch_wc, einheit: "-", quelle: Katalogartikel}
+    - {name: steckdose_im_vorwandelement, einheit: "-", quelle: Elektroplan}
+  pruefung:
+    typ: aufzaehlung
+    formel: "dusch_wc ⇒ ∃ IfcOutlet POWEROUTLET im Vorwandelement ∧ Leerrohr zum Verteiler; Freeze W (Dosenbohrung in der Wandfertigung)"
+  grenzwerte: []
+  meldung: "Dusch-WC {wc}: Steckdose im Vorwandelement fehlt; Anschluss muss vor der Wandfertigung festliegen."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Steckdose und Leerrohr automatisch ergänzen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.7"
+  anforderungen: [ANF-12-05]
+
+- id: DE.EC1-NA.Nutzlast-Badewanne
+  version: 0.1.0
+  titel: Gefüllte Badewanne auf Holzbalkendecke – örtliche Last über der Wohn-Nutzlast
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN EN 1991-1-1/NA; eigene Rechnung", fundstelle: "Nutzlastkategorie A2", fassung: "NA 2010-12", status: U, recherche: ["10"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: einleitung_verfahren}
+  vorbedingung: {auswahl: "IfcSanitaryTerminal BATH auf IfcSlab FLOOR aus Holz"}
+  eingaben:
+    - {name: wasser_l, einheit: l, quelle: Katalogartikel}
+    - {name: masse_wanne_kg, einheit: kg, quelle: Katalogartikel}
+    - {name: grundflaeche_m2, einheit: "m²", quelle: Katalogartikel}
+  pruefung:
+    typ: rechnung
+    formel: "q = (Wasser + Wanne + Person 80 kg) · g / Grundfläche; q > 1,5 kN/m² ⇒ freigabepflichtig (Tragwerksplanung)"
+    parameter: {person_kg: 80, nutzlast_A2_kN_m2: 1.5}
+  grenzwerte:
+    - {name: nutzlast_A2, wert: 1.5, einheit: "kN/m²", richtung: max, fundstelle: "EN 1991-1-1/NA, Kategorie A2", status: U}
+  meldung: "Wanne {wanne}: örtliche Last {q} kN/m² > 1,5 kN/m²; Tragwerksplanung prüft Balkenlage."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Nachweis durch die Tragwerksplanung (Balkenabstand, Querverteilung)"}
+    - {art: A3_variante, beschreibung: "Wanne mit kleinerem Volumen oder Duschplatz"}
+  freigabe_rolle: Tragwerksplanung
+  status: U
+  beispiel: [keins]
+  kapitel: "12.2.7"
+  anforderungen: [ANF-12-22]
+  hinweis: "Beispielrechnung Recherche 10: 180 l + 30 kg + 80 kg ≈ 2,9 kN auf 1,28 m² ≈ 2,3 kN/m² [U]."
+
+- id: M.Hersteller.Rinne-Einbauhoehe
+  version: 0.1.0
+  titel: Estrichhöhe am Einlauf der Duschrinne im zulässigen Bereich des Rohbausets
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstellerkataloge Duschrinnen (Rohbauset DN 40/DN 50)", fundstelle: "Einbauhöhen", fassung: "2025/2026", status: V, recherche: ["16"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: estrichhoehe_einlauf, einheit: mm, quelle: "B14"}
+    - {name: rohbauset, einheit: "-", quelle: Katalogartikel}
+  pruefung:
+    typ: rechnung
+    funktion: b14.rinne@1.0
+    formel: "h_min(set) ≤ Estrichhöhe am Einlauf ≤ h_max(set)"
+    parameter: {DN40_mm: [65, 90], DN50_mm: [90, 220]}
+  grenzwerte:
+    - {name: DN50_bereich, wert: [90, 220], einheit: mm, richtung: intervall, fundstelle: "Herstellerkatalog", status: V}
+  meldung: "Rinne {rinne}: Estrichhöhe am Einlauf {h} mm außerhalb {h_min}–{h_max} mm."
+  alternative:
+    - {art: A3_variante, beschreibung: "anderes Rohbauset (flach/Norm) wählen"}
+    - {art: A2_kompensation, beschreibung: "Rohdecke absenken (B14) bzw. Ablauf in die Balkenlage (B15)"}
+  status: V
+  beispiel: [B14]
+  kapitel: "12.2.3"
+  anforderungen: [ANF-12-23]
+  tests: [tests/test_b14.py]
+
+# ---------------------------------------------------------------------------
+# Fliese, Abdichtung, Belag
+# ---------------------------------------------------------------------------
+- id: DE.DIN18534.W-Klasse
+  version: 0.1.0
+  titel: Wassereinwirkungsklasse je Fläche ableiten und Untergrund prüfen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18534-1 bis -6", fundstelle: "Wassereinwirkungsklassen W0-I bis W3-I; Untergründe", fassung: "2025-10", status: V, recherche: ["13", "16"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-10-01", bis: null, stichtag: abnahme}
+  vorbedingung: {auswahl: "IfcCovering in IfcSpace mit Dusche, Wanne oder Bodenablauf"}
+  eingaben:
+    - {name: flaechenart, einheit: "-", quelle: Modell, beschreibung: "Wand an Dusche/Wanne, Wand sonst, Boden mit/ohne Ablauf"}
+    - {name: duschabtrennung, einheit: "-", quelle: Bemusterung}
+    - {name: bodengleich, einheit: "-", quelle: Bemusterung}
+    - {name: untergrund, einheit: "-", quelle: Wandelement bzw. Fußbodenaufbau}
+  pruefung:
+    typ: aufzaehlung
+    formel: "Boden bodengleiche Dusche = W2-I; ohne wirksame Abtrennung ganzer Badboden W2-I; Wand an Dusche/Wanne, Boden mit Ablauf = W1-I; sonst W0-I. Ab W2-I nur feuchteunempfindlicher Untergrund; Spezialgipsplatte in W2-I nur mit Herstellernachweis (sonst freigabepflichtig); Holz/Holzwerkstoff nie direkt unter AIV; am Boden keine Dispersionsabdichtung"
+  grenzwerte: []
+  meldung: "{flaeche}: Wassereinwirkungsklasse {w}; Untergrund {u} ist dafür {bewertung}."
+  alternative:
+    - {art: A3_variante, beschreibung: "zementgebundene Platte oder Estrich in der Gefällefläche"}
+    - {art: A5_freigabeweg, beschreibung: "Systemnachweis des Plattenherstellers hinterlegen"}
+  status: V
+  beispiel: [B14]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-07]
+
+- id: DE.DIN18534.Kapillarsperre-Tuer
+  version: 0.1.0
+  titel: Kapillaren Feuchtetransport an Badtüren unterbrechen (Parkett neben Bad)
+  klasse: R1
+  haerte: weich
+  quelle: {art: N, werk: "DIN 18534-1", fundstelle: "8.5.5", fassung: "2025-10", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-10-01", bis: null, stichtag: abnahme}
+  eingaben:
+    - {name: belag_links, einheit: "-", quelle: Bemusterung}
+    - {name: belag_rechts, einheit: "-", quelle: Bemusterung}
+    - {name: w_klasse_bad, einheit: "-", quelle: DE.DIN18534.W-Klasse}
+  pruefung:
+    typ: topologie
+    formel: "Übergang (IfcDoor) zwischen Raum mit W ≥ W1-I und feuchteempfindlichem Belag ⇒ Kapillarsperre im Belagaufbau und Abdichtung in die Türleibung"
+  grenzwerte: []
+  meldung: "Tür {tuer}: Kapillarsperre zwischen {bad} und {nachbar} einplanen."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Trennschiene mit Kapillarsperre und Abdichtung bis in die Leibung"}
+  status: V
+  beispiel: [B14]
+  kapitel: "12.2.3"
+  anforderungen: [ANF-12-14]
+
+- id: DE.ZDB.Grossformat
+  version: 0.1.0
+  titel: Großformatige Fliesen – Mindestfuge, Mindestdicke, Sonderkonstruktion
+  klasse: R1
+  haerte: weich
+  quelle: {art: H, werk: "ZDB-Merkblatt Großformate (Neuausgabe 'Groß- und Megaformate' 2026-02 nicht eingesehen)", fundstelle: "Anwendungsbereich, Fugenbreite", fassung: "vor 2026-02", status: U, recherche: ["13", "17"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung: {anwendbar_wenn: "Fliesenfläche > 0,25 m² je Stück"}
+  eingaben:
+    - {name: format_mm, einheit: mm, quelle: Katalogartikel}
+    - {name: fugenbreite_mm, einheit: mm, quelle: Auswahl}
+    - {name: dicke_mm, einheit: mm, quelle: Katalogartikel}
+  pruefung:
+    typ: attribut
+    formel: "Fuge ≥ 3 mm; Dicke Boden ≥ 7,5 mm, Wand ≥ 3,5 mm; Kante > 1200 mm (Riegel > 1500 mm) ⇒ Sonderkonstruktion (freigabepflichtig, schriftlich vereinbaren)"
+    parameter: {grossformat_ab_m2: 0.25, fuge_min_mm: 3, dicke_boden_min_mm: 7.5, dicke_wand_min_mm: 3.5, sonder_ab_mm: 1200}
+  grenzwerte:
+    - {name: fuge_min, wert: 3, einheit: mm, richtung: min, fundstelle: "ZDB, Mindestfuge Großformat", status: V}
+    - {name: grossformat_ab, wert: 0.25, einheit: "m²", richtung: gleich, fundstelle: "ZDB-Merkblatt", status: V}
+  meldung: "Großformat {format}: {verstoss}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Fuge auf 3 mm setzen"}
+    - {art: A3_variante, beschreibung: "kleineres Format derselben Serie"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-10]
+
+- id: M.Hersteller.Fliese-Versatz
+  version: 0.1.0
+  titel: Versatz im Verband bei Rechteckformaten höchstens ein Drittel
+  klasse: R1
+  haerte: weich
+  quelle: {art: M, werk: "Herstellerdatenblätter, Innungshinweis", fundstelle: "Verlegeempfehlung Rechteckformate", fassung: "2026", status: V, recherche: ["13"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: versatz, einheit: "-", quelle: HRB_Verlegung.Versatz}
+    - {name: seitenverhaeltnis, einheit: "-", quelle: Katalogartikel}
+  pruefung:
+    typ: attribut
+    formel: "Rechteckformat (L/B ≥ 2) ∧ Muster = gerade ⇒ Versatz ≤ 1/3; Halbverband (1/2) nur mit Hinweis 'Überzähne'"
+    parameter: {versatz_max: 0.3333}
+  grenzwerte:
+    - {name: versatz_max, wert: 0.3333, einheit: "-", richtung: max, fundstelle: "Herstellerempfehlung", status: V}
+  meldung: "Versatz {versatz} > 1/3 bei {format}: Hoch- und Tiefpunkte treffen sich (Überzähne)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Drittel- oder Viertelverband"}
+  status: V
+  beispiel: [B16]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-10]
+
+- id: DE.ATV18352.Fugenbreite
+  version: 0.1.0
+  titel: Technisch notwendige Fugenbreite und Regelverfugung (VOB/C)
+  klasse: R1
+  haerte: weich
+  quelle: {art: N, werk: "ATV DIN 18352", fundstelle: "3.4.2, 3.4.3", fassung: "2019-09", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2019-09-01", bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: fugenbreite_mm, einheit: mm, quelle: Auswahl}
+    - {name: fugenfarbe, einheit: "-", quelle: Auswahl}
+  pruefung:
+    typ: attribut
+    formel: "2 mm ≤ Fuge ≤ 8 mm (je nach Format und Toleranz mehr); Fugenfarbe ≠ grau oder Reaktionsharz ⇒ Leistung ausdrücklich im LV beschreiben"
+  grenzwerte:
+    - {name: fuge, wert: [2, 8], einheit: mm, richtung: intervall, fundstelle: "ATV DIN 18352 3.4.2", status: V}
+  meldung: "Fuge {f} mm außerhalb 2–8 mm bzw. Sonderfarbe {farbe} nicht im LV."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Fugenbreite in mm-Schritten im Bereich wählen"}
+  status: V
+  beispiel: [B16]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-06]
+
+- id: DE.DIN18202.Ebenheit-Belag
+  version: 0.1.0
+  titel: Erhöhte Ebenheit (Tab. 3 Zeile 4) für Großformat und Beton Ciré vereinbaren
+  klasse: R1
+  haerte: hinweis
+  quelle: {art: N, werk: "DIN 18202", fundstelle: "Tab. 3 Zeilen 3 und 4", fassung: "2019-07", status: V, recherche: ["13", "16"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2019-07-01", bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: belag, einheit: "-", quelle: Bemusterung}
+  pruefung:
+    typ: attribut
+    formel: "Großformat (> 0,25 m²) oder Beton Ciré oder Klebevinyl ⇒ Zeile 4 vereinbaren (Stichmaß 1 mm bei 0,1 m, 3 mm bei 1 m) und als Mehrpreis ausweisen"
+  grenzwerte:
+    - {name: stichmass_z4_1m, wert: 3, einheit: mm, richtung: max, fundstelle: "DIN 18202 Tab. 3 Z. 4", status: V}
+  meldung: "{belag}: erhöhte Ebenheit (Zeile 4) als Besondere Leistung vereinbaren."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-10]
+
+- id: M.Firma.Mindestschnitt
+  version: 0.1.0
+  titel: Mindestgröße von Schnittstücken (Firmenregel statt Drittelregel)
+  klasse: R1
+  haerte: weich
+  quelle: {art: M, werk: "Firmenregel (Platzhalter aus B16)", fundstelle: "B16 regeln.min_breite_mm", fassung: "Platzhalter 2026-09", status: U, recherche: ["17"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: inkreis_mm, einheit: mm, quelle: "B16 Stückliste"}
+  pruefung:
+    typ: geometrie
+    funktion: b16.kleinstueck@1.0
+    formel: "Inkreisdurchmesser jedes Stücks ≥ 20 mm; < 6 mm wird verfugt; Flächenanteil ≥ 1/3 nur bei geradem Muster ohne Knicklinien prüfen"
+    parameter: {min_breite_mm: 20, verfugen_unter_mm: 6, min_flaechenanteil: 0.3333}
+  grenzwerte:
+    - {name: min_breite, wert: 20, einheit: mm, richtung: min, fundstelle: "Beispielwert B16", status: U}
+  meldung: "{n} Stücke schmaler als 20 mm; Rasterursprung verschieben."
+  alternative:
+    - {art: A3_variante, beschreibung: "Rasterursprung aus der Grid-Search mit weniger Kleinstücken wählen"}
+  status: U
+  beispiel: [B16]
+  kapitel: "12.2.2"
+  anforderungen: [ANF-12-11]
+
+- id: DE.DINEN16165.Rutschhemmung
+  version: 0.1.0
+  titel: Rutschhemmung von Bodenbelägen (Empfehlung im EFH, Pflicht bei Barrierefreiheit)
+  klasse: R1
+  haerte: hinweis
+  quelle: {art: N, werk: "DIN EN 16165 (Prüfung); DGUV I 207-006; DIN 18040-2 (Bewertungsgruppe B)", fundstelle: "Anhang B; Duschplätze", fassung: "2023", status: V, recherche: ["13", "17"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2023-01-01", bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: r_klasse, einheit: "-", quelle: HRB_Belag.Rutschhemmung}
+    - {name: barfuss, einheit: "-", quelle: HRB_Belag.Barfuss}
+    - {name: barrierefrei, einheit: "-", quelle: Profilschalter}
+  pruefung:
+    typ: attribut
+    formel: "Duschfläche: Empfehlung Barfußklasse ≥ B; Schalter barrierefrei ⇒ B im Duschplatz verbindlich (Ergebnis verletzt statt Hinweis)"
+  grenzwerte: []
+  meldung: "Duschfläche {raum}: Barfußklasse {ist}; empfohlen bzw. verlangt ist B."
+  alternative:
+    - {art: A3_variante, beschreibung: "Oberfläche 'strukturiert' derselben Serie"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.1"
+  anforderungen: [ANF-12-06]
+
+- id: M.Hersteller.Naturstein-Holzdecke
+  version: 0.1.0
+  titel: Naturstein und Großformat auf Holzbalkendecke nur mit Nachweis
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "BDF-Merkblatt 02-04 (in der Bau- und Leistungsbeschreibung zitiert); Fachliteratur", fundstelle: "Fliese auf Estrich über Holzbalkendecke", fassung: "10/2024", status: U, bib: [regnauerBLB2024], recherche: ["10"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: belag, einheit: "-", quelle: Bemusterung}
+    - {name: flaechenmasse, einheit: "kg/m²", quelle: "B14"}
+    - {name: decke, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    formel: "Belag ∈ {Naturstein, Fliese > 0,25 m²} ∧ Decke = Holzbalkendecke ⇒ freigabepflichtig (Durchbiegung, Eigenfrequenz, Flächenmasse ≤ Grenze der Decke)"
+    parameter: {flaechenmasse_max_kg_m2: 180}
+  grenzwerte:
+    - {name: flaechenmasse_max, wert: 180, einheit: "kg/m²", richtung: max, fundstelle: "Beispielwert B14 Variante B", status: U}
+  meldung: "{belag} auf Holzbalkendecke {decke}: Nachweis der Tragwerksplanung nötig (Flächenmasse {m} kg/m²)."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Freigabe der Tragwerksplanung mit Durchbiegungsgrenze"}
+    - {art: A3_variante, beschreibung: "Feinsteinzeug ≤ 30 × 60 cm oder Parkett"}
+  freigabe_rolle: Tragwerksplanung
+  status: U
+  beispiel: [B14]
+  kapitel: "12.2.3"
+  anforderungen: [ANF-12-33]
+  hinweis: "Grenzwerte für Format und Flächenlast der Decke liefert DAT-03."
+
+- id: DE.BVF.FBH-Belagwiderstand
+  version: 0.1.0
+  titel: Wärmedurchlasswiderstand des Belags auf Fußbodenheizung
+  klasse: R1
+  haerte: weich
+  quelle: {art: H, werk: "BVF-Richtlinie 9; Merkblätter der Parkettverbände; DIN EN 1264", fundstelle: "R_λ,B ≤ 0,15 m²K/W; Auslegung 0,10", fassung: "2021/2024", status: V, recherche: ["13", "16"]}
+  profil: {name: DE-Fussboden, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  eingaben:
+    - {name: R_lambda_B, einheit: "m²K/W", quelle: "B14"}
+    - {name: verlegeart, einheit: "-", quelle: Auswahl}
+  pruefung:
+    typ: rechnung
+    funktion: b14.r_lambda_b@1.0
+    formel: "R_λ,B = Σ d_i/λ_i (Belag + Verlegewerkstoff + Unterlage) ≤ 0,15 m²K/W; Parkett schwimmend auf FBH ⇒ Hinweis 'nur bedingt geeignet'"
+    parameter: {grenze: 0.15, auslegung: 0.10}
+  grenzwerte:
+    - {name: R_lambda_B_max, wert: 0.15, einheit: "m²K/W", richtung: max, fundstelle: "BVF-Richtlinie 9", status: V}
+  meldung: "{raum}: R_λ,B = {r} m²K/W > 0,15; Vorlauftemperatur und JAZ verschlechtern sich."
+  alternative:
+    - {art: A3_variante, beschreibung: "dünnerer Belag oder vollflächig verklebt"}
+  status: V
+  beispiel: [B14]
+  kapitel: "12.2.3"
+  anforderungen: [ANF-12-13]
+  tests: [tests/test_b14.py::test_teppich_auf_fbh_verstoss]
+
+# ---------------------------------------------------------------------------
+# Wand und Decke
+# ---------------------------------------------------------------------------
+- id: DE.GipsMB2.Q-Stufe
+  version: 0.1.0
+  titel: Spachtelqualität passend zu Glanzgrad und Streiflicht
+  klasse: R1
+  haerte: weich
+  quelle: {art: H, werk: "Merkblatt 2 der Industriegruppe Gipsplatten im Bundesverband der Gipsindustrie; DIN EN 13300", fundstelle: "Q1–Q4; Glanzgrad G1–G4", fassung: "MB 2: 11/2017; EN 13300: 2023", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: glanzgrad, einheit: "-", quelle: Auswahl}
+    - {name: q_stufe, einheit: "-", quelle: Auswahl}
+    - {name: streiflicht, einheit: "-", quelle: "Modell (Fenster, Leuchten)"}
+  pruefung:
+    typ: attribut
+    formel: "ohne Angabe gilt Q2; Glanzgrad G1/G2, Lack oder Stuccolustro ⇒ Q4; feine Strukturen ⇒ Q3; Q3/Q4 ⇒ Ebenheit DIN 18202 Tab. 3 Zeile 7 und Besondere Leistung (DIN 18340)"
+  grenzwerte: []
+  meldung: "Wand {wand}: Glanzgrad {g} braucht {q_soll}; gewählt {q_ist}."
+  alternative:
+    - {art: A3_variante, beschreibung: "matte Beschichtung (G3/G4) bei Q2"}
+    - {art: A2_kompensation, beschreibung: "Q4 mit Mehrpreis"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.4"
+  anforderungen: [ANF-12-15]
+
+- id: M.Firma.Einbauleuchte-Decke
+  version: 0.1.0
+  titel: Einbauleuchten nur in Installationsebene bzw. abgehängter Decke
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung (Deckenaufbau); Praxis", fundstelle: "25 mm GK auf 30 mm Abstandsschalung", fassung: "10/2024", status: U, bib: [regnauerBLB2024], recherche: ["10", "13"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: einbautiefe_mm, einheit: mm, quelle: Katalogartikel}
+    - {name: installationsebene_mm, einheit: mm, quelle: Deckenaufbau}
+  pruefung:
+    typ: geometrie
+    formel: "Einbautiefe ≤ Installationsebene ∧ keine Durchdringung der luftdichten Ebene ∧ keine Schwächung der Brandschutzbekleidung ⇒ erfuellt; sonst freigabepflichtig"
+  grenzwerte: []
+  meldung: "Einbauleuchte {l}: Einbautiefe {t} mm > Installationsebene {e} mm oder Durchdringung {ebene}."
+  alternative:
+    - {art: A3_variante, beschreibung: "Aufbauleuchte oder flache Einbauleuchte"}
+    - {art: A5_freigabeweg, beschreibung: "Freigabe Werkplanung (Schall, Brandschutz)"}
+  freigabe_rolle: Werkplanung
+  status: U
+  beispiel: [keins]
+  kapitel: "12.2.4"
+  anforderungen: [ANF-12-15]
+  hinweis: "Zulässigkeit bei Regnauer offen (DAT-12-09)."
+
+- id: M.Firma.Dose-Aussenwand
+  version: 0.1.0
+  titel: Elektrodosen in der Außenwand ohne Installationsebene luftdicht
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung; DIN 4108-7", fundstelle: "Dampfbremse direkt hinter 25 mm Gips", fassung: "10/2024", status: U, bib: [regnauerBLB2024], recherche: ["10"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: wand, einheit: "-", quelle: Modell}
+    - {name: dosentyp, einheit: "-", quelle: Katalogartikel}
+  pruefung:
+    typ: attribut
+    formel: "IfcJunctionBox in IfcWall mit IsExternal = TRUE ∧ Installationsebene = 0 ⇒ Dosentyp = luftdicht"
+  grenzwerte: []
+  meldung: "Dose {d} in Außenwand {w}: luftdichter Dosentyp erforderlich."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "luftdichte Dose automatisch wählen"}
+    - {art: A3_variante, beschreibung: "Auslass in Innenwand verlegen"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.1"
+  anforderungen: [ANF-12-05]
+
+# ---------------------------------------------------------------------------
+# Treppe
+# ---------------------------------------------------------------------------
+- id: DE.DIN18065.Kopfhoehe
+  version: 0.1.0
+  titel: Lichte Treppendurchgangshöhe
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18065", fundstelle: "6.5", fassung: "2020-08", status: V, bib: [din18065], recherche: ["13"]}
+  profil: {name: DE-DIN18065-WG2WE, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [EFH, EFH_ELW, ZFH, DHH, RH_Ende, RH_Mitte, Bungalow]
+    zeit: {von: "2020-08-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcStair mit Deckenöffnung (IfcOpeningElement in IfcSlab)"
+    r2_voraussetzung: [IDS.RG-treppe-R]
+  eingaben:
+    - {name: kopfhoehe_min, einheit: mm, quelle: "Geometrie Lauflinie ↔ Deckenöffnung"}
+  pruefung:
+    typ: geometrie
+    formel: "min über Lauflinie (lotrecht über Stufenvorderkante bis Unterkante Decke/Wechsel) ≥ 2000 mm; bei ≤ 2 WE am Randstreifen einschränkbar"
+    parameter: {kopfhoehe_min_mm: 2000}
+  grenzwerte:
+    - {name: kopfhoehe_min, wert: 2000, einheit: mm, richtung: min, fundstelle: "DIN 18065:2020 6.5", status: V}
+  meldung: "Treppe {t}: Kopfhöhe {h} mm < 2000 mm an Stufe {n}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Deckenöffnung um die fehlende Länge verlängern (Wechsel verschieben)"}
+    - {art: A3_variante, beschreibung: "andere Laufrichtung oder Form"}
+  status: V
+  beispiel: [B5]
+  kapitel: "12.2.5"
+  anforderungen: [ANF-12-17]
+
+- id: DE.DIN18065.Verziehung
+  version: 0.1.0
+  titel: Verziehung gewendelter Läufe – Methode und Mindestauftritt innen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18065", fundstelle: "6.2", fassung: "2020-08", status: V, bib: [din18065], recherche: ["13"]}
+  profil: {name: DE-DIN18065-WG2WE, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [EFH, EFH_ELW, ZFH, DHH, RH_Ende, RH_Mitte, Bungalow]
+    zeit: {von: "2020-08-01", bis: null, stichtag: abnahme}
+  vorbedingung: {auswahl: "IfcStairFlight WINDER"}
+  eingaben:
+    - {name: methode, einheit: "-", quelle: HRB_Verziehung.Methode}
+    - {name: auftritt_innen_min, einheit: mm, quelle: Pset_StairFlightCommon.TreadLengthAtInnerSide}
+  pruefung:
+    typ: aufzaehlung
+    formel: "genau eine Methode je Lauf ∈ {Verhältnis, Winkel, Kreisbogen}; Auftritt an der inneren Begrenzung ≥ 50 mm (≤ 2 WE), sonst ≥ 100 mm; Spindel ≤ 2 WE: 0 mm; Auftritt in der Lauflinie als Sehne"
+    parameter: {innen_min_2WE_mm: 50, innen_min_allg_mm: 100}
+  grenzwerte:
+    - {name: auftritt_innen_min_2WE, wert: 50, einheit: mm, richtung: min, fundstelle: "DIN 18065 6.2", status: V}
+  meldung: "Lauf {l}: {verstoss}."
+  alternative:
+    - {art: A3_variante, beschreibung: "andere Verziehungsmethode für den ganzen Lauf"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.5"
+  anforderungen: [ANF-12-17]
+  hinweis: "B5 rechnet nur gerade Läufe; Verziehungssolver ist offen."
+
+- id: M.Firma.Gelaender-Stababstand
+  version: 0.1.0
+  titel: Lichter Stababstand am Treppengeländer (Firmenregel, im EFH freiwillig)
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel (Platzhalter); BayBO Art. 36 ohne Zahlenwert; DIN 18065 6.8/6.9 für ≤ 2 WE ohne Anforderung", fundstelle: "Art. 36 BayBO; DIN 18065 6.8", fassung: "Platzhalter 2026-09", status: U, bib: [baybo2026, din18065], recherche: ["13"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: lichter_abstand_mm, einheit: mm, quelle: Auswahl}
+    - {name: gelaenderhoehe_mm, einheit: mm, quelle: Pset_RailingCommon.Height}
+  pruefung:
+    typ: attribut
+    formel: "lichter Abstand ≤ 120 mm ∧ Höhe ≥ 900 mm (Kommentarwert zu Art. 36 BayBO); Meldung nennt Quelle 'Firmenregel', nicht 'BayBO'"
+    parameter: {abstand_max_mm: 120, hoehe_min_mm: 900}
+  grenzwerte:
+    - {name: abstand_max, wert: 120, einheit: mm, richtung: max, fundstelle: "Firmenregel (Platzhalter)", status: U}
+    - {name: hoehe_min, wert: 900, einheit: mm, richtung: min, fundstelle: "Kommentar zu Art. 36 BayBO (alte DVBayBO)", status: U}
+  meldung: "Geländer {g}: {verstoss} (Firmenregel; BayBO Art. 36 nennt keinen Zahlenwert)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Stababstand auf 120 mm verringern"}
+    - {art: A4_schichtwechsel, beschreibung: "Kunde verzichtet schriftlich (nur Schicht S5, nicht bei MFH)"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.2.5"
+  anforderungen: [ANF-12-18]
+
+# ---------------------------------------------------------------------------
+# Türen
+# ---------------------------------------------------------------------------
+- id: DE.DIN107.IFC-Anschlag
+  version: 0.1.0
+  titel: Übersetzung des Türanschlags DIN 107 ↔ IFC OperationType
+  klasse: R2
+  haerte: hart
+  quelle: {art: N, werk: "DIN 107; IfcDoor-Dokumentation IFC 4.3 (Mapping-Tabelle)", fundstelle: "SINGLE_SWING_LEFT = DIN-R, SINGLE_SWING_RIGHT = DIN-L", fassung: "DIN 107:1974; IFC4X3_ADD2", status: V, bib: [iso2024ifc], recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: din_anschlag, einheit: "-", quelle: Auswahl}
+    - {name: operation_type, einheit: "-", quelle: IfcDoorType.OperationType}
+  pruefung:
+    typ: attribut
+    formel: "DIN-R ⇔ SINGLE_SWING_LEFT; DIN-L ⇔ SINGLE_SWING_RIGHT; Umkehr nur über ObjectPlacement (+y öffnet); Bestellung und Anzeige immer in DIN-Bezeichnung"
+  grenzwerte: []
+  meldung: "Tür {t}: DIN-{din} passt nicht zu {ot}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "OperationType aus der DIN-Angabe neu setzen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.6"
+  anforderungen: [ANF-12-19]
+
+- id: DE.DIN18101.Tuermasse
+  version: 0.1.0
+  titel: Baurichtmaße von Innentüren und abgeleitete Maße
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18101", fundstelle: "Baurichtmaße, Differenzregeln", fassung: "2014-08", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2014-08-01", bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: baurichtmass_breite, einheit: mm, quelle: Auswahl}
+    - {name: baurichtmass_hoehe, einheit: mm, quelle: Auswahl}
+  pruefung:
+    typ: aufzaehlung
+    formel: "Breite ∈ {625, 750, 875, 1000, 1125, 1250}, Höhe ∈ {2000, 2125, 2250}; Beispiel 875 × 2000: Zargenfalz 841 × 1983, lichter Durchgang 811 × 1968; nicht für Außen-, Brand-, Rauchschutz- und einbruchhemmende Türen"
+  grenzwerte:
+    - {name: breiten, wert: [625, 750, 875, 1000, 1125, 1250], einheit: mm, richtung: menge, fundstelle: "DIN 18101:2014-08", status: V}
+  meldung: "Tür {t}: {b} × {h} ist kein Baurichtmaß nach DIN 18101."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächstes Baurichtmaß"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.6"
+  anforderungen: [ANF-12-20]
+
+- id: DE.DIN1946-6.Ueberstroemung
+  version: 0.1.0
+  titel: Überströmung an Innentüren bei Lüftung mit Wärmerückgewinnung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1946-6 (Beispielauslegung); Herstellerblatt", fundstelle: "Überströmluftdurchlass", fassung: "2019-12", status: U, bib: [din1946-6], recherche: ["10"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  eingaben:
+    - {name: ueberstroemvolumen, einheit: "m³/h", quelle: Lüftungskonzept}
+    - {name: tuerunterschnitt_mm, einheit: mm, quelle: Auswahl}
+    - {name: bodenluft_mm, einheit: mm, quelle: "B14 (OKFF)"}
+  pruefung:
+    typ: rechnung
+    formel: "wirksamer Überströmquerschnitt (Unterschnitt + Bodenluft bzw. Dichtung/Gitter) ≥ erforderlicher Querschnitt; Bad Richtwert 75–100 cm²"
+    parameter: {bad_cm2: [75, 100]}
+  grenzwerte:
+    - {name: bad_querschnitt, wert: [75, 100], einheit: "cm²", richtung: intervall, fundstelle: "Herstellerblatt", status: U}
+  meldung: "Tür {t}: Überströmquerschnitt {a} cm² < {soll} cm²."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Unterschnitt vergrößern oder Überströmgitter"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.2.6"
+  anforderungen: [ANF-12-20]
+
+# ---------------------------------------------------------------------------
+# Küche
+# ---------------------------------------------------------------------------
+- id: DE.DINEN1116.Kueche
+  version: 0.1.0
+  titel: Koordinationsmaße Küche und Abstände (AMK)
+  klasse: R1
+  haerte: weich
+  quelle: {art: N, werk: "DIN EN 1116; AMK-Merkblätter 007 und 015", fundstelle: "Plattentiefe; Abstände Kochfeld", fassung: "EN 1116: 2018-03; AMK 015: 2025-03", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Ausbau, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: plattentiefe_mm, einheit: mm, quelle: IDM-Daten}
+    - {name: abstand_kochfeld_hochschrank_mm, einheit: mm, quelle: Küchenplan}
+    - {name: bewegungsflaeche_vor_zeile_mm, einheit: mm, quelle: Küchenplan}
+  pruefung:
+    typ: geometrie
+    formel: "Plattentiefe ≥ 600 mm bei Kochfeld/Spüle; Kochfeld–seitlicher Hochschrank ≥ 300 mm; Spüle–Kochfeld ≥ 300 mm (Empfehlung); Bewegungsfläche vor der Zeile ≥ 1200 mm"
+    parameter: {plattentiefe_min_mm: 600, abstand_min_mm: 300, bewegung_min_mm: 1200}
+  grenzwerte:
+    - {name: plattentiefe_min, wert: 600, einheit: mm, richtung: min, fundstelle: "DIN EN 1116:2018-03", status: V}
+    - {name: abstand_kochfeld_hochschrank, wert: 300, einheit: mm, richtung: min, fundstelle: "AMK-MB 007", status: V}
+  meldung: "Küche: {verstoss}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Kochfeld verschieben"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.2.8"
+  anforderungen: [ANF-12-24]
+
+# ---------------------------------------------------------------------------
+# Konfigurationslogik und Prozess
+# ---------------------------------------------------------------------------
+- id: M.Bemusterung.Kompatibilitaet
+  version: 0.1.0
+  titel: Kompatibilität, Implikation und Ausschluss zwischen Katalogartikeln
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Bemusterungskatalog (Kompatibilitätsdaten je Artikel)", fundstelle: "bemusterung-katalog.schema.json#/$defs/kompatibilitaet", fassung: "0.1.0", status: U, bib: [felfernig2014knowledge], recherche: ["10"]}
+  profil: {name: M-Hersteller-Bemusterung, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: auswahlen, einheit: "-", quelle: Projekt}
+  pruefung:
+    typ: optimierung
+    funktion: konfigurator_cp@0.1
+    formel: "Constraint-Problem über alle Auswahlen: erfordert(a,b), schliesst_aus(a,b), passt_zu(a, Merkmal = Wert); bei Widerspruch minimale Korrekturmenge (Diagnose) und Alternativen"
+  grenzwerte: []
+  meldung: "{a} ist mit {b} nicht kombinierbar ({grund}); kleinste Änderung: {korrektur}."
+  alternative:
+    - {art: A3_variante, beschreibung: "kleinste Korrekturmenge der Diagnose"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.7"
+  anforderungen: [ANF-12-33]
+
+- id: M.Bemusterung.Freeze
+  version: 0.1.0
+  titel: Änderung nach Freeze nur als Nachtrag mit Folgenliste
+  klasse: R4
+  haerte: hart
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung (Ausstattungsfestlegung als Voraussetzung des Baubeginns)", fundstelle: "AGB § 5/§ 6", fassung: "10/2024", status: V, bib: [regnauerBLB2024], recherche: ["10"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: freeze_kategorie, einheit: "-", quelle: Katalogartikel}
+    - {name: gate_status, einheit: "-", quelle: Prozess}
+  pruefung:
+    typ: freigabe
+    formel: "freeze = W ∧ Gate G5 erreicht ⇒ Änderung nur als IfcProjectOrder CHANGEORDER; freeze = A ∧ Gate G6 erreicht ⇒ ebenso; Nachtrag listet alle Folgen aus bemusterung-abhaengigkeiten.yaml"
+  grenzwerte: []
+  meldung: "{option} ist seit {datum} eingefroren (Freeze {f}); Änderung nur als Nachtrag. Betroffen: {folgen}."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Nachtrag mit Kosten und Terminfolge an die Projektleitung"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.7"
+  anforderungen: [ANF-12-36]
+
+- id: M.Bemusterung.Lieferzeit
+  version: 0.1.0
+  titel: Lieferzeit gegen Einbautermin und Freeze
+  klasse: R4
+  haerte: weich
+  quelle: {art: M, werk: "Bemusterungskatalog (Lieferzeit je Artikel)", fundstelle: "lieferzeit_tage", fassung: "0.1.0", status: U, recherche: ["10"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: lieferzeit_tage, einheit: d, quelle: Katalogartikel}
+    - {name: einbautermin, einheit: d, quelle: "Terminplan (IfcTask)"}
+  pruefung:
+    typ: rechnung
+    formel: "spätester Bestelltermin = Einbautermin − Lieferzeit − Puffer; Bestelltermin < heute ⇒ Warnung; Werkeinbau (Freeze W): Einbautermin = Beginn Wandfertigung"
+    parameter: {puffer_tage: 0}
+  grenzwerte: []
+  meldung: "{artikel}: Bestellung bis {termin} nötig (Lieferzeit {l} Tage); heute ist {heute}."
+  alternative:
+    - {art: A3_variante, beschreibung: "lieferbare Alternative derselben Serie"}
+  status: U
+  beispiel: [keins]
+  kapitel: "12.7"
+  anforderungen: [ANF-12-35]
+
+- id: M.Bemusterung.Mehrpreis
+  version: 0.1.0
+  titel: Mehr- und Minderpreis nach hinterlegter, versionierter Formel
+  klasse: R4
+  haerte: hinweis
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung (Budgets 50/80 €/m²); Platzhalterformel ANF-03-21", fundstelle: "Budgetlogik Beläge", fassung: "10/2024", status: U, bib: [regnauerBLB2024], recherche: ["10"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: uvp_eur_m2, einheit: "€/m²", quelle: Katalogartikel}
+    - {name: budget_eur_m2, einheit: "€/m²", quelle: Baubeschreibung}
+    - {name: flaeche_m2, einheit: "m²", quelle: Modell}
+    - {name: verschnitt, einheit: "-", quelle: "B16 bzw. Pauschale"}
+  pruefung:
+    typ: ableitung
+    funktion: mehrpreis@0.1
+    formel: "Mehrpreis = max(0; UVP − Budget) × Fläche × (1 + Verschnitt) + Verlegezuschlag; Preis mit ApplicableDate/FixedUntilDate (IfcCostValue)"
+  grenzwerte: []
+  meldung: "{option}: Mehrpreis {betrag} € (Formel {formel_id}, gültig bis {datum})."
+  alternative: []
+  status: U
+  beispiel: [keins]
+  kapitel: "12.7"
+  anforderungen: [ANF-12-34]
+  hinweis: "Formel ist Platzhalter bis DAT-13 bzw. DAT-12-06."
+
+- id: M.Bemusterung.Vollstaendigkeit
+  version: 0.1.0
+  titel: Vollständigkeit der Ausstattungsfestlegung
+  klasse: R2
+  haerte: hart
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung; § 650n BGB (Ausstattungsplan)", fundstelle: "Ausstattungsfestlegung", fassung: "10/2024", status: V, bib: [regnauerBLB2024, bgb], recherche: ["10"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: pflichtkategorien_je_raumtyp, einheit: "-", quelle: bemusterung-abhaengigkeiten.yaml}
+    - {name: auswahlen, einheit: "-", quelle: Projekt}
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "∀ Raum ∀ Pflichtkategorie des Raumtyps: ∃ Auswahl mit Reifegrad ≥ Soll(Gate); ∀ gewähltes IFC-Exemplar: HRB_Auswahl.AuswahlID = auswahl_id einer Festschreibung"
+  grenzwerte: []
+  meldung: "Ausstattungsfestlegung unvollständig: {fehlend}."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Standardausstattung der Baubeschreibung übernehmen (Budgetartikel)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.4"
+  anforderungen: [ANF-12-32]
+
+- id: M.Bemusterung.Festschreibung
+  version: 0.1.0
+  titel: Festschreibung einer Auswahl durch Inhaltshash
+  klasse: R4
+  haerte: hart
+  quelle: {art: M, werk: "spezifikation/bemusterung-katalog.schema.json", fundstelle: "#/$defs/auswahl", fassung: "0.1.0", status: U, recherche: ["13"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: auswahl_json, einheit: "-", quelle: Festschreibung}
+  pruefung:
+    typ: attribut
+    formel: "inhaltshash = 'sha256:' + SHA-256(UTF-8(kanonisch(auswahl ohne inhaltshash und lieferdaten))); kanonisch = Schlüssel sortiert, ohne Leerraum (JCS, RFC 8785, für die verwendeten Werte); IFC HRB_Auswahl.Inhaltshash gleich; Änderung ⇒ neue auswahl_id mit vorgaenger"
+  grenzwerte: []
+  meldung: "Auswahl {id}: Hash {ist} ≠ {soll}; Inhalt nach Festschreibung verändert."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Nachtrag als neue Auswahl mit Verweis auf den Vorgänger"}
+  status: U
+  beispiel: [B16]
+  kapitel: "12.4"
+  anforderungen: [ANF-12-30]
+
+- id: M.Bemusterung.Texturlizenz
+  version: 0.1.0
+  titel: Herstellertexturen nur mit schriftlicher Lizenz; CC0 als 'ähnlich' kennzeichnen
+  klasse: R4
+  haerte: hart
+  quelle: {art: M, werk: "Lizenzbedingungen der Texturplattformen und Hersteller", fundstelle: "Nutzung in Web-Anwendungen", fassung: "2026-09", status: V, recherche: ["10"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: textur_lizenz, einheit: "-", quelle: Katalogartikel.darstellung.lizenz}
+  pruefung:
+    typ: attribut
+    formel: "lizenz.art = hersteller ⇒ Nachweis (Dokument mit SHA-256) vorhanden; lizenz.art = cc0 ⇒ HRB_Auswahl.Darstellung = aehnlich; Plattformlizenzen, die Web-Apps ausschließen, sind unzulässig"
+  grenzwerte: []
+  meldung: "Material {m}: Textur ohne gültige Lizenz; Darstellung generisch."
+  alternative:
+    - {art: A3_variante, beschreibung: "CC0-Material als 'ähnlich' anzeigen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "12.6"
+  anforderungen: [ANF-12-37]
+
+- id: M.Bemusterung.Farbverbindlichkeit
+  version: 0.1.0
+  titel: Verbindlich ist das physische Muster, nicht die Bildschirmfarbe
+  klasse: R4
+  haerte: hinweis
+  quelle: {art: M, werk: "Bau- und Leistungsbeschreibung (AGB § 2: Visualisierungen unverbindlich)", fundstelle: "AGB § 2", fassung: "10/2024", status: V, bib: [regnauerBLB2024], recherche: ["10", "13"]}
+  profil: {name: M-Bemusterung-Prozess, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben: []
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "jede Festschreibung einer farbrelevanten Kategorie nennt das Muster (Musternummer/Charge) und enthält den Hinweis zur Unverbindlichkeit der Darstellung"
+  grenzwerte: []
+  meldung: "Auswahl {id}: Musterbezug fehlt."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "12.4"
+  anforderungen: [ANF-12-15]

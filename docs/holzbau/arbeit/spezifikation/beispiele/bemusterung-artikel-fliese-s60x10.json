@@ -1,0 +1,199 @@
+{
+  "schema": "hrb-katalogartikel/0.1",
+  "artikel_id": "K-FLI-0001",
+  "kategorie": "fliese",
+  "bezeichnung": "Feinsteinzeug-Stäbchen 60 × 10 cm, rektifiziert (Beispielartikel)",
+  "hersteller": {
+    "name": "Beispielhersteller Keramik",
+    "serie": "Beispielserie",
+    "artikelnummer": "S60x10",
+    "gtin": "2000000000015"
+  },
+  "freeze": "A",
+  "standard": false,
+  "varianten": [
+    {
+      "variante_id": "V01",
+      "gtin": "2000000000015",
+      "artikelnummer": "S60x10-SAND-M",
+      "farbe": {
+        "name": "sand",
+        "system": "Hersteller",
+        "lab": [
+          72.0,
+          2.0,
+          12.0
+        ],
+        "lichtart": "D65",
+        "beobachter_grad": 10,
+        "muster_nr": "M-0001"
+      },
+      "merkmale": [
+        {
+          "name": "Oberflaeche",
+          "wert": "matt",
+          "pset": "HRB_Belag"
+        },
+        {
+          "name": "Rutschhemmung",
+          "wert": "R10",
+          "pset": "HRB_Belag",
+          "norm": "DIN EN 16165 Anhang B"
+        },
+        {
+          "name": "Barfuss",
+          "wert": "B",
+          "pset": "HRB_Belag",
+          "norm": "DIN EN 16165; DGUV I 207-006"
+        }
+      ],
+      "lieferzeit_tage": 42
+    },
+    {
+      "variante_id": "V02",
+      "gtin": "2000000000022",
+      "artikelnummer": "S60x10-ANTH-M",
+      "farbe": {
+        "name": "anthrazit",
+        "system": "Hersteller",
+        "muster_nr": "M-0002"
+      },
+      "merkmale": [
+        {
+          "name": "Oberflaeche",
+          "wert": "matt",
+          "pset": "HRB_Belag"
+        },
+        {
+          "name": "Rutschhemmung",
+          "wert": "R10",
+          "pset": "HRB_Belag"
+        }
+      ],
+      "lieferzeit_tage": 56
+    }
+  ],
+  "merkmale": [
+    {
+      "name": "FormatLaenge",
+      "wert": 600,
+      "einheit": "mm",
+      "pset": "HRB_Belag"
+    },
+    {
+      "name": "FormatBreite",
+      "wert": 100,
+      "einheit": "mm",
+      "pset": "HRB_Belag"
+    },
+    {
+      "name": "Dicke",
+      "wert": 9,
+      "einheit": "mm",
+      "pset": "HRB_Belag"
+    },
+    {
+      "name": "Gruppe",
+      "wert": "BIa",
+      "norm": "DIN EN 14411"
+    },
+    {
+      "name": "Kante",
+      "wert": "rektifiziert"
+    },
+    {
+      "name": "Paketinhalt",
+      "wert": 24,
+      "einheit": "Stück"
+    },
+    {
+      "name": "drehbar_180",
+      "wert": true,
+      "quelle": "Keramik ohne richtungsgebundenes Dekor"
+    }
+  ],
+  "klassifikation": [
+    {
+      "system": "STLB-Bau",
+      "edition": "2026-04",
+      "code": "024"
+    }
+  ],
+  "ifc": {
+    "typ_klasse": "IfcCoveringType",
+    "predefined_type": "FLOORING",
+    "bibliothek": "Bemusterung 2026",
+    "psets": [
+      "Pset_ManufacturerTypeInformation",
+      "Pset_CoveringCommon",
+      "HRB_Belag"
+    ]
+  },
+  "darstellung": {
+    "modus": "aehnlich",
+    "pbr": {
+      "basecolor": [
+        0.55,
+        0.49,
+        0.4
+      ],
+      "roughness": 0.7,
+      "metallic": 0.0,
+      "textur_groesse_mm": [
+        600,
+        100
+      ],
+      "gltf_variante": "S60x10-sand"
+    },
+    "lizenz": {
+      "art": "cc0"
+    },
+    "geometrie": "parametrisch"
+  },
+  "preis": {
+    "modell": "stueck",
+    "uvp": {
+      "betrag": 4.5,
+      "waehrung": "EUR",
+      "brutto": true
+    },
+    "einheit": "stueck",
+    "budget_eur_m2": 50,
+    "formel_id": "mehrpreis@0.1",
+    "gueltig_ab": "2026-01-01",
+    "gueltig_bis": "2026-12-31"
+  },
+  "lieferzeit_tage": 42,
+  "kompatibilitaet": {
+    "passt_zu": [
+      {
+        "merkmal": "Wassereinwirkungsklasse",
+        "werte": [
+          "W0-I",
+          "W1-I",
+          "W2-I"
+        ]
+      }
+    ],
+    "regeln": [
+      "DE.DIN18534.W-Klasse",
+      "M.Hersteller.Fliese-Versatz",
+      "DE.ATV18352.Fugenbreite"
+    ],
+    "optionen": [
+      "OPT-FLI-FISCHGRAET-CHEVRON"
+    ]
+  },
+  "produktdaten": {
+    "quelle_format": "manuell",
+    "dpp_uri": null
+  },
+  "dokumente": [
+    {
+      "art": "datenblatt",
+      "uri": "urn:beispiel:datenblatt:S60x10"
+    }
+  ],
+  "status": "U",
+  "quelle": "Beispielartikel nach den Werten von B16 (Stäbchen 60 × 10, 24 Stück/Paket, 4,50 €/Stück, Beispielwerte)"
+}

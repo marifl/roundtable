@@ -1,0 +1,646 @@
+# Regelkatalog Kapitel 11: Reifegrade P/R/A als IDS-Regeln (R2) und Gate-Regeln (R3/R4).
+# Schema: regel.schema.json. Erzeugt aus reifegrade.yaml (Kapitel 11.5); nicht von Hand pflegen.
+
+katalog:
+  name: HRB-Regelkatalog Kapitel 11 (Reifegrade)
+  version: 0.1.0
+  stand: '2026-09-27'
+  kapitel:
+  - '11'
+  hinweis: Erzeugt aus spezifikation/reifegrade.yaml. Neues Profil HRB-IDS-Reifegrad (S5) ist in regelprofile.yaml zu registrieren.
+regeln:
+- id: IDS.RG-wandelement-P
+  version: 0.1.0
+  titel: 'Reifegrad P (präsentationsfertig): Holzrahmen-Wandelement mit Teilen und Verbindungsmitteln'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/wandelement-P.ids
+    fundstelle: WAND-P-01, WAND-P-V01, WAND-P-V02, WAND-P-V03
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (1) bestanden und alle Verbote (3) ohne Treffer; Merkmale kumulativ aus P
+    ids: spezifikation/ids/wandelement-P.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad P nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: &id001
+  - B1
+  kapitel: '11.5'
+  anforderungen: &id002
+  - ANF-11-02
+  - ANF-11-04
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-wandelement-R
+  version: 0.1.0
+  titel: 'Reifegrad R (prüffertig): Holzrahmen-Wandelement mit Teilen und Verbindungsmitteln'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/wandelement-R.ids
+    fundstelle: WAND-P-01, WAND-R-01, WAND-R-02, WAND-R-V01, WAND-R-V02
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (3) bestanden und alle Verbote (2) ohne Treffer; Merkmale kumulativ aus P/R
+    ids: spezifikation/ids/wandelement-R.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad R nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id001
+  kapitel: '11.5'
+  anforderungen: &id004
+  - ANF-11-02
+  - ANF-11-03
+  - ANF-11-04
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-wandelement-A
+  version: 0.1.0
+  titel: 'Reifegrad A (ausführungsfertig): Holzrahmen-Wandelement mit Teilen und Verbindungsmitteln'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/wandelement-A.ids
+    fundstelle: WAND-P-01, WAND-R-01, WAND-R-02, WAND-A-01, WAND-A-02, WAND-A-03, WAND-A-04, WAND-A-05
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (8) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R/A
+    ids: spezifikation/ids/wandelement-A.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad A nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id001
+  kapitel: '11.5'
+  anforderungen: &id005
+  - ANF-11-02
+  - ANF-11-03
+  - ANF-11-09
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-belag-P
+  version: 0.1.0
+  titel: 'Reifegrad P (präsentationsfertig): Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/belag-P.ids
+    fundstelle: BEL-P-01, BEL-P-V01
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (1) bestanden und alle Verbote (1) ohne Treffer; Merkmale kumulativ aus P
+    ids: spezifikation/ids/belag-P.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad P nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: &id003
+  - B14
+  - B16
+  kapitel: '11.5'
+  anforderungen: *id002
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-belag-R
+  version: 0.1.0
+  titel: 'Reifegrad R (prüffertig): Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/belag-R.ids
+    fundstelle: BEL-P-01, BEL-R-01, BEL-R-02, BEL-R-03, BEL-R-04, BEL-R-05, BEL-R-V01
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (6) bestanden und alle Verbote (1) ohne Treffer; Merkmale kumulativ aus P/R
+    ids: spezifikation/ids/belag-R.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad R nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id003
+  kapitel: '11.5'
+  anforderungen: *id004
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-belag-A
+  version: 0.1.0
+  titel: 'Reifegrad A (ausführungsfertig): Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/belag-A.ids
+    fundstelle: BEL-P-01, BEL-R-01, BEL-R-02, BEL-R-03, BEL-R-04, BEL-R-05, BEL-A-01, BEL-A-02, BEL-A-03
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (9) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R/A
+    ids: spezifikation/ids/belag-A.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad A nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id003
+  kapitel: '11.5'
+  anforderungen: *id005
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-sanitaer-P
+  version: 0.1.0
+  titel: 'Reifegrad P (präsentationsfertig): Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/sanitaer-P.ids
+    fundstelle: SAN-P-01, SAN-P-V01
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (1) bestanden und alle Verbote (1) ohne Treffer; Merkmale kumulativ aus P
+    ids: spezifikation/ids/sanitaer-P.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad P nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: &id006
+  - keins
+  kapitel: '11.5'
+  anforderungen: *id002
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-sanitaer-R
+  version: 0.1.0
+  titel: 'Reifegrad R (prüffertig): Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/sanitaer-R.ids
+    fundstelle: SAN-P-01, SAN-R-01, SAN-R-02, SAN-R-03, SAN-R-04
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (5) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R
+    ids: spezifikation/ids/sanitaer-R.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad R nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id006
+  kapitel: '11.5'
+  anforderungen: *id004
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-sanitaer-A
+  version: 0.1.0
+  titel: 'Reifegrad A (ausführungsfertig): Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/sanitaer-A.ids
+    fundstelle: SAN-P-01, SAN-R-01, SAN-R-02, SAN-R-03, SAN-R-04, SAN-A-01
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (6) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R/A
+    ids: spezifikation/ids/sanitaer-A.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad A nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id006
+  kapitel: '11.5'
+  anforderungen: *id005
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-treppe-P
+  version: 0.1.0
+  titel: 'Reifegrad P (präsentationsfertig): Innentreppe mit Läufen, Wangen und Geländer'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/treppe-P.ids
+    fundstelle: TRE-P-01, TRE-P-02, TRE-P-V01
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (2) bestanden und alle Verbote (1) ohne Treffer; Merkmale kumulativ aus P
+    ids: spezifikation/ids/treppe-P.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad P nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: &id007
+  - B5
+  kapitel: '11.5'
+  anforderungen: *id002
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-treppe-R
+  version: 0.1.0
+  titel: 'Reifegrad R (prüffertig): Innentreppe mit Läufen, Wangen und Geländer'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/treppe-R.ids
+    fundstelle: TRE-P-01, TRE-P-02, TRE-R-01, TRE-R-02, TRE-R-03, TRE-R-04
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (6) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R
+    ids: spezifikation/ids/treppe-R.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad R nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id007
+  kapitel: '11.5'
+  anforderungen: *id004
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: IDS.RG-treppe-A
+  version: 0.1.0
+  titel: 'Reifegrad A (ausführungsfertig): Innentreppe mit Läufen, Wangen und Geländer'
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/ids/treppe-A.ids
+    fundstelle: TRE-P-01, TRE-P-02, TRE-R-01, TRE-R-02, TRE-R-03, TRE-R-04, TRE-A-01, TRE-A-02
+    fassung: IDS 1.0; reifegrade.yaml 0.1.0 (2026-09-27)
+    status: V
+    bib:
+    - bsi2024ids
+    - dineniso7817-1
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: alle Pflichtspezifikationen (8) bestanden und alle Verbote (0) ohne Treffer; Merkmale kumulativ aus P/R/A
+    ids: spezifikation/ids/treppe-A.ids
+  grenzwerte: []
+  meldung: '{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen verfehlen die Anforderung (Reifegrad A nicht erreicht).'
+  alternative:
+  - art: A3_variante
+    beschreibung: fehlende Merkmale nachtragen oder Objekt im niedrigeren Reifegrad führen
+  status: V
+  beispiel: *id007
+  kapitel: '11.5'
+  anforderungen: *id005
+  hinweis: Zahlenwerte der Facetten in SI-Einheiten; Befundzuordnung über das ID-Präfix im Spezifikationsnamen (ANF-09-04).
+- id: M.Reifegrad.Gate
+  version: 0.1.0
+  titel: Mindestreifegrad je Bauteilgruppe an einem Freigabe-Gate
+  klasse: R3
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/reifegrade.yaml#phasen_matrix
+    fundstelle: phasen_matrix, gates
+    fassung: 0.1.0 (2026-09-27)
+    status: U
+    bib:
+    - dineniso7817-1
+    recherche:
+    - '10'
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: pruefzeitpunkt
+  eingaben:
+  - name: reifegradvektor
+    einheit: '-'
+    quelle: IDS-Ergebnisse je Gruppe
+  - name: gate
+    einheit: '-'
+    quelle: Prozess
+  pruefung:
+    typ: freigabe
+    formel: 'Gate g öffnet ⇔ ∀ Gruppe k: ist(k) ≥ soll(k, g) in der Ordnung - < P < R < A; ist(k) = höchste Stufe, deren IDS-Pflichtspezifikationen bestanden sind'
+  grenzwerte: []
+  meldung: 'Gate {gate} gesperrt: {gruppe} hat Reifegrad {ist}, verlangt ist {soll}.'
+  alternative:
+  - art: A5_freigabeweg
+    beschreibung: fehlende Auswahl oder Merkmale nachtragen; Gate erneut prüfen
+  status: U
+  beispiel:
+  - keins
+  kapitel: '11.5'
+  anforderungen:
+  - ANF-11-05
+  - ANF-11-06
+- id: M.Regnauer.Ausstattung-vor-Montage
+  version: 0.1.0
+  titel: Montage frühestens 12 Wochen nach vollständiger Ausstattungsfestlegung
+  klasse: R4
+  haerte: hart
+  quelle:
+    art: M
+    werk: Bau- und Leistungsbeschreibung Vitalhaus 10/2024, AGB
+    fundstelle: AGB § 5 und § 6
+    fassung: 10/2024
+    status: V
+    bib:
+    - regnauerBLB2024
+    recherche:
+    - '10'
+  profil:
+    name: M-Firma
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: vertragsschluss
+  eingaben:
+  - name: ausstattung_unterschrieben_am
+    einheit: d
+    quelle: IfcApproval G4
+  - name: montage_termin
+    einheit: d
+    quelle: Terminplan
+  pruefung:
+    typ: rechnung
+    formel: montage_termin − ausstattung_unterschrieben_am ≥ 84 d ∧ alle Bemusterungsgruppen an G4 im Reifegrad A (Herstellerprofil M-Regnauer)
+    parameter:
+      min_tage: 84
+  grenzwerte:
+  - name: min_tage
+    wert: 84
+    einheit: d
+    richtung: min
+    fundstelle: AGB § 5/§ 6
+    status: V
+  meldung: Montage am {montage} liegt {tage} Tage nach der Ausstattungsfestlegung; verlangt sind 84 Tage.
+  alternative:
+  - art: A1_grenzwert
+    beschreibung: spätester Termin der Ausstattungsfestlegung = Montage − 84 Tage
+  status: V
+  beispiel:
+  - keins
+  kapitel: '11.5'
+  anforderungen:
+  - ANF-11-07
+- id: M.Reifegrad.Lieferdaten
+  version: 0.1.0
+  titel: Lieferdaten (Charge, Seriennummer, Garantie) an der Übergabe
+  klasse: R2
+  haerte: hart
+  quelle:
+    art: M
+    werk: spezifikation/reifegrade.yaml#lieferdaten
+    fundstelle: lieferdaten je Gruppe
+    fassung: 0.1.0 (2026-09-27)
+    status: U
+    bib:
+    - bsi2024ids
+  profil:
+    name: HRB-IDS-Reifegrad
+    version: 0.1.0
+  schicht: S5
+  geltung:
+    gebaeudetypen:
+    - alle
+    zeit:
+      von: null
+      bis: null
+      stichtag: abnahme
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: A-IDS mit Lieferdaten als cardinality=required (Variante G7); vor G7 optional mit Wertprüfung
+  grenzwerte: []
+  meldung: '{objekt}: Lieferdatum {merkmal} fehlt für die Hausakte.'
+  alternative:
+  - art: A5_freigabeweg
+    beschreibung: Lieferschein erfassen (Barcode/GTIN + Charge)
+  status: U
+  beispiel:
+  - B16
+  kapitel: '11.4'
+  anforderungen:
+  - ANF-11-11

@@ -1,0 +1,425 @@
+# Abhängigkeiten der Bemusterung (Kapitel 12.1 und 12.5).
+# Knoten = Kategorien der Bemusterungstaxonomie und Fachdomänen; Kanten = gerichtete Folgen mit Regel-ID.
+# Optionen = konkrete Wahlen mit ihren Folgen für Tragwerk, TGA, Aufbau, Kosten, Termine und Regeln.
+# Regel-IDs verweisen auf regelkatalog.yaml, regelkatalog-11.yaml oder regelkatalog-12.yaml.
+# Freeze: W = vor Werkplanung/Wandfertigung, A = vor Ausbau, - = kein Termin (Recherche 10).
+# Status: V = Primärquelle oder Prototyp, U = abgeleitet oder offen.
+
+meta:
+  name: HRB-Bemusterung-Abhaengigkeiten
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: "12"
+  quellen: {recherche: ["10", "13", "16", "17"], beispiele: [B5, B14, B15, B16], bib: [regnauerBLB2024, schoenwitz2017product]}
+  auswertung: "Folgen werden transitiv über 'kanten' propagiert (Breitensuche, jede Kante einmal); die Menge der auszulösenden Regeln ist die Vereinigung der Regel-IDs aller erreichten Kanten."
+
+domaenen: [tragwerk, tga_sanitaer, tga_elektro, tga_heizung_lueftung, aufbau, bauphysik, kosten, termine, recht_gestaltung, darstellung]
+
+kategorien:
+  # ---------------- außen ----------------
+  - {id: fassade,           bereich: aussen, freeze: W, ifc: "IfcCovering CLADDING + Layer-Set",               stlb: ["023", "016"], reifegrad_gruppe: fassade, status: V}
+  - {id: dach_deckung,      bereich: aussen, freeze: W, ifc: "IfcCovering ROOFING",                             stlb: ["022"],        reifegrad_gruppe: dach, status: V}
+  - {id: dach_einbauteile,  bereich: aussen, freeze: W, ifc: "IfcWindow SKYLIGHT, IfcDiscreteAccessory, IfcSolarDevice", stlb: [], reifegrad_gruppe: dach, status: V}
+  - {id: fenster,           bereich: aussen, freeze: W, ifc: "IfcWindowType + Pset_WindowCommon",              stlb: [],             reifegrad_gruppe: fenster_aussentuer, status: V}
+  - {id: sonnenschutz,      bereich: aussen, freeze: W, ifc: "IfcShadingDevice SHUTTER/JALOUSIE",              stlb: ["030"],        reifegrad_gruppe: fenster_aussentuer, status: V}
+  - {id: haustuer,          bereich: aussen, freeze: W, ifc: "IfcDoor DOOR",                                   stlb: [],             reifegrad_gruppe: fenster_aussentuer, status: V}
+  - {id: balkon_terrasse,   bereich: aussen, freeze: W, ifc: "IfcSlab, IfcRailing, IfcCovering",               stlb: ["031"],        reifegrad_gruppe: decke, status: V}
+  - {id: aussenanlagen,     bereich: aussen, freeze: "-", ifc: "IfcGeographicElement, IfcCivilElement",        stlb: [],             reifegrad_gruppe: projekt_grundstueck, status: U}
+  # ---------------- innen ----------------
+  - {id: treppe,            bereich: innen, freeze: W, ifc: "IfcStair + IfcStairFlight, IfcRailing, IfcMember STRINGER", stlb: ["027", "031"], reifegrad_gruppe: treppe, status: V}
+  - {id: innentuer,         bereich: innen, freeze: A, freeze_masse: W, ifc: "IfcDoorType + Pset_DoorLiningProperties", stlb: ["027", "029"], reifegrad_gruppe: innentuer, status: V}
+  - {id: boden_parkett,     bereich: innen, freeze: A, ifc: "IfcCovering FLOORING + SKIRTINGBOARD",            stlb: ["028"],        reifegrad_gruppe: belag, status: V}
+  - {id: boden_elastisch,   bereich: innen, freeze: A, ifc: "IfcCovering FLOORING",                            stlb: ["036"],        reifegrad_gruppe: belag, status: V}
+  - {id: fliese,            bereich: innen, freeze: A, ifc: "IfcCovering FLOORING/CLADDING",                    stlb: ["024"],        reifegrad_gruppe: belag, status: V}
+  - {id: naturstein,        bereich: innen, freeze: A, ifc: "IfcCovering FLOORING/CLADDING",                    stlb: ["024"],        reifegrad_gruppe: belag, status: U}
+  - {id: beton_cire,        bereich: innen, freeze: A, ifc: "IfcCovering FLOORING",                            stlb: ["025", "034"], reifegrad_gruppe: belag, status: U}
+  - {id: wand_decke,        bereich: innen, freeze: A, ifc: "IfcCovering CLADDING/CEILING; IfcSurfaceStyle am IfcMaterial", stlb: ["023", "034", "037", "039"], reifegrad_gruppe: wandoberflaeche, status: V}
+  - {id: sanitaer,          bereich: innen, freeze: W, ifc: "IfcSanitaryTerminalType TOILETPAN/WASHHANDBASIN/BATH/SHOWER", stlb: ["045"], reifegrad_gruppe: sanitaer, status: V}
+  - {id: elektro_programm,  bereich: innen, freeze: W, ifc: "IfcSwitchingDevice, IfcOutlet",                   stlb: [],             reifegrad_gruppe: elektro, status: V}
+  - {id: elektro_auslaesse, bereich: innen, freeze: W, ifc: "IfcOutlet, IfcJunctionBox, IfcLightFixture",      stlb: [],             reifegrad_gruppe: elektro, status: V}
+  - {id: smart_home,        bereich: innen, freeze: W, ifc: "IfcController, IfcSensor, IfcActuator",           stlb: [],             reifegrad_gruppe: elektro, status: U}
+  - {id: heizung_lueftung,  bereich: innen, freeze: W, ifc: "IfcUnitaryEquipment, IfcSpaceHeater, IfcAirTerminal", stlb: [],          reifegrad_gruppe: heizung_lueftung, status: V}
+  - {id: kueche,            bereich: innen, freeze: A, freeze_anschluesse: W, ifc: "IfcFurniture USERDEFINED, IfcElectricAppliance, IfcSanitaryTerminal SINK", stlb: [], reifegrad_gruppe: kueche_moebel, status: V}
+  - {id: moebel,            bereich: innen, freeze: "-", ifc: "IfcFurniture (Pset_FurnitureTypeCommon)",       stlb: [],             reifegrad_gruppe: kueche_moebel, status: U}
+
+# Pflichtkategorien je Raumtyp für M.Bemusterung.Vollstaendigkeit (Standardausstattung laut Bau- und Leistungsbeschreibung)
+pflicht_je_raumtyp:
+  bad:      [fliese, sanitaer, wand_decke, elektro_auslaesse, innentuer]
+  wc:       [fliese, sanitaer, wand_decke, elektro_auslaesse, innentuer]
+  wohnen:   [boden_parkett, wand_decke, elektro_auslaesse]
+  schlafen: [boden_parkett, wand_decke, elektro_auslaesse, innentuer]
+  kueche:   [fliese, wand_decke, elektro_auslaesse, kueche]
+  flur:     [boden_parkett, wand_decke, elektro_auslaesse]
+  hinweis: "Belagkategorie je Raum austauschbar innerhalb der Belaggruppe (boden_parkett, boden_elastisch, fliese, naturstein, beton_cire)."
+
+# Gerichtete Kanten des Abhängigkeitsgraphen (von → nach). art: erfordert | beeinflusst | begrenzt | preis | termin
+kanten:
+  - {von: sanitaer,          nach: tragwerk,             art: erfordert,   regel: M.Hersteller.WC-Montageelement,      text: "Wand-WC → Montageelement → Ständer und Beplankung", status: V}
+  - {von: sanitaer,          nach: tga_sanitaer,         art: erfordert,   regel: DE.EC5-NA.NA67.Durchbruch,           text: "WC-Lage → Fallleitung DN 100 → Durchbruch/Wechsel (B15)", status: V}
+  - {von: sanitaer,          nach: tga_elektro,          art: erfordert,   regel: M.Hersteller.DuschWC-Strom,          text: "Dusch-WC → Steckdose im Vorwandelement", status: V}
+  - {von: sanitaer,          nach: aufbau,               art: beeinflusst, regel: M.Hersteller.Rinne-Einbauhoehe,      text: "bodengleiche Dusche → Rinne → Estrichhöhe am Einlauf", status: V}
+  - {von: sanitaer,          nach: fliese,               art: beeinflusst, regel: DE.DIN18534.W-Klasse,                text: "Dusche/Wanne → W-Klasse der Flächen → Untergrund, Abdichtung", status: V}
+  - {von: sanitaer,          nach: tragwerk,             art: begrenzt,    regel: DE.EC1-NA.Nutzlast-Badewanne,        text: "Wanne gefüllt → örtliche Last > Nutzlast", status: U}
+  - {von: sanitaer,          nach: aufbau,               art: begrenzt,    regel: DE.VDI6000.Bewegungsflaeche,         text: "Objekt → Bewegungsfläche → Grundriss, Möbel", status: V}
+  - {von: fliese,            nach: aufbau,               art: beeinflusst, regel: DE.Fussboden.OKFF-gleich,            text: "Belagdicke → Estrich/Ausgleich je Raum (B14)", status: V}
+  - {von: fliese,            nach: kosten,               art: preis,       regel: M.Bemusterung.Mehrpreis,             text: "Format/Muster → Verschnitt, Schnitte → Mehrpreis (B16)", status: V}
+  - {von: fliese,            nach: aufbau,               art: begrenzt,    regel: DE.DIN18202.Ebenheit-Belag,          text: "Großformat → Ebenheit Zeile 4", status: V}
+  - {von: naturstein,        nach: tragwerk,             art: begrenzt,    regel: M.Hersteller.Naturstein-Holzdecke,   text: "Flächenmasse, Durchbiegung auf Holzbalkendecke", status: U}
+  - {von: boden_parkett,     nach: tga_heizung_lueftung, art: beeinflusst, regel: DE.BVF.FBH-Belagwiderstand,          text: "R_λ,B → Vorlauftemperatur → JAZ der Wärmepumpe", status: V}
+  - {von: boden_parkett,     nach: aufbau,               art: beeinflusst, regel: DE.Fussboden.OKFF-gleich,            text: "Parkettdicke → Estrichdicke", status: V}
+  - {von: boden_parkett,     nach: innentuer,            art: beeinflusst, regel: DE.DIN18534.Kapillarsperre-Tuer,     text: "Parkett neben Bad → Kapillarsperre an der Tür", status: V}
+  - {von: beton_cire,        nach: aufbau,               art: begrenzt,    regel: DE.DIN18202.Ebenheit-Belag,          text: "Mikrozement folgt Estrichfugen; Ebenheit", status: V}
+  - {von: innentuer,         nach: tga_heizung_lueftung, art: erfordert,   regel: DE.DIN1946-6.Ueberstroemung,         text: "Tür → Überströmung bei KWL", status: U}
+  - {von: innentuer,         nach: tga_elektro,          art: beeinflusst, regel: DE.DIN107.IFC-Anschlag,              text: "Anschlag → Lage des Lichtschalters", status: V}
+  - {von: aufbau,            nach: innentuer,            art: beeinflusst, regel: DE.DIN18101.Tuermasse,               text: "OKFF → Türhöhe und Bodenluft", status: V}
+  - {von: treppe,            nach: tragwerk,             art: erfordert,   regel: DE.DIN18065.Kopfhoehe,               text: "Treppenform → Deckenöffnung → Wechsel (BTLx) → Kopfhöhe", status: V}
+  - {von: treppe,            nach: aufbau,               art: beeinflusst, regel: DE.DIN18065.WG2WE,                   text: "OKFF unten/oben → Steigungszahl", status: V}
+  - {von: wand_decke,        nach: kosten,               art: preis,       regel: DE.GipsMB2.Q-Stufe,                  text: "Glanzgrad → Q-Stufe → Ebenheit Zeile 7 → Mehrpreis", status: V}
+  - {von: wand_decke,        nach: tga_elektro,          art: begrenzt,    regel: M.Firma.Einbauleuchte-Decke,         text: "Einbauleuchte → Installationsebene 30 mm, Brandschutz", status: U}
+  - {von: elektro_auslaesse, nach: tragwerk,             art: erfordert,   regel: M.Bemusterung.Freeze,                text: "Dosenlage → werkseitige Dosenbohrung (Freeze W)", status: V}
+  - {von: elektro_auslaesse, nach: bauphysik,            art: begrenzt,    regel: M.Firma.Dose-Aussenwand,             text: "Außenwand ohne Installationsebene → luftdichte Dose", status: U}
+  - {von: elektro_programm,  nach: elektro_auslaesse,    art: beeinflusst, regel: M.Bemusterung.Kompatibilitaet,       text: "Programm → Dosentyp, Rahmenraster", status: V}
+  - {von: heizung_lueftung,  nach: recht_gestaltung,     art: begrenzt,    regel: DE.TALaerm.WP-Richtwert,             text: "Außeneinheit → Schall am Immissionsort (B20)", status: V}
+  - {von: heizung_lueftung,  nach: aufbau,               art: begrenzt,    regel: M.Hersteller.R290-Schutzbereich,     text: "R290 → Schutzbereich vor Öffnungen", status: V}
+  - {von: kueche,            nach: tga_heizung_lueftung, art: beeinflusst, regel: M.Bemusterung.Kompatibilitaet,       text: "Dunstabzug Abluft ↔ KWL, Feuerstätte", status: U}
+  - {von: kueche,            nach: aufbau,               art: beeinflusst, regel: DE.Fussboden.OKFF-gleich,            text: "Kochinsel → Leitungen im Fußbodenaufbau", status: V}
+  - {von: fenster,           nach: bauphysik,            art: beeinflusst, regel: DE.DIN4109.Aussenlaerm,              text: "Glasfunktion → Uw, Rw → Nachweise (B19)", status: V}
+  - {von: sonnenschutz,      nach: tragwerk,             art: erfordert,   regel: M.Bemusterung.Freeze,                text: "Kasten → Sturz/Wandaufbau; Antrieb → Elektro", status: V}
+  - {von: fassade,           nach: recht_gestaltung,     art: begrenzt,    regel: BY.BayBO.81.Satzungspflichten,       text: "Farbe/Material ↔ örtliche Bauvorschrift", status: V}
+  - {von: dach_deckung,      nach: recht_gestaltung,     art: begrenzt,    regel: DE.ZVDH.DZ.Dachneigung,              text: "Ziegelmodell → Regeldachneigung", status: V}
+  - {von: fliese,            nach: darstellung,          art: beeinflusst, regel: M.Bemusterung.Texturlizenz,          text: "Herstellertextur nur mit Lizenz", status: V}
+
+# Konkrete Optionen und ihre Folgen
+optionen:
+
+  - id: OPT-SAN-WANDWC
+    titel: Wand-WC (wandhängend, Unterputzspülkasten)
+    kategorie: sanitaer
+    bedingung: "IfcSanitaryTerminal TOILETPAN, Pset_SanitaryTerminalTypeToiletPan.PanMounting = WALLHUNG"
+    freeze: W
+    folgen:
+      tragwerk:
+        - {text: "Montageelement in der Holzständerwand: Ständer ≥ 60 × 80 mm, Beplankung beidseitig ≥ 18 mm, lichter Ständerabstand 500 mm, sonst Querriegel, 4 Befestigungspunkte", regel: M.Hersteller.WC-Montageelement, status: V}
+        - {text: "Fallleitung DN 100 (da 110, Öffnung Ø 150) trifft im 625-mm-Raster Ständer und Deckenbalken; B15: Ständer 5 (x = 3125) auswechseln, Wechsel im Balken 5", regel: DE.EC5-NA.NA67.Durchbruch, beispiel: B15, status: V}
+        - {text: "Bohrung > 25 % der Ständertiefe ⇒ Ständer auswechseln oder Leitung in der Vorwand", regel: M.Firma.Staenderbohrung, beispiel: B15, status: U}
+      tga_sanitaer:
+        - {text: "Anschluss DN 100 an die Fallleitung; Hauptlüftung über Dach (Mündungsabstand zum Dachfenster, B15)", regel: DE.EC5-NA.NA67.Durchbruch, beispiel: B15, status: V}
+      tga_elektro:
+        - {text: "nur bei Dusch-WC: Steckdose und Leerrohr im Vorwandelement", regel: M.Hersteller.DuschWC-Strom, status: V}
+      aufbau:
+        - {text: "Vorwand bestimmt die Fliesenachse (Achsbezug der Wandfliese)", regel: DE.DIN18534.W-Klasse, status: U}
+        - {text: "Bewegungsfläche vor dem WC 0,80 × 0,75 m frei von Bauteilen und Möbeln", regel: DE.VDI6000.Bewegungsflaeche, status: V}
+      kosten:
+        - {text: "Standardobjekt der Bau- und Leistungsbeschreibung (Wand-WC, UP-Spülkasten 9 l): Mehrpreis 0 €", regel: M.Bemusterung.Mehrpreis, status: V}
+      termine:
+        - {text: "Freeze W: Tragkonstruktion Hänge-WC und UP-Spülkasten werden in der Wandfertigung eingebaut", regel: M.Bemusterung.Freeze, status: V}
+    regeln: [M.Hersteller.WC-Montageelement, DE.EC5-NA.NA67.Durchbruch, M.Firma.Staenderbohrung, DE.VDI6000.Bewegungsflaeche, M.Bemusterung.Freeze, IDS.RG-sanitaer-A]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10", "16"], beispiele: [B15]}
+
+  - id: OPT-SAN-DUSCHWC
+    titel: Dusch-WC
+    kategorie: sanitaer
+    bedingung: "Katalogartikel mit dusch_wc = true"
+    erbt: OPT-SAN-WANDWC
+    freeze: W
+    folgen:
+      tga_elektro:
+        - {text: "Steckdose im Vorwandelement, Stromkreis, Dosenbohrung in der Wandtafel", regel: M.Hersteller.DuschWC-Strom, status: V}
+      kosten:
+        - {text: "Mehrpreis Objekt und Elektro; Preis aus Katalog (DAT-12-01)", regel: M.Bemusterung.Mehrpreis, status: U}
+    regeln: [M.Hersteller.DuschWC-Strom, M.Bemusterung.Freeze]
+    quellen: {recherche: ["10"]}
+
+  - id: OPT-SAN-BODENGLEICH
+    titel: Bodengleiche Dusche (Rinne oder Punktablauf)
+    kategorie: sanitaer
+    bedingung: "IfcSanitaryTerminal SHOWER mit HasTray = FALSE und IfcWasteTerminal FLOORTRAP"
+    freeze: W
+    folgen:
+      aufbau:
+        - {text: "Gefälle 1–2 % (Herstellerpraxis; DIN 18534 nennt keinen Wert) → Estrich im Bad dicker; B14 Variante A: CT-F4 90 mm, Rohdecke −30 mm", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+        - {text: "Rinne DN 50: Estrichhöhe am Einlauf 188 mm im Bereich 90–220 mm", regel: M.Hersteller.Rinne-Einbauhoehe, beispiel: B14, status: V}
+        - {text: "Boden W2-I (ohne wirksame Abtrennung ganzer Badboden); Gefällefläche feuchteunempfindlich (zementgebunden)", regel: DE.DIN18534.W-Klasse, status: V}
+      tragwerk:
+        - {text: "Holzbalkendecke: Ablauf in die Balkenlage absenken → Durchbruch/Wechsel prüfen; DN 50 quer zur Balkenlage (Ø 60 > 36 mm) unzulässig", regel: DE.EC5-NA.NA67.Durchbruch, beispiel: B15, status: V}
+      kosten:
+        - {text: "Punktablauf: 2,0- bis 2,6-mal so viel Schnittlänge wie zwei Rinnen (B16); Fliesenmehraufwand", regel: M.Bemusterung.Mehrpreis, beispiel: B16, status: V}
+      termine:
+        - {text: "Freeze W wegen Rohbauvorgabe (Absenkung) und Balkenlage", regel: M.Bemusterung.Freeze, status: U}
+    regeln: [DE.Fussboden.OKFF-gleich, M.Hersteller.Rinne-Einbauhoehe, DE.DIN18534.W-Klasse, DE.EC5-NA.NA67.Durchbruch, DE.DINEN16165.Rutschhemmung]
+    quellen: {recherche: ["16", "17"], beispiele: [B14, B15, B16]}
+
+  - id: OPT-SAN-WANNE
+    titel: Badewanne 170/75
+    kategorie: sanitaer
+    bedingung: "IfcSanitaryTerminal BATH"
+    freeze: W
+    folgen:
+      tragwerk:
+        - {text: "gefüllt ca. 2,3 kN/m² örtlich > 1,5 kN/m² (Nutzlast A2) → Freigabe Tragwerksplanung", regel: DE.EC1-NA.Nutzlast-Badewanne, status: U}
+      aufbau:
+        - {text: "Wandflächen an der Wanne W1-I; Fliesenhöhe 200 cm an Wanne und Dusche (Standard)", regel: DE.DIN18534.W-Klasse, status: V}
+    regeln: [DE.EC1-NA.Nutzlast-Badewanne, DE.DIN18534.W-Klasse, DE.VDI6000.Bewegungsflaeche]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10", "13"]}
+
+  - id: OPT-FLI-GROSSFORMAT
+    titel: Fliese größer als 30 × 60 cm
+    kategorie: fliese
+    bedingung: "HRB_Belag.FormatLaenge × FormatBreite > 0,18 m² (Budgetgrenze) bzw. > 0,25 m² (Großformat)"
+    freeze: A
+    folgen:
+      kosten:
+        - {text: "Budget 50 €/m² gilt bis 30 × 60 cm; darüber Mehrpreis", regel: M.Bemusterung.Mehrpreis, status: V}
+      aufbau:
+        - {text: "Ebenheit DIN 18202 Tab. 3 Zeile 4 vereinbaren", regel: DE.DIN18202.Ebenheit-Belag, status: V}
+        - {text: "Fuge ≥ 3 mm; Versatz ≤ 1/3; Mindestdicke Boden 7,5 mm; > 120 cm Sonderkonstruktion", regel: DE.ZDB.Grossformat, status: U}
+        - {text: "auf Gefälle nur mit Linienentwässerung praktikabel (Ratgeber; B16 quantifiziert die Schnittlänge)", regel: M.Hersteller.Fliese-Versatz, beispiel: B16, status: U}
+      tragwerk:
+        - {text: "auf Holzbalkendecke Flächenmasse und Durchbiegung prüfen", regel: M.Hersteller.Naturstein-Holzdecke, status: U}
+    regeln: [DE.ZDB.Grossformat, M.Hersteller.Fliese-Versatz, DE.DIN18202.Ebenheit-Belag, M.Hersteller.Naturstein-Holzdecke, M.Bemusterung.Mehrpreis]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10", "13", "17"]}
+
+  - id: OPT-FLI-FISCHGRAET-CHEVRON
+    titel: Fischgrät- oder Chevron-Verlegung
+    kategorie: fliese
+    bedingung: "HRB_Verlegung.Muster ∈ {fischgraet, chevron}"
+    freeze: A
+    folgen:
+      kosten:
+        - {text: "B16 Achteck 4,77 m², Punktablauf: gerade 60×10 5,5 %, Fischgrät 11,0 %, Chevron aus Rechteck 23,2 %, Chevron-Formteil 8,8 % Verschnitt nach Reststückverwertung", regel: M.Bemusterung.Mehrpreis, beispiel: B16, status: V}
+        - {text: "Chevron aus Rechteck: 449 statt 229 Schnitte und 868 statt 538 min gegenüber Formteil; Formteil trotz 20 % höherem Stückpreis 216 € günstiger im Zielwert", regel: M.Bemusterung.Mehrpreis, beispiel: B16, status: V}
+      aufbau:
+        - {text: "Drittelregel für Randstücke nicht einhaltbar; Breitenregel Inkreis ≥ 20 mm", regel: M.Firma.Mindestschnitt, beispiel: B16, status: U}
+        - {text: "Parkett Fischgrät/Chevron: L- und R-Stäbe als zwei Artikel; 180°-Drehung vertauscht Nut und Feder", regel: M.Bemusterung.Kompatibilitaet, status: U}
+    regeln: [M.Firma.Mindestschnitt, M.Bemusterung.Mehrpreis, M.Bemusterung.Kompatibilitaet]
+    quellen: {recherche: ["17"], beispiele: [B16]}
+
+  - id: OPT-NAT-NATURSTEIN
+    titel: Naturstein im Bad (Mittelbett)
+    kategorie: naturstein
+    bedingung: "HRB_Belag.Belagart = Naturstein"
+    freeze: A
+    folgen:
+      aufbau:
+        - {text: "B14 Variante A, Bad: Naturstein 20 mm + Mittelbett 10 mm + AIV 2 mm + CT-F4 90 mm; Flächenmasse 263 kg/m²", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+        - {text: "kein Dickbett auf Calciumsulfatestrich", regel: DE.Fussboden.OKFF-gleich, status: V}
+      tragwerk:
+        - {text: "auf Holzbalkendecke (B14 Variante B: m′ ≤ 180 kg/m²) freigabepflichtig", regel: M.Hersteller.Naturstein-Holzdecke, beispiel: B14, status: U}
+    regeln: [DE.Fussboden.OKFF-gleich, M.Hersteller.Naturstein-Holzdecke, DE.DIN18534.W-Klasse]
+    quellen: {recherche: ["13", "16"], beispiele: [B14]}
+
+  - id: OPT-PAR-FBH
+    titel: Parkett auf Fußbodenheizung
+    kategorie: boden_parkett
+    bedingung: "HRB_Belag.Belagart = Parkett ∧ Raum mit FBH"
+    freeze: A
+    folgen:
+      tga_heizung_lueftung:
+        - {text: "Mehrschichtparkett 14 mm verklebt: R_λ,B = 0,1127 m²K/W ≤ 0,15 (B14)", regel: DE.BVF.FBH-Belagwiderstand, beispiel: B14, status: V}
+      aufbau:
+        - {text: "schwimmend auf FBH nur bedingt geeignet (Luftschicht) – Konflikt mit Standard 'schwimmend' der Bau- und Leistungsbeschreibung; vollflächig kleben", regel: DE.BVF.FBH-Belagwiderstand, status: V}
+        - {text: "B14 Variante A, Wohnen: CAF-F4 67 mm, OKFF 210 mm ± 0,6 mm", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+      kosten:
+        - {text: "Budget 80 €/m² UVP; Testfall: UVP 95 €/m², 20 m², Verschnitt 5 % → 315,00 € Mehrpreis", regel: M.Bemusterung.Mehrpreis, status: U}
+    regeln: [DE.BVF.FBH-Belagwiderstand, DE.Fussboden.OKFF-gleich, M.Bemusterung.Mehrpreis]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10", "13", "16"], beispiele: [B14]}
+
+  - id: OPT-TEP-FBH
+    titel: Teppich auf Fußbodenheizung
+    kategorie: boden_elastisch
+    bedingung: "HRB_Belag.Belagart = Teppich ∧ Raum mit FBH"
+    freeze: A
+    folgen:
+      tga_heizung_lueftung:
+        - {text: "8 mm Velours + 5 mm Filz: R_λ,B = 0,233 m²K/W > 0,15 (weiche Meldung, B14-Test)", regel: DE.BVF.FBH-Belagwiderstand, beispiel: B14, status: U}
+    regeln: [DE.BVF.FBH-Belagwiderstand]
+    quellen: {recherche: ["16"], beispiele: [B14]}
+
+  - id: OPT-BCI-MIKROZEMENT
+    titel: Beton Ciré / Mikrozement
+    kategorie: beton_cire
+    bedingung: "HRB_Belag.Belagart = Beton_Cire"
+    freeze: A
+    folgen:
+      aufbau:
+        - {text: "2–3 mm, folgt Estrichfugen (Bewegungsfugen nicht überbrückbar); B14 Flur: CAF-F4 57 mm + Grundierung 1 + Mikrozement 3 mm", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+        - {text: "Ebenheit Zeile 4 vereinbaren; Nassbereich W2-I nur mit Abdichtung darunter", regel: DE.DIN18202.Ebenheit-Belag, status: V}
+        - {text: "auf Gipsfaser-Trockenestrich nur mit Herstellerfreigabe (B14 Hinweis)", regel: DE.DIN18534.W-Klasse, beispiel: B14, status: V}
+    regeln: [DE.Fussboden.OKFF-gleich, DE.DIN18202.Ebenheit-Belag, DE.DIN18534.W-Klasse]
+    quellen: {recherche: ["16"], beispiele: [B14]}
+
+  - id: OPT-BEL-WECHSEL-TUER
+    titel: Belagwechsel an einer Tür (z. B. Parkett → Fliese Bad)
+    kategorie: boden_parkett
+    bedingung: "IfcDoor zwischen Räumen mit verschiedenen Belägen"
+    freeze: A
+    folgen:
+      aufbau:
+        - {text: "B14 Flur–Bad: ΔOKFF 0,0 mm, Kante worst case 1,3 mm; Bewegungsfuge durch Estrich und Belag; höhengleiches Profil", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+        - {text: "Kapillarsperre im Belagaufbau, Abdichtung in die Türleibung", regel: DE.DIN18534.Kapillarsperre-Tuer, status: V}
+      kosten:
+        - {text: "Übergangsprofil als Stückposition", regel: M.Bemusterung.Mehrpreis, status: U}
+    regeln: [DE.Fussboden.OKFF-gleich, DE.DIN18534.Kapillarsperre-Tuer]
+    quellen: {recherche: ["13", "16"], beispiele: [B14]}
+
+  - id: OPT-TUE-KWL
+    titel: Innentür in Wohnung mit Lüftung mit Wärmerückgewinnung
+    kategorie: innentuer
+    bedingung: "Lüftungskonzept mit Überströmzone"
+    freeze: A
+    folgen:
+      tga_heizung_lueftung:
+        - {text: "Türunterschnitt oder Überströmdichtung; Bad Richtwert 75–100 cm²", regel: DE.DIN1946-6.Ueberstroemung, status: U}
+      aufbau:
+        - {text: "Bodenluft hängt von der OKFF des Raums ab", regel: DE.DIN18101.Tuermasse, beispiel: B14, status: V}
+    regeln: [DE.DIN1946-6.Ueberstroemung, DE.DIN18101.Tuermasse, DE.DIN107.IFC-Anschlag]
+    quellen: {recherche: ["10", "13"]}
+
+  - id: OPT-TRE-GERADE
+    titel: Gerade Treppe Buche, Geschosshöhe 2,90 m
+    kategorie: treppe
+    bedingung: "IfcStair STRAIGHT_RUN_STAIR"
+    freeze: W
+    folgen:
+      aufbau:
+        - {text: "B5: 68 zulässige Lösungen; beste 17 × 170,59 mm / 290 mm, 2s + a = 631,18 mm, Lauflänge 4,64 m", regel: DE.DIN18065.WG2WE, beispiel: B5, status: V}
+      tragwerk:
+        - {text: "Deckenöffnung als Wechsel in der Holzbalkendecke (BTLx-Teil); Kopfhöhe ≥ 2000 mm", regel: DE.DIN18065.Kopfhoehe, status: V}
+      kosten:
+        - {text: "Standard: Buche keilgezinkt, Geländerstäbe Buche oder Edelstahl (Mehrpreis 0 €)", regel: M.Bemusterung.Mehrpreis, status: V}
+    regeln: [DE.DIN18065.WG2WE, DE.DIN18065.Kopfhoehe, M.Firma.Gelaender-Stababstand]
+    quellen: {bib: [regnauerBLB2024, din18065], recherche: ["13"], beispiele: [B5]}
+
+  - id: OPT-TRE-GEWENDELT
+    titel: Viertel- oder halbgewendelte Treppe
+    kategorie: treppe
+    bedingung: "IfcStair QUARTER_WINDING_STAIR | HALF_WINDING_STAIR"
+    freeze: W
+    folgen:
+      aufbau:
+        - {text: "eine Verziehungsmethode je Lauf; Auftritt innen ≥ 50 mm (≤ 2 WE)", regel: DE.DIN18065.Verziehung, status: V}
+      tragwerk:
+        - {text: "andere Deckenöffnung → andere Wechsel; Kopfhöhe neu prüfen", regel: DE.DIN18065.Kopfhoehe, status: V}
+    regeln: [DE.DIN18065.Verziehung, DE.DIN18065.Kopfhoehe, DE.DIN18065.WG2WE]
+    quellen: {bib: [din18065], recherche: ["13"]}
+
+  - id: OPT-WAN-GLANZLACK
+    titel: Glänzende Wandbeschichtung oder Streiflichtwand
+    kategorie: wand_decke
+    bedingung: "Glanzgrad G1/G2 oder Streiflicht"
+    freeze: A
+    folgen:
+      kosten:
+        - {text: "Q4 statt Q2 (Besondere Leistung nach DIN 18340), Ebenheit Zeile 7", regel: DE.GipsMB2.Q-Stufe, status: V}
+    regeln: [DE.GipsMB2.Q-Stufe]
+    quellen: {recherche: ["13"]}
+
+  - id: OPT-WAN-EINBAULEUCHTE
+    titel: Einbauleuchten in Decke oder Dachschräge
+    kategorie: wand_decke
+    bedingung: "IfcLightFixture mit LightFixtureMountingType = RECESSED"
+    freeze: W
+    folgen:
+      tga_elektro:
+        - {text: "Einbautiefe gegen 30-mm-Abstandsschalung; unter dem Dach Dampfbremse direkt dahinter", regel: M.Firma.Einbauleuchte-Decke, status: U}
+    regeln: [M.Firma.Einbauleuchte-Decke]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10"]}
+
+  - id: OPT-ELE-AUSLASS-AW
+    titel: Steckdose oder Schalter in der Außenwand
+    kategorie: elektro_auslaesse
+    bedingung: "IfcOutlet/IfcSwitchingDevice in IfcWall IsExternal = TRUE"
+    freeze: W
+    folgen:
+      bauphysik:
+        - {text: "Dampfbremse direkt hinter 25 mm Gips → luftdichte Dose", regel: M.Firma.Dose-Aussenwand, status: U}
+      tragwerk:
+        - {text: "Dosenbohrung in der Wandfertigung (Freeze W)", regel: M.Bemusterung.Freeze, status: V}
+    regeln: [M.Firma.Dose-Aussenwand, M.Bemusterung.Freeze]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10"]}
+
+  - id: OPT-KUE-INSEL
+    titel: Kochinsel mit Spüle oder Kochfeld
+    kategorie: kueche
+    bedingung: "IfcFurniture USERDEFINED Kochinsel mit Anschlüssen"
+    freeze: W
+    folgen:
+      aufbau:
+        - {text: "Wasser, Abwasser, Strom durch den Fußbodenaufbau → Installationsebene im Estrichaufbau (B14 Küche: DEO 35 bündig zu Rohren 34 mm)", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+        - {text: "Abwasser im Trockenaufbau der Holzbalkendecke nicht unterzubringen (B14-Konfliktfall)", regel: DE.Fussboden.OKFF-gleich, beispiel: B14, status: V}
+      tga_heizung_lueftung:
+        - {text: "Dunstabzug über der Insel: Umluft bei KWL bzw. Feuerstätte", regel: M.Bemusterung.Kompatibilitaet, status: U}
+    regeln: [DE.Fussboden.OKFF-gleich, DE.DINEN1116.Kueche, M.Bemusterung.Kompatibilitaet]
+    quellen: {recherche: ["13", "16"], beispiele: [B14]}
+
+  - id: OPT-KUE-HAENGESCHRANK
+    titel: Hängeschränke an beliebiger Wandstelle
+    kategorie: kueche
+    bedingung: "IfcFurniture an Innenwand"
+    freeze: A
+    folgen:
+      tragwerk:
+        - {text: "keine Folge: laut Bau- und Leistungsbeschreibung 'an jeder Stelle' möglich (25 mm Gips)", regel: M.Bemusterung.Kompatibilitaet, status: V}
+    regeln: []
+    quellen: {bib: [regnauerBLB2024], recherche: ["10"]}
+
+  - id: OPT-FEN-FUNKTIONSGLAS
+    titel: Innenliegende Sprossen oder Funktionsglas
+    kategorie: fenster
+    bedingung: "IfcWindowType mit Sprossen/Schallschutz-/Sicherheitsglas"
+    freeze: W
+    folgen:
+      bauphysik:
+        - {text: "Ug/Uw ändern sich → Energienachweis; Rw → Schallschutz gegen Außenlärm (B19)", regel: DE.DIN4109.Aussenlaerm, beispiel: B19, status: V}
+    regeln: [DE.DIN4109.Aussenlaerm, M.Katalog.Fenster-SSK]
+    quellen: {recherche: ["10", "20"], beispiele: [B19]}
+
+  - id: OPT-SON-RAFFSTORE
+    titel: Raffstore statt Rollladen
+    kategorie: sonnenschutz
+    bedingung: "IfcShadingDevice JALOUSIE"
+    freeze: W
+    folgen:
+      tragwerk:
+        - {text: "Kasten ↔ Sturz und Wandaufbau (Werkplanung)", regel: M.Bemusterung.Freeze, status: U}
+      tga_elektro:
+        - {text: "Antrieb elektrisch (Standard): Leitung, ggf. Smart Home", regel: M.Bemusterung.Freeze, status: V}
+    regeln: [M.Bemusterung.Freeze]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10"]}
+
+  - id: OPT-DAC-ZIEGEL
+    titel: Ziegelmodell und -farbe
+    kategorie: dach_deckung
+    bedingung: "IfcCovering ROOFING Typwahl"
+    freeze: W
+    folgen:
+      recht_gestaltung:
+        - {text: "Regeldachneigung des Modells gegen Dachneigung; Farbe gegen örtliche Bauvorschrift", regel: DE.ZVDH.DZ.Dachneigung, status: V}
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.81.Satzungspflichten]
+    quellen: {recherche: ["09", "10"]}
+
+  - id: OPT-HEI-WP-LW
+    titel: Luft/Wasser-Wärmepumpe (R290) mit Fußbodenheizung
+    kategorie: heizung_lueftung
+    bedingung: "IfcUnitaryEquipment AirToWaterHeatPump_Monoblock"
+    freeze: W
+    folgen:
+      recht_gestaltung:
+        - {text: "Schall am Immissionsort (B20)", regel: DE.TALaerm.WP-Richtwert, beispiel: B20, status: V}
+      aufbau:
+        - {text: "R290-Schutzbereich vor Öffnungen", regel: M.Hersteller.R290-Schutzbereich, beispiel: B20, status: V}
+        - {text: "FBH ↔ Beläge (R_λ,B)", regel: DE.BVF.FBH-Belagwiderstand, status: V}
+    regeln: [DE.TALaerm.WP-Richtwert, M.Hersteller.R290-Schutzbereich, DE.BVF.FBH-Belagwiderstand]
+    quellen: {bib: [regnauerBLB2024], recherche: ["10", "22"], beispiele: [B20]}
+
+  - id: OPT-BAR-BAD
+    titel: Barrierefreies Bad (Option nach DIN 18040-2)
+    kategorie: sanitaer
+    bedingung: "Profilschalter barrierefrei = true"
+    freeze: W
+    folgen:
+      aufbau:
+        - {text: "Bewegungsflächen 1,20 × 1,20 m; Dusche niveaugleich, Absenkung ≤ 2 cm; Belag Barfußklasse B", regel: DE.DIN18040-2.Bewegungsflaeche, status: V}
+        - {text: "Rutschhemmung B wird verbindlich", regel: DE.DINEN16165.Rutschhemmung, status: V}
+    regeln: [DE.DIN18040-2.Bewegungsflaeche, DE.DINEN16165.Rutschhemmung]
+    quellen: {recherche: ["13", "16"]}

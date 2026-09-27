@@ -1,0 +1,429 @@
+# TGA-Dimensionierung (Kapitel 13): Formeln mit Einheiten, Normverweis und Status.
+# Normwerte sind Einzelkennwerte mit Fundstelle, keine Tabellenkopien (Kapitel 9.7).
+# Status: V = an Primärquelle, Normenverlag, Herstellerdatenblatt oder Prototyp geprüft;
+#         U = unsicher, Sekundärquelle, Herstellerregel ohne Norm oder eigene Auslegung.
+# Jede Formel trägt Testfälle (eingabe -> erwartet ± toleranz). Die Testfälle sind mit
+# Python nachgerechnet (Kapitel 13.14.4). Regel-IDs verweisen auf regelkatalog-13-tga.yaml
+# bzw. regelkatalog.yaml.
+
+meta:
+  name: HRB-TGA-Dimensionierung
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: "13"
+  recherche: ["08", "14", "16", "22"]
+  beispiele: [B14, B15, B20]
+  einheiten: "SI; Durchfluss l/s, Luftvolumenstrom m³/h, Längen mm bzw. m wie angegeben"
+  rundung: "intern ungerundet; Ausgabe nach DIN 1333; Pegel in vollen dB nach DIN 1333 (Kapitel 7a)"
+
+# ---------------------------------------------------------------------------
+# 1. Formeln
+# ---------------------------------------------------------------------------
+formeln:
+
+  # ---------------- Trinkwasser ----------------
+  - id: TW.Spitzendurchfluss
+    gewerk: trinkwasser
+    formel: "V_S = a · (ΣV_R)^b − c"
+    variablen:
+      - {name: V_S, einheit: "l/s", beschreibung: "Spitzendurchfluss"}
+      - {name: sum_V_R, einheit: "l/s", beschreibung: "Summe der Berechnungsdurchflüsse; zweiter Waschtisch u. Ä. derselben Sanitäreinheit zählt nicht"}
+    parameter: {a: 1.48, b: 0.19, c: 0.94}
+    gueltigkeit: "Wohngebäude; 0,2 <= ΣV_R <= 500 l/s"
+    norm: {werk: "DIN 1988-300", fundstelle: "Gl. Spitzendurchfluss, Konstanten Wohngebäude (Tab. 3)", fassung: "2012-05"}
+    status: V
+    regel: DE.DIN1988-300.Spitzendurchfluss
+    testfaelle:
+      - {eingabe: {sum_V_R: 1.0}, erwartet: {V_S: 0.540}, toleranz: 0.001}
+      - {eingabe: {sum_V_R: 2.0}, erwartet: {V_S: 0.748}, toleranz: 0.001}
+    hinweis: "Berechnungsdurchflüsse V_R je Armatur aus DIN 1988-300 Tab. 2 oder Herstellerangabe (DAT-13-04); Tab. 2 nicht eingesehen [U]."
+
+  - id: TW.Innendurchmesser-Vorbemessung
+    gewerk: trinkwasser
+    formel: "d_i,min = sqrt(4 · V_S / (π · v_max))"
+    variablen:
+      - {name: d_i_min, einheit: mm, beschreibung: "kleinster zulässiger Innendurchmesser"}
+      - {name: V_S, einheit: "l/s"}
+      - {name: v_max, einheit: "m/s", beschreibung: "Geschwindigkeitsgrenze"}
+    parameter: {v_max_hausanschluss_m_s: 2.0, v_max_verbrauchsleitung_m_s: 5.0}
+    gueltigkeit: "Vorbemessung; maßgeblich bleibt der Druckverlustnachweis nach DIN 1988-300 (Fachplaner, Gate R3)"
+    norm: {werk: "DIN 1988-300", fundstelle: "Geschwindigkeitsbegrenzung (Hausanschluss 2 m/s)", fassung: "2012-05"}
+    status: V
+    regel: DE.DIN1988-300.Spitzendurchfluss
+    testfaelle:
+      - {eingabe: {V_S: 0.7483, v_max: 2.0}, erwartet: {d_i_min: 21.83}, toleranz: 0.05}
+    hinweis: "Wahl: kleinstes Rohr aus nennweiten.trinkwasser_msvr mit d_i >= d_i,min (Beispiel: 32×3, d_i 26 mm, v = 1,41 m/s)."
+
+  - id: TW.Wasserinhalt-Fliessweg
+    gewerk: trinkwasser
+    formel: "V_Weg = Σ_k (π/4) · d_i,k² · L_k  ≤ 3 l (ohne Zirkulation; Zirkulationsleitung zählt nicht mit)"
+    variablen:
+      - {name: V_Weg, einheit: l}
+      - {name: d_i, einheit: mm}
+      - {name: L, einheit: m}
+    parameter: {V_max_l: 3.0}
+    gueltigkeit: "Warmwasser-Fließweg Speicher bzw. Zirkulationsabzweig bis Zapfstelle"
+    norm: {werk: "DVGW W 551", fundstelle: "3-Liter-Regel Kleinanlage", fassung: "2004"}
+    status: V
+    regel: DE.DVGW-W551.3-Liter
+    testfaelle:
+      - {eingabe: {d_i: 12, L: 26.53}, erwartet: {V_Weg: 3.00}, toleranz: 0.01}
+      - {eingabe: {d_i: 16, L: 14.92}, erwartet: {V_Weg: 3.00}, toleranz: 0.01}
+    hinweis: "Wasserinhalt je Meter aus nennweiten.trinkwasser_msvr (16×2: 0,113 l/m; 20×2: 0,201 l/m). Neufassung W 551-x nicht geprüft [U]."
+
+  # ---------------- Abwasser ----------------
+  - id: AW.Schmutzwasserabfluss
+    gewerk: abwasser
+    formel: "Q_ww = max(K · sqrt(ΣDU); max_i DU_i)"
+    variablen:
+      - {name: Q_ww, einheit: "l/s"}
+      - {name: DU, einheit: "l/s", beschreibung: "Anschlusswert je Entwässerungsgegenstand (System I)"}
+    parameter: {K_wohnhaus: 0.5}
+    gueltigkeit: "Schmutzwasserleitungen im Gebäude; System I"
+    norm: {werk: "DIN 1986-100 mit DIN EN 12056-2", fundstelle: "Abflusskennzahl K, Anschlusswerte", fassung: "2016-12 (Entwurf 2025-06 beachten)"}
+    status: V
+    regel: DE.DIN1986-100.Schmutzwasserabfluss
+    testfaelle:
+      - {eingabe: {DU: [2.0, 0.6, 0.5]}, erwartet: {Q_ww: 2.0}, toleranz: 0.001}
+      - {eingabe: {DU: [0.8, 0.8, 0.8, 0.6, 0.5]}, erwartet: {Q_ww: 0.935}, toleranz: 0.001}
+    hinweis: "Die Nennweite folgt aus der hydraulischen Leistungsfähigkeit der Leitungsart; WC-Anschluss mindestens Anschlussbogen Ø 90 bzw. DN 100 (Herstellerangabe) [U]."
+
+  - id: AW.Gefaellehoehe
+    gewerk: abwasser
+    formel: "Δh = J · L;  H_erf = d_a + 2 · s_Daemm + Δh"
+    variablen:
+      - {name: J, einheit: "-", beschreibung: "Gefälle (0,01 = 1 %)"}
+      - {name: L, einheit: mm}
+      - {name: H_erf, einheit: mm, beschreibung: "erforderliche Höhe im Aufbau (wie B14 leitungshoehe)"}
+    parameter: {J_min_unbelueftet: 0.01, J_min_belueftet: 0.005, J_min_sammel_im_gebaeude: 0.005}
+    norm: {werk: "DIN 1986-100", fundstelle: "Mindestgefälle Anschluss-, Sammel- und Grundleitungen", fassung: "2016-12"}
+    status: V
+    regel: DE.DIN1986-100.Gefaelle
+    testfaelle:
+      - {eingabe: {J: 0.01, L: 2450, d_a: 50, s_Daemm: 0}, erwartet: {H_erf: 74.5}, toleranz: 0.01}
+
+  # ---------------- Lüftung ----------------
+  - id: LU.Gesamtvolumenstrom-NE
+    gewerk: lueftung
+    formel: "q_v = f · (−0,002 · A_NE² + 1,15 · A_NE + 11);  A_NE < 20 m² → 20 m²;  A_NE > 210 m²: q_v(210) + 0,4 · (A_NE − 210) je Stufe"
+    variablen:
+      - {name: q_v, einheit: "m³/h"}
+      - {name: A_NE, einheit: "m²", beschreibung: "Fläche der Nutzungseinheit"}
+      - {name: f, einheit: "-", beschreibung: "Stufenfaktor"}
+    parameter: {f_RL: 0.7, f_NL: 1.0, f_IL: 1.3, f_FL_neubau_typisch: 0.3}
+    norm: {werk: "DIN 1946-6", fundstelle: "Gesamt-Außenluftvolumenstrom der Nutzungseinheit", fassung: "2019-12; Beiblatt 1:2025-06"}
+    status: V
+    status_hinweis: "f_FL (typ. 0,3 im Neubau) und die Lesart der Fortschreibung über 210 m² sind U"
+    regel: DE.DIN1946-6.Nennlueftung
+    testfaelle:
+      - {eingabe: {A_NE: 140, f: 1.0}, erwartet: {q_v: 132.8}, toleranz: 0.05}
+      - {eingabe: {A_NE: 140, f: 0.7}, erwartet: {q_v: 92.96}, toleranz: 0.05}
+      - {eingabe: {A_NE: 140, f: 1.3}, erwartet: {q_v: 172.64}, toleranz: 0.05}
+      - {eingabe: {A_NE: 15, f: 1.0}, erwartet: {q_v: 33.2}, toleranz: 0.05}
+    hinweis: "Validierungsfälle aus DIN 1946-6 Beiblatt 1:2025-06 sind als Regressionstests zu übernehmen (DAT-13-06)."
+
+  - id: LU.Auslegung-ventilatorgestuetzt
+    gewerk: lueftung
+    formel: "q_v,ges,NL = max(q_v,NE,NL; min(Σ q_v,Abluft,Raum; 1,2 · q_v,NE,NL))"
+    variablen:
+      - {name: q_v_ges_NL, einheit: "m³/h"}
+      - {name: sum_abluft, einheit: "m³/h"}
+    parameter: {faktor_obergrenze: 1.2}
+    norm: {werk: "DIN 1946-6", fundstelle: "Auslegung ventilatorgestützter Systeme (DIN-FAQ)", fassung: "2019-12"}
+    status: V
+    regel: DE.DIN1946-6.Nennlueftung
+    testfaelle:
+      - {eingabe: {q_v_NE_NL: 132.8, sum_abluft: 60.0}, erwartet: {q_v_ges_NL: 132.8}, toleranz: 0.05}
+      - {eingabe: {q_v_NE_NL: 100.0, sum_abluft: 150.0}, erwartet: {q_v_ges_NL: 120.0}, toleranz: 0.05}
+    hinweis: "Raumabluftwerte: Beispiel DIN-FAQ fensterloses Bad 40, WC 20 m³/h (DIN 18017-3); Werte der DIN 1946-6 selbst U (DAT-13-06)."
+
+  - id: LU.Strangzahl-Flexrohr
+    gewerk: lueftung
+    formel: "n_Strang = ceil(q_v,Raum / q_max,Strang)"
+    variablen:
+      - {name: n_Strang, einheit: "-"}
+      - {name: q_v_Raum, einheit: "m³/h"}
+      - {name: q_max_Strang, einheit: "m³/h"}
+    parameter: {q_max_da75_m3h: 28, q_max_da90_m3h: 39, q_max_flachkanal_130x52_m3h: 45}
+    norm: {werk: "Herstellerspezifikation Flexrohr (da 75 / 90) und Flachkanal", fundstelle: "Recherche 16, 2.1", fassung: "2026"}
+    status: V
+    status_hinweis: "Herstellerwerte (2,5 m/s), keine Norm"
+    regel: M.Hersteller.Lueftungsstrang
+    testfaelle:
+      - {eingabe: {q_v_Raum: 60, q_max_Strang: 28}, erwartet: {n_Strang: 3}, toleranz: 0}
+
+  # ---------------- Heizung ----------------
+  - id: HZ.FBH-Rohrlaenge
+    gewerk: heizung
+    formel: "L_Rohr = A_Heizfläche · 100 / VA  (VA in cm);  n_Kreise = ceil(L_Rohr / L_max)"
+    variablen:
+      - {name: L_Rohr, einheit: m}
+      - {name: A_Heizflaeche, einheit: "m²"}
+      - {name: VA, einheit: cm, beschreibung: "Verlegeabstand"}
+      - {name: n_Kreise, einheit: "-"}
+    parameter: {L_max_m: 100, L_max_absolut_m: 110, L_ideal_m: 60, dp_max_mbar: 300}
+    norm: {werk: "Herstellerregel (keine Norm)", fundstelle: "Recherche 08, 5", fassung: "2026"}
+    status: U
+    regel: M.Hersteller.FBH-Heizkreislaenge
+    testfaelle:
+      - {eingabe: {A_Heizflaeche: 20.0, VA: 15, L_max: 100}, erwartet: {L_Rohr: 133.33, n_Kreise: 2}, toleranz: 0.01}
+      - {eingabe: {A_Heizflaeche: 12.0, VA: 10, L_max: 100}, erwartet: {L_Rohr: 120.0, n_Kreise: 2}, toleranz: 0.01}
+    hinweis: "Zuleitung zum Verteiler ist zu addieren; das Ergebnis ist Vorbemessung, die Auslegung nach DIN EN 1264 prüft der Fachplaner."
+
+  - id: HZ.FBH-Oberflaechentemperatur
+    gewerk: heizung
+    formel: "θ_F,max ≤ Grenzwert(Zone);  Bad: θ_F,max = θ_i + 9 K"
+    variablen:
+      - {name: theta_F_max, einheit: "°C"}
+      - {name: theta_i, einheit: "°C", beschreibung: "Norm-Innentemperatur (Bad 24 °C, Wohnen 20 °C)"}
+    parameter: {aufenthaltszone_C: 29, randzone_C: 35, bad_C: 33, spreizung_auslegungsraum_K: 5, R_lambda_B_auslegung: 0.10, R_lambda_B_bad: 0.0, R_lambda_B_max: 0.15}
+    norm: {werk: "DIN EN 1264; DIN EN 12831-1 mit DIN/TS 12831-1", fundstelle: "Grenzkurven, Norm-Innentemperaturen", fassung: "EN 1264 (2021); DIN/TS 12831-1:2020-04"}
+    status: V
+    regel: DE.DINEN1264.Oberflaechentemperatur
+    testfaelle:
+      - {eingabe: {theta_i: 24}, erwartet: {theta_F_max_bad: 33}, toleranz: 0}
+
+  # ---------------- Dämmung ----------------
+  - id: DM.GModG-Anl8
+    gewerk: daemmung
+    formel: "s_min = f(d_i): d_i <= 22 → 20 mm; 22 < d_i <= 35 → 30 mm; 35 < d_i <= 100 → d_i; d_i > 100 → 100 mm; Durchbruch/Kreuzung/Verteiler: × 0,5; zwischen Nutzern: × 0,5, im Fußbodenaufbau 6 mm; an Außenluft: × 2"
+    variablen:
+      - {name: s_min, einheit: mm, beschreibung: "Mindestdämmdicke bei λ = 0,035 W/(m K)"}
+      - {name: d_i, einheit: mm}
+    parameter: {lambda_bezug_W_mK: 0.035}
+    ausnahmen: ["Anl. 8 Nr. 1 b: Wärmeverteilung in beheizten Räumen eines Nutzers mit frei liegender Absperrung", "Anl. 8 Nr. 1 c: Warmwasser-Stichleitung <= 3 l ohne Zirkulation und Begleitheizung in beheizten Räumen", "Kaltwasser und Abwasser: keine GModG-Anforderung"]
+    norm: {werk: "GModG Anlage 8", fundstelle: "Nr. 1 a aa–hh, b, c", fassung: "BGBl. 2026 I Nr. 226, ab 2026-07-29"}
+    status: V
+    regel: DE.GModG.Anl8.Leitungsdaemmung
+    testfaelle:
+      - {eingabe: {d_i: 20, lage: frei}, erwartet: {s_min: 20}, toleranz: 0}
+      - {eingabe: {d_i: 26, lage: durchbruch}, erwartet: {s_min: 15}, toleranz: 0}
+      - {eingabe: {d_i: 42, lage: frei}, erwartet: {s_min: 42}, toleranz: 0}
+      - {eingabe: {d_i: 20, lage: fussboden_verschiedene_nutzer, medium: heizung}, erwartet: {s_min: 6}, toleranz: 0}
+    implementierung: "beispiele/b14_fussbodenaufbau.py::gmodg_mindestdaemmung (10 Testfälle in tests/test_b14.py::test_gmodg_anlage8)"
+
+  # ---------------- Durchdringungen ----------------
+  - id: DD.Oeffnungsmass
+    gewerk: durchdringung
+    formel: "d_Oeff = ceil_r(d_a + 2 · (s_Entkopplung + s_Ringspalt));  luftdichte Ebene: d_Oeff = ceil_r(d_a + 2 · s_Ringspalt,luftdicht)"
+    variablen:
+      - {name: d_Oeff, einheit: mm}
+      - {name: d_a, einheit: mm}
+      - {name: s_Entkopplung, einheit: mm, beschreibung: "Dämmschlauch"}
+      - {name: s_Ringspalt, einheit: mm}
+      - {name: r, einheit: mm, beschreibung: "Rundungsraster"}
+    parameter: {s_Entkopplung_mm: 9, s_Ringspalt_mm: 10, s_Ringspalt_luftdicht_mm: 10, r_mm: 10}
+    norm: {werk: "Firmenregel (Beispielwerte B15)", fundstelle: "daten/b15_durchdringungen.json: entkopplung", fassung: "Platzhalter 2026-09"}
+    status: U
+    regel: M.Firma.Oeffnungsmass
+    testfaelle:
+      - {eingabe: {d_a: 110, s_Entkopplung: 9, s_Ringspalt: 10, r: 10}, erwartet: {d_Oeff: 150}, toleranz: 0}
+      - {eingabe: {d_a: 110, s_Entkopplung: 0, s_Ringspalt: 10, r: 10}, erwartet: {d_Oeff: 130}, toleranz: 0}
+    implementierung: "beispiele/b15_durchdringungen.py (tests/test_b15.py::test_oeffnungsdurchmesser)"
+
+  - id: DD.Balkendurchbruch-NA67
+    gewerk: durchdringung
+    formel: "d <= 50 mm: Querschnittsschwächung; sonst unverstärkt nur wenn h_d <= 0,15 h ∧ h_ro, h_ru >= 0,35 h ∧ l_A >= h/2 ∧ l_z >= max(1,5 h; 300 mm)"
+    variablen:
+      - {name: h, einheit: mm}
+      - {name: h_d, einheit: mm}
+    parameter: {grenze_durchbruch_mm: 50, hd_faktor: 0.15, rand_faktor: 0.35}
+    norm: {werk: "DIN EN 1995-1-1/NA", fundstelle: "NCI NA.6.7", fassung: "NA 2013-08"}
+    status: V
+    regel: DE.EC5-NA.NA67.Durchbruch
+    testfaelle:
+      - {eingabe: {h: 240, h_d: 60}, erwartet: {grenze_hd: 36.0, zulaessig: false}, toleranz: 0}
+      - {eingabe: {h: 240, h_d: 31}, erwartet: {einstufung: querschnittsschwaechung}, toleranz: 0}
+    implementierung: "beispiele/b15_durchdringungen.py (tests/test_b15.py::test_querbohrungen_na_6_7)"
+
+  - id: DD.Staenderbohrung
+    gewerk: durchdringung
+    formel: "d <= p · t_Ständer, mittig"
+    variablen:
+      - {name: d, einheit: mm}
+      - {name: t_Staender, einheit: mm}
+    parameter: {p: 0.25}
+    norm: {werk: "Firmenregel (Platzhalter)", fundstelle: "B15", fassung: "Platzhalter 2026-09"}
+    status: U
+    regel: M.Firma.Staenderbohrung
+    testfaelle:
+      - {eingabe: {d: 150, t_Staender: 160}, erwartet: {zulaessig: false, grenze: 40.0}, toleranz: 0}
+      - {eingabe: {d: 25, t_Staender: 160}, erwartet: {zulaessig: true}, toleranz: 0}
+
+  # ---------------- Wärmepumpe (Verweis; Rechenkern B20) ----------------
+  - id: WP.Divergenz
+    gewerk: waermepumpe
+    formel: "A_div = 20 · lg(d / 1 m) + 11 dB"
+    variablen: [{name: A_div, einheit: dB}, {name: d, einheit: m}]
+    norm: {werk: "DIN ISO 9613-2", fundstelle: "Gl. (7)", fassung: "1999-10 (= ISO 9613-2:1996)"}
+    status: V
+    regel: DE.TALaerm.WP-Richtwert
+    testfaelle:
+      - {eingabe: {d: 16.7}, erwartet: {A_div: 35.45}, toleranz: 0.01}
+    implementierung: "beispiele/b20_waermepumpe_schall.py::a_div"
+
+  - id: WP.Bodenreflexion-Quelle
+    gewerk: waermepumpe
+    formel: "D_Ω = 10 · lg{1 + [d_p² + (h_s − h_r)²] / [d_p² + (h_s + h_r)²]}"
+    variablen: [{name: D_Omega, einheit: dB}, {name: d_p, einheit: m}, {name: h_s, einheit: m}, {name: h_r, einheit: m}]
+    norm: {werk: "DIN ISO 9613-2", fundstelle: "Gl. (11)", fassung: "1999-10"}
+    status: V
+    regel: DE.TALaerm.WP-Richtwert
+    testfaelle: []
+    implementierung: "beispiele/b20_waermepumpe_schall.py::d_omega (tests/test_b20.py::test_handrechnung_freifeld_adiv_domega_agr: D_Ω = 2,926 dB)"
+
+  - id: WP.Beurteilungspegel-Nacht
+    gewerk: waermepumpe
+    formel: "L_r,N = L_AT,N + K_T + K_I + 10 · lg(T_E / 60 min), T_E = 60 min; Vergleich runde_DIN1333(L_r,N) <= IRW_N"
+    variablen: [{name: L_r_N, einheit: "dB(A)"}, {name: K_T, einheit: dB}, {name: K_I, einheit: dB}]
+    parameter: {K_T_K_I_werte_dB: [0, 3, 6], K_T_unbekannt_dB: 3}
+    norm: {werk: "TA Lärm", fundstelle: "6.4, A.1.4 (G2), A.2.5.2", fassung: "i. d. F. 2017"}
+    status: V
+    regel: DE.TALaerm.WP-Richtwert
+    testfaelle:
+      - {eingabe: {L_AT_N: 22.4, K_T: 3, K_I: 0}, erwartet: {L_r_N: 25.4}, toleranz: 0.05}
+
+  - id: WP.Spitzenpegel
+    gewerk: waermepumpe
+    formel: "L_AFmax = L_AT,N − L_WA,N + L_WA,max ≤ IRW_N + 20 dB"
+    variablen: [{name: L_AFmax, einheit: "dB(A)"}]
+    parameter: {zuschlag_nacht_dB: 20, zuschlag_tag_dB: 30}
+    norm: {werk: "TA Lärm", fundstelle: "6.1 letzter Satz", fassung: "i. d. F. 2017"}
+    status: V
+    regel: DE.TALaerm.WP-Spitzenpegel
+    testfaelle:
+      - {eingabe: {L_AT_N: 22.4, L_WA_N: 55, L_WA_max: 63}, erwartet: {L_AFmax: 30.4}, toleranz: 0.05}
+
+  # ---------------- Licht ----------------
+  - id: LI.Melanopische-EDI
+    gewerk: licht
+    formel: "E_v,mel,D65 = E_v · mDER  (mDER aus dem Spektrum nach CIE S 026; ohne Spektrum Herstellerangabe)"
+    variablen:
+      - {name: E_mel, einheit: lx, beschreibung: "melanopische tageslichtäquivalente Beleuchtungsstärke am Auge (vertikal)"}
+      - {name: E_v, einheit: lx, beschreibung: "photopische Beleuchtungsstärke am Auge"}
+      - {name: mDER, einheit: "-", beschreibung: "melanopic daylight efficacy ratio der Lichtquelle"}
+    norm: {werk: "CIE S 026/E:2018", fundstelle: "melanopische Größen", fassung: "2018"}
+    status: U
+    status_hinweis: "Formelbeziehung nach CIE S 026 (Recherche 25/26, Bewertung trinh2023medi); mDER je Leuchte ist Herstellerdatum (DAT-13-09)"
+    regel: R5-LICHT-05
+    testfaelle:
+      - {eingabe: {E_v: 20.0, mDER: 0.45}, erwartet: {E_mel: 9.0}, toleranz: 0.01}
+    hinweis_testwerte: "Eingaben sind reine Testwerte der Formel, keine Kennwerte einer Lichtquelle."
+
+  - id: LI.Punktbeleuchtungsstaerke
+    gewerk: licht
+    formel: "E_h(P) = I(C, γ) · cos³(γ) / h²  (Punktquelle, horizontale Fläche im Abstand h unter der Leuchte)"
+    variablen:
+      - {name: E_h, einheit: lx}
+      - {name: I, einheit: cd, beschreibung: "Lichtstärke aus EULUMDAT/IES (C-γ-System)"}
+      - {name: h, einheit: m}
+    norm: {werk: "photometrisches Entfernungsgesetz (Lehrbuch)", fundstelle: "–", fassung: "–"}
+    status: U
+    status_hinweis: "nur für Überschlag und Tests; die Planung rechnet mit Radiance oder DIALux/Relux über GLDF"
+    regel: M.Firma.Leuchtendaten
+    testfaelle:
+      - {eingabe: {I: 400, gamma_grad: 0, h: 2.0}, erwartet: {E_h: 100.0}, toleranz: 0.01}
+    hinweis_testwerte: "Eingaben sind reine Testwerte der Formel, keine Kennwerte einer Leuchte."
+
+# ---------------------------------------------------------------------------
+# 2. Kennwerttabellen (Einzelwerte mit Fundstelle, keine Normtabellenkopien)
+# ---------------------------------------------------------------------------
+nennweiten:
+  trinkwasser_msvr:        # Mehrschichtverbundrohr, Herstellerdatenblatt (Recherche 16, 2.1) [V Hersteller]
+    - {bez: "16x2",  d_a: 16, d_i: 12,   l_je_m: 0.113}
+    - {bez: "20x2",  d_a: 20, d_i: 16,   l_je_m: 0.201}
+    - {bez: "26x3",  d_a: 26, d_i: 20,   l_je_m: 0.314}
+    - {bez: "32x3",  d_a: 32, d_i: 26,   l_je_m: 0.531}
+    - {bez: "40x3.5", d_a: 40, d_i: 33}
+    - {bez: "50x4",  d_a: 50, d_i: 42}
+    - {bez: "63x4.5", d_a: 63, d_i: 54}
+  fbh_rohr: ["14x2", "16x2", "17x2"]            # PE-Xa, PE-RT, PE-Xc/Al; 17x2 [U]
+  abwasser_schallschutz:   # DN/OD in mm Außendurchmesser; d_i Beispiel Schallschutzrohr (REHAU-Tabelle) [V Hersteller]
+    - {dn: 32,  d_a: 32}
+    - {dn: 40,  d_a: 40}
+    - {dn: 50,  d_a: 50}
+    - {dn: 70,  d_a: 75,  d_i: 71.2}
+    - {dn: 90,  d_a: 90,  d_i: 85.6}
+    - {dn: 100, d_a: 110, d_i: 104.6}
+    - {dn: 125, d_a: 125}
+    - {dn: 150, d_a: 160}
+  lueftung:                # Herstellerwerte (Recherche 16, 2.1) [V Hersteller]
+    - {bez: "Flexrohr da 75", d_a: 75, d_i: 63, q_max_m3h: 28, q_nenn_m3h: 30, biegeradius: "1 × D"}
+    - {bez: "Flexrohr da 90", d_a: 90, d_i: 74, q_max_m3h: 39, q_nenn_m3h: 50}
+    - {bez: "Flachkanal 130x52", breite: 130, hoehe: 52, q_max_m3h: 45}
+    - {bez: "Abstand zwischen Rohren in Betondecken", wert_mm: 120}
+  leerrohr:                # M-Bezeichnung = Außendurchmesser nach DIN EN 61386 [V Hersteller]
+    - {bez: M20, d_a: 20, d_i_flexibel: 14.1, d_i_starr: 16.9}
+    - {bez: M25, d_a: 25, d_i_flexibel: 18.3, d_i_starr: 21.4}
+    - {bez: M16, d_a: 16, hinweis: "CAT6 ≈ 6,3 mm [U]"}
+
+anschlusswerte_DU:         # DIN 1986-100/DIN EN 12056-2, System I, l/s; Einzelwerte nach Herstellerunterlagen übereinstimmend [V]
+  waschtisch: 0.5
+  dusche_ohne_stoepsel: 0.6
+  dusche_mit_stoepsel: 0.8
+  badewanne: 0.8
+  kuechenspuele: 0.8
+  geschirrspueler: 0.8
+  waschmaschine_bis_6kg: 0.8
+  wc_6l: 2.0
+  wc_4_4_5l: 1.8
+  wc_9l: 2.5
+  bodenablauf_dn50: 0.8
+  bodenablauf_dn70: 1.5
+  bodenablauf_dn100: 2.0
+
+manschetten:               # Herstellerangaben (Recherche 16, 2.3) [V Hersteller]; weitere Systeme DAT-13-05
+  - {id: KAFLEX, d_min: 6, d_max: 12, art: Kabel}
+  - {id: ROFLEX_20, d_min: 15, d_max: 30, art: Rohr}
+  - {id: ROFLEX_100, d_min: 100, d_max: 120, art: Rohr}
+  - {id: STOPPA, d_min: 16, d_max: 40, art: "Leerrohr innen abdichten"}
+
+installationszonen_DIN18015-3:   # Einzelkennwerte in cm (Recherche 08, 1) [V Fachartikel]; AZW/AZS [U]
+  ZW-o: {von_unter_decke: 15, bis_unter_decke: 45, breite_max: 30}
+  ZW-u: {von_ueber_ffb: 15, bis_ueber_ffb: 45, breite_max: 30, vorzug_mitte: 30}
+  ZW-m: {von_ueber_ffb: 100, bis_ueber_ffb: 130, breite_max: 30, nur: "Räume mit Arbeitsflächen", vorzug_mitte: 115}
+  ZS-t: {von_rohbaukante: 10, bis_rohbaukante: 30, breite_max: 20, seite: Griffseite}
+  ZS-f: {von_rohbaukante: 10, bis_rohbaukante: 30, breite_max: 20, seite: beidseitig}
+  ZS-e: {von_rohbaukante: 10, bis_rohbaukante: 30, breite_max: 20, seite: Wandecke}
+  ueber_tuer_min: 10
+  ZD-r: {breite_max: 30, wandabstand_min: 20}
+  ZD-t: {wandabstand_min: 15}
+  abstand_fremdgewerk_decke_boden: 20
+  schalter_neben_tuer_hoehe: 105
+  ausnahme_leichtbau: {ueberdeckung_min: 6, oder: "Leitungen in unverfüllten Hohlräumen ausweichfähig"}
+
+schutzbereiche_VDE0100-701:      # m (Recherche 08, 1) [V]; Bereich 0 bei Dusche ohne Wanne [U]
+  bereich_1_hoehe: 2.25
+  bereich_1_radius_bodengleiche_dusche: 1.20
+  bereich_2_breite: 0.60
+  fadenmass_um_abtrennung: 0.60
+  restwand_raumfremde_leitung_cm: 6
+  schutzart_min: IPX4
+
+stromkreise_DIN18015-2:          # Anzahl Steckdosen- und Beleuchtungsstromkreise je Wohnfläche (Recherche 08, 1) [V]
+  - {bis_m2: 50, anzahl: 3}
+  - {bis_m2: 75, anzahl: 4}
+  - {bis_m2: 100, anzahl: 5}
+  - {bis_m2: 125, anzahl: 6}
+  - {bis_m2: null, anzahl: 7}
+
+zaehlerplatz_VDE-AR-N4100:       # mm bzw. m (Recherche 08, 1) [V]; Neuausgabe [U]
+  aar_mm: 300
+  zaehlerfeld_mm: 450
+  rfz_mm: 150
+  apz_raum_min_mm: 300
+  leerrohr_huep_apz_min_mm: 25
+  bedienbereich_tiefe_m: 1.2
+  bedienbereich_hoehe_m: 2.0
+
+waermepumpe_aufstellung:         # Herstellerbeispiele, herstellerspezifisch (Recherche 22, 3) [V je Anleitung]
+  r290_schutzbereich_boden_m: 1.0
+  r290_schutzbereich_oberkante_m: 0.5
+  r290_trennwand_reduziert_m: 0.5
+  ansaug_wandabstand_min_mm: 200
+  ausblas_frei_min_m: 1.0
+  abstand_gehweg_terrasse_min_m: 3.0
+  sockel_ueber_schneehoehe_min_mm: 100
+  split_leitung_beispiel_max_m: 15
+  split_hoehe_beispiel_max_m: 10
+  hoehe_ohne_abstandsflaeche_max_m: 2.0      # BayBO Art. 6 Abs. 1 S. 3 Nr. 4 [V]

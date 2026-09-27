@@ -1,0 +1,725 @@
+# Reifegrade P/R/A als Profile der Informationsbedarfstiefe (LOIN) nach DIN EN ISO 7817-1:2024-11.
+# Quelle: Kapitel 11 der Arbeit. Verknüpft mit spezifikation/ifc-mapping.csv (Spalten pflicht_reifegrad_P/R/A),
+# regel.schema.json (IDS-Regeln in regelkatalog-11.yaml) und den IDS-Dateien in spezifikation/ids/.
+#
+# Aufbau je Bauteilgruppe und Reifegrad:
+#   geometrie      LOIN-Aspekte Detail, Dimensionalität, Lage, Erscheinung (appearance), parametrisches Verhalten
+#   information    LOIN-Aspekte Identifikation und Informationsgehalt
+#   dokumentation  LOIN-Dokumentation (Dokumentarten)
+#   pflichtmerkmale IDS-Spezifikationen in einer Facetten-Notation (siehe facetten_notation); kumulativ: R erbt P, A erbt R
+#   verbote        Granularitätsgrenzen, nur für diesen Reifegrad (nicht vererbt), als IDS "prohibited"
+#   lieferdaten    Ist-Daten der Lieferung; in der A-IDS optional (Wert wird geprüft, wenn vorhanden), Pflicht erst am Gate G7
+#   ids            IDS-1.0-Datei, die aus diesem Abschnitt erzeugt wird; null = noch nicht erzeugt
+#
+# Zahlenwerte in Facetten stehen in SI-Basiseinheiten (m, m², m³, kg), weil IDS 1.0 SI-Werte verlangt und
+# ifctester 0.8.5 Projekteinheiten umrechnet (Probe in Kapitel 11.6: RiserHeight 170,59 mm besteht [0,14; 0,20] m,
+# aber nicht [140; 200]). Kommentare nennen den Wert in mm.
+# Status: V = am Schema IFC4X3_ADD2 bzw. mit ifctester 0.8.5 geprüft; U = Konvention oder Vorschlag.
+
+meta:
+  name: HRB-Reifegrade
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: "11"
+  norm: {werk: "DIN EN ISO 7817-1", fassung: "2024-11", ersetzt: "DIN EN 17412-1:2021-06", bib: dineniso7817-1, status: V}
+  ids_standard: {werk: "IDS 1.0 (buildingSMART)", bib: bsi2024ids, xsd: "ifctester 0.8.5, ids.xsd", status: V}
+  schema_ifc: IFC4X3_ADD2
+  hinweis: "Reifegrade sind LOIN-Profile je Zweck, Meilenstein und Akteur; keine BIMForum-LOD. Merkmalsanforderungen sind monoton (P ⊆ R ⊆ A), Granularitätsverbote nicht."
+
+facetten_notation:
+  entitaet: "{name: IFCKLASSE | [Liste], vordefiniert: WERT | [Liste]}"
+  merkmal: "{pset, name, typ (IFC-Messtyp), wert | muster | enum | min | max | min_excl, kardinalitaet: required|optional}"
+  attribut: "{name, wert | muster | min | max}"
+  klassifikation: "{system, muster | wert}"
+  material: "{muster?}"
+  teil_von: "{entitaet, beziehung: IFCRELAGGREGATES|IFCRELNESTS|IFCRELCONTAINEDINSPATIALSTRUCTURE|...}"
+  spezifikation: "{id, titel, anwendbarkeit: [Facetten], anforderungen: [Facetten], min_vorkommen: 0|1}"
+
+# ---------------------------------------------------------------------------
+# Die drei Reifegrade als LOIN-Profile (Rahmenbedingungen nach DIN EN ISO 7817-1)
+# ---------------------------------------------------------------------------
+reifegrade:
+  P:
+    name: präsentationsfertig
+    ordnung: 1
+    zweck: "Entscheidung des Kunden: fotorealistische 3D-Ansicht, AR auf dem Grundstück, Preisindikation"
+    meilenstein: "Entwurf, Vorbemusterung, Angebot"
+    akteure: {liefert: [Generator, Vertrieb], nutzt: [Kunde, Vertrieb]}
+    verbindlichkeit: "unverbindlich (Visualisierung, AGB-Hinweis); keine Prüfaussage"
+    pruefung: ["IDS <gruppe>-P", "Darstellungsprüfung im glTF-Export (Material, Textur, UV)"]
+    status: U
+  R:
+    name: prüffertig
+    ordnung: 2
+    zweck: "Regel-, Nachweis-, Kompatibilitäts- und Kostenprüfung"
+    meilenstein: "Vertrag, Bauvorlage, Entwurf der Ausstattungsfestlegung"
+    akteure: {liefert: [Generator, Projektleitung Bemusterung], nutzt: [Regelmaschine, bauvorlageberechtigte Person, Tragwerksplanung, TGA, Kalkulation]}
+    verbindlichkeit: "Grundlage von Baubeschreibung, Nachweisen und Mehr-/Minderpreisen"
+    pruefung: ["IDS <gruppe>-R", "Regelmaschine (R1)", "Kompatibilitätsregeln der Bemusterung"]
+    status: U
+  A:
+    name: ausführungsfertig
+    ordnung: 3
+    zweck: "Bestellung, Werkplanung, Fertigung, Montage, Ausbau"
+    meilenstein: "unterschriebene Ausstattungsfestlegung (Montage frühestens 12 Wochen danach, regnauerBLB2024), Werkplanung"
+    akteure: {liefert: [Generator, Werkplanung, Einkauf], nutzt: [Werk, Lieferanten, Montage, Ausbaugewerke]}
+    verbindlichkeit: "festgeschrieben (Inhaltshash); Änderung nur als Nachtrag"
+    pruefung: ["IDS <gruppe>-A", "Freigabe IfcApproval", "Festschreibungshash"]
+    status: U
+
+loin_aspekte:
+  geometrie:
+    detail: "Detaillierungsgrad der Form (einfach bis mit Einbauteilen)"
+    dimensionalitaet: "0D, 1D (Achse), 2D, 3D"
+    lage: "absolut oder relativ; Toleranz"
+    erscheinung: "appearance: Material, Farbe, Textur, Oberflächenmodell"
+    parametrik: "Veränderbarkeit (Variante, parametrischer Typ, feste Instanz)"
+  information:
+    identifikation: "Name, Typ, Klassifikation, Artikel-Identifikation"
+    gehalt: "Merkmale mit Wert und Einheit"
+  dokumentation: "Dokumentarten (Datenblatt, Montageanleitung, Leistungserklärung, Nachweis, Freigabe)"
+
+# ---------------------------------------------------------------------------
+# Freigabe-Gates (Meilensteine) und geforderter Mindestreifegrad je Bauteilgruppe
+# '-' = keine Anforderung; P/R/A = Mindestreifegrad. Monotonie: eine Zeile fällt nie ab.
+# technischer Freeze: W-Gruppen A vor G5, A-Gruppen spätestens vor G6 (Recherche 10).
+# Herstellerprofil M-Regnauer: alle Bemusterungsgruppen A an G4 (AGB § 5/6, regnauerBLB2024).
+# ---------------------------------------------------------------------------
+gates:
+  - {id: G0, name: Entwurf, ereignis: "Kunde entwirft; Echtzeitprüfung", status: U}
+  - {id: G1, name: Angebot, ereignis: "Angebot mit Preisen und Gültigkeit", status: U}
+  - {id: G2, name: Vertrag, ereignis: "Baubeschreibung nach Art. 249 § 2 EGBGB, Vertragsstand gehasht", status: U}
+  - {id: G3, name: Bauvorlage, ereignis: "Freigabe der bauvorlageberechtigten Person", status: U}
+  - {id: G4, name: Ausstattungsfestlegung, ereignis: "unterschriebene Ausstattungsfestlegung (IfcApproval)", status: V}
+  - {id: G5, name: Produktion, ereignis: "Werkplanung und Produktionsfreigabe", status: U}
+  - {id: G6, name: Ausbau, ereignis: "Beginn der Ausbaugewerke auf der Baustelle", status: U}
+  - {id: G7, name: Uebergabe, ereignis: "Übergabe mit Hausakte; Lieferdaten Pflicht", status: U}
+
+herstellerprofile:
+  M-Regnauer:
+    ausstattung_vollstaendig_an: G4
+    montage_nach_G4_min_tage: 84
+    quelle: {werk: "Bau- und Leistungsbeschreibung Vitalhaus 10/2024, AGB § 5/§ 6", bib: regnauerBLB2024, status: V}
+
+phasen_matrix:
+  spalten: [G0, G1, G2, G3, G4, G5, G6, G7]
+  gruppen:
+    projekt_grundstueck:   [P, P, R, R, R, A, A, A]
+    raum:                  [P, P, R, R, R, A, A, A]
+    wandelement:           [P, P, R, R, R, A, A, A]
+    decke:                 [P, P, R, R, R, A, A, A]
+    dach:                  [P, P, R, R, R, A, A, A]
+    fassade:               [P, P, R, R, A, A, A, A]
+    fenster_aussentuer:    [P, P, R, R, A, A, A, A]
+    innentuer:             [P, P, P, R, R, R, A, A]
+    treppe:                [P, P, R, R, A, A, A, A]
+    belag:                 [P, P, P, R, R, R, A, A]
+    wandoberflaeche:       [P, P, P, P, R, R, A, A]
+    sanitaer:              [P, P, R, R, A, A, A, A]
+    elektro:               [P, P, R, R, A, A, A, A]
+    tga_leitungen:         ["-", "-", "-", R, R, A, A, A]
+    heizung_lueftung:      [P, P, R, R, A, A, A, A]
+    kueche_moebel:         [P, P, P, P, R, R, A, A]
+  hinweis_freeze: "Spalte G4 zeigt den technischen Mindeststand. Mit Herstellerprofil M-Regnauer gilt an G4 für alle Bemusterungsgruppen A."
+
+# ---------------------------------------------------------------------------
+# Eigene Property-Sets, die die Pflichtmerkmale verwenden (Präfix HRB_ nach E8.21)
+# ---------------------------------------------------------------------------
+hrb_psets:
+  HRB_Auswahl:
+    objekt: "gewähltes Exemplar (Belag, Sanitärobjekt, Treppe, Tür …); verbindet IFC und Festschreibung (bemusterung-katalog.schema.json)"
+    merkmale:
+      - {name: AuswahlID, typ: IFCIDENTIFIER, wertebereich: "UUID", status: U}
+      - {name: OptionID, typ: IFCIDENTIFIER, wertebereich: "K-XXX-0000 (Katalogartikel)", status: U}
+      - {name: Kategorie, typ: IFCLABEL, wertebereich: "Kategorie der Bemusterungstaxonomie (Kapitel 12.1)", status: U}
+      - {name: Reifegrad, typ: IFCLABEL, wertebereich: "P | R | A", status: U}
+      - {name: Status, typ: IFCLABEL, wertebereich: "entwurf | geprueft | festgeschrieben | nachtrag", status: U}
+      - {name: Freeze, typ: IFCLABEL, wertebereich: "W | A", status: U}
+      - {name: Inhaltshash, typ: IFCIDENTIFIER, wertebereich: "sha256:<64 hex> über den kanonischen JSON-Text", status: U}
+      - {name: Darstellung, typ: IFCLABEL, wertebereich: "herstellertextur | aehnlich | generisch", status: U}
+  HRB_Verlegung:
+    objekt: "Belag (IfcCovering FLOORING/CLADDING); bisher HP_Verlegung in B16"
+    merkmale:
+      - {name: Muster, typ: IFCLABEL, wertebereich: "gerade | diagonal | fischgraet | chevron | wilder_verband | englischer_verband | wuerfel | roemischer_verband | fugenlos", status: U}
+      - {name: Versatz, typ: IFCPOSITIVERATIOMEASURE, wertebereich: "0–0,5 (Anteil der Länge; 0 = Kreuzfuge)", status: U}
+      - {name: Winkel, typ: IFCPLANEANGLEMEASURE, wertebereich: "0–180 Grad", status: U}
+      - {name: Achsbezug, typ: IFCLABEL, wertebereich: "Freitext mit GlobalId des Bezugsobjekts", status: U}
+      - {name: Fugenbreite, typ: IFCPOSITIVELENGTHMEASURE, wertebereich: "0,001–0,02 m", status: U}
+      - {name: Fugenfarbe, typ: IFCLABEL, status: U}
+      - {name: Rasterursprung_u, typ: IFCNORMALISEDRATIOMEASURE, wertebereich: "0–1", status: V}
+      - {name: Rasterursprung_v, typ: IFCNORMALISEDRATIOMEASURE, wertebereich: "0–1", status: V}
+      - {name: Gefaelle_Prozent, typ: IFCREAL, status: V}
+      - {name: Entwaesserung, typ: IFCLABEL, wertebereich: "keine | punkt | rinne | zwei_rinnen", status: V}
+      - {name: Verschnitt, typ: IFCNORMALISEDRATIOMEASURE, status: V}
+      - {name: RohlingeBedarf, typ: IFCINTEGER, status: V}
+      - {name: Pakete, typ: IFCINTEGER, status: V}
+      - {name: Kaliber, typ: IFCLABEL, wertebereich: "Lieferdatum", status: V}
+  HRB_Belag:
+    objekt: "Belag; Merkmale, die kein Standard-Pset trägt (Recherche 13)"
+    merkmale:
+      - {name: Belagart, typ: IFCLABEL, wertebereich: "Fliese | Naturstein | Parkett | Designboden | Laminat | Teppich | Beton_Cire", status: U}
+      - {name: FormatLaenge, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: FormatBreite, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: Dicke, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: Rutschhemmung, typ: IFCLABEL, wertebereich: "R9 … R13 (DIN EN 16165, Anhang B)", status: V}
+      - {name: Barfuss, typ: IFCLABEL, wertebereich: "A | B | C", status: V}
+      - {name: Wassereinwirkungsklasse, typ: IFCLABEL, wertebereich: "W0-I | W1-I | W2-I | W3-I (DIN 18534-1:2025-10)", status: V}
+      - {name: EbenheitZeile, typ: IFCLABEL, wertebereich: "DIN 18202 Tab. 3 Zeile 3 | Zeile 4", status: V}
+      - {name: Holzart, typ: IFCLABEL, status: U}
+      - {name: Sortierung, typ: IFCLABEL, status: U}
+      - {name: Oberflaeche, typ: IFCLABEL, status: U}
+      - {name: Verlegeart, typ: IFCLABEL, wertebereich: "verklebt | schwimmend | genagelt | duennbett | mittelbett | dickbett", status: U}
+  HRB_Fussbodenaufbau:
+    objekt: "derselbe Belag-Covering je Raum (bisher B14_Fussbodenaufbau)"
+    merkmale:
+      - {name: OKFF, typ: IFCLENGTHMEASURE, status: V}
+      - {name: Estrich, typ: IFCLABEL, status: V}
+      - {name: Flaechenmasse_kg_m2, typ: IFCREAL, status: V}
+      - {name: R_lambda_B, typ: IFCTHERMALRESISTANCEMEASURE, status: V}
+      - {name: NachweisOKFF, typ: IFCBOOLEAN, status: V}
+      - {name: BelegreifeCMmax, typ: IFCREAL, status: V}
+  HRB_Fliesenstueck:
+    objekt: "Belagstück in Reifegrad A (bisher HP_Fliesenstueck in B16)"
+    merkmale:
+      - {name: Stueckart, typ: IFCLABEL, wertebereich: "ganz | gerade | schraeg | gehrung | gratschnitt | ablauf", status: V}
+      - {name: Motiv, typ: IFCLABEL, status: V}
+      - {name: Rasterposition, typ: IFCLABEL, status: V}
+      - {name: Gefaelleflaeche, typ: IFCLABEL, status: V}
+      - {name: Rohling, typ: IFCLABEL, status: V}
+      - {name: Herkunft, typ: IFCLABEL, wertebereich: "neu | reststueck", status: V}
+      - {name: Schnitte, typ: IFCINTEGER, status: V}
+      - {name: Schnittlaenge, typ: IFCLENGTHMEASURE, status: V}
+      - {name: Schnittarten, typ: IFCLABEL, status: V}
+  HRB_Sanitaer:
+    objekt: "Sanitärobjekt; Bewegungsfläche und Vorwand"
+    merkmale:
+      - {name: Vorwandsystem, typ: IFCLABEL, status: U}
+      - {name: Montagehoehe, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: BewegungsflaecheBreite, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: BewegungsflaecheTiefe, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: Stromanschluss, typ: IFCBOOLEAN, status: U}
+  HRB_Verziehung:
+    objekt: "Treppe (bisher HP_Verziehung, nur Recherche 13)"
+    merkmale:
+      - {name: Methode, typ: IFCLABEL, wertebereich: "keine | verhaeltnis | winkel | kreisbogen", status: V}
+      - {name: Laufrichtung, typ: IFCLABEL, wertebereich: "links | rechts (DIN 107)", status: V}
+      - {name: Schrittmass, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+      - {name: MinAuftrittInnen, typ: IFCPOSITIVELENGTHMEASURE, status: U}
+  HRB_Montage:
+    objekt: "Wand-, Decken-, Dachelement (B18)"
+    merkmale:
+      - {name: Montagenummer, typ: IFCINTEGER, status: V}
+      - {name: Transportart, typ: IFCLABEL, status: V}
+      - {name: LKW, typ: IFCINTEGER, status: V}
+      - {name: Hubgewicht_kg, typ: IFCREAL, status: V}
+
+# ---------------------------------------------------------------------------
+# Bauteilgruppen
+# ---------------------------------------------------------------------------
+bauteilgruppen:
+
+  wandelement:
+    titel: "Holzrahmen-Wandelement mit Teilen und Verbindungsmitteln"
+    mapping_zeilen: ["Wandelement", "Wandtyp", "Ständer", "Schwelle, Rähm, Brüstungsriegel", "Sturz", "Beplankung", "Gefachdämmung", "Dampfbremse, Folie", "Kerve, Bohrung, Fase, Gehrung", "Verbindungsmittel", "Verbindungsmitteltyp"]
+    freeze: W
+    P:
+      geometrie: {detail: "Wandkörper als Schichtenmodell (Layer-Set), Öffnungen", dimensionalitaet: "3D", lage: "Achse im Geschoss, ± 10 mm", erscheinung: "Oberflächenstil innen/außen am IfcMaterial", parametrik: "Wandtyp aus der Projektbibliothek, Länge und Höhe frei"}
+      information: {identifikation: "Name, Wandtyp", gehalt: "IsExternal"}
+      dokumentation: ["Hinweis: Visualisierung unverbindlich"]
+      pflichtmerkmale:
+        - id: WAND-P-01
+          titel: "Wand: Außen/Innen und Material für die Darstellung"
+          anwendbarkeit: [{entitaet: {name: IFCWALL}}]
+          anforderungen:
+            - merkmal: {pset: Pset_WallCommon, name: IsExternal, typ: IFCBOOLEAN}
+            - material: {}
+      verbote:
+        - id: WAND-P-V01
+          titel: "P: keine Einzelteile in Wänden"
+          anwendbarkeit: [{entitaet: {name: [IFCMEMBER, IFCPLATE, IFCBUILDINGELEMENTPART]}}, {teil_von: {entitaet: IFCWALL, beziehung: IFCRELAGGREGATES}}]
+        - id: WAND-P-V02
+          titel: "P: keine Verbindungsmittel"
+          anwendbarkeit: [{entitaet: {name: IFCMECHANICALFASTENER}}]
+        - id: WAND-P-V03
+          titel: "P: keine Stabbearbeitungen"
+          anwendbarkeit: [{entitaet: {name: IFCVOIDINGFEATURE}}]
+      ids: ids/wandelement-P.ids
+    R:
+      erbt: P
+      geometrie: {detail: "Schichtenmodell plus Einzelteile, soweit U-Wert und Masse sie brauchen (E8.11)", dimensionalitaet: "3D", lage: "± 1 mm, Raster 625 mm", erscheinung: "wie P", parametrik: "parametrischer Wandtyp mit Raster"}
+      information: {identifikation: "DIN-276-Kostengruppe", gehalt: "LoadBearing, U-Wert (Außenwand), Mengen"}
+      dokumentation: ["U-Wert-Nachweis (Kapitel 7a)", "Prüfbericht BCF"]
+      pflichtmerkmale:
+        - id: WAND-R-01
+          titel: "Wand: Tragwirkung, DIN-276-Klassifikation, Mengen"
+          anwendbarkeit: [{entitaet: {name: IFCWALL}}]
+          anforderungen:
+            - klassifikation: {system: "DIN 276", muster: "3[34][0-9]"}
+            - merkmal: {pset: Pset_WallCommon, name: LoadBearing, typ: IFCBOOLEAN}
+            - merkmal: {pset: Qto_WallBaseQuantities, name: Length, typ: IFCLENGTHMEASURE}
+            - merkmal: {pset: Qto_WallBaseQuantities, name: Height, typ: IFCLENGTHMEASURE}
+            - merkmal: {pset: Qto_WallBaseQuantities, name: Width, typ: IFCLENGTHMEASURE}
+            - merkmal: {pset: Qto_WallBaseQuantities, name: NetSideArea, typ: IFCAREAMEASURE}
+        - id: WAND-R-02
+          titel: "Außenwand: U-Wert eingetragen (Grenzwert im Profil, z. B. HRB-01)"
+          anwendbarkeit:
+            - entitaet: {name: IFCWALL}
+            - merkmal: {pset: Pset_WallCommon, name: IsExternal, typ: IFCBOOLEAN, wert: "TRUE"}
+          anforderungen:
+            - merkmal: {pset: Pset_WallCommon, name: ThermalTransmittance, typ: IFCTHERMALTRANSMITTANCEMEASURE, min_excl: 0}
+      verbote:
+        - id: WAND-R-V01
+          titel: "R: keine Verbindungsmittel (ANF-08-25)"
+          anwendbarkeit: [{entitaet: {name: IFCMECHANICALFASTENER}}]
+        - id: WAND-R-V02
+          titel: "R: keine Stabbearbeitungen (ANF-08-25)"
+          anwendbarkeit: [{entitaet: {name: IFCVOIDINGFEATURE}}]
+      ids: ids/wandelement-R.ids
+    A:
+      erbt: R
+      geometrie: {detail: "jedes Teil, jede Bearbeitung, jedes Verbindungsmittel (Mapped Item)", dimensionalitaet: "3D", lage: "± 0,1 mm (Fertigung)", erscheinung: "wie P", parametrik: "feste Instanz"}
+      information: {identifikation: "Montagenummer, Teilrollen (ObjectType)", gehalt: "Elementgewicht, Mengen je Teil, Verbindungsmittel"}
+      dokumentation: ["BTLx/WUP als Ableitung mit GlobalId", "Werkplanfreigabe IfcApproval"]
+      pflichtmerkmale:
+        - id: WAND-A-01
+          titel: "Wandelement: Gewicht und Montagenummer (ANF-08-12, B18)"
+          anwendbarkeit: [{entitaet: {name: IFCWALL}}]
+          anforderungen:
+            - merkmal: {pset: Qto_WallBaseQuantities, name: GrossWeight, typ: IFCMASSMEASURE, min_excl: 0}
+            - merkmal: {pset: HRB_Montage, name: Montagenummer, typ: IFCINTEGER}
+        - id: WAND-A-02
+          titel: "Teile eines Wandelements: Material zugeordnet"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: [IFCMEMBER, IFCPLATE, IFCBUILDINGELEMENTPART]}}, {teil_von: {entitaet: IFCWALL, beziehung: IFCRELAGGREGATES}}]
+          anforderungen: [{material: {}}]
+        - id: WAND-A-03
+          titel: "Hölzer eines Wandelements: Länge und Nettovolumen"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: IFCMEMBER}}, {teil_von: {entitaet: IFCWALL, beziehung: IFCRELAGGREGATES}}]
+          anforderungen:
+            - merkmal: {pset: Qto_MemberBaseQuantities, name: Length, typ: IFCLENGTHMEASURE}
+            - merkmal: {pset: Qto_MemberBaseQuantities, name: NetVolume, typ: IFCVOLUMEMEASURE}
+        - id: WAND-A-04
+          titel: "Verbindungsmitteltyp: Nenndurchmesser und Nennlänge"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: IFCMECHANICALFASTENERTYPE}}]
+          anforderungen:
+            - attribut: {name: NominalDiameter}
+            - attribut: {name: NominalLength}
+        - id: WAND-A-05
+          titel: "Verbindungsmittel: Teil eines Wandelements"
+          min_vorkommen: 0
+          anwendbarkeit: [{entitaet: {name: IFCMECHANICALFASTENER}}]
+          anforderungen: [{teil_von: {entitaet: IFCWALL, beziehung: IFCRELAGGREGATES}}]
+      verbote: []
+      lieferdaten: []
+      ids: ids/wandelement-A.ids
+
+  belag:
+    titel: "Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)"
+    mapping_zeilen: ["Fußbodenaufbau je Raum", "Fliesen- oder Parkettbelag", "Fliesen- oder Parketttyp", "Fliesen- oder Parkettstück", "Sockelleiste", "Übergangsprofil"]
+    konvention: "Ein IfcCovering je Raum und Fläche trägt Schichtaufbau, HRB_Fussbodenaufbau, HRB_Verlegung und HRB_Belag; in A sind die Stücke der obersten Schicht per IfcRelAggregates Teile davon (E11.4)."
+    freeze: A
+    anwendbarkeit_gruppe: &belag_app
+      - entitaet: {name: IFCCOVERING, vordefiniert: [FLOORING, CLADDING]}
+      - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, enum: [Fliese, Naturstein, Parkett, Designboden, Laminat, Teppich, Beton_Cire]}
+    P:
+      geometrie: {detail: "Fläche mit Dicke der Belagschicht; Muster als Textur in realem Maßstab", dimensionalitaet: "3D", lage: "Raum, ± 10 mm", erscheinung: "PBR-Material (baseColor, roughness, normal) mit realer Texturgröße; KHR_materials_variants je Option", parametrik: "Variantenschalter (Farbe, Format, Muster)"}
+      information: {identifikation: "Katalog-Option", gehalt: "Muster, Fläche, Preisindikation"}
+      dokumentation: ["Hinweis: Farbe am Bildschirm unverbindlich; Darstellung 'aehnlich' bei CC0-Textur"]
+      pflichtmerkmale:
+        - id: BEL-P-01
+          titel: "Belag: Katalogoption, Muster, Material und Fläche"
+          anwendbarkeit: *belag_app
+          anforderungen:
+            - merkmal: {pset: HRB_Auswahl, name: OptionID, typ: IFCIDENTIFIER, muster: "K-[A-Z]{3}-[0-9]{4}"}
+            - merkmal: {pset: HRB_Auswahl, name: Reifegrad, typ: IFCLABEL, enum: [P, R, A]}
+            - merkmal: {pset: HRB_Auswahl, name: Darstellung, typ: IFCLABEL, enum: [herstellertextur, aehnlich, generisch]}
+            - merkmal: {pset: HRB_Verlegung, name: Muster, typ: IFCLABEL, enum: [gerade, diagonal, fischgraet, chevron, wilder_verband, englischer_verband, wuerfel, roemischer_verband, fugenlos]}
+            - merkmal: {pset: Qto_CoveringBaseQuantities, name: NetArea, typ: IFCAREAMEASURE, min_excl: 0}
+            - material: {}
+      verbote:
+        - id: BEL-P-V01
+          titel: "P: keine Belagstücke"
+          anwendbarkeit: [{entitaet: {name: IFCCOVERING}}, {teil_von: {entitaet: IFCCOVERING, beziehung: IFCRELAGGREGATES}}]
+      ids: ids/belag-P.ids
+    R:
+      erbt: P
+      geometrie: {detail: "Fläche je Gefällefacette; Aufbau als Layer-Set (Estrich, Dämmung, Verlegewerkstoff, Belag)", dimensionalitaet: "3D", lage: "± 1 mm; OKFF je Raum", erscheinung: "wie P plus Farbcode", parametrik: "Verlegeparameter (Muster, Versatz, Winkel, Fuge, Achsbezug)"}
+      information: {identifikation: "Hersteller, Serie, STLB-Bau-Leistungsbereich", gehalt: "Format, Dicke, Fuge, Rutschhemmung, W-Klasse, R_λ,B, OKFF"}
+      dokumentation: ["Datenblatt", "B14-Nachweis gleiche OKFF", "Prüfprotokoll BCF"]
+      pflichtmerkmale:
+        - id: BEL-R-01
+          titel: "Belag: Hersteller, Serie, Format, Fuge, Versatz, Leistungsbereich"
+          anwendbarkeit: *belag_app
+          anforderungen:
+            - klassifikation: {system: "STLB-Bau", muster: "0(23|24|25|28|34|36)"}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: Manufacturer, typ: IFCLABEL}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: ModelReference, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Auswahl, name: Status, typ: IFCLABEL, enum: [entwurf, geprueft, festgeschrieben, nachtrag]}
+            - merkmal: {pset: HRB_Belag, name: Belagart, typ: IFCLABEL, enum: [Fliese, Naturstein, Parkett, Designboden, Laminat, Teppich, Beton_Cire]}
+            - merkmal: {pset: HRB_Belag, name: Dicke, typ: IFCPOSITIVELENGTHMEASURE, min: 0.001, max: 0.06}
+            - merkmal: {pset: HRB_Verlegung, name: Versatz, typ: IFCPOSITIVERATIOMEASURE, min: 0, max: 0.5, kardinalitaet: optional}
+            - merkmal: {pset: HRB_Verlegung, name: Winkel, typ: IFCPLANEANGLEMEASURE, kardinalitaet: optional}
+        - id: BEL-R-02
+          titel: "Fliese und Naturstein: Format, Fuge, Rutschhemmung, Wassereinwirkungsklasse"
+          min_vorkommen: 0
+          anwendbarkeit:
+            - entitaet: {name: IFCCOVERING, vordefiniert: [FLOORING, CLADDING]}
+            - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, enum: [Fliese, Naturstein]}
+          anforderungen:
+            - merkmal: {pset: HRB_Belag, name: FormatLaenge, typ: IFCPOSITIVELENGTHMEASURE, min: 0.01, max: 3.2}
+            - merkmal: {pset: HRB_Belag, name: FormatBreite, typ: IFCPOSITIVELENGTHMEASURE, min: 0.01, max: 1.6}
+            - merkmal: {pset: HRB_Verlegung, name: Fugenbreite, typ: IFCPOSITIVELENGTHMEASURE, min: 0.001, max: 0.02}
+            - merkmal: {pset: HRB_Verlegung, name: Fugenfarbe, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Belag, name: Wassereinwirkungsklasse, typ: IFCLABEL, enum: [W0-I, W1-I, W2-I, W3-I]}
+        - id: BEL-R-03
+          titel: "Bodenfliese: Rutschhemmung (R-Klasse)"
+          min_vorkommen: 0
+          anwendbarkeit:
+            - entitaet: {name: IFCCOVERING, vordefiniert: FLOORING}
+            - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, enum: [Fliese, Naturstein]}
+          anforderungen:
+            - merkmal: {pset: HRB_Belag, name: Rutschhemmung, typ: IFCLABEL, muster: "R(9|1[0-3])"}
+        - id: BEL-R-04
+          titel: "Parkett: Holzart, Sortierung, Oberfläche, Verlegeart"
+          min_vorkommen: 0
+          anwendbarkeit:
+            - entitaet: {name: IFCCOVERING, vordefiniert: FLOORING}
+            - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, wert: Parkett}
+          anforderungen:
+            - merkmal: {pset: HRB_Belag, name: Holzart, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Belag, name: Sortierung, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Belag, name: Oberflaeche, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Belag, name: Verlegeart, typ: IFCLABEL, enum: [verklebt, schwimmend, genagelt]}
+        - id: BEL-R-05
+          titel: "Bodenbelag: Fußbodenaufbau mit OKFF-Nachweis und R_λ,B (B14)"
+          anwendbarkeit:
+            - entitaet: {name: IFCCOVERING, vordefiniert: FLOORING}
+            - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, enum: [Fliese, Naturstein, Parkett, Designboden, Laminat, Teppich, Beton_Cire]}
+          anforderungen:
+            - merkmal: {pset: HRB_Fussbodenaufbau, name: OKFF, typ: IFCLENGTHMEASURE}
+            - merkmal: {pset: HRB_Fussbodenaufbau, name: Estrich, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Fussbodenaufbau, name: R_lambda_B, typ: IFCTHERMALRESISTANCEMEASURE, min: 0, max: 0.5}
+            - merkmal: {pset: HRB_Fussbodenaufbau, name: NachweisOKFF, typ: IFCBOOLEAN, wert: "TRUE"}
+      verbote:
+        - id: BEL-R-V01
+          titel: "R: keine Belagstücke (E8.12)"
+          anwendbarkeit: [{entitaet: {name: IFCCOVERING}}, {teil_von: {entitaet: IFCCOVERING, beziehung: IFCRELAGGREGATES}}]
+      ids: ids/belag-R.ids
+    A:
+      erbt: R
+      geometrie: {detail: "jedes Stück als Körper: ganze als IfcMappedItem, Schnittstücke als IfcPolygonalFaceSet (B16)", dimensionalitaet: "3D", lage: "± 0,5 mm; Rasterursprung u/v festgeschrieben", erscheinung: "wie R plus Charge", parametrik: "feste Instanz"}
+      information: {identifikation: "GTIN, Artikelnummer, Inhaltshash der Festschreibung", gehalt: "Stückliste, Rohlinge, Pakete, Verschnitt, Schnitte je Art"}
+      dokumentation: ["Verlegeplan (SVG/PDF)", "Schnittliste", "Montageanleitung", "Leistungserklärung", "IfcApproval Ausstattungsfestlegung"]
+      pflichtmerkmale:
+        - id: BEL-A-01
+          titel: "Belag: bestellbarer Artikel, Festschreibung, Menge"
+          anwendbarkeit: *belag_app
+          anforderungen:
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: GlobalTradeItemNumber, typ: IFCIDENTIFIER, muster: "[0-9]{8}|[0-9]{12,14}"}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: ArticleNumber, typ: IFCIDENTIFIER}
+            - merkmal: {pset: HRB_Auswahl, name: AuswahlID, typ: IFCIDENTIFIER, muster: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"}
+            - merkmal: {pset: HRB_Auswahl, name: Status, typ: IFCLABEL, enum: [festgeschrieben, nachtrag]}
+            - merkmal: {pset: HRB_Auswahl, name: Inhaltshash, typ: IFCIDENTIFIER, muster: "sha256:[0-9a-f]{64}"}
+            - merkmal: {pset: HRB_Verlegung, name: Verschnitt, typ: IFCNORMALISEDRATIOMEASURE, min: 0, max: 0.6}
+        - id: BEL-A-02
+          titel: "Fliese und Naturstein: Rasterursprung, Rohlinge und Pakete"
+          min_vorkommen: 0
+          anwendbarkeit:
+            - entitaet: {name: IFCCOVERING, vordefiniert: [FLOORING, CLADDING]}
+            - merkmal: {pset: HRB_Auswahl, name: Kategorie, typ: IFCLABEL, enum: [Fliese, Naturstein]}
+          anforderungen:
+            - merkmal: {pset: HRB_Verlegung, name: Rasterursprung_u, typ: IFCNORMALISEDRATIOMEASURE, min: 0, max: 1}
+            - merkmal: {pset: HRB_Verlegung, name: Rasterursprung_v, typ: IFCNORMALISEDRATIOMEASURE, min: 0, max: 1}
+            - merkmal: {pset: HRB_Verlegung, name: RohlingeBedarf, typ: IFCINTEGER, min: 1}
+            - merkmal: {pset: HRB_Verlegung, name: Pakete, typ: IFCINTEGER, min: 1}
+        - id: BEL-A-03
+          titel: "Belagstück: Stückart, Herkunft und Rohling (B16)"
+          min_vorkommen: 0
+          anwendbarkeit: [{entitaet: {name: IFCCOVERING}}, {teil_von: {entitaet: IFCCOVERING, beziehung: IFCRELAGGREGATES}}]
+          anforderungen:
+            - merkmal: {pset: HRB_Fliesenstueck, name: Stueckart, typ: IFCLABEL, enum: [ganz, gerade, schraeg, gehrung, gratschnitt, ablauf]}
+            - merkmal: {pset: HRB_Fliesenstueck, name: Herkunft, typ: IFCLABEL, enum: [neu, reststueck]}
+            - merkmal: {pset: HRB_Fliesenstueck, name: Rohling, typ: IFCLABEL}
+      verbote: []
+      lieferdaten:
+        - {pset: Pset_ManufacturerOccurrence, name: BatchReference, typ: IFCIDENTIFIER}
+        - {pset: HRB_Verlegung, name: Kaliber, typ: IFCLABEL}
+      ids: ids/belag-A.ids
+
+  sanitaer:
+    titel: "Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen"
+    mapping_zeilen: ["Sanitärobjekt", "Bodenablauf, Duschrinne", "Anschlusspunkt"]
+    freeze: W
+    anwendbarkeit_gruppe: &san_app
+      - entitaet: {name: IFCSANITARYTERMINAL, vordefiniert: [TOILETPAN, WASHHANDBASIN, SHOWER, BATH, BIDET, SINK]}
+    P:
+      geometrie: {detail: "Sichtgeometrie (Hersteller-Mesh oder generisch)", dimensionalitaet: "3D", lage: "Raum, grob", erscheinung: "Glasur/Farbe als PBR-Material", parametrik: "Variantenschalter"}
+      information: {identifikation: "Katalog-Option", gehalt: "Name, Bild, Preisindikation"}
+      dokumentation: ["Hinweis: Visualisierung unverbindlich"]
+      pflichtmerkmale:
+        - id: SAN-P-01
+          titel: "Sanitärobjekt: Katalogoption, Material, im Raum enthalten"
+          anwendbarkeit: *san_app
+          anforderungen:
+            - teil_von: {entitaet: IFCSPACE, beziehung: IFCRELCONTAINEDINSPATIALSTRUCTURE}
+            - merkmal: {pset: HRB_Auswahl, name: OptionID, typ: IFCIDENTIFIER, muster: "K-[A-Z]{3}-[0-9]{4}"}
+            - merkmal: {pset: HRB_Auswahl, name: Reifegrad, typ: IFCLABEL, enum: [P, R, A]}
+            - material: {}
+      verbote:
+        - id: SAN-P-V01
+          titel: "P: keine Anschlussports an Sanitärobjekten"
+          anwendbarkeit: [{entitaet: {name: IFCDISTRIBUTIONPORT}}, {teil_von: {entitaet: IFCSANITARYTERMINAL, beziehung: IFCRELNESTS}}]
+      ids: ids/sanitaer-P.ids
+    R:
+      erbt: P
+      geometrie: {detail: "Einbau- und Störraum (VDI 3805), Bewegungsfläche als Rechteck", dimensionalitaet: "3D", lage: "Wand und Raum, maßlich ± 5 mm", erscheinung: "wie P plus Farbcode", parametrik: "parametrischer Typ"}
+      information: {identifikation: "Hersteller, Serie, STLB-Bau LB 045", gehalt: "Nennmaße, Montageart, Bewegungsfläche, Anschluss-DN, Vorwandsystem"}
+      dokumentation: ["Datenblatt", "Montagerichtlinie Vorwandelement"]
+      pflichtmerkmale:
+        - id: SAN-R-01
+          titel: "Sanitärobjekt: Hersteller, Serie, Nennmaße, Bewegungsfläche"
+          anwendbarkeit: *san_app
+          anforderungen:
+            - klassifikation: {system: "STLB-Bau", wert: "045"}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: Manufacturer, typ: IFCLABEL}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: ModelReference, typ: IFCLABEL}
+            - merkmal: {pset: Pset_SanitaryTerminalTypeCommon, name: NominalLength, typ: IFCNONNEGATIVELENGTHMEASURE, min_excl: 0}
+            - merkmal: {pset: Pset_SanitaryTerminalTypeCommon, name: NominalWidth, typ: IFCNONNEGATIVELENGTHMEASURE, min_excl: 0}
+            - merkmal: {pset: HRB_Sanitaer, name: BewegungsflaecheBreite, typ: IFCPOSITIVELENGTHMEASURE, min: 0.3, max: 2.0}
+            - merkmal: {pset: HRB_Sanitaer, name: BewegungsflaecheTiefe, typ: IFCPOSITIVELENGTHMEASURE, min: 0.3, max: 2.0}
+        - id: SAN-R-02
+          titel: "WC: Montageart"
+          min_vorkommen: 0
+          anwendbarkeit: [{entitaet: {name: IFCSANITARYTERMINAL, vordefiniert: TOILETPAN}}]
+          anforderungen:
+            - merkmal: {pset: Pset_SanitaryTerminalTypeToiletPan, name: PanMounting, typ: IFCLABEL, enum: [WALLHUNG, BACKTOWALL, PEDESTAL]}
+        - id: SAN-R-03
+          titel: "Wand-WC: Vorwandsystem"
+          min_vorkommen: 0
+          anwendbarkeit:
+            - entitaet: {name: IFCSANITARYTERMINAL, vordefiniert: TOILETPAN}
+            - merkmal: {pset: Pset_SanitaryTerminalTypeToiletPan, name: PanMounting, typ: IFCLABEL, wert: WALLHUNG}
+          anforderungen:
+            - merkmal: {pset: HRB_Sanitaer, name: Vorwandsystem, typ: IFCLABEL}
+            - merkmal: {pset: HRB_Sanitaer, name: Stromanschluss, typ: IFCBOOLEAN}
+        - id: SAN-R-04
+          titel: "Anschlussports der Sanitärobjekte mit Nennweite"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: IFCDISTRIBUTIONPORT, vordefiniert: PIPE}}, {teil_von: {entitaet: IFCSANITARYTERMINAL, beziehung: IFCRELNESTS}}]
+          anforderungen:
+            - merkmal: {pset: Pset_DistributionPortTypePipe, name: NominalDiameter, typ: IFCPOSITIVELENGTHMEASURE, min: 0.01, max: 0.2}
+      verbote: []
+      ids: ids/sanitaer-R.ids
+    A:
+      erbt: R
+      geometrie: {detail: "Einbaumaße, Befestigungspunkte, Anschlusslage", dimensionalitaet: "3D", lage: "exakt, Anschlüsse ± 2 mm", erscheinung: "wie R", parametrik: "feste Instanz"}
+      information: {identifikation: "GTIN, Artikelnummer, Inhaltshash", gehalt: "Montagehöhe, Stückzahl, Lieferzeit"}
+      dokumentation: ["Montageanleitung", "Leistungserklärung", "Garantie (Pset_Warranty) bei Übergabe", "IfcApproval Ausstattungsfestlegung"]
+      pflichtmerkmale:
+        - id: SAN-A-01
+          titel: "Sanitärobjekt: bestellbarer Artikel, Montagehöhe, Festschreibung"
+          anwendbarkeit: *san_app
+          anforderungen:
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: GlobalTradeItemNumber, typ: IFCIDENTIFIER, muster: "[0-9]{8}|[0-9]{12,14}"}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: ArticleNumber, typ: IFCIDENTIFIER}
+            - merkmal: {pset: HRB_Sanitaer, name: Montagehoehe, typ: IFCPOSITIVELENGTHMEASURE, min: 0.1, max: 2.5}
+            - merkmal: {pset: HRB_Auswahl, name: AuswahlID, typ: IFCIDENTIFIER, muster: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"}
+            - merkmal: {pset: HRB_Auswahl, name: Status, typ: IFCLABEL, enum: [festgeschrieben, nachtrag]}
+            - merkmal: {pset: HRB_Auswahl, name: Inhaltshash, typ: IFCIDENTIFIER, muster: "sha256:[0-9a-f]{64}"}
+      verbote: []
+      lieferdaten:
+        - {pset: Pset_ManufacturerOccurrence, name: SerialNumber, typ: IFCIDENTIFIER}
+        - {pset: Pset_Warranty, name: WarrantyIdentifier, typ: IFCIDENTIFIER}
+      ids: ids/sanitaer-A.ids
+
+  treppe:
+    titel: "Innentreppe mit Läufen, Wangen und Geländer"
+    mapping_zeilen: ["Treppe", "Treppenlauf", "Treppenwange", "Geländer, Handlauf"]
+    freeze: W
+    anwendbarkeit_gruppe: &tre_app
+      - entitaet: {name: IFCSTAIR}
+    P:
+      geometrie: {detail: "Laufkörper mit Stufen, Geländer vereinfacht", dimensionalitaet: "3D", lage: "Geschossverbindung, Deckenöffnung grob", erscheinung: "Holzart als PBR-Material", parametrik: "Form (IfcStairTypeEnum), Holzart, Geländertyp als Varianten"}
+      information: {identifikation: "Katalog-Option, Treppenform", gehalt: "Name, Preisindikation"}
+      dokumentation: ["Hinweis: Visualisierung unverbindlich"]
+      pflichtmerkmale:
+        - id: TRE-P-01
+          titel: "Treppe: Form, Katalogoption, Material"
+          anwendbarkeit: [{entitaet: {name: IFCSTAIR, vordefiniert: [STRAIGHT_RUN_STAIR, TWO_STRAIGHT_RUN_STAIR, QUARTER_WINDING_STAIR, QUARTER_TURN_STAIR, HALF_WINDING_STAIR, HALF_TURN_STAIR, TWO_QUARTER_WINDING_STAIR, TWO_QUARTER_TURN_STAIR, THREE_QUARTER_WINDING_STAIR, THREE_QUARTER_TURN_STAIR, SPIRAL_STAIR, DOUBLE_RETURN_STAIR, CURVED_RUN_STAIR, TWO_CURVED_RUN_STAIR]}}]
+          anforderungen:
+            - merkmal: {pset: HRB_Auswahl, name: OptionID, typ: IFCIDENTIFIER, muster: "K-[A-Z]{3}-[0-9]{4}"}
+            - merkmal: {pset: HRB_Auswahl, name: Reifegrad, typ: IFCLABEL, enum: [P, R, A]}
+            - material: {}
+        - id: TRE-P-02
+          titel: "Treppenlauf: Teil einer Treppe"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: IFCSTAIRFLIGHT}}]
+          anforderungen: [{teil_von: {entitaet: IFCSTAIR, beziehung: IFCRELAGGREGATES}}]
+      verbote:
+        - id: TRE-P-V01
+          titel: "P: keine Wangen und Holme als Einzelteile"
+          anwendbarkeit: [{entitaet: {name: IFCMEMBER}}, {teil_von: {entitaet: IFCSTAIR, beziehung: IFCRELAGGREGATES}}]
+      ids: ids/treppe-P.ids
+    R:
+      erbt: P
+      geometrie: {detail: "Lauflinie als Axis, Stufen je Lauf, Geländer mit Höhe", dimensionalitaet: "3D + Lauflinie 2D", lage: "± 1 mm; OKFF unten/oben aus B14", erscheinung: "wie P plus Oberfläche", parametrik: "Steigungszahl, Auftritt, Verziehungsmethode"}
+      information: {identifikation: "STLB-Bau LB 027/031", gehalt: "Steigung, Auftritt, Anzahl, Lauflinienabstand, Kopfhöhe, Verziehung, Geländerhöhe"}
+      dokumentation: ["Treppennachweis DIN 18065 (B5, Kapitel 7a)"]
+      pflichtmerkmale:
+        - id: TRE-R-01
+          titel: "Treppenlauf: Hauptmaße nach DIN 18065 eingetragen (Grenzwerte in DE.DIN18065.WG2WE)"
+          anwendbarkeit: [{entitaet: {name: IFCSTAIRFLIGHT}}]
+          anforderungen:
+            - merkmal: {pset: Pset_StairFlightCommon, name: NumberOfRiser, typ: IFCCOUNTMEASURE, min: 1}
+            - merkmal: {pset: Pset_StairFlightCommon, name: RiserHeight, typ: IFCPOSITIVELENGTHMEASURE, min: 0.05, max: 0.3}
+            - merkmal: {pset: Pset_StairFlightCommon, name: TreadLength, typ: IFCPOSITIVELENGTHMEASURE, min: 0.1, max: 0.5}
+            - merkmal: {pset: Pset_StairFlightCommon, name: WalkingLineOffset, typ: IFCPOSITIVELENGTHMEASURE}
+            - merkmal: {pset: Pset_StairFlightCommon, name: Headroom, typ: IFCPOSITIVELENGTHMEASURE}
+        - id: TRE-R-02
+          titel: "Gewendelter Lauf: Auftritt an der inneren Begrenzung"
+          min_vorkommen: 0
+          anwendbarkeit: [{entitaet: {name: IFCSTAIRFLIGHT, vordefiniert: WINDER}}]
+          anforderungen:
+            - merkmal: {pset: Pset_StairFlightCommon, name: TreadLengthAtInnerSide, typ: IFCPOSITIVELENGTHMEASURE}
+        - id: TRE-R-03
+          titel: "Treppe: Verziehungsmethode, Laufrichtung, Leistungsbereich"
+          anwendbarkeit: *tre_app
+          anforderungen:
+            - klassifikation: {system: "STLB-Bau", muster: "0(27|31)"}
+            - merkmal: {pset: HRB_Verziehung, name: Methode, typ: IFCLABEL, enum: [keine, verhaeltnis, winkel, kreisbogen]}
+            - merkmal: {pset: HRB_Verziehung, name: Laufrichtung, typ: IFCLABEL, enum: [links, rechts]}
+            - merkmal: {pset: HRB_Verziehung, name: Schrittmass, typ: IFCPOSITIVELENGTHMEASURE, min: 0.5, max: 0.7}
+        - id: TRE-R-04
+          titel: "Geländer und Handlauf: Höhe"
+          min_vorkommen: 0
+          anwendbarkeit: [{entitaet: {name: IFCRAILING}}, {teil_von: {entitaet: IFCSTAIR, beziehung: IFCRELAGGREGATES}}]
+          anforderungen:
+            - merkmal: {pset: Pset_RailingCommon, name: Height, typ: IFCPOSITIVELENGTHMEASURE}
+      verbote: []
+      ids: ids/treppe-R.ids
+    A:
+      erbt: R
+      geometrie: {detail: "Wangen, Stufen, Setzstufen, Geländerstäbe als Teile", dimensionalitaet: "3D", lage: "± 0,5 mm", erscheinung: "wie R", parametrik: "feste Instanz"}
+      information: {identifikation: "Treppenbauer, Auftragsnummer, Inhaltshash (keine GTIN: Einzelanfertigung)", gehalt: "Holzart und Sortierung je Teil, Befestigung"}
+      dokumentation: ["Werkzeichnung des Treppenbauers", "Montageanleitung", "IfcApproval Ausstattungsfestlegung"]
+      pflichtmerkmale:
+        - id: TRE-A-01
+          titel: "Treppe: Hersteller, Auftragsnummer, Festschreibung"
+          anwendbarkeit: *tre_app
+          anforderungen:
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: Manufacturer, typ: IFCLABEL}
+            - merkmal: {pset: Pset_ManufacturerTypeInformation, name: ArticleNumber, typ: IFCIDENTIFIER}
+            - merkmal: {pset: HRB_Auswahl, name: AuswahlID, typ: IFCIDENTIFIER, muster: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"}
+            - merkmal: {pset: HRB_Auswahl, name: Status, typ: IFCLABEL, enum: [festgeschrieben, nachtrag]}
+            - merkmal: {pset: HRB_Auswahl, name: Inhaltshash, typ: IFCIDENTIFIER, muster: "sha256:[0-9a-f]{64}"}
+        - id: TRE-A-02
+          titel: "Wangen und Holme: Teil der Treppe mit Material"
+          min_vorkommen: 1
+          anwendbarkeit: [{entitaet: {name: IFCMEMBER, vordefiniert: STRINGER}}]
+          anforderungen:
+            - teil_von: {entitaet: IFCSTAIR, beziehung: IFCRELAGGREGATES}
+            - material: {}
+      verbote: []
+      lieferdaten: []
+      ids: ids/treppe-A.ids
+
+  # -------------------------------------------------------------------------
+  # Weitere Gruppen: Pflichtmerkmale als Liste "Pset.Merkmal"; IDS noch nicht erzeugt (ids: null)
+  # -------------------------------------------------------------------------
+  projekt_grundstueck:
+    titel: "Projekt, Grundstück, Flurstück, Georeferenz"
+    mapping_zeilen: ["Projekt", "Georeferenz", "Grundstück", "Flurstück"]
+    freeze: "-"
+    P: {geometrie: {detail: "Gelände und Umgebung vereinfacht", lage: "EPSG:25832", erscheinung: "Luftbild/Geländetextur (CC BY 4.0)"}, information: {identifikation: "Projektname"}, dokumentation: [], pflichtmerkmale_liste: ["IfcMapConversion", "HRB_Generator.GeneratorVersion"], ids: null}
+    R: {erbt: P, information: {gehalt: "Flurstück, Gebäudeklasse, Regelwerk-Profile"}, dokumentation: ["Lageplan"], pflichtmerkmale_liste: ["HRB_Grundstueck", "HRB_Flurstueck", "HRB_Gebaeude", "HRB_Generator.ParameterHash"], ids: null}
+    A: {erbt: R, dokumentation: ["IfcPermit", "IfcApproval Bauvorlage"], pflichtmerkmale_liste: ["IfcPermit", "IfcActor Entwurfsverfasser"], ids: null}
+
+  raum:
+    titel: "Räume, Nutzungseinheiten, Zonen"
+    mapping_zeilen: ["Raum", "Nutzungseinheit", "Brand-/Rauchabschnitt"]
+    freeze: "-"
+    P: {geometrie: {detail: "Raumkörper", erscheinung: "keine"}, information: {identifikation: "Raumname, Nutzung"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_SpaceCommon", "Qto_SpaceBaseQuantities.NetFloorArea"], ids: null}
+    R: {erbt: P, information: {gehalt: "Wohnfläche WoFlV, Anforderungen Außenlärm"}, dokumentation: ["Flächenberechnung"], pflichtmerkmale_liste: ["HRB_Wohnflaeche", "HRB_Aussenlaerm_Raum"], ids: null}
+    A: {erbt: R, dokumentation: [], pflichtmerkmale_liste: ["Pset_SpaceCoveringRequirements"], ids: null}
+
+  decke:
+    titel: "Deckenelement (Holzbalkendecke) mit Balken und Wechseln"
+    mapping_zeilen: ["Deckenelement", "Deckenbalken", "Wechsel, Stichbalken", "Rohdecke, Bodenplatte"]
+    freeze: W
+    P: {geometrie: {detail: "Schichtenmodell", erscheinung: "Deckenuntersicht"}, information: {}, dokumentation: [], pflichtmerkmale_liste: ["Pset_SlabCommon", "Material"], ids: null}
+    R: {erbt: P, information: {gehalt: "Schallschutz, Masse, Spannweite"}, dokumentation: ["Schallnachweis"], pflichtmerkmale_liste: ["HRB_Schallschutz_Bauteil", "Qto_SlabBaseQuantities", "DIN 276"], ids: null}
+    A: {erbt: R, dokumentation: ["BTLx"], pflichtmerkmale_liste: ["HRB_Montage.Montagenummer", "Qto_SlabBaseQuantities.GrossWeight", "IfcBeam JOIST als Teile", "IfcOpeningElement je Durchdringung"], ids: null}
+
+  dach:
+    titel: "Dachtragwerk, Deckung und Einbauteile"
+    mapping_zeilen: ["Dach", "Dachfläche, Dachelement", "Sparren, Pfette, Kehlbalken, Stiel, Strebe", "Dachdeckung", "Unterdeckbahn", "First, Grat, Ortgang, Kehlblech, Eindeckrahmen", "Schneefang, Dachtritt, Sicherheitshaken", "Dachfenster", "Gaube", "PV-Modul"]
+    freeze: W
+    P: {geometrie: {detail: "Dachflächen mit Deckung als Textur", erscheinung: "Ziegelmodell und -farbe"}, information: {identifikation: "Deckung als Katalogoption"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_RoofCommon", "HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Neigung, Regeldachneigung, U-Wert"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_CoveringCommon", "HRB_Auswahl.Status"], ids: null}
+    A: {erbt: R, dokumentation: ["BTLx Sparren, Wechsel"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.GlobalTradeItemNumber (Ziegel, Dachfenster)", "IfcMember RAFTER als Teile"], ids: null}
+
+  fassade:
+    titel: "Fassade (Putz, Schalung) als Bekleidung"
+    mapping_zeilen: []
+    freeze: W
+    P: {geometrie: {erscheinung: "Material, Farbe, Schalungsprofil"}, information: {}, dokumentation: [], pflichtmerkmale_liste: ["HRB_Auswahl.OptionID", "Material"], ids: null}
+    R: {erbt: P, information: {gehalt: "Wanddicke, Farbcode, Gestaltungssatzung"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_CoveringCommon.Finish", "HRB_Auswahl.Status"], ids: null}
+    A: {erbt: R, dokumentation: ["Montageanleitung"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.ArticleNumber"], ids: null}
+
+  fenster_aussentuer:
+    titel: "Fenster, Haustür, Sonnenschutz"
+    mapping_zeilen: ["Fenster", "Tür", "Rollladen", "Dachfenster"]
+    freeze: W
+    P: {geometrie: {detail: "Rahmen, Flügel, Sprossen", erscheinung: "Alu-Farbe außen, Innenfarbe"}, information: {identifikation: "Katalogoption"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_WindowCommon", "HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Uw, Rw bzw. SSK, RC-Klasse, Rohbaumaß"}, dokumentation: ["Schallnachweis (B19)"], pflichtmerkmale_liste: ["Pset_WindowCommon.ThermalTransmittance", "HRB_Schallschutz_Bauteil"], ids: null}
+    A: {erbt: R, dokumentation: ["Einbauanleitung", "Leistungserklärung"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.ArticleNumber", "HRB_Auswahl.Inhaltshash"], ids: null}
+
+  innentuer:
+    titel: "Innentür mit Zarge und Beschlag"
+    mapping_zeilen: ["Tür"]
+    freeze: A
+    P: {geometrie: {detail: "Blatt, Zarge, Drücker", erscheinung: "Oberfläche, Drücker"}, information: {identifikation: "Katalogoption"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_DoorCommon", "HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Baurichtmaß DIN 18101, Anschlag DIN 107 (übersetzt), Bodenluft, Überströmung"}, dokumentation: [], pflichtmerkmale_liste: ["OperationType", "Pset_DoorLiningProperties", "HRB_Auswahl.Status"], ids: null}
+    A: {erbt: R, dokumentation: ["Einbauanleitung"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.GlobalTradeItemNumber", "HRB_Auswahl.Inhaltshash"], ids: null}
+
+  wandoberflaeche:
+    titel: "Wand- und Deckenoberfläche (Spachtelqualität, Anstrich, Putz, Tapete)"
+    mapping_zeilen: []
+    freeze: A
+    P: {geometrie: {erscheinung: "Farbe als CIELAB → linear-sRGB baseColor"}, information: {}, dokumentation: ["Hinweis: physisches Muster verbindlich"], pflichtmerkmale_liste: ["HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Q-Stufe, Glanzgrad, Nassabriebklasse, Farbsystem und Farbcode"}, dokumentation: [], pflichtmerkmale_liste: ["HRB_Oberflaeche (Q-Stufe, Glanzgrad, Farbcode)"], ids: null}
+    A: {erbt: R, dokumentation: ["Technisches Merkblatt"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.ArticleNumber", "HRB_Auswahl.Inhaltshash"], ids: null}
+
+  elektro:
+    titel: "Schalter, Steckdosen, Dosen, Leuchten"
+    mapping_zeilen: ["Installationsdose", "Steckdose, Datendose", "Schalter", "Leuchte"]
+    freeze: W
+    P: {geometrie: {detail: "Sichtgeometrie Schalterprogramm", erscheinung: "Farbe/Material Programm"}, information: {identifikation: "Programm als Option"}, dokumentation: [], pflichtmerkmale_liste: ["HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Stromkreis, Installationszone, Dosentyp"}, dokumentation: [], pflichtmerkmale_liste: ["IfcDistributionCircuit", "IfcJunctionBox"], ids: null}
+    A: {erbt: R, dokumentation: ["Dosenbohrplan als Fertigungsbearbeitung"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.GlobalTradeItemNumber", "IfcOpeningElement in Beplankung"], ids: null}
+
+  tga_leitungen:
+    titel: "Rohre, Kanäle, Leerrohre, Durchdringungen"
+    mapping_zeilen: ["Rohrleitung", "Luftkanal", "Formteil Rohr", "Anschlusspunkt", "Leerrohr", "Aussparungsvorschlag", "Freigegebene Durchdringung", "Manschette, Abschottung"]
+    freeze: W
+    P: {geometrie: {detail: "nicht dargestellt"}, information: {}, dokumentation: [], pflichtmerkmale_liste: [], ids: null}
+    R: {information: {gehalt: "Nennweite, System, Aussparungsvorschlag"}, dokumentation: [], pflichtmerkmale_liste: ["Pset_PipeSegmentTypeCommon", "IfcVirtualElement PROVISIONFORVOID"], ids: null}
+    A: {erbt: R, dokumentation: ["BTLx-Bearbeitung mit Leitungs-GUID"], pflichtmerkmale_liste: ["IfcOpeningElement", "IfcRelInterferesElements", "HRB_Durchdringung"], ids: null}
+
+  heizung_lueftung:
+    titel: "Wärmepumpe, Lüftungsgerät, Heizkörper, Luftdurchlässe"
+    mapping_zeilen: ["Wärmepumpe Monoblock", "Wärmepumpe Split-Außeneinheit", "Lüftungsgerät mit Wärmerückgewinnung", "Luftdurchlass, Außenluftdurchlass", "Heizkörper"]
+    freeze: W
+    P: {geometrie: {detail: "Sichtgeometrie Außeneinheit, Heizkörper"}, information: {}, dokumentation: [], pflichtmerkmale_liste: ["HRB_Auswahl.OptionID"], ids: null}
+    R: {erbt: P, information: {gehalt: "Schallleistung, Kältemittel, Heizlast"}, dokumentation: ["Schallnachweis (B20)"], pflichtmerkmale_liste: ["Pset_SoundGeneration", "HRB_WPSchall", "HRB_Kaeltemittel"], ids: null}
+    A: {erbt: R, dokumentation: ["Inbetriebnahmeprotokoll bei Übergabe"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.GlobalTradeItemNumber"], ids: null}
+
+  kueche_moebel:
+    titel: "Küche und Möbel (meist externe Lieferung)"
+    mapping_zeilen: []
+    freeze: A
+    P: {geometrie: {detail: "Korpusse, Fronten, Geräte", erscheinung: "Frontfarbe, Arbeitsplatte"}, information: {}, dokumentation: [], pflichtmerkmale_liste: ["Pset_FurnitureTypeCommon"], ids: null}
+    R: {erbt: P, information: {gehalt: "Stellflächen, Bewegungsflächen, Anschlüsse (Wasser, Abwasser, Strom, Abluft/Umluft)"}, dokumentation: ["Anschlussplan Küchenstudio"], pflichtmerkmale_liste: ["IfcDistributionPort je Anschluss"], ids: null}
+    A: {erbt: R, dokumentation: ["IDM-Bestelldaten des Küchenstudios"], pflichtmerkmale_liste: ["Pset_ManufacturerTypeInformation.ArticleNumber"], ids: null}

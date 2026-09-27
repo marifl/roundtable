@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad P (präsentationsfertig) – Holzrahmen-Wandelement mit Teilen und Verbindungsmitteln</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'wandelement' im Reifegrad P nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Entscheidung des Kunden: fotorealistische 3D-Ansicht, AR auf dem Grundstück, Preisindikation</purpose>
+        <milestone>Entwurf, Vorbemusterung, Angebot</milestone>
+    </info>
+    <specifications>
+        <specification name="WAND-P-01 Wand: Außen/Innen und Material für die Darstellung" ifcVersion="IFC4X3_ADD2" identifier="WAND-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCWALL</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCBOOLEAN" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_WallCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>IsExternal</simpleValue>
+                    </baseName>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="WAND-P-V01 P: keine Einzelteile in Wänden" ifcVersion="IFC4X3_ADD2" identifier="WAND-P-V01">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="IFCMEMBER" />
+                            <xs:enumeration value="IFCPLATE" />
+                            <xs:enumeration value="IFCBUILDINGELEMENTPART" />
+                        </xs:restriction>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELAGGREGATES">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCWALL</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements />
+        </specification>
+        <specification name="WAND-P-V02 P: keine Verbindungsmittel" ifcVersion="IFC4X3_ADD2" identifier="WAND-P-V02">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCMECHANICALFASTENER</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements />
+        </specification>
+        <specification name="WAND-P-V03 P: keine Stabbearbeitungen" ifcVersion="IFC4X3_ADD2" identifier="WAND-P-V03">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCVOIDINGFEATURE</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements />
+        </specification>
+    </specifications>
+</ids>

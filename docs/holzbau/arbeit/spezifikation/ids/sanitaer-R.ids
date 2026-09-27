@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad R (prüffertig) – Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'sanitaer' im Reifegrad R nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Regel-, Nachweis-, Kompatibilitäts- und Kostenprüfung</purpose>
+        <milestone>Vertrag, Bauvorlage, Entwurf der Ausstattungsfestlegung</milestone>
+    </info>
+    <specifications>
+        <specification name="SAN-P-01 Sanitärobjekt: Katalogoption, Material, im Raum enthalten" ifcVersion="IFC4X3_ADD2" identifier="SAN-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="TOILETPAN" />
+                            <xs:enumeration value="WASHHANDBASIN" />
+                            <xs:enumeration value="SHOWER" />
+                            <xs:enumeration value="BATH" />
+                            <xs:enumeration value="BIDET" />
+                            <xs:enumeration value="SINK" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <partOf relation="IFCRELCONTAINEDINSPATIALSTRUCTURE" cardinality="required">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSPACE</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="SAN-R-01 Sanitärobjekt: Hersteller, Serie, Nennmaße, Bewegungsfläche" ifcVersion="IFC4X3_ADD2" identifier="SAN-R-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="TOILETPAN" />
+                            <xs:enumeration value="WASHHANDBASIN" />
+                            <xs:enumeration value="SHOWER" />
+                            <xs:enumeration value="BATH" />
+                            <xs:enumeration value="BIDET" />
+                            <xs:enumeration value="SINK" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <classification cardinality="required">
+                    <value>
+                        <simpleValue>045</simpleValue>
+                    </value>
+                    <system>
+                        <simpleValue>STLB-Bau</simpleValue>
+                    </system>
+                </classification>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Manufacturer</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>ModelReference</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCNONNEGATIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_SanitaryTerminalTypeCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NominalLength</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minExclusive value="0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCNONNEGATIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_SanitaryTerminalTypeCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NominalWidth</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minExclusive value="0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Sanitaer</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>BewegungsflaecheBreite</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.3" fixed="false" />
+                            <xs:maxInclusive value="2.0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Sanitaer</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>BewegungsflaecheTiefe</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.3" fixed="false" />
+                            <xs:maxInclusive value="2.0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="SAN-R-02 WC: Montageart" ifcVersion="IFC4X3_ADD2" identifier="SAN-R-02">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>TOILETPAN</simpleValue>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_SanitaryTerminalTypeToiletPan</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>PanMounting</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="WALLHUNG" />
+                            <xs:enumeration value="BACKTOWALL" />
+                            <xs:enumeration value="PEDESTAL" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="SAN-R-03 Wand-WC: Vorwandsystem" ifcVersion="IFC4X3_ADD2" identifier="SAN-R-03">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>TOILETPAN</simpleValue>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>Pset_SanitaryTerminalTypeToiletPan</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>PanMounting</simpleValue>
+                    </baseName>
+                    <value>
+                        <simpleValue>WALLHUNG</simpleValue>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Sanitaer</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Vorwandsystem</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCBOOLEAN" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Sanitaer</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Stromanschluss</simpleValue>
+                    </baseName>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="SAN-R-04 Anschlussports der Sanitärobjekte mit Nennweite" ifcVersion="IFC4X3_ADD2" identifier="SAN-R-04">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCDISTRIBUTIONPORT</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>PIPE</simpleValue>
+                    </predefinedType>
+                </entity>
+                <partOf relation="IFCRELNESTS">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_DistributionPortTypePipe</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NominalDiameter</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.01" fixed="false" />
+                            <xs:maxInclusive value="0.2" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+    </specifications>
+</ids>

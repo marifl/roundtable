@@ -9,6 +9,9 @@ Maschinenlesbare Vorgaben, die aus den Kapiteln der Arbeit abgeleitet sind. Sie 
 | `regelkatalog.yaml` | formalisierte Regeln mit Quelle, Fassung, Profil, Prüffunktion | Kap. 9, 9a, 13–18 |
 | `regelprofile.yaml` | Gebäudetyp × Regelbereich | Kap. 9a |
 | `empfehlungen.yaml` | Empfehlungen R5 mit Evidenzgrad, Kulturprofile, Ausschlussliste | Kap. 9b |
+| `module.yaml` | 21 Module mit Zweck, Schnittstellen, Bausteinen und Lizenz, zugeordnete ANF | Kap. 7 |
+| `regelkatalog-<kapitel>.yaml` | kapitelbezogene Regelkataloge im selben Schema | Kap. 6, 13, 14, 14a, 14b |
+| `anforderungen_extrahieren.py` | erzeugt `anforderungen.csv` aus den ANF-Tabellen aller Kapitel | Kap. 6 |
 | `anforderungen.csv` | alle `ANF-*` mit Priorität, Abnahmekriterium, Modul, Test | alle Kapitel, Kap. 23 |
 | `datenlieferungen.csv` | alle `DAT-*` (von Regnauer benötigt) | alle Kapitel |
 

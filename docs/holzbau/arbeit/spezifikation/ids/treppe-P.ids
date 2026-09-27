@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad P (präsentationsfertig) – Innentreppe mit Läufen, Wangen und Geländer</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'treppe' im Reifegrad P nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Entscheidung des Kunden: fotorealistische 3D-Ansicht, AR auf dem Grundstück, Preisindikation</purpose>
+        <milestone>Entwurf, Vorbemusterung, Angebot</milestone>
+    </info>
+    <specifications>
+        <specification name="TRE-P-01 Treppe: Form, Katalogoption, Material" ifcVersion="IFC4X3_ADD2" identifier="TRE-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIR</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="STRAIGHT_RUN_STAIR" />
+                            <xs:enumeration value="TWO_STRAIGHT_RUN_STAIR" />
+                            <xs:enumeration value="QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="HALF_WINDING_STAIR" />
+                            <xs:enumeration value="HALF_TURN_STAIR" />
+                            <xs:enumeration value="TWO_QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="TWO_QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="THREE_QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="THREE_QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="SPIRAL_STAIR" />
+                            <xs:enumeration value="DOUBLE_RETURN_STAIR" />
+                            <xs:enumeration value="CURVED_RUN_STAIR" />
+                            <xs:enumeration value="TWO_CURVED_RUN_STAIR" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="TRE-P-02 Treppenlauf: Teil einer Treppe" ifcVersion="IFC4X3_ADD2" identifier="TRE-P-02">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIRFLIGHT</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <partOf relation="IFCRELAGGREGATES" cardinality="required">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSTAIR</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </requirements>
+        </specification>
+        <specification name="TRE-P-V01 P: keine Wangen und Holme als Einzelteile" ifcVersion="IFC4X3_ADD2" identifier="TRE-P-V01">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCMEMBER</simpleValue>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELAGGREGATES">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSTAIR</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements />
+        </specification>
+    </specifications>
+</ids>

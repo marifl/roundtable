@@ -1,0 +1,935 @@
+# Regelkatalog Kapitel 14: Dach, Fassade und Einbauteile.
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt |
+# nicht_anwendbar | freigabepflichtig (Kapitel 9.2.1).
+# Normwerte sind Einzelkennwerte mit Fundstelle, keine Tabellenkopien (Kapitel 9.7).
+# Werte der ZVDH-Fachregel mit Fundstelle "Gelbdruck 07/2023" stammen aus der Einspruchsfassung
+# und tragen Status U, bis sie gegen die Endfassung 04/2024 geprüft sind (Recherche 09, DAT-14-11).
+# Bestehende Regel, auf die dieser Katalog aufbaut: DE.ZVDH.DZ.Dachneigung (regelkatalog.yaml).
+# Neu verwendete Profile, in regelprofile.yaml noch nachzutragen:
+#   DE-EEG-2023 (S1), M-Hersteller-Dach (S5), DE-Handwerk-Zimmerer (S3).
+
+katalog:
+  name: HRB-Regelkatalog-14-Dach
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["14"]
+  hinweis: "Regeln aus Kapitel 14 (Recherche 09, Beispiele B17/B18, geplantes B21). Anforderungen ANF-14-xx in Abschnitt 14.10.2."
+
+regeln:
+
+# ---------------------------------------------------------------------------
+# 14.1 Geometrie
+# ---------------------------------------------------------------------------
+
+- id: M.Firma.Dachskelett-Plausibel
+  version: 0.1.0
+  titel: Plausibilität der Dachgeometrie aus gewichtetem Straight Skeleton
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel Dachgenerator", fundstelle: "E14.1, E14.2", fassung: "0.1", status: U, bib: [held2017roofs, biedl2015weighted, ahn2013roofs, eder2018volume, eder2021exact], recherche: ["09", "25"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcRoof mit PredefinedType ungleich FLAT_ROOF"
+    r2_voraussetzung: [HRB-R2-Grundriss-Polygon, HRB-R2-Neigung-je-Kante]
+  eingaben:
+    - {name: grundriss, einheit: "m (Polygon)", quelle: Modell, beschreibung: "Traufumriss einschließlich Überstand"}
+    - {name: neigung_je_kante, einheit: "°", quelle: Modell, beschreibung: "0 = Giebel (Gewicht 0)"}
+    - {name: traufhoehe_je_kante, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: dachskelett@0.1
+    formel: "S = gewichtetes Straight Skeleton (multiplikativ tan-Gewichte, additiv Traufhöhen), exakte Arithmetik; verletzt, wenn S nicht planar oder zyklisch, eine Fläche nicht eben (> 0,1 mm), eine Fläche ohne Traufkante oder ein innerer Tiefpunkt existiert"
+    parameter: {ebenheit_toleranz_mm: 0.1, rundung_uebergabe_mm: 0.1}
+  grenzwerte:
+    - {name: ebenheit_toleranz, wert: 0.1, einheit: mm, richtung: max, fundstelle: "E14.2 (Festlegung)", status: U}
+  meldung: "Die gewünschten Neigungen {neigungen} ergeben kein gültiges Dach: {grund}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Neigung der betroffenen Kante auf den nächsten gültigen Wert setzen", frei: [dach.kante.neigung]}
+    - {art: A3_variante, beschreibung: "Dachform wechseln (Walm statt Krüppelwalm, Satteldach statt Walm)", frei: [dach.form]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.1.3"
+  anforderungen: [ANF-14-01, ANF-14-02, ANF-14-03]
+  hinweis: "Referenzwerte (eigene Rechnung, Beispiel 14.1): 13,00 x 11,00 m, 35°: First 2,000 m, Firsthöhe 3,851 m, Grat 8,679 m; Walm 45°: First 5,298 m."
+
+- id: DE.ZVDH.DZ.Kehlneigung
+  version: 0.1.0
+  titel: Kehlart in Abhängigkeit von der Kehlneigung
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "4.6.1 Tab. 21 (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Kante mit Kantenart KEHLE"
+  eingaben:
+    - {name: kehlneigung_beta, einheit: "°", quelle: Modell, beschreibung: "aus dem Skelett; bei 90°-Ecke und gleicher Neigung tan β = tan α / √2"}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: kehlart, einheit: "-", quelle: Bemusterung}
+  pruefung:
+    typ: rechnung
+    funktion: kehlart@0.1
+    formel: "METALL: dachneigung >= 10°; NOCKEN, BIBER_EINGEBUNDEN: beta >= 25°; BIBER_UEBERDECKT: beta >= 30°; DREIPFANNEN, FORMZIEGEL, SCHWENKZIEGEL: beta >= 35°. Vorab-Grenzwert alpha_min = atan(tan(beta_min)·√2)"
+    parameter: {grenze_metall_dachneigung_grad: 10, grenze_nocken_grad: 25, grenze_biber_ueberdeckt_grad: 30, grenze_dreipfannen_grad: 35}
+  grenzwerte:
+    - {name: metallkehle_dachneigung, wert: 10, einheit: "°", richtung: min, fundstelle: "FR 4.6.1 Tab. 21 (Gelbdruck)", status: U}
+    - {name: nockenkehle_kehlneigung, wert: 25, einheit: "°", richtung: min, fundstelle: "FR 4.6.1 Tab. 21 (Gelbdruck)", status: U}
+    - {name: biberkehle_ueberdeckt_kehlneigung, wert: 30, einheit: "°", richtung: min, fundstelle: "FR 4.6.1 Tab. 21 (Gelbdruck)", status: U}
+    - {name: dreipfannenkehle_kehlneigung, wert: 35, einheit: "°", richtung: min, fundstelle: "FR 4.6.1 Tab. 21 (Gelbdruck)", status: U}
+  meldung: "Die Kehle hat eine Neigung von {beta:.1f}°. Die {kehlart} verlangt mindestens {grenze}°. Ab einer Dachneigung von {alpha_min:.1f}° wäre sie zulässig."
+  alternative:
+    - {art: A3_variante, beschreibung: "Metallkehle oder andere zulässige Kehlart wählen", frei: [kehle.art]}
+    - {art: A1_grenzwert, beschreibung: "Dachneigung auf alpha_min erhöhen", frei: [dach.neigung]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.1.5"
+  anforderungen: [ANF-14-04]
+
+- id: DE.ZVDH.DZ.Kehlueberdeckung
+  version: 0.1.0
+  titel: Überdeckung der Kehle durch die Dachfläche
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "4.6.1 (6) (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "geschnittene Ziegel entlang einer Kante KEHLE"
+  eingaben:
+    - {name: ueberdeckung_min, einheit: mm, quelle: "Musterausbreitung", beschreibung: "kleinster Abstand Ziegelschnitt zur Kehllinie, rechtwinklig gemessen"}
+  pruefung:
+    typ: geometrie
+    funktion: kehle_ueberdeckung@0.1
+    formel: "min über alle Kehlziegel der rechtwinklig zur Kehllinie gemessenen Überdeckung >= 100 mm"
+    parameter: {ueberdeckung_min_mm: 100}
+  grenzwerte:
+    - {name: ueberdeckung, wert: 100, einheit: mm, richtung: min, fundstelle: "FR 4.6.1 (6) (Gelbdruck)", status: U}
+  meldung: "Die Deckung überdeckt die Kehle nur {ist} mm, gefordert sind 100 mm."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Kehlbreite oder Schnittlinie der Kehlziegel anpassen", frei: [kehle.breite]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.3.5"
+  anforderungen: [ANF-14-12]
+
+- id: DE.ZVDH.DZ.Traufe
+  version: 0.1.0
+  titel: Traufausbildung und Traufblech
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "4.1 (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Kante mit Kantenart TRAUFE"
+  eingaben:
+    - {name: ueberstand_deckung, einheit: mm, quelle: Modell, beschreibung: "Überstand der Deckung über die Traufkonstruktion"}
+    - {name: traufblech, einheit: "-", quelle: Modell}
+    - {name: traufreihe_neigung_gleich, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: traufe@0.1
+    formel: "verletzt, wenn ueberstand_deckung < 50 mm und kein Traufblech; verletzt, wenn die Traufreihe nicht die Neigung der Fläche hat (Traufbohle oder Doppellatte fehlt); Lüftungsebene an der Traufe offen"
+    parameter: {ueberstand_min_ohne_traufblech_mm: 50}
+  grenzwerte:
+    - {name: ueberstand_ohne_traufblech, wert: 50, einheit: mm, richtung: min, fundstelle: "FR 4.1 (Gelbdruck)", status: U}
+  meldung: "Die Deckung steht an der Traufe nur {ist} mm über; ein Traufblech ist erforderlich."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Traufblech ergänzen", frei: [traufe.traufblech]}
+    - {art: A1_grenzwert, beschreibung: "Überstand der Deckung auf 50 mm erhöhen", frei: [lattung.LAT]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.3.5"
+  anforderungen: [ANF-14-12]
+
+- id: DE.ZVDH.DZ.Ortgang
+  version: 0.1.0
+  titel: Ortgangausbildung
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "4.2 (4) (Gelbdruck 07/2023); Creaton", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Kante mit Kantenart ORTGANG"
+  eingaben:
+    - {name: ortgang_art, einheit: "-", quelle: Bemusterung, beschreibung: "ORTGANGZIEGEL oder FLAECHENZIEGEL_DOPPELWULST"}
+    - {name: abstand_lappen_giebelwand, einheit: mm, quelle: Musterausbreitung}
+    - {name: ueberstand_flaechenziegel, einheit: mm, quelle: Musterausbreitung}
+  pruefung:
+    typ: geometrie
+    funktion: ortgang@0.1
+    formel: "ORTGANGZIEGEL: abstand_lappen_giebelwand >= 10 mm; FLAECHENZIEGEL_DOPPELWULST: ueberstand_flaechenziegel >= 30 mm"
+    parameter: {lappen_abstand_min_mm: 10, ueberstand_min_mm: 30}
+  grenzwerte:
+    - {name: lappen_abstand, wert: 10, einheit: mm, richtung: min, fundstelle: "FR 4.2 (4); Creaton bestätigt", status: V}
+    - {name: ueberstand_flaechenziegel, wert: 30, einheit: mm, richtung: min, fundstelle: "FR 4.2 (4) (Gelbdruck)", status: U}
+  meldung: "Am Ortgang {seite} beträgt der Abstand {ist} mm, gefordert sind {soll} mm."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Spaltenraster über die Deckbreite im zulässigen Bereich verschieben", frei: [deckung.deckbreite, deckung.ursprung_u]}
+    - {art: A1_grenzwert, beschreibung: "Ortgangüberstand ändern", frei: [dach.ueberstand_ortgang]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.3.5"
+  anforderungen: [ANF-14-12]
+
+- id: DE.ZVDH.DZ.Formziegel-Befestigung
+  version: 0.1.0
+  titel: Mechanische Befestigung von First- und Gratziegeln
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "1.4, 4.3, 4.4 (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDiscreteAccessory mit ObjectType RIDGE oder HIP"
+  eingaben:
+    - {name: tragfaehigkeit_je_m, einheit: "kN/m", quelle: "Befestigungsmittel am Typ"}
+    - {name: schraube_durchmesser, einheit: mm, quelle: Typ}
+    - {name: einschraubtiefe, einheit: mm, quelle: Typ}
+    - {name: befestigung_moertel, einheit: "-", quelle: Bemusterung}
+  pruefung:
+    typ: rechnung
+    funktion: formziegel_befestigung@0.1
+    formel: "jeder Formziegel mechanisch befestigt; Σ Tragfähigkeit je m >= 0,60 kN/m; bei Schraube: d >= 4,5 mm, Einschraubtiefe >= 24 mm; Mörtel zählt nicht"
+    parameter: {tragfaehigkeit_min_kn_m: 0.60, schraube_d_mm: 4.5, einschraubtiefe_min_mm: 24}
+  grenzwerte:
+    - {name: tragfaehigkeit, wert: 0.60, einheit: "kN/m", richtung: min, fundstelle: "FR 1.4 (Gelbdruck)", status: U}
+    - {name: einschraubtiefe, wert: 24, einheit: mm, richtung: min, fundstelle: "FR 4.3/4.4 (Gelbdruck)", status: U}
+  meldung: "Die Befestigung am {kante} erreicht {ist:.2f} kN/m; gefordert sind 0,60 kN/m ohne Anrechnung von Mörtel."
+  alternative:
+    - {art: A3_variante, beschreibung: "Befestigungssystem des Herstellers für Trockenfirst wählen", frei: [first.befestigung]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.3.5"
+  anforderungen: [ANF-14-13]
+
+- id: DE.ZVDH.DZ.Windsog-Klammerung
+  version: 0.1.0
+  titel: Klammerung der Flächenziegel gegen Windsog
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine; Hinweise zur Lastenermittlung", fundstelle: "1.4; Hinweise 4.2.2 (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcCovering ROOFING mit Dachziegeln oder Dachsteinen"
+    r2_voraussetzung: [HRB-R2-Windsogberechnung]
+  eingaben:
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: windsogberechnung, einheit: "-", quelle: "Nachweisdokument (lizenzierte Rechenhilfe)"}
+  pruefung:
+    typ: rechnung
+    funktion: windsog_klammer@0.1
+    formel: "wenn dachneigung > 65°: jeder Ziegel geklammert, sonst verletzt; sonst: ohne Windsogberechnung unbestimmt, mit Berechnung Klammerplan aus dem Nachweis"
+    parameter: {grenzneigung_alle_klammern_grad: 65}
+  grenzwerte:
+    - {name: grenzneigung_alle_klammern, wert: 65, einheit: "°", richtung: max, fundstelle: "FR 1.4 (Gelbdruck)", status: U}
+  meldung: "Für die Klammerung fehlt die objektspezifische Windsogberechnung; bei {DN}° ist sie nicht pauschal ableitbar."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Windsogberechnung mit der Rechenhilfe des ZVDH oder des Herstellers als Nachweis beifügen"}
+  status: U
+  beispiel: [keins]
+  kapitel: "14.3.5"
+  anforderungen: [ANF-14-13]
+
+- id: DE.ZVDH.DZ.Traglattung-Schutz
+  version: 0.1.0
+  titel: Schutz der Traglattung bei starker Unterschreitung der Regeldachneigung
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "1.2 (7) (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcCovering ROOFING; Ergebnis von DE.ZVDH.DZ.Dachneigung liegt vor"
+  eingaben:
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: rdn_zvdh, einheit: "°", quelle: Datenblatt}
+    - {name: massnahme_traglattung, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: traglattung_schutz@0.1
+    formel: "wenn rdn_zvdh - dachneigung > 12°: Maßnahme zum Schutz der Traglattung erforderlich, sonst nicht_anwendbar"
+    parameter: {unterschreitung_grenze_grad: 12}
+  grenzwerte:
+    - {name: unterschreitung, wert: 12, einheit: "°", richtung: max, fundstelle: "FR 1.2 (7) (Gelbdruck)", status: U}
+  meldung: "Die Regeldachneigung wird um {diff}° unterschritten (> 12°). Die Traglattung ist zu schützen."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Unterdach mit Schutz der Traglattung ausführen", frei: [unterdach.aufbau]}
+    - {art: A1_grenzwert, beschreibung: "Dachneigung auf RDN - 12° erhöhen", frei: [dach.neigung]}
+  status: U
+  beispiel: [keins]
+  kapitel: "14.3.3"
+  anforderungen: [ANF-14-08]
+  hinweis: "Testfall: RDN 30°, DN 17° -> Klasse K1 (DE.ZVDH.DZ.Dachneigung) und Maßnahme Traglattung."
+
+- id: DE.ZVDH.DZ.Objektplanung
+  version: 0.1.0
+  titel: Objektplanung bei sehr langen Sparren und extremen Lagen
+  klasse: R3
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "1.2 (5) (Gelbdruck 07/2023)", fassung: "2024-04", status: U, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcSlab ROOF"
+  eingaben:
+    - {name: sparrenlaenge, einheit: m, quelle: Modell}
+    - {name: extreme_lage, einheit: "-", quelle: Kontext}
+  pruefung:
+    typ: freigabe
+    funktion: objektplanung_dach@0.1
+    formel: "freigabepflichtig, wenn sparrenlaenge > 15 m oder extreme_lage; sonst nicht_anwendbar"
+    parameter: {sparrenlaenge_grenze_m: 15}
+  grenzwerte:
+    - {name: sparrenlaenge, wert: 15, einheit: m, richtung: max, fundstelle: "FR 1.2 (5) (Gelbdruck)", status: U}
+  meldung: "Sparrenlänge {L:.2f} m: Die Deckung ist objektbezogen zu planen."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "objektbezogene Planung durch den Dachdecker als Nachweis beifügen"}
+  freigabe_rolle: Dachdecker-Fachbetrieb
+  status: U
+  beispiel: [keins]
+  kapitel: "14.3.1"
+  anforderungen: [ANF-14-08]
+
+- id: M.Hersteller.RDN-Vereinbarung
+  version: 0.1.0
+  titel: Nutzung einer Hersteller-Regeldachneigung unterhalb der ZVDH-Regeldachneigung
+  klasse: R3
+  haerte: hart
+  quelle: {art: M, werk: "Herstellerdatenblatt; ZVDH/DDH-Hinweis", fundstelle: "Recherche 09, Abschnitt 2 (ddh.de 2024)", fassung: "2024", status: V, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: M-Hersteller-Dach, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  vorbedingung:
+    auswahl: "IfcCovering ROOFING mit Datenblatt"
+    anwendbar_wenn: "rdn_hersteller < rdn_zvdh"
+  eingaben:
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: rdn_zvdh, einheit: "°", quelle: Datenblatt}
+    - {name: rdn_hersteller, einheit: "°", quelle: Datenblatt}
+    - {name: vereinbarung_dokument, einheit: "-", quelle: "IfcDocumentReference mit SHA-256"}
+  pruefung:
+    typ: freigabe
+    funktion: rdn_vereinbarung@0.1
+    formel: "wenn rdn_hersteller <= dachneigung < rdn_zvdh: freigabepflichtig, aufgelöst durch Freigabe der Firma mit vereinbarung_dokument; wenn dachneigung >= rdn_zvdh: nicht_anwendbar"
+  grenzwerte: []
+  meldung: "Die Dachneigung {DN}° liegt unter der ZVDH-Regeldachneigung {rdn_zvdh}°, aber über der Hersteller-Regeldachneigung {rdn_hersteller}°. Das ist nur mit vertraglicher Vereinbarung zulässig."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Vereinbarung der Hersteller-RDN mit dem Kunden dokumentieren und freigeben"}
+    - {art: A4_schichtwechsel, beschreibung: "ohne Vereinbarung Zusatzmaßnahme nach ZVDH-Klasse ausführen"}
+  freigabe_rolle: Firma
+  status: V
+  beispiel: [keins]
+  kapitel: "14.3.1"
+  anforderungen: [ANF-14-09]
+
+- id: M.Hersteller.Lattweite
+  version: 0.1.0
+  titel: Lattungseinteilung aus dem Datenblatt des Ziegelmodells
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Verlegeanleitungen und Produktblätter (Braas, Erlus, Creaton)", fundstelle: "L = n·LA + LAT + LAF (Braas-Verlegeanleitung)", fassung: "abgerufen 2026-09-27", status: V, recherche: ["09"]}
+  profil: {name: M-Hersteller-Dach, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "jede IfcSlab ROOF mit IfcCovering ROOFING"
+    r2_voraussetzung: [HRB-R2-Datenblatt-Dachziegel]
+  eingaben:
+    - {name: L, einheit: mm, quelle: Modell, beschreibung: "Konstruktionslänge Traufe bis First in Fallrichtung"}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: la_bereich, einheit: mm, quelle: "Datenblatt je Neigung"}
+    - {name: lat_bereich, einheit: mm, quelle: "Datenblatt je Neigung"}
+    - {name: laf_bereich, einheit: mm, quelle: "Datenblatt je Neigung"}
+  pruefung:
+    typ: optimierung
+    funktion: lattung@0.1
+    formel: "Rest = L − LAT − LAF; n von ceil(Rest/LA_max) bis floor(Rest/LA_min); LA = Rest/n; kleinstes n mit LA_min <= LA <= LA_max; sonst Suche über LAT, LAF im Datenblattbereich (1 mm); sonst verletzt mit Grenzwerten für den Dachüberstand; fehlt ein Datenblattwert: unbestimmt"
+    parameter: {suchraster_mm: 1}
+  grenzwerte: []
+  meldung: "Für {modell} gibt es bei L = {L} mm keine zulässige Lattweite ({la_min}–{la_max} mm). Zulässig wäre ein Dachüberstand bis {u_max} m oder ab {u_min} m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Dachüberstand auf den nächsten zulässigen Wert ändern", frei: [dach.ueberstand_traufe]}
+    - {art: A3_variante, beschreibung: "anderes Ziegelmodell oder Dachneigung", frei: [bemusterung.deckung, dach.neigung]}
+  status: U
+  beispiel: [B21]
+  kapitel: "14.3.3"
+  anforderungen: [ANF-14-10]
+  hinweis: "Testfall Beispiel 14.3 (eigene Rechnung): Linea LA 373-393, LAT 370, LAF 40 (Annahme): L 6000 und L 6714 ohne Lösung; Überstand <= 0,486 m (n = 16) oder >= 0,531 m (n = 17)."
+
+- id: M.Hersteller.Eindeckrahmen
+  version: 0.1.0
+  titel: Kompatibilität von Eindeckrahmen, Deckungsprofil und Dachneigung
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Velux Eindeckrahmen EDW/EDJ/EDZ/EDN", fundstelle: "Herstellerunterlagen (Recherche 09, Abschnitt 3)", fassung: "abgerufen 2026-09-27", status: V, recherche: ["09"]}
+  profil: {name: M-Hersteller-Dach, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcWindow SKYLIGHT mit IfcDiscreteAccessory FLASHING"
+  eingaben:
+    - {name: rahmen_typ, einheit: "-", quelle: Bemusterung}
+    - {name: profilhoehe_deckung, einheit: mm, quelle: Datenblatt}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: eindeckrahmen@0.1
+    formel: "EDW: 15 <= profilhoehe <= 120 mm und 15° <= DN <= 90°; EDJ: profilhoehe <= 90 mm und 20° <= DN <= 90°; EDZ/EDN: profilhoehe <= 16 mm; Werte je Rahmentyp aus Datenblatt"
+    parameter: {EDW: {profil_mm: [15, 120], dn_grad: [15, 90]}, EDJ: {profil_mm: [0, 90], dn_grad: [20, 90]}, EDZ: {profil_mm: [0, 16]}}
+  grenzwerte:
+    - {name: EDW_dachneigung, wert: [15, 90], einheit: "°", richtung: intervall, fundstelle: "Velux (Recherche 09)", status: V}
+    - {name: EDJ_dachneigung, wert: [20, 90], einheit: "°", richtung: intervall, fundstelle: "Velux (Recherche 09)", status: V}
+  meldung: "Der Eindeckrahmen {rahmen_typ} passt nicht zu Profilhöhe {profil} mm und Dachneigung {DN}°."
+  alternative:
+    - {art: A3_variante, beschreibung: "passenden Eindeckrahmen wählen", frei: [dachfenster.eindeckrahmen]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.4.1"
+  anforderungen: [ANF-14-16]
+
+- id: M.Hersteller.Dachfenster-Wechsel
+  version: 0.1.0
+  titel: Sparrenabstand und Wechselabstände am Dachfenster
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Velux Einbauhinweise und Tabelle Wechselabstände", fundstelle: "Recherche 09, Abschnitt 3", fassung: "abgerufen 2026-09-27", status: V, recherche: ["09"]}
+  profil: {name: M-Hersteller-Dach, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: alle
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcWindow SKYLIGHT"
+  eingaben:
+    - {name: blendrahmenbreite, einheit: mm, quelle: Typ}
+    - {name: lichtes_sparrenmass, einheit: mm, quelle: Modell}
+    - {name: daemmrahmen_bdx, einheit: "-", quelle: Bemusterung}
+    - {name: dachdicke, einheit: mm, quelle: Modell}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: dachfenster_wechsel@0.1
+    formel: "passt ohne Wechsel, wenn lichtes_sparrenmass >= blendrahmenbreite + 60 mm (mit BDX + 40 bis 50 mm); sonst erst Verschiebung < halbe Sparrenteilung prüfen, dann Wechsel mit Abständen oben/unten aus Herstellertabelle (dachdicke, dachneigung)"
+    parameter: {zuschlag_ohne_bdx_mm: 60, zuschlag_mit_bdx_mm: [40, 50]}
+  grenzwerte:
+    - {name: zuschlag_sparrenmass, wert: 60, einheit: mm, richtung: min, fundstelle: "Velux (Recherche 09)", status: V}
+  meldung: "Das Dachfenster passt nicht zwischen die Sparren ({ist} mm < {soll} mm). Vorschlag: {vorschlag}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Fenster um weniger als eine halbe Sparrenteilung verschieben", frei: [dachfenster.lage_u]}
+    - {art: A2_kompensation, beschreibung: "Wechsel mit Abständen aus der Herstellertabelle einbauen", frei: [tragwerk.wechsel]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.4.1"
+  anforderungen: [ANF-14-17]
+  hinweis: "Testfall: Dachdicke 20 cm, 45°: Wechselabstand oben und unten 21,1 cm (Velux-Tabelle, einschließlich 10 cm Sicherheit)."
+
+# ---------------------------------------------------------------------------
+# 14.4 Einbauteile: Bauordnungsrecht
+# ---------------------------------------------------------------------------
+
+- id: BY.BayBO.35-4.Rettungsfenster
+  version: 0.1.0
+  titel: Fenster als zweiter Rettungsweg
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 35 Abs. 4", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["09"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcWindow mit Pset_WindowCommon.FireExit = TRUE"
+    anwendbar_wenn: "Fenster ist als zweiter Rettungsweg eines Aufenthaltsraums vorgesehen"
+  eingaben:
+    - {name: lichte_breite, einheit: m, quelle: Typ}
+    - {name: lichte_hoehe, einheit: m, quelle: Typ}
+    - {name: unterkante_ueber_fussboden, einheit: m, quelle: Modell}
+    - {name: abstand_traufkante_horizontal, einheit: m, quelle: Modell, beschreibung: "nur Dachschräge: Unterkante oder Austritt bis Traufkante"}
+    - {name: von_innen_zu_oeffnen, einheit: "-", quelle: Typ}
+  pruefung:
+    typ: geometrie
+    funktion: rettungsfenster@0.1
+    formel: "lichte_breite >= 0,60 m ∧ lichte_hoehe >= 1,00 m ∧ von_innen_zu_oeffnen ∧ unterkante_ueber_fussboden <= 1,20 m ∧ (keine Dachschräge ∨ abstand_traufkante_horizontal <= 1,00 m)"
+    parameter: {breite_min_m: 0.60, hoehe_min_m: 1.00, unterkante_max_m: 1.20, abstand_traufe_max_m: 1.00}
+  grenzwerte:
+    - {name: lichte_breite, wert: 0.60, einheit: m, richtung: min, fundstelle: "Art. 35 Abs. 4", status: V}
+    - {name: lichte_hoehe, wert: 1.00, einheit: m, richtung: min, fundstelle: "Art. 35 Abs. 4", status: V}
+    - {name: unterkante, wert: 1.20, einheit: m, richtung: max, fundstelle: "Art. 35 Abs. 4", status: V}
+    - {name: abstand_traufkante, wert: 1.00, einheit: m, richtung: max, fundstelle: "Art. 35 Abs. 4", status: V}
+  meldung: "Das Rettungsfenster in {raum} erfüllt {kriterium} nicht ({ist} statt {soll})."
+  alternative:
+    - {art: A3_variante, beschreibung: "größeres Fenster desselben Herstellers wählen", frei: [dachfenster.typ]}
+    - {art: A1_grenzwert, beschreibung: "Fenster näher an die Traufe oder tiefer setzen", frei: [dachfenster.lage_v]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.4.1"
+  anforderungen: [ANF-14-14]
+
+- id: BY.BayBO.30-5.Dachfenster-Brandwand
+  version: 0.1.0
+  titel: Abstand von Dachflächenfenstern zu Brand- und Gebäudeabschlusswänden
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 30 Abs. 5", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["09"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [DHH, RH_Ende, RH_Mitte, MFH_GK3, MFH_GK4, GWB_GK5]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcWindow SKYLIGHT und IfcWall mit Rolle Brandwand oder Gebäudeabschlusswand"
+    ausnahmen: [wand_mindestens_0_30_m_ueber_dach]
+  eingaben:
+    - {name: abstand_fenster_wand, einheit: m, quelle: Modell}
+    - {name: wand_ueber_dach, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: abstand_brandwand@0.1
+    formel: "nicht_anwendbar, wenn wand_ueber_dach >= 0,30 m; sonst verletzt, wenn abstand_fenster_wand < 1,25 m"
+    parameter: {abstand_min_m: 1.25, wand_ueber_dach_m: 0.30}
+  grenzwerte:
+    - {name: abstand, wert: 1.25, einheit: m, richtung: min, fundstelle: "Art. 30 Abs. 5", status: V}
+  meldung: "Das Dachfenster liegt {ist:.2f} m von der {wand} entfernt; gefordert sind 1,25 m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Dachfenster auf 1,25 m Abstand verschieben", frei: [dachfenster.lage_u]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.4.1"
+  anforderungen: [ANF-14-15]
+  hinweis: "Kopplung an BY.BayBO.28-2.Gebaeudeabschlusswand (regelkatalog.yaml)."
+
+- id: BY.BayBO.30-8.Dacharbeiten
+  version: 0.1.0
+  titel: Vorrichtungen für Arbeiten vom Dach aus
+  klasse: R2
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 30 Abs. 8", fassung: "ab 2026-05-01", status: U, bib: [baybo2026], recherche: ["09"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcRoof mit vom Dach aus vorzunehmenden Arbeiten (Schornstein, PV, Dachfenster)"
+  eingaben:
+    - {name: vorrichtungen, einheit: "-", quelle: Modell, beschreibung: "IfcDiscreteAccessory SAFETYHOOK, ROOFSTEP"}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: dachvorrichtungen@0.1
+    formel: "wenn Kamin oder PV oder wartungspflichtiges Einbauteil vorhanden: mindestens ein Sicherheitshaken und Dachtritte auf dem Weg dorthin; Anzahl und Lage nach Herstellervorgabe"
+  grenzwerte: []
+  meldung: "Auf dem Dach fehlen Vorrichtungen für Arbeiten vom Dach aus ({fehlend})."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Sicherheitshaken und Dachtritte ergänzen", frei: [einbauteil.sicherheitshaken, einbauteil.dachtritt]}
+  status: U
+  beispiel: [keins]
+  kapitel: "14.4.3"
+  hinweis: "Wortlaut von Art. 30 Abs. 8 nur über Recherche 09 zitiert; Anzahl und Lage sind Auslegung [U]."
+
+# ---------------------------------------------------------------------------
+# 14.5 Dachentwässerung und Lüftung über Dach
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN1986-100.Dachentwaesserung
+  version: 0.1.0
+  titel: Bemessung von Rinne und Fallrohr mit r(5,5)
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100; DIN EN 12056-3", fundstelle: "Berechnungsregen Dach r(5,5); Q = r·C·A/10000; Tab. 9", fassung: "2016-12", status: V, recherche: ["09", "18"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem RAINWATER mit IfcPipeSegment GUTTER und RIGIDSEGMENT"
+    r2_voraussetzung: [HRB-R2-KOSTRA-Rasterfeld]
+  eingaben:
+    - {name: A_proj, einheit: "m²", quelle: Modell, beschreibung: "projizierte Einzugsfläche je Fallrohr"}
+    - {name: C, einheit: "-", quelle: Parameter, beschreibung: "1,0 für Dachflächen"}
+    - {name: r_5_5, einheit: "l/(s·ha)", quelle: "KOSTRA-DWD-2020"}
+    - {name: r_5_2, einheit: "l/(s·ha)", quelle: "KOSTRA-DWD-2020", beschreibung: "nur Vergleich"}
+    - {name: Q_zul_rinne, einheit: "l/s", quelle: "Hersteller oder DIN EN 12056-3"}
+    - {name: DN_fallrohr, einheit: mm, quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: dachentwaesserung@0.1
+    formel: "Q = r_5_5 · C · A_proj / 10000; erfuellt, wenn Q <= Q_zul_rinne und Q <= Q_zul_fallrohr und DN_fallrohr >= 75; ohne r_5_5: unbestimmt; Nachweis weist Q(r_5_2) zusätzlich aus"
+    parameter: {C_dach: 1.0, dn_fallrohr_min_mm: 75}
+  grenzwerte:
+    - {name: dn_fallrohr, wert: 75, einheit: mm, richtung: min, fundstelle: "Fachliteratur zu DIN EN 12056-3 (Recherche 09)", status: U}
+  meldung: "Das Fallrohr {id} erhält {Q:.2f} l/s bei r(5,5) = {r} l/(s·ha); zulässig sind {Q_zul:.2f} l/s."
+  alternative:
+    - {art: A3_variante, beschreibung: "größere Rinne oder zusätzliches Fallrohr", frei: [entwaesserung.rinne, entwaesserung.fallrohre]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14.5"
+  anforderungen: [ANF-14-19]
+  tests: [tests/test_b17.py::test_regenabfluss]
+  hinweis: "Referenz: 35,75 m², r = 290 l/(s·ha) (r(5,2) aus B17) -> 1,04 l/s je Fallrohr. Abweichende Rinnenpraxis mit r(5,2) ist im Nachweis zu dokumentieren (E14.9)."
+
+- id: DE.DIN1986-100.Lueftung-ueber-Dach
+  version: 0.1.0
+  titel: Hauptlüftung über Dach ohne Abdeckung der Mündung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100", fundstelle: "6.5.1", fassung: "2016-12", status: V, recherche: ["09"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcStackTerminal COWL auf IfcPipeSegment eines Systems WASTEWATER/VENT"
+  eingaben:
+    - {name: anzahl_fallleitungen_ueber_dach, einheit: "-", quelle: Modell}
+    - {name: kappe, einheit: "-", quelle: Typ, beschreibung: "OFFEN oder GESCHLOSSEN"}
+    - {name: muendung_ueber_dach, einheit: m, quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: lueftung_ueber_dach@0.1
+    formel: "je Gebäude >= 1 Fallleitung über Dach; jede Lüftungsmündung ohne Abdeckung (Kappe OFFEN); Hinweis, wenn muendung_ueber_dach < 0,15 m oder Abstand zu Dachfenster < 1 m darüber bzw. < 2 m daneben [U]"
+    parameter: {muendung_min_m: 0.15, abstand_fenster_ueber_m: 1.0, abstand_fenster_neben_m: 2.0}
+  grenzwerte:
+    - {name: fallleitungen_ueber_dach, wert: 1, einheit: "-", richtung: min, fundstelle: "DIN 1986-100 6.5.1 (DIN-FAQ)", status: V}
+    - {name: muendung_ueber_dach, wert: 0.15, einheit: m, richtung: min, fundstelle: "Sekundärquelle SBZ (Recherche 09)", status: U}
+  meldung: "Die Lüftungsmündung {id} ist abgedeckt ({kappe}); nach DIN 1986-100 ist keine Abdeckung zulässig."
+  alternative:
+    - {art: A3_variante, beschreibung: "Lüfterziegel mit offener Kappe wählen", frei: [einbauteil.luefterziegel]}
+  status: V
+  beispiel: [B15]
+  kapitel: "14.4.2"
+  anforderungen: [ANF-14-18]
+
+# ---------------------------------------------------------------------------
+# 14.6 Photovoltaik
+# ---------------------------------------------------------------------------
+
+- id: BY.BayBO.44a-4.Solar-Soll
+  version: 0.1.0
+  titel: Solaranlage auf Wohngebäuden (Soll-Vorschrift)
+  klasse: R1
+  haerte: weich
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 44a Abs. 4 i. V. m. Abs. 1 S. 2-4; Abs. 5 Nr. 1", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["09"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-01-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcRoof eines Wohngebäudes; Bauantrag oder vollständige Dacherneuerung ab 01.01.2025"
+    ausnahmen: [gestaltungssatzung_art81]
+  eingaben:
+    - {name: geeignete_dachflaeche, einheit: "m²", quelle: Modell, beschreibung: "Auslegungsparameter, von der bauvorlageberechtigten Person zu bestätigen"}
+    - {name: modulflaeche, einheit: "m²", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: solar_soll@0.1
+    formel: "Sollfläche = geeignete_dachflaeche / 3; Hinweis, wenn modulflaeche < Sollfläche; nie verletzt; nicht_anwendbar, wenn eine Satzung nach Art. 81 Solaranlagen ausschließt"
+    parameter: {anteil: 0.3333}
+    auslegung: {geeignete_flaeche: "Abzug von Sperrflächen und Verschattung [U]"}
+  grenzwerte:
+    - {name: anteil, wert: 0.3333, einheit: "-", richtung: min, fundstelle: "Art. 44a Abs. 1 S. 2-4", status: V}
+  meldung: "Für dieses Wohngebäude soll eine Solaranlage von mindestens {soll:.1f} m² vorgesehen werden (1/3 von {A:.1f} m² geeigneter Dachfläche). Geplant sind {ist:.1f} m²."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Modulfläche bis zur Sollfläche ergänzen", frei: [pv.module]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.6.1"
+  anforderungen: [ANF-14-20]
+  hinweis: "Referenz Beispiel 14.5: Südfläche 87,3 m² -> Sollfläche 29,1 m²."
+
+- id: BY.BayBO.30-5-2-2.PV-Brandwand
+  version: 0.1.0
+  titel: Abstand von Solaranlagen zu Brandwänden und Wänden anstelle von Brandwänden
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 30 Abs. 5 S. 2 Nr. 2", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["09"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [DHH, RH_Ende, RH_Mitte, MFH_GK3, MFH_GK4, GWB_GK5]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcSolarDevice und IfcWall mit Rolle Brandwand oder Wand anstelle einer Brandwand"
+    ausnahmen: [wand_schuetzt_gegen_branduebertragung]
+  eingaben:
+    - {name: abstand_modul_wand, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: abstand_brandwand_pv@0.1
+    formel: "verletzt, wenn abstand_modul_wand < 0,50 m, außer die Wand schützt gegen Brandübertragung"
+    parameter: {abstand_min_m: 0.50}
+  grenzwerte:
+    - {name: abstand, wert: 0.50, einheit: m, richtung: min, fundstelle: "Art. 30 Abs. 5 S. 2 Nr. 2", status: V}
+  meldung: "Das Modul {id} liegt {ist:.2f} m von der {wand} entfernt; gefordert sind 0,50 m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Modulreihe um den Fehlbetrag verschieben oder Modul entfernen", frei: [pv.belegung]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.6.1"
+  anforderungen: [ANF-14-15, ANF-14-21]
+
+- id: DE.ZVDH.DZ.Solarhalter
+  version: 0.1.0
+  titel: Befestigung von Solaranlagen in der Deckung
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine; K2 Systems", fundstelle: "4.10 (3)", fassung: "2024-04", status: V, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcSolarDevice in Aufdachmontage auf IfcCovering ROOFING"
+  eingaben:
+    - {name: befestigung, einheit: "-", quelle: Bemusterung, beschreibung: "DACHHAKEN, SYSTEMZIEGEL, DACHTRAEGERPFANNE"}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: rdn_zvdh, einheit: "°", quelle: Datenblatt}
+  pruefung:
+    typ: aufzaehlung
+    funktion: solarhalter@0.1
+    formel: "DACHHAKEN: dachneigung >= rdn_zvdh; SYSTEMZIEGEL: dachneigung >= 10°; unter RDN Empfehlung DACHTRAEGERPFANNE"
+    parameter: {systemziegel_min_grad: 10}
+  grenzwerte:
+    - {name: systemziegel_dachneigung, wert: 10, einheit: "°", richtung: min, fundstelle: "K2 Systems 04/2024 (Recherche 09)", status: V}
+  meldung: "Dachhaken sind bei {DN}° unter der Regeldachneigung {rdn}° nicht zulässig."
+  alternative:
+    - {art: A3_variante, beschreibung: "Systemziegel mit Formschluss oder Dachträgerpfanne wählen", frei: [pv.befestigung]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.6.2"
+  anforderungen: [ANF-14-21]
+
+- id: DE.EEG.9-2.Einspeisegrenze
+  version: 0.1.0
+  titel: Begrenzung der Einspeiseleistung bis zum Einbau der Steuerungstechnik
+  klasse: R1
+  haerte: hinweis
+  quelle: {art: G, werk: "EEG 2023", fundstelle: "§ 9 Abs. 2", fassung: "ab 2025-02-25", status: V, recherche: ["09"]}
+  profil: {name: DE-EEG-2023, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-02-25", bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem mit IfcSolarDevice"
+    anwendbar_wenn: "Inbetriebnahme ab 25.02.2025, Leistung < 100 kW, Einspeisevergütung"
+  eingaben:
+    - {name: leistung_kwp, einheit: kW, quelle: Modell}
+    - {name: inbetriebnahme, einheit: "-", quelle: Termin}
+  pruefung:
+    typ: aufzaehlung
+    funktion: einspeisegrenze@0.1
+    formel: "Hinweis: Wirkleistungseinspeisung auf 60 % begrenzt, bis Smart Meter und Steuerbox getestet sind"
+    parameter: {anteil: 0.6}
+  grenzwerte:
+    - {name: einspeisung_anteil, wert: 0.6, einheit: "-", richtung: max, fundstelle: "§ 9 Abs. 2 EEG", status: V}
+  meldung: "Die Anlage ({P} kW) darf bis zum Einbau der Steuerungstechnik höchstens 60 % ihrer Wirkleistung einspeisen."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "14.6.1"
+  anforderungen: [ANF-14-23]
+
+- id: DE.MaStRV.5-5.Registrierung
+  version: 0.1.0
+  titel: Registrierung der Solaranlage im Marktstammdatenregister
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: MaStRV, fundstelle: "§ 5 Abs. 5", fassung: "geltend 2026-09", status: V, recherche: ["09"]}
+  profil: {name: DE-EEG-2023, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem mit IfcSolarDevice"
+  eingaben:
+    - {name: inbetriebnahme, einheit: "-", quelle: Termin}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: mastr_frist@0.1
+    formel: "Frist = inbetriebnahme + 1 Monat; Termin im Übergabepaket; nach Ablauf ohne Registrierungsnachweis: verletzt"
+    parameter: {frist_monate: 1}
+  grenzwerte:
+    - {name: frist, wert: 1, einheit: Monat, richtung: max, fundstelle: "§ 5 Abs. 5 MaStRV", status: V}
+  meldung: "Die Anlage ist bis {frist} im Marktstammdatenregister zu registrieren."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "14.6.1"
+  anforderungen: [ANF-14-23]
+  hinweis: "Testfall: Inbetriebnahme 2026-10-01 -> Frist 2026-11-01. Netzanschluss nach VDE-AR-N 4105:2026-03 als Hinweis (Recherche 09)."
+
+# ---------------------------------------------------------------------------
+# 14.7 Fassade und Gestaltung
+# ---------------------------------------------------------------------------
+
+- id: DE.FR01.Holzschalung
+  version: 0.1.0
+  titel: Außenwandbekleidung aus Holz nach Fachregel 01
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "Fachregel 01 Zimmerer: Außenwandbekleidungen aus Holz; Ausschreibungshilfe Holzbau Deutschland 2021; BauNetz Wissen", fundstelle: "Geltung, Brettmaße, Sockel", fassung: "2023-03", status: V, recherche: ["09"]}
+  profil: {name: DE-Handwerk-Zimmerer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2023-03-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcCovering CLADDING aus Holz"
+    anwendbar_wenn: "Firsthöhe <= 10 m"
+  eingaben:
+    - {name: firsthoehe, einheit: m, quelle: Modell}
+    - {name: brett_dicke, einheit: mm, quelle: Bemusterung}
+    - {name: brett_breite, einheit: mm, quelle: Bemusterung}
+    - {name: befestigung_anzahl, einheit: "-", quelle: Modell}
+    - {name: sockelabstand, einheit: mm, quelle: Modell}
+    - {name: kiesstreifen, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: holzschalung@0.1
+    formel: "nicht_anwendbar mit Hinweis, wenn firsthoehe > 10 m; verletzt, wenn brett_dicke < 18 mm oder brett_breite > 11·brett_dicke oder (brett_breite >= 120 mm und befestigung_anzahl < 2) oder sockelabstand < 300 mm (mit Kiesstreifen 16/32: < 150 mm)"
+    parameter: {firsthoehe_max_m: 10, dicke_min_mm: 18, breite_faktor_max: 11, zweifach_ab_mm: 120, sockel_mm: 300, sockel_kies_mm: 150}
+  grenzwerte:
+    - {name: firsthoehe, wert: 10, einheit: m, richtung: max, fundstelle: "FR 01 (Geltung)", status: V}
+    - {name: brett_dicke, wert: 18, einheit: mm, richtung: min, fundstelle: "Ausschreibungshilfe 2021", status: V}
+    - {name: breite_zu_dicke, wert: 11, einheit: "-", richtung: max, fundstelle: "Ausschreibungshilfe 2021", status: V}
+    - {name: sockelabstand, wert: 300, einheit: mm, richtung: min, fundstelle: "BauNetz Wissen nach FR 01", status: V}
+  meldung: "Das Profil {dicke} × {breite} mm überschreitet die zulässige Breite von {bmax} mm."
+  alternative:
+    - {art: A3_variante, beschreibung: "dickeres Brett (Grenze 11 · Dicke) oder schmaleres Profil", frei: [fassade.brett_dicke, fassade.brett_breite]}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.7.1"
+  anforderungen: [ANF-14-24]
+  hinweis: "Hinterlüftungsquerschnitte und Insektenschutz aus FR 01-Volltext nachtragen (DAT-14-11)."
+
+- id: M.Firma.Putz-Holzfaser-Zulassung
+  version: 0.1.0
+  titel: Verwendbarkeitsnachweis des Putzsystems auf Holzfaser
+  klasse: R2
+  haerte: hart
+  quelle: {art: M, werk: "Systemzulassung bzw. Bauartgenehmigung des DIBt je WDVS auf Holzfaser", fundstelle: "Recherche 09, Abschnitt 7", fassung: "je Bescheid", status: U, recherche: ["09"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcCovering CLADDING mit ObjectType PUTZ_HOLZFASER"
+  eingaben:
+    - {name: zulassung_nr, einheit: "-", quelle: Typ}
+  pruefung:
+    typ: ids
+    formel: "Typ trägt zulassung_nr (nicht leer) und IfcDocumentReference auf den Bescheid; fehlt sie, ist der Außenwandnachweis in Reifegrad R unbestimmt"
+    ids: "HRB-Fassade-01 (zu erstellen)"
+  grenzwerte: []
+  meldung: "Für das Putzsystem {system} fehlt die Zulassungs- oder Genehmigungsnummer."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Bescheid des Systemherstellers beifügen"}
+  status: U
+  beispiel: [keins]
+  kapitel: "14.7.2"
+  anforderungen: [ANF-14-25]
+
+- id: BY.BayBO.81.Dachgestaltung
+  version: 0.1.0
+  titel: Örtliche Bauvorschriften zu Dachform, Neigung, Material und Farbe
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "BayBO; Bebauungsplan bzw. Gestaltungssatzung", fundstelle: "Art. 81 Abs. 1; XPlanGML BP_Dachgestaltung", fassung: "ab 2026-05-01", status: V, bib: [baybo2026, xplanung], recherche: ["09", "02"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Bayern; Geltungsbereich der Satzung"
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: datum_bebauungsplan}
+  vorbedingung:
+    auswahl: "IfcRoof, IfcCovering ROOFING und CLADDING"
+    r2_voraussetzung: [BY-R2-BPlan-Dachgestaltung-bestaetigt]
+  eingaben:
+    - {name: dachform, einheit: "-", quelle: Modell}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: farbe_dach, einheit: "-", quelle: Bemusterung}
+    - {name: farbe_fassade, einheit: "-", quelle: Bemusterung}
+    - {name: festsetzung, einheit: "-", quelle: "BP_Dachgestaltung (DNmin, DNmax, Dachform), Farbvorgaben"}
+  pruefung:
+    typ: aufzaehlung
+    funktion: dachgestaltung@0.1
+    formel: "dachform ∈ zulässige Formen ∧ DNmin <= dachneigung <= DNmax ∧ Farben ∈ zulässige Farbcodes; ohne bestätigte Festsetzung: unbestimmt"
+  grenzwerte: []
+  meldung: "Die Dachneigung {DN}° liegt außerhalb der Festsetzung {DNmin}–{DNmax}°."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Dachneigung auf die nächste zulässige Grenze setzen", frei: [dach.neigung]}
+    - {art: A5_freigabeweg, beschreibung: "Befreiung bzw. Abweichung bei der Gemeinde beantragen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "14.7.3"
+  anforderungen: [ANF-14-27]
+  hinweis: "Satzungen nach Art. 81 gehen der Solar-Soll-Regel vor (Art. 44a Abs. 5 Nr. 1)."

@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad R (prüffertig) – Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'belag' im Reifegrad R nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Regel-, Nachweis-, Kompatibilitäts- und Kostenprüfung</purpose>
+        <milestone>Vertrag, Bauvorlage, Entwurf der Ausstattungsfestlegung</milestone>
+    </info>
+    <specifications>
+        <specification name="BEL-P-01 Belag: Katalogoption, Muster, Material und Fläche" ifcVersion="IFC4X3_ADD2" identifier="BEL-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="FLOORING" />
+                            <xs:enumeration value="CLADDING" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                            <xs:enumeration value="Parkett" />
+                            <xs:enumeration value="Designboden" />
+                            <xs:enumeration value="Laminat" />
+                            <xs:enumeration value="Teppich" />
+                            <xs:enumeration value="Beton_Cire" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Darstellung</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="herstellertextur" />
+                            <xs:enumeration value="aehnlich" />
+                            <xs:enumeration value="generisch" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Muster</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="gerade" />
+                            <xs:enumeration value="diagonal" />
+                            <xs:enumeration value="fischgraet" />
+                            <xs:enumeration value="chevron" />
+                            <xs:enumeration value="wilder_verband" />
+                            <xs:enumeration value="englischer_verband" />
+                            <xs:enumeration value="wuerfel" />
+                            <xs:enumeration value="roemischer_verband" />
+                            <xs:enumeration value="fugenlos" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCAREAMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Qto_CoveringBaseQuantities</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NetArea</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minExclusive value="0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="BEL-R-01 Belag: Hersteller, Serie, Format, Fuge, Versatz, Leistungsbereich" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="FLOORING" />
+                            <xs:enumeration value="CLADDING" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                            <xs:enumeration value="Parkett" />
+                            <xs:enumeration value="Designboden" />
+                            <xs:enumeration value="Laminat" />
+                            <xs:enumeration value="Teppich" />
+                            <xs:enumeration value="Beton_Cire" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <classification cardinality="required">
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="0(23|24|25|28|34|36)" />
+                        </xs:restriction>
+                    </value>
+                    <system>
+                        <simpleValue>STLB-Bau</simpleValue>
+                    </system>
+                </classification>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Manufacturer</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>ModelReference</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Status</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="entwurf" />
+                            <xs:enumeration value="geprueft" />
+                            <xs:enumeration value="festgeschrieben" />
+                            <xs:enumeration value="nachtrag" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Belagart</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                            <xs:enumeration value="Parkett" />
+                            <xs:enumeration value="Designboden" />
+                            <xs:enumeration value="Laminat" />
+                            <xs:enumeration value="Teppich" />
+                            <xs:enumeration value="Beton_Cire" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Dicke</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.001" fixed="false" />
+                            <xs:maxInclusive value="0.06" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVERATIOMEASURE" cardinality="optional">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Versatz</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0" fixed="false" />
+                            <xs:maxInclusive value="0.5" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPLANEANGLEMEASURE" cardinality="optional">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Winkel</simpleValue>
+                    </baseName>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="BEL-R-02 Fliese und Naturstein: Format, Fuge, Rutschhemmung, Wassereinwirkungsklasse" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-02">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="FLOORING" />
+                            <xs:enumeration value="CLADDING" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>FormatLaenge</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.01" fixed="false" />
+                            <xs:maxInclusive value="3.2" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>FormatBreite</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.01" fixed="false" />
+                            <xs:maxInclusive value="1.6" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Fugenbreite</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.001" fixed="false" />
+                            <xs:maxInclusive value="0.02" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Fugenfarbe</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Wassereinwirkungsklasse</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="W0-I" />
+                            <xs:enumeration value="W1-I" />
+                            <xs:enumeration value="W2-I" />
+                            <xs:enumeration value="W3-I" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="BEL-R-03 Bodenfliese: Rutschhemmung (R-Klasse)" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-03">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>FLOORING</simpleValue>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Rutschhemmung</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="R(9|1[0-3])" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="BEL-R-04 Parkett: Holzart, Sortierung, Oberfläche, Verlegeart" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-04">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>FLOORING</simpleValue>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <simpleValue>Parkett</simpleValue>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Holzart</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Sortierung</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Oberflaeche</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Belag</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Verlegeart</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="verklebt" />
+                            <xs:enumeration value="schwimmend" />
+                            <xs:enumeration value="genagelt" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="BEL-R-05 Bodenbelag: Fußbodenaufbau mit OKFF-Nachweis und R_λ,B (B14)" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-05">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>FLOORING</simpleValue>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                            <xs:enumeration value="Parkett" />
+                            <xs:enumeration value="Designboden" />
+                            <xs:enumeration value="Laminat" />
+                            <xs:enumeration value="Teppich" />
+                            <xs:enumeration value="Beton_Cire" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Fussbodenaufbau</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OKFF</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Fussbodenaufbau</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Estrich</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCTHERMALRESISTANCEMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Fussbodenaufbau</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>R_lambda_B</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0" fixed="false" />
+                            <xs:maxInclusive value="0.5" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCBOOLEAN" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Fussbodenaufbau</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NachweisOKFF</simpleValue>
+                    </baseName>
+                    <value>
+                        <simpleValue>TRUE</simpleValue>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="BEL-R-V01 R: keine Belagstücke (E8.12)" ifcVersion="IFC4X3_ADD2" identifier="BEL-R-V01">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELAGGREGATES">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCCOVERING</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements />
+        </specification>
+    </specifications>
+</ids>

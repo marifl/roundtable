@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad P (präsentationsfertig) – Boden- und Wandbelag mit Fußbodenaufbau (Fliese, Naturstein, Parkett, Designboden, Beton Ciré, Teppich)</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'belag' im Reifegrad P nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Entscheidung des Kunden: fotorealistische 3D-Ansicht, AR auf dem Grundstück, Preisindikation</purpose>
+        <milestone>Entwurf, Vorbemusterung, Angebot</milestone>
+    </info>
+    <specifications>
+        <specification name="BEL-P-01 Belag: Katalogoption, Muster, Material und Fläche" ifcVersion="IFC4X3_ADD2" identifier="BEL-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="FLOORING" />
+                            <xs:enumeration value="CLADDING" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+                <property dataType="IFCLABEL">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Kategorie</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Fliese" />
+                            <xs:enumeration value="Naturstein" />
+                            <xs:enumeration value="Parkett" />
+                            <xs:enumeration value="Designboden" />
+                            <xs:enumeration value="Laminat" />
+                            <xs:enumeration value="Teppich" />
+                            <xs:enumeration value="Beton_Cire" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </applicability>
+            <requirements>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Darstellung</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="herstellertextur" />
+                            <xs:enumeration value="aehnlich" />
+                            <xs:enumeration value="generisch" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verlegung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Muster</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="gerade" />
+                            <xs:enumeration value="diagonal" />
+                            <xs:enumeration value="fischgraet" />
+                            <xs:enumeration value="chevron" />
+                            <xs:enumeration value="wilder_verband" />
+                            <xs:enumeration value="englischer_verband" />
+                            <xs:enumeration value="wuerfel" />
+                            <xs:enumeration value="roemischer_verband" />
+                            <xs:enumeration value="fugenlos" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCAREAMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Qto_CoveringBaseQuantities</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NetArea</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minExclusive value="0" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="BEL-P-V01 P: keine Belagstücke" ifcVersion="IFC4X3_ADD2" identifier="BEL-P-V01">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCCOVERING</simpleValue>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELAGGREGATES">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCCOVERING</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements />
+        </specification>
+    </specifications>
+</ids>

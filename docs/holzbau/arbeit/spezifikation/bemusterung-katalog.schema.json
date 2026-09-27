@@ -1,0 +1,2045 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/holzbau/spezifikation/bemusterung-katalog.schema.json",
+  "title": "Bemusterungskatalog: Katalogartikel und festgeschriebene Auswahl (Kapitel 12.4 und 12.6)",
+  "description": "Wurzel ist entweder ein Katalogartikel (schema = hrb-katalogartikel/0.1) oder eine Auswahl (schema = hrb-auswahl/0.1). Die Auswahl trennt Artikel (was bestellt wird), Leistung (wie eingebaut wird) und Kontext (wo). Die Pflichtfelder sind nach Reifegrad P/R/A gestuft (Kapitel 11). Eine Auswahl im Status 'festgeschrieben' trägt einen Inhaltshash: 'sha256:' + SHA-256 über den kanonischen JSON-Text ohne die Felder inhaltshash und lieferdaten (Lieferdaten sind Ist-Daten und ändern den festgeschriebenen Inhalt nicht) (Schlüssel sortiert, ohne Leerraum, UTF-8; JCS nach RFC 8785 für die verwendeten Werte). Längen in mm, Flächen in m², Geld in EUR.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/katalogartikel"
+    },
+    {
+      "$ref": "#/$defs/auswahl"
+    }
+  ],
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "artikel_id": {
+      "type": "string",
+      "pattern": "^K-[A-Z]{3}-[0-9]{4}$",
+      "description": "Katalog-Option; gleich HRB_Auswahl.OptionID im IFC"
+    },
+    "gtin": {
+      "type": "string",
+      "pattern": "^([0-9]{8}|[0-9]{12,14})$",
+      "description": "GTIN-8/12/13/14; die Prüfziffer (Modulo 10) prüft die App (ANF-08-17)"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "regel_id": {
+      "type": "string",
+      "pattern": "^(BY|DE|EU|M|Q|K|IDS)\\.[A-Za-z0-9ÄÖÜäöüß_.\\-]+$"
+    },
+    "ifc_guid": {
+      "type": "string",
+      "pattern": "^[0-9A-Za-z_$]{22}$"
+    },
+    "status_vu": {
+      "enum": [
+        "V",
+        "U"
+      ]
+    },
+    "reifegrad": {
+      "enum": [
+        "P",
+        "R",
+        "A"
+      ]
+    },
+    "freeze": {
+      "enum": [
+        "W",
+        "A",
+        "-"
+      ],
+      "description": "W = vor Werkplanung/Wandfertigung, A = vor Ausbau"
+    },
+    "kategorie": {
+      "enum": [
+        "fassade",
+        "dach_deckung",
+        "dach_einbauteile",
+        "fenster",
+        "sonnenschutz",
+        "haustuer",
+        "balkon_terrasse",
+        "aussenanlagen",
+        "treppe",
+        "innentuer",
+        "boden_parkett",
+        "boden_elastisch",
+        "fliese",
+        "naturstein",
+        "beton_cire",
+        "wand_decke",
+        "sanitaer",
+        "elektro_programm",
+        "elektro_auslaesse",
+        "smart_home",
+        "heizung_lueftung",
+        "kueche",
+        "moebel"
+      ],
+      "description": "Knoten der Bemusterungstaxonomie (bemusterung-abhaengigkeiten.yaml#kategorien)"
+    },
+    "geld": {
+      "type": "object",
+      "required": [
+        "betrag",
+        "waehrung",
+        "brutto"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "betrag": {
+          "type": "number"
+        },
+        "waehrung": {
+          "const": "EUR"
+        },
+        "brutto": {
+          "type": "boolean"
+        }
+      }
+    },
+    "farbe": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Hersteller-Farbname"
+        },
+        "system": {
+          "enum": [
+            "Hersteller",
+            "RAL",
+            "NCS",
+            "CIELAB"
+          ]
+        },
+        "code": {
+          "type": "string"
+        },
+        "lizenz_farbsystem": {
+          "type": "boolean",
+          "description": "true, wenn die Nutzung von RAL/NCS-Codes im Konfigurator lizenziert ist"
+        },
+        "lab": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "lichtart": {
+          "enum": [
+            "D65",
+            "D50"
+          ]
+        },
+        "beobachter_grad": {
+          "enum": [
+            2,
+            10
+          ]
+        },
+        "srgb_linear": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "muster_nr": {
+          "type": "string",
+          "description": "physisches Muster; verbindlich (M.Bemusterung.Farbverbindlichkeit)"
+        }
+      }
+    },
+    "merkmal": {
+      "type": "object",
+      "required": [
+        "name",
+        "wert"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "wert": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "array"
+          ]
+        },
+        "einheit": {
+          "type": "string"
+        },
+        "pset": {
+          "type": "string",
+          "pattern": "^(Pset_|Qto_|HRB_)"
+        },
+        "bsdd_uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "norm": {
+          "type": "string"
+        },
+        "quelle": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/status_vu"
+        }
+      }
+    },
+    "klassifikation": {
+      "type": "object",
+      "required": [
+        "system",
+        "code"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "system": {
+          "enum": [
+            "ETIM",
+            "ECLASS",
+            "STLB-Bau",
+            "DIN 276",
+            "HRB-Bemusterung"
+          ]
+        },
+        "edition": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "geprueft": {
+          "type": "boolean",
+          "description": "nur geprüfte Klassennummern werden ins IFC geschrieben (ANF-08-16)"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "system": {
+                "const": "ETIM"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "edition",
+              "geprueft"
+            ]
+          }
+        }
+      ]
+    },
+    "dokument": {
+      "type": "object",
+      "required": [
+        "art",
+        "uri"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "art": {
+          "enum": [
+            "datenblatt",
+            "montageanleitung",
+            "leistungserklaerung",
+            "epd",
+            "dpp",
+            "garantie",
+            "lizenz",
+            "verlegeplan",
+            "werkzeichnung",
+            "pruefbericht"
+          ]
+        },
+        "uri": {
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "gueltig_bis": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "darstellung": {
+      "type": "object",
+      "required": [
+        "modus"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "modus": {
+          "enum": [
+            "herstellertextur",
+            "aehnlich",
+            "generisch"
+          ],
+          "description": "gleich HRB_Auswahl.Darstellung"
+        },
+        "pbr": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "basecolor": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "roughness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "metallic": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "textur_basecolor": {
+              "type": "string"
+            },
+            "textur_normal": {
+              "type": "string"
+            },
+            "textur_groesse_mm": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "reale Kantenlänge der Textur (KHR_texture_transform)"
+            },
+            "gltf_variante": {
+              "type": "string",
+              "description": "Name der KHR_materials_variants-Variante"
+            }
+          }
+        },
+        "lizenz": {
+          "type": "object",
+          "required": [
+            "art"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "art": {
+              "enum": [
+                "cc0",
+                "hersteller",
+                "eigen",
+                "keine"
+              ]
+            },
+            "nachweis": {
+              "$ref": "#/$defs/dokument"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "art": {
+                    "const": "hersteller"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "nachweis"
+                ]
+              }
+            }
+          ]
+        },
+        "geometrie": {
+          "enum": [
+            "hersteller_mesh",
+            "parametrisch",
+            "generisch"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "modus": {
+                "const": "herstellertextur"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "lizenz"
+            ],
+            "properties": {
+              "lizenz": {
+                "properties": {
+                  "art": {
+                    "const": "hersteller"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ifc_abbildung": {
+      "type": "object",
+      "required": [
+        "typ_klasse"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "typ_klasse": {
+          "type": "string",
+          "pattern": "^Ifc[A-Za-z]+Type$|^IfcStair$|^IfcCovering$"
+        },
+        "predefined_type": {
+          "type": "string"
+        },
+        "object_type": {
+          "type": "string"
+        },
+        "bibliothek": {
+          "type": "string",
+          "description": "Name der IfcProjectLibrary"
+        },
+        "psets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(Pset_|Qto_|HRB_)"
+          }
+        },
+        "typ_guid": {
+          "$ref": "#/$defs/ifc_guid"
+        },
+        "objekt_guids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ifc_guid"
+          }
+        },
+        "teile": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "kompatibilitaet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "erfordert": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Artikel-IDs, Optionen (OPT-…) oder Merkmalsbedingungen"
+        },
+        "schliesst_aus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "passt_zu": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "merkmal",
+              "werte"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "merkmal": {
+                "type": "string"
+              },
+              "werte": {
+                "type": "array"
+              }
+            }
+          }
+        },
+        "regeln": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regel_id"
+          }
+        },
+        "optionen": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^OPT-[A-Z0-9-]+$"
+          },
+          "description": "Einträge in bemusterung-abhaengigkeiten.yaml#optionen"
+        }
+      }
+    },
+    "preis": {
+      "type": "object",
+      "required": [
+        "modell",
+        "gueltig_ab",
+        "gueltig_bis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "modell": {
+          "enum": [
+            "standard",
+            "budget_m2",
+            "stueck",
+            "pauschal",
+            "auf_anfrage"
+          ]
+        },
+        "uvp": {
+          "$ref": "#/$defs/geld"
+        },
+        "einheit": {
+          "enum": [
+            "m2",
+            "stueck",
+            "m",
+            "pauschal"
+          ]
+        },
+        "budget_eur_m2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "formel_id": {
+          "type": "string"
+        },
+        "gueltig_ab": {
+          "type": "string",
+          "format": "date"
+        },
+        "gueltig_bis": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "hersteller": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "serie": {
+          "type": "string"
+        },
+        "artikelnummer": {
+          "type": "string"
+        },
+        "gtin": {
+          "$ref": "#/$defs/gtin"
+        },
+        "einzelanfertigung": {
+          "type": "boolean",
+          "description": "true: keine GTIN (z. B. Treppe); Auftragsnummer statt Artikelnummer"
+        }
+      }
+    },
+    "variante": {
+      "type": "object",
+      "required": [
+        "variante_id",
+        "merkmale"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "variante_id": {
+          "type": "string",
+          "pattern": "^V[0-9]{2,3}$"
+        },
+        "gtin": {
+          "$ref": "#/$defs/gtin"
+        },
+        "artikelnummer": {
+          "type": "string"
+        },
+        "farbe": {
+          "$ref": "#/$defs/farbe"
+        },
+        "merkmale": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/merkmal"
+          }
+        },
+        "lieferzeit_tage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 365
+        },
+        "darstellung": {
+          "$ref": "#/$defs/darstellung"
+        }
+      }
+    },
+    "katalogartikel": {
+      "type": "object",
+      "required": [
+        "schema",
+        "artikel_id",
+        "kategorie",
+        "bezeichnung",
+        "hersteller",
+        "freeze",
+        "varianten",
+        "ifc",
+        "preis",
+        "lieferzeit_tage",
+        "status",
+        "quelle"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "hrb-katalogartikel/0.1"
+        },
+        "artikel_id": {
+          "$ref": "#/$defs/artikel_id"
+        },
+        "kategorie": {
+          "$ref": "#/$defs/kategorie"
+        },
+        "bezeichnung": {
+          "type": "string"
+        },
+        "hersteller": {
+          "$ref": "#/$defs/hersteller"
+        },
+        "freeze": {
+          "$ref": "#/$defs/freeze"
+        },
+        "standard": {
+          "type": "boolean",
+          "description": "Bestandteil der Standardausstattung der Baubeschreibung"
+        },
+        "varianten": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/variante"
+          }
+        },
+        "merkmale": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/merkmal"
+          }
+        },
+        "klassifikation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/klassifikation"
+          }
+        },
+        "ifc": {
+          "$ref": "#/$defs/ifc_abbildung"
+        },
+        "darstellung": {
+          "$ref": "#/$defs/darstellung"
+        },
+        "preis": {
+          "$ref": "#/$defs/preis"
+        },
+        "lieferzeit_tage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 365
+        },
+        "verfuegbar_bis": {
+          "type": "string",
+          "format": "date"
+        },
+        "kompatibilitaet": {
+          "$ref": "#/$defs/kompatibilitaet"
+        },
+        "produktdaten": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "quelle_format": {
+              "enum": [
+                "ETIM xChange",
+                "BMEcat",
+                "VDI 3805",
+                "DCC IDM",
+                "OFML",
+                "Open Masterdata",
+                "Excel",
+                "manuell"
+              ]
+            },
+            "datenvorlage": {
+              "type": "string",
+              "description": "Product Data Template nach ISO 23387"
+            },
+            "dpp_uri": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "digitaler Produktpass, sobald verfügbar"
+            }
+          }
+        },
+        "dokumente": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dokument"
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/status_vu"
+        },
+        "quelle": {
+          "type": "string"
+        }
+      }
+    },
+    "verlegung": {
+      "type": "object",
+      "required": [
+        "muster"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "muster": {
+          "enum": [
+            "gerade",
+            "diagonal",
+            "fischgraet",
+            "chevron",
+            "wilder_verband",
+            "englischer_verband",
+            "wuerfel",
+            "roemischer_verband",
+            "fugenlos"
+          ]
+        },
+        "versatz": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.5
+        },
+        "winkel_grad": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180
+        },
+        "gehrungswinkel_grad": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 90
+        },
+        "richtung": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "achsbezug": {
+          "type": "object",
+          "required": [
+            "bezug"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "bezug": {
+              "type": "string"
+            },
+            "ifc_guid": {
+              "$ref": "#/$defs/ifc_guid"
+            },
+            "xy_mm": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        },
+        "rasterursprung_uv": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "fugenbreite_mm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "fuge": {
+          "type": "object",
+          "required": [
+            "farbe"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "produkt": {
+              "type": "string"
+            },
+            "gtin": {
+              "$ref": "#/$defs/gtin"
+            },
+            "typ": {
+              "type": "string"
+            },
+            "farbe": {
+              "type": "string"
+            }
+          }
+        },
+        "silikon": {
+          "type": "object",
+          "required": [
+            "farbe"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "produkt": {
+              "type": "string"
+            },
+            "gtin": {
+              "$ref": "#/$defs/gtin"
+            },
+            "farbe": {
+              "type": "string"
+            }
+          }
+        },
+        "gefaelle_prozent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "entwaesserung": {
+          "enum": [
+            "keine",
+            "punkt",
+            "rinne",
+            "zwei_rinnen"
+          ]
+        },
+        "bewegungsfugen": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schnittregeln": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min_breite_mm": {
+              "type": "number"
+            },
+            "min_flaechenanteil": {
+              "type": "number"
+            },
+            "verfugen_unter_mm": {
+              "type": "number"
+            },
+            "drehbar": {
+              "type": "boolean"
+            }
+          }
+        },
+        "sockel": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "art": {
+              "type": "string"
+            },
+            "hoehe_mm": {
+              "type": "number"
+            },
+            "artikel_id": {
+              "$ref": "#/$defs/artikel_id"
+            }
+          }
+        },
+        "uebergaenge": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "zu_raum",
+              "loesung"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "zu_raum": {
+                "type": "string"
+              },
+              "tuer": {
+                "type": "string"
+              },
+              "loesung": {
+                "type": "string"
+              },
+              "kante_worst_case_mm": {
+                "type": "number"
+              },
+              "regel": {
+                "$ref": "#/$defs/regel_id"
+              }
+            }
+          }
+        }
+      }
+    },
+    "aufbau": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "untergrund": {
+          "type": "string"
+        },
+        "estrich": {
+          "type": "string"
+        },
+        "okff_mm": {
+          "type": "number"
+        },
+        "okff_toleranz_mm": {
+          "type": "number"
+        },
+        "r_lambda_b": {
+          "type": "number",
+          "minimum": 0
+        },
+        "fussbodenheizung": {
+          "type": "boolean"
+        },
+        "verlegewerkstoff": {
+          "type": "string"
+        },
+        "verlegeart": {
+          "enum": [
+            "verklebt",
+            "schwimmend",
+            "genagelt",
+            "duennbett",
+            "mittelbett",
+            "dickbett"
+          ]
+        },
+        "abdichtung": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "wassereinwirkungsklasse": {
+              "enum": [
+                "W0-I",
+                "W1-I",
+                "W2-I",
+                "W3-I"
+              ]
+            },
+            "typ": {
+              "type": "string"
+            },
+            "gtin": {
+              "$ref": "#/$defs/gtin"
+            }
+          }
+        },
+        "ebenheit": {
+          "type": "string"
+        },
+        "belegreife_cm_max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "flaechenmasse_kg_m2": {
+          "type": "number"
+        },
+        "schichten": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "dicke_mm"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "dicke_mm": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "quelle": {
+          "type": "string"
+        }
+      }
+    },
+    "treppe": {
+      "type": "object",
+      "required": [
+        "form",
+        "ifc_stair_type",
+        "steigungen",
+        "steigung_mm",
+        "auftritt_mm",
+        "laufbreite_mm"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "type": "string"
+        },
+        "ifc_stair_type": {
+          "type": "string"
+        },
+        "drehrichtung": {
+          "enum": [
+            "links",
+            "rechts"
+          ]
+        },
+        "geschosshoehe_ffb_mm": {
+          "type": "number"
+        },
+        "steigungen": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "auftritte": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "steigung_mm": {
+          "type": "number"
+        },
+        "auftritt_mm": {
+          "type": "number"
+        },
+        "schrittmass_mm": {
+          "type": "number"
+        },
+        "laufbreite_mm": {
+          "type": "number"
+        },
+        "lauflaenge_mm": {
+          "type": "number"
+        },
+        "lauflinienabstand_mm": {
+          "type": "number"
+        },
+        "verziehung": {
+          "type": "object",
+          "required": [
+            "methode"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "methode": {
+              "enum": [
+                "keine",
+                "verhaeltnis",
+                "winkel",
+                "kreisbogen"
+              ]
+            },
+            "auftritt_innen_min_mm": {
+              "type": "number"
+            },
+            "verzogene_stufen": {
+              "type": "integer"
+            }
+          }
+        },
+        "kopfhoehe_min_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "bauart": {
+          "type": "string"
+        },
+        "holzart": {
+          "type": "string"
+        },
+        "sortierung": {
+          "type": "string"
+        },
+        "oberflaeche": {
+          "type": "string"
+        },
+        "setzstufen": {
+          "enum": [
+            "offen",
+            "geschlossen"
+          ]
+        },
+        "gelaender": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fuellung": {
+              "type": "string"
+            },
+            "material": {
+              "type": "string"
+            },
+            "lichter_abstand_mm": {
+              "type": "number"
+            },
+            "hoehe_mm": {
+              "type": "number"
+            },
+            "handlauf": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "material": {
+                  "type": "string"
+                },
+                "profil": {
+                  "type": "string"
+                },
+                "durchmesser_mm": {
+                  "type": "number"
+                },
+                "hoehe_mm": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "quelle": {
+          "type": "string"
+        }
+      }
+    },
+    "einbau": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "montageart": {
+          "type": "string"
+        },
+        "vorwandsystem": {
+          "type": "string"
+        },
+        "wand": {
+          "type": "string"
+        },
+        "montagehoehe_mm": {
+          "type": "number"
+        },
+        "achse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x_mm": {
+              "type": "number"
+            },
+            "y_mm": {
+              "type": "number"
+            },
+            "bezug": {
+              "type": "string"
+            }
+          }
+        },
+        "bewegungsflaeche_mm": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "anschluesse": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "medium"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "medium": {
+                "enum": [
+                  "abwasser",
+                  "kaltwasser",
+                  "warmwasser",
+                  "strom",
+                  "daten",
+                  "abluft"
+                ]
+              },
+              "dn": {
+                "type": "number"
+              },
+              "leitung": {
+                "type": "string"
+              },
+              "hoehe_ueber_okff_mm": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "tragkonstruktion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pruefung": {
+      "type": "object",
+      "required": [
+        "regel",
+        "ergebnis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "regel": {
+          "$ref": "#/$defs/regel_id"
+        },
+        "version": {
+          "type": "string"
+        },
+        "ergebnis": {
+          "enum": [
+            "erfuellt",
+            "verletzt",
+            "unbestimmt",
+            "nicht_anwendbar",
+            "freigabepflichtig"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "werte": {
+          "type": "object"
+        }
+      }
+    },
+    "auswahl": {
+      "type": "object",
+      "required": [
+        "schema",
+        "auswahl_id",
+        "reifegrad",
+        "status",
+        "kategorie",
+        "kontext",
+        "artikel"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "hrb-auswahl/0.1"
+        },
+        "auswahl_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "vorgaenger": {
+          "$ref": "#/$defs/uuid",
+          "description": "bei Nachtrag: die ersetzte Auswahl"
+        },
+        "reifegrad": {
+          "$ref": "#/$defs/reifegrad"
+        },
+        "status": {
+          "enum": [
+            "entwurf",
+            "geprueft",
+            "festgeschrieben",
+            "nachtrag"
+          ]
+        },
+        "kategorie": {
+          "$ref": "#/$defs/kategorie"
+        },
+        "festgeschrieben_am": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inhaltshash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "kontext": {
+          "type": "object",
+          "required": [
+            "projekt",
+            "raum"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "projekt": {
+              "type": "string"
+            },
+            "geschoss": {
+              "type": "string"
+            },
+            "raum": {
+              "type": "string"
+            },
+            "flaeche": {
+              "type": "string",
+              "description": "Boden, Wand Nord, Decke …"
+            },
+            "ifc_space_guid": {
+              "$ref": "#/$defs/ifc_guid"
+            },
+            "flaeche_netto_m2": {
+              "type": "number",
+              "minimum": 0
+            },
+            "gebaeudetyp": {
+              "type": "string"
+            },
+            "wohnungen": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "profil": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "artikel": {
+          "type": "object",
+          "required": [
+            "artikel_id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "artikel_id": {
+              "$ref": "#/$defs/artikel_id"
+            },
+            "variante_id": {
+              "type": "string",
+              "pattern": "^V[0-9]{2,3}$"
+            },
+            "hersteller": {
+              "$ref": "#/$defs/hersteller"
+            },
+            "farbe": {
+              "$ref": "#/$defs/farbe"
+            },
+            "oberflaeche": {
+              "type": "string"
+            },
+            "format_mm": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "dicke_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "merkmale": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/merkmal"
+              }
+            },
+            "weitere_artikel": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "rolle",
+                  "artikel_id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "rolle": {
+                    "type": "string"
+                  },
+                  "artikel_id": {
+                    "$ref": "#/$defs/artikel_id"
+                  },
+                  "gtin": {
+                    "$ref": "#/$defs/gtin"
+                  },
+                  "menge": {
+                    "type": "number"
+                  },
+                  "einheit": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "leistung": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "verlegung": {
+              "$ref": "#/$defs/verlegung"
+            },
+            "aufbau": {
+              "$ref": "#/$defs/aufbau"
+            },
+            "treppe": {
+              "$ref": "#/$defs/treppe"
+            },
+            "einbau": {
+              "$ref": "#/$defs/einbau"
+            },
+            "oberflaeche": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "q_stufe": {
+                  "enum": [
+                    "Q1",
+                    "Q2",
+                    "Q3",
+                    "Q4"
+                  ]
+                },
+                "glanzgrad": {
+                  "enum": [
+                    "G1",
+                    "G2",
+                    "G3",
+                    "G4"
+                  ]
+                },
+                "nassabrieb": {
+                  "type": "string"
+                },
+                "deckvermoegen": {
+                  "type": "string"
+                }
+              }
+            },
+            "stlb_lb": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9]{3}$"
+              }
+            }
+          }
+        },
+        "mengen": {
+          "type": "object",
+          "required": [
+            "einheit",
+            "menge",
+            "quelle"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "einheit": {
+              "enum": [
+                "m2",
+                "stueck",
+                "m",
+                "pauschal"
+              ]
+            },
+            "menge": {
+              "type": "number",
+              "minimum": 0
+            },
+            "abrechnung_m2": {
+              "type": "number",
+              "minimum": 0,
+              "description": "VOB-Fläche nach ATV DIN 18352 (Aussparungen bis 0,1 m² übermessen)"
+            },
+            "rohlinge": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "pakete": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "verschnitt_anteil": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "bruch_reserve_anteil": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.2
+            },
+            "stuecke": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "aus_reststueck": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "schnitte_anzahl": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "schnittlaenge_m": {
+              "type": "number",
+              "minimum": 0
+            },
+            "schnittzeit_min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "quelle": {
+              "type": "string"
+            }
+          }
+        },
+        "kosten": {
+          "type": "object",
+          "required": [
+            "mehrpreis",
+            "formel_id",
+            "gueltig_bis"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mehrpreis": {
+              "$ref": "#/$defs/geld"
+            },
+            "formel_id": {
+              "type": "string"
+            },
+            "eingaben": {
+              "type": "object"
+            },
+            "gueltig_bis": {
+              "type": "string",
+              "format": "date"
+            },
+            "ifc_cost_item_guid": {
+              "$ref": "#/$defs/ifc_guid"
+            }
+          }
+        },
+        "termine": {
+          "type": "object",
+          "required": [
+            "freeze"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "freeze": {
+              "$ref": "#/$defs/freeze"
+            },
+            "freeze_termin": {
+              "type": "string",
+              "format": "date"
+            },
+            "lieferzeit_tage": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "einbautermin": {
+              "type": "string",
+              "format": "date"
+            },
+            "spaetester_bestelltermin": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "folgen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "option",
+              "domaene",
+              "text"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "option": {
+                "type": "string",
+                "pattern": "^OPT-[A-Z0-9-]+$"
+              },
+              "domaene": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "regel": {
+                "$ref": "#/$defs/regel_id"
+              },
+              "beispiel": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pruefungen": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pruefung"
+          }
+        },
+        "ifc": {
+          "$ref": "#/$defs/ifc_abbildung"
+        },
+        "freigabe": {
+          "type": "object",
+          "required": [
+            "rolle",
+            "datum"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rolle": {
+              "enum": [
+                "Bauherr",
+                "Projektleitung",
+                "Tragwerksplanung",
+                "bauvorlageberechtigte Person",
+                "Werkplanung"
+              ]
+            },
+            "datum": {
+              "type": "string",
+              "format": "date"
+            },
+            "ifc_approval_guid": {
+              "$ref": "#/$defs/ifc_guid"
+            }
+          }
+        },
+        "lieferdaten": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "charge": {
+              "type": "string"
+            },
+            "kaliber": {
+              "type": "string"
+            },
+            "seriennummer": {
+              "type": "string"
+            },
+            "geliefert_am": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "description": "Ist-Daten der Lieferung; nicht Teil des Inhaltshashs"
+        },
+        "suchschluessel": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "normalisierte Facetten 'kategorie:…', 'merkmal:Name=Wert[Einheit]' für die Suche (12.4.3)"
+        },
+        "hinweise": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "reifegrad": {
+                "enum": [
+                  "R",
+                  "A"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "leistung",
+              "pruefungen",
+              "kosten",
+              "termine"
+            ],
+            "properties": {
+              "artikel": {
+                "required": [
+                  "artikel_id",
+                  "hersteller"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reifegrad": {
+                "const": "A"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "mengen",
+              "ifc",
+              "freigabe"
+            ],
+            "properties": {
+              "artikel": {
+                "properties": {
+                  "hersteller": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "gtin",
+                          "artikelnummer"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "einzelanfertigung",
+                          "artikelnummer"
+                        ],
+                        "properties": {
+                          "einzelanfertigung": {
+                            "const": true
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "festgeschrieben",
+                  "nachtrag"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "inhaltshash",
+              "festgeschrieben_am"
+            ],
+            "properties": {
+              "reifegrad": {
+                "const": "A"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "nachtrag"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "vorgaenger"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kategorie": {
+                "enum": [
+                  "fliese",
+                  "naturstein",
+                  "boden_parkett",
+                  "boden_elastisch",
+                  "beton_cire"
+                ]
+              },
+              "reifegrad": {
+                "enum": [
+                  "R",
+                  "A"
+                ]
+              }
+            },
+            "required": [
+              "kategorie",
+              "reifegrad"
+            ]
+          },
+          "then": {
+            "properties": {
+              "leistung": {
+                "required": [
+                  "verlegung",
+                  "aufbau"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kategorie": {
+                "enum": [
+                  "fliese",
+                  "naturstein"
+                ]
+              },
+              "reifegrad": {
+                "enum": [
+                  "R",
+                  "A"
+                ]
+              }
+            },
+            "required": [
+              "kategorie",
+              "reifegrad"
+            ]
+          },
+          "then": {
+            "properties": {
+              "leistung": {
+                "properties": {
+                  "verlegung": {
+                    "required": [
+                      "muster",
+                      "fugenbreite_mm",
+                      "fuge",
+                      "achsbezug"
+                    ]
+                  },
+                  "aufbau": {
+                    "required": [
+                      "abdichtung"
+                    ]
+                  }
+                }
+              },
+              "artikel": {
+                "required": [
+                  "artikel_id",
+                  "hersteller",
+                  "farbe",
+                  "oberflaeche",
+                  "format_mm"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kategorie": {
+                "enum": [
+                  "fliese",
+                  "naturstein"
+                ]
+              },
+              "reifegrad": {
+                "const": "A"
+              }
+            },
+            "required": [
+              "kategorie",
+              "reifegrad"
+            ]
+          },
+          "then": {
+            "properties": {
+              "leistung": {
+                "properties": {
+                  "verlegung": {
+                    "required": [
+                      "rasterursprung_uv",
+                      "silikon"
+                    ]
+                  }
+                }
+              },
+              "mengen": {
+                "required": [
+                  "rohlinge",
+                  "pakete",
+                  "verschnitt_anteil"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kategorie": {
+                "const": "treppe"
+              },
+              "reifegrad": {
+                "enum": [
+                  "R",
+                  "A"
+                ]
+              }
+            },
+            "required": [
+              "kategorie",
+              "reifegrad"
+            ]
+          },
+          "then": {
+            "properties": {
+              "leistung": {
+                "required": [
+                  "treppe"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kategorie": {
+                "const": "sanitaer"
+              },
+              "reifegrad": {
+                "enum": [
+                  "R",
+                  "A"
+                ]
+              }
+            },
+            "required": [
+              "kategorie",
+              "reifegrad"
+            ]
+          },
+          "then": {
+            "properties": {
+              "leistung": {
+                "required": [
+                  "einbau"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

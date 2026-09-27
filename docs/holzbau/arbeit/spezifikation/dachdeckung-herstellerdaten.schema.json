@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/holzbau/spezifikation/dachdeckung-herstellerdaten.schema.json",
+  "title": "Datenblatt eines Dachziegel- oder Dachsteinmodells (Kapitel 14.3)",
+  "description": "Ein Datensatz je Modell, abgeleitet aus dem Herstellerdatenblatt (PDF) und versioniert mit Quelle, Abrufdatum und Prüfsumme des Quelldokuments. Grundlage für RDN-Prüfung (E14.6), Lattungsalgorithmus (E14.7), Musterausbreitung und Formziegelmengen (14.3.4). Längen in mm, Winkel in Grad. Werte ohne Primärquelle tragen status U. Normwerte der ZVDH-Fachregel stehen nicht hier, sondern im Regelkatalog.",
+  "type": "object",
+  "required": ["id", "hersteller", "modell", "art", "material", "rdn_zvdh_grad", "lattweite", "deckbreite_mm", "traufe", "first", "quelle", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_\\-]+$", "description": "stabiler Schlüssel, z. B. erlus-linea"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "hersteller": {"type": "string"},
+    "marke": {"type": "string"},
+    "modell": {"type": "string"},
+    "art": {"enum": ["flachdachziegel", "flachziegel", "doppelmuldenfalz", "reformpfanne", "hohlfalz", "glattziegel", "verschiebeziegel", "biber", "moench_nonne", "hohlpfanne", "strangfalz", "krempziegel", "ringfalz", "romanische", "dachstein", "sonstige"]},
+    "biber_schnitt": {"enum": ["segment", "rund", "gerade", "sonstige"]},
+    "material": {"enum": ["ton", "beton"]},
+    "deckart": {"type": "array", "items": {"enum": ["reihe", "verband", "doppeldeckung", "kronendeckung", "einfachdeckung_spliesse", "aufschnitt", "vorschnitt"]}, "minItems": 1},
+    "oberflaechen": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["bezeichnung"],
+        "additionalProperties": false,
+        "properties": {
+          "bezeichnung": {"type": "string", "description": "z. B. naturrot, engobiert, edelengobiert, glasiert, beschichtet"},
+          "farben": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["code", "name"],
+              "additionalProperties": false,
+              "properties": {
+                "code": {"type": "string", "description": "Farbcode des Herstellers oder RAL/NCS (lizenzierte Systeme, Kapitel 14.7.3)"},
+                "system": {"enum": ["hersteller", "RAL", "NCS"]},
+                "name": {"type": "string"},
+                "rgb_darstellung": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 255}, "minItems": 3, "maxItems": 3, "description": "nur für die Darstellung, nicht normativ; selbst erstellt, da Hersteller keine RGB-Werte veröffentlichen"},
+                "textur": {"$ref": "#/$defs/dokument"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "rdn_zvdh_grad": {"type": ["number", "null"], "minimum": 10, "maximum": 60, "description": "Regeldachneigung nach ZVDH-Fachregel 04/2024 für die Deckart; Rechengrundlage (E14.6). null = nicht belegt, die Klassenrechnung liefert dann unbestimmt"},
+    "rdn_hersteller_grad": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Hersteller-RDN je Deckart; unterhalb der ZVDH-RDN nur mit vertraglicher Vereinbarung (Regel M.Hersteller.RDN-Vereinbarung)",
+      "properties": {
+        "reihe": {"type": "number", "minimum": 5, "maximum": 60},
+        "verband": {"type": "number", "minimum": 5, "maximum": 60},
+        "allgemein": {"type": "number", "minimum": 5, "maximum": 60}
+      }
+    },
+    "herstellervorrang": {"type": "boolean", "description": "Hersteller erklärt Vorrang seiner Vorschrift vor der ZVDH-Regel (z. B. Nelskamp); nur Hinweis, keine Lockerung ohne Freigabe"},
+    "lattweite": {
+      "type": "object",
+      "required": ["bereiche"],
+      "additionalProperties": false,
+      "properties": {
+        "bereiche": {
+          "type": "array",
+          "minItems": 1,
+          "description": "zulässige Lattweite LA je Neigungsbereich [dn_von, dn_bis)",
+          "items": {
+            "type": "object",
+            "required": ["dn_von_grad", "dn_bis_grad", "la_min_mm", "la_max_mm"],
+            "additionalProperties": false,
+            "properties": {
+              "dn_von_grad": {"type": "number", "minimum": 0, "maximum": 90},
+              "dn_bis_grad": {"type": "number", "minimum": 0, "maximum": 90},
+              "la_min_mm": {"type": "number", "exclusiveMinimum": 0},
+              "la_max_mm": {"type": "number", "exclusiveMinimum": 0},
+              "lattquerschnitt_mm": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+            }
+          }
+        },
+        "lattweitengruppe_mm": {"type": "number", "description": "Herstellerangabe zur Sortierung (Erlus)"}
+      }
+    },
+    "decklaenge_mm": {"$ref": "#/$defs/bereich"},
+    "deckbreite_mm": {
+      "type": "object",
+      "required": ["mittel"],
+      "additionalProperties": false,
+      "properties": {
+        "min": {"type": "number", "exclusiveMinimum": 0},
+        "mittel": {"type": "number", "exclusiveMinimum": 0},
+        "max": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "traufe": {
+      "type": "object",
+      "required": ["lat_mm"],
+      "additionalProperties": false,
+      "description": "Traufenlattmaß LAT (Abstand der untersten Latte von der Traufe); als Bereich oder Tabelle je Neigung",
+      "properties": {
+        "lat_mm": {"$ref": "#/$defs/wert_oder_tabelle"},
+        "ueberstand_mm": {"$ref": "#/$defs/bereich", "description": "PÜT, Überstand der Traufreihe, gekoppelt an LAT"},
+        "mittleres_traufenlattmass_mm": {"type": "number"},
+        "traufbohle_erforderlich": {"type": "boolean"},
+        "lueftung_cm2_je_m": {"type": "number", "minimum": 0}
+      }
+    },
+    "first": {
+      "type": "object",
+      "required": ["laf_mm"],
+      "additionalProperties": false,
+      "description": "Firstlattmaß LAF (Abstand der obersten Latte vom First) je Neigung und Firstsystem",
+      "properties": {
+        "laf_mm": {"$ref": "#/$defs/wert_oder_tabelle"},
+        "firstsystem": {"enum": ["trocken", "moertel", "firstrolle", "sonstige"]},
+        "firstziegel_je_m": {"type": "number", "exclusiveMinimum": 0},
+        "ueberdeckung_konisch_mm": {"type": "number", "minimum": 0}
+      }
+    },
+    "ortgang": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schnuermass_mm": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"links": {"type": "number"}, "rechts": {"type": "number"}}
+        },
+        "art": {"enum": ["ortgangziegel", "doppelwulst", "flaechenziegel_mit_blech", "sonstige"]}
+      }
+    },
+    "pult_lattweite_mm": {"type": "number"},
+    "profilhoehe_mm": {"type": "number", "minimum": 0, "description": "für die Wahl des Eindeckrahmens (M.Hersteller.Eindeckrahmen)"},
+    "stueck_je_m2": {"$ref": "#/$defs/bereich"},
+    "masse_kg_je_stueck": {"type": "number", "exclusiveMinimum": 0},
+    "masse_kg_je_m2": {"type": "number", "exclusiveMinimum": 0, "description": "für Elementgewicht und Montage (Kapitel 14b), falls im Werk gedeckt"},
+    "hagelwiderstandsklasse": {"type": "string"},
+    "klammerung": {"type": "string", "description": "Klammertyp; Klammerbedarf aus objektspezifischer Windsogberechnung"},
+    "zubehoer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["typ"],
+        "additionalProperties": false,
+        "properties": {
+          "typ": {"enum": ["firstziegel", "firstanfang", "firstende", "gratziegel", "gratanfang", "ortgang_links", "ortgang_rechts", "traufziegel", "pultziegel", "mansardziegel", "knickziegel", "halbziegel", "doppelwulst", "lueftungsziegel", "sanitaerluefter", "solardurchgang", "antennendurchgang", "abgasdurchgang", "systemziegel_solar", "dachtraegerpfanne", "schneefang", "dachtritt", "sicherheitshaken", "firstlueftung", "traufkamm", "sonstige"]},
+          "kuerzel": {"type": "string", "description": "Herstellerkürzel, z. B. FLA, OGL, OGR"},
+          "bedarf_je_m": {"type": "number", "exclusiveMinimum": 0, "description": "Stück je laufenden Meter Kante"},
+          "dn_bereich_grad": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+          "durchmesser_mm": {"type": "array", "items": {"type": "number"}, "minItems": 1},
+          "kappe": {"enum": ["offen", "geschlossen"], "description": "Sanitärlüfter: offen für Fallleitungen (DIN 1986-100)"},
+          "lueftungsquerschnitt_cm2": {"type": "number"},
+          "artikelnummer": {"type": "string"},
+          "gtin": {"type": "string", "pattern": "^([0-9]{8}|[0-9]{12,14})$"},
+          "cad": {"$ref": "#/$defs/dokument"}
+        }
+      }
+    },
+    "quelle": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/dokument"}
+    },
+    "status": {"enum": ["V", "U"]},
+    "hinweis": {"type": "string"}
+  },
+  "$defs": {
+    "bereich": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "toleranz": {"type": "number", "minimum": 0}
+      }
+    },
+    "wert_oder_tabelle": {
+      "description": "fester Wert, Bereich oder Tabelle je Neigung (und optional je Lattquerschnitt)",
+      "oneOf": [
+        {"type": "number"},
+        {"$ref": "#/$defs/bereich"},
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["dn_grad"],
+            "additionalProperties": false,
+            "properties": {
+              "dn_grad": {"type": "number", "minimum": 0, "maximum": 90},
+              "wert_mm": {"type": "number"},
+              "min_mm": {"type": "number"},
+              "max_mm": {"type": "number"},
+              "lattquerschnitt_mm": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+            }
+          }
+        }
+      ]
+    },
+    "dokument": {
+      "type": "object",
+      "required": ["titel"],
+      "additionalProperties": false,
+      "properties": {
+        "titel": {"type": "string"},
+        "url": {"type": "string"},
+        "abgerufen": {"type": "string", "format": "date"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "lizenz": {"type": "string"},
+        "status": {"enum": ["V", "U"]}
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "erlus-linea",
+      "version": "0.1.0",
+      "hersteller": "Erlus",
+      "modell": "Linea",
+      "art": "glattziegel",
+      "material": "ton",
+      "deckart": ["reihe", "verband"],
+      "rdn_zvdh_grad": 30,
+      "rdn_hersteller_grad": {"reihe": 30, "verband": 25},
+      "lattweite": {"bereiche": [{"dn_von_grad": 10, "dn_bis_grad": 90, "la_min_mm": 373, "la_max_mm": 393}], "lattweitengruppe_mm": 385},
+      "deckbreite_mm": {"mittel": 245},
+      "traufe": {"lat_mm": 370},
+      "first": {"laf_mm": 40},
+      "ortgang": {"schnuermass_mm": {"links": 115, "rechts": 210}},
+      "zubehoer": [
+        {"typ": "firstziegel"}, {"typ": "gratanfang"}, {"typ": "ortgang_links", "kuerzel": "OGL"}, {"typ": "ortgang_rechts", "kuerzel": "OGR"},
+        {"typ": "lueftungsziegel"}, {"typ": "sanitaerluefter"}, {"typ": "solardurchgang"}, {"typ": "antennendurchgang"}
+      ],
+      "quelle": [{"titel": "Erlus Produktblatt Linea (über Recherche 09)", "url": "https://www.erlus.com", "abgerufen": "2026-09-27", "status": "U"}],
+      "status": "U",
+      "hinweis": "Lattweite, Deckbreite, LAT, Schnürmaße und RDN aus Recherche 09; LAF = 40 mm ist Annahme der Beispielrechnung 14.3 und durch den Herstellerwert je Neigung zu ersetzen (DAT-14-02). rdn_zvdh_grad 30 nach FR Tab. 3 für Glattziegel (Gelbdruck)."
+    },
+    {
+      "id": "braas-doppel-s",
+      "version": "0.1.0",
+      "hersteller": "Braas (BMI)",
+      "modell": "Doppel-S",
+      "art": "dachstein",
+      "material": "beton",
+      "rdn_zvdh_grad": null,
+      "lattweite": {"bereiche": [{"dn_von_grad": 10, "dn_bis_grad": 90, "la_min_mm": 312, "la_max_mm": 345}]},
+      "decklaenge_mm": {"min": 312, "max": 345},
+      "deckbreite_mm": {"mittel": 300},
+      "traufe": {"lat_mm": {"min": 320, "max": 400}, "ueberstand_mm": {"min": 0, "max": 80}},
+      "first": {"laf_mm": 40},
+      "quelle": [{"titel": "Braas Datenblatt Doppel-S und Verlegeanleitung (über Recherche 09)", "abgerufen": "2026-09-27", "status": "U"}],
+      "status": "U",
+      "hinweis": "Lattweite hängt laut Datenblatt vom Neigungsbereich ab; hier nur die Hülle 312-345 mm. PÜT 0-80 mm gehört zu LAT 400-320 mm; LAF 40 mm laut Datenblatt. ZVDH-RDN für Dachsteine nicht belegt (null)."
+    }
+  ]
+}

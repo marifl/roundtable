@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad A (ausführungsfertig) – Innentreppe mit Läufen, Wangen und Geländer</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'treppe' im Reifegrad A nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Bestellung, Werkplanung, Fertigung, Montage, Ausbau</purpose>
+        <milestone>unterschriebene Ausstattungsfestlegung (Montage frühestens 12 Wochen danach, regnauerBLB2024), Werkplanung</milestone>
+    </info>
+    <specifications>
+        <specification name="TRE-P-01 Treppe: Form, Katalogoption, Material" ifcVersion="IFC4X3_ADD2" identifier="TRE-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIR</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="STRAIGHT_RUN_STAIR" />
+                            <xs:enumeration value="TWO_STRAIGHT_RUN_STAIR" />
+                            <xs:enumeration value="QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="HALF_WINDING_STAIR" />
+                            <xs:enumeration value="HALF_TURN_STAIR" />
+                            <xs:enumeration value="TWO_QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="TWO_QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="THREE_QUARTER_WINDING_STAIR" />
+                            <xs:enumeration value="THREE_QUARTER_TURN_STAIR" />
+                            <xs:enumeration value="SPIRAL_STAIR" />
+                            <xs:enumeration value="DOUBLE_RETURN_STAIR" />
+                            <xs:enumeration value="CURVED_RUN_STAIR" />
+                            <xs:enumeration value="TWO_CURVED_RUN_STAIR" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="TRE-P-02 Treppenlauf: Teil einer Treppe" ifcVersion="IFC4X3_ADD2" identifier="TRE-P-02">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIRFLIGHT</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <partOf relation="IFCRELAGGREGATES" cardinality="required">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSTAIR</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </requirements>
+        </specification>
+        <specification name="TRE-R-01 Treppenlauf: Hauptmaße nach DIN 18065 eingetragen (Grenzwerte in DE.DIN18065.WG2WE)" ifcVersion="IFC4X3_ADD2" identifier="TRE-R-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIRFLIGHT</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCCOUNTMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>NumberOfRiser</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:integer">
+                            <xs:minInclusive value="1" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>RiserHeight</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.05" fixed="false" />
+                            <xs:maxInclusive value="0.3" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>TreadLength</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.1" fixed="false" />
+                            <xs:maxInclusive value="0.5" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>WalkingLineOffset</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Headroom</simpleValue>
+                    </baseName>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="TRE-R-02 Gewendelter Lauf: Auftritt an der inneren Begrenzung" ifcVersion="IFC4X3_ADD2" identifier="TRE-R-02">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIRFLIGHT</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>WINDER</simpleValue>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_StairFlightCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>TreadLengthAtInnerSide</simpleValue>
+                    </baseName>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="TRE-R-03 Treppe: Verziehungsmethode, Laufrichtung, Leistungsbereich" ifcVersion="IFC4X3_ADD2" identifier="TRE-R-03">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIR</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <classification cardinality="required">
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="0(27|31)" />
+                        </xs:restriction>
+                    </value>
+                    <system>
+                        <simpleValue>STLB-Bau</simpleValue>
+                    </system>
+                </classification>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verziehung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Methode</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="keine" />
+                            <xs:enumeration value="verhaeltnis" />
+                            <xs:enumeration value="winkel" />
+                            <xs:enumeration value="kreisbogen" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verziehung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Laufrichtung</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="links" />
+                            <xs:enumeration value="rechts" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Verziehung</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Schrittmass</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0.5" fixed="false" />
+                            <xs:maxInclusive value="0.7" fixed="false" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="TRE-R-04 Geländer und Handlauf: Höhe" ifcVersion="IFC4X3_ADD2" identifier="TRE-R-04">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCRAILING</simpleValue>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELAGGREGATES">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSTAIR</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements>
+                <property dataType="IFCPOSITIVELENGTHMEASURE" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_RailingCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Height</simpleValue>
+                    </baseName>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="TRE-A-01 Treppe: Hersteller, Auftragsnummer, Festschreibung" ifcVersion="IFC4X3_ADD2" identifier="TRE-A-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSTAIR</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Manufacturer</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_ManufacturerTypeInformation</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>ArticleNumber</simpleValue>
+                    </baseName>
+                </property>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>AuswahlID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Status</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="festgeschrieben" />
+                            <xs:enumeration value="nachtrag" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Inhaltshash</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="sha256:[0-9a-f]{64}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="TRE-A-02 Wangen und Holme: Teil der Treppe mit Material" ifcVersion="IFC4X3_ADD2" identifier="TRE-A-02">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCMEMBER</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <simpleValue>STRINGER</simpleValue>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <partOf relation="IFCRELAGGREGATES" cardinality="required">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSTAIR</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+    </specifications>
+</ids>

@@ -1,0 +1,3185 @@
+# Intent-Katalog der Sprachschnittstelle (Kapitel 10).
+# Baum: gruppen[].intents[]. Prüfung: siehe Kapitel 10.7 (Python-Validator).
+katalog: {name: HRB-Intent-Katalog, version: 0.1.0, stand: '2026-09-27', kapitel: '10', schema_hinweis: 'Baum Gruppe → Intent. Jede choice-Frage hat höchstens 19 Optionen (Laya-Grenze
+    etwa 20, Recherche 03). Das Intent-Modell beantwortet nur typisierte Fragen (choice, score, noul). Werte, Referenzen und Katalogartikel ermittelt deterministischer Code (Abschnitt
+    10.3). Regel-IDs verweisen auf regelkatalog.yaml und empfehlungen.yaml.', status: U, status_hinweis: Schwellwerte sind Startwerte (Designentscheidung E10.5) und nach Kalibrierung
+    am Entwicklungsset festzulegen.}
+risikoklassen:
+  R0: {bedeutung: 'Auskunft, Ansicht, Dialog; ändert das Modell nicht', p_min: 0.55, abstand_min: 0.15, bestaetigung: keine, undo: nicht nötig}
+  R1: {bedeutung: reversible Modelländerung mit lokaler Wirkung, p_min: 0.7, abstand_min: 0.2, bestaetigung: keine; Interpretationsanzeige und Undo, undo: ein Schritt}
+  R2: {bedeutung: 'Änderung mit Folgen für Profil, Gebäudeklasse, Kosten > Schwelle oder mehrere Gewerke', p_min: 0.8, abstand_min: 0.25, bestaetigung: 'Vorschau mit Folgen, Bestätigung
+      per Sprache oder Klick', undo: ein Schritt}
+  R3: {bedeutung: 'schwer umkehrbar oder rechtserheblich (Löschen, Senden, Abschließen)', p_min: 0.9, abstand_min: 0.3, bestaetigung: ausdrücklich auf dem Bildschirm; Sprache allein
+      genügt nie, undo: Variante vorher automatisch}
+globale_fragen:
+- id: q.gruppe
+  typ: choice
+  text: Zu welchem Bereich gehört die Äußerung?
+  optionen: [grundriss, geschosse_baukoerper, huelle, dach, fassade, bemusterung_interior, tga, licht, pv, aussenanlagen, moeblierung, gebaeudetyp_nutzung, steuerung, anzeigen_auswerten,
+    freigabe_prozess, meta]
+  schwelle: 0.7
+- {id: n.korrektur, typ: noul, text: 'Korrigiert oder widerruft der Sprecher seine vorige Äußerung?', schwelle: 0.6, wirkung: vorigen Frame ersetzen statt neuen anlegen}
+- {id: n.nur_frage, typ: noul, text: 'Will der Sprecher nur eine Auskunft, ohne etwas zu ändern?', schwelle: 0.65, wirkung: Gruppe anzeigen_auswerten bevorzugen; keine Modelländerung}
+- {id: n.bezug_vorher, typ: noul, text: 'Bezieht sich die Äußerung auf das zuletzt genannte oder ausgewählte Objekt?', schwelle: 0.6, wirkung: Referenz aus Dialogkontext statt aus der
+    Äußerung}
+- {id: n.verneinung, typ: noul, text: 'Enthält die Äußerung eine Verneinung des Wunsches (nicht, kein, ohne)?', schwelle: 0.6, wirkung: Aktion invertieren oder Rückfrage}
+slot_typen:
+  laenge: {dim: laenge, einheit: m, quelle: parser, grammatik: Massausdruck (werteparser-grammatik.md)}
+  flaeche: {dim: flaeche, einheit: m², quelle: parser}
+  winkel: {dim: winkel, einheit: °, quelle: parser}
+  prozent: {dim: anteil, einheit: '%', quelle: parser}
+  leistung: {dim: leistung, einheit: kW|kWp, quelle: parser}
+  energie: {dim: energie, einheit: kWh, quelle: parser}
+  volumen: {dim: volumen, einheit: m³|l, quelle: parser}
+  u_wert: {dim: waermedurchgang, einheit: W/(m²K), quelle: parser}
+  temperatur_k: {dim: farbtemperatur, einheit: K, quelle: parser}
+  anzahl: {dim: anzahl, einheit: '1', quelle: parser}
+  format: {dim: format, einheit: cm×cm, quelle: parser, grammatik: Formatausdruck}
+  datum: {quelle: parser}
+  modus:
+    werte: [absolut, relativ_plus, relativ_minus]
+    quelle: parser
+    grammatik: Modusausdruck; Fallback n.relativ
+  himmelsrichtung:
+    werte: [N, 'NO', O, SO, S, SW, W, NW]
+    quelle: parser
+  richtung_relativ:
+    werte: [links, rechts, vorne, hinten, oben, unten, mitte]
+    quelle: parser
+    hinweis: relativ zur aktuellen Ansicht; Rückfrage, wenn keine Ansicht aktiv
+  staerke:
+    werte: [1, 2, 3, 4, 5]
+    quelle: modell (score)
+    hinweis: Stufe → Schrittweite je Slot aus Konfiguration; immer mit Vorschau
+  raumref: {ziel: IfcSpace, quelle: referenz, hinweis: Auflösung gegen State-JSON (Abschnitt 10.3.5)}
+  geschossref: {ziel: IfcBuildingStorey, quelle: referenz}
+  bauteilref: {ziel: IfcElement, quelle: referenz}
+  moebelref: {ziel: IfcFurniture, quelle: referenz}
+  zonenref: {ziel: IfcZone, quelle: referenz}
+  variantenref: {ziel: Variante (CDE), quelle: referenz}
+  optionsref: {ziel: zuletzt angebotene Optionen, quelle: referenz}
+  meldungsref: {ziel: Meldung im Dialogprotokoll, quelle: referenz}
+  katalogref: {ziel: IfcTypeObject der Projektbibliothek, quelle: katalog, hinweis: deterministische unscharfe Suche; bei mehr als einem Treffer Rückfrage mit höchstens fünf Kandidaten}
+  farbe: {ziel: 'Farbkatalog (RAL, NCS, Herstellerfarbe)', quelle: katalog}
+  enum: {quelle: modell (choice), hinweis: Werteliste im Slot; höchstens 19}
+  bool: {quelle: modell (noul)}
+  text: {quelle: roh, hinweis: nur Bezeichnungen ohne Regelwirkung}
+fachbegriffe:
+  zweck: Phrase Boosting bzw. Kontextliste der Spracherkennung und unscharfe Nachkorrektur (Abschnitt 10.1.3)
+  status: U
+  hinweis: Startliste aus Recherche 03 (Kniestock, Gaube, Pfette, Sparren, OSB, Schwelle) und den Slot-Werten dieses Katalogs; mit DAT-10-02 um Herstellerbegriffe zu ergänzen
+  begriffe:
+  - begriff: Kniestock
+    varianten: [Knie Stock, Kniestog, Drempel]
+  - begriff: Gaube
+    varianten: [Gauben, Gaupe, Dachgaube]
+  - begriff: Schleppgaube
+    varianten: [Schlepp Gaube, Schleppgaupe]
+  - begriff: Zwerchgiebel
+    varianten: [Zwerch Giebel, Zwerchhaus]
+  - begriff: Pfette
+    varianten: [Pfetten]
+  - begriff: Sparren
+    varianten: []
+  - begriff: Schwelle
+    varianten: []
+  - begriff: OSB
+    varianten: [O S B, OSB-Platte]
+  - begriff: Traufe
+    varianten: [Traufseite]
+  - begriff: Ortgang
+    varianten: [Ort Gang]
+  - begriff: First
+    varianten: [Firstrichtung]
+  - begriff: Krüppelwalmdach
+    varianten: [Krüppelwalm, Krüppel Walm]
+  - begriff: Mansarddach
+    varianten: [Mansardendach, Mansarde]
+  - begriff: Walmdach
+    varianten: []
+  - begriff: Pultdach
+    varianten: []
+  - begriff: Biberschwanz
+    varianten: [Biber]
+  - begriff: Schneefang
+    varianten: [Schneefanggitter]
+  - begriff: Dachtritt
+    varianten: [Dachtritte]
+  - begriff: Abstandsfläche
+    varianten: [Abstandsflächen]
+  - begriff: Vollgeschoss
+    varianten: []
+  - begriff: Staffelgeschoss
+    varianten: []
+  - begriff: Brüstung
+    varianten: [Brüstungshöhe]
+  - begriff: Hebeschiebetür
+    varianten: [Hebe-Schiebe-Tür, HST]
+  - begriff: Raffstore
+    varianten: [Raffstores, Raff Store]
+  - begriff: Schallschutzklasse
+    varianten: [SSK]
+  - begriff: U-Wert
+    varianten: [U Wert]
+  - begriff: Boden-Deckel-Schalung
+    varianten: [Boden Deckel Schalung]
+  - begriff: Stülpschalung
+    varianten: []
+  - begriff: Rhombusleiste
+    varianten: [Rhombusschalung]
+  - begriff: Lärche
+    varianten: []
+  - begriff: Douglasie
+    varianten: []
+  - begriff: Landhausdiele
+    varianten: []
+  - begriff: Fischgrät
+    varianten: [Fischgrätparkett]
+  - begriff: Chevron
+    varianten: [Schewron]
+  - begriff: Drittelverband
+    varianten: []
+  - begriff: Q4
+    varianten: [Q 4, Qualitätsstufe vier]
+  - begriff: Kalkputz
+    varianten: []
+  - begriff: Wand-WC
+    varianten: [Wand WC, Hänge-WC]
+  - begriff: Vorwand
+    varianten: [Vorwandinstallation]
+  - begriff: Duschrinne
+    varianten: []
+  - begriff: Wechselschaltung
+    varianten: []
+  - begriff: KNX
+    varianten: [K N X]
+  - begriff: Wärmepumpe
+    varianten: [WP]
+  - begriff: Luft-Wasser-Wärmepumpe
+    varianten: [Luftwärmepumpe]
+  - begriff: Sole-Wasser-Wärmepumpe
+    varianten: [Solewärmepumpe, Erdwärmepumpe]
+  - begriff: Wärmerückgewinnung
+    varianten: [WRG]
+  - begriff: Frischwasserstation
+    varianten: []
+  - begriff: Zirkulation
+    varianten: []
+  - begriff: Wallbox
+    varianten: [Wall Box]
+  - begriff: Kilowatt Peak
+    varianten: [kWp, Kilowattpeak]
+  - begriff: Indach
+    varianten: [In-Dach]
+  - begriff: Rigole
+    varianten: [Rigolen]
+  - begriff: Zisterne
+    varianten: []
+  - begriff: Hebeanlage
+    varianten: []
+  - begriff: Rückstauverschluss
+    varianten: [Rückstauklappe]
+  - begriff: Einliegerwohnung
+    varianten: [ELW]
+  - begriff: Doppelhaushälfte
+    varianten: [DHH]
+  - begriff: Reihenmittelhaus
+    varianten: []
+  - begriff: GModG
+    varianten: [G M O D G, Gebäudemodernisierungsgesetz]
+  - begriff: H'T
+    varianten: [H T Strich, HT Strich]
+gruppen:
+- gruppe: grundriss
+  beschreibung: Räume anlegen, ändern, verschieben, zusammenlegen und teilen
+  frage:
+    id: q.intent.grundriss
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [raum_groesse_aendern, raum_hinzufuegen, raum_entfernen, raum_verschieben, raeume_tauschen, raum_nutzung_aendern, raeume_zusammenlegen, raum_teilen, innenwand_versetzen,
+      innentuer_setzen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: raum_groesse_aendern
+    beschreibung: Breite, Tiefe oder Fläche eines Raums absolut oder relativ ändern; Nachbarraum gleicht aus
+    risikoklasse: R1
+    beispielsaetze: [Mach die Küche dreißig Zentimeter breiter, Das Arbeitszimmer soll vierzehn Quadratmeter haben, Kannst du das Schlafzimmer einen halben Meter tiefer machen, Das Bad
+        im Obergeschoss etwas größer bitte]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: groesse
+      typ: enum
+      pflicht: true
+      werte: [breite, tiefe, flaeche]
+      quelle: modell
+      frage: q.groesse
+    - name: wert
+      typ: laenge|flaeche
+      pflicht: false
+      einheit: m|m²
+      wertebereich:
+        laenge: [0.05, 15.0]
+        flaeche: [1.0, 80.0]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: q.groesse
+      typ: choice
+      text: Welche Größe des Raums soll sich ändern?
+      optionen: [breite, tiefe, flaeche]
+      schwelle: 0.7
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, DE.WoFlV.Wohnflaeche, DE.VDI6000.Bewegungsflaeche, R5-FUNKTION-01, R5-FUNKTION-06]
+    module: [grundriss_solver, regelmaschine, kosten, energie, ifc_generator]
+    rueckfrage: 'Welchen Raum meinen Sie: {kandidaten}? Und um wie viel, zum Beispiel „zwanzig Zentimeter breiter“?'
+  - intent: raum_hinzufuegen
+    beschreibung: neuen Raum mit Nutzung, Geschoss und optionaler Größe anlegen
+    risikoklasse: R1
+    beispielsaetze: [Ich hätte gern noch ein Gästezimmer oben, Füge im Erdgeschoss eine Speisekammer hinzu, Wir brauchen ein Arbeitszimmer mit etwa zehn Quadratmetern]
+    slots:
+    - name: nutzung
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      frage: q.nutzung
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    - name: wert
+      typ: flaeche
+      pflicht: false
+      einheit: m²
+      wertebereich: [2.0, 60.0]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.nutzung
+      typ: choice
+      text: Welche Nutzung soll der neue Raum haben?
+      optionen: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      schwelle: 0.7
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, DE.WoFlV.Wohnflaeche, BY.BayBO.2-3.Gebaeudeklasse, R5-RUHE-03]
+    module: [grundriss_solver, regelmaschine, kosten, ifc_generator]
+    rueckfrage: Welcher Raum soll dazukommen, und in welches Geschoss?
+  - intent: raum_entfernen
+    beschreibung: Raum entfernen; Fläche fällt einem Nachbarraum zu
+    risikoklasse: R2
+    beispielsaetze: [Die Ankleide brauchen wir nicht, Lösch das Gäste-WC unten, Das zweite Kinderzimmer kann weg]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - {name: empfaenger, typ: raumref, pflicht: false, hinweis: 'Raum, der die Fläche erhält; sonst Vorschlag des Solvers'}
+    fragen: []
+    regeln: [M.Projekt.Raum-Mindestmasse, DE.WoFlV.Wohnflaeche, R5-FUNKTION-05]
+    module: [grundriss_solver, regelmaschine, kosten, varianten]
+    rueckfrage: Soll {raum} wirklich entfallen? Die Fläche ginge an {empfaenger}.
+  - intent: raum_verschieben
+    beschreibung: Raum an eine andere Stelle oder Fassade verlegen
+    risikoklasse: R1
+    beispielsaetze: [Das Arbeitszimmer soll nach Süden, Leg die Küche an die Gartenseite, Das Bad bitte an die Nordwand verlegen]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: ziel, typ: bauteilref|raumref, pflicht: false, hinweis: 'Fassade, Wand oder Nachbarraum'}
+    fragen: []
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, R5-AUSSEN-03, R5-KLIMA-01, R5-RUHE-01, DE.DIN4109.Aussenlaerm]
+    module: [grundriss_solver, regelmaschine, schall, tga_routing]
+    rueckfrage: 'Wohin soll {raum}: an welche Himmelsrichtung oder neben welchen Raum?'
+  - intent: raeume_tauschen
+    beschreibung: Lage zweier Räume tauschen
+    risikoklasse: R1
+    beispielsaetze: [Tausch Schlafzimmer und Arbeitszimmer, Küche und Wohnzimmer sollen die Plätze wechseln, Die beiden Kinderzimmer bitte tauschen]
+    slots:
+    - {name: raum_a, typ: raumref, pflicht: true}
+    - {name: raum_b, typ: raumref, pflicht: true}
+    fragen: []
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, R5-RUHE-02, R5-AUSSEN-03, DE.DIN4109.Aussenlaerm]
+    module: [grundriss_solver, regelmaschine, schall, kosten]
+    rueckfrage: Welche zwei Räume sollen die Plätze tauschen?
+  - intent: raum_nutzung_aendern
+    beschreibung: Nutzung oder Bezeichnung eines Raums ändern
+    risikoklasse: R1
+    beispielsaetze: [Das Gästezimmer wird mein Büro, Mach aus dem Abstellraum ein WC, Nenn das Kinderzimmer 2 Spielzimmer]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: nutzung
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      frage: q.nutzung
+    - {name: name, typ: text, pflicht: false, hinweis: 'nur Bezeichnung, ohne Regelwirkung'}
+    fragen:
+    - id: q.nutzung
+      typ: choice
+      text: Welche Nutzung soll der Raum künftig haben?
+      optionen: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      schwelle: 0.7
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, DE.DIN4109.Aussenlaerm, R5-HOME-02]
+    module: [regelmaschine, tga_routing, schall]
+    rueckfrage: Welche Nutzung soll {raum} bekommen?
+  - intent: raeume_zusammenlegen
+    beschreibung: zwei benachbarte Räume zu einem Raum verbinden
+    risikoklasse: R2
+    beispielsaetze: [Küche und Essen sollen ein offener Raum werden, Leg die zwei Kinderzimmer zusammen, Mach Wohnzimmer und Arbeitszimmer zu einem Raum]
+    slots:
+    - {name: raum_a, typ: raumref, pflicht: true}
+    - {name: raum_b, typ: raumref, pflicht: true}
+    - name: nutzung
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      frage: q.raeume_zusammenlegen.nutzung
+    fragen:
+    - id: q.raeume_zusammenlegen.nutzung
+      typ: choice
+      text: Welcher Wert passt für „nutzung“?
+      optionen: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      schwelle: 0.7
+    regeln: [M.Projekt.Raum-Mindestmasse, DE.EC5-NA.NA67.Durchbruch, R5-FUNKTION-03]
+    module: [grundriss_solver, statik_vorbemessung, regelmaschine, kosten]
+    rueckfrage: Welche beiden Räume sollen verbunden werden? Die Wand dazwischen ist {wandtyp}.
+    regeln_geplant: ['Kap. 15.2: tragende Innenwand entfernen nur mit Unterzug und Freigabe Tragwerk']
+  - intent: raum_teilen
+    beschreibung: Raum durch eine neue Innenwand teilen
+    risikoklasse: R1
+    beispielsaetze: [Teil das große Kinderzimmer in zwei Zimmer, Vom Schlafzimmer soll eine Ankleide abgetrennt werden, Kannst du den Hobbyraum halbieren]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: anteil
+      typ: prozent|laenge
+      pflicht: false
+      einheit: '%|m'
+      wertebereich:
+        prozent: [10, 90]
+        laenge: [0.9, 10.0]
+    - name: nutzung_neu
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      frage: q.raum_teilen.nutzung_neu
+    fragen:
+    - id: q.raum_teilen.nutzung_neu
+      typ: choice
+      text: Welcher Wert passt für „nutzung_neu“?
+      optionen: [wohnen, essen, kueche, schlafen, kind, gast, arbeiten, bad, wc, hwr, technik, abstellraum, speisekammer, ankleide, flur, sauna, hobby, sonstiges]
+      schwelle: 0.7
+    regeln: [M.Projekt.Raum-Mindestmasse, BY.BayBO.45.Fensterflaeche, DE.DIN4109-1.Tab2-Trennbauteile]
+    module: [grundriss_solver, regelmaschine, kosten]
+    rueckfrage: 'Wie soll {raum} geteilt werden: in der Mitte oder mit einem bestimmten Maß?'
+  - intent: innenwand_versetzen
+    beschreibung: nichttragende Innenwand um einen Betrag verschieben
+    risikoklasse: R1
+    beispielsaetze: [Schieb die Wand zwischen Bad und Flur zwanzig Zentimeter Richtung Flur, Die Trennwand im Obergeschoss einen halben Meter nach Osten, Die Wand zum Hauswirtschaftsraum
+        ein Stück nach links]
+    slots:
+    - {name: wand, typ: bauteilref, pflicht: true}
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 5.0]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: richtung, typ: richtung_relativ, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [M.Projekt.Raum-Mindestmasse, M.Firma.Staenderbohrung, DE.VDI6000.Bewegungsflaeche]
+    module: [grundriss_solver, regelmaschine, tga_routing]
+    rueckfrage: Welche Wand meinen Sie, und in welche Richtung soll sie wandern?
+  - intent: innentuer_setzen
+    beschreibung: Innentür oder Durchgang anlegen, verschieben oder entfernen
+    risikoklasse: R1
+    beispielsaetze: [Mach eine Tür vom Schlafzimmer direkt ins Bad, 'Die Küchentür soll weg, nur ein Durchgang', Setz die Tür vom Arbeitszimmer weiter nach rechts]
+    slots:
+    - name: aktion
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [hinzufuegen, entfernen, verschieben, durchgang]
+      frage: q.tueraktion
+    - {name: raum_a, typ: raumref, pflicht: true}
+    - {name: raum_b, typ: raumref, pflicht: false}
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 5.0]
+    fragen:
+    - id: q.tueraktion
+      typ: choice
+      text: Was soll mit der Tür geschehen?
+      optionen: [hinzufuegen, entfernen, verschieben, durchgang]
+      schwelle: 0.7
+    regeln: [DE.VDI6000.Bewegungsflaeche, R5-RUHE-04, R5-FUNKTION-02]
+    module: [grundriss_solver, bemusterung_katalog, regelmaschine]
+    rueckfrage: Zwischen welchen Räumen soll die Tür sein?
+- gruppe: geschosse_baukoerper
+  beschreibung: Geschosse, Höhen, Kniestock, Keller, Außenmaße und Lage auf dem Grundstück
+  frage:
+    id: q.intent.geschosse_baukoerper
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [geschoss_hinzufuegen, geschoss_entfernen, geschosshoehe_aendern, kniestock_aendern, keller_festlegen, dachgeschoss_ausbau, haus_abmessung_aendern, haus_verschieben, haus_drehen,
+      hoehenlage_aendern]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: geschoss_hinzufuegen
+    beschreibung: Geschoss oder ausgebautes Dachgeschoss ergänzen
+    risikoklasse: R2
+    beispielsaetze: [Wir wollen doch ein zweites Obergeschoss, Kannst du ein Staffelgeschoss draufsetzen, Noch eine Etage oben drauf]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [vollgeschoss, staffelgeschoss, dachgeschoss]
+      frage: q.geschossart
+    fragen:
+    - id: q.geschossart
+      typ: choice
+      text: Welche Art von Geschoss soll dazukommen?
+      optionen: [vollgeschoss, staffelgeschoss, dachgeschoss]
+      schwelle: 0.7
+    regeln: [BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.2-3.Gebaeudeklasse, BY.BayBO.6.T, BY.Profil.Schwellenwarnung, DE.DIN18065.WG2WE]
+    module: [parametermodell, regelmaschine, profilableitung, statik_vorbemessung, kosten]
+    rueckfrage: Soll ein Vollgeschoss, ein Staffelgeschoss oder ein ausgebautes Dachgeschoss dazukommen?
+  - intent: geschoss_entfernen
+    beschreibung: Geschoss entfernen
+    risikoklasse: R3
+    beispielsaetze: ['Das Obergeschoss fällt weg, wir bauen einen Bungalow', Lass den Keller weg, Nimm das Dachgeschoss raus]
+    slots:
+    - {name: geschoss, typ: geschossref, pflicht: true}
+    fragen: []
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, DE.WoFlV.Wohnflaeche, BY.Profil.Schwellenwarnung]
+    module: [parametermodell, regelmaschine, profilableitung, kosten, varianten]
+    rueckfrage: Soll {geschoss} mit allen Räumen entfallen? Ich lege vorher eine Variante an.
+  - intent: geschosshoehe_aendern
+    beschreibung: lichte Raumhöhe oder Geschosshöhe ändern
+    risikoklasse: R1
+    beispielsaetze: [Im Erdgeschoss hätte ich gern zwei Meter siebzig Raumhöhe, Mach das Obergeschoss zehn Zentimeter höher, Die Decke unten bitte etwas höher]
+    slots:
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    - name: bezug
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [lichte_hoehe, geschosshoehe]
+      standard: lichte_hoehe
+      frage: q.hoehenbezug
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 4.0]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: q.hoehenbezug
+      typ: choice
+      text: Ist die lichte Raumhöhe oder die Geschosshöhe gemeint?
+      optionen: [lichte_hoehe, geschosshoehe]
+      schwelle: 0.7
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [DE.DIN18065.WG2WE, BY.BayBO.6.T, BY.BayBO.45-1.Raumhoehe, BY.BayBO.2-3.Gebaeudeklasse, R5-WIRKUNG-01]
+    module: [parametermodell, regelmaschine, kosten, energie]
+    rueckfrage: Welche Höhe meinen Sie, die lichte Raumhöhe oder die Geschosshöhe von Fußboden zu Fußboden?
+  - intent: kniestock_aendern
+    beschreibung: Kniestockhöhe im Dachgeschoss ändern
+    risikoklasse: R2
+    beispielsaetze: [Den Kniestock auf einen Meter zwanzig, Kniestock bitte dreißig Zentimeter höher, Können wir den Drempel erhöhen]
+    slots:
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.0, 2.5]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.6.T, BY.BayBO.2-3.Gebaeudeklasse, BY.Profil.Schwellenwarnung]
+    module: [parametermodell, dach_solver, regelmaschine, kosten]
+    rueckfrage: Auf welche Höhe soll der Kniestock? Ab {k_stern} wird das Dachgeschoss zum Vollgeschoss.
+    hinweis: Vollgeschoss-Schwelle k* vor Ausführung melden (Kapitel 4.3.2, ANF-09-19)
+  - intent: keller_festlegen
+    beschreibung: Keller, Teilkeller oder Bodenplatte wählen
+    risikoklasse: R2
+    beispielsaetze: [Wir nehmen doch einen Keller, 'Ohne Keller, nur Bodenplatte', Nur ein Teilkeller unter der Küche]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [vollkeller, teilkeller, bodenplatte]
+      frage: q.gruendung
+    - name: nutzung
+      typ: enum
+      pflicht: false
+      werte: [technik, lager, wohnen]
+      quelle: modell
+      frage: q.keller_festlegen.nutzung
+    fragen:
+    - id: q.gruendung
+      typ: choice
+      text: Welche Gründung ist gemeint?
+      optionen: [vollkeller, teilkeller, bodenplatte]
+      schwelle: 0.7
+    - id: q.keller_festlegen.nutzung
+      typ: choice
+      text: Welcher Wert passt für „nutzung“?
+      optionen: [technik, lager, wohnen]
+      schwelle: 0.7
+    regeln: [BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.2-3.Gebaeudeklasse, R5-KLIMA-03]
+    module: [parametermodell, entwaesserung, kosten, energie]
+    rueckfrage: Soll es ein ganzer Keller, ein Teilkeller oder eine Bodenplatte sein?
+    regeln_geplant: ['Kap. 14a.1: Rückstauebene und Hebeanlage bei Keller']
+  - intent: dachgeschoss_ausbau
+    beschreibung: Dachgeschoss als ausgebaut oder nicht ausgebaut festlegen
+    risikoklasse: R2
+    beispielsaetze: [Das Dachgeschoss bauen wir erst später aus, Den Dachboden bitte als Wohnraum ausbauen, Spitzboden nur als Speicher]
+    slots:
+    - name: ausbau
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [ausgebaut, ausbaufaehig, nicht_ausgebaut]
+      frage: q.ausbau
+    fragen:
+    - id: q.ausbau
+      typ: choice
+      text: Wie soll das Dachgeschoss genutzt werden?
+      optionen: [ausgebaut, ausbaufaehig, nicht_ausgebaut]
+      schwelle: 0.7
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, BY.BayBO.2-5.aF2007.Vollgeschoss, BY.Profil.Schwellenwarnung]
+    module: [profilableitung, regelmaschine, energie, kosten]
+    rueckfrage: Soll das Dachgeschoss jetzt ausgebaut werden oder nur ausbaufähig sein?
+    hinweis: Gebäudeklasse misst am möglichen Aufenthaltsraum (Kapitel 9a.2.1)
+  - intent: haus_abmessung_aendern
+    beschreibung: Außenmaß des Baukörpers in Länge oder Breite ändern
+    risikoklasse: R2
+    beispielsaetze: [Das Gebäude soll anderthalb Meter länger werden, Mach das ganze Haus fünfzig Zentimeter breiter, Können wir auf zehn mal zwölf Meter gehen]
+    slots:
+    - name: achse
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [laenge, breite, beide]
+      frage: q.achse
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 30.0]
+    - name: wert2
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [4.0, 30.0]
+    - {name: modus, typ: modus, pflicht: false}
+    fragen:
+    - id: q.achse
+      typ: choice
+      text: Welche Außenabmessung soll sich ändern?
+      optionen: [laenge, breite, beide]
+      schwelle: 0.7
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    regeln: [BY.BayBO.6.T, BY.BayBO.2-3.Gebaeudeklasse, DE.WoFlV.Wohnflaeche, BY.Profil.Schwellenwarnung]
+    module: [parametermodell, grundriss_solver, regelmaschine, kosten, energie]
+    rueckfrage: Soll das Haus länger oder breiter werden, und um wie viel?
+    regeln_geplant: ['Kap. 4.2: GRZ, GFZ und Baugrenzen aus dem Bebauungsplan']
+  - intent: haus_verschieben
+    beschreibung: Baukörper auf dem Grundstück verschieben
+    risikoklasse: R1
+    beispielsaetze: [Schieb das Haus zwei Meter nach Norden, Das Haus näher an die Straße, Rück das Gebäude einen Meter von der Ostgrenze weg]
+    slots:
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.1, 30.0]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: bezug, typ: bauteilref, pflicht: false, hinweis: 'Grenze, Straße'}
+    fragen: []
+    regeln: [BY.BayBO.6.T, DE.TALaerm.WP-Richtwert]
+    module: [parametermodell, regelmaschine, entwaesserung, viewer]
+    rueckfrage: In welche Richtung und wie weit soll das Haus rücken?
+    regeln_geplant: ['Kap. 4.2: überbaubare Grundstücksfläche (Baugrenze, Baulinie)']
+  - intent: haus_drehen
+    beschreibung: Baukörper drehen oder spiegeln
+    risikoklasse: R1
+    beispielsaetze: [Das Haus bitte um fünfundvierzig Grad drehen, Spiegel den Grundriss, Das Haus soll mit dem Giebel zur Straße stehen]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [drehen, spiegeln]
+      frage: q.dreh
+    - name: wert
+      typ: winkel
+      pflicht: false
+      einheit: °
+      wertebereich: [-180, 180]
+    fragen:
+    - id: q.dreh
+      typ: choice
+      text: Soll das Haus gedreht oder gespiegelt werden?
+      optionen: [drehen, spiegeln]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T, R5-AUSSEN-03, R5-LICHT-02, DE.DIN4109.Aussenlaerm]
+    module: [parametermodell, regelmaschine, pv, energie]
+    rueckfrage: Soll ich das Haus drehen oder spiegeln?
+  - intent: hoehenlage_aendern
+    beschreibung: Höhenlage des Erdgeschossfußbodens zum Gelände ändern
+    risikoklasse: R1
+    beispielsaetze: [Das Erdgeschoss zwanzig Zentimeter höher setzen, Fußboden unten auf Geländehöhe, Hebt das Haus etwas an wegen Starkregen]
+    slots:
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [-1.5, 1.5]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [BY.BayBO.6.T, BY.BayBO.2-3.Gebaeudeklasse, BY.BayBO.2-5.aF2007.Vollgeschoss]
+    module: [parametermodell, entwaesserung, regelmaschine]
+    rueckfrage: Um wie viel soll der Erdgeschossfußboden höher oder tiefer liegen?
+- gruppe: huelle
+  beschreibung: Außenwände, Fenster, Außentüren, Sonnenschutz und Balkone
+  frage:
+    id: q.intent.huelle
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [fenster_einfuegen, fenster_entfernen, fenster_groesse_aendern, fenster_verschieben, fenster_typ_aendern, haustuer_setzen, terrassentuer_setzen, wandaufbau_waehlen, sonnenschutz_setzen,
+      balkon_hinzufuegen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: fenster_einfuegen
+    beschreibung: Fenster in eine Außenwand oder einen Raum setzen
+    risikoklasse: R1
+    beispielsaetze: [Ins Bad kommt noch ein kleines Fenster, Im Wohnzimmer bitte ein großes Fenster nach Westen, Setz zwei Fenster in die Giebelwand]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: wand, typ: bauteilref, pflicht: false}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 10]
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.4, 6.0]
+    - name: hoehe
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.4, 3.0]
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: s.fenstergroesse
+      typ: score
+      text: Wie groß soll das Fenster sein?
+      stufen: [klein, normal, groß, bodentief, Fensterfront]
+      schwelle: 0.6
+    regeln: [BY.BayBO.45.Fensterflaeche, M.Katalog.Fenster-SSK, DE.DIN4109.Aussenlaerm, R5-LICHT-01, R5-KLIMA-01, R5-AUSSEN-01]
+    module: [parametermodell, regelmaschine, energie, schall, kosten, ifc_generator]
+    rueckfrage: In welchen Raum oder welche Wand soll das Fenster?
+  - intent: fenster_entfernen
+    beschreibung: Fenster entfernen
+    risikoklasse: R1
+    beispielsaetze: [Das Fenster im Flur kann weg, Nimm das rechte Fenster im Schlafzimmer raus, Kein Fenster zur Nachbarseite]
+    slots:
+    - {name: fenster, typ: bauteilref, pflicht: true, ziel: IfcWindow}
+    fragen: []
+    regeln: [BY.BayBO.45.Fensterflaeche, R5-LICHT-01]
+    module: [parametermodell, regelmaschine, energie, kosten]
+    rueckfrage: 'Welches Fenster meinen Sie: {kandidaten}?'
+  - intent: fenster_groesse_aendern
+    beschreibung: Fensterbreite, -höhe oder Brüstung ändern
+    risikoklasse: R1
+    beispielsaetze: [Das Fenster in der Küche auf eins sechzig verbreitern, Das Fenster im Kinderzimmer bitte bis zum Boden, Die Brüstung im Bad auf eins fünfzig]
+    slots:
+    - {name: fenster, typ: bauteilref, pflicht: true, ziel: IfcWindow}
+    - name: mass
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [breite, hoehe, bruestung]
+      frage: q.fenstermass
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.0, 6.0]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: q.fenstermass
+      typ: choice
+      text: Welches Maß des Fensters soll sich ändern?
+      optionen: [breite, hoehe, bruestung]
+      schwelle: 0.7
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [BY.BayBO.45.Fensterflaeche, M.Katalog.Fenster-SSK, DE.DIN4109.Aussenlaerm, R5-KLIMA-01]
+    module: [parametermodell, regelmaschine, energie, schall, statik_vorbemessung, kosten]
+    rueckfrage: Welches Fenster, und soll es breiter, höher oder mit anderer Brüstung werden?
+  - intent: fenster_verschieben
+    beschreibung: Fenster in der Wand verschieben
+    risikoklasse: R1
+    beispielsaetze: [Schieb das Wohnzimmerfenster etwas nach links, Das Fenster im Arbeitszimmer mittig setzen, Rück das Badfenster dreißig Zentimeter Richtung Ecke]
+    slots:
+    - {name: fenster, typ: bauteilref, pflicht: true, ziel: IfcWindow}
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 6.0]
+    - {name: richtung, typ: richtung_relativ, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [M.Firma.Staenderbohrung, R5-FUNKTION-02]
+    module: [parametermodell, regelmaschine, statik_vorbemessung]
+    rueckfrage: Welches Fenster, und in welche Richtung?
+    regeln_geplant: ['Kap. 17.3: Achsraster und Elementstoß der Wandtafel']
+  - intent: fenster_typ_aendern
+    beschreibung: Öffnungsart, Verglasung, Schallschutzklasse oder Rahmen ändern
+    risikoklasse: R1
+    beispielsaetze: [Das Schlafzimmerfenster als Dreh-Kipp, Im Bad Milchglas bitte, Nimm für die Straßenseite Schallschutzfenster]
+    slots:
+    - {name: fenster, typ: bauteilref, pflicht: true, ziel: IfcWindow}
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [oeffnungsart, verglasung, schallschutzklasse, rahmenmaterial, sprossen]
+      frage: q.fenstermerkmal
+    - {name: wert_kat, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.fenstermerkmal
+      typ: choice
+      text: Welches Merkmal des Fensters soll sich ändern?
+      optionen: [oeffnungsart, verglasung, schallschutzklasse, rahmenmaterial, sprossen]
+      schwelle: 0.7
+    regeln: [M.Katalog.Fenster-SSK, DE.DIN4109.Aussenlaerm, IDS.HRB-02-11]
+    module: [bemusterung_katalog, schall, energie, kosten]
+    rueckfrage: 'Was soll am Fenster anders werden: Öffnungsart, Glas oder Schallschutz?'
+  - intent: haustuer_setzen
+    beschreibung: Haustür wählen oder Lage des Eingangs ändern
+    risikoklasse: R1
+    beispielsaetze: [Die Haustür soll auf die Ostseite, Ich möchte eine Haustür mit Seitenteil, Setz den Eingang neben die Garage]
+    slots:
+    - name: aktion
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [verschieben, modell_waehlen]
+      frage: q.haustuer
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: modell, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.haustuer
+      typ: choice
+      text: Soll der Eingang verlegt oder die Tür selbst gewählt werden?
+      optionen: [verschieben, modell_waehlen]
+      schwelle: 0.7
+    regeln: [R5-FUNKTION-08, FS-03, VA-02]
+    module: [grundriss_solver, bemusterung_katalog, kosten]
+    rueckfrage: Soll der Eingang an eine andere Stelle, oder geht es um das Türmodell?
+  - intent: terrassentuer_setzen
+    beschreibung: Terrassentür oder Hebeschiebetür setzen
+    risikoklasse: R1
+    beispielsaetze: [Vom Wohnzimmer eine Hebeschiebetür in den Garten, Aus der Küche eine Tür auf die Terrasse, Die Terrassentür bitte drei Meter breit]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.8, 6.0]
+    - name: art
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [dreh_kipp, hebeschiebe, falt, parallel_schiebe_kipp]
+      frage: q.terrassentuer
+    fragen:
+    - id: q.terrassentuer
+      typ: choice
+      text: Welche Art von Terrassentür?
+      optionen: [dreh_kipp, hebeschiebe, falt, parallel_schiebe_kipp]
+      schwelle: 0.7
+    regeln: [BY.BayBO.45.Fensterflaeche, R5-KLIMA-01, R5-AUSSEN-01]
+    module: [parametermodell, bemusterung_katalog, statik_vorbemessung, kosten]
+    rueckfrage: Aus welchem Raum soll die Terrassentür führen?
+  - intent: wandaufbau_waehlen
+    beschreibung: Außenwandaufbau aus dem Herstellerkatalog wählen
+    risikoklasse: R2
+    beispielsaetze: [Nehmt die Außenwand mit der besseren Dämmung, Welche Wand erreicht einen U-Wert von null komma eins fünf, Wir wollen die Wand mit Holzfaserdämmung]
+    slots:
+    - {name: aufbau, typ: katalogref, pflicht: true}
+    - name: u_wert
+      typ: u_wert
+      pflicht: false
+      einheit: W/(m²K)
+      wertebereich: [0.08, 0.35]
+    fragen: []
+    regeln: [IDS.HRB-01, IDS.HRB-02-11, DE.DIN4109.Aussenlaerm, DE.HolzBauRL.Daemmstoff, R5-KLIMA-02]
+    module: [bemusterung_katalog, energie, schall, kosten, ifc_generator]
+    rueckfrage: 'Welchen Wandaufbau meinen Sie: {kandidaten}?'
+  - intent: sonnenschutz_setzen
+    beschreibung: Raffstore, Rollladen oder Markise an Fenstern vorsehen
+    risikoklasse: R1
+    beispielsaetze: [An alle Westfenster Raffstores, Im Schlafzimmer Rollläden zum Verdunkeln, Eine Markise über der Terrasse]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [raffstore, rollladen, markise, screen]
+      frage: q.sonnenschutz
+    - {name: umfang, typ: bauteilref|raumref|himmelsrichtung, pflicht: false}
+    - name: antrieb
+      typ: enum
+      pflicht: false
+      werte: [manuell, motor, smart_home]
+      quelle: modell
+      frage: q.sonnenschutz_setzen.antrieb
+    fragen:
+    - id: q.sonnenschutz
+      typ: choice
+      text: Welcher Sonnenschutz ist gemeint?
+      optionen: [raffstore, rollladen, markise, screen]
+      schwelle: 0.7
+    - id: q.sonnenschutz_setzen.antrieb
+      typ: choice
+      text: Welcher Wert passt für „antrieb“?
+      optionen: [manuell, motor, smart_home]
+      schwelle: 0.7
+    regeln: [R5-KLIMA-01, R5-LICHT-03]
+    module: [bemusterung_katalog, energie, kosten]
+    rueckfrage: Welche Fenster sollen den Sonnenschutz bekommen?
+    regeln_geplant: ['Kap. 15.1: sommerlicher Wärmeschutz DIN 4108-2']
+  - intent: balkon_hinzufuegen
+    beschreibung: Balkon, Loggia oder Austritt anfügen
+    risikoklasse: R2
+    beispielsaetze: [Vor dem Schlafzimmer einen Balkon, Kann das Kinderzimmer einen französischen Balkon bekommen, 'Ein Balkon über der Terrasse, drei Meter tief']
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [balkon, loggia, franzoesischer_balkon]
+      frage: q.balkon
+    - name: tiefe
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.3, 4.0]
+    fragen:
+    - id: q.balkon
+      typ: choice
+      text: Welche Art von Austritt?
+      optionen: [balkon, loggia, franzoesischer_balkon]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T, DE.WoFlV.Wohnflaeche]
+    module: [parametermodell, statik_vorbemessung, kosten]
+    rueckfrage: Vor welchem Raum soll der Balkon sein?
+    regeln_geplant: ['Fachregel 02 Zimmerer: Balkone und Terrassen (Kapitel 4.6)']
+- gruppe: dach
+  beschreibung: Dachform, Neigung, Überstand, Gauben, Dachfenster, Deckung und Einbauteile
+  frage:
+    id: q.intent.dach
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [dachform_aendern, dachneigung_aendern, dachueberstand_aendern, firstrichtung_aendern, gaube_hinzufuegen, gaube_aendern, dachfenster_einfuegen, dacheindeckung_waehlen,
+      dachentwaesserung_waehlen, dacheinbauteil_hinzufuegen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: dachform_aendern
+    beschreibung: Dachform wählen
+    risikoklasse: R2
+    beispielsaetze: [Wir hätten lieber ein Walmdach, Mach ein Pultdach draus, Geht auch ein Krüppelwalm]
+    slots:
+    - name: dachform
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [satteldach, walmdach, krueppelwalmdach, zeltdach, pultdach, versetztes_pultdach, mansarddach, flachdach]
+      frage: q.dachform
+    fragen:
+    - id: q.dachform
+      typ: choice
+      text: Welche Dachform ist gemeint?
+      optionen: [satteldach, walmdach, krueppelwalmdach, zeltdach, pultdach, versetztes_pultdach, mansarddach, flachdach]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.6.T, BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.81.Satzungspflichten]
+    module: [dach_solver, regelmaschine, pv, kosten, ifc_generator]
+    rueckfrage: 'Welche Dachform möchten Sie: {optionen}?'
+    regeln_geplant: ['Kap. 4.2: Dachform aus Bebauungsplan (BP_Dachgestaltung)']
+  - intent: dachneigung_aendern
+    beschreibung: Dachneigung ändern
+    risikoklasse: R2
+    beispielsaetze: [Stell die Dachneigung auf achtundzwanzig Grad, Das Dach bitte flacher, Die Neigung fünf Grad steiler]
+    slots:
+    - name: wert
+      typ: winkel
+      pflicht: false
+      einheit: °
+      wertebereich: [0.0, 75.0]
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    - {name: dachflaeche, typ: bauteilref, pflicht: false}
+    fragen:
+    - {id: n.relativ, typ: noul, text: 'Soll der Wert um einen Betrag geändert werden, statt auf einen Zielwert gesetzt zu werden?', schwelle: 0.7, wirkung: 'modus = relativ, wenn der
+        Parser keinen Modus erkennt'}
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.6.T, BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.2-3.Gebaeudeklasse]
+    module: [dach_solver, regelmaschine, pv, energie, kosten]
+    rueckfrage: Auf welche Neigung, zum Beispiel „dreißig Grad“?
+  - intent: dachueberstand_aendern
+    beschreibung: Dachüberstand an Traufe oder Ortgang ändern
+    risikoklasse: R1
+    beispielsaetze: [Mehr Dachüberstand an der Südseite, Der Überstand an der Traufe soll sechzig Zentimeter sein, Kein Überstand am Ortgang]
+    slots:
+    - name: seite
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [traufe, ortgang, alle]
+      frage: q.ueberstand
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.0, 1.5]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: modus, typ: modus, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: q.ueberstand
+      typ: choice
+      text: An welcher Dachkante?
+      optionen: [traufe, ortgang, alle]
+      schwelle: 0.7
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [BY.BayBO.6.T]
+    module: [dach_solver, regelmaschine, kosten]
+    rueckfrage: Traufe oder Ortgang, und wie weit?
+  - intent: firstrichtung_aendern
+    beschreibung: Firstrichtung drehen
+    risikoklasse: R2
+    beispielsaetze: [Den First bitte quer zur Straße, Die Firstrichtung um neunzig Grad drehen, Der First soll Ost-West laufen]
+    slots:
+    - name: richtung
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [drehen_90, nord_sued, ost_west, parallel_strasse, quer_strasse]
+      frage: q.first
+    fragen:
+    - id: q.first
+      typ: choice
+      text: Wie soll der First verlaufen?
+      optionen: [drehen_90, nord_sued, ost_west, parallel_strasse, quer_strasse]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T, BY.BayBO.81.Satzungspflichten]
+    module: [dach_solver, regelmaschine, pv]
+    rueckfrage: 'Wie soll der First laufen: Nord-Süd oder Ost-West?'
+    regeln_geplant: ['Kap. 4.2: Firstrichtung aus Bebauungsplan']
+  - intent: gaube_hinzufuegen
+    beschreibung: Dachgaube oder Zwerchgiebel anfügen
+    risikoklasse: R2
+    beispielsaetze: [Eine Schleppgaube über dem Kinderzimmer, Kann das Bad oben eine Gaube bekommen, Zur Straße hin einen Zwerchgiebel]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [schleppgaube, satteldachgaube, walmgaube, flachdachgaube, spitzgaube, zwerchgiebel]
+      frage: q.gaube
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.8, 8.0]
+    fragen:
+    - id: q.gaube
+      typ: choice
+      text: Welche Gaubenform?
+      optionen: [schleppgaube, satteldachgaube, walmgaube, flachdachgaube, spitzgaube, zwerchgiebel]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.6.T, BY.BayBO.2-5.aF2007.Vollgeschoss, BY.BayBO.45.Fensterflaeche]
+    module: [dach_solver, regelmaschine, statik_vorbemessung, kosten]
+    rueckfrage: Über welchem Raum soll die Gaube sitzen, und welche Form?
+  - intent: gaube_aendern
+    beschreibung: Gaube verbreitern, verschieben oder entfernen
+    risikoklasse: R1
+    beispielsaetze: [Die Gaube über dem Bad fünfzig Zentimeter schmaler, Nimm die Gaube auf der Nordseite weg, Schieb die Gaube mehr in die Mitte]
+    slots:
+    - {name: gaube, typ: bauteilref, pflicht: true}
+    - name: aktion
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [breite, verschieben, entfernen]
+      frage: q.gaubeaktion
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 8.0]
+    - {name: modus, typ: modus, pflicht: false}
+    fragen:
+    - id: q.gaubeaktion
+      typ: choice
+      text: Was soll mit der Gaube geschehen?
+      optionen: [breite, verschieben, entfernen]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T, BY.BayBO.2-5.aF2007.Vollgeschoss]
+    module: [dach_solver, regelmaschine, kosten]
+    rueckfrage: 'Welche Gaube meinen Sie: {kandidaten}?'
+  - intent: dachfenster_einfuegen
+    beschreibung: Dachflächenfenster setzen
+    risikoklasse: R1
+    beispielsaetze: [Zwei Dachfenster ins Kinderzimmer oben, Über der Treppe ein Dachfenster, Ein Dachfenster als Ausstieg zum Schornsteinfeger]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 8]
+    - name: zweck
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [belichtung, rettungsweg, ausstieg]
+      frage: q.dachfensterzweck
+    fragen:
+    - id: q.dachfensterzweck
+      typ: choice
+      text: Wofür ist das Dachfenster?
+      optionen: [belichtung, rettungsweg, ausstieg]
+      schwelle: 0.7
+    regeln: [BY.BayBO.45.Fensterflaeche, DE.ZVDH.DZ.Dachneigung, R5-KLIMA-01]
+    module: [dach_solver, bemusterung_katalog, statik_vorbemessung, kosten]
+    rueckfrage: In welchen Raum sollen die Dachfenster?
+    regeln_geplant: ['Kap. 14.4: Eindeckrahmen passend zur Deckung; Wechsel im Sparren']
+  - intent: dacheindeckung_waehlen
+    beschreibung: Deckmaterial, Ziegelform und Farbe wählen
+    risikoklasse: R1
+    beispielsaetze: [Anthrazitfarbene Ziegel bitte, Wir wollen Biberschwanz, Dachsteine statt Tondachziegel]
+    slots:
+    - name: material
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [tondachziegel, betondachstein, metall, gruendach, schiefer]
+      frage: q.deckung
+    - {name: form, typ: katalogref, pflicht: false}
+    - {name: farbe, typ: farbe, pflicht: false}
+    fragen:
+    - id: q.deckung
+      typ: choice
+      text: Welches Deckmaterial?
+      optionen: [tondachziegel, betondachstein, metall, gruendach, schiefer]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.81.Satzungspflichten]
+    module: [bemusterung_katalog, dach_solver, kosten]
+    rueckfrage: 'Welche Deckung meinen Sie: {kandidaten}?'
+  - intent: dachentwaesserung_waehlen
+    beschreibung: Dachrinne und Fallrohr wählen oder verlegen
+    risikoklasse: R1
+    beispielsaetze: [Die Dachrinne in Zink, Das Fallrohr bitte an die Hausecke Nord-Ost, Eine innenliegende Entwässerung beim Flachdach]
+    slots:
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [material, lage_fallrohr, art]
+      frage: q.rinne
+    - {name: wert_kat, typ: katalogref, pflicht: false}
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.rinne
+      typ: choice
+      text: Geht es um das Material oder die Lage des Fallrohrs?
+      optionen: [material, lage_fallrohr, art]
+      schwelle: 0.7
+    regeln: []
+    module: [dach_solver, entwaesserung, kosten]
+    rueckfrage: Soll sich das Material der Rinne oder die Lage des Fallrohrs ändern?
+    regeln_geplant: ['Kap. 14.5: DIN 1986-100 mit KOSTRA-DWD-Regenspende']
+  - intent: dacheinbauteil_hinzufuegen
+    beschreibung: Schneefang, Dachtritte, Lüfter- oder Antennendurchgang ergänzen
+    risikoklasse: R1
+    beispielsaetze: [Wir brauchen einen Schneefang, Dachtritte zum Kamin, Einen Durchgang für die Satellitenschüssel]
+    slots:
+    - name: teil
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [schneefang, dachtritt, sanitaerluefter, antennendurchgang, solardurchgang, sicherheitshaken]
+      frage: q.einbauteil
+    fragen:
+    - id: q.einbauteil
+      typ: choice
+      text: Welches Einbauteil?
+      optionen: [schneefang, dachtritt, sanitaerluefter, antennendurchgang, solardurchgang, sicherheitshaken]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung]
+    module: [dach_solver, bemusterung_katalog, kosten]
+    rueckfrage: Welches Teil soll aufs Dach?
+- gruppe: fassade
+  beschreibung: Material, Farbe, Schalung, Teilflächen und Sockel der Fassade
+  frage:
+    id: q.intent.fassade
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [fassade_material_waehlen, fassade_farbe_waehlen, schalung_art_waehlen, fassade_teilflaeche, sockel_gestalten, fensterfarbe_aussen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: fassade_material_waehlen
+    beschreibung: Fassadenmaterial wählen
+    risikoklasse: R1
+    beispielsaetze: [Die Fassade in Holz, Lieber verputzt, 'Unten Putz, oben Holzschalung']
+    slots:
+    - name: material
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [putz, holzschalung, faserzement, klinker_riemchen, metall]
+      frage: q.fassadenmaterial
+    - {name: flaeche, typ: bauteilref|himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.fassadenmaterial
+      typ: choice
+      text: Welches Fassadenmaterial?
+      optionen: [putz, holzschalung, faserzement, klinker_riemchen, metall]
+      schwelle: 0.7
+    regeln: [BY.BayBO.81.Satzungspflichten, BY.BayBO.28-2.Gebaeudeabschlusswand, DE.HolzBauRL.Entzuendungsschutz]
+    module: [fassade, bemusterung_katalog, kosten, ifc_generator]
+    rueckfrage: Welches Material soll die Fassade bekommen?
+    regeln_geplant: ['Kap. 14.7: Fachregel 01 Außenwandbekleidungen; Gestaltungssatzung']
+  - intent: fassade_farbe_waehlen
+    beschreibung: Fassadenfarbe wählen
+    risikoklasse: R1
+    beispielsaetze: [Die Fassade in einem hellen Grau, Ein warmes Weiß für den Putz, 'Die Holzschalung soll vergrauen, also unbehandelt']
+    slots:
+    - {name: farbe, typ: farbe, pflicht: true}
+    - {name: flaeche, typ: bauteilref|himmelsrichtung, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.81.Satzungspflichten]
+    module: [fassade, bemusterung_katalog, viewer]
+    rueckfrage: 'Welche Farbe meinen Sie: {kandidaten}?'
+    regeln_geplant: ['Kap. 14.7: Hellbezugswert bei Putz auf Holzfaser']
+  - intent: schalung_art_waehlen
+    beschreibung: Schalungsart, Ausrichtung und Holzart festlegen
+    risikoklasse: R1
+    beispielsaetze: [Eine Boden-Deckel-Schalung aus Lärche, Die Schalung senkrecht, Rhombusleisten in Fichte]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [stulpschalung, boden_deckel, rhombus, nut_feder, offene_leisten]
+      frage: q.schalungsart
+    - name: ausrichtung
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [senkrecht, waagerecht]
+      frage: q.schalung_art_waehlen.ausrichtung
+    - name: holzart
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [laerche, fichte, douglasie, thermoholz, weisstanne]
+      frage: q.holzart_fassade
+    fragen:
+    - id: q.schalungsart
+      typ: choice
+      text: Welche Schalungsart?
+      optionen: [stulpschalung, boden_deckel, rhombus, nut_feder, offene_leisten]
+      schwelle: 0.7
+    - id: q.holzart_fassade
+      typ: choice
+      text: Welche Holzart?
+      optionen: [laerche, fichte, douglasie, thermoholz, weisstanne]
+      schwelle: 0.7
+    - id: q.schalung_art_waehlen.ausrichtung
+      typ: choice
+      text: Welcher Wert passt für „ausrichtung“?
+      optionen: [senkrecht, waagerecht]
+      schwelle: 0.7
+    regeln: [DE.HolzBauRL.Entzuendungsschutz]
+    module: [fassade, bemusterung_katalog, kosten]
+    rueckfrage: Welche Schalung meinen Sie, und senkrecht oder waagerecht?
+    regeln_geplant: [Fachregel 01 Zimmerer (Kapitel 4.6)]
+  - intent: fassade_teilflaeche
+    beschreibung: Material oder Farbe nur auf einer Teilfläche
+    risikoklasse: R1
+    beispielsaetze: ['Die Giebelseiten verschalen, der Rest bleibt Putz', Der Erker bekommt eine dunkle Farbe, 'Das Obergeschoss verschalt, unten Putz']
+    slots:
+    - {name: flaeche, typ: bauteilref, pflicht: true}
+    - name: material
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [putz, holzschalung, faserzement, klinker_riemchen, metall]
+      frage: q.fassade_teilflaeche.material
+    - {name: farbe, typ: farbe, pflicht: false}
+    fragen:
+    - id: q.fassade_teilflaeche.material
+      typ: choice
+      text: Welcher Wert passt für „material“?
+      optionen: [putz, holzschalung, faserzement, klinker_riemchen, metall]
+      schwelle: 0.7
+    regeln: [BY.BayBO.81.Satzungspflichten]
+    module: [fassade, bemusterung_katalog, kosten]
+    rueckfrage: 'Welche Teilfläche meinen Sie: {kandidaten}?'
+  - intent: sockel_gestalten
+    beschreibung: Sockelhöhe und Sockelmaterial festlegen
+    risikoklasse: R1
+    beispielsaetze: [Der Sockel bitte dreißig Zentimeter hoch, Ein dunkler Sockelputz, Spritzschutz mit Kies ums Haus]
+    slots:
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.15, 1.0]
+    - {name: material, typ: katalogref, pflicht: false}
+    fragen: []
+    regeln: []
+    module: [fassade, bemusterung_katalog, kosten]
+    rueckfrage: Wie hoch soll der Sockel sein?
+    regeln_geplant: ['Kap. 14.7: Spritzwasserabstand Holzschalung (Fachregel 01)']
+  - intent: fensterfarbe_aussen
+    beschreibung: Außenfarbe von Fenstern und Türen
+    risikoklasse: R1
+    beispielsaetze: [Die Fenster außen anthrazit, Alle Rahmen in Weiß, Die Haustür in Rot]
+    slots:
+    - {name: farbe, typ: farbe, pflicht: true}
+    - {name: umfang, typ: bauteilref, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.81.Satzungspflichten]
+    module: [bemusterung_katalog, kosten, viewer]
+    rueckfrage: Welche Farbe für die Rahmen außen?
+- gruppe: bemusterung_interior
+  beschreibung: Böden, Fliesen, Wände, Türen, Treppe, Sanitär, Küche und Schalter
+  frage:
+    id: q.intent.bemusterung_interior
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [bodenbelag_waehlen, parkett_verlegemuster, fliese_waehlen, fliese_muster_fuge, wandfarbe_waehlen, wandoberflaeche_waehlen, innentuer_waehlen, treppe_bemustern, sanitaerobjekt_setzen,
+      dusche_bodengleich, kueche_planen, sockelleiste_waehlen, schalterprogramm_waehlen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: bodenbelag_waehlen
+    beschreibung: Bodenbelag je Raum wählen
+    risikoklasse: R1
+    beispielsaetze: [Im Wohnzimmer Eichenparkett, Im ganzen Obergeschoss Designboden, Im Flur große Fliesen]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    - name: belag
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [parkett, fliese, vinyl, laminat, teppich, naturstein, beton_cire, linoleum]
+      frage: q.belag
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.belag
+      typ: choice
+      text: Welcher Bodenbelag?
+      optionen: [parkett, fliese, vinyl, laminat, teppich, naturstein, beton_cire, linoleum]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich, R5-KLIMA-02]
+    module: [bemusterung_katalog, fussboden_solver, kosten, ifc_generator]
+    rueckfrage: Welcher Belag, und in welchen Räumen?
+  - intent: parkett_verlegemuster
+    beschreibung: Holzart, Sortierung und Verlegemuster des Parketts
+    risikoklasse: R1
+    beispielsaetze: [Das Parkett im Fischgrät, 'Eiche Landhausdiele, natur geölt', Chevron im Esszimmer]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: muster
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [schiffsboden, landhausdiele, fischgraet, chevron, wuerfel, englischer_verband]
+      frage: q.parkettmuster
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.parkettmuster
+      typ: choice
+      text: Welches Verlegemuster?
+      optionen: [schiffsboden, landhausdiele, fischgraet, chevron, wuerfel, englischer_verband]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich]
+    module: [bemusterung_katalog, fliesen_solver, kosten]
+    rueckfrage: Welches Muster und in welchem Raum?
+  - intent: fliese_waehlen
+    beschreibung: Fliese mit Format, Oberfläche und Farbe wählen
+    risikoklasse: R1
+    beispielsaetze: [Im Bad sechzig mal sechzig in Grau, Die Dusche mit rutschfesten Fliesen, Wandfliesen dreißig mal sechzig weiß matt]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: flaeche
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [boden, wand, dusche, spritzschutz]
+      frage: q.fliesenflaeche
+    - {name: format, typ: format, pflicht: false, einheit: cm×cm}
+    - {name: farbe, typ: farbe, pflicht: false}
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.fliesenflaeche
+      typ: choice
+      text: Boden, Wand oder Dusche?
+      optionen: [boden, wand, dusche, spritzschutz]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich]
+    module: [bemusterung_katalog, fliesen_solver, fussboden_solver, kosten]
+    rueckfrage: 'Welche Fliese meinen Sie: {kandidaten}?'
+    regeln_geplant: ['Kap. 12.2: Rutschhemmung R 10/B in der Dusche; Abdichtung']
+  - intent: fliese_muster_fuge
+    beschreibung: Verlegemuster, Fugenbreite und Fugenfarbe festlegen
+    risikoklasse: R1
+    beispielsaetze: [Die Fliesen im Halbverband, Fuge drei Millimeter in Anthrazit, Im Duschbereich Chevron]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: muster
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [kreuzfuge, halbverband, drittelverband, diagonal, fischgraet, chevron]
+      frage: q.fliesenmuster
+    - name: fugenbreite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.001, 0.012]
+    - {name: fugenfarbe, typ: farbe, pflicht: false}
+    fragen:
+    - id: q.fliesenmuster
+      typ: choice
+      text: Welches Verlegemuster?
+      optionen: [kreuzfuge, halbverband, drittelverband, diagonal, fischgraet, chevron]
+      schwelle: 0.7
+    regeln: []
+    module: [fliesen_solver, bemusterung_katalog, kosten]
+    rueckfrage: Welches Muster, und welche Fuge?
+  - intent: wandfarbe_waehlen
+    beschreibung: Wandfarbe je Raum oder Wand
+    risikoklasse: R1
+    beispielsaetze: [Das Schlafzimmer in einem hellen Salbeigrün, Alle Wände weiß, Die Wand hinter dem Sofa dunkelblau]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: wand, typ: bauteilref, pflicht: false}
+    - {name: farbe, typ: farbe, pflicht: true}
+    fragen: []
+    regeln: [R5-KLIMA-02]
+    module: [bemusterung_katalog, viewer, kosten]
+    rueckfrage: Welche Farbe und welche Wand?
+  - intent: wandoberflaeche_waehlen
+    beschreibung: Putz, Spachtelstufe oder Tapete wählen
+    risikoklasse: R1
+    beispielsaetze: [Im Wohnzimmer Q4 gespachtelt, Kalkputz im Schlafzimmer, Im Keller nur gestrichen]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: oberflaeche
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [q2, q3, q4, kalkputz, lehmputz, tapete, anstrich]
+      frage: q.oberflaeche
+    fragen:
+    - id: q.oberflaeche
+      typ: choice
+      text: Welche Wandoberfläche?
+      optionen: [q2, q3, q4, kalkputz, lehmputz, tapete, anstrich]
+      schwelle: 0.7
+    regeln: [R5-KLIMA-02]
+    module: [bemusterung_katalog, kosten]
+    rueckfrage: 'Welche Oberfläche: gespachtelt, Putz oder Tapete?'
+  - intent: innentuer_waehlen
+    beschreibung: Modell, Oberfläche und Beschlag der Innentüren
+    risikoklasse: R1
+    beispielsaetze: [Die Innentüren bitte in Eiche furniert, Ins Bad eine Schiebetür, Drückergarnitur in Edelstahl]
+    slots:
+    - {name: umfang, typ: bauteilref|raumref, pflicht: false}
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [modell, oberflaeche, beschlag, oeffnungsart]
+      frage: q.tuermerkmal
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.tuermerkmal
+      typ: choice
+      text: Was soll an der Tür gewählt werden?
+      optionen: [modell, oberflaeche, beschlag, oeffnungsart]
+      schwelle: 0.7
+    regeln: [DE.VDI6000.Bewegungsflaeche, DE.DIN18040-2.Bewegungsflaeche]
+    module: [bemusterung_katalog, kosten]
+    rueckfrage: Welche Tür, und was soll sich ändern?
+  - intent: treppe_bemustern
+    beschreibung: Treppenform, Holzart und Geländer wählen
+    risikoklasse: R1
+    beispielsaetze: [Eine gerade Treppe aus Eiche, Die Treppe halb gewendelt, Geländer mit Glas statt Stäben]
+    slots:
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [form, holzart, gelaender, setzstufen]
+      frage: q.treppenmerkmal
+    - name: form
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [gerade, viertelgewendelt, halbgewendelt, podest, spindel]
+      frage: q.treppenform
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.treppenmerkmal
+      typ: choice
+      text: Was an der Treppe?
+      optionen: [form, holzart, gelaender, setzstufen]
+      schwelle: 0.7
+    - id: q.treppenform
+      typ: choice
+      text: Welche Treppenform?
+      optionen: [gerade, viertelgewendelt, halbgewendelt, podest, spindel]
+      schwelle: 0.7
+    regeln: [DE.DIN18065.WG2WE]
+    module: [grundriss_solver, bemusterung_katalog, kosten]
+    rueckfrage: Geht es um die Form der Treppe oder um Material und Geländer?
+  - intent: sanitaerobjekt_setzen
+    beschreibung: WC, Waschtisch, Dusche, Wanne oder Urinal platzieren oder tauschen
+    risikoklasse: R1
+    beispielsaetze: [Ins Bad noch eine freistehende Wanne, Zwei Waschbecken nebeneinander, Das WC an die andere Wand]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: objekt
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [wc, waschtisch, doppelwaschtisch, dusche, badewanne, urinal, bidet]
+      frage: q.sanitaerobjekt
+    - name: aktion
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [hinzufuegen, entfernen, verschieben, tauschen]
+      frage: q.sanitaeraktion
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.sanitaerobjekt
+      typ: choice
+      text: Welches Sanitärobjekt?
+      optionen: [wc, waschtisch, doppelwaschtisch, dusche, badewanne, urinal, bidet]
+      schwelle: 0.7
+    - id: q.sanitaeraktion
+      typ: choice
+      text: Was soll geschehen?
+      optionen: [hinzufuegen, entfernen, verschieben, tauschen]
+      schwelle: 0.7
+    regeln: [DE.VDI6000.Bewegungsflaeche, DE.DIN18040-2.Bewegungsflaeche, M.Firma.Staenderbohrung, DE.EC5-NA.NA67.Durchbruch, FS-05]
+    module: [moebel_solver, tga_routing, bemusterung_katalog, kosten]
+    rueckfrage: Welches Objekt, und wohin im {raum}?
+    regeln_geplant: ['B9: Wand-WC → Vorwand → Tragständer → Abwasser (Kapitel 12.5)']
+  - intent: dusche_bodengleich
+    beschreibung: bodengleiche Dusche mit Rinne oder Punktablauf
+    risikoklasse: R1
+    beispielsaetze: [Die Dusche bodengleich, Mit Duschrinne an der Wand, Walk-in-Dusche ohne Tür]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: ablauf
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [rinne, punktablauf, wandablauf]
+      frage: q.ablauf
+    - name: abtrennung
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [walk_in, tuer, offen]
+      frage: q.dusche_bodengleich.abtrennung
+    fragen:
+    - id: q.ablauf
+      typ: choice
+      text: Welcher Ablauf?
+      optionen: [rinne, punktablauf, wandablauf]
+      schwelle: 0.7
+    - id: q.dusche_bodengleich.abtrennung
+      typ: choice
+      text: Welcher Wert passt für „abtrennung“?
+      optionen: [walk_in, tuer, offen]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich, DE.EC5-NA.NA67.Durchbruch, DE.DIN18040-2.Bewegungsflaeche]
+    module: [fussboden_solver, fliesen_solver, tga_routing, kosten]
+    rueckfrage: Soll die Dusche eine Rinne oder einen Punktablauf bekommen?
+  - intent: kueche_planen
+    beschreibung: Küchenform, Insel und Geräte festlegen
+    risikoklasse: R1
+    beispielsaetze: [Eine L-Küche mit Insel, Die Spüle unter das Fenster, Wir wollen eine Kochinsel mit Dunstabzug nach unten]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [form, insel, spuele_lage, geraete, dunstabzug]
+      frage: q.kuechenmerkmal
+    - name: form
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [zeile, zweizeilig, l_form, u_form, insel]
+      frage: q.kueche_planen.form
+    fragen:
+    - id: q.kuechenmerkmal
+      typ: choice
+      text: Was an der Küche?
+      optionen: [form, insel, spuele_lage, geraete, dunstabzug]
+      schwelle: 0.7
+    - id: q.kueche_planen.form
+      typ: choice
+      text: Welcher Wert passt für „form“?
+      optionen: [zeile, zweizeilig, l_form, u_form, insel]
+      schwelle: 0.7
+    regeln: [R5-FUNKTION-03, R5-FUNKTION-04, DE.DIN18040-2.Bewegungsflaeche]
+    module: [moebel_solver, tga_routing, bemusterung_katalog, kosten]
+    rueckfrage: Geht es um die Form der Küche oder um einzelne Geräte?
+    regeln_geplant: ['Kap. 13.4: Lüftung und Abluft der Dunstabzugshaube']
+  - intent: sockelleiste_waehlen
+    beschreibung: Sockelleisten und Übergänge wählen
+    risikoklasse: R1
+    beispielsaetze: [Weiße Sockelleisten überall, Sockelleiste passend zum Parkett, Keine Schwelle zwischen Flur und Küche]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: artikel, typ: katalogref, pflicht: false}
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [sockelleiste, uebergang]
+      frage: q.sockel
+    fragen:
+    - id: q.sockel
+      typ: choice
+      text: Sockelleiste oder Übergang?
+      optionen: [sockelleiste, uebergang]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich]
+    module: [bemusterung_katalog, fussboden_solver, kosten]
+    rueckfrage: Soll es um die Sockelleisten oder die Übergänge gehen?
+  - intent: schalterprogramm_waehlen
+    beschreibung: Schalterprogramm und Farbe der Elektroinstallation
+    risikoklasse: R1
+    beispielsaetze: [Schalter in Schwarz matt, Das gleiche Schalterprogramm wie im Katalog Seite zwölf, Flache Schalter in Edelstahl]
+    slots:
+    - {name: artikel, typ: katalogref, pflicht: true}
+    - {name: farbe, typ: farbe, pflicht: false}
+    fragen: []
+    regeln: []
+    module: [bemusterung_katalog, kosten]
+    rueckfrage: 'Welches Schalterprogramm: {kandidaten}?'
+- gruppe: tga
+  beschreibung: Elektro, Netzwerk, Smart Home, Heizung, Wärmepumpe, Lüftung, Wasser und Wallbox
+  frage:
+    id: q.intent.tga
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [steckdose_setzen, netzwerk_setzen, smart_home_waehlen, heizsystem_waehlen, waermepumpe_aufstellen, lueftung_waehlen, warmwasser_waehlen, wasseranschluss_setzen, wallbox_setzen,
+      zaehlerschrank_position]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: steckdose_setzen
+    beschreibung: Steckdosen anlegen, verschieben oder entfernen
+    risikoklasse: R1
+    beispielsaetze: [Im Arbeitszimmer vier Steckdosen mehr, Eine Steckdose neben das Bett, Außensteckdose auf der Terrasse]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 20]
+    - {name: lage, typ: bauteilref|moebelref, pflicht: false}
+    - name: aktion
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [hinzufuegen, entfernen, verschieben]
+      frage: q.steckdose_setzen.aktion
+    fragen:
+    - id: q.steckdose_setzen.aktion
+      typ: choice
+      text: Welcher Wert passt für „aktion“?
+      optionen: [hinzufuegen, entfernen, verschieben]
+      schwelle: 0.7
+    regeln: [M.Firma.Staenderbohrung, BB-03]
+    module: [tga_routing, regelmaschine, kosten]
+    rueckfrage: In welchem Raum, und wie viele?
+    regeln_geplant: ['Kap. 13.1: DIN 18015-2 Mindestausstattung, DIN 18015-3 Installationszonen']
+  - intent: netzwerk_setzen
+    beschreibung: Netzwerkdosen, WLAN-Zugangspunkte oder Medienverteiler
+    risikoklasse: R1
+    beispielsaetze: [In jedes Zimmer eine Netzwerkdose, Einen WLAN-Accesspoint im Flur oben, Glasfaser bis in den Technikraum]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 20]
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [netzwerkdose, accesspoint, medienverteiler, glasfaser]
+      frage: q.netz
+    fragen:
+    - id: q.netz
+      typ: choice
+      text: Was für ein Netzwerkanschluss?
+      optionen: [netzwerkdose, accesspoint, medienverteiler, glasfaser]
+      schwelle: 0.7
+    regeln: [M.Firma.Staenderbohrung]
+    module: [tga_routing, kosten]
+    rueckfrage: In welche Räume, und welche Art von Anschluss?
+    regeln_geplant: ['Kap. 13.1: DIN 18015-5 Kommunikationsnetze']
+  - intent: smart_home_waehlen
+    beschreibung: Smart-Home-System und Umfang wählen
+    risikoklasse: R1
+    beispielsaetze: [Ein KNX-System für Licht und Rollläden, Rollläden per App steuern, 'Kein Smart Home, normale Schalter']
+    slots:
+    - name: system
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [knx, funk, matter, keines]
+      frage: q.smarthome
+    - name: umfang
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [licht, beschattung, heizung, alles]
+      frage: q.smart_home_waehlen.umfang
+    fragen:
+    - id: q.smarthome
+      typ: choice
+      text: Welches System?
+      optionen: [knx, funk, matter, keines]
+      schwelle: 0.7
+    - id: q.smart_home_waehlen.umfang
+      typ: choice
+      text: Welcher Wert passt für „umfang“?
+      optionen: [licht, beschattung, heizung, alles]
+      schwelle: 0.7
+    regeln: []
+    module: [tga_routing, bemusterung_katalog, kosten]
+    rueckfrage: Welches System und was soll gesteuert werden?
+  - intent: heizsystem_waehlen
+    beschreibung: Wärmeerzeuger und Wärmeübergabe wählen
+    risikoklasse: R2
+    beispielsaetze: [Luftwärmepumpe mit Fußbodenheizung, Eine Sole-Wärmepumpe bitte, Im Bad zusätzlich einen Handtuchheizkörper]
+    slots:
+    - name: erzeuger
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [luft_wasser_wp, sole_wasser_wp, fernwaerme, pellet, keiner]
+      frage: q.erzeuger
+    - name: uebergabe
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [fussbodenheizung, wandheizung, heizkoerper, handtuchheizkoerper]
+      frage: q.uebergabe
+    - {name: raum, typ: raumref, pflicht: false}
+    fragen:
+    - id: q.erzeuger
+      typ: choice
+      text: Welcher Wärmeerzeuger?
+      optionen: [luft_wasser_wp, sole_wasser_wp, fernwaerme, pellet, keiner]
+      schwelle: 0.7
+    - id: q.uebergabe
+      typ: choice
+      text: Welche Wärmeübergabe?
+      optionen: [fussbodenheizung, wandheizung, heizkoerper, handtuchheizkoerper]
+      schwelle: 0.7
+    regeln: [DE.Fussboden.OKFF-gleich, DE.TALaerm.WP-Richtwert]
+    module: [energie, tga_routing, fussboden_solver, kosten]
+    rueckfrage: Geht es um den Wärmeerzeuger oder um Fußbodenheizung und Heizkörper?
+    regeln_geplant: ['Kap. 13.5: Heizlast DIN EN 12831, GModG-Anforderungen']
+  - intent: waermepumpe_aufstellen
+    beschreibung: Außeneinheit der Wärmepumpe platzieren
+    risikoklasse: R2
+    beispielsaetze: [Die Wärmepumpe auf die Westseite, Stell die Außeneinheit möglichst weit weg vom Nachbarn, Kann die Wärmepumpe neben die Garage]
+    slots:
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: bezug, typ: bauteilref, pflicht: false}
+    - {name: optimieren, typ: bool, pflicht: false, quelle: modell}
+    fragen:
+    - {id: n.wp_optimieren, typ: noul, text: 'Soll das System den besten Aufstellort selbst suchen?', schwelle: 0.6, wirkung: Rasteroptimierung nach B20 statt fester Lage}
+    regeln: [DE.TALaerm.WP-Richtwert, M.Hersteller.R290-Schutzbereich, M.Firma.WP-Irrelevanzziel, BY.BayBO.6.T]
+    module: [schall, tga_routing, regelmaschine, nachweis]
+    rueckfrage: Wo soll die Außeneinheit stehen, oder soll ich den leisesten Platz suchen?
+  - intent: lueftung_waehlen
+    beschreibung: Lüftungskonzept und Lüftungsgerät wählen
+    risikoklasse: R2
+    beispielsaetze: [Lüftungsanlage mit Wärmetauscher zentral im Keller, Dezentrale Lüfter in den Schlafzimmern, 'Nur Fensterlüftung, keine Anlage']
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [zentral_wrg, dezentral_wrg, abluft, fensterlueftung]
+      frage: q.lueftung
+    fragen:
+    - id: q.lueftung
+      typ: choice
+      text: Welches Lüftungskonzept?
+      optionen: [zentral_wrg, dezentral_wrg, abluft, fensterlueftung]
+      schwelle: 0.7
+    regeln: [DE.DIN4109.Aussenlaerm, R5-KLIMA-02]
+    module: [energie, tga_routing, schall, kosten]
+    rueckfrage: 'Welches Lüftungskonzept: zentral, dezentral oder Abluft?'
+    regeln_geplant: ['Kap. 13.4: DIN 1946-6 Feuchteschutzlüftung nutzerunabhängig']
+  - intent: warmwasser_waehlen
+    beschreibung: Warmwasserbereitung und Zirkulation
+    risikoklasse: R1
+    beispielsaetze: [Einen größeren Warmwasserspeicher, Mit Zirkulation bitte, Warmwasser über Frischwasserstation]
+    slots:
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [speicher, frischwasserstation, zirkulation, durchlauferhitzer]
+      frage: q.warmwasser
+    - name: volumen
+      typ: volumen
+      pflicht: false
+      einheit: l
+      wertebereich: [50, 1000]
+    fragen:
+    - id: q.warmwasser
+      typ: choice
+      text: Was an der Warmwasserbereitung?
+      optionen: [speicher, frischwasserstation, zirkulation, durchlauferhitzer]
+      schwelle: 0.7
+    regeln: []
+    module: [energie, tga_routing, kosten]
+    rueckfrage: Geht es um den Speicher oder um die Zirkulation?
+    regeln_geplant: ['Kap. 13.2: Trinkwasserhygiene (DIN 1988-200, 3-Liter-Regel)']
+  - intent: wasseranschluss_setzen
+    beschreibung: Wasseranschluss setzen (Außenzapfstelle, Waschmaschine, Spüle)
+    risikoklasse: R1
+    beispielsaetze: [Einen Wasserhahn außen an der Terrasse, Waschmaschinenanschluss im Hauswirtschaftsraum, Ein Ausgussbecken in der Garage]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [aussenzapfstelle, waschmaschine, ausgussbecken, spuele]
+      frage: q.wasser
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.wasser
+      typ: choice
+      text: Welcher Anschluss?
+      optionen: [aussenzapfstelle, waschmaschine, ausgussbecken, spuele]
+      schwelle: 0.7
+    regeln: [M.Firma.Staenderbohrung, DE.EC5-NA.NA67.Durchbruch]
+    module: [tga_routing, kosten]
+    rueckfrage: Welcher Anschluss, und wo?
+  - intent: wallbox_setzen
+    beschreibung: Ladestation für Elektroauto vorsehen
+    risikoklasse: R1
+    beispielsaetze: [Eine Wallbox in die Garage, Leerrohr für eine Ladestation am Stellplatz, Die Wallbox mit elf Kilowatt]
+    slots:
+    - {name: ort, typ: bauteilref|raumref, pflicht: false}
+    - name: leistung
+      typ: leistung
+      pflicht: false
+      einheit: kW
+      wertebereich: [3.7, 22.0]
+    - name: umfang
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [wallbox, vorbereitung_leerrohr]
+      frage: q.wallbox
+    fragen:
+    - id: q.wallbox
+      typ: choice
+      text: Wallbox oder nur Vorbereitung?
+      optionen: [wallbox, vorbereitung_leerrohr]
+      schwelle: 0.7
+    regeln: []
+    module: [tga_routing, pv, kosten]
+    rueckfrage: Soll ich die Wallbox einbauen oder nur ein Leerrohr vorsehen?
+  - intent: zaehlerschrank_position
+    beschreibung: Lage von Zählerschrank und Hausanschlussraum
+    risikoklasse: R2
+    beispielsaetze: [Den Zählerschrank in den Technikraum, Der Hausanschluss soll in die Garage, Zählerschrank nicht in den Flur]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: aktion
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [verschieben, ausschliessen]
+      frage: q.zaehlerschrank_position.aktion
+    fragen:
+    - id: q.zaehlerschrank_position.aktion
+      typ: choice
+      text: Welcher Wert passt für „aktion“?
+      optionen: [verschieben, ausschliessen]
+      schwelle: 0.7
+    regeln: []
+    module: [tga_routing, grundriss_solver, kosten]
+    rueckfrage: In welchen Raum soll der Zählerschrank?
+    regeln_geplant: ['Kap. 13.1: DIN 18012 Hausanschlussraum, TAB des Netzbetreibers']
+- gruppe: licht
+  beschreibung: Leuchten, Schalter, Dimmung und Außenbeleuchtung
+  frage:
+    id: q.intent.licht
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [leuchte_setzen, leuchte_entfernen, lichtschalter_setzen, lichtsteuerung_waehlen, aussenbeleuchtung_setzen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: leuchte_setzen
+    beschreibung: Leuchte oder Lichtauslass anlegen
+    risikoklasse: R1
+    beispielsaetze: [Über den Esstisch eine Pendelleuchte, Im Flur Spots in die Decke, Eine Leseleuchte am Bett]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [pendel, einbauspot, deckenleuchte, wandleuchte, lichtband, stehleuchte_steckdose]
+      frage: q.leuchte
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 30]
+    - {name: bezug, typ: moebelref|bauteilref, pflicht: false}
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.leuchte
+      typ: choice
+      text: Welche Leuchtenart?
+      optionen: [pendel, einbauspot, deckenleuchte, wandleuchte, lichtband, stehleuchte_steckdose]
+      schwelle: 0.7
+    regeln: [R5-LICHT-03]
+    module: [licht, tga_routing, kosten]
+    rueckfrage: Welche Leuchte, und wo?
+    regeln_geplant: ['Kap. 13.7: Beleuchtungsstärke nach Leuchtendaten (GLDF, EULUMDAT)']
+  - intent: leuchte_entfernen
+    beschreibung: Leuchte entfernen
+    risikoklasse: R1
+    beispielsaetze: [Die Deckenleuchte im Bad weg, Keine Spots im Schlafzimmer, Nimm die Wandleuchte im Flur raus]
+    slots:
+    - {name: leuchte, typ: bauteilref, pflicht: true}
+    fragen: []
+    regeln: []
+    module: [licht, tga_routing, kosten]
+    rueckfrage: 'Welche Leuchte meinen Sie: {kandidaten}?'
+  - intent: lichtschalter_setzen
+    beschreibung: Schalter, Taster oder Bewegungsmelder anlegen
+    risikoklasse: R1
+    beispielsaetze: [Im Flur einen Bewegungsmelder, Im Flur eine Wechselschaltung oben und unten, Schalter neben die Terrassentür]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [schalter, wechselschaltung, taster, bewegungsmelder, dimmer]
+      frage: q.schalter
+    - {name: lage, typ: bauteilref|moebelref, pflicht: false}
+    fragen:
+    - id: q.schalter
+      typ: choice
+      text: Welche Art von Schalter?
+      optionen: [schalter, wechselschaltung, taster, bewegungsmelder, dimmer]
+      schwelle: 0.7
+    regeln: [M.Firma.Staenderbohrung]
+    module: [licht, tga_routing, kosten]
+    rueckfrage: Welcher Schalter, und an welcher Stelle?
+  - intent: lichtsteuerung_waehlen
+    beschreibung: Dimmung, Lichtfarbe oder Szenen
+    risikoklasse: R1
+    beispielsaetze: [Die Spots in der Küche dimmbar machen, Warmweißes Licht im Schlafzimmer, Eine Szene zum Fernsehen]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [dimmbar, lichtfarbe, szene]
+      frage: q.lichtsteuerung
+    - name: farbtemperatur
+      typ: temperatur_k
+      pflicht: false
+      einheit: K
+      wertebereich: [2200, 6500]
+    fragen:
+    - id: q.lichtsteuerung
+      typ: choice
+      text: Was soll am Licht einstellbar sein?
+      optionen: [dimmbar, lichtfarbe, szene]
+      schwelle: 0.7
+    regeln: []
+    module: [licht, tga_routing, kosten]
+    rueckfrage: Soll das Licht dimmbar sein oder eine bestimmte Lichtfarbe haben?
+  - intent: aussenbeleuchtung_setzen
+    beschreibung: Außenleuchten an Fassade, Weg oder Terrasse
+    risikoklasse: R1
+    beispielsaetze: [Licht an der Haustür mit Bewegungsmelder, Pollerleuchten entlang der Einfahrt, Zwei Wandleuchten an der Terrasse]
+    slots:
+    - name: ort
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [eingang, weg, terrasse, garage, fassade]
+      frage: q.aussenlicht
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 20]
+    fragen:
+    - id: q.aussenlicht
+      typ: choice
+      text: Wo soll das Außenlicht hin?
+      optionen: [eingang, weg, terrasse, garage, fassade]
+      schwelle: 0.7
+    regeln: []
+    module: [licht, tga_routing, kosten]
+    rueckfrage: Wohin sollen die Außenleuchten?
+- gruppe: pv
+  beschreibung: Photovoltaik, Module und Batteriespeicher
+  frage:
+    id: q.intent.pv
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [pv_belegen, pv_entfernen, pv_modul_waehlen, batteriespeicher_waehlen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: pv_belegen
+    beschreibung: PV-Anlage nach Leistung, Fläche oder maximal belegen
+    risikoklasse: R1
+    beispielsaetze: [Belege das ganze Dach mit Solarmodulen, Wir wollen zehn Kilowatt Peak, PV auf beide Dachseiten]
+    slots:
+    - name: umfang
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [maximal, leistung, flaeche, dachflaeche]
+      frage: q.pvumfang
+    - name: leistung
+      typ: leistung
+      pflicht: false
+      einheit: kWp
+      wertebereich: [1.0, 60.0]
+    - {name: dachflaeche, typ: bauteilref|himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.pvumfang
+      typ: choice
+      text: Wie soll belegt werden?
+      optionen: [maximal, leistung, flaeche, dachflaeche]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung]
+    module: [pv, dach_solver, energie, kosten]
+    rueckfrage: Soll ich das Dach möglichst voll belegen oder eine bestimmte Leistung planen?
+    regeln_geplant: ['Kap. 14.6: Randabstände, Brandschutzabstand zur Haustrennwand, Ertrag nach PVGIS']
+  - intent: pv_entfernen
+    beschreibung: PV-Anlage oder Teilfläche entfernen
+    risikoklasse: R1
+    beispielsaetze: [Keine Photovoltaik auf der Nordseite, Nimm die PV-Module vom Garagendach, Doch ohne PV-Anlage]
+    slots:
+    - {name: dachflaeche, typ: bauteilref|himmelsrichtung, pflicht: false}
+    fragen: []
+    regeln: []
+    module: [pv, energie, kosten]
+    rueckfrage: Soll die ganze Anlage weg oder nur eine Dachfläche?
+  - intent: pv_modul_waehlen
+    beschreibung: Modultyp und Farbe wählen
+    risikoklasse: R1
+    beispielsaetze: [Schwarze Module bitte, Indach statt Aufdach, Glas-Glas-Module]
+    slots:
+    - name: merkmal
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [modul, montage, farbe]
+      frage: q.pv_modul_waehlen.merkmal
+    - name: montage
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [aufdach, indach, solardachziegel]
+      frage: q.pvmontage
+    - {name: artikel, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.pvmontage
+      typ: choice
+      text: Welche Montageart?
+      optionen: [aufdach, indach, solardachziegel]
+      schwelle: 0.7
+    - id: q.pv_modul_waehlen.merkmal
+      typ: choice
+      text: Welcher Wert passt für „merkmal“?
+      optionen: [modul, montage, farbe]
+      schwelle: 0.7
+    regeln: [DE.ZVDH.DZ.Dachneigung, BY.BayBO.81.Satzungspflichten]
+    module: [pv, bemusterung_katalog, kosten]
+    rueckfrage: Geht es um das Modul oder um die Montageart?
+  - intent: batteriespeicher_waehlen
+    beschreibung: Batteriespeicher vorsehen und dimensionieren
+    risikoklasse: R1
+    beispielsaetze: [Einen Speicher mit zehn Kilowattstunden, Ohne Batteriespeicher, Der Speicher kommt in den Technikraum]
+    slots:
+    - name: kapazitaet
+      typ: energie
+      pflicht: false
+      einheit: kWh
+      wertebereich: [2.0, 40.0]
+    - {name: raum, typ: raumref, pflicht: false}
+    - name: aktion
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [hinzufuegen, entfernen, verschieben]
+      frage: q.batteriespeicher_waehlen.aktion
+    fragen:
+    - id: q.batteriespeicher_waehlen.aktion
+      typ: choice
+      text: Welcher Wert passt für „aktion“?
+      optionen: [hinzufuegen, entfernen, verschieben]
+      schwelle: 0.7
+    regeln: []
+    module: [pv, energie, tga_routing, kosten]
+    rueckfrage: Welche Kapazität, und wo soll der Speicher stehen?
+    regeln_geplant: ['Kap. 13: Aufstellbedingungen Batteriespeicher nach Herstellervorgabe']
+- gruppe: aussenanlagen
+  beschreibung: Terrasse, Garage, Stellplatz, Wege, Gelände, Einfriedung und Grundstücksentwässerung
+  frage:
+    id: q.intent.aussenanlagen
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [terrasse_anlegen, garage_carport_hinzufuegen, stellplatz_anlegen, weg_zufahrt_anlegen, zisterne_hinzufuegen, versickerung_waehlen, rueckstausicherung_waehlen, gelaende_modellieren,
+      einfriedung_anlegen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: terrasse_anlegen
+    beschreibung: Terrasse anlegen oder ändern
+    risikoklasse: R1
+    beispielsaetze: ['Eine Terrasse vor dem Wohnzimmer, vier mal fünf Meter', Die Terrasse aus Holz, Terrasse bitte bis zur Hausecke verlängern]
+    slots:
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [1.0, 20.0]
+    - name: tiefe
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [1.0, 10.0]
+    - name: belag
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [holz, wpc, naturstein, betonstein, kies]
+      frage: q.terrassenbelag
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.terrassenbelag
+      typ: choice
+      text: Welcher Terrassenbelag?
+      optionen: [holz, wpc, naturstein, betonstein, kies]
+      schwelle: 0.7
+    regeln: [R5-AUSSEN-04]
+    module: [aussenanlagen, entwaesserung, kosten]
+    rueckfrage: Wie groß soll die Terrasse sein, und wo?
+    regeln_geplant: ['Kap. 14a.2: Versiegelung und Niederschlagsabfluss']
+  - intent: garage_carport_hinzufuegen
+    beschreibung: Garage oder Carport anlegen
+    risikoklasse: R2
+    beispielsaetze: [Eine Doppelgarage an die Ostseite, Lieber einen Carport, Die Garage direkt ans Haus]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [garage, doppelgarage, carport, doppelcarport]
+      frage: q.garage
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    - {name: angebaut, typ: bool, pflicht: false, quelle: modell}
+    fragen:
+    - id: q.garage
+      typ: choice
+      text: Garage oder Carport?
+      optionen: [garage, doppelgarage, carport, doppelcarport]
+      schwelle: 0.7
+    - {id: n.angebaut, typ: noul, text: 'Soll die Garage direkt ans Haus anschließen?', schwelle: 0.65, wirkung: angebaut = true}
+    regeln: [BY.BayBO.6.T, BY.BayBO.81.Satzungspflichten]
+    module: [aussenanlagen, regelmaschine, kosten]
+    rueckfrage: Garage oder Carport, und auf welcher Seite?
+    regeln_geplant: ['BayBO Art. 6 Abs. 7: Grenzgaragen (Kapitel 4.3.1)']
+  - intent: stellplatz_anlegen
+    beschreibung: Stellplätze auf dem Grundstück
+    risikoklasse: R1
+    beispielsaetze: [Noch zwei Parkplätze an der Straße, Noch einen Besucherparkplatz, Stellplatz mit Rasengittersteinen]
+    slots:
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 20]
+    - {name: belag, typ: katalogref, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.81.Satzungspflichten]
+    module: [aussenanlagen, entwaesserung, kosten]
+    rueckfrage: Wie viele Stellplätze, und wo?
+  - intent: weg_zufahrt_anlegen
+    beschreibung: Zufahrt oder Gartenweg anlegen
+    risikoklasse: R1
+    beispielsaetze: [Ein gepflasterter Weg zur Haustür, 'Die Zufahrt breiter, drei Meter fünfzig', Ein Weg um das Haus herum]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [zufahrt, zugang, gartenweg]
+      frage: q.weg
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.6, 8.0]
+    - {name: belag, typ: katalogref, pflicht: false}
+    fragen:
+    - id: q.weg
+      typ: choice
+      text: Zufahrt, Zugang oder Gartenweg?
+      optionen: [zufahrt, zugang, gartenweg]
+      schwelle: 0.7
+    regeln: []
+    module: [aussenanlagen, entwaesserung, kosten]
+    rueckfrage: Welcher Weg, und wie breit?
+  - intent: zisterne_hinzufuegen
+    beschreibung: Regenwasserzisterne vorsehen
+    risikoklasse: R1
+    beispielsaetze: [Eine Zisterne für den Garten, Regenwasser für die Toilettenspülung nutzen, Zisterne mit sechs Kubikmetern]
+    slots:
+    - name: volumen
+      typ: volumen
+      pflicht: false
+      einheit: m³
+      wertebereich: [1.0, 30.0]
+    - name: nutzung
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [garten, wc_waschmaschine, rueckhaltung]
+      frage: q.zisterne
+    fragen:
+    - id: q.zisterne
+      typ: choice
+      text: Wofür das Regenwasser?
+      optionen: [garten, wc_waschmaschine, rueckhaltung]
+      schwelle: 0.7
+    regeln: []
+    module: [entwaesserung, tga_routing, kosten]
+    rueckfrage: Wie groß soll die Zisterne sein, und wofür?
+    regeln_geplant: ['Kap. 14a.2: DWA-A 138-1, Drosselabfluss; Trennung Trinkwasser nach DIN EN 1717']
+  - intent: versickerung_waehlen
+    beschreibung: Versickerung über Mulde, Rigole oder Schacht
+    risikoklasse: R2
+    beispielsaetze: [Das Regenwasser soll auf dem Grundstück versickern, Eine Rigole statt Kanalanschluss, Kann eine Mulde im Garten reichen]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [mulde, rigole, schacht, mulden_rigole, kanal]
+      frage: q.versickerung
+    fragen:
+    - id: q.versickerung
+      typ: choice
+      text: Welche Art der Versickerung?
+      optionen: [mulde, rigole, schacht, mulden_rigole, kanal]
+      schwelle: 0.7
+    regeln: []
+    module: [entwaesserung, nachweis, kosten]
+    rueckfrage: Mulde, Rigole oder Schacht?
+    regeln_geplant: ['Kap. 14a.2: DWA-A 138-1, NWFreiV/TRENGW, Satzung der Gemeinde']
+  - intent: rueckstausicherung_waehlen
+    beschreibung: Rückstauverschluss oder Hebeanlage
+    risikoklasse: R2
+    beispielsaetze: [Brauchen wir eine Hebeanlage, Einen Rückstauverschluss für den Keller, Kellerablauf mit Rückstausicherung]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [rueckstauverschluss, hebeanlage, keine]
+      frage: q.rueckstau
+    fragen:
+    - id: q.rueckstau
+      typ: choice
+      text: Rückstauverschluss oder Hebeanlage?
+      optionen: [rueckstauverschluss, hebeanlage, keine]
+      schwelle: 0.7
+    regeln: []
+    module: [entwaesserung, tga_routing, kosten]
+    rueckfrage: Soll ich einen Rückstauverschluss oder eine Hebeanlage vorsehen?
+    regeln_geplant: ['Kap. 14a.1: DIN 1986-100 Rückstauebene, DIN EN 12056-4']
+  - intent: gelaende_modellieren
+    beschreibung: Gelände aufschütten, abgraben oder terrassieren
+    risikoklasse: R2
+    beispielsaetze: [Den Garten auf Terrassenhöhe auffüllen, Hinter dem Haus fünfzig Zentimeter abgraben, Eine Stützmauer zum Nachbarn]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [aufschuettung, abgrabung, stuetzmauer, boeschung]
+      frage: q.gelaende
+    - name: wert
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.05, 3.0]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.gelaende
+      typ: choice
+      text: Was soll am Gelände geschehen?
+      optionen: [aufschuettung, abgrabung, stuetzmauer, boeschung]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T, BY.BayBO.2-3.Gebaeudeklasse]
+    module: [aussenanlagen, entwaesserung, regelmaschine, kosten]
+    rueckfrage: Soll aufgefüllt oder abgegraben werden, und wie viel?
+    hinweis: Geländeänderung wirkt auf Wandhöhe H nach Art. 6 und auf h nach Art. 2 Abs. 3
+  - intent: einfriedung_anlegen
+    beschreibung: Zaun, Hecke, Mauer oder Tor
+    risikoklasse: R1
+    beispielsaetze: [Ein Zaun ums Grundstück, Zur Straße eine Hecke, Ein Schiebetor an der Einfahrt]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [zaun, hecke, mauer, tor, sichtschutz]
+      frage: q.einfriedung
+    - name: hoehe
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.3, 3.0]
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen:
+    - id: q.einfriedung
+      typ: choice
+      text: Welche Einfriedung?
+      optionen: [zaun, hecke, mauer, tor, sichtschutz]
+      schwelle: 0.7
+    regeln: [BY.BayBO.6.T]
+    module: [aussenanlagen, kosten]
+    rueckfrage: Welche Einfriedung, und an welcher Grenze?
+    regeln_geplant: ['Kap. 14a: Einfriedungssatzung der Gemeinde; Art. 57 BayBO verfahrensfrei bis Höhe']
+- gruppe: moeblierung
+  beschreibung: Möbel platzieren, verschieben, tauschen, entfernen und Räume automatisch möblieren
+  frage:
+    id: q.intent.moeblierung
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [moebel_platzieren, moebel_verschieben, moebel_entfernen, raum_moeblieren, moebel_tauschen, einbauschrank_planen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: moebel_platzieren
+    beschreibung: Möbel aus dem Katalog platzieren
+    risikoklasse: R1
+    beispielsaetze: [Ins Gästezimmer ein Schlafsofa, Ein großes Sofa vor das Fenster, Im Arbeitszimmer einen Schreibtisch an die Wand]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - {name: moebel, typ: katalogref, pflicht: true}
+    - {name: bezug, typ: bauteilref|moebelref, pflicht: false}
+    - {name: groesse, typ: format, pflicht: false, einheit: m×m}
+    fragen: []
+    regeln: [DE.VDI6000.Bewegungsflaeche, R5-FUNKTION-01, R5-FUNKTION-02, FS-01]
+    module: [moebel_solver, regelmaschine, assistenz_r5, viewer]
+    rueckfrage: Welches Möbel, und in welchen Raum?
+  - intent: moebel_verschieben
+    beschreibung: Möbel verschieben oder drehen
+    risikoklasse: R1
+    beispielsaetze: [Schieb das Bett unter die Dachschräge, Den Esstisch etwas mehr ans Fenster, Dreh das Sofa zum Garten]
+    slots:
+    - {name: moebel, typ: moebelref, pflicht: true}
+    - name: wert
+      typ: laenge|winkel
+      pflicht: false
+      einheit: m|°
+      wertebereich:
+        laenge: [0.05, 10.0]
+        winkel: [-180, 180]
+    - {name: richtung, typ: richtung_relativ, pflicht: false}
+    - {name: bezug, typ: bauteilref|moebelref, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen:
+    - id: s.staerke
+      typ: score
+      text: Wie stark soll die Änderung sein?
+      stufen: [sehr wenig, etwas, deutlich, stark, sehr stark]
+      schwelle: 0.6
+    regeln: [DE.VDI6000.Bewegungsflaeche, R5-FUNKTION-02, FS-01]
+    module: [moebel_solver, regelmaschine, assistenz_r5]
+    rueckfrage: Welches Möbel, und wohin?
+  - intent: moebel_entfernen
+    beschreibung: Möbel entfernen
+    risikoklasse: R1
+    beispielsaetze: [Das Sideboard kann weg, Kein Sessel im Wohnzimmer, Nimm den zweiten Schrank raus]
+    slots:
+    - {name: moebel, typ: moebelref, pflicht: true}
+    fragen: []
+    regeln: [R5-FUNKTION-05]
+    module: [moebel_solver, viewer]
+    rueckfrage: 'Welches Möbel meinen Sie: {kandidaten}?'
+  - intent: raum_moeblieren
+    beschreibung: Raum automatisch möblieren lassen
+    risikoklasse: R1
+    beispielsaetze: [Möblier mal das Kinderzimmer, Mach einen Vorschlag für die Einrichtung im Wohnzimmer, Wie würde das Arbeitszimmer eingerichtet aussehen]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - name: stil
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [standard, platzsparend, barrierefrei, homeoffice]
+      frage: q.moebelstil
+    fragen:
+    - id: q.moebelstil
+      typ: choice
+      text: Welche Art von Einrichtung?
+      optionen: [standard, platzsparend, barrierefrei, homeoffice]
+      schwelle: 0.7
+    regeln: [DE.VDI6000.Bewegungsflaeche, DE.DIN18040-2.Bewegungsflaeche, R5-FUNKTION-01, R5-FUNKTION-05]
+    module: [moebel_solver, assistenz_r5, viewer]
+    rueckfrage: Welchen Raum soll ich einrichten?
+  - intent: moebel_tauschen
+    beschreibung: Möbel gegen ein anderes Modell tauschen
+    risikoklasse: R1
+    beispielsaetze: [Ein kleineres Bett bitte, Tausch den Tisch gegen einen runden, Das Sofa lieber als Ecksofa]
+    slots:
+    - {name: moebel, typ: moebelref, pflicht: true}
+    - {name: ersatz, typ: katalogref, pflicht: false}
+    - {name: staerke, typ: staerke, pflicht: false, hinweis: 'nur wenn kein Zahlwert erkannt; Stufe → Schrittweite aus Tabelle, immer mit Vorschau'}
+    fragen: []
+    regeln: [DE.VDI6000.Bewegungsflaeche, R5-FUNKTION-01]
+    module: [moebel_solver, bemusterung_katalog]
+    rueckfrage: Welches Möbel soll getauscht werden, und wogegen?
+  - intent: einbauschrank_planen
+    beschreibung: Einbauschrank oder Stauraum planen
+    risikoklasse: R1
+    beispielsaetze: [Unter die Dachschräge Einbauschränke, Ein Garderobenschrank im Flur, Im Schlafzimmer eine Schrankwand über die ganze Breite]
+    slots:
+    - {name: raum, typ: raumref, pflicht: true}
+    - {name: lage, typ: bauteilref, pflicht: false}
+    - name: breite
+      typ: laenge
+      pflicht: false
+      einheit: m
+      wertebereich: [0.4, 10.0]
+    fragen: []
+    regeln: [R5-FUNKTION-05, DE.VDI6000.Bewegungsflaeche]
+    module: [moebel_solver, bemusterung_katalog, kosten]
+    rueckfrage: In welchen Raum, und an welche Wand?
+- gruppe: gebaeudetyp_nutzung
+  beschreibung: Merkmale, aus denen das Regelprofil abgeleitet wird, sowie Nutzer- und Kulturprofile
+  frage:
+    id: q.intent.gebaeudetyp_nutzung
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [einliegerwohnung_hinzufuegen, wohnung_hinzufuegen, wohnung_entfernen, anbauart_aendern, barrierefreiheit_vorsehen, aufzug_vorsehen, nutzerprofil_waehlen, kulturprofil_waehlen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: einliegerwohnung_hinzufuegen
+    beschreibung: Einliegerwohnung als zweite Nutzungseinheit anlegen
+    risikoklasse: R2
+    beispielsaetze: [Im Keller soll eine Einliegerwohnung entstehen, Können wir unten eine kleine Wohnung für die Oma abtrennen, Eine Einliegerwohnung mit eigenem Eingang]
+    slots:
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    - name: wert
+      typ: flaeche
+      pflicht: false
+      einheit: m²
+      wertebereich: [15.0, 120.0]
+    - {name: eigener_eingang, typ: bool, pflicht: false, quelle: modell}
+    fragen:
+    - {id: n.eigener_eingang, typ: noul, text: 'Soll die Wohnung einen eigenen Eingang haben?', schwelle: 0.65, wirkung: eigener_eingang = true}
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, DE.DIN4109-1.Tab2-Trennbauteile, BY.Profil.Schwellenwarnung, DE.WEG.3-3.Abgeschlossenheit, BY.BayBO.81.Satzungspflichten]
+    module: [profilableitung, grundriss_solver, regelmaschine, schall, kosten]
+    rueckfrage: In welchem Geschoss soll die Einliegerwohnung liegen?
+    hinweis: Typ wird nicht gewählt, sondern abgeleitet (Kapitel 9a.2.1)
+  - intent: wohnung_hinzufuegen
+    beschreibung: weitere Wohnung anlegen (Zwei- oder Mehrfamilienhaus)
+    risikoklasse: R2
+    beispielsaetze: [Das Haus soll zwei getrennte Wohnungen haben, Oben eine zweite Wohnung, 'Drei Wohnungen, je eine pro Geschoss']
+    slots:
+    - name: anzahl
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 20]
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, BY.BayBO.61.Bauvorlageberechtigung, DE.DIN4109-1.Tab2-Trennbauteile, BY.BayBO.48.Barrierefreiheit, BY.BayBO.81.Satzungspflichten, DE.WEG.3-3.Abgeschlossenheit,
+      BY.Profil.Schwellenwarnung]
+    module: [profilableitung, grundriss_solver, regelmaschine, schall, kosten]
+    rueckfrage: Wie viele Wohnungen insgesamt, und wie verteilt?
+  - intent: wohnung_entfernen
+    beschreibung: Wohnung oder Einliegerwohnung zurücknehmen
+    risikoklasse: R3
+    beispielsaetze: [Die Einliegerwohnung streichen wir wieder, Wieder nur eine Wohnung, Die Wohnung im Dachgeschoss streichen]
+    slots:
+    - {name: wohnung, typ: zonenref, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, BY.Profil.Schwellenwarnung]
+    module: [profilableitung, grundriss_solver, varianten]
+    rueckfrage: Welche Wohnung soll entfallen? Ich lege vorher eine Variante an.
+  - intent: anbauart_aendern
+    beschreibung: freistehend, Doppelhaushälfte oder Reihenhaus
+    risikoklasse: R2
+    beispielsaetze: [Wir bauen als Doppelhaushälfte, Das wird ein Reihenmittelhaus, Doch freistehend]
+    slots:
+    - name: anbau
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [freistehend, doppelhaushaelfte, reihenendhaus, reihenmittelhaus]
+      frage: q.anbau
+    fragen:
+    - id: q.anbau
+      typ: choice
+      text: Wie steht das Haus?
+      optionen: [freistehend, doppelhaushaelfte, reihenendhaus, reihenmittelhaus]
+      schwelle: 0.7
+    regeln: [BY.BayBO.2-3.Gebaeudeklasse, BY.BayBO.61.Bauvorlageberechtigung, BY.BauNR.Doppelhaus, BY.BayBO.28-2.Gebaeudeabschlusswand, DE.DIN4109-1.Tab3-Haustrennwand, BY.BayBO.6.T]
+    module: [profilableitung, regelmaschine, schall, energie, freigabe_gates]
+    rueckfrage: Freistehend, Doppelhaushälfte oder Reihenhaus?
+    hinweis: Reihenmittelhaus verlässt Art. 61 Abs. 3 BayBO (Kapitel 9a.4.1)
+  - intent: barrierefreiheit_vorsehen
+    beschreibung: barrierefrei oder barrierearm planen
+    risikoklasse: R2
+    beispielsaetze: [Wir wollen alles barrierefrei, 'Das Erdgeschoss so, dass man im Alter nur unten wohnen kann', Schwellenlos und mit breiten Türen]
+    slots:
+    - name: stufe
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [barrierefrei, barrierefrei_vorbereitet, schwellenarm]
+      frage: q.barriere
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    fragen:
+    - id: q.barriere
+      typ: choice
+      text: Welche Stufe?
+      optionen: [barrierefrei, barrierefrei_vorbereitet, schwellenarm]
+      schwelle: 0.7
+    regeln: [DE.DIN18040-2.Bewegungsflaeche, BY.BayBO.48.Barrierefreiheit, R5-ANPASS-01, DE.Fussboden.OKFF-gleich]
+    module: [regelmaschine, grundriss_solver, moebel_solver, assistenz_r5]
+    rueckfrage: Soll das Haus ganz barrierefrei oder nur dafür vorbereitet sein?
+  - intent: aufzug_vorsehen
+    beschreibung: Aufzug oder Schacht für späteren Aufzug
+    risikoklasse: R2
+    beispielsaetze: [Einen Aufzug bis ins Dachgeschoss, 'Die Treppe so, dass später ein Lift passt', Einen Schacht für einen Aufzug vorsehen]
+    slots:
+    - name: art
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [aufzug, schacht_vorbereitet, treppenlift_vorbereitet]
+      frage: q.aufzug
+    fragen:
+    - id: q.aufzug
+      typ: choice
+      text: Aufzug oder Vorbereitung?
+      optionen: [aufzug, schacht_vorbereitet, treppenlift_vorbereitet]
+      schwelle: 0.7
+    regeln: [BY.BayBO.37-4.Aufzug, DE.DIN18065.WG2WE]
+    module: [grundriss_solver, regelmaschine, kosten]
+    rueckfrage: Soll ein Aufzug eingebaut oder nur vorbereitet werden?
+  - intent: nutzerprofil_waehlen
+    beschreibung: Nutzerprofil der Assistenz aktivieren
+    risikoklasse: R0
+    beispielsaetze: [Ich arbeite drei Tage die Woche im Homeoffice, Wir haben zwei kleine Kinder, Bitte auf später barrierefrei achten]
+    slots:
+    - name: profil
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [homeoffice, kinder, barrierefrei_vorbereitet]
+      frage: q.nutzerprofil
+    - name: tage
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 7]
+    fragen:
+    - id: q.nutzerprofil
+      typ: choice
+      text: Welches Nutzerprofil?
+      optionen: [homeoffice, kinder, barrierefrei_vorbereitet]
+      schwelle: 0.7
+    regeln: [R5-HOME-01, R5-HOME-02, R5-LICHT-04, R5-ANPASS-01]
+    module: [assistenz_r5]
+    rueckfrage: 'Welches Profil soll ich berücksichtigen: Homeoffice, Kinder oder barrierefrei vorbereitet?'
+  - intent: kulturprofil_waehlen
+    beschreibung: Kulturprofil ein- oder ausschalten
+    risikoklasse: R0
+    beispielsaetze: [Bitte Feng Shui einschalten, Schalte Vastu wieder aus, Uns ist Baubiologie wichtig]
+    slots:
+    - name: profil
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [feng_shui, vastu, baubiologie, hygge]
+      frage: q.kulturprofil
+    - {name: an, typ: bool, pflicht: true, quelle: modell}
+    fragen:
+    - id: q.kulturprofil
+      typ: choice
+      text: Welches Kulturprofil?
+      optionen: [feng_shui, vastu, baubiologie, hygge]
+      schwelle: 0.7
+    - {id: n.einschalten, typ: noul, text: 'Soll das Profil eingeschaltet werden?', schwelle: 0.7, wirkung: an = true; sonst aus}
+    regeln: [FS-01, FS-06, VA-01, BB-01, HY-01]
+    module: [assistenz_r5]
+    rueckfrage: Welches Profil soll ich ein- oder ausschalten?
+    hinweis: Einschaltmeldung aus Kasten 9b.4 verpflichtend
+- gruppe: steuerung
+  beschreibung: Undo, Varianten, Ansicht, Auswahl und Dialogsteuerung
+  frage:
+    id: q.intent.steuerung
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [rueckgaengig, wiederholen, variante_anlegen, variante_wechseln, varianten_vergleichen, variante_loeschen, ansicht_wechseln, objekt_auswaehlen, abbrechen, bestaetigen,
+      verneinen, alternative_waehlen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: rueckgaengig
+    beschreibung: letzte Änderung zurücknehmen
+    risikoklasse: R1
+    beispielsaetze: [Mach das rückgängig, Zurück bitte, 'Nein, das war besser vorher']
+    slots:
+    - name: schritte
+      typ: anzahl
+      pflicht: false
+      wertebereich: [1, 50]
+    fragen: []
+    regeln: []
+    module: [varianten, parametermodell]
+    rueckfrage: Soll ich die letzte Änderung „{letzte}“ zurücknehmen?
+  - intent: wiederholen
+    beschreibung: zurückgenommene Änderung wiederherstellen
+    risikoklasse: R1
+    beispielsaetze: [Doch wieder herstellen, Mach das wieder rein, Redo]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [varianten, parametermodell]
+    rueckfrage: Soll ich „{letzte_rueckgaengig}“ wiederherstellen?
+  - intent: variante_anlegen
+    beschreibung: aktuellen Stand als Variante speichern
+    risikoklasse: R0
+    beispielsaetze: [Speicher das als Variante mit Keller, 'Mach eine Kopie, dann probier ich was', Leg eine zweite Variante an]
+    slots:
+    - {name: name, typ: text, pflicht: false}
+    fragen: []
+    regeln: []
+    module: [varianten]
+    rueckfrage: Wie soll die Variante heißen?
+  - intent: variante_wechseln
+    beschreibung: zu einer anderen Variante wechseln
+    risikoklasse: R0
+    beispielsaetze: [Geh zurück zur Version mit Satteldach, Zurück zur ersten Version, Wechsel zu Variante B]
+    slots:
+    - {name: variante, typ: variantenref, pflicht: true}
+    fragen: []
+    regeln: []
+    module: [varianten, viewer]
+    rueckfrage: 'Welche Variante: {kandidaten}?'
+  - intent: varianten_vergleichen
+    beschreibung: Varianten nebeneinander vergleichen
+    risikoklasse: R0
+    beispielsaetze: [Vergleich die beiden Varianten, Was kostet Variante B mehr als A, Zeig die Unterschiede zur ersten Version]
+    slots:
+    - {name: variante_a, typ: variantenref, pflicht: false}
+    - {name: variante_b, typ: variantenref, pflicht: false}
+    - name: kennzahl
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [kosten, wohnflaeche, energie, wohnqualitaet, alle]
+      frage: q.vergleich
+    fragen:
+    - id: q.vergleich
+      typ: choice
+      text: Was soll verglichen werden?
+      optionen: [kosten, wohnflaeche, energie, wohnqualitaet, alle]
+      schwelle: 0.7
+    regeln: []
+    module: [varianten, kosten, energie, assistenz_r5, viewer]
+    rueckfrage: Welche Varianten soll ich vergleichen?
+  - intent: variante_loeschen
+    beschreibung: Variante löschen
+    risikoklasse: R3
+    beispielsaetze: [Die Variante mit Carport kann gelöscht werden, Die zweite Version brauchen wir nicht mehr, Variante C weg]
+    slots:
+    - {name: variante, typ: variantenref, pflicht: true}
+    fragen: []
+    regeln: []
+    module: [varianten]
+    rueckfrage: Soll die Variante „{variante}“ endgültig gelöscht werden?
+  - intent: ansicht_wechseln
+    beschreibung: Ansicht, Geschoss oder Perspektive wechseln
+    risikoklasse: R0
+    beispielsaetze: [Jetzt das Dachgeschoss anzeigen, Ich möchte das Haus in 3D sehen, Schnitt durch die Treppe]
+    slots:
+    - name: ansicht
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [grundriss, 3d, schnitt, ansicht_fassade, lageplan, innenraum, ar]
+      frage: q.ansicht
+    - {name: geschoss, typ: geschossref, pflicht: false}
+    fragen:
+    - id: q.ansicht
+      typ: choice
+      text: Welche Ansicht?
+      optionen: [grundriss, 3d, schnitt, ansicht_fassade, lageplan, innenraum, ar]
+      schwelle: 0.7
+    regeln: []
+    module: [viewer]
+    rueckfrage: Welche Ansicht möchten Sie sehen?
+  - intent: objekt_auswaehlen
+    beschreibung: Objekt auswählen und hervorheben
+    risikoklasse: R0
+    beispielsaetze: [Zeig mir das Bad oben, Markier alle Fenster nach Norden, 'Zeig mir, wo die Speisekammer liegt']
+    slots:
+    - {name: objekt, typ: raumref|bauteilref, pflicht: true}
+    fragen: []
+    regeln: []
+    module: [viewer]
+    rueckfrage: 'Welches Objekt meinen Sie: {kandidaten}?'
+  - intent: abbrechen
+    beschreibung: laufenden Dialog oder Vorschlag verwerfen
+    risikoklasse: R0
+    beispielsaetze: [Abbrechen, 'Nein, lass das, abbrechen', Lass es so wie es ist]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: Ich verwerfe den Vorschlag. Alles bleibt wie vorher.
+  - intent: bestaetigen
+    beschreibung: Rückfrage oder Vorschau bestätigen
+    risikoklasse: R0
+    beispielsaetze: ['Ja, mach so', 'Passt, mach das', Einverstanden]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: –
+    hinweis: nur gültig, solange eine Rückfrage oder Vorschau offen ist; sonst Gruppe meta
+  - intent: verneinen
+    beschreibung: Rückfrage oder Vorschau ablehnen
+    risikoklasse: R0
+    beispielsaetze: [Nein, So nicht, Das meinte ich nicht]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: Was meinten Sie stattdessen?
+  - intent: alternative_waehlen
+    beschreibung: eine angebotene Alternative oder Option wählen
+    risikoklasse: R1
+    beispielsaetze: [Dann nehmen wir die erste Alternative, Dann lieber mit Raffstores, Die Variante mit den Schlafzimmern nach Süden]
+    slots:
+    - {name: option, typ: optionsref, pflicht: true, hinweis: Index oder Bezeichnung der zuletzt angebotenen Alternativen}
+    fragen: []
+    regeln: []
+    module: [dialog, regelmaschine]
+    rueckfrage: 'Welche der Möglichkeiten: {optionen}?'
+- gruppe: anzeigen_auswerten
+  beschreibung: Kennzahlen, Nachweise und Begründungen anzeigen, ohne das Modell zu ändern
+  frage:
+    id: q.intent.anzeigen_auswerten
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [kosten_anzeigen, energie_anzeigen, schall_anzeigen, flaeche_anzeigen, masse_abfragen, abstandsflaechen_anzeigen, regelstatus_anzeigen, begruendung_erfragen, tageslicht_anzeigen,
+      wohnqualitaet_anzeigen, pv_ertrag_anzeigen, bemusterung_status_anzeigen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: kosten_anzeigen
+    beschreibung: Kosten, Mehrpreise oder Kostenänderung anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie hoch ist der Gesamtpreis im Moment, Wie teuer ist die Gaube, Was hat die letzte Änderung gekostet]
+    slots:
+    - name: umfang
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [gesamt, objekt, letzte_aenderung, bemusterung]
+      frage: q.kostenumfang
+    - {name: objekt, typ: raumref|bauteilref, pflicht: false}
+    fragen:
+    - id: q.kostenumfang
+      typ: choice
+      text: Welche Kosten?
+      optionen: [gesamt, objekt, letzte_aenderung, bemusterung]
+      schwelle: 0.7
+    regeln: []
+    module: [kosten, viewer]
+    rueckfrage: Meinen Sie die Gesamtkosten oder den Preis eines Bauteils?
+  - intent: energie_anzeigen
+    beschreibung: Energiekennwerte und GModG-Nachweis anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie steht es mit dem Energiebedarf, Halten wir die Energieanforderungen ein, Was ist der H T Strich]
+    slots:
+    - name: kennzahl
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [primaerenergie, ht_strich, heizlast, effizienzklasse, alle]
+      frage: q.energie
+    fragen:
+    - id: q.energie
+      typ: choice
+      text: Welche Energiekennzahl?
+      optionen: [primaerenergie, ht_strich, heizlast, effizienzklasse, alle]
+      schwelle: 0.7
+    regeln: [IDS.HRB-01]
+    module: [energie, nachweis, viewer]
+    rueckfrage: Welche Kennzahl möchten Sie sehen?
+  - intent: schall_anzeigen
+    beschreibung: Schallschutz innen und außen anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie viel Straßenlärm kommt im Kinderzimmer an, Welche Schallschutzfenster brauchen wir, Hört der Nachbar unsere Wärmepumpe]
+    slots:
+    - name: thema
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [aussenlaerm, innen, waermepumpe]
+      frage: q.schall
+    - {name: raum, typ: raumref, pflicht: false}
+    fragen:
+    - id: q.schall
+      typ: choice
+      text: Welcher Schall?
+      optionen: [aussenlaerm, innen, waermepumpe]
+      schwelle: 0.7
+    regeln: [DE.DIN4109.Aussenlaerm, DE.TALaerm.WP-Richtwert, DE.DIN4109-1.Tab2-Trennbauteile]
+    module: [schall, nachweis, viewer]
+    rueckfrage: Geht es um Außenlärm, Schall zwischen Räumen oder die Wärmepumpe?
+  - intent: flaeche_anzeigen
+    beschreibung: Wohnfläche, Raumflächen oder Grundstücksausnutzung anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie viele Quadratmeter Wohnfläche sind es insgesamt, Welche Fläche hat das Schlafzimmer, Wie viel Garten bleibt übrig]
+    slots:
+    - name: umfang
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [wohnflaeche, raum, grundstueck]
+      frage: q.flaeche
+    - {name: raum, typ: raumref, pflicht: false}
+    fragen:
+    - id: q.flaeche
+      typ: choice
+      text: Welche Fläche?
+      optionen: [wohnflaeche, raum, grundstueck]
+      schwelle: 0.7
+    regeln: [DE.WoFlV.Wohnflaeche]
+    module: [parametermodell, viewer]
+    rueckfrage: Welche Fläche meinen Sie?
+  - intent: masse_abfragen
+    beschreibung: Maß eines Raums oder Bauteils abfragen
+    risikoklasse: R0
+    beispielsaetze: [Wie tief ist die Küche, Wie hoch ist der Kniestock, Wie lang ist die Terrasse]
+    slots:
+    - {name: objekt, typ: raumref|bauteilref, pflicht: true}
+    - name: mass
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [breite, tiefe, hoehe, flaeche, laenge]
+      frage: q.mass
+    fragen:
+    - id: q.mass
+      typ: choice
+      text: Welches Maß?
+      optionen: [breite, tiefe, hoehe, flaeche, laenge]
+      schwelle: 0.7
+    regeln: []
+    module: [parametermodell, viewer]
+    rueckfrage: Welches Maß von welchem Objekt?
+  - intent: abstandsflaechen_anzeigen
+    beschreibung: Abstandsflächen und Grenzabstände anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Blende die Abstandsflächen im Lageplan ein, Wie nah dürfen wir an die Grenze, Passt das noch zum Nachbarn]
+    slots:
+    - {name: himmelsrichtung, typ: himmelsrichtung, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.6.T]
+    module: [regelmaschine, nachweis, viewer]
+    rueckfrage: Soll ich die Abstandsflächen im Lageplan zeigen?
+  - intent: regelstatus_anzeigen
+    beschreibung: offene Regelverstöße und Warnungen anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Ist der Entwurf so zulässig, Was ist noch nicht in Ordnung, Gibt es Probleme mit dem Bauantrag]
+    slots: []
+    fragen: []
+    regeln: [BY.Profil.Schwellenwarnung]
+    module: [regelmaschine, nachweis, viewer]
+    rueckfrage: Soll ich alle offenen Punkte auflisten?
+  - intent: begruendung_erfragen
+    beschreibung: Begründung einer Ablehnung, Empfehlung oder Voreinstellung
+    risikoklasse: R0
+    beispielsaetze: [Wieso darf ich das nicht, Warum schlägst du Osten vor und nicht Westen, Wieso ist das Bad jetzt kleiner geworden]
+    slots:
+    - {name: bezug, typ: meldungsref, pflicht: false, hinweis: 'zuletzt angezeigte Meldung, sonst Rückfrage'}
+    fragen: []
+    regeln: []
+    module: [regelmaschine, assistenz_r5, nachweis]
+    rueckfrage: Zu welcher Meldung möchten Sie die Begründung?
+    hinweis: höchstens drei Gründe mit Quelle (ANF-09b-16)
+  - intent: tageslicht_anzeigen
+    beschreibung: Tageslicht und Besonnung anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie hell ist das Wohnzimmer, Bekommt das Kinderzimmer Sonne, Zeig den Sonnenstand im Winter]
+    slots:
+    - {name: raum, typ: raumref, pflicht: false}
+    - {name: datum, typ: datum, pflicht: false}
+    fragen: []
+    regeln: [BY.BayBO.45.Fensterflaeche, R5-LICHT-01, R5-LICHT-02]
+    module: [licht, assistenz_r5, viewer]
+    rueckfrage: Für welchen Raum?
+  - intent: wohnqualitaet_anzeigen
+    beschreibung: Wohnqualitätsprofil und Empfehlungen anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie bewertest du unseren Grundriss, Hast du Verbesserungsvorschläge, Zeig das Wohnqualitätsprofil]
+    slots: []
+    fragen: []
+    regeln: [R5-FUNKTION-07, R5-RUHE-03]
+    module: [assistenz_r5, viewer]
+    rueckfrage: Soll ich das Wohnqualitätsprofil zeigen?
+  - intent: pv_ertrag_anzeigen
+    beschreibung: PV-Ertrag und Eigenverbrauch anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Wie viel Strom macht die PV-Anlage, Was bringt der Speicher, Wie viel Ertrag im Jahr]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [pv, energie, viewer]
+    rueckfrage: Soll ich den Jahresertrag anzeigen?
+  - intent: bemusterung_status_anzeigen
+    beschreibung: offene Bemusterungsentscheidungen und Fristen anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Welche Entscheidungen sind bei der Bemusterung noch offen, Bis wann müssen die Fliesen feststehen, Welche Mehrpreise haben wir bisher]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [bemusterung_katalog, kosten, viewer]
+    rueckfrage: Soll ich die offenen Entscheidungen auflisten?
+- gruppe: freigabe_prozess
+  beschreibung: Prozessschritte anstoßen; rechtserhebliche Erklärungen nur über die Oberfläche
+  frage:
+    id: q.intent.freigabe_prozess
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [zur_pruefung_senden, angebot_anfordern, baubeschreibung_anzeigen, bemusterung_abschliessen, beratung_anfordern, freigabe_erklaeren, abweichung_beantragen]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: zur_pruefung_senden
+    beschreibung: Entwurf zur fachlichen Prüfung an die Firma senden
+    risikoklasse: R3
+    beispielsaetze: [Der Planer soll sich den Stand ansehen, 'Wir sind fertig, bitte prüfen', Kann das jemand von euch anschauen]
+    slots:
+    - name: empfaenger
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [vertrieb, entwurfsverfasser, tragwerksplaner]
+      frage: q.zur_pruefung_senden.empfaenger
+    fragen:
+    - id: q.zur_pruefung_senden.empfaenger
+      typ: choice
+      text: Welcher Wert passt für „empfaenger“?
+      optionen: [vertrieb, entwurfsverfasser, tragwerksplaner]
+      schwelle: 0.7
+    regeln: [BY.BayBO.61.Bauvorlageberechtigung, BY.BayBO.62a-62b.Pruefpflichten]
+    module: [freigabe_gates, nachweis]
+    rueckfrage: Soll ich den aktuellen Stand „{variante}“ zur Prüfung senden?
+    hinweis: Senden erst nach Bestätigung auf dem Bildschirm
+  - intent: angebot_anfordern
+    beschreibung: Angebot und Baubeschreibung zum aktuellen Stand anfordern
+    risikoklasse: R2
+    beispielsaetze: [Ich hätte gern ein Angebot, Was würde das so als Vertrag kosten, Schickt uns eine Baubeschreibung]
+    slots: []
+    fragen: []
+    regeln: [DE.EGBGB249.Baubeschreibung]
+    module: [kosten, freigabe_gates]
+    rueckfrage: Soll ich ein Angebot für „{variante}“ anfordern?
+  - intent: baubeschreibung_anzeigen
+    beschreibung: Baubeschreibung des aktuellen Stands anzeigen
+    risikoklasse: R0
+    beispielsaetze: [Zeig mir die Baubeschreibung, Was steht in der Baubeschreibung zur Heizung, Ist die Baubeschreibung vollständig]
+    slots:
+    - name: abschnitt
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [alle, konstruktion, innenausbau, gebaeudetechnik, energie, aussenanlagen]
+      frage: q.baubeschreibung_anzeigen.abschnitt
+    fragen:
+    - id: q.baubeschreibung_anzeigen.abschnitt
+      typ: choice
+      text: Welcher Wert passt für „abschnitt“?
+      optionen: [alle, konstruktion, innenausbau, gebaeudetechnik, energie, aussenanlagen]
+      schwelle: 0.7
+    regeln: [DE.EGBGB249.Baubeschreibung]
+    module: [freigabe_gates, viewer]
+    rueckfrage: Welchen Abschnitt möchten Sie sehen?
+  - intent: bemusterung_abschliessen
+    beschreibung: Bemusterungskategorie als abgeschlossen melden
+    risikoklasse: R3
+    beispielsaetze: [Die Fliesen sind fertig ausgesucht, Bemusterung Sanitär abschließen, Böden stehen fest]
+    slots:
+    - name: kategorie
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [fenster, tueren, treppe, boeden, fliesen, sanitaer, elektro, heizung, fassade, dach, aussenanlagen]
+      frage: q.bemusterungskategorie
+    fragen:
+    - id: q.bemusterungskategorie
+      typ: choice
+      text: Welche Kategorie?
+      optionen: [fenster, tueren, treppe, boeden, fliesen, sanitaer, elektro, heizung, fassade, dach, aussenanlagen]
+      schwelle: 0.7
+    regeln: []
+    module: [bemusterung_katalog, freigabe_gates]
+    rueckfrage: Soll die Kategorie „{kategorie}“ abgeschlossen werden? Danach sind Änderungen kostenpflichtig.
+    hinweis: Freeze-Termine DAT-08
+  - intent: beratung_anfordern
+    beschreibung: Rückruf oder Termin mit Vertrieb oder Planer
+    risikoklasse: R0
+    beispielsaetze: [Ich möchte mit jemandem sprechen, Termin mit dem Berater bitte, Kann mich der Architekt anrufen]
+    slots:
+    - name: rolle
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [vertrieb, architekt, energieberater, technik]
+      frage: q.beratung_anfordern.rolle
+    fragen:
+    - id: q.beratung_anfordern.rolle
+      typ: choice
+      text: Welcher Wert passt für „rolle“?
+      optionen: [vertrieb, architekt, energieberater, technik]
+      schwelle: 0.7
+    regeln: []
+    module: [freigabe_gates]
+    rueckfrage: 'Mit wem möchten Sie sprechen: Vertrieb oder Planung?'
+  - intent: freigabe_erklaeren
+    beschreibung: Versuch, eine rechtserhebliche Freigabe, Unterschrift oder Vertragserklärung per Sprache abzugeben
+    risikoklasse: R3
+    beispielsaetze: [Ich gebe den Bauantrag frei, Hiermit unterschreibe ich den Vertrag, Ich bestätige die Baubeschreibung verbindlich]
+    slots:
+    - name: gegenstand
+      typ: enum
+      pflicht: false
+      quelle: modell
+      werte: [vertrag, baubeschreibung, bauantrag, bemusterung, produktion]
+      frage: q.freigabe_erklaeren.gegenstand
+    fragen:
+    - id: q.freigabe_erklaeren.gegenstand
+      typ: choice
+      text: Welcher Wert passt für „gegenstand“?
+      optionen: [vertrag, baubeschreibung, bauantrag, bemusterung, produktion]
+      schwelle: 0.7
+    regeln: [BY.BayBO.61.Bauvorlageberechtigung, DE.EGBGB249.Baubeschreibung]
+    module: [freigabe_gates, transparenz]
+    rueckfrage: Eine verbindliche Erklärung geben Sie bitte auf dem Bildschirm ab. Ich öffne die Freigabeseite.
+    hinweis: wird nie per Sprache ausgeführt (E10.9); Verweis auf das Freigabe-Gate mit Signatur
+  - intent: abweichung_beantragen
+    beschreibung: Wunsch außerhalb des Regelraums zur Prüfung einer Abweichung vormerken
+    risikoklasse: R3
+    beispielsaetze: ['Wir wollen trotzdem das flachere Dach, auch wenn es eine Befreiung braucht', Kann man da eine Ausnahme beantragen, Das mit der Grenze hätten wir gern als Abweichung]
+    slots:
+    - {name: bezug, typ: meldungsref, pflicht: true}
+    fragen: []
+    regeln: [BY.BayBO.63.Abweichung]
+    module: [freigabe_gates, nachweis]
+    rueckfrage: Soll ich den Wunsch „{wunsch}“ zur Prüfung vormerken? Über eine Abweichung entscheidet die Behörde, nicht die App.
+    hinweis: Aufklärung als signiertes Dokument (Recherche 27, Folge 3)
+- gruppe: meta
+  beschreibung: Hilfe, KI-Transparenz, Datenschutz, Ausschlussthemen und Äußerungen außerhalb des Umfangs
+  frage:
+    id: q.intent.meta
+    typ: choice
+    text: Welche Aktion ist gemeint?
+    optionen: [hilfe, ki_transparenz, datenschutz_steuern, ausschluss_thema, ausserhalb_umfang, unklar]
+    schwelle: risikoklasse
+    hinweis: Schwelle tau_k und Abstand delta_k der Risikoklasse des besten Intents; Kontextfilter entfernt unzulässige Optionen
+  intents:
+  - intent: hilfe
+    beschreibung: Hilfe zur Bedienung oder zu Befehlen
+    risikoklasse: R0
+    beispielsaetze: [Was kann ich alles sagen, Wie funktioniert das, Hilfe]
+    slots:
+    - {name: thema, typ: text, pflicht: false}
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: Wobei kann ich helfen?
+  - intent: ki_transparenz
+    beschreibung: Frage nach KI-Beteiligung und Funktionsweise
+    risikoklasse: R0
+    beispielsaetze: [Rede ich hier mit einem Computer, Wer entscheidet hier eigentlich, Rechnet das eine künstliche Intelligenz aus]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [transparenz]
+    rueckfrage: –
+    hinweis: Antworttext nach Art. 50 Abs. 1 KI-VO, fest im Katalog (Abschnitt 10.4.4)
+  - intent: datenschutz_steuern
+    beschreibung: Mikrofon, Aufnahmen und Einwilligungen steuern
+    risikoklasse: R1
+    beispielsaetze: [Mikrofon aus, Lösch meine Sprachaufnahmen, Was passiert mit meiner Stimme]
+    slots:
+    - name: aktion
+      typ: enum
+      pflicht: true
+      quelle: modell
+      werte: [mikrofon_aus, aufnahmen_loeschen, auskunft, einwilligung_widerrufen]
+      frage: q.datenschutz
+    fragen:
+    - id: q.datenschutz
+      typ: choice
+      text: Was möchten Sie?
+      optionen: [mikrofon_aus, aufnahmen_loeschen, auskunft, einwilligung_widerrufen]
+      schwelle: 0.7
+    regeln: []
+    module: [transparenz, datenschutz]
+    rueckfrage: Möchten Sie das Mikrofon ausschalten oder Aufnahmen löschen?
+  - intent: ausschluss_thema
+    beschreibung: Thema der Ausschlussliste (Erdstrahlen, Wasseradern)
+    risikoklasse: R0
+    beispielsaetze: [Kannst du den Schlafplatz auf Wasseradern prüfen, Gibt es hier Erdstrahlen, Wo sind die Störzonen im Haus]
+    slots: []
+    fragen: []
+    regeln: [X-01, X-02]
+    module: [assistenz_r5]
+    rueckfrage: –
+    hinweis: Meldung aus Kasten 9b.5; keine Regel wird ausgeführt
+  - intent: ausserhalb_umfang
+    beschreibung: Äußerung ohne Bezug zum Entwurf
+    risikoklasse: R0
+    beispielsaetze: [Wie wird das Wetter morgen, Erzähl mir einen Witz, Kannst du mir eine Pizza bestellen]
+    slots: []
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: Dabei kann ich nicht helfen. Ich kann Ihr Haus ändern und Fragen zum Entwurf beantworten.
+  - intent: unklar
+    beschreibung: Äußerung zum Entwurf ohne erkennbare Absicht
+    risikoklasse: R0
+    beispielsaetze: [Mach mal irgendwas anderes, Irgendwie gefällt mir das nicht, 'Hm, ja, mal sehen']
+    slots: []
+    fragen: []
+    regeln: []
+    module: [dialog]
+    rueckfrage: Was genau soll sich ändern? Zum Beispiel ein Raum, das Dach oder die Fassade?

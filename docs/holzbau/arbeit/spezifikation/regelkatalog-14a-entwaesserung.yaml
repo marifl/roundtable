@@ -1,0 +1,756 @@
+# Regelkatalog Kapitel 14a: Grundstücksentwässerung und Außenanlagen (Referenz München).
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt |
+# nicht_anwendbar | freigabepflichtig (Kapitel 9.2.1).
+# Zuordnung zu den Prüfpunkten von B17 (SW-01 ... NW-15) im Feld "hinweis".
+# Normwerte aus DIN 1986-100 und DWA-A 138-1 stammen aus Sekundärquellen und kommunalen Merkblättern
+# (Recherche 18); Tabellenwerte (C_m, f_Ort, f_Methode, Schachtmaße) sind lizenzpflichtig (DAT-14a).
+# Neu verwendete Profile, in regelprofile.yaml noch nachzutragen:
+#   BY-M-EWS-2024-05 (S1, Entwässerungssatzung München), BY-Wasserrecht-NWFreiV (S1), DE-aRdT-Entwaesserung (S3).
+
+katalog:
+  name: HRB-Regelkatalog-14a-Entwaesserung
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["14a"]
+  hinweis: "Regeln aus Kapitel 14a (Recherche 18, Beispiel B17). Anforderungen ANF-14a-xx in Abschnitt 14a.8.2."
+
+regeln:
+
+- id: BY.M-EWS.Formblatt
+  version: 0.1.0
+  titel: Technisches Formblatt des Netzbetreibers als Eingabe
+  klasse: R2
+  haerte: hart
+  quelle: {art: G, werk: "Entwässerungssatzung München (EWS); MSE-Leitfaden Grundstücksentwässerung", fundstelle: "EWS § 9 Abs. 2; Leitfaden 2.2, Abb. 1", fassung: "EWS 2018-08-28 i. d. F. 2024-05-08; Leitfaden 7. Aufl. 2026-06-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcSite mit Grundstücksentwässerung"
+  eingaben:
+    - {name: formblatt, einheit: "-", quelle: "IfcDocumentReference mit SHA-256", beschreibung: "Anschlusspunkt, Einlassstück mit Sohle, DN, Kanalart, RSE, WSG, Altlast, NW-Vorgabe, Höhenbetrag DHHN12 -> DHHN2016"}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: formblatt@0.1
+    formel: "alle Pflichtfelder vorhanden und Dokument-Hash gesetzt; sonst unbestimmt für alle abhängigen Regeln (Revisionsschacht, Anschlusskanal, Rückstau, NWFreiV § 1)"
+  grenzwerte: []
+  meldung: "Das Technische Formblatt fehlt oder ist unvollständig ({fehlend}). Anschluss und Niederschlagswasser können nicht geprüft werden."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Formblatt beim Erschließungsbüro MSE-421 anfordern"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.2"
+  anforderungen: [ANF-14a-01, ANF-14a-02]
+
+- id: BY.M-EWS.8-3.Frosttiefe
+  version: 0.1.0
+  titel: Frostfreie Verlegetiefe
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Leitfaden", fundstelle: "EWS § 8 Abs. 3; Leitfaden 2.7", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "erdverlegte IfcPipeSegment der Systeme SEWAGE, RAINWATER, STORMWATER"
+    r2_voraussetzung: [BY-R2-Gelaende-DGM]
+  eingaben:
+    - {name: gok, einheit: "m NHN", quelle: DGM}
+    - {name: sohle, einheit: "m NHN", quelle: Modell}
+    - {name: system, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: frosttiefe@0.1
+    formel: "je Knoten außerhalb des Gebäudes: gok − sohle >= 1,20 m (Schmutzwasser); >= 0,80 m (Niederschlagsleitung zur Versickerung)"
+    parameter: {frosttiefe_sw_m: 1.20, frosttiefe_nw_versickerung_m: 0.80}
+  grenzwerte:
+    - {name: frosttiefe_sw, wert: 1.20, einheit: m, richtung: min, fundstelle: "Leitfaden 2.7", status: V}
+    - {name: frosttiefe_nw, wert: 0.80, einheit: m, richtung: min, fundstelle: "Leitfaden 2.7 (DIN 1986-100 5.6)", status: V}
+  meldung: "Die Leitung liegt bei {knoten} nur {ist:.2f} m unter Gelände; gefordert sind {soll:.2f} m bis Rohrsohle."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Leitung tiefer legen (Höhenplan neu rechnen)", frei: [haltung.sohle]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.2"
+  anforderungen: [ANF-14a-03]
+  tests: [tests/test_b17.py::test_hoehenplan_regeln]
+  hinweis: "B17-Prüfpunkte SW-03, NW-12."
+
+- id: DE.DIN1986-100.Gefaelle
+  version: 0.1.0
+  titel: Mindest- und Höchstgefälle von Grundleitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100; kommunale Merkblätter", fundstelle: "Mindestgefälle innen 0,5 %, außen 1:DN; Höchstgefälle 1:20", fassung: "2016-12", status: U, recherche: ["18", "08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcPipeSegment Grundleitung"
+  eingaben:
+    - {name: gefaelle, einheit: "-", quelle: "Pset_PipeSegmentOccurrence.Gradient"}
+    - {name: dn, einheit: mm, quelle: Typ}
+    - {name: lage, einheit: "-", quelle: Modell, beschreibung: "GEBAEUDE oder ERDREICH"}
+  pruefung:
+    typ: rechnung
+    funktion: gefaelle@0.1
+    formel: "GEBAEUDE: gefaelle >= 0,005; ERDREICH: gefaelle >= 1/DN; stets gefaelle <= 0,05 (sonst Absturzbauwerk)"
+    parameter: {min_gebaeude: 0.005, max: 0.05}
+  grenzwerte:
+    - {name: gefaelle_min_gebaeude, wert: 0.005, einheit: "-", richtung: min, fundstelle: "DIN 1986-100 (Sekundärquelle)", status: V}
+    - {name: gefaelle_max, wert: 0.05, einheit: "-", richtung: max, fundstelle: "kommunale Merkblätter", status: U}
+  meldung: "Die Haltung {id} hat {ist:.2%} Gefälle; zulässig sind {min:.2%} bis {max:.2%}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Sohlhöhen anpassen", frei: [haltung.sohle]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.1.1"
+  anforderungen: [ANF-14a-04]
+  tests: [tests/test_b17.py::test_hoehenplan_regeln]
+  hinweis: "B17-Prüfpunkte SW-04, SW-05."
+
+- id: DE.DIN1986-100.Nennweite-Hydraulik
+  version: 0.1.0
+  titel: Nennweite und hydraulische Leistungsfähigkeit
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100", fundstelle: "6.1.8; 14.1.5; Tab. A.3", fassung: "2016-12", status: U, recherche: ["18", "08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem SEWAGE"
+  eingaben:
+    - {name: sum_du, einheit: "l/s", quelle: TGA}
+    - {name: dn, einheit: mm, quelle: Typ}
+    - {name: gefaelle, einheit: "-", quelle: Modell}
+    - {name: lage, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: hydraulik_sw@0.1
+    formel: "Q_ww = max(0,5·sqrt(ΣDU), DU_max); Q_voll nach Prandtl-Colebrook (k_b = 1 mm, nu = 1,31e-6 m²/s); Q_zul = 0,500·Q_voll (h/d 0,5 innen) bzw. 0,837·Q_voll (h/d 0,7 außen); verletzt, wenn Q_ww > Q_zul oder DN in Fließrichtung abnimmt oder DN < 100"
+    parameter: {K: 0.5, k_b_mm: 1.0, nu_m2_s: 1.31e-6, faktor_hd05: 0.500, faktor_hd07: 0.837, dn_min: 100}
+  grenzwerte:
+    - {name: dn_min, wert: 100, einheit: mm, richtung: min, fundstelle: "DIN 1986-100 (Sekundärquelle)", status: V}
+    - {name: fuellungsgrad_innen, wert: 0.5, einheit: "-", richtung: max, fundstelle: "DIN 1986-100 (Sekundärquelle)", status: V}
+    - {name: fuellungsgrad_aussen, wert: 0.7, einheit: "-", richtung: max, fundstelle: "DIN 1986-100 (Sekundärquelle)", status: V}
+  meldung: "Die Haltung {id} ist mit {ausl:.0%} ausgelastet oder verringert die Nennweite in Fließrichtung."
+  alternative:
+    - {art: A3_variante, beschreibung: "größere Nennweite oder mehr Gefälle", frei: [haltung.dn, haltung.gefaelle]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.1.1"
+  anforderungen: [ANF-14a-05]
+  tests: [tests/test_b17.py::test_schmutzwasserabfluss, tests/test_b17.py::test_teilfuellung_und_prandtl_colebrook]
+  hinweis: "B17-Prüfpunkte SW-07, SW-08; Referenz Q_ww 2,0 l/s, Auslastung 0,23."
+
+- id: DE.DIN1986-100.Reinigungsoeffnung
+  version: 0.1.0
+  titel: Reinigungsöffnungen und Schächte
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100; kommunale Merkblätter (Schächte 2023/01)", fundstelle: "6.6 (Wortlaut nicht eingesehen)", fassung: "2016-12", status: U, recherche: ["18"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Leitungsnetz SEWAGE und RAINWATER"
+  eingaben:
+    - {name: knoten, einheit: "-", quelle: Modell}
+    - {name: abstand_zwischen_oeffnungen, einheit: m, quelle: Modell}
+    - {name: richtungsaenderung, einheit: "°", quelle: Modell}
+    - {name: einbautiefe, einheit: m, quelle: Modell}
+  pruefung:
+    typ: topologie
+    funktion: reinigungsoeffnungen@0.1
+    formel: "Öffnung am Fuß jeder Fallleitung, an jeder Zusammenführung und Richtungsänderung > 45° außerhalb des Gebäudes; Abstand <= 20 m (< DN 150) bzw. <= 40 m (>= DN 150); Schachtgröße aus Einbautiefe (DN 400 <= 1,2 m, DN 600 <= 1,6 m, DN 800 <= 1,8 m, DN 1000 <= 2,2 m, darüber Einsteigschacht)"
+    parameter: {abstand_klein_m: 20, abstand_gross_m: 40, winkel_grad: 45, schacht_tiefen_m: {"400": 1.2, "600": 1.6, "800": 1.8, "1000": 2.2}}
+  grenzwerte:
+    - {name: abstand_bis_dn150, wert: 20, einheit: m, richtung: max, fundstelle: "kommunale Merkblätter", status: U}
+    - {name: abstand_ab_dn150, wert: 40, einheit: m, richtung: max, fundstelle: "kommunale Merkblätter", status: U}
+    - {name: richtungsaenderung, wert: 45, einheit: "°", richtung: max, fundstelle: "kommunale Merkblätter", status: U}
+  meldung: "Zwischen {a} und {b} fehlt eine Reinigungsöffnung ({grund})."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Schacht oder Reinigungsöffnung ergänzen", frei: [netz.schaechte]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.1.1"
+  anforderungen: [ANF-14a-06]
+  tests: [tests/test_b17.py::test_schaechte]
+  hinweis: "B17-Prüfpunkt SW-09. Schachtmaße aus kommunalem Merkblatt, nicht aus DIN 1986-100 Tab. 3."
+
+- id: BY.M-EWS.8-4.Revisionsschacht
+  version: 0.1.0
+  titel: Revisionsschacht am Ende der Grundstücksentwässerungsanlage
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Leitfaden", fundstelle: "EWS § 8 Abs. 4, § 3 Nr. 9; Leitfaden 2.6", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem SEWAGE"
+    r2_voraussetzung: [BY-R2-Grundstuecksgrenze]
+  eingaben:
+    - {name: schacht_lage, einheit: "m (Punkt)", quelle: Modell}
+    - {name: abstand_grenze_gebaeude, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: revisionsschacht@0.1
+    formel: "genau ein Revisionsschacht am Ende der Anlage, vollständig auf eigenem Grund; außenliegend nur, wenn abstand_grenze_gebaeude >= 5 m, sonst Reinigungsöffnung im Gebäude"
+    parameter: {vorgarten_min_m: 5.0, dn_revisionsschacht: 1000}
+  grenzwerte:
+    - {name: vorgarten, wert: 5.0, einheit: m, richtung: min, fundstelle: "Leitfaden 2.6", status: V}
+  meldung: "Der Revisionsschacht liegt nicht vollständig auf eigenem Grund oder im zu schmalen Vorgarten ({ist:.2f} m < 5,00 m)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Reinigungsöffnung im Gebäude statt Außenschacht", frei: [netz.revisionsschacht]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.3"
+  anforderungen: [ANF-14a-07]
+  tests: [tests/test_b17.py::test_schaechte]
+  hinweis: "B17-Prüfpunkte SW-01, SW-02 (Vorgarten 9,00 m, Schacht DN 1000 bei (8,00; 1,00))."
+
+- id: BY.M-EWS.9.Anschlusskanal
+  version: 0.1.0
+  titel: Führung und Gefälle des Anschlusskanals
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Leitfaden", fundstelle: "EWS § 8 Abs. 5, § 9; Leitfaden 2.6, 3.2", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcPipeSegment Anschlusskanal zwischen Revisionsschacht und Einlassstück"
+    r2_voraussetzung: [BY.M-EWS.Formblatt]
+  eingaben:
+    - {name: sohle_revisionsschacht, einheit: "m NHN", quelle: Modell}
+    - {name: sohle_einlass, einheit: "m NHN", quelle: Formblatt}
+    - {name: laenge, einheit: m, quelle: Modell}
+    - {name: dn, einheit: mm, quelle: Formblatt}
+  pruefung:
+    typ: rechnung
+    funktion: anschlusskanal@0.1
+    formel: "geradlinig ohne Gefällewechsel; 1/DN <= (sohle_revisionsschacht − sohle_einlass)/laenge <= 1; sonst verletzt mit Auflage Hebeanlage (EWS § 8 Abs. 5)"
+    parameter: {gefaelle_max: 1.0}
+  grenzwerte:
+    - {name: gefaelle_max, wert: 1.0, einheit: "-", richtung: max, fundstelle: "Leitfaden 2.6", status: V}
+  meldung: "Der Anschlusskanal hätte {ist:.1%} Gefälle; ein Freispiegelabfluss ist nicht möglich. Das Gebäude braucht eine Hebeanlage."
+  alternative:
+    - {art: A3_variante, beschreibung: "Hebeanlage für das Gebäude vorsehen", frei: [netz.hebeanlage]}
+    - {art: A5_freigabeweg, beschreibung: "anderen Anschlusspunkt bei der MSE anfragen"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.3"
+  anforderungen: [ANF-14a-08]
+  tests: [tests/test_b17.py::test_kanal_zu_hoch_hebeanlage]
+  hinweis: "B17-Prüfpunkt SW-06: bodenplatte 43 % erfüllt; kanal_hoch −2,6 % Verstoß."
+
+- id: BY.M-EWS.8-6.Rueckstau
+  version: 0.1.0
+  titel: Sicherung gegen Rückstau
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Faltblatt; DIN EN 12056-4, DIN EN 12050, DIN EN 13564", fundstelle: "EWS § 8 Abs. 6; Leitfaden 2.2/2.3", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Ablaufstellen (IfcSanitaryTerminal, IfcWasteTerminal)"
+    r2_voraussetzung: [BY.M-EWS.Formblatt]
+  eingaben:
+    - {name: hoehe_ablaufstelle, einheit: "m NHN", quelle: Modell}
+    - {name: rse, einheit: "m NHN", quelle: "Formblatt, sonst Straßenoberkante"}
+    - {name: faekalienhaltig, einheit: "-", quelle: Modell}
+    - {name: sicherung, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: rueckstau@0.1
+    formel: "für jede Ablaufstelle unter rse: Hebeanlage nach DIN EN 12050-1 (fäkalienhaltig) bzw. -2 (fäkalienfrei) mit Rückstauschleife über rse; Rückstauverschluss nach DIN EN 13564 nur bei Gefälle zum Kanal, untergeordneter Nutzung, kleinem Benutzerkreis und WC über rse, nie im Revisionsschacht"
+  grenzwerte: []
+  meldung: "Die Ablaufstelle {id} liegt {diff:.2f} m unter der Rückstauebene. Erforderlich ist eine Hebeanlage nach {norm} mit Rückstauschleife."
+  alternative:
+    - {art: A3_variante, beschreibung: "auf Ablaufstellen unter der Rückstauebene verzichten", frei: [tga.ablaufstellen]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.1"
+  anforderungen: [ANF-14a-09]
+  tests: [tests/test_b17.py::test_keller_rueckstau_und_abstand]
+  hinweis: "B17-Prüfpunkt SW-10."
+
+- id: DE.DIN1986-100.Grundleitung-im-Gebaeude
+  version: 0.1.0
+  titel: Grundleitungen unter dem Gebäude vermeiden
+  klasse: R1
+  haerte: hinweis
+  quelle: {art: N, werk: "DIN 1986-100; MSE-Leitfaden", fundstelle: "6.1.1; Leitfaden 2.1 (Genehmigungspflicht)", fassung: "2016-12", status: V, recherche: ["18"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcPipeSegment unter der Bodenplatte"
+  eingaben:
+    - {name: laenge_unter_gebaeude, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: grundleitung_gebaeude@0.1
+    formel: "Hinweis mit Länge, wenn laenge_unter_gebaeude > 0; in München zusätzlich Hinweis Genehmigungspflicht"
+  grenzwerte: []
+  meldung: "{L:.2f} m Grundleitung liegen unter dem Gebäude; sie sind genehmigungspflichtig und schwer zugänglich."
+  alternative:
+    - {art: A3_variante, beschreibung: "Sammelleitung im Keller oder Austritt näher an der Fallleitung", frei: [netz.austrittspunkte]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.1.1"
+  hinweis: "B17-Prüfpunkt SW-13 (5,27 m)."
+
+- id: BY.M-MSE.Baum-Sparten
+  version: 0.1.0
+  titel: Darstellung geschützter Gehölze und Sparten im Entwässerungsplan
+  klasse: R2
+  haerte: hinweis
+  quelle: {art: G, werk: "MSE-Genehmigungsantrag; MSE-Leitfaden", fundstelle: "Antrag Ziff. 3; Leitfaden 3.2", fassung: "2023; 2026-06-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Leitungsnetz und IfcGeographicElement Bäume, Spartentrassen"
+  eingaben:
+    - {name: abstand_baum_leitung, einheit: m, quelle: Modell}
+    - {name: kreuzungen_sparten, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: baum_sparten@0.1
+    formel: "geschützte Gehölze mit Abstand <= 5 m zur Leitungsachse im Plan 1:100 darstellen; jede Spartenkreuzung eintragen; Wurzelbereich Kronentraufe + 1,5 m als hartes Hindernis [U]"
+    parameter: {abstand_baum_m: 5.0, wurzelzuschlag_m: 1.5}
+  grenzwerte:
+    - {name: abstand_baum_darstellung, wert: 5.0, einheit: m, richtung: max, fundstelle: "MSE-Genehmigungsantrag Ziff. 3", status: V}
+  meldung: "Im Plan fehlen {fehlend} (Baum im 5-m-Bereich bzw. Spartenkreuzung)."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Stellungnahme der Unteren Naturschutzbehörde bzw. Abstimmung mit dem Netzbetreiber"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.6"
+  tests: [tests/test_b17.py::test_routing_meidet_harte_hindernisse]
+  hinweis: "B17-Prüfpunkte SW-11, SW-12. Wurzelzuschlag nach DIN 18920 nicht am Normtext geprüft."
+
+- id: BY.M-EWS.4-4.Niederschlag-kein-Kanal
+  version: 0.1.0
+  titel: Kein Einleiten von Niederschlagswasser und kein Überlauf zum Kanal
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Leitfaden", fundstelle: "EWS § 4 Abs. 4; Leitfaden 2.4, 5, 5.1, 5.2", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem RAINWATER und STORMWATER"
+    ausnahmen: [einleitung_laut_formblatt, lichtschacht_treppenabgang_klein]
+  eingaben:
+    - {name: verbindung_zum_kanal, einheit: "-", quelle: Modell}
+    - {name: nw_vorgabe, einheit: "-", quelle: Formblatt}
+  pruefung:
+    typ: topologie
+    funktion: nw_kein_kanal@0.1
+    formel: "verletzt, wenn ein RAINWATER/STORMWATER-Port mit dem Kanal verbunden ist (auch Notüberlauf), außer nw_vorgabe erlaubt die Einleitung"
+  grenzwerte: []
+  meldung: "Niederschlagswasser wird an den Kanal geführt ({id}). In München besteht dafür kein Benutzungsrecht; ein Überlauf ist unzulässig."
+  alternative:
+    - {art: A3_variante, beschreibung: "Versickerungsanlage mit Überlastreserve auf dem Grundstück", frei: [versickerung.anlage]}
+    - {art: A5_freigabeweg, beschreibung: "Selbstauskunft Niederschlagswasser an MSE-421"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.2.1"
+  anforderungen: [ANF-14a-10]
+  hinweis: "B17-Prüfpunkte NW-10, NW-14."
+
+- id: BY.NWFreiV.1-3.Erlaubnisfreiheit
+  version: 0.1.0
+  titel: Erlaubnisfreie Versickerung nach NWFreiV
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "NWFreiV Bayern; TRENGW", fundstelle: "NWFreiV §§ 1–3; TRENGW Nr. 2", fassung: "geltend 2026-09", status: V, recherche: ["18"]}
+  profil: {name: BY-Wasserrecht-NWFreiV, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Versickerungsanlage"
+  eingaben:
+    - {name: wsg_altlast, einheit: "-", quelle: Formblatt}
+    - {name: a_befestigt, einheit: "m²", quelle: Modell, beschreibung: "Horizontalprojektion je Anlage"}
+    - {name: a_metall_unbeschichtet, einheit: "m²", quelle: Bemusterung}
+    - {name: umgang_wassergefaehrdend, einheit: "-", quelle: Eingabe}
+  pruefung:
+    typ: rechnung
+    funktion: nwfreiv@0.1
+    formel: "erlaubnisfrei nur, wenn nicht WSG/Heilquellenschutz/Altlast (§ 1), kein Umgang mit wassergefährdenden Stoffen außer Kleingebinde <= 20 l (§ 2), a_befestigt <= 1000 m² je Anlage (§ 3 Abs. 1), a_metall_unbeschichtet <= 50 m² oder bauartzugelassene Anlage (§ 3 Abs. 2); sonst verletzt (Erlaubnis erforderlich)"
+    parameter: {flaeche_max_m2: 1000, metall_max_m2: 50, kleingebinde_l: 20}
+  grenzwerte:
+    - {name: flaeche_je_anlage, wert: 1000, einheit: "m²", richtung: max, fundstelle: "NWFreiV § 3 Abs. 1", status: V}
+    - {name: metallflaeche, wert: 50, einheit: "m²", richtung: max, fundstelle: "NWFreiV § 3 Abs. 2", status: V}
+  meldung: "Die Versickerung ist nicht erlaubnisfrei ({grund}); eine wasserrechtliche Erlaubnis ist zu beantragen."
+  alternative:
+    - {art: A3_variante, beschreibung: "Fläche auf mehrere Anlagen aufteilen oder beschichtete Metalle wählen", frei: [versickerung.anlagen, bemusterung.dachrinne]}
+    - {art: A5_freigabeweg, beschreibung: "wasserrechtliche Erlaubnis (in München MSE, im WSG Trudering RKU)"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.2.1"
+  anforderungen: [ANF-14a-11]
+  tests: [tests/test_b17.py::test_nwfreiv_flaechengrenze]
+  hinweis: "B17-Prüfpunkte NW-04, NW-07, NW-13."
+
+- id: BY.NWFreiV.3-2.Flaechenvorrang
+  version: 0.1.0
+  titel: Vorrang der flächenhaften Versickerung vor Rigole und Schacht
+  klasse: R1
+  haerte: weich
+  quelle: {art: G, werk: "NWFreiV Bayern; TRENGW", fundstelle: "NWFreiV § 3 Abs. 2; TRENGW Nr. 4, Tab. 1", fassung: "geltend 2026-09", status: V, recherche: ["18"]}
+  profil: {name: BY-Wasserrecht-NWFreiV, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Versickerungsanlage vom Typ Rigole oder Sickerschacht"
+  eingaben:
+    - {name: a_mulde_erf, einheit: "m²", quelle: "Muldenbemessung (Bisektion)"}
+    - {name: a_zulaessig, einheit: "m²", quelle: "zulässige Fläche nach Abständen"}
+    - {name: a_e, einheit: "m²", quelle: Modell}
+    - {name: begruendung, einheit: "-", quelle: Entwurfsverfasser}
+  pruefung:
+    typ: optimierung
+    funktion: flaechenvorrang@0.1
+    formel: "A_S = max(hydraulisch erforderlich, a_e/15); passt eine Mulde mit A_S und Oberboden >= 20 cm auf a_zulaessig, ist Rigole/Schacht freigabepflichtig (Begründung im Antrag), sonst erfuellt"
+    parameter: {anteil_min: 0.0667, oberboden_min_m: 0.20, einstau_max_m: 0.30}
+  grenzwerte:
+    - {name: muldenflaeche_anteil, wert: 0.0667, einheit: "-", richtung: min, fundstelle: "TRENGW Tab. 1", status: V}
+    - {name: oberboden, wert: 0.20, einheit: m, richtung: min, fundstelle: "TRENGW Tab. 1", status: V}
+  meldung: "Eine Mulde mit {A_S:.1f} m² passt auf das Grundstück. Die Rigole ist nach NWFreiV § 3 Abs. 2 nur zulässig, wenn flächenhaft nicht versickert werden kann; bitte begründen oder Mulde wählen."
+  alternative:
+    - {art: A3_variante, beschreibung: "Mulde statt Rigole", frei: [versickerung.typ]}
+    - {art: A5_freigabeweg, beschreibung: "Begründung im Antrag durch den Entwurfsverfasser"}
+  freigabe_rolle: Entwurfsverfasser
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.2.3"
+  anforderungen: [ANF-14a-12]
+  tests: [tests/test_b17.py::test_mulde_einstau_und_monotonie]
+  hinweis: "B17-Prüfpunkt NW-05: bodenplatte Mulde 17,1 m² passt (Hinweis); keller passt nicht. Einstaugrenze 0,30 m ist Annahme [U]."
+
+- id: BY.TRENGW.6.Sickerraum
+  version: 0.1.0
+  titel: Sickerraum und Tiefe der Versickerungsanlage
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "TRENGW (Bek. 17.12.2008); DWA-A 138-1; MSE-Leitfaden", fundstelle: "TRENGW Nr. 6; Leitfaden 3.2", fassung: "2008-12-17", status: V, recherche: ["18"]}
+  profil: {name: BY-Wasserrecht-NWFreiV, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2008-12-17", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Versickerungsanlage"
+    r2_voraussetzung: [HRB-R2-MHGW]
+  eingaben:
+    - {name: sohle, einheit: "m NHN", quelle: Modell}
+    - {name: mhgw, einheit: "m NHN", quelle: "RKU-Auskunft"}
+    - {name: gok, einheit: "m NHN", quelle: DGM}
+  pruefung:
+    typ: rechnung
+    funktion: sickerraum@0.1
+    formel: "sohle − mhgw >= 1,0 m (mit Behördenabstimmung bis 0,5 m, nie < 0,5 m); gok − sohle <= 5,0 m; stauende Deckschicht nicht durchstoßen"
+    parameter: {sickerraum_min_m: 1.0, sickerraum_absolut_min_m: 0.5, tiefe_max_m: 5.0}
+  grenzwerte:
+    - {name: sickerraum, wert: 1.0, einheit: m, richtung: min, fundstelle: "TRENGW Nr. 6", status: V}
+    - {name: sickerraum_absolut, wert: 0.5, einheit: m, richtung: min, fundstelle: "MSE-Leitfaden 3.2", status: V}
+    - {name: tiefe_sohle, wert: 5.0, einheit: m, richtung: max, fundstelle: "TRENGW Nr. 6", status: V}
+  meldung: "Der Sickerraum beträgt {ist:.2f} m; gefordert ist mindestens 1,0 m (nie unter 0,5 m)."
+  alternative:
+    - {art: A3_variante, beschreibung: "flachere Anlage oder Flächenversickerung", frei: [versickerung.typ, versickerung.hoehe]}
+    - {art: A5_freigabeweg, beschreibung: "Abstimmung mit der Behörde bei 0,5 bis 1,0 m"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.2.1"
+  anforderungen: [ANF-14a-14]
+  tests: [tests/test_b17.py::test_grundwasser_hoch]
+  hinweis: "B17-Prüfpunkte NW-02, NW-03: bodenplatte 3,35 m; grundwasser_hoch −0,05 m Verstoß."
+
+- id: DE.DWA-A138-1.Durchlaessigkeit
+  version: 0.1.0
+  titel: Durchlässigkeit und Korrekturfaktor
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DWA-A 138-1", fundstelle: "k_i = k_f · f_Ort · f_Methode; Regelbereich k_f", fassung: "2024-10", status: U, recherche: ["18"]}
+  profil: {name: DE-aRdT-Entwaesserung, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-10-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Versickerungsanlage"
+    r2_voraussetzung: [HRB-R2-Sickertest]
+  eingaben:
+    - {name: k_f, einheit: "m/s", quelle: Sickertest}
+    - {name: f_ort, einheit: "-", quelle: "Anzahl/Verteilung der Versuche"}
+    - {name: f_methode, einheit: "-", quelle: Versuchsverfahren}
+  pruefung:
+    typ: rechnung
+    funktion: durchlaessigkeit@0.1
+    formel: "k_i = k_f · min(1, f_ort · f_methode); verletzt, wenn k_f außerhalb 1e-6 bis 1e-3 m/s; nur Bodenansprache ohne Versuch: unbestimmt"
+    parameter: {k_f_min: 1.0e-6, k_f_max: 1.0e-3}
+  grenzwerte:
+    - {name: k_f_bereich, wert: [1.0e-6, 1.0e-3], einheit: "m/s", richtung: intervall, fundstelle: "DWA-A 138-1 (SBZ 05/2025)", status: V}
+  meldung: "Die Durchlässigkeit k_f = {k_f:.1e} m/s liegt außerhalb des Regelbereichs; eine Versickerung nach DWA-A 138-1 ist so nicht bemessbar."
+  alternative:
+    - {art: A3_variante, beschreibung: "Bodenaustausch (bei k_f >= 1e-3 im Sickerkegel 1 m) oder anderer Standort", frei: [versickerung.lage]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.2.2"
+  anforderungen: [ANF-14a-13]
+  tests: [tests/test_b17.py::test_korrekturfaktor_hoechstens_eins]
+  hinweis: "B17-Prüfpunkt NW-01: k_f 1e-5, k_i 7,2e-6 (f_k 0,72). Tabellen f_Ort, f_Methode lizenzpflichtig."
+
+- id: DE.DWA-A138-1.Rigole-Speicher
+  version: 0.1.0
+  titel: Bemessung der Rigole im einfachen Verfahren
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DWA-A 138-1; DWA-A 117", fundstelle: "einfaches Verfahren; Rigole 6.4.2 (Sickerfläche mit Stirnflächen)", fassung: "2024-10", status: U, recherche: ["18"]}
+  profil: {name: DE-aRdT-Entwaesserung, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-10-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcDistributionChamberElement USERDEFINED Versickerungsrigole"
+    r2_voraussetzung: [HRB-R2-KOSTRA-Rasterfeld]
+  eingaben:
+    - {name: A_C, einheit: "m²", quelle: Modell}
+    - {name: k_i, einheit: "m/s", quelle: DE.DWA-A138-1.Durchlaessigkeit}
+    - {name: r_D, einheit: "l/(s·ha)", quelle: "KOSTRA-DWD-2020, T = 5 a"}
+    - {name: b, einheit: m, quelle: Produkt}
+    - {name: h, einheit: m, quelle: Produkt}
+    - {name: s_R, einheit: "-", quelle: Produkt}
+    - {name: f_Z, einheit: "-", quelle: Parameter}
+  pruefung:
+    typ: rechnung
+    funktion: rigole_a138@0.1
+    formel: "A_S,m = b·L + h·(L + b); Q_S = k_i·A_S,m·1e3; L_erf = max_D [A_C·1e-7·r_D − b·h·k_i − Q_Dr·1e-3 − V_Sch/(D·60·f_Z)] / [b·h·s_R/(D·60·f_Z) + (b + h)·k_i], D = 5 … 4320 min; V_erf = max_D (r_D·A_C·1e-4 − Q_S)·D·60·f_Z·1e-3 <= V_vorh = s_R·b·h·L"
+    parameter: {D_min: 5, D_max: 4320, T_a: 5, f_Z: [1.1, 1.2]}
+  grenzwerte: []
+  meldung: "Die Rigole ist mit {L:.2f} m zu kurz; erforderlich sind {L_erf:.2f} m (V_erf {V_erf:.2f} m³ > V_vorh {V_vorh:.2f} m³)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Rigole auf L_erf verlängern oder zweite Reihe", frei: [rigole.L, rigole.reihen]}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.2.2"
+  anforderungen: [ANF-14a-13]
+  tests: [tests/test_b17.py::test_rigole_speicher_gegen_veroeffentlichte_rechnung, tests/test_b17.py::test_rigolenlaenge_gegen_veroeffentlichte_rechnung, tests/test_b17.py::test_laenge_und_speicher_konsistent, tests/test_b17.py::test_rigole_bemessung_standard]
+  hinweis: "B17-Prüfpunkt NW-15. Nachrechnung 40,52 m³ und 27,45 m exakt; B17: L_erf 9,29 m -> 9,60 m, V_erf 4,61 <= 4,82 m³."
+
+- id: DE.DWA-A138-1.Abstand-Gebaeude
+  version: 0.1.0
+  titel: Abstand der Versickerungsanlage zu Gebäude und Grenze
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DWA-A 138-1; kommunale Leitfäden", fundstelle: "5.3.2 (Sekundärquelle GGU-Glossar)", fassung: "2024-10", status: U, recherche: ["18"]}
+  profil: {name: DE-aRdT-Entwaesserung, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-10-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Versickerungsanlage und IfcBuilding"
+    ausnahmen: [wasserdruckhaltende_abdichtung]
+  eingaben:
+    - {name: abstand_gebaeude, einheit: m, quelle: Modell}
+    - {name: tiefe_baugrube_oder_fundament, einheit: m, quelle: Modell}
+    - {name: abstand_grenze, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: abstand_versickerung@0.1
+    formel: "abstand_gebaeude >= 1,5 · tiefe_baugrube_oder_fundament (ab Baugrubenfußpunkt; ohne Keller Fundamenttiefe); abstand_grenze >= Grenzabstand (Parameter, Voreinstellung 2 m [U])"
+    parameter: {faktor: 1.5, grenzabstand_m: 2.0}
+  grenzwerte:
+    - {name: faktor_tiefe, wert: 1.5, einheit: "-", richtung: min, fundstelle: "DWA-A 138-1 (Sekundärquelle)", status: V}
+    - {name: grenzabstand, wert: 2.0, einheit: m, richtung: min, fundstelle: "kommunale Leitfäden", status: U}
+  meldung: "Die Versickerungsanlage liegt {ist:.2f} m vom Gebäude entfernt; erforderlich sind {soll:.2f} m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Anlage auf den Mindestabstand verschieben", frei: [versickerung.lage]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.2.3"
+  anforderungen: [ANF-14a-15]
+  tests: [tests/test_b17.py::test_keller_rueckstau_und_abstand]
+  hinweis: "B17-Prüfpunkte NW-08, NW-09: bodenplatte 1,20 m; keller 4,95 m gefordert."
+
+- id: DE.DWA-A138-1.Vorbehandlung
+  version: 0.1.0
+  titel: Vorreinigung vor unterirdischer Versickerung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DWA-A 138-1; TRENGW; DWA-M 153", fundstelle: "A 138-1 Tab. 6/7; TRENGW Tab. 2", fassung: "2024-10", status: U, recherche: ["18"]}
+  profil: {name: DE-aRdT-Entwaesserung, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-10-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Rigole oder Sickerschacht"
+  eingaben:
+    - {name: flaechenarten, einheit: "-", quelle: Modell}
+    - {name: vorbehandlung, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: vorbehandlung@0.1
+    formel: "je Flächenart Mindestvorbehandlung nach TRENGW Tab. 2 (Dach: Grobstoffrückhalt; Terrasse: Hofablauf mit Schlammeimer); nach A 138-1 auch Dachabfluss behandeln (Produkt mit Nachweis); Bericht mit Bewertung nach DWA-M 153 und nach A 138-1"
+  grenzwerte: []
+  meldung: "Vor der Rigole fehlt die Vorbehandlung für {flaeche}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Filterschacht mit Nachweis vor der Rigole", frei: [netz.filterschacht]}
+  status: U
+  beispiel: [B17]
+  kapitel: "14a.2.4"
+  anforderungen: [ANF-14a-16]
+  hinweis: "B17-Prüfpunkt NW-06 (Filterschacht NW-FS)."
+
+- id: DE.DIN1986-100.Ueberflutungsnachweis
+  version: 0.1.0
+  titel: Überflutungsnachweis
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100; DWA-A 138-1", fundstelle: "14.9; A 138-1 5.3.4", fassung: "2016-12", status: V, recherche: ["18"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2016-12-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Grundstück mit Niederschlagsentwässerung"
+  eingaben:
+    - {name: A_C_spitze, einheit: "m²", quelle: Modell, beschreibung: "mit C_s"}
+    - {name: nachweis, einheit: "-", quelle: "SWMM oder Rechenblatt"}
+  pruefung:
+    typ: rechnung
+    funktion: ueberflutung@0.1
+    formel: "wenn A_C_spitze > 800 m²: Nachweis V_Rück (T = 30 a) erforderlich, sonst unbestimmt ohne Nachweis; darunter Hinweis zur qualitativen Bewertung der Überflutungsfolgen (A 138-1)"
+    parameter: {grenze_m2: 800, T_a: 30}
+  grenzwerte:
+    - {name: grenze_flaeche, wert: 800, einheit: "m²", richtung: max, fundstelle: "DIN 1986-100 14.9 (SBZ 07/2025)", status: V}
+  meldung: "Die abflusswirksame Fläche beträgt {A:.0f} m² > 800 m²; ein Überflutungsnachweis ist erforderlich."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Überflutungsnachweis mit SWMM-Export durch Fachplaner"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.4.3"
+  hinweis: "B17-Prüfpunkt NW-11: A_C (C_s) 164,6 m² -> nicht erforderlich."
+
+- id: BY.M-EWS.10.Entwaesserungsantrag
+  version: 0.1.0
+  titel: Entwässerungsantrag mit Plansatz und Fristen
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; MSE-Leitfaden; Genehmigungsantrag", fundstelle: "EWS § 10 Abs. 3-4, § 11 Abs. 1; Leitfaden Abb. 1, 2.1", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Anlagen unter der Rückstauebene, erdverlegt oder in der Bodenplatte"
+  eingaben:
+    - {name: plansatz, einheit: "-", quelle: "abgeleitete Pläne"}
+    - {name: datum_vollstaendig, einheit: "-", quelle: Eingang}
+    - {name: tiefbaubeginn, einheit: "-", quelle: IfcWorkSchedule}
+  pruefung:
+    typ: vollstaendigkeit
+    funktion: entwaesserungsantrag@0.1
+    formel: "Lageplan 1:1000, Grundriss 1:100, Abwicklung 1:100 in wahrer Länge, je 3-fach; Sinnbilder DIN 1986-100, Ein-Strich-Darstellung mit DN und Werkstoff, Schrift >= 2,5 mm, keine rote Farbe, Höhen DHHN2016, RSE und Frosttiefe auf jedem Plan; Genehmigungsfiktion nach 3 Monaten ab Vollständigkeit; Arbeitsbeginnanzeige >= 24 h; Aufgrabung öffentlicher Grund >= 5 Arbeitstage Anmeldung"
+    parameter: {fiktion_monate: 3, anzeige_h: 24, aufgrabung_arbeitstage: 5, schrift_min_mm: 2.5}
+  grenzwerte:
+    - {name: fiktion, wert: 3, einheit: Monat, richtung: min, fundstelle: "EWS § 10 Abs. 3-4", status: V}
+    - {name: arbeitsbeginnanzeige, wert: 24, einheit: h, richtung: min, fundstelle: "EWS § 11 Abs. 1", status: V}
+    - {name: schriftgroesse, wert: 2.5, einheit: mm, richtung: min, fundstelle: "Leitfaden (Planinhalte)", status: V}
+  meldung: "Der Entwässerungsantrag ist unvollständig ({fehlend}) oder der Tiefbau beginnt vor Ablauf der Genehmigungsfrist ({frist})."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Antrag vervollständigen; Tiefbautermin verschieben"}
+  status: V
+  beispiel: [B17]
+  kapitel: "14a.3.1"
+  anforderungen: [ANF-14a-18, ANF-14a-21]
+  tests: [tests/test_b17.py::test_determinismus]
+
+- id: BY.M-EWS.11-3.Dichtheitspruefung
+  version: 0.1.0
+  titel: Dichtheitsprüfung vor Inbetriebnahme in Anwesenheit der MSE
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "EWS München; DIN EN 1610", fundstelle: "EWS § 11 Abs. 3; Leitfaden 4.4", fassung: "2024-05-08", status: V, recherche: ["18"]}
+  profil: {name: BY-M-EWS-2024-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Landeshauptstadt München"
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-05-08", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem SEWAGE, RAINWATER"
+  eingaben:
+    - {name: protokoll, einheit: "-", quelle: "IfcDocumentReference"}
+    - {name: pruefer, einheit: "-", quelle: IfcActor}
+  pruefung:
+    typ: freigabe
+    funktion: dichtheit@0.1
+    formel: "IfcApproval mit Protokoll (Luft oder Wasser), Prüfer der MSE, im offenen Graben; ohne Freigabe bleibt der Vorgang Verfüllen gesperrt"
+  grenzwerte: []
+  meldung: "Die Dichtheitsprüfung fehlt; der Leitungsgraben darf noch nicht verfüllt werden."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Prüftermin mit MSE-423 vereinbaren"}
+  freigabe_rolle: MSE-Bauüberwachung
+  status: V
+  beispiel: [keins]
+  kapitel: "14a.3.1"
+  anforderungen: [ANF-14a-20]

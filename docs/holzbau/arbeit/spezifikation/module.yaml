@@ -1,0 +1,339 @@
+# Modulzerlegung der App (Kapitel 7.5, Tabelle 7.5; Schema: Kapitel 7.9.2, Struktur E).
+# Lizenzangaben aus den Recherchen 01, 03, 05, 08, 09, 10, 16, 18, 20, 22 (Status V/U); keine Rechtsauskunft.
+# urteil: uebernehmen | adaptieren | selbst_bauen | meiden | lizenzieren
+# einbindung: bibliothek | prozess | dienst | referenz | daten
+# anforderungen: vorläufige Zuordnung; jede ANF-ID steht bei genau einem Modul (geprüft).
+# teilmodule: feinere Modulnamen aus intents.yaml (Kapitel 10), jeder genau einem Modul zugeordnet.
+
+stand: "2026-09-27"
+version: 0.1.0
+kapitel: ["7"]
+
+module:
+
+- name: sprache-asr
+  zweck: "Sprache → Transkript mit Zeitmarken, lokal, mit Fachbegriff-Boosting; keine Sprechererkennung, kein Rohaudio über die Sitzung hinaus"
+  ki_system: true
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["Audio-Stream (lokal)", "Fachbegriffsliste (DAT-07-03)"]
+    ausgaben: ["Transkript mit Zeitmarken"]
+  abhaengigkeiten: [betrieb]
+  bausteine:
+    - {name: "Voxtral Mini 4B Realtime 2602", urteil: uebernehmen, lizenz: "Apache-2.0", status: V, einbindung: bibliothek, quelle: "Recherche 03"}
+    - {name: "Parakeet-TDT-0.6b-v3", urteil: uebernehmen, lizenz: "CC-BY-4.0", status: V, einbindung: bibliothek, quelle: "Recherche 03", hinweis: "wenn Phrase Boosting für Fachbegriffe entscheidet"}
+    - {name: "Whisper large-v3-turbo", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 03; radford2023whisper", hinweis: "Fallback ohne echtes Streaming"}
+  anforderungen: [ANF-06-30, ANF-06-31]
+
+- name: intent
+  zweck: "Transkript + Zustand → Wahrscheinlichkeiten über typisierte Fragen (choice ≤ 20, score, noul); keine Werte, kein Text"
+  ki_system: true
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["Transkript", "Intent-Katalog (hierarchisch)", "Zustand"]
+    ausgaben: ["Struktur A: Intent-Antwort"]
+  abhaengigkeiten: [betrieb]
+  bausteine:
+    - {name: "Laya (convaiinnovations/laya-multilingual)", urteil: adaptieren, lizenz: "Apache-2.0", status: V, einbindung: dienst, quelle: "Recherche 03", hinweis: "Fine-Tuning und Kalibrierung Pflicht; Jev-kompatibler Server"}
+    - {name: "Jev (typesafe-ai/jev, Vercel AI Gateway)", urteil: uebernehmen, lizenz: "Dienst", status: V, einbindung: dienst, quelle: "Recherche 03", hinweis: "Fallback, nur mit Einwilligung und Zero Data Retention"}
+    - {name: "Stichwort-Klassifikator (Muster Shapeshift)", urteil: selbst_bauen, lizenz: "eigen (Vorbild MIT)", status: V, einbindung: bibliothek, quelle: "Recherche 03", hinweis: "Offline-Fallback"}
+  anforderungen: [ANF-07-01, ANF-07-04, ANF-07-05, ANF-07-21]
+
+- name: dialog
+  zweck: "Schwellwerte je Frage, deutscher Werteparser, Referenzauflösung, Rückfragen mit Optionen aus L(P), Meldungen aus Katalogtexten"
+  ki_system: false
+  teilmodule: [dialog]
+  schnittstellen:
+    eingaben: ["Struktur A", "Transkript", "Zustand (lesend)"]
+    ausgaben: ["Struktur B: Änderungsvorschlag", "Rückfrage", "Antworttext aus Katalog"]
+  abhaengigkeiten: [sprache-asr, intent, parametermodell, regelmaschine]
+  bausteine:
+    - {name: "Werteparser und Resolver (B6)", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "beispiele/b6_intent_pipeline.py"}
+  anforderungen: [ANF-09-15, ANF-06-10, ANF-06-35, ANF-07-02, ANF-07-03, ANF-07-06]
+
+- name: parametermodell
+  zweck: "einzige Schreibschnittstelle: Zustand x, Ereignisquelle, Pfade, Undo, Varianten, ParameterHash"
+  ki_system: false
+  teilmodule: [parametermodell]
+  schnittstellen:
+    eingaben: ["Struktur B", "Ergebnis der Regelmaschine", "Hausmodell aus katalog"]
+    ausgaben: ["Struktur C: Ereignis", "Zustand x (kanonisches JSON)", "ParameterHash"]
+  abhaengigkeiten: [katalog, regelmaschine, assistenz, ifc-generator, cde, audit]
+  bausteine:
+    - {name: "Ereignisspeicher mit Momentaufnahmen", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 7.3.2"}
+  anforderungen: [ANF-06-20, ANF-06-26, ANF-07-07, ANF-07-09, ANF-07-19, ANF-07-22]
+
+- name: regelmaschine
+  zweck: "Kataloge und Profile laden und prüfen (Schema, Monotonie), Profil aus Merkmalsvektor, fünfwertige Prüfung, Projektion auf L(P), Konfliktmenge, Alternativen, Abhängigkeitsgraph"
+  ki_system: false
+  teilmodule: [regelmaschine, profilableitung]
+  schnittstellen:
+    eingaben: ["Zustand x", "Kontext c", "regelkatalog*.yaml", "regelprofile.yaml"]
+    ausgaben: ["Prüfergebnis je Regel", "Konfliktmenge", "Alternative A1–A5", "Grenzwerte vorab"]
+  abhaengigkeiten: [solver, fachmodule, geodaten, katalog]
+  bausteine:
+    - {name: "Prüfkern", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 9"}
+    - {name: "jsonschema", urteil: uebernehmen, lizenz: "MIT", status: U, einbindung: bibliothek, quelle: "Kapitel 9.9.1"}
+    - {name: "PyYAML", urteil: uebernehmen, lizenz: "MIT", status: U, einbindung: bibliothek, quelle: "Kapitel 9.9.1"}
+    - {name: "OpenBIMRL (Vorberechnungsgraph)", urteil: adaptieren, lizenz: "nicht geprüft", status: U, einbindung: referenz, quelle: "stepien2023openbimrl"}
+  anforderungen: [ANF-03-07, ANF-03-08, ANF-03-09, ANF-09-01, ANF-09-02, ANF-09-05, ANF-09-06, ANF-09-07, ANF-09-08, ANF-09-09, ANF-09-10, ANF-09-11, ANF-09-13, ANF-09-14, ANF-09-19, ANF-09-20, ANF-09-22, ANF-09-24, ANF-09-25, ANF-09-29, ANF-09a-01, ANF-09a-02, ANF-09a-03, ANF-09a-04, ANF-09a-05, ANF-09a-06, ANF-09a-10, ANF-09a-13, ANF-09a-15, ANF-09a-16, ANF-09a-17, ANF-09a-18]
+
+- name: solver
+  zweck: "vollständige oder exakte Lösungsverfahren unter R1-Regeln: Treppe, Fußboden, Fliesen, Durchdringung, Grundriss, Möblierung, Dach, TGA-Routing, Wärmepumpe, Entwässerung, Transport, Kran"
+  ki_system: false
+  teilmodule: [grundriss_solver, moebel_solver, dach_solver, fussboden_solver, fliesen_solver, tga_routing, entwaesserung, fassade, aussenanlagen]
+  schnittstellen:
+    eingaben: ["Teilzustand", "Regeln mit Grenzwerten"]
+    ausgaben: ["Lösungen mit Rang", "Unlösbarkeitsdiagnose mit Ausschlussgründen"]
+  abhaengigkeiten: [katalog]
+  bausteine:
+    - {name: "OR-Tools CP-SAT", urteil: uebernehmen, lizenz: "Apache-2.0", status: V, einbindung: bibliothek, quelle: "Recherche 03, 10, 16"}
+    - {name: "clingo", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 10"}
+    - {name: "shapely 2.1", urteil: uebernehmen, lizenz: "BSD-3", status: V, einbindung: bibliothek, quelle: "Recherche 09"}
+    - {name: "networkx 3.7", urteil: uebernehmen, lizenz: "BSD-3", status: V, einbindung: bibliothek, quelle: "Recherche 08"}
+    - {name: "python-fcl, trimesh", urteil: uebernehmen, lizenz: "BSD, MIT", status: V, einbindung: bibliothek, quelle: "Recherche 08"}
+    - {name: "IfcClash 0.8.5", urteil: uebernehmen, lizenz: "LGPL-3.0+", status: V, einbindung: bibliothek, quelle: "Recherche 08"}
+    - {name: "CGAL Straight Skeleton 2", urteil: lizenzieren, lizenz: "GPL/kommerziell", status: V, einbindung: prozess, quelle: "Recherche 09", hinweis: "kommerzielle Lizenz oder eigener Prozess mit CLI (ANF-07-17)"}
+    - {name: "scikit-geometry, polyskel", urteil: meiden, lizenz: "LGPL-3", status: V, einbindung: referenz, quelle: "Recherche 09", hinweis: "nur Prototyp"}
+    - {name: "bpypolyskel", urteil: meiden, lizenz: "GPL-3", status: V, einbindung: referenz, quelle: "Recherche 09"}
+    - {name: "EPA SWMM 5, pyswmm, swmm-toolkit, swmmio", urteil: uebernehmen, lizenz: "Public Domain; BSD-2; CC0 AND (MIT OR Apache-2.0); MIT", status: V, einbindung: bibliothek, quelle: "Recherche 18"}
+    - {name: "FloorPlan6", urteil: meiden, lizenz: "AGPL-3.0", status: V, einbindung: referenz, quelle: "Recherche 03"}
+    - {name: "House-GAN++, HouseDiffusion, Graph2Plan", urteil: meiden, lizenz: "nicht kommerziell oder ohne Lizenz", status: V, einbindung: referenz, quelle: "Recherche 03"}
+    - {name: "Holodeck; Infinigen Indoors", urteil: adaptieren, lizenz: "Apache-2.0; BSD-3", status: V, einbindung: referenz, quelle: "Recherche 03", hinweis: "Muster: Regeln geben Constraints vor, Solver platziert"}
+    - {name: "Router für Holzrahmen-Installationszonen", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Recherche 08"}
+    - {name: "Aufzählungs- und Suchverfahren B5, B14–B20", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 9.6.2"}
+  anforderungen: [ANF-03-10, ANF-03-11, ANF-03-16, ANF-03-17, ANF-03-22, ANF-08-21, ANF-09-17, ANF-09-23, ANF-09-26, ANF-09-28]
+
+- name: fachmodule
+  zweck: "Kennwerte und Fachnachweise: U-Wert, H'T, Monatsbilanz, Statik-Vorbemessung, Schall, Kosten, Mehrpreise, Ökobilanz, Wohnfläche, Gewicht, PV-Ertrag"
+  ki_system: false
+  teilmodule: [kosten, energie, schall, statik_vorbemessung, pv, licht]
+  schnittstellen:
+    eingaben: ["Revision bzw. Teilzustand", "Kennwerte aus katalog"]
+    ausgaben: ["Kennzahlen mit Status", "Eingaben für nachweis"]
+  abhaengigkeiten: [katalog]
+  bausteine:
+    - {name: "U-Wert nach ISO 6946 (B3)", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Recherche 05; B3"}
+    - {name: "Fraunhofer IBP18599kernel", urteil: lizenzieren, lizenz: "kommerziell", status: V, einbindung: bibliothek, quelle: "Recherche 05", hinweis: "für den GModG-Nachweis"}
+    - {name: "bim2sim", urteil: adaptieren, lizenz: "LGPL-3.0", status: V, einbindung: bibliothek, quelle: "Recherche 05", hinweis: "später, Detailsimulation"}
+    - {name: "Honeybee-energy", urteil: meiden, lizenz: "AGPL", status: V, einbindung: referenz, quelle: "Recherche 05"}
+    - {name: "IFC2SB, ifc_hygrothermal", urteil: meiden, lizenz: "GPL-3.0", status: V, einbindung: referenz, quelle: "Recherche 05"}
+    - {name: "PyNite", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 05"}
+    - {name: "eurocodepy", urteil: adaptieren, lizenz: "LGPL-3.0", status: V, einbindung: bibliothek, quelle: "Recherche 05", hinweis: "deutschen NA ergänzen"}
+    - {name: "OpenSees", urteil: meiden, lizenz: "nicht kommerziell", status: V, einbindung: referenz, quelle: "Recherche 05"}
+    - {name: "IfcOpenShell ifc5d / api.cost", urteil: uebernehmen, lizenz: "LGPL-3.0", status: V, einbindung: bibliothek, quelle: "Recherche 05"}
+    - {name: "ÖKOBAUDAT (soda4LCA-API)", urteil: uebernehmen, lizenz: "frei mit Quellenangabe", status: V, einbindung: daten, quelle: "Recherche 05; oekobaudat"}
+    - {name: "eLCA", urteil: meiden, lizenz: "AGPL-3.0", status: V, einbindung: referenz, quelle: "Recherche 05"}
+    - {name: "BKI-Kostenkennwerte", urteil: lizenzieren, lizenz: "kostenpflichtig", status: V, einbindung: daten, quelle: "Recherche 05"}
+    - {name: "pvlib 0.16.1", urteil: uebernehmen, lizenz: "BSD-3", status: V, einbindung: bibliothek, quelle: "Recherche 08, 09"}
+    - {name: "Radiance, pyradiance", urteil: uebernehmen, lizenz: "Radiance License 2.0 (BSD-artig); BSD", status: V, einbindung: bibliothek, quelle: "Recherche 08"}
+    - {name: "honeybee-radiance, ladybug-geometry", urteil: meiden, lizenz: "AGPL-3.0", status: V, einbindung: referenz, quelle: "Recherche 08"}
+    - {name: "eulumdat (PyPI)", urteil: meiden, lizenz: "AGPL-3.0+", status: V, einbindung: referenz, quelle: "Recherche 08", hinweis: "Parser selbst bauen"}
+    - {name: "GLDF-XSD", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: daten, quelle: "Recherche 08"}
+    - {name: "Schall Außenlärm und WP (B19, B20)", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Recherche 20, 22"}
+    - {name: "NoiseModelling", urteil: meiden, lizenz: "GPL-3.0", status: V, einbindung: prozess, quelle: "Recherche 20, 22", hinweis: "nur als getrennter Dienst zur Plausibilisierung (CNOSSOS, nicht ISO 9613-2)"}
+  anforderungen: [ANF-03-04, ANF-03-15, ANF-03-21, ANF-08-12, ANF-09-27, ANF-09a-11, ANF-09a-12]
+
+- name: assistenz
+  zweck: "R5-Empfehlungen mit Evidenzgrad, Profil mit sieben Dimensionen, Pareto-Vergleich, Kulturprofile, Ausschlussliste"
+  ki_system: false
+  teilmodule: [assistenz_r5]
+  schnittstellen:
+    eingaben: ["Revision", "empfehlungen.yaml", "Nutzerprofil"]
+    ausgaben: ["Hinweise mit Grad und Quelle", "Profil S", "Protokolleintrag"]
+  abhaengigkeiten: [katalog]
+  bausteine:
+    - {name: "Empfehlungskern (Kapitel 9b)", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 9b"}
+  anforderungen: [ANF-09b-01, ANF-09b-02, ANF-09b-03, ANF-09b-04, ANF-09b-05, ANF-09b-06, ANF-09b-07, ANF-09b-08, ANF-09b-09, ANF-09b-10, ANF-09b-11, ANF-09b-12, ANF-09b-13, ANF-09b-14, ANF-09b-15, ANF-09b-16, ANF-09b-17, ANF-09b-18]
+
+- name: ifc-generator
+  zweck: "reine Funktion gen(x) → IFC4X3_ADD2 (IFC4 als Ableitung), GlobalIds nach G1–G8, Granularität nach Reifegrad, Mapping aus ifc-mapping.csv"
+  ki_system: false
+  teilmodule: [ifc_generator]
+  schnittstellen:
+    eingaben: ["Zustand x", "ifc-mapping.csv", "Kataloge", "SOURCE_DATE_EPOCH"]
+    ausgaben: ["IFC-Datei", "SHA-256"]
+  abhaengigkeiten: [katalog]
+  bausteine:
+    - {name: "IfcOpenShell 0.8.5", urteil: uebernehmen, lizenz: "LGPL-3.0+", status: V, einbindung: bibliothek, quelle: "Recherche 01", hinweis: "Beziehungen mit fester Listenreihenfolge, nicht über api-Funktionen mit Mengeniteration"}
+    - {name: "timber_design 0.3.1 (wall_populator)", urteil: adaptieren, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 01"}
+    - {name: "compas_timber 2.2.0", urteil: adaptieren, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 01; compastimber"}
+    - {name: "dataholz.eu", urteil: adaptieren, lizenz: "geschützt, keine API", status: V, einbindung: daten, quelle: "Recherche 01; dataholz", hinweis: "Lizenz anfragen"}
+    - {name: "Mapping und GUID-Regel", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 8.8"}
+  anforderungen: [ANF-03-01, ANF-03-02, ANF-03-03, ANF-08-01, ANF-08-05, ANF-08-06, ANF-08-07, ANF-08-08, ANF-08-09, ANF-08-10, ANF-08-11, ANF-08-13, ANF-08-14, ANF-08-23, ANF-08-24, ANF-08-25, ANF-08-27, ANF-08-28, ANF-08-31, ANF-06-24, ANF-07-08]
+
+- name: pruefschicht
+  zweck: "Kanal 2: K1 Schema/EXPRESS, K2 Validation Service, K3 IDS, K4 Regelprüfung am IFC mit Gegenrechnung; Kanalabgleich; BCF"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["IFC-Revision", "Kontext c", "IDS", "Kataloge"]
+    ausgaben: ["Prüfprotokoll mit Revisions-Hash", "BCF-Themen"]
+  abhaengigkeiten: [cde, nachweis, katalog, geodaten]
+  bausteine:
+    - {name: "ifcopenshell.validate", urteil: uebernehmen, lizenz: "LGPL-3.0+", status: V, einbindung: bibliothek, quelle: "Recherche 01"}
+    - {name: "buildingSMART Validation Service (lokal, Docker)", urteil: uebernehmen, lizenz: "offen, nicht geprüft", status: U, einbindung: dienst, quelle: "bsi2025validation"}
+    - {name: "ifctester", urteil: uebernehmen, lizenz: "LGPL", status: V, einbindung: bibliothek, quelle: "Recherche 05"}
+    - {name: "IDS-Audit-tool (buildingSMART, .NET)", urteil: adaptieren, lizenz: "MIT", status: V, einbindung: dienst, quelle: "Recherche 05"}
+    - {name: "Kanalabgleich", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 9.6.3"}
+  anforderungen: [ANF-08-02, ANF-08-03, ANF-08-04, ANF-08-20, ANF-09-03, ANF-09-04, ANF-09-18, ANF-06-29, ANF-07-15]
+
+- name: nachweis
+  zweck: "rechnerischer und grafischer Nachweis je Prüfung nach A1–A8, Nachweisheft, Hash mit Zahlen-Normalform"
+  ki_system: false
+  teilmodule: [nachweis]
+  schnittstellen:
+    eingaben: ["Prüfergebnis", "Eingaben mit Einheit und Herkunft"]
+    ausgaben: ["Nachweis nach nachweis.schema.json", "Nachweisheft JSON/MD/HTML", "SVG"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "nachweis.py", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 7a"}
+    - {name: "pint", urteil: uebernehmen, lizenz: "BSD", status: U, einbindung: bibliothek, quelle: "Kapitel 7a.2"}
+    - {name: "matplotlib (optional)", urteil: uebernehmen, lizenz: "PSF-artig", status: U, einbindung: bibliothek, quelle: "Kapitel 7a.4"}
+  anforderungen: [ANF-09-16, ANF-06-40]
+
+- name: exporte
+  zweck: "Ableitungen aus veröffentlichten Revisionen: BTLx, WUP-Adapter, GAEB, XBau, PDF-Bauvorlagen, glTF, IFC4, BCF, Fertigungspaket; Manifest mit GUID-Zuordnung"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["veröffentlichte Revision", "Freigabe"]
+    ausgaben: ["Datei + Struktur D (Manifest)"]
+  abhaengigkeiten: [cde, freigabe]
+  bausteine:
+    - {name: "compas_timber (BTLx-Export)", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 01; B7"}
+    - {name: "BTLx 2.3 XSD", urteil: uebernehmen, lizenz: "nicht ausgewiesen", status: U, einbindung: daten, quelle: "btlx23"}
+    - {name: "WUP-Adapter", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "ANF-03-14; DAT-04"}
+    - {name: "gaeb (PyPI)", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 05"}
+    - {name: "glTF-Transform", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 10"}
+    - {name: "trimesh", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 09"}
+    - {name: "pygltflib", urteil: meiden, lizenz: "nicht geprüft", status: U, einbindung: referenz, quelle: "Recherche 09", hinweis: "bis zur Lizenzprüfung"}
+    - {name: "XBau-, PDF-, BCF-Schreiber", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 7.2.6"}
+  anforderungen: [ANF-03-12, ANF-03-13, ANF-03-14, ANF-08-22, ANF-08-29, ANF-08-30, ANF-06-14, ANF-06-16, ANF-06-17, ANF-06-19, ANF-06-21, ANF-07-20]
+
+- name: dokumente
+  zweck: "Baubeschreibung, Angebot, Vertrag, Ausstattungsbeschreibung, Aufklärung, Hausakte als Sichten auf das Modell"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["Revision", "Katalogtexte", "Freigaben"]
+    ausgaben: ["PDF/HTML mit Hash", "IfcDocumentReference"]
+  abhaengigkeiten: [cde, freigabe, katalog]
+  bausteine:
+    - {name: "Dokumentgenerator", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 6.2.5"}
+  anforderungen: [ANF-09a-09, ANF-06-12, ANF-06-23]
+
+- name: katalog
+  zweck: "Hausmodelle, Bauteil- und Produktkatalog als IfcProjectLibrary, Bemusterungsoptionen, Herstellerkennwerte mit Quelle, Version und Status, Klassifikation"
+  ki_system: false
+  teilmodule: [bemusterung_katalog]
+  schnittstellen:
+    eingaben: ["Herstellerdaten (DAT-01, -02, -07)", "ETIM, BMEcat"]
+    ausgaben: ["Katalogversion", "IfcProjectLibrary"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "ETIM 10.0", urteil: uebernehmen, lizenz: "ODC-By 1.0", status: V, einbindung: daten, quelle: "Recherche 10"}
+    - {name: "ETIM xChange", urteil: uebernehmen, lizenz: "frei", status: V, einbindung: daten, quelle: "Recherche 10"}
+    - {name: "ECLASS 16.0", urteil: lizenzieren, lizenz: "lizenzpflichtig", status: V, einbindung: daten, quelle: "Recherche 10", hinweis: "nur auf Kundenwunsch"}
+    - {name: "Hersteller-IFC (nur Geometrie)", urteil: adaptieren, lizenz: "je Hersteller", status: U, einbindung: daten, quelle: "Recherche 10"}
+  anforderungen: [ANF-03-05, ANF-03-06, ANF-03-23, ANF-08-15, ANF-08-16, ANF-08-17, ANF-09a-14]
+
+- name: geodaten
+  zweck: "Grundstück und Kontext c mit Herkunft: DGM, Hausumringe, Luftbild, ALKIS-Flurstück, Bebauungsplan im XPlanGML-Schema, Satzungen, Lärmkarten, KOSTRA"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["amtliche Dienste", "Dialog zur Bestätigung", "PDF des Bebauungsplans"]
+    ausgaben: ["Kontext c mit Herkunft und Lizenz", "IfcSite, IfcMapConversion"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "DGM1, Hausumringe, Luftbild Bayern", urteil: uebernehmen, lizenz: "CC BY 4.0", status: V, einbindung: daten, quelle: "opengeodataBY; Recherche 18"}
+    - {name: "ALKIS-Flurstück", urteil: lizenzieren, lizenz: "kostenpflichtig (ca. 2,90 €)", status: V, einbindung: daten, quelle: "Kapitel 4.2"}
+    - {name: "KOSTRA-DWD-2020", urteil: uebernehmen, lizenz: "frei (GeoNutzV)", status: V, einbindung: daten, quelle: "Recherche 18"}
+    - {name: "LfU-Lärmkarten (WMS)", urteil: uebernehmen, lizenz: "CC BY 4.0", status: V, einbindung: daten, quelle: "Recherche 20", hinweis: "nur Screening, nicht als Eingang für DIN 4109"}
+    - {name: "XPlanGML-Leser", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 4.2"}
+    - {name: "xPlanBox / XPlanValidator", urteil: meiden, lizenz: "AGPL-3.0", status: V, einbindung: referenz, quelle: "Recherche 02"}
+  anforderungen: [ANF-08-26, ANF-09a-19, ANF-06-08, ANF-06-09]
+
+- name: cde
+  zweck: "unveränderliche Revisionen mit SHA-256 und Status nach ISO 19650 (in Arbeit, geteilt, veröffentlicht, archiviert), Varianten, Pfadmigration, eingefrorene Stände, archivierte Laufzeitumgebung"
+  ki_system: false
+  teilmodule: [varianten]
+  schnittstellen:
+    eingaben: ["IFC-Revision", "Zustand", "Umgebungskennung"]
+    ausgaben: ["Revisions-ID", "Status"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "Objektspeicher mit Hash-Adressierung", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 7.3.2"}
+  anforderungen: [ANF-08-18, ANF-06-13, ANF-06-27, ANF-07-10]
+
+- name: audit
+  zweck: "nur anhängbarer, hashverketteter Audit-Trail; Hashbäume mit qualifiziertem Zeitstempel; Evidence Records (RFC 4998, TR-ESOR)"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["Struktur C: Ereignisse", "Freigaben", "Exporte"]
+    ausgaben: ["Protokoll", "Evidence Records", "Auszug für die Hausakte"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "Hashkette und Hashbaum", urteil: selbst_bauen, lizenz: "eigen", status: V, einbindung: bibliothek, quelle: "Kapitel 7.3.4; bsi2022tresor"}
+    - {name: "qualifizierter Zeitstempeldienst", urteil: uebernehmen, lizenz: "Dienst eines Vertrauensdiensteanbieters", status: U, einbindung: dienst, quelle: "eu2014eidas; DAT-06-05"}
+    - {name: "Blockchain / verteiltes Ledger", urteil: meiden, lizenz: "–", status: V, einbindung: referenz, quelle: "hunhevicz2020need", hinweis: "nicht nötig bei eigener CDE"}
+  anforderungen: [ANF-03-25, ANF-06-36, ANF-06-37, ANF-07-11]
+
+- name: freigabe
+  zweck: "Rollen und Rechte, Berechtigungsreichweite, Gates G0–G8 als Zustandsautomat, Warnsignale, menschlicher Prüfweg, Signatur-Adapter (QES, Siegel)"
+  ki_system: false
+  teilmodule: [freigabe_gates]
+  schnittstellen:
+    eingaben: ["Prüfprotokoll", "Nachweishefte", "Personen und Qualifikationen", "Profil"]
+    ausgaben: ["IfcApproval", "Freigabedatensatz (Kapitel 6.7.2 B)", "Signaturen"]
+  abhaengigkeiten: [cde, pruefschicht, audit, prozess]
+  bausteine:
+    - {name: "Gate-Automat", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 7.4"}
+    - {name: "QES- und Siegeldienst", urteil: uebernehmen, lizenz: "Dienst eines Vertrauensdiensteanbieters", status: U, einbindung: dienst, quelle: "zpo371a; eu2014eidas; DAT-06-05"}
+  anforderungen: [ANF-03-18, ANF-08-19, ANF-09-12, ANF-09-21, ANF-09a-07, ANF-09a-08, ANF-06-01, ANF-06-02, ANF-06-03, ANF-06-04, ANF-06-05, ANF-06-06, ANF-06-07, ANF-06-25, ANF-07-12, ANF-07-13]
+
+- name: prozess
+  zweck: "Projektphasen, Fristen (Widerruf, Freistellung, Baubeginn), Rückwärtsterminierung, Freeze und Nachträge, Verfahrenswahl, Montageplan"
+  ki_system: false
+  teilmodule: []
+  schnittstellen:
+    eingaben: ["Gates", "Termine", "Bemusterungsoptionen"]
+    ausgaben: ["Fristen, Warnungen", "IfcWorkSchedule, IfcTask", "Nachträge"]
+  abhaengigkeiten: [cde]
+  bausteine:
+    - {name: "Termin- und Fristenrechner", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 3.7.2 G"}
+  anforderungen: [ANF-03-19, ANF-03-20, ANF-06-15, ANF-06-18, ANF-06-22]
+
+- name: frontend
+  zweck: "Web-Oberfläche mit 3D-Viewer, nicht-visueller Sicht, Kennzahlen mit Status, KI-Hinweis, AR; nur lesend auf Revisionen, Schreiben nur über Intents"
+  ki_system: false
+  teilmodule: [viewer, transparenz]
+  schnittstellen:
+    eingaben: ["Revisionen (IFC, glTF)", "BCF", "Antworten des Dialogs"]
+    ausgaben: ["Intents und Eingaben (Tastatur, Zeigegerät, Formular, Sprache)"]
+  abhaengigkeiten: [dialog, cde, freigabe]
+  bausteine:
+    - {name: "web-ifc 0.0.78", urteil: uebernehmen, lizenz: "MPL-2.0", status: V, einbindung: bibliothek, quelle: "Recherche 05, 10"}
+    - {name: "@thatopen/components 3.4.8", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 05, 10"}
+    - {name: "three.js 0.186.1", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 10"}
+    - {name: "three-gpu-pathtracer 0.0.24", urteil: uebernehmen, lizenz: "MIT", status: V, einbindung: bibliothek, quelle: "Recherche 10"}
+    - {name: "@google/model-viewer 4.3.1", urteil: uebernehmen, lizenz: "Apache-2.0", status: V, einbindung: bibliothek, quelle: "Recherche 10"}
+    - {name: "Babylon.js 9.28.0", urteil: adaptieren, lizenz: "Apache-2.0", status: V, einbindung: bibliothek, quelle: "Recherche 10", hinweis: "Alternative mit WebGPU"}
+    - {name: "IfcOpenShell WASM + ifcopenshell-ids", urteil: adaptieren, lizenz: "LGPL", status: V, einbindung: bibliothek, quelle: "Recherche 05", hinweis: "als getrennte Datei im Web Worker"}
+    - {name: "xeokit-sdk", urteil: meiden, lizenz: "AGPL", status: V, einbindung: referenz, quelle: "Recherche 05"}
+    - {name: "ambientCG, Poly Haven (Texturen)", urteil: uebernehmen, lizenz: "CC0", status: V, einbindung: daten, quelle: "Recherche 10"}
+  anforderungen: [ANF-03-24, ANF-06-11, ANF-06-33, ANF-06-34, ANF-07-18]
+
+- name: betrieb
+  zweck: "Einwilligungen, Datenschutz-Folgenabschätzung, Latenz-Telemetrie ohne Inhalt, SBOM und Lizenzprüfung im Build, Offline-Betrieb, Evaluation"
+  ki_system: false
+  teilmodule: [datenschutz]
+  schnittstellen:
+    eingaben: ["alle Module (Metadaten)"]
+    ausgaben: ["SBOM", "Lizenzsperre", "Telemetrie", "Einwilligungsstatus"]
+  abhaengigkeiten: []
+  bausteine:
+    - {name: "SBOM- und Lizenzprüfung im Build", urteil: selbst_bauen, lizenz: "eigen", status: U, einbindung: bibliothek, quelle: "Kapitel 7.6.4"}
+  anforderungen: [ANF-06-28, ANF-06-32, ANF-06-38, ANF-06-39, ANF-07-14, ANF-07-16, ANF-07-17, ANF-07-23]

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>HRB Reifegrad P (präsentationsfertig) – Sanitärobjekte (WC, Waschtisch, Dusche, Wanne) mit Vorwand und Anschlüssen</title>
+        <copyright>Arbeit Holzrahmenbau, Kapitel 11</copyright>
+        <version>0.1.0</version>
+        <description>Pflichtmerkmale der Bauteilgruppe 'sanitaer' im Reifegrad P nach spezifikation/reifegrade.yaml (LOIN nach DIN EN ISO 7817-1:2024-11). Merkmale kumulativ (R erbt P, A erbt R); Granularitätsverbote nur für diesen Reifegrad.</description>
+        <author>reifegrade@example.org</author>
+        <date>2026-09-27</date>
+        <purpose>Entscheidung des Kunden: fotorealistische 3D-Ansicht, AR auf dem Grundstück, Preisindikation</purpose>
+        <milestone>Entwurf, Vorbemusterung, Angebot</milestone>
+    </info>
+    <specifications>
+        <specification name="SAN-P-01 Sanitärobjekt: Katalogoption, Material, im Raum enthalten" ifcVersion="IFC4X3_ADD2" identifier="SAN-P-01">
+            <applicability minOccurs="1" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                    </name>
+                    <predefinedType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="TOILETPAN" />
+                            <xs:enumeration value="WASHHANDBASIN" />
+                            <xs:enumeration value="SHOWER" />
+                            <xs:enumeration value="BATH" />
+                            <xs:enumeration value="BIDET" />
+                            <xs:enumeration value="SINK" />
+                        </xs:restriction>
+                    </predefinedType>
+                </entity>
+            </applicability>
+            <requirements>
+                <partOf relation="IFCRELCONTAINEDINSPATIALSTRUCTURE" cardinality="required">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSPACE</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+                <property dataType="IFCIDENTIFIER" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>OptionID</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="K-[A-Z]{3}-[0-9]{4}" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property dataType="IFCLABEL" cardinality="required">
+                    <propertySet>
+                        <simpleValue>HRB_Auswahl</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>Reifegrad</simpleValue>
+                    </baseName>
+                    <value>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="P" />
+                            <xs:enumeration value="R" />
+                            <xs:enumeration value="A" />
+                        </xs:restriction>
+                    </value>
+                </property>
+                <material cardinality="required" />
+            </requirements>
+        </specification>
+        <specification name="SAN-P-V01 P: keine Anschlussports an Sanitärobjekten" ifcVersion="IFC4X3_ADD2" identifier="SAN-P-V01">
+            <applicability minOccurs="0" maxOccurs="0">
+                <entity>
+                    <name>
+                        <simpleValue>IFCDISTRIBUTIONPORT</simpleValue>
+                    </name>
+                </entity>
+                <partOf relation="IFCRELNESTS">
+                    <entity>
+                        <name>
+                            <simpleValue>IFCSANITARYTERMINAL</simpleValue>
+                        </name>
+                    </entity>
+                </partOf>
+            </applicability>
+            <requirements />
+        </specification>
+    </specifications>
+</ids>

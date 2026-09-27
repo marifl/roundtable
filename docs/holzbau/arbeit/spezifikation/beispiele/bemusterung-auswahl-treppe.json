@@ -1,0 +1,119 @@
+{
+  "schema": "hrb-auswahl/0.1",
+  "auswahl_id": "7b9d0c3e-1f2a-4b5c-8d6e-0123456789ab",
+  "reifegrad": "R",
+  "status": "geprueft",
+  "kategorie": "treppe",
+  "kontext": {
+    "projekt": "Beispielhaus Holzrahmenbau",
+    "geschoss": "EG→OG",
+    "raum": "Flur EG / Galerie OG",
+    "gebaeudetyp": "EFH",
+    "wohnungen": 1,
+    "profil": [
+      "DE-DIN18065-WG2WE"
+    ]
+  },
+  "artikel": {
+    "artikel_id": "K-TRE-0001",
+    "hersteller": {
+      "name": "Treppenbauer (offen, DAT-12-07)",
+      "einzelanfertigung": true
+    },
+    "oberflaeche": "Lack seidenmatt",
+    "merkmale": [
+      {
+        "name": "Holzart",
+        "wert": "Buche"
+      },
+      {
+        "name": "Sortierung",
+        "wert": "keilgezinkt",
+        "quelle": "Standard der Bau- und Leistungsbeschreibung"
+      }
+    ]
+  },
+  "leistung": {
+    "treppe": {
+      "form": "gerade, einläufig",
+      "ifc_stair_type": "STRAIGHT_RUN_STAIR",
+      "geschosshoehe_ffb_mm": 2900,
+      "steigungen": 17,
+      "auftritte": 16,
+      "steigung_mm": 170.59,
+      "auftritt_mm": 290,
+      "schrittmass_mm": 631.18,
+      "laufbreite_mm": 900,
+      "lauflaenge_mm": 4640,
+      "verziehung": {
+        "methode": "keine"
+      },
+      "kopfhoehe_min_mm": null,
+      "bauart": "Wangentreppe",
+      "holzart": "Buche",
+      "sortierung": "keilgezinkt",
+      "gelaender": {
+        "fuellung": "senkrechte Stäbe",
+        "material": "Buche",
+        "lichter_abstand_mm": 120,
+        "hoehe_mm": 900
+      },
+      "quelle": "B5 (Geschosshöhe 2,90 m, Laufbreite 0,90 m), beste von 68 Lösungen"
+    },
+    "stlb_lb": [
+      "027"
+    ]
+  },
+  "kosten": {
+    "mehrpreis": {
+      "betrag": 0,
+      "waehrung": "EUR",
+      "brutto": true
+    },
+    "formel_id": "mehrpreis@0.1",
+    "eingaben": {
+      "hinweis": "Standardtreppe der Bau- und Leistungsbeschreibung"
+    },
+    "gueltig_bis": "2026-12-31"
+  },
+  "termine": {
+    "freeze": "W"
+  },
+  "folgen": [
+    {
+      "option": "OPT-TRE-GERADE",
+      "domaene": "tragwerk",
+      "text": "Deckenöffnung als Wechsel (BTLx); Lauflänge 4,64 m bestimmt die Öffnungslänge",
+      "regel": "DE.DIN18065.Kopfhoehe"
+    }
+  ],
+  "pruefungen": [
+    {
+      "regel": "DE.DIN18065.WG2WE",
+      "ergebnis": "erfuellt",
+      "text": "2s + a = 631.18 mm in 590–650; s = 170.59 mm; a = 290 mm",
+      "werte": {
+        "loesungen": 68
+      }
+    },
+    {
+      "regel": "DE.DIN18065.Kopfhoehe",
+      "ergebnis": "unbestimmt",
+      "text": "Deckenöffnung noch nicht festgelegt; R2-Voraussetzung Headroom fehlt"
+    },
+    {
+      "regel": "M.Firma.Gelaender-Stababstand",
+      "ergebnis": "erfuellt",
+      "text": "120 mm (Firmenregel; BayBO Art. 36 nennt keinen Zahlenwert)"
+    }
+  ],
+  "suchschluessel": [
+    "kategorie:treppe",
+    "form:gerade",
+    "merkmal:Holzart=Buche",
+    "merkmal:Steigungen=17"
+  ],
+  "hinweise": [
+    "Gate G4 bleibt gesperrt, bis die Kopfhöhe erfüllt ist und die Auswahl Reifegrad A erreicht"
+  ]
+}

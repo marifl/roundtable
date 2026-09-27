@@ -1,0 +1,188 @@
+# Regelkatalog Kapitel 6: Verantwortungs- und Formregeln (R3, R4) zu den harten Grenzen
+# HG-1, HG-2 und HG-6 bis HG-11 (Tabelle 6.4). Schema: regel.schema.json (#/$defs/regel).
+# Ergänzt regelkatalog.yaml; Profile sind dort registriert (regelprofile.yaml).
+# Status U: Auslegung ohne Kommentarliteratur, vor dem Produktivbetrieb rechtlich zu prüfen.
+
+katalog:
+  name: HRB-Regelkatalog-Kapitel-6
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["6", "7"]
+  hinweis: "Gates G0, G1, G3, G4 (Einreichung), G7 und der menschliche Prüfweg als Regeln. Quellen: Recherche 07 und 27, Kapitel 4 und 9a."
+
+regeln:
+
+- id: BY.BayBO.61-6.Leitung-Regelraum
+  version: 0.1.0
+  titel: Freigabe jeder Regelraum-Version durch die bauvorlageberechtigte Person (Gate G0)
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 61 Abs. 6 („unter der Leitung“)", fassung: "ab 2026-05-01", status: V, bib: [baybo2026, ikbaunrw2024unterzeichnung, byak2020berufsordnung, bverfg1970bvr11765, landtagby2007baybo], recherche: ["07", "27"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: katalogversion, einheit: "-", quelle: "regelkatalog*.yaml, regelprofile.yaml, Hausmodell, IDS"}
+    - {name: freigabe_g0, einheit: "-", quelle: "IfcApproval an IfcProjectLibrary mit QES"}
+  pruefung:
+    typ: freigabe
+    formel: "Entwurfsprüfung gegen Katalogversion v zulässig ⇔ ∃ Freigabe G0(v) durch Person mit Rolle BV ∧ QES gültig; sonst weiter mit letzter freigegebener Version"
+  grenzwerte: []
+  meldung: "Regelraum {version} ist nicht freigegeben. Geprüft wird weiter nach {version_frei}."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Freigabe der Version durch die benannte bauvorlageberechtigte Person anfordern"}
+  freigabe_rolle: bauvorlageberechtigte_person
+  status: U
+  beispiel: [keins]
+  kapitel: "6.2.2"
+  anforderungen: [ANF-06-02]
+  hinweis: "Auslegung von „unter der Leitung“ nach NRW-Kammerrecht analog; bayerische Kommentarliteratur nicht geprüft (Recherche 27)."
+
+- id: BY.BauVorlV.13.Einreichung-Freigabe
+  version: 0.1.0
+  titel: Bauvorlagen nur aus einer freigegebenen Revision, mit Namen im Plankopf und gleichem Hash
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "BauVorlV; BayBO", fundstelle: "§§ 7-9, 13 BauVorlV; Art. 61 Abs. 6, Art. 64 BayBO", fassung: "geltend 2026-09", status: V, bib: [bauvorlv, baybo2026, dbauv2026, bayDigitalisierungEntwurf2026], recherche: ["07", "27"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: freigabe_g4, einheit: "-", quelle: "Freigabedatensatz (Kapitel 6.7.2 B)"}
+    - {name: revision_sha256_je_vorlage, einheit: "-", quelle: "Export-Manifest"}
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "Export Bauvorlagen zulässig ⇔ G4 gültig für Revision r ∧ ∀ Vorlage: hash(Vorlage.revision) = r ∧ Plankopf.name = Person(G4) ∧ Lageplan-Maßstab ≥ 1:1000 ∧ Bauzeichnungen 1:100"
+  grenzwerte:
+    - {name: massstab_lageplan_min, wert: "1:1000", einheit: "-", richtung: min, fundstelle: "§ 7 Abs. 2 BauVorlV", status: V}
+    - {name: massstab_bauzeichnung, wert: "1:100", einheit: "-", richtung: gleich, fundstelle: "§ 8 BauVorlV", status: V}
+  meldung: "Bauvorlagen nicht exportierbar: {grund} (§ 13 BauVorlV bzw. Art. 61 Abs. 6 BayBO)."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Freigabe G4 für die aktuelle Revision einholen"}
+  freigabe_rolle: bauvorlageberechtigte_person
+  status: V
+  beispiel: [B4]
+  kapitel: "6.2.8"
+  anforderungen: [ANF-06-16, ANF-06-17]
+
+- id: DE.BGB.650j.Vertrag-Gate
+  version: 0.1.0
+  titel: Vertragserklärung erst nach Übergabe der vollständigen Baubeschreibung in Textform (Gate G1)
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "BGB; EGBGB", fundstelle: "§ 650j BGB; Art. 249 § 2 EGBGB; Begründung BT-Drs. 18/8486 zu § 650i", fassung: "geltend 2026-09", status: V, bib: [bgb, egbgb249, bundestag2016bauvertrag], recherche: ["07", "27"]}
+  profil: {name: DE-Verbraucherbauvertrag, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  vorbedingung:
+    r2_voraussetzung: [DE.EGBGB249.Baubeschreibung]
+    ausnahmen: ["Planungsvorgaben durch den Besteller oder einen von ihm Beauftragten (greift beim Laienentwurf im Regelraum der Firma nicht, Kapitel 6.2.5)"]
+  eingaben:
+    - {name: baubeschreibung_vollstaendig, einheit: "-", quelle: "Regel DE.EGBGB249.Baubeschreibung"}
+    - {name: uebergabe_textform_zeitstempel, einheit: "-", quelle: "Audit-Ereignis"}
+    - {name: zeitpunkt_vertragserklaerung, einheit: "-", quelle: "Gate G1"}
+  pruefung:
+    typ: freigabe
+    formel: "G1 zulässig ⇔ Baubeschreibung erfüllt ∧ t_uebergabe ≤ t_vertragserklaerung ∧ Widerrufsbelehrung erteilt"
+  grenzwerte: []
+  meldung: "Vertragserklärung noch nicht möglich: {grund} (§ 650j BGB, Art. 249 § 2 EGBGB)."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Baubeschreibung vervollständigen und in Textform übergeben"}
+  status: V
+  beispiel: [keins]
+  kapitel: "6.2.5"
+  anforderungen: [ANF-06-12, ANF-06-13]
+
+- id: DE.BGB.650l.Produktionsfreigabe
+  version: 0.1.0
+  titel: Produktion erst nach Ausstattungsfestlegung, Genehmigung oder Freistellungsfrist und Widerrufsfrist (Gate G7)
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "BGB; BayBO", fundstelle: "§ 650l BGB; Art. 58 BayBO", fassung: "geltend 2026-09", status: V, bib: [bgb, baybo2026, regnauerBLB2024], recherche: ["07"]}
+  profil: {name: DE-Verbraucherbauvertrag, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: widerrufsfrist_ende, einheit: "-", quelle: "Belehrung + 14 Tage (Datenstruktur 3.7.2 G)"}
+    - {name: genehmigt_am, einheit: "-", quelle: prozess}
+    - {name: freistellung_frist_ende, einheit: "-", quelle: "Eingang + 1 Monat"}
+    - {name: ausstattung_unterschrieben_am, einheit: "-", quelle: "Gate G2"}
+  pruefung:
+    typ: freigabe
+    formel: "G7 zulässig ⇔ G2 unterschrieben ∧ (genehmigt ∨ heute > freistellung_frist_ende) ∧ heute > widerrufsfrist_ende; jede fehlende Bedingung wird genannt"
+  grenzwerte:
+    - {name: widerrufsfrist, wert: 14, einheit: d, richtung: min, fundstelle: "§ 650l BGB", status: V}
+    - {name: freistellungsfrist, wert: 1, einheit: Monat, richtung: min, fundstelle: "Art. 58 BayBO", status: V}
+  meldung: "Produktion gesperrt: {fehlende_bedingungen}."
+  alternative: []
+  freigabe_rolle: werkplanung
+  status: V
+  beispiel: [keins]
+  kapitel: "6.4"
+  anforderungen: [ANF-03-18, ANF-06-21]
+
+- id: EU.DSGVO.22.Pruefweg
+  version: 0.1.0
+  titel: Keine automatisierte Letztentscheidung - menschlicher Prüfweg bei jeder Ablehnung mit Vertragswirkung
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "DSGVO; Orientierungshilfe DSK", fundstelle: "Art. 22 DSGVO; EuGH C-634/21 Rn. 66; DSK-OH KI Nr. 1.6", fassung: "geltend 2026-09", status: V, bib: [eugh2023schufa, dsk2024ki], recherche: ["27"]}
+  profil: {name: DE-Verbraucherbauvertrag, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: ablehnung, einheit: "-", quelle: "Regelergebnis verletzt"}
+    - {name: vertragswirkung, einheit: "-", quelle: "Phase vor G1 oder Nachtrag"}
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "∀ Ablehnung mit Vertragswirkung: Antwort enthält Prüfweg ∧ Aufruf erzeugt Vorgang(Rolle ∈ {VT, BV}, Frist)"
+  grenzwerte: []
+  meldung: "Sie können eine Prüfung dieser Entscheidung durch einen Mitarbeiter anfordern."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "menschliche Prüfung durch Vertrieb oder bauvorlageberechtigte Person"}
+  freigabe_rolle: vertrieb
+  status: U
+  beispiel: [B4]
+  kapitel: "6.2.7"
+  anforderungen: [ANF-06-06]
+  hinweis: "Ob eine Ablehnung der Regelmaschine eine Entscheidung im Sinne von Art. 22 DSGVO ist, ist nicht entschieden; die Regel folgt dem vorsichtigeren Maßstab."
+
+- id: DE.BGB.Abweichung-Aufklaerung
+  version: 0.1.0
+  titel: Übernahme eines Wunsches außerhalb des Regelraums nur nach dokumentierter Aufklärung (Gate G3)
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "BGB (Werkvertrag); Rechtsprechung", fundstelle: "BGH VII ZR 8/10; BGH VII ZR 216/22", fassung: "Stand 2026-09", status: V, bib: [bgh2011viizr810, bgh2023viizr21622], recherche: ["27"]}
+  profil: {name: DE-Verbraucherbauvertrag, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: ergebnis_regelraum, einheit: "-", quelle: "verletzt bzw. freigabepflichtig für eine Regel der Schicht S3-S5 oder eine Festsetzung mit Befreiungsmöglichkeit"}
+    - {name: aufklaerung_dokument, einheit: "-", quelle: "IfcDocumentReference mit SHA-256"}
+    - {name: zustimmung_kunde, einheit: "-", quelle: "Gate G3"}
+  pruefung:
+    typ: freigabe
+    formel: "Übernahme zulässig ⇔ Aufklärungsdokument vorhanden ∧ signiert (BV) ∧ Zustimmung KU; Regeln der Schichten S1/S2 bleiben unberührt (ANF-09-12)"
+  grenzwerte: []
+  meldung: "Dieser Wunsch liegt außerhalb der Regeln ({regel}). Er kann nur nach Aufklärung über das Risiko übernommen werden."
+  alternative:
+    - {art: A3_variante, beschreibung: "nächste zulässige Variante aus L(P)"}
+    - {art: A5_freigabeweg, beschreibung: "Aufklärungsgespräch und Gate G3"}
+  freigabe_rolle: bauvorlageberechtigte_person
+  status: U
+  beispiel: [keins]
+  kapitel: "6.2.7"
+  anforderungen: [ANF-06-05]
+  hinweis: "Inhalt von BGH VII ZR 216/22 nur über Sekundärquelle geprüft (Recherche 27)."

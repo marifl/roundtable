@@ -1,0 +1,30 @@
+id,beschreibung,benoetigt_fuer,kapitel,prioritaet
+DAT-01,vollständiger Schichtaufbau der Vitalwand mit Riegelstärke und Installationsebene (Frage F1; Format: Tabellen A–C als JSON oder Excel; Ersatz: B1-Aufbau; Status „Konflikt“ für die Riegelstärke),"ANF-03-05, -06",3,Muss
+DAT-02,"Kennwerte U, Rw, REI, Masse, sd aller Wand-, Dach- und Deckenvarianten mit Nachweisdokument (Frage F2; Format: Tabelle A plus PDF je Nachweis; Ersatz: Herstellerangaben aus 3.1.7, Status [U])",ANF-03-23,3,Soll
+DAT-03,"Silence-Decke: Labor- und Baustellenwerte, Spannweiten, Raster, Grenzwerte für Fliesenformat und Flächenlast (Frage F3; Format: Tabelle plus Prüfbericht; Ersatz: 52 dB als vertraglicher Wert)",Schallnachweis,3,Soll
+DAT-04,"CAD/CAM-System, Maschinen, Formate; WUP-Spezifikation bzw. Kontakt beim Maschinenhersteller (Frage F4; Format: Spezifikation, Beispieldateien; Ersatz: kein WUP-Export (ANF-03-14))","ANF-03-13, -14",3,Muss
+DAT-05,"Fertigungsregeln: Elementgrenzen, Achsraster, Öffnungs- und Bohrregeln, Fräsgrenze (Frage F5; Format: Tabelle E; Ersatz: Platzhalter aus Tabelle E)","ANF-03-06, -10, -15",3,Muss
+DAT-06,"Dachvorfertigung, Dachformen, Neigungen, Gauben (Frage F6; Format: Tabelle je Dachtyp; Ersatz: Dachelemente wie B18)",Dachmodul,3,Soll
+DAT-07,"Bemusterungskatalog mit Artikelnummer, GTIN, Preis, Lieferzeit, Gültigkeit (Frage F7; Format: Tabelle F (Excel, BMEcat oder ERP-Export); Ersatz: Budgetlogik aus der Bau- und Leistungsbeschreibung)","ANF-03-19, -21",3,Muss
+DAT-08,Freeze-Termine je Kategorie relativ zur Werkplanung; Kosten späterer Änderungen (Frage F8; Format: Tabelle Kategorie × Frist; Ersatz: W/A-Zuordnung aus Recherche 10),ANF-03-19,3,Muss
+DAT-09,"Vorwand- und Montagesystem, Dosentypen, Werkfliesung (Frage F9; Format: Tabelle plus Systemdatenblatt; Ersatz: Montageelement nach Herstellerangaben (Recherche 10))",ANF-03-09,3,Soll
+DAT-10,"Fußbodenaufbauten je Geschoss, Lage der Fallleitungen, zulässiger Verschub, freigegebene Manschetten (Frage F10; Format: Tabelle je Aufbau; Ersatz: B14-Aufbauten, Verschub 100 mm)",ANF-03-11,3,Soll
+DAT-11,"Kranpartner, reale Elementgewichte, Fahrzeuge und Gestelle, Windgrenze, Anschlagsysteme, Zuständigkeit für Genehmigungen (Frage F11; Format: Tabellen E und H; Ersatz: Beispielwerte aus B18)","ANF-03-16, -17",3,Soll
+DAT-12,"Gebäudetypen und Gebäudeklassen des Objektbaus, Aufbauten GK 4/5, Haustrennwand (Frage F12; Format: Tabelle A je Typ; Ersatz: nur GK 1–3 freigeschaltet)",ANF-03-08,3,Soll
+DAT-13,"Leistungsumfang der Ab-Preise, Preislogik je Option, Verrechnung der Budgets (Frage F13; Format: Formel und Preisliste; Ersatz: Formel aus ANF-03-21)",ANF-03-21,3,Soll
+DAT-14,"Prozessdaten: Planstände, Änderungen nach Vertrag, Zeitanteile des Vertriebs (Frage F14; Format: CSV-Export aus CRM und CAD; Ersatz: keine; Erhebung in Kap. 20)",ANF-03-25 (Evaluation),3,Soll
+DAT-15,"Nutzungsrechte an Bildern, Grundrissen, BLB, Lieferanten-BIM-Daten und Texturen; Freigabe von Testprojekten (Frage F15; Format: schriftliche Freigabe; Ersatz: nur eigene und CC0-Inhalte)","Präsentation, Tests",3,Soll
+DAT-06-01,"Personen mit Freigaberechten: Qualifikation, Listen- oder Kammereintrag, Zusatzqualifikation nach Art. 62a, interne schriftliche Freigabeordnung (Format: Tabelle A, Dokument; Ersatz: Testpersonen, Gates nur im Testmodus)","ANF-06-01, -02, -04",6,Muss
+DAT-06-02,"Organisationsrollen: Vertrieb, Projektleitung, Werkplanung, Vertretungen, Zuständigkeit für Anfechtungen (Format: Organigramm, Tabelle; Ersatz: Rollen aus Tabelle 6.1)",ANF-06-06,6,Soll
+DAT-06-03,"Vertragsprozess: aktuelle AGB, Muster der Widerrufsbelehrung, Form der Vertragserklärung, bisherige Übergabe der Baubeschreibung (Format: PDF, Prozessbeschreibung; Ersatz: AGB 10/2024 [@regnauerBLB2024])","ANF-06-12, -13",6,Muss
+DAT-06-04,"Inhalt und Aufbewahrungsdauer der Hausakte, gewünschte Dauer der Beweiswerterhaltung (Format: Liste, Frist in Jahren; Ersatz: QDF-Satzung, Dauer offen)","ANF-06-23, -37",6,Soll
+DAT-06-05,"Vertrauensdienste: vorhandene QES-Karten, Firmensiegel, Zeitstempeldienst (Format: Anbieter, Verfahren; Ersatz: Signatur-Adapter im Testmodus ohne Rechtswirkung)",ANF-06-37,6,Muss
+DAT-06-06,"Datenschutz: Verarbeitungsverzeichnis, Datenschutzbeauftragter, Einwilligungstexte, Hosting-Vorgaben (Format: Dokumente; Ersatz: Muster der Arbeit, nicht produktiv)",ANF-06-30 bis -32,6,Muss
+DAT-06-07,"Einsatzorte und Geräte: Musterhäuser, Bauherrenzentrum, Netzabdeckung, Offline-Bedarf (Format: Liste; Ersatz: Offline-Kern nach E6.4)",ANF-06-38,6,Soll
+DAT-06-08,"Barrierefreiheit: vorhandene Erklärung zur Barrierefreiheit, Zielgruppen, Beratung vor Ort (Format: Dokument; Ersatz: Prüfung nach EN 301 549 ohne Firmenbezug)",ANF-06-33,6,Soll
+DAT-06-09,"Prüfumfang und Vermerk der bisherigen Freigabe von Kundenplänen (wer prüft was, mit welchem Vermerk) (Format: Checkliste, Beispielvermerk; Ersatz: Warnsignale nach E6.2)",ANF-06-03,6,Soll
+DAT-07-01,"IT-Landschaft: CRM, ERP, CAD/CAM (vgl. DAT-04), Identitätsdienst, vorhandene Schnittstellen (Format: Systemliste mit Schnittstellen; Ersatz: eigenständiger Betrieb ohne Anbindung)",Anbindung an Werk und Vertrieb,7,Soll
+DAT-07-02,"Hosting und Betrieb: eigener Server oder Cloud, Standort, verfügbare GPU, Geräte in Musterhaus und Bauherrenzentrum (Format: Tabelle; Ersatz: Topologie „lokal“ mit Referenzhardware)","ANF-06-28, ANF-07-19",7,Muss
+DAT-07-03,"Sprachdaten: Fachbegriffsliste, anonymisierte typische Kundenäußerungen, Einwilligung zu Aufnahmen für das Testset (Format: Liste, Textkorpus, Einwilligungen; Ersatz: synthetisches Testset aus Aufnahmen und Sprachsynthese (Recherche 03))",ANF-07-05,7,Muss
+DAT-07-04,"Lizenzpolitik: Freigabe kommerzieller Lizenzen (CGAL, DIN Media, Fraunhofer IBP18599kernel, BKI), Richtlinie zu Open Source (Format: Entscheidung, Budget; Ersatz: GPL-Bausteine nur als Prozess, Normwerte nur mit Fundstelle)","ANF-07-16, -17",7,Muss
+DAT-07-05,"vorhandene Hausmodelle und Konfiguratordaten als Startbibliothek (Format: CAD-Export, Tabellen; Ersatz: Hausmodell aus B1-Aufbauten)",Phase 0 (ANF-06-02),7,Soll

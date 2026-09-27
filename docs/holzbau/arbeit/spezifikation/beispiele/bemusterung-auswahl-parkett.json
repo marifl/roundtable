@@ -1,0 +1,190 @@
+{
+  "schema": "hrb-auswahl/0.1",
+  "auswahl_id": "5a0c6f1e-2d3b-4c8a-9e7f-1b2c3d4e5f60",
+  "reifegrad": "R",
+  "status": "geprueft",
+  "kategorie": "boden_parkett",
+  "kontext": {
+    "projekt": "Beispielhaus Holzrahmenbau",
+    "geschoss": "EG",
+    "raum": "R01 Wohnen",
+    "flaeche": "Boden",
+    "flaeche_netto_m2": 20.0,
+    "gebaeudetyp": "EFH",
+    "wohnungen": 1,
+    "profil": [
+      "DE-Fussboden"
+    ]
+  },
+  "artikel": {
+    "artikel_id": "K-PAR-0001",
+    "variante_id": "V01",
+    "hersteller": {
+      "name": "Beispielhersteller Parkett",
+      "serie": "Beispielserie Landhausdiele"
+    },
+    "farbe": {
+      "name": "Eiche natur"
+    },
+    "oberflaeche": "hartwachsgeölt",
+    "dicke_mm": 14,
+    "merkmale": [
+      {
+        "name": "Holzart",
+        "wert": "Eiche",
+        "pset": "HRB_Belag"
+      },
+      {
+        "name": "Sortierung",
+        "wert": "Natur (Herstellersortierung)",
+        "pset": "HRB_Belag"
+      },
+      {
+        "name": "Konstruktion",
+        "wert": "Mehrschichtparkett",
+        "norm": "DIN EN 13489:2023-09"
+      },
+      {
+        "name": "Nutzschicht",
+        "wert": 3.5,
+        "einheit": "mm",
+        "quelle": "Standard der Bau- und Leistungsbeschreibung"
+      }
+    ]
+  },
+  "leistung": {
+    "verlegung": {
+      "muster": "wilder_verband",
+      "fugenbreite_mm": 0,
+      "schnittregeln": {
+        "drehbar": false
+      },
+      "uebergaenge": [
+        {
+          "zu_raum": "Kueche",
+          "loesung": "offener Übergang, höhengleiche Trennschiene/elastische Fuge",
+          "kante_worst_case_mm": 1.6,
+          "regel": "DE.Fussboden.OKFF-gleich"
+        },
+        {
+          "zu_raum": "Flur",
+          "tuer": "T01",
+          "loesung": "Bewegungsfuge durch Estrich und Belag, höhengleiches Fugenprofil",
+          "kante_worst_case_mm": 1.4,
+          "regel": "DE.Fussboden.OKFF-gleich"
+        }
+      ]
+    },
+    "aufbau": {
+      "estrich": "CAF_F4",
+      "okff_mm": 210.0,
+      "okff_toleranz_mm": 0.6,
+      "fussbodenheizung": true,
+      "r_lambda_b": 0.1127,
+      "verlegeart": "verklebt",
+      "verlegewerkstoff": "Parkettklebstoff schubfest",
+      "belegreife_cm_max": 0.3,
+      "flaechenmasse_kg_m2": 152.42,
+      "schichten": [
+        {
+          "name": "Bitumen-Schweissbahn (Abdichtung nach DIN 18533)",
+          "dicke_mm": 5.0
+        },
+        {
+          "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+          "dicke_mm": 35.0
+        },
+        {
+          "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+          "dicke_mm": 60.0
+        },
+        {
+          "name": "EPS-T Tackerplatte 30-2 fuer Fussbodenheizung",
+          "dicke_mm": 28.0
+        },
+        {
+          "name": "Calciumsulfat-Fliessestrich CAF-F4",
+          "dicke_mm": 67.0
+        },
+        {
+          "name": "Parkettklebstoff (schubfest)",
+          "dicke_mm": 1.0
+        },
+        {
+          "name": "Mehrschichtparkett Eiche",
+          "dicke_mm": 14.0
+        }
+      ],
+      "quelle": "B14 Variante A, Raum R01"
+    },
+    "stlb_lb": [
+      "028"
+    ]
+  },
+  "kosten": {
+    "mehrpreis": {
+      "betrag": 315.0,
+      "waehrung": "EUR",
+      "brutto": true
+    },
+    "formel_id": "mehrpreis@0.1",
+    "eingaben": {
+      "uvp_eur_m2": 95,
+      "budget_eur_m2": 80,
+      "flaeche_m2": 20,
+      "verschnitt": 0.05,
+      "verlegezuschlag_eur": 0,
+      "hinweis": "Testfall ANF-03-21; Verschnitt als Pauschale, weil B16 Parkett (keine 180°-Drehung) noch nicht rechnet"
+    },
+    "gueltig_bis": "2026-12-31"
+  },
+  "termine": {
+    "freeze": "A",
+    "lieferzeit_tage": 35
+  },
+  "folgen": [
+    {
+      "option": "OPT-PAR-FBH",
+      "domaene": "tga_heizung_lueftung",
+      "text": "R_λ,B 0,1127 m²K/W ≤ 0,15",
+      "regel": "DE.BVF.FBH-Belagwiderstand",
+      "beispiel": "B14"
+    },
+    {
+      "option": "OPT-PAR-FBH",
+      "domaene": "aufbau",
+      "text": "vollflächig verklebt statt schwimmend (Standard der Baubeschreibung)",
+      "regel": "DE.BVF.FBH-Belagwiderstand"
+    }
+  ],
+  "pruefungen": [
+    {
+      "regel": "DE.Fussboden.OKFF-gleich",
+      "ergebnis": "erfuellt",
+      "text": "OKFF 210,0 mm ± 0,6 mm",
+      "werte": {
+        "okff_mm": 210.0
+      }
+    },
+    {
+      "regel": "DE.BVF.FBH-Belagwiderstand",
+      "ergebnis": "erfuellt",
+      "text": "R = 0,014/0,13 + 0,001/0,20 = 0,1127 m²K/W"
+    },
+    {
+      "regel": "M.Bemusterung.Mehrpreis",
+      "ergebnis": "erfuellt",
+      "text": "Mehrpreis 315,00 € (Platzhalterformel)"
+    }
+  ],
+  "suchschluessel": [
+    "kategorie:boden_parkett",
+    "merkmal:Holzart=Eiche",
+    "merkmal:Oberflaeche=hartwachsgeoelt",
+    "muster:wilder_verband",
+    "merkmal:Dicke=14[mm]"
+  ],
+  "hinweise": [
+    "Beispieldaten; Fläche 20 m² aus dem Testfall ANF-03-21, Aufbau aus B14"
+  ]
+}

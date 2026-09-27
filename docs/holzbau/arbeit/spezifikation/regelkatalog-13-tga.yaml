@@ -1,0 +1,1353 @@
+# Regelkatalog Kapitel 13: Technische Gebäudeausrüstung und Routing.
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt |
+# nicht_anwendbar | freigabepflichtig (Kapitel 9.2.1). Normwerte als Einzelkennwerte mit
+# Fundstelle (Kapitel 9.7); Formeln und Kennwerttabellen in tga-dimensionierung.yaml.
+# Ergänzt regelkatalog.yaml. Dort bereits geführt und hier nur referenziert:
+#   DE.EC5-NA.NA67.Durchbruch, M.Firma.Staenderbohrung, DE.TALaerm.WP-Richtwert,
+#   M.Hersteller.R290-Schutzbereich, M.Firma.WP-Irrelevanzziel.
+# Neue Profile (zur Registrierung in regelprofile.yaml vorgeschlagen, Kapitel 13.14.1):
+#   DE-aRdT-TGA (S3), EU-FGas-2024 (S1), EU-GIA-2024 (S1), DE-TrinkwV (S1).
+# Status U: vor dem Produktivbetrieb an der Primärquelle bzw. beim Hersteller zu bestätigen.
+
+katalog:
+  name: HRB-Regelkatalog-TGA
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["13"]
+  hinweis: "Kennwerte aus Recherchen 08, 14, 16, 22 und Beispielen B14, B15, B20. Neue Profile DE-aRdT-TGA (S3), EU-FGas-2024 (S1), EU-GIA-2024 (S1), DE-TrinkwV (S1) sind in regelprofile.yaml noch nicht registriert."
+
+regeln:
+
+# ---------------------------------------------------------------------------
+# 13.1 Elektro und Netzwerk
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN18015-3.Installationszonen-Wand
+  version: 0.1.0
+  titel: Leitungsführung in Wänden nur in Installationszonen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18015-3", fundstelle: "4.2.1 (Wandzonen), Ausnahme Fertigbauteile/Leichtbau", fassung: "2016-09", status: V, recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  vorbedingung:
+    auswahl: "IfcCableCarrierSegment, IfcCableSegment in bzw. an IfcWall; Zonen je Wandfläche aus Öffnungen, Ecken und Decke erzeugt"
+    anwendbar_wenn: "DIN 18015 in der Bau- und Leistungsbeschreibung vereinbart (Planungsnorm, E13.1)"
+    ausnahmen: ["Überdeckung >= 60 mm aus dem Schichtmodell", "Leitungen in unverfüllten Hohlräumen ausweichfähig (gedämmte Gefache erfüllen das nicht, Auslegung U)"]
+  eingaben:
+    - {name: leitungsachse, einheit: "m (Polylinie)", quelle: Router}
+    - {name: zonen, einheit: "m (Rechtecke je Wandfläche)", quelle: "zonen_generator@1.0"}
+    - {name: ueberdeckung, einheit: mm, quelle: "Schichtmodell (Σ Schichtdicken raumseitig vor der Leitung)"}
+  pruefung:
+    typ: geometrie
+    funktion: installationszonen_wand@1.0
+    formel: "Leitungsachse ⊂ ⋃ Zonen(ZW-o, ZW-u, ZW-m, ZS-t, ZS-f, ZS-e) ∨ Ausnahme; waagerecht nur in ZW-*, senkrecht nur in ZS-*"
+    parameter: {ZW_o_cm: [15, 45], ZW_u_cm: [15, 45], ZW_m_cm: [100, 130], ZS_cm: [10, 30], ZW_breite_max_cm: 30, ZS_breite_max_cm: 20, ueber_tuer_min_cm: 10, ueberdeckung_ausnahme_mm: 60}
+    auslegung: {gedaemmtes_gefach_unverfuellt: false}
+  grenzwerte:
+    - {name: ZW_breite_max, wert: 30, einheit: cm, richtung: max, fundstelle: "DIN 18015-3 4.2.1", status: V}
+    - {name: ZS_breite_max, wert: 20, einheit: cm, richtung: max, fundstelle: "DIN 18015-3 4.2.1", status: V}
+    - {name: ueberdeckung_ausnahme, wert: 60, einheit: mm, richtung: min, fundstelle: "DIN 18015-3 (Leichtbau)", status: V}
+  meldung: "{leitung} verlässt die Installationszone zwischen {von} und {bis}; Überdeckung {ue} mm < 60 mm."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Umweg über die nächste senkrechte Zone (ZS-e, ZS-t, ZS-f)", frei: [leitungsweg]}
+    - {art: A3_variante, beschreibung: "Dose in eine Zone verschieben oder Installationsebene >= 60 mm Überdeckung vorsehen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-02, ANF-13-03]
+
+- id: DE.DIN18015-3.Installationszonen-Decke
+  version: 0.1.0
+  titel: Installationszonen in Decke und Boden
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18015-3", fundstelle: "Zonen ZD-r, ZD-t", fassung: "2016-09", status: V, recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  vorbedingung:
+    auswahl: "Elektroleitungen in Fußbodenaufbau und Deckenfeld"
+  eingaben:
+    - {name: leitungsachse, einheit: "m (Polylinie)", quelle: Router}
+    - {name: wandabstand, einheit: cm, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "ZD-r: Breite <= 30 cm, Wandabstand >= 20 cm; ZD-t (Türdurchgang): Wandabstand >= 15 cm; Abstand zu Zonen fremder Gewerke (Estrich) >= 20 cm"
+    parameter: {ZD_r_breite_max_cm: 30, ZD_r_wandabstand_min_cm: 20, ZD_t_wandabstand_min_cm: 15, abstand_fremdgewerk_cm: 20}
+  grenzwerte:
+    - {name: ZD_r_wandabstand_min, wert: 20, einheit: cm, richtung: min, fundstelle: "DIN 18015-3", status: V}
+    - {name: abstand_fremdgewerk_min, wert: 20, einheit: cm, richtung: min, fundstelle: "DIN 18015-3", status: V}
+  meldung: "{leitung} im Boden/Decke: Wandabstand {a} cm < {grenze} cm."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Trasse auf Zonenabstand verlegen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-02]
+
+- id: DE.DIN18015-2.Stromkreise
+  version: 0.1.0
+  titel: Mindestanzahl Steckdosen- und Beleuchtungsstromkreise
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18015-2; RAL-RG 678", fundstelle: "Mindestausstattung, Stromkreise nach Wohnfläche", fassung: "2021-10", status: V, recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  vorbedingung:
+    auswahl: "IfcDistributionCircuit je Wohnung (IfcZone Wohnung)"
+    r2_voraussetzung: [DE-R2-Wohnflaeche-WoFlV]
+  eingaben:
+    - {name: wohnflaeche, einheit: "m²", quelle: DE.WoFlV.Wohnflaeche}
+    - {name: ausstattungsstufe, einheit: "-", quelle: "Bau- und Leistungsbeschreibung (RAL-RG 678, DAT-13-10)"}
+  pruefung:
+    typ: aufzaehlung
+    formel: "n_min = 3 (<= 50 m²), 4 (<= 75), 5 (<= 100), 6 (<= 125), 7 (> 125); Doppelsteckdose zählt als 2; Stufe RAL-RG 678 kann erhöhen, nie senken"
+    parameter: {tabelle: "tga-dimensionierung.yaml#stromkreise_DIN18015-2"}
+  grenzwerte:
+    - {name: n_min_ueber_125m2, wert: 7, einheit: "-", richtung: min, fundstelle: "DIN 18015-2", status: V}
+  meldung: "Wohnung {we}: {n} Stromkreise für {A} m², mindestens {n_min}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "zusätzlichen Stromkreis im Verteiler vorsehen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-05]
+
+- id: DE.VDE0100-701.Schutzbereiche
+  version: 0.1.0
+  titel: Schutzbereiche in Räumen mit Badewanne oder Dusche
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN VDE 0100-701", fundstelle: "Bereiche 0, 1, 2; Betriebsmittel, Leitungsführung", fassung: "2008-10", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcSanitaryTerminal BATH/SHOWER; IfcOutlet, IfcSwitchingDevice, IfcLightFixture, IfcCableSegment im selben IfcSpace"
+  eingaben:
+    - {name: sanitaerobjekt, einheit: "m (Umriss, Höhe fester Wasserauslass)", quelle: Modell}
+    - {name: betriebsmittel, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: schutzbereiche_701@1.0
+    formel: "Bereich 1 = Extrusion Umriss bis max(2,25 m; höchster fester Auslass); bodengleiche Dusche r = 1,20 m; Bereich 2 = +0,60 m; Steckdosen in Bereich 2 nur SELV/PELV/Rasiersteckdose; IPX4; Leitungen zu Bereich 1 senkrecht von oben/hinten; raumfremde Leitungen >= 6 cm Restwand oder RCD <= 30 mA"
+    parameter: {bereich1_hoehe_m: 2.25, radius_dusche_m: 1.20, bereich2_m: 0.60, restwand_cm: 6, schutzart: IPX4}
+  grenzwerte:
+    - {name: bereich1_hoehe, wert: 2.25, einheit: m, richtung: gleich, fundstelle: "VDE 0100-701", status: V}
+    - {name: bereich2_breite, wert: 0.60, einheit: m, richtung: gleich, fundstelle: "VDE 0100-701", status: V}
+  meldung: "{objekt} liegt in Schutzbereich {bereich} der {sanitaer}; zulässig nur {zulaessig}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Betriebsmittel außerhalb des Bereichs platzieren (Abstand {d} m)"}
+    - {art: A2_kompensation, beschreibung: "SELV/PELV oder Rasiersteckdose statt Steckdose"}
+  status: V
+  hinweis: "Bereich 0 bei Dusche ohne Wanne (Höhe) ist U."
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-04]
+
+- id: DE.VDE0100-420.AFDD-Bewertung
+  version: 0.1.0
+  titel: Risiko- und Sicherheitsbewertung für Fehlerlichtbogen-Schutzeinrichtungen
+  klasse: R3
+  haerte: hart
+  quelle: {art: N, werk: "DIN VDE 0100-420", fundstelle: "421.7", fassung: "2019-10/2022-06", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Schlafräume und Räume aus Bauteilen mit brennbaren Baustoffen unter 'feuerhemmend'"
+  eingaben:
+    - {name: raumnutzung, einheit: "-", quelle: IfcSpace}
+    - {name: bauteilklasse, einheit: "-", quelle: "Schichtmodell (Kapitel 3)"}
+  pruefung:
+    typ: freigabe
+    formel: "für jeden ausgewählten Raum existiert ein Bewertungsprotokoll mit Ergebnis AFDD ja/nein und verantwortlicher Elektrofachkraft; sonst freigabepflichtig"
+  grenzwerte: []
+  meldung: "{raum}: Risikobewertung nach VDE 0100-420 fehlt; keine Pauschalpflicht, aber dokumentierte Entscheidung erforderlich."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Protokoll durch Elektrofachkraft (Vorlage aus der App)"}
+  freigabe_rolle: Elektrofachkraft
+  status: V
+  hinweis: "Holzrahmenbau mit Mineralwolle ist laut DKE nicht 'überwiegend brennbar' (Recherche 08)."
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-08]
+
+- id: DE.VDE-AR-N4100.Zaehlerplatz
+  version: 0.1.0
+  titel: Zählerplatz, Raum für Zusatzanwendungen und Bedienbereich
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "VDE-AR-N 4100 (TAR Niederspannung); DIN VDE 0603", fundstelle: "Zählerplatz, APZ, Bedienbereich", fassung: "2019-04", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDistributionBoard mit Zählerfeld; IfcSpatialZone RESERVATION davor"
+  eingaben:
+    - {name: schrank, einheit: "mm (Maße)", quelle: Katalog}
+    - {name: freiraum, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "Zählerfeld 450 mm (eHZ 300 + RfZ 150); APZ-Raum >= 300 mm; Leerrohr HÜP–APZ >= 25 mm; Bedienbereich 1,2 m tief × 2,0 m hoch frei von Bauteilen und Möbeln"
+    parameter: {tabelle: "tga-dimensionierung.yaml#zaehlerplatz_VDE-AR-N4100"}
+  grenzwerte:
+    - {name: bedienbereich_tiefe, wert: 1.2, einheit: m, richtung: min, fundstelle: "VDE-AR-N 4100", status: V}
+    - {name: leerrohr_huep_apz, wert: 25, einheit: mm, richtung: min, fundstelle: "VDE-AR-N 4100", status: V}
+  meldung: "Zählerschrank {id}: Bedienbereich durch {objekt} verstellt ({t} m < 1,2 m)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Schrank oder Möbel verschieben"}
+  status: V
+  hinweis: "Netzbetreiber-TAB (z. B. Bayern) ergänzen; Neuausgabe der VDE-AR-N 4100 U (DAT-13-10)."
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-06]
+
+- id: EU.GIA.10.Glasfaser
+  version: 0.1.0
+  titel: Glasfaserfähige Infrastruktur und Glasfaserverkabelung im Neubau
+  klasse: R2
+  haerte: hart
+  quelle: {art: G, werk: "Verordnung (EU) 2024/1309 (Gigabit-Infrastrukturverordnung)", fundstelle: "Art. 10", fassung: "anwendbar für Bauanträge ab 2026-02-12", status: V, recherche: ["08"]}
+  profil: {name: EU-GIA-2024, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-02-12", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcBuilding (Neubau)"
+    ausnahmen: ["Zugangspunkt nur bei Mehrparteiengebäuden Pflicht"]
+  eingaben:
+    - {name: datum_bauantrag, einheit: "-", quelle: Verfahren}
+    - {name: n_WE, einheit: "-", quelle: regelprofile.yaml}
+  pruefung:
+    typ: ids
+    formel: "∃ IfcDistributionSystem DATA|COMMUNICATION mit IfcCableCarrierSegment (Leerrohr HÜP/APL → Wohnung) und IfcCableSegment OPTICALCABLESEGMENT bis Netzabschlusspunkt (IfcCommunicationsAppliance OPTICALNETWORKUNIT); n_WE > 1: zusätzlich Zugangspunkt"
+    ids: "HRB-TGA-GIA (Kapitel 13.14)"
+  grenzwerte:
+    - {name: stichtag, wert: "2026-02-12", einheit: "-", richtung: gleich, fundstelle: "GIA Art. 10", status: V}
+  meldung: "Bauantrag ab 12.02.2026: Glasfaserverkabelung bis zum Netzabschlusspunkt fehlt."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Glasfaser-Teilsystem aus Vorlage einfügen"}
+  status: V
+  hinweis: "§ 145 Abs. 4 TKG wird durch die GIA überlagert (Recherche 08)."
+  beispiel: [keins]
+  kapitel: "13.1"
+  anforderungen: [ANF-13-07]
+
+- id: DE.DIN4108-7.Luftdichte-Durchdringung
+  version: 0.1.0
+  titel: Jede Durchdringung der luftdichten Ebene ist abgedichtet
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 4108-7; DIN 18015-5; BDF-Merkmal Luftdichtheit", fundstelle: "Durchdringungen, luftdichte Dosen", fassung: "DIN 4108-7 geltende Fassung; DIN 18015-5 Ausgabejahr U", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcOpeningElement bzw. IfcVirtualElement PROVISIONFORVOID in einer Schicht mit luftdicht = true"
+  eingaben:
+    - {name: d_a, einheit: mm, quelle: Leitung}
+    - {name: manschetten, einheit: mm, quelle: "tga-dimensionierung.yaml#manschetten (DAT-13-05)"}
+  pruefung:
+    typ: topologie
+    formel: "∃ IfcRelFillsElement(Öffnung → IfcDiscreteAccessory Luftdichtheitsmanschette mit d_min <= d_a <= d_max) ∨ Dose vom Typ luftdicht; Leerrohre innen abgedichtet"
+  grenzwerte: []
+  meldung: "{oeffnung} durchdringt die luftdichte Ebene {schicht} ohne passende Manschette (d_a = {d} mm)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Leitung in der Installationsebene führen"}
+    - {art: A2_kompensation, beschreibung: "freigegebene Manschette bzw. luftdichte Dose wählen"}
+  status: V
+  beispiel: [B15]
+  kapitel: "13.1, 13.9"
+  anforderungen: [ANF-13-09]
+  tests: [tests/test_b15.py::test_manschette_und_brandschutz]
+
+# ---------------------------------------------------------------------------
+# 13.2 Trinkwasser
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN1988-300.Spitzendurchfluss
+  version: 0.1.0
+  titel: Spitzendurchfluss und Geschwindigkeitsgrenze in Trinkwasserleitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1988-300", fundstelle: "Spitzendurchfluss (Tab. 3), Fließgeschwindigkeit", fassung: "2012-05", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcPipeSegment in IfcDistributionSystem DOMESTICCOLDWATER/DOMESTICHOTWATER"
+    ausnahmen: ["vereinfachtes Verfahren nach DIN EN 806-3 nur bis 6 Wohnungen"]
+  eingaben:
+    - {name: sum_V_R, einheit: "l/s", quelle: "Armaturen stromabwärts (DAT-13-04)"}
+    - {name: d_i, einheit: mm, quelle: Rohrtyp}
+  pruefung:
+    typ: rechnung
+    funktion: tw_spitzendurchfluss@1.0
+    formel: "V_S = 1,48 · (ΣV_R)^0,19 − 0,94; v = V_S / (π/4 · d_i²) <= v_max (Hausanschluss 2 m/s, Verbrauchsleitung 5 m/s)"
+    parameter: {formel: "tga-dimensionierung.yaml#TW.Spitzendurchfluss", v_max_hausanschluss_m_s: 2.0, v_max_verbrauch_m_s: 5.0}
+  grenzwerte:
+    - {name: v_max_hausanschluss, wert: 2.0, einheit: "m/s", richtung: max, fundstelle: "DIN 1988-300", status: V}
+  meldung: "{segment}: v = {v:.2f} m/s > {vmax} m/s bei V_S = {vs:.3f} l/s."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächstgrößeres Rohr mit d_i >= d_i,min"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.2"
+  anforderungen: [ANF-13-10]
+
+- id: DE.DVGW-W551.3-Liter
+  version: 0.1.0
+  titel: Wasserinhalt je Warmwasser-Fließweg ohne Zirkulation höchstens 3 Liter
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DVGW W 551; VDI/DVGW 6023", fundstelle: "Kleinanlage, 3-Liter-Regel", fassung: "W 551:2004; VDI/DVGW 6023:2013", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "jeder Pfad im System DOMESTICHOTWATER vom Speicher bzw. Zirkulationsabzweig zur Zapfstelle"
+  eingaben:
+    - {name: pfad, einheit: "-", quelle: "Topologie (IfcRelConnectsPorts)"}
+    - {name: d_i, einheit: mm, quelle: Rohrtyp}
+    - {name: L, einheit: m, quelle: Geometrie}
+  pruefung:
+    typ: topologie
+    funktion: tw_3liter@1.0
+    formel: "V_Weg = Σ π/4 · d_i² · L <= 3 l je Fließweg; Zirkulationsleitung zählt nicht"
+    parameter: {V_max_l: 3.0}
+  grenzwerte:
+    - {name: V_max, wert: 3.0, einheit: l, richtung: max, fundstelle: "DVGW W 551", status: V}
+  meldung: "Fließweg {speicher} → {zapfstelle}: {v:.2f} l > 3 l ohne Zirkulation."
+  alternative:
+    - {art: A3_variante, beschreibung: "Speicher bzw. Verteiler näher an die Zapfstelle (Grundriss)"}
+    - {art: A2_kompensation, beschreibung: "Zirkulation bis zum Abzweig oder kleinere Nennweite"}
+  status: V
+  beispiel: [B14]
+  kapitel: "13.2"
+  anforderungen: [ANF-13-11]
+
+- id: DE.DVGW-W551.Temperaturen
+  version: 0.1.0
+  titel: Speicheraustritt und Zirkulationsrücklauf
+  klasse: R2
+  haerte: hart
+  quelle: {art: N, werk: "DVGW W 551", fundstelle: "Kleinanlage: Austritt >= 60 °C, Rücklauf >= 55 °C", fassung: "2004", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcTank (Trinkwasserspeicher), IfcPump CIRCULATOR"
+  eingaben:
+    - {name: theta_austritt, einheit: "°C", quelle: Pset}
+    - {name: theta_ruecklauf, einheit: "°C", quelle: Pset}
+  pruefung:
+    typ: attribut
+    formel: "theta_austritt >= 60 °C ∧ (Zirkulation ⇒ theta_ruecklauf >= 55 °C, Spreizung <= 5 K)"
+  grenzwerte:
+    - {name: theta_austritt_min, wert: 60, einheit: "°C", richtung: min, fundstelle: "DVGW W 551", status: V}
+    - {name: theta_ruecklauf_min, wert: 55, einheit: "°C", richtung: min, fundstelle: "DVGW W 551", status: V}
+  meldung: "{speicher}: Solltemperatur {t} °C < 60 °C."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Sollwert anheben oder dezentrale Erwärmung unter 3 l"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.2"
+  anforderungen: [ANF-13-12]
+
+- id: DE.DIN1988-200.Kaltwasser
+  version: 0.1.0
+  titel: Kaltwasser vor Erwärmung schützen, Stagnation vermeiden
+  klasse: R1
+  haerte: weich
+  quelle: {art: N, werk: "DIN 1988-200; VDI/DVGW 6023", fundstelle: "PWC <= 25 °C; nicht planmäßig durchflossene Strecken <= 10 × DN", fassung: "DIN 1988-200 geltende Fassung", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcPipeSegment DOMESTICCOLDWATER"
+  eingaben:
+    - {name: abstand_waermequelle, einheit: mm, quelle: Geometrie}
+    - {name: stichlaenge, einheit: mm, quelle: Topologie}
+  pruefung:
+    typ: geometrie
+    formel: "Totstrecke <= 10 × DN; Trasse PWC nicht parallel in gemeinsamer Dämmung mit PWH, Heizung oder FBH-Kreisen (Strafterm im Router)"
+    parameter: {totstrecke_faktor_dn: 10}
+  grenzwerte:
+    - {name: totstrecke_faktor, wert: 10, einheit: "× DN", richtung: max, fundstelle: "DIN 1988-200", status: V}
+  meldung: "{segment}: nicht durchflossene Strecke {l} mm > 10 × DN."
+  alternative:
+    - {art: A3_variante, beschreibung: "Reihen- oder Ringinstallation statt Stichleitung"}
+  status: V
+  hinweis: "Mindestabstand zu Wärmequellen als Zahl nicht belegt: Strafterm statt harter Grenze (U)."
+  beispiel: [keins]
+  kapitel: "13.2"
+  anforderungen: [ANF-13-11]
+
+- id: DE.TrinkwV.31.Legionellen
+  version: 0.1.0
+  titel: Untersuchungspflicht auf Legionellen im Mehrfamilienhaus
+  klasse: R4
+  haerte: hinweis
+  quelle: {art: G, werk: "Trinkwasserverordnung", fundstelle: "§ 31, § 2 Nr. 8", fassung: "geltende Fassung (Recherche 14)", status: V, recherche: ["14"]}
+  profil: {name: DE-TrinkwV, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    schalter: trinkwv31
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    anwendbar_wenn: "(Speicher > 400 l ∨ Leitung > 3 l ohne Zirkulation) ∧ Duschen ∧ kein EFH/ZFH ∧ gewerbliche Abgabe (Vermietung)"
+  eingaben:
+    - {name: speichervolumen, einheit: l, quelle: IfcTank}
+    - {name: max_leitungsinhalt, einheit: l, quelle: DE.DVGW-W551.3-Liter}
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "wenn anwendbar: Probenahmestellen im Modell, Hinweis Erstuntersuchung 3–12 Monate nach Inbetriebnahme, Intervall 3 Jahre in der Hausakte"
+  grenzwerte:
+    - {name: speicher_schwelle, wert: 400, einheit: l, richtung: max, fundstelle: "TrinkwV § 31", status: V}
+  meldung: "Untersuchungspflicht nach TrinkwV § 31: Probenahmestellen und Termine in die Hausakte."
+  alternative:
+    - {art: A3_variante, beschreibung: "dezentrale Wohnungsstationen unter 3 l (Planungsfolgerung, U)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.2, 13.12"
+  anforderungen: [ANF-13-35]
+
+# ---------------------------------------------------------------------------
+# 13.3 Abwasser
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN1986-100.Schmutzwasserabfluss
+  version: 0.1.0
+  titel: Schmutzwasserabfluss und Nennweite
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100 mit DIN EN 12056-2", fundstelle: "Anschlusswerte DU, Q_ww = K·√ΣDU", fassung: "2016-12; Entwurf 2025-06", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcPipeSegment in IfcDistributionSystem WASTEWATER/SEWAGE"
+  eingaben:
+    - {name: DU, einheit: "l/s", quelle: "tga-dimensionierung.yaml#anschlusswerte_DU"}
+    - {name: leistungsfaehigkeit, einheit: "l/s", quelle: "Rohrtyp, Füllungsgrad (DAT-13-04)"}
+  pruefung:
+    typ: rechnung
+    funktion: aw_abfluss@1.0
+    formel: "Q_ww = max(0,5 · √ΣDU; max DU); Q_ww <= Q_zul(DN, Gefälle, Leitungsart); WC-Anschluss >= Anschlussbogen Ø 90 bzw. DN 100"
+    parameter: {K: 0.5}
+  grenzwerte:
+    - {name: K_wohnhaus, wert: 0.5, einheit: "-", richtung: gleich, fundstelle: "DIN 1986-100", status: V}
+  meldung: "{segment}: Q_ww = {q:.2f} l/s > zulässig {qz:.2f} l/s (DN {dn})."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächstgrößere Nennweite"}
+  status: V
+  beispiel: [B15]
+  kapitel: "13.3"
+  anforderungen: [ANF-13-13]
+
+- id: DE.DIN1986-100.Gefaelle
+  version: 0.1.0
+  titel: Mindestgefälle der Schmutzwasserleitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100", fundstelle: "Mindestgefälle", fassung: "2016-12", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "liegende IfcPipeSegment WASTEWATER/SEWAGE (nicht Fallleitungen)"
+  eingaben:
+    - {name: gradient, einheit: "-", quelle: Pset_PipeSegmentOccurrence.Gradient}
+    - {name: leitungsart, einheit: "-", quelle: Topologie}
+  pruefung:
+    typ: geometrie
+    formel: "unbelüftete Anschlussleitung >= 1 %; belüftete >= 0,5 %; Sammel- und Grundleitungen im Gebäude >= 0,5 %; außerhalb 1:DN (Kapitel 14a); Höhenbedarf H_erf = d_a + 2 s + J·L"
+    parameter: {J_unbelueftet: 0.01, J_belueftet: 0.005, J_sammel: 0.005}
+  grenzwerte:
+    - {name: J_min_unbelueftet, wert: 0.01, einheit: "-", richtung: min, fundstelle: "DIN 1986-100", status: V}
+    - {name: J_min_sammel, wert: 0.005, einheit: "-", richtung: min, fundstelle: "DIN 1986-100", status: V}
+  meldung: "{segment}: Gefälle {j:.1%} < {jmin:.1%}."
+  alternative:
+    - {art: A3_variante, beschreibung: "Trasse in eine Ebene mit mehr Aufbauhöhe (Unterdecke, Vorwand)"}
+  status: V
+  beispiel: [B14]
+  kapitel: "13.3"
+  anforderungen: [ANF-13-14]
+
+- id: DE.DIN1986-100.Einzelanschluss-unbelueftet
+  version: 0.1.0
+  titel: Grenzen der unbelüfteten Einzelanschlussleitung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100", fundstelle: "unbelüftete Einzelanschlussleitungen", fassung: "2016-12", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "Pfad Entwässerungsgegenstand → Fall- oder Sammelleitung ohne Lüftung"
+  eingaben:
+    - {name: L, einheit: m, quelle: Router}
+    - {name: umlenkungen_90, einheit: "-", quelle: Router}
+    - {name: delta_h, einheit: m, quelle: Router}
+  pruefung:
+    typ: topologie
+    formel: "L <= 4 m ∧ Umlenkungen à 90° <= 3 (ohne Anschlussbogen) ∧ Δh <= 1 m ∧ J >= 1 %"
+    parameter: {L_max_m: 4.0, umlenkungen_max: 3, delta_h_max_m: 1.0}
+  grenzwerte:
+    - {name: L_max, wert: 4.0, einheit: m, richtung: max, fundstelle: "DIN 1986-100", status: V}
+    - {name: umlenkungen_max, wert: 3, einheit: "-", richtung: max, fundstelle: "DIN 1986-100", status: V}
+    - {name: delta_h_max, wert: 1.0, einheit: m, richtung: max, fundstelle: "DIN 1986-100", status: V}
+  meldung: "{gegenstand}: unbelüftete Anschlussleitung {l:.2f} m / {n} Umlenkungen / Δh {dh:.2f} m überschreitet die Grenze."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Anschlussleitung belüften (Umlüftung)"}
+    - {art: A3_variante, beschreibung: "Gegenstand näher an die Fallleitung (Grundriss)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.3"
+  anforderungen: [ANF-13-14]
+
+- id: DE.DIN1986-100.Lueftung-ueber-Dach
+  version: 0.1.0
+  titel: Hauptlüftung der Schmutzwasserfallleitungen über Dach
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100; DIN EN 12380", fundstelle: "6.5 Lüftung", fassung: "2016-12", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcDistributionSystem SEWAGE/WASTEWATER und VENT"
+  eingaben:
+    - {name: fallleitungen, einheit: "-", quelle: Topologie}
+    - {name: dn, einheit: "-", quelle: Rohrtyp}
+  pruefung:
+    typ: topologie
+    formel: "jede Schmutzwasserfallleitung endet in IfcStackTerminal über Dach mit gleicher DN; Belüftungsventile nur, wenn mindestens die Fallleitung mit größter DN über Dach geht; ohne Fallleitung >= 1 Lüftung DN 70 über Dach; Umlenkungen 45°"
+    parameter: {dn_ohne_fallleitung: 70}
+  grenzwerte: []
+  meldung: "Fallleitung {id}: keine Hauptlüftung über Dach (DIN 1986-100 6.5)."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Lüftung mit 45°-Umlenkungen zu einer anderen Dachdurchführung führen"}
+  status: V
+  beispiel: [B15]
+  kapitel: "13.3"
+  anforderungen: [ANF-13-15]
+
+- id: DE.DIN1986-100.Muendungsabstand
+  version: 0.1.0
+  titel: Abstand der Lüftungsmündung zu Fenstern von Aufenthaltsräumen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1986-100", fundstelle: "6.5 (Mündung nahe Aufenthaltsräumen)", fassung: "2016-12", status: V, recherche: ["16"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcStackTerminal COWL; IfcWindow von Aufenthaltsräumen einschließlich Dachfenstern"
+  eingaben:
+    - {name: seitlich, einheit: mm, quelle: Geometrie}
+    - {name: ueber_sturz, einheit: mm, quelle: Geometrie}
+  pruefung:
+    typ: geometrie
+    formel: "je Fenster: über Sturz >= 1000 mm ∨ seitlich >= 2000 mm"
+    parameter: {ueber_sturz_min_mm: 1000, seitlich_min_mm: 2000}
+  grenzwerte:
+    - {name: ueber_sturz_min, wert: 1000, einheit: mm, richtung: min, fundstelle: "DIN 1986-100 6.5", status: V}
+    - {name: seitlich_min, wert: 2000, einheit: mm, richtung: min, fundstelle: "DIN 1986-100 6.5", status: V}
+  meldung: "Mündung zu nah an {fenster}: seitlich {s} mm, {h} mm über Sturz."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Mündung anheben (+{dz} mm) oder seitlich verschieben (fehlen {ds} mm)"}
+  status: V
+  hinweis: "Abdeckung der Mündung: Widerspruch IZEG/alwitra, vor Einbau E DIN 1986-100:2025-06 prüfen (U)."
+  beispiel: [B15]
+  kapitel: "13.3"
+  anforderungen: [ANF-13-15]
+  tests: [tests/test_b15.py::test_fensterabstand_din1986]
+
+# ---------------------------------------------------------------------------
+# 13.4 Lüftung
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN1946-6.Lueftungskonzept
+  version: 0.1.0
+  titel: Notwendigkeit lüftungstechnischer Maßnahmen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1946-6", fundstelle: "Lüftungskonzept, Anhang A (Ablaufschema)", fassung: "2019-12", status: V, bib: [din1946-6], recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "jede Nutzungseinheit (IfcZone Wohnung)"
+  eingaben:
+    - {name: q_v_Inf, einheit: "m³/h", quelle: "Infiltration aus Hüllfläche und Luftdichtheit"}
+    - {name: q_v_FL, einheit: "m³/h", quelle: "LU.Gesamtvolumenstrom-NE mit f_FL"}
+  pruefung:
+    typ: rechnung
+    funktion: lueftungskonzept@1.0
+    formel: "lüftungstechnische Maßnahme notwendig ⇔ q_v,Inf < q_v,ges,NE,FL; dann System wählen (ventilatorgestützt oder frei) und für Nennlüftung auslegen"
+    parameter: {formel: "tga-dimensionierung.yaml#LU.Gesamtvolumenstrom-NE"}
+  grenzwerte: []
+  meldung: "{we}: Infiltration {qinf:.0f} m³/h < Feuchteschutz {qfl:.0f} m³/h; lüftungstechnische Maßnahme erforderlich."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "zentrales oder dezentrales Lüftungsgerät mit WRG aus dem Katalog"}
+  status: V
+  hinweis: "f_WS typisch 0,3 im Neubau ist U."
+  beispiel: [keins]
+  kapitel: "13.4"
+  anforderungen: [ANF-13-16]
+
+- id: DE.DIN1946-6.Nennlueftung
+  version: 0.1.0
+  titel: Auslegung ventilatorgestützter Lüftung auf Nennlüftung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 1946-6", fundstelle: "Gesamt-Außenluftvolumenstrom, Auslegung ventilatorgestützt", fassung: "2019-12; Beiblatt 1:2025-06", status: V, bib: [din1946-6], recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcAirToAirHeatRecovery bzw. IfcFan mit IfcDistributionSystem VENTILATION je Nutzungseinheit"
+  eingaben:
+    - {name: A_NE, einheit: "m²", quelle: Modell}
+    - {name: sum_abluft, einheit: "m³/h", quelle: "Raumabluftwerte (DAT-13-06)"}
+    - {name: q_geraet_NL, einheit: "m³/h", quelle: Gerätedatenblatt}
+  pruefung:
+    typ: rechnung
+    funktion: lueftung_auslegung@1.0
+    formel: "q_v,ges,NL = max(q_v,NE,NL; min(Σ Abluft; 1,2 · q_v,NE,NL)); Gerät muss q_v,ges,NL fördern; Zuluft Wohnen/Schlafen, Abluft Küche/Bad/WC, Überströmung Flur"
+    parameter: {formel: "tga-dimensionierung.yaml#LU.Auslegung-ventilatorgestuetzt"}
+  grenzwerte:
+    - {name: faktor_obergrenze, wert: 1.2, einheit: "-", richtung: gleich, fundstelle: "DIN 1946-6", status: V}
+  meldung: "{geraet}: {qg:.0f} m³/h < erforderlich {qnl:.0f} m³/h (Nennlüftung)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächstgrößeres Gerät aus dem Katalog"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.4"
+  anforderungen: [ANF-13-16]
+
+- id: M.Hersteller.Lueftungsstrang
+  version: 0.1.0
+  titel: Volumenstrom je Strang im Flexrohr- oder Flachkanalsystem
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstellerspezifikation Lüftungskanalsystem", fundstelle: "Recherche 16, 2.1", fassung: "2026", status: V, recherche: ["16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: q_v_Raum, einheit: "m³/h", quelle: DE.DIN1946-6.Nennlueftung}
+    - {name: system, einheit: "-", quelle: "Katalog (DAT-13-06)"}
+  pruefung:
+    typ: rechnung
+    formel: "n_Strang = ceil(q_v,Raum / q_max,Strang); Biegeradius >= Herstellerwert; Mindestabstand zwischen Rohren nach System"
+    parameter: {formel: "tga-dimensionierung.yaml#LU.Strangzahl-Flexrohr"}
+  grenzwerte:
+    - {name: q_max_da75, wert: 28, einheit: "m³/h", richtung: max, fundstelle: "Herstellerspezifikation", status: V}
+  meldung: "{raum}: {n} Stränge {system} erforderlich."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "größeres Rohr (da 90) oder Flachkanal"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.4"
+  anforderungen: [ANF-13-17]
+
+- id: BY.BayBO.39.Lueftungsanlagen
+  version: 0.1.0
+  titel: Lüftungsanlagen nach Bauordnungsrecht
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 39 Abs. 2–5", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["08"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcDuctSegment, IfcAirTerminal"
+    ausnahmen: ["Abs. 2–3 (nichtbrennbare Leitungen, Überbrückung feuerwiderstandsfähiger Bauteile) nicht in GK 1 und 2 und nicht innerhalb von Wohnungen"]
+  eingaben:
+    - {name: GK, einheit: "-", quelle: BY.BayBO.2-3.Gebaeudeklasse}
+    - {name: fortluft_ziel, einheit: "-", quelle: Topologie}
+  pruefung:
+    typ: topologie
+    formel: "Abluft ins Freie, nicht in Abgasanlagen (Abs. 4); GK >= 3 und Überbrückung einer Nutzungseinheitsgrenze: Abs. 2–3 und M-LüAR (freigabepflichtig)"
+  grenzwerte: []
+  meldung: "Fortluft von {geraet} endet in {ziel}; Abluft muss ins Freie geführt werden."
+  alternative:
+    - {art: A3_variante, beschreibung: "eigene Fortluftdurchführung durch Wand oder Dach"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.4"
+  anforderungen: [ANF-13-16]
+
+- id: DE.DIN4109-1.RLT-eigene-Wohnung
+  version: 0.1.0
+  titel: Geräusche aus raumlufttechnischen Anlagen im eigenen Wohnbereich
+  klasse: R1
+  haerte: weich
+  quelle: {art: N, werk: "DIN 4109-1", fundstelle: "Tab. 10", fassung: "2018-01", status: U, bib: [baytb2025], recherche: ["08"]}
+  profil: {name: DE-DIN4109-2018, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Wohn- und Schlafräume mit Luftdurchlass einer RLT-Anlage"
+  eingaben:
+    - {name: L_AFmax_n, einheit: "dB(A)", quelle: "Herstellerangabe Gerät/Schalldämpfer (DAT-13-06)"}
+  pruefung:
+    typ: rechnung
+    formel: "L_AF,max,n <= 30 dB(A) in Wohn- und Schlafräumen (<= 33 dB(A) im Dauergeräusch-Fall); sonst Schalldämpfer (IfcDuctSilencer)"
+    parameter: {grenze_dBA: 30, grenze_dauer_dBA: 33}
+  grenzwerte:
+    - {name: L_AFmax_n, wert: 30, einheit: "dB(A)", richtung: max, fundstelle: "DIN 4109-1 Tab. 10", status: U}
+  meldung: "{raum}: RLT-Geräusch {l} dB(A) > 30 dB(A); Schalldämpfer vorsehen."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Schalldämpfer im Zuluftstrang"}
+  status: U
+  hinweis: "Tabellenlesung unscharf (Recherche 08)."
+  beispiel: [keins]
+  kapitel: "13.4"
+  anforderungen: [ANF-13-16]
+
+# ---------------------------------------------------------------------------
+# 13.5 Heizung
+# ---------------------------------------------------------------------------
+
+- id: DE.DINEN12831.Heizlast-raumweise
+  version: 0.1.0
+  titel: Raumweise Norm-Heizlast liegt vor
+  klasse: R2
+  haerte: hart
+  quelle: {art: N, werk: "DIN EN 12831-1 mit DIN/TS 12831-1", fundstelle: "raumweise Norm-Heizlast, Norm-Innentemperaturen", fassung: "DIN/TS 12831-1:2020-04", status: V, recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "jeder beheizte IfcSpace"
+  eingaben:
+    - {name: phi_HL, einheit: W, quelle: "Rechenkern oder Fremdtool"}
+    - {name: theta_int, einheit: "°C", quelle: "Bad 24, Wohnen 20"}
+    - {name: theta_e, einheit: "°C", quelle: "Ortswert (DAT-13-07)"}
+  pruefung:
+    typ: ids
+    formel: "je beheiztem IfcSpace: HRB_Heizlast.NormHeizlast > 0 W, NormInnentemperatur, NormAussentemperatur, Werkzeug und Version gesetzt"
+    ids: "HRB-TGA-Heizlast (Kapitel 13.14)"
+  grenzwerte:
+    - {name: theta_int_bad, wert: 24, einheit: "°C", richtung: gleich, fundstelle: "DIN/TS 12831-1", status: V}
+    - {name: theta_int_wohnen, wert: 20, einheit: "°C", richtung: gleich, fundstelle: "DIN/TS 12831-1", status: V}
+  meldung: "{raum}: Norm-Heizlast fehlt; FBH-Auslegung nicht möglich."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Heizlast durch TGA-Fachplaner (Gate R3)"}
+  status: V
+  hinweis: "Ortswerte der Norm-Außentemperatur U."
+  beispiel: [keins]
+  kapitel: "13.5"
+  anforderungen: [ANF-13-18]
+
+- id: DE.DINEN1264.Oberflaechentemperatur
+  version: 0.1.0
+  titel: Höchste Fußbodenoberflächentemperatur und Belagwiderstand
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN EN 1264", fundstelle: "Grenzkurven, R_λ,B", fassung: "2021", status: V, recherche: ["08", "16"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcCovering FLOORING mit FBH (HRB_Fussbodenaufbau)"
+  eingaben:
+    - {name: theta_F_max, einheit: "°C", quelle: "Auslegung FBH"}
+    - {name: R_lambda_B, einheit: "m²K/W", quelle: "B14 Schichtmodell"}
+  pruefung:
+    typ: rechnung
+    formel: "θ_F,max <= 29 °C (Aufenthaltszone), 35 °C (Randzone), 33 °C (Bad = θ_i + 9 K); R_λ,B <= 0,15 m²K/W; Auslegung R_λ,B = 0,10 (Bad 0); Spreizung 5 K im Auslegungsraum"
+    parameter: {formel: "tga-dimensionierung.yaml#HZ.FBH-Oberflaechentemperatur"}
+  grenzwerte:
+    - {name: theta_F_max_aufenthalt, wert: 29, einheit: "°C", richtung: max, fundstelle: "DIN EN 1264", status: V}
+    - {name: theta_F_max_bad, wert: 33, einheit: "°C", richtung: max, fundstelle: "DIN EN 1264", status: V}
+    - {name: R_lambda_B_max, wert: 0.15, einheit: "m²K/W", richtung: max, fundstelle: "BVF-Richtlinie 9; DIN EN 1264", status: V}
+  meldung: "{raum}: θ_F,max {t} °C > {g} °C bzw. R_λ,B {r} > 0,15 m²K/W."
+  alternative:
+    - {art: A3_variante, beschreibung: "Belag mit kleinerem R_λ,B (B14 Teppich-Fall)"}
+    - {art: A2_kompensation, beschreibung: "kleinerer Verlegeabstand oder Zusatzheizfläche"}
+  status: V
+  beispiel: [B14]
+  kapitel: "13.5"
+  anforderungen: [ANF-13-18]
+  tests: [tests/test_b14.py::test_teppich_auf_fbh_verstoss]
+
+- id: M.Hersteller.FBH-Heizkreislaenge
+  version: 0.1.0
+  titel: Länge und Druckverlust je Fußbodenheizkreis
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstellerregel Flächenheizung", fundstelle: "Recherche 08, 5", fassung: "2026", status: U, recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: A_Heizflaeche, einheit: "m²", quelle: Modell}
+    - {name: VA, einheit: cm, quelle: "System (DAT-13-07)"}
+  pruefung:
+    typ: rechnung
+    formel: "L_Rohr = A · 100 / VA + Zuleitung <= 100 m (absolut 110 m, ideal 60 m); Δp <= 300 mbar; sonst Raum in n = ceil(L/100) Kreise teilen"
+    parameter: {formel: "tga-dimensionierung.yaml#HZ.FBH-Rohrlaenge"}
+  grenzwerte:
+    - {name: L_max, wert: 100, einheit: m, richtung: max, fundstelle: "Herstellerregel", status: U}
+    - {name: dp_max, wert: 300, einheit: mbar, richtung: max, fundstelle: "Herstellerregel", status: U}
+  meldung: "{raum}: Heizkreis {l:.0f} m > 100 m; {n} Kreise erforderlich."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Raum in mehrere Heizkreise teilen"}
+  status: U
+  beispiel: [keins]
+  kapitel: "13.5"
+  anforderungen: [ANF-13-18]
+
+- id: DE.VdZ.Hydraulischer-Abgleich
+  version: 0.1.0
+  titel: Nachweis des hydraulischen Abgleichs
+  klasse: R4
+  haerte: weich
+  quelle: {art: N, werk: "VdZ-Formular Verfahren A/B", fundstelle: "Recherche 08, 5", fassung: "Formular nicht geprüft", status: U, recherche: ["08"]}
+  profil: {name: DE-aRdT-TGA, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  eingaben:
+    - {name: kreise, einheit: "-", quelle: "IfcDistributionCircuit HEATING"}
+    - {name: volumenstrom_je_kreis, einheit: "l/h", quelle: Auslegung}
+  pruefung:
+    typ: ableitung
+    formel: "Export des Abgleichs (Voreinstellwerte je Kreis) als Formular; Vollständigkeit aller Kreise"
+  grenzwerte: []
+  meldung: "Hydraulischer Abgleich: {n} Kreise ohne Voreinstellwert."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Abgleich durch Fachbetrieb bestätigen"}
+  status: U
+  beispiel: [keins]
+  kapitel: "13.5"
+  anforderungen: [ANF-13-18]
+
+# ---------------------------------------------------------------------------
+# 13.6 Wärmepumpe (ergänzt DE.TALaerm.WP-Richtwert, M.Hersteller.R290-Schutzbereich)
+# ---------------------------------------------------------------------------
+
+- id: DE.TALaerm.WP-Spitzenpegel
+  version: 0.1.0
+  titel: Wärmepumpe - kurzzeitige Geräuschspitzen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "TA Lärm", fundstelle: "6.1 letzter Satz", fassung: "i. d. F. 2017", status: V, bib: [din1333], recherche: ["22"]}
+  profil: {name: DE-TALaerm, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    r2_voraussetzung: [DE-R2-LWA-Nacht, DE-R2-Baugebiet]
+  eingaben:
+    - {name: L_WA_max, einheit: "dB(A)", quelle: "Herstellerdatenblatt (Abtauen, Anlauf)"}
+    - {name: L_AT_N, einheit: "dB(A)", quelle: DE.TALaerm.WP-Richtwert}
+  pruefung:
+    typ: rechnung
+    funktion: wp_schall@1.0
+    formel: "L_AFmax = L_AT,N − L_WA,N + L_WA,max <= IRW_N + 20 dB (tags IRW_T + 30 dB)"
+    parameter: {zuschlag_nacht_dB: 20, zuschlag_tag_dB: 30}
+  grenzwerte:
+    - {name: zuschlag_nacht, wert: 20, einheit: dB, richtung: max, fundstelle: "TA Lärm 6.1", status: V}
+  meldung: "{io}: Spitzenpegel {l:.1f} dB(A) > {g} dB(A)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Aufstellort mit größerem Abstand"}
+  status: V
+  beispiel: [B20]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-20]
+  tests: [tests/test_b20.py::test_optimum_erfuellt_richtwert_und_ist_maximal]
+
+- id: EU.FGas.2024-573.Inverkehrbringen
+  version: 0.1.0
+  titel: Verbote des Inverkehrbringens für Wärmepumpen mit fluorierten Gasen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "Verordnung (EU) 2024/573", fundstelle: "Anhang IV Nr. 8 b, c; Nr. 9 b, d", fassung: "2024", status: V, recherche: ["22"]}
+  profil: {name: EU-FGas-2024, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcUnitaryEquipment (Wärmepumpe) mit HRB_Kaeltemittel"
+    ausnahmen: ["Sicherheitsanforderungen am Standort (eng auszulegen)"]
+  eingaben:
+    - {name: bauart, einheit: "-", quelle: "Monoblock | Split"}
+    - {name: leistung, einheit: kW, quelle: Datenblatt}
+    - {name: GWP, einheit: "-", quelle: HRB_Kaeltemittel}
+    - {name: liefertermin, einheit: "-", quelle: Terminplan}
+  pruefung:
+    typ: aufzaehlung
+    funktion: f_gase_pruefung@1.0
+    formel: "Monoblock <= 12 kW: GWP >= 150 verboten ab 2027-01-01, jedes F-Gas ab 2032-01-01; Luft-Wasser-Split <= 12 kW: GWP >= 150 ab 2027-01-01, jedes F-Gas ab 2035-01-01"
+    parameter: {gwp_schwelle: 150}
+  grenzwerte:
+    - {name: gwp_schwelle, wert: 150, einheit: "-", richtung: max, fundstelle: "Anhang IV", status: V}
+  meldung: "{geraet} ({kaeltemittel}, GWP {gwp}): Inverkehrbringen ab {datum} verboten; Liefertermin {lt}."
+  alternative:
+    - {art: A3_variante, beschreibung: "Monoblock mit R290 (Schutzbereich als harte Regel, M.Hersteller.R290-Schutzbereich)"}
+  status: V
+  hinweis: "GWP von R32 (675) U; Verbot betrifft das Inverkehrbringen, nicht den Betrieb."
+  beispiel: [B20]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-21]
+  tests: [tests/test_b20.py::test_f_gase_split_r32_ab_2027_verboten]
+
+- id: M.Hersteller.WP-Luftfuehrung
+  version: 0.1.0
+  titel: Freiräume für Ansaugung, Ausblas und Wartung
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstelleranleitung (Beispiel)", fundstelle: "Recherche 22, 3", fassung: "2026", status: V, recherche: ["22"]}
+  profil: {name: M-Hersteller-WP, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: standort, einheit: m, quelle: Optimierer}
+  pruefung:
+    typ: geometrie
+    formel: "Ansaug >= 200 mm zur Wand; mindestens eine Ausblasrichtung mit >= 1 m Freiraum, möglichst von den IO weg; >= 3 m zu Gehweg und Terrasse; nicht in Nischen; Sockel >= 100 mm über Schneehöhe; Kondensat frostfrei"
+    parameter: {tabelle: "tga-dimensionierung.yaml#waermepumpe_aufstellung"}
+  grenzwerte:
+    - {name: ausblas_frei_min, wert: 1.0, einheit: m, richtung: min, fundstelle: "Herstelleranleitung", status: V}
+    - {name: abstand_gehweg_min, wert: 3.0, einheit: m, richtung: min, fundstelle: "Herstelleranleitung", status: V}
+  meldung: "Standort {xy}: {grund}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächster zulässiger Rasterpunkt"}
+  status: V
+  hinweis: "Maße herstellerspezifisch (DAT-13-08)."
+  beispiel: [B20]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-19]
+
+- id: BY.BayBO.6.WP-Hoehe
+  version: 0.1.0
+  titel: Wärmepumpe ohne Abstandsfläche nur bis 2 m Höhe
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 6 Abs. 1 Satz 3 Nr. 4; Abs. 7 Satz 1 Nr. 3", fassung: "ab 2025-01-01", status: V, bib: [baybo2026], recherche: ["08", "22"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: hoehe_ueber_gelaende, einheit: m, quelle: "Gerät bzw. Einhausung"}
+  pruefung:
+    typ: geometrie
+    formel: "Höhe über Gelände <= 2,0 m ⇒ keine Abstandsfläche; sonst BY.BayBO.6.T anwenden"
+    parameter: {hoehe_max_m: 2.0}
+  grenzwerte:
+    - {name: hoehe_max, wert: 2.0, einheit: m, richtung: max, fundstelle: "Art. 6 Abs. 1 S. 3 Nr. 4", status: V}
+  meldung: "{geraet}: {h:.2f} m > 2,0 m; Abstandsfläche nach Art. 6 erforderlich."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Einhausung bzw. Sockel auf <= 2,0 m begrenzen"}
+  status: V
+  beispiel: [B20]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-19]
+
+- id: M.Hersteller.Split-Kaeltemittelleitung
+  version: 0.1.0
+  titel: Länge und Höhenunterschied der Kältemittelleitung (Split)
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstelleranleitung; VO (EU) 2024/573 (Personal)", fundstelle: "Recherche 22, 3", fassung: "2026", status: V, recherche: ["22"]}
+  profil: {name: M-Hersteller-WP, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    anwendbar_wenn: "Bauart Split"
+  eingaben:
+    - {name: L_kaelte, einheit: m, quelle: Router}
+    - {name: dh, einheit: m, quelle: Router}
+  pruefung:
+    typ: geometrie
+    formel: "L_Kälteleitung <= L_max,Hersteller ∧ Δh <= Δh_max,Hersteller; Installation, Befüllung, Dichtheitsprüfung nur zertifiziertes Personal (Hinweis)"
+    parameter: {L_max_beispiel_m: 15, dh_max_beispiel_m: 10}
+  grenzwerte:
+    - {name: L_max, wert: 15, einheit: m, richtung: max, fundstelle: "Herstellerbeispiel", status: V}
+  meldung: "Kältemittelleitung {l:.1f} m > {lmax} m."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Außeneinheit näher am Innengerät"}
+  status: V
+  hinweis: "Beispielwerte, herstellerspezifisch (DAT-13-08); Artikel der F-Gase-VO zum Personal U."
+  beispiel: [B20]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-21]
+
+- id: M.Firma.WP-Koerperschall
+  version: 0.1.0
+  titel: Keine Wandkonsole an Holzrahmenwänden von Aufenthaltsräumen
+  klasse: R1
+  haerte: weich
+  quelle: {art: M, werk: "Firmenregel nach LAI 2023 (6.3.4) und LfU Bayern", fundstelle: "Recherche 22, 2.4", fassung: "2026-09", status: U, recherche: ["22"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: befestigung, einheit: "-", quelle: "Wandkonsole | Bodenkonsole"}
+    - {name: wand, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: topologie
+    formel: "Befestigung = Wandkonsole ∧ Wand grenzt an Aufenthaltsraum ∧ Wand ist Holzrahmenwand ⇒ Warnung; bevorzugt Bodenkonsole auf separatem Fundament, flexible Rohranschlüsse"
+  grenzwerte: []
+  meldung: "{geraet}: Wandkonsole an {wand} (Aufenthaltsraum {raum}); Körperschall im Holzbau, Bodenkonsole empfohlen."
+  alternative:
+    - {art: A3_variante, beschreibung: "Bodenkonsole auf separatem Fundament mit Fuge zur Bodenplatte"}
+  status: U
+  beispiel: [keins]
+  kapitel: "13.6"
+  anforderungen: [ANF-13-22]
+
+# ---------------------------------------------------------------------------
+# 13.7 Licht
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN18015-2.Beleuchtungsauslaesse
+  version: 0.1.0
+  titel: Beleuchtungsanschlüsse je Raum
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18015-2", fundstelle: "Beleuchtungsauslässe je Raum, Flur je 6 m", fassung: "2021-10", status: V, recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: raum, einheit: "-", quelle: IfcSpace}
+    - {name: flurlaenge, einheit: m, quelle: Geometrie}
+  pruefung:
+    typ: aufzaehlung
+    formel: "je Raum >= 1 Beleuchtungsauslass (IfcJunctionBox bzw. IfcOutlet am Stromkreis LIGHTING); Flur: >= ceil(L / 6 m); Stufe RAL-RG 678 kann erhöhen"
+    parameter: {flur_je_m: 6}
+  grenzwerte:
+    - {name: flur_je, wert: 6, einheit: m, richtung: max, fundstelle: "DIN 18015-2", status: U}
+  meldung: "{raum}: {n} Beleuchtungsauslässe, mindestens {nmin}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Auslass ergänzen"}
+  status: V
+  hinweis: "Flurregel je 6 m nur aus Normzusammenfassung (U); Wohnlichtplanung selbst hat keine verbindliche Norm (R5, Kapitel 13.7)."
+  beispiel: [keins]
+  kapitel: "13.7"
+  anforderungen: [ANF-13-23]
+
+- id: M.Firma.Leuchtendaten
+  version: 0.1.0
+  titel: Photometrische Daten jeder gelieferten Leuchte (Reifegrad A)
+  klasse: R2
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel; GLDF (XSD, MIT-Lizenz); IFC 4.3 IfcLightSourceGoniometric", fundstelle: "Recherche 08, 6", fassung: "2026-09", status: V, bib: [iso2024ifc, bsi2024ids], recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "IfcLightFixture mit Lieferumfang Firma, Reifegrad A"
+  eingaben:
+    - {name: leuchtentyp, einheit: "-", quelle: IfcLightFixtureType}
+  pruefung:
+    typ: ids
+    formel: "IfcLightFixtureType mit Pset_LightFixtureTypeCommon und IfcLightSourceGoniometric; LightDistributionDataSource = IfcExternalReference auf EULUMDAT/IES oder GLDF-Container; GLDF gegen XSD gültig"
+    ids: "HRB-TGA-Leuchte (Kapitel 13.14)"
+  grenzwerte: []
+  meldung: "{leuchte}: photometrische Daten fehlen oder GLDF ungültig ({fehler})."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Datenlieferung Hersteller (DAT-13-09)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "13.7"
+  anforderungen: [ANF-13-23]
+
+# ---------------------------------------------------------------------------
+# 13.9 Dimensionierung und Durchdringungen (ergänzt DE.EC5-NA.NA67.Durchbruch, M.Firma.Staenderbohrung)
+# ---------------------------------------------------------------------------
+
+- id: DE.GModG.Anl8.Leitungsdaemmung
+  version: 0.1.0
+  titel: Mindestdämmung von Wärmeverteilungs- und Warmwasserleitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: GModG, fundstelle: "Anlage 8 Nr. 1 a aa–hh, b, c", fassung: "BGBl. 2026 I Nr. 226, ab 2026-07-29", status: V, bib: [gmodg2026], recherche: ["08", "16"]}
+  profil: {name: DE-GModG-2026-07, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-07-29", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcPipeSegment HEATING, DOMESTICHOTWATER, Zirkulation"
+    ausnahmen: ["Nr. 1 b frei liegende Absperrung im Raum eines Nutzers", "Nr. 1 c Warmwasser-Stichleitung <= 3 l ohne Zirkulation"]
+  eingaben:
+    - {name: d_i, einheit: mm, quelle: Rohrtyp}
+    - {name: lage, einheit: "-", quelle: "Router (frei, durchbruch, fussboden_ein_nutzer, fussboden_verschiedene_nutzer, aussenluft)"}
+    - {name: s_ist, einheit: mm, quelle: "IfcCovering WRAPPING"}
+  pruefung:
+    typ: rechnung
+    funktion: gmodg_mindestdaemmung@1.0
+    formel: "s_ist · (0,035 / λ_ist) >= s_min(d_i, lage) nach tga-dimensionierung.yaml#DM.GModG-Anl8"
+    parameter: {formel: "tga-dimensionierung.yaml#DM.GModG-Anl8"}
+  grenzwerte:
+    - {name: s_min_di_bis_22, wert: 20, einheit: mm, richtung: min, fundstelle: "Anl. 8 Nr. 1 a aa", status: V}
+    - {name: s_min_di_22_35, wert: 30, einheit: mm, richtung: min, fundstelle: "Anl. 8 Nr. 1 a bb", status: V}
+  meldung: "{segment}: Dämmung {s} mm < {smin} mm ({grund})."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Dämmschlauch dicker oder kleineres λ"}
+  status: V
+  beispiel: [B14]
+  kapitel: "13.9"
+  anforderungen: [ANF-13-27]
+  tests: [tests/test_b14.py::test_gmodg_anlage8]
+
+- id: BY.MLAR.Abschottung
+  version: 0.1.0
+  titel: Leitungsdurchführungen durch raumabschließende Bauteile
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "BayBO Art. 38; Leitungsanlagen-Richtlinie (MLAR, Bayern)", fundstelle: "MLAR 4.1.1–4.3.4", fassung: "MLAR 10.02.2015, geändert 03.09.2020", status: V, bib: [baytb2025, holzbaurl2024], recherche: ["16", "14"]}
+  profil: {name: BY-BayTB-2025-11, version: 0.1.0}
+  schicht: S2
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    gk: [3, 4, 5]
+    zeit: {von: "2025-11-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcOpeningElement in Wand/Decke mit Feuerwiderstandsanforderung"
+    ausnahmen: ["4.1.1: GK 1 und 2, innerhalb von Wohnungen, NE <= 400 m² in <= 2 Geschossen"]
+  eingaben:
+    - {name: GK, einheit: "-", quelle: BY.BayBO.2-3.Gebaeudeklasse}
+    - {name: bauteil_fw, einheit: "-", quelle: Brandschutzkonzept}
+    - {name: rohr, einheit: "-", quelle: "Werkstoff, d_a, brennbar"}
+  pruefung:
+    typ: aufzaehlung
+    formel: "wenn anwendbar: Abschottung mit Verwendbarkeitsnachweis für die Holzbalkendecke (IfcDiscreteAccessory Brandschutzmanschette mit Nachweisnummer) oder Erleichterung nach 4.2/4.3 (brennbare Rohre <= 32 mm, nichtbrennbare <= 160 mm, Abstände 1 × bzw. 5 × d, Spalt <= 50/15 mm); sonst freigabepflichtig"
+    parameter: {brennbar_d_max_mm: 32, nichtbrennbar_d_max_mm: 160, abstand_brennbarer_laibung_empf_mm: 100}
+  grenzwerte:
+    - {name: brennbar_d_max, wert: 32, einheit: mm, richtung: max, fundstelle: "MLAR 4.3.1", status: V}
+  meldung: "{oeffnung} in {bauteil} (GK {gk}): Abschottung mit Nachweis für Holzbalkendecke fehlt."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Betonverguss als Massivdecke des Nachweises, gegen Durchfallen gesichert"}
+    - {art: A5_freigabeweg, beschreibung: "Brandschutzplaner bzw. Prüfsachverständiger"}
+  freigabe_rolle: Brandschutzplaner
+  status: V
+  hinweis: "Einführungsstatus der MLAR in Bayern und Stand der MHolzBauRL 2024 vor Produktivbetrieb bestätigen (U)."
+  beispiel: [B15]
+  kapitel: "13.9, 13.12"
+  anforderungen: [ANF-13-28]
+  tests: [tests/test_b15.py::test_manschette_und_brandschutz]
+
+- id: M.Firma.Oeffnungsmass
+  version: 0.1.0
+  titel: Öffnungsdurchmesser aus Rohr, Entkopplung und Ringspalt
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel (Beispielwerte B15)", fundstelle: "daten/b15_durchdringungen.json", fassung: "Platzhalter 2026-09", status: U, recherche: ["16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: d_a, einheit: mm, quelle: Rohrtyp}
+  pruefung:
+    typ: rechnung
+    formel: "d_Oeff = ceil_10(d_a + 2 · (s_Entkopplung + s_Ringspalt)); luftdichte Ebene: ceil_10(d_a + 2 · s_Ringspalt,luftdicht)"
+    parameter: {formel: "tga-dimensionierung.yaml#DD.Oeffnungsmass"}
+  grenzwerte: []
+  meldung: "{leitung}: Öffnung Ø {d} mm."
+  alternative: []
+  status: U
+  beispiel: [B15]
+  kapitel: "13.9"
+  anforderungen: [ANF-13-26]
+  tests: [tests/test_b15.py::test_oeffnungsdurchmesser]
+
+- id: M.Firma.Fallleitung-Gefachmitte
+  version: 0.1.0
+  titel: Fallleitungen und WC-Achsen auf Gefachmitte des gemeinsamen Rasters
+  klasse: R1
+  haerte: weich
+  quelle: {art: M, werk: "Firmenregel (Entwurfsregel aus B15)", fundstelle: "Recherche 16, Warnung 10", fassung: "Platzhalter 2026-09", status: U, recherche: ["16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: achse, einheit: mm, quelle: "Fallleitung"}
+    - {name: raster_decke_wand, einheit: mm, quelle: Modell}
+    - {name: verschub_max, einheit: mm, quelle: "DAT-13-03 (Platzhalter 100)"}
+  pruefung:
+    typ: geometrie
+    funktion: rasterkollision@1.0
+    formel: "Öffnung schneidet weder Balken noch Ständer; sonst nächste in beiden Rastern freie Achse; Verschub <= verschub_max ⇒ verschieben, sonst Wechsel (Decke) bzw. Ständerauswechslung (Wand) als IFC-Bauteile"
+    parameter: {verschub_max_mm: 100, raster_mm: 625}
+  grenzwerte:
+    - {name: verschub_max, wert: 100, einheit: mm, richtung: max, fundstelle: "Platzhalter B15", status: U}
+  meldung: "{leitung}: nächste freie Achse {x} mm liegt {d} mm entfernt > {vmax} mm; Wechsel erforderlich."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Sanitärobjekt auf Gefachmitte verschieben (Grundriss)"}
+    - {art: A2_kompensation, beschreibung: "Wechsel in der Decke, Ständerauswechslung in der Wand mit Nachweis"}
+  status: U
+  beispiel: [B15]
+  kapitel: "13.9"
+  anforderungen: [ANF-13-32]
+  tests: [tests/test_b15.py::test_rasterkollision_fuehrt_zu_wechsel, tests/test_b15.py::test_verschiebung_statt_wechsel]
+
+- id: M.Firma.Fraesgrenze
+  version: 0.1.0
+  titel: Große Bohrungen als Fräsung an die Wandanlage
+  klasse: R4
+  haerte: hart
+  quelle: {art: M, werk: "CAD-Handbuch Wandanlage (Beispiel); Firmenregel", fundstelle: "Recherche 16, 2.5", fassung: "Beispiel 2026", status: U, recherche: ["16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: d, einheit: mm, quelle: Öffnung}
+  pruefung:
+    typ: ableitung
+    formel: "d >= d_Fräs (Beispiel 70 mm bei 68-mm-Dosenbohrer) ⇒ Fräskontur statt Bohrung; BTLx: Drilling bzw. Kontur mit UserAttribute IfcGlobalId/LeitungGUID; WUP nur über Adapter (ANF-03-14)"
+    parameter: {d_fraes_mm: 70}
+  grenzwerte:
+    - {name: d_fraes, wert: 70, einheit: mm, richtung: gleich, fundstelle: "CAD-Handbuch (Beispiel)", status: U}
+  meldung: "{oeffnung}: Ø {d} mm wird gefräst."
+  alternative: []
+  status: U
+  beispiel: [B15]
+  kapitel: "13.9"
+  anforderungen: [ANF-13-33]
+
+# ---------------------------------------------------------------------------
+# 13.10 Routing
+# ---------------------------------------------------------------------------
+
+- id: M.Firma.Routing-Kollisionsfreiheit
+  version: 0.1.0
+  titel: Kollisionsfreiheit und Mindestabstände gerouteter Leitungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel; Herstellerabstände", fundstelle: "routing-graph.md, Constraint K7", fassung: "Platzhalter 2026-09", status: U, recherche: ["08", "12", "16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    auswahl: "alle IfcFlowSegment, IfcFlowFitting, IfcFlowTerminal und tragende IfcMember/IfcBeam"
+  eingaben:
+    - {name: geometrie, einheit: m, quelle: Modell}
+    - {name: clearance, einheit: mm, quelle: "Parameter je Gewerkpaar"}
+  pruefung:
+    typ: geometrie
+    funktion: ifcclash_clearance@0.8
+    formel: "∀ Paare (Leitung, Leitung) und (Leitung, Bauteil ohne freigegebene Öffnung): Abstand >= clearance(Gewerk_i, Gewerk_j); Schnitt nur mit IfcOpeningElement"
+    parameter: {clearance_default_mm: 10, clearance_pwc_pwh_mm: 20, clearance_elektro_wasser_mm: 20}
+  grenzwerte:
+    - {name: clearance_default, wert: 10, einheit: mm, richtung: min, fundstelle: "Platzhalter", status: U}
+  meldung: "Kollision {a} ↔ {b} (Abstand {d} mm < {c} mm)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Rip-up and Reroute der Leitung mit geringerer Priorität (routing-graph.md, 6)"}
+  status: U
+  beispiel: [keins]
+  kapitel: "13.10"
+  anforderungen: [ANF-13-30]
+
+- id: M.Firma.Routing-Anschluss
+  version: 0.1.0
+  titel: Jedes Endgerät ist mit seinem System verbunden
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel (Topologie)", fundstelle: "routing-graph.md, 7", fassung: "2026-09", status: V, bib: [iso2024ifc], recherche: ["08"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: ports, einheit: "-", quelle: "IfcDistributionPort über IfcRelNests"}
+  pruefung:
+    typ: topologie
+    formel: "∀ IfcFlowTerminal t: ∃ Pfad über IfcRelConnectsPorts von t zur Quelle seines IfcDistributionSystem (Verteiler, Speicher, Fallleitung, Gerät); kein offener Port außer Mündungen"
+  grenzwerte: []
+  meldung: "{terminal}: keine Verbindung zu {system}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Routing für den Anschluss neu starten"}
+  status: V
+  beispiel: [B15]
+  kapitel: "13.8, 13.10"
+  anforderungen: [ANF-13-25]
+  tests: [tests/test_b15.py::test_ifc_rohr_merkmale_und_topologie]

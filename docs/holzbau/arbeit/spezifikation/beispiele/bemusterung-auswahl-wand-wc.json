@@ -1,0 +1,211 @@
+{
+  "schema": "hrb-auswahl/0.1",
+  "auswahl_id": "0f6b2d8e-9c41-4a37-b5e2-3d7a1c9e4f02",
+  "reifegrad": "A",
+  "status": "festgeschrieben",
+  "kategorie": "sanitaer",
+  "festgeschrieben_am": "2026-07-20T10:00:00+02:00",
+  "kontext": {
+    "projekt": "Beispielhaus Holzrahmenbau",
+    "geschoss": "OG",
+    "raum": "OG-Bad",
+    "flaeche": "Wand IW-OG-02 (Installationswand)",
+    "gebaeudetyp": "EFH",
+    "wohnungen": 1,
+    "profil": [
+      "M-Hersteller-Bemusterung",
+      "DE-aRdT-Sanitaer",
+      "DE-EC5-2010-A2"
+    ]
+  },
+  "artikel": {
+    "artikel_id": "K-SAN-0001",
+    "variante_id": "V01",
+    "hersteller": {
+      "name": "Beispielhersteller Sanitär",
+      "serie": "Standardserie laut Baubeschreibung",
+      "artikelnummer": "WC-0001",
+      "gtin": "2000000000107"
+    },
+    "farbe": {
+      "name": "weiß"
+    },
+    "oberflaeche": "Glasur",
+    "merkmale": [
+      {
+        "name": "PanMounting",
+        "wert": "WALLHUNG",
+        "pset": "Pset_SanitaryTerminalTypeToiletPan"
+      },
+      {
+        "name": "dusch_wc",
+        "wert": false
+      }
+    ],
+    "weitere_artikel": [
+      {
+        "rolle": "Montageelement Holzständerwand mit UP-Spülkasten 9 l",
+        "artikel_id": "K-SAN-0101",
+        "gtin": "2000000000114",
+        "menge": 1,
+        "einheit": "stueck"
+      },
+      {
+        "rolle": "Betätigungsplatte",
+        "artikel_id": "K-SAN-0102",
+        "gtin": "2000000000121",
+        "menge": 1,
+        "einheit": "stueck"
+      }
+    ]
+  },
+  "leistung": {
+    "einbau": {
+      "montageart": "wandhängend",
+      "vorwandsystem": "Montageelement für Holzständerwand",
+      "wand": "IW-OG-02",
+      "montagehoehe_mm": 420,
+      "achse": {
+        "x_mm": 3150,
+        "y_mm": 2900,
+        "bezug": "globales System B15"
+      },
+      "bewegungsflaeche_mm": [
+        800,
+        750
+      ],
+      "anschluesse": [
+        {
+          "medium": "abwasser",
+          "dn": 100,
+          "leitung": "SW-01",
+          "hoehe_ueber_okff_mm": 220
+        },
+        {
+          "medium": "kaltwasser"
+        }
+      ],
+      "tragkonstruktion": [
+        "Ständer ≥ 60 × 80 mm beidseitig des Elements",
+        "Querriegel, weil lichter Ständerabstand 565 mm ≠ 500 mm",
+        "Beplankung im Elementbereich 18 mm statt 2 × 15 mm Gipsfaser (Kompensation)",
+        "Ständer 5 (x = 3125) auswechseln: Öffnung Ø 150 mm > 25 % von 160 mm (B15)",
+        "4 Befestigungspunkte im Holz"
+      ]
+    },
+    "stlb_lb": [
+      "045"
+    ]
+  },
+  "mengen": {
+    "einheit": "stueck",
+    "menge": 1,
+    "quelle": "Auswahl"
+  },
+  "kosten": {
+    "mehrpreis": {
+      "betrag": 0,
+      "waehrung": "EUR",
+      "brutto": true
+    },
+    "formel_id": "mehrpreis@0.1",
+    "eingaben": {
+      "hinweis": "Standardobjekt der Bau- und Leistungsbeschreibung"
+    },
+    "gueltig_bis": "2026-12-31"
+  },
+  "termine": {
+    "freeze": "W",
+    "freeze_termin": "2026-07-20",
+    "lieferzeit_tage": 28,
+    "einbautermin": "2026-09-14",
+    "spaetester_bestelltermin": "2026-08-17"
+  },
+  "folgen": [
+    {
+      "option": "OPT-SAN-WANDWC",
+      "domaene": "tragwerk",
+      "text": "Wechsel: Balken 5 (x = 3125) zwischen y = 1905 und 2295 unterbrechen, 2 Wechsel 100/240",
+      "regel": "DE.EC5-NA.NA67.Durchbruch",
+      "beispiel": "B15"
+    },
+    {
+      "option": "OPT-SAN-WANDWC",
+      "domaene": "tragwerk",
+      "text": "Ständer 5 auswechseln (Riegel ober- und unterhalb)",
+      "regel": "M.Firma.Staenderbohrung",
+      "beispiel": "B15"
+    },
+    {
+      "option": "OPT-SAN-WANDWC",
+      "domaene": "tga_sanitaer",
+      "text": "Fallleitung SW-01 DN 100 (da 110), Öffnung Ø 150 mm; nächste freie Achse x = 3270 mm liegt 120 mm > 100 mm entfernt",
+      "regel": "DE.EC5-NA.NA67.Durchbruch",
+      "beispiel": "B15"
+    },
+    {
+      "option": "OPT-SAN-WANDWC",
+      "domaene": "termine",
+      "text": "Freeze W: Einbau in der Wandfertigung",
+      "regel": "M.Bemusterung.Freeze"
+    }
+  ],
+  "pruefungen": [
+    {
+      "regel": "M.Hersteller.WC-Montageelement",
+      "ergebnis": "erfuellt",
+      "text": "nach Kompensation: Wand IW-OG-02 hat 2 × 15 mm Gipsfaser (< 18 mm) und 565 mm lichten Ständerabstand; Platte 18 mm und Querriegel eingeplant"
+    },
+    {
+      "regel": "M.Firma.Staenderbohrung",
+      "ergebnis": "erfuellt",
+      "text": "nach Auswechslung von Ständer 5 (vorher verletzt: 150 mm > 40 mm)"
+    },
+    {
+      "regel": "DE.EC5-NA.NA67.Durchbruch",
+      "ergebnis": "erfuellt",
+      "text": "senkrechte Leitung durch Wechsel, kein Durchbruch im Balken"
+    },
+    {
+      "regel": "DE.VDI6000.Bewegungsflaeche",
+      "ergebnis": "erfuellt",
+      "text": "0,80 × 0,75 m frei (Grundriss OG-Bad als Beispiel, nicht aus Prototyp)"
+    },
+    {
+      "regel": "M.Hersteller.DuschWC-Strom",
+      "ergebnis": "nicht_anwendbar",
+      "text": "kein Dusch-WC"
+    },
+    {
+      "regel": "IDS.RG-sanitaer-A",
+      "ergebnis": "erfuellt",
+      "text": "synthetisches Testmodell Sanitär A: 7/7 Spezifikationen"
+    }
+  ],
+  "ifc": {
+    "typ_klasse": "IfcSanitaryTerminalType",
+    "predefined_type": "TOILETPAN",
+    "bibliothek": "Bemusterung 2026",
+    "psets": [
+      "Pset_ManufacturerTypeInformation",
+      "Pset_SanitaryTerminalTypeCommon",
+      "Pset_SanitaryTerminalTypeToiletPan",
+      "HRB_Auswahl",
+      "HRB_Sanitaer"
+    ]
+  },
+  "freigabe": {
+    "rolle": "Bauherr",
+    "datum": "2026-07-20"
+  },
+  "suchschluessel": [
+    "kategorie:sanitaer",
+    "objekt:TOILETPAN",
+    "montage:WALLHUNG",
+    "farbe:weiss"
+  ],
+  "hinweise": [
+    "Beispieldaten; Leitung, Wand und Decke aus B15, Montagehöhe 420 mm im üblichen Bereich 400–460 mm [U]"
+  ],
+  "inhaltshash": "sha256:b7a332aa38606a54dff0bd41e766edc3eb389864f7b14315c6a6188963bb18f3"
+}

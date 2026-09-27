@@ -1,0 +1,259 @@
+{
+  "schema": "hrb-auswahl/0.1",
+  "auswahl_id": "c3f1e0a2-5b7d-4e19-9a41-6d2f8b0c7e11",
+  "reifegrad": "A",
+  "status": "festgeschrieben",
+  "kategorie": "fliese",
+  "festgeschrieben_am": "2026-07-20T10:00:00+02:00",
+  "kontext": {
+    "projekt": "Beispielhaus Holzrahmenbau",
+    "geschoss": "EG",
+    "raum": "EG-Dusche-achteckig",
+    "flaeche": "Boden",
+    "flaeche_netto_m2": 4.7717,
+    "gebaeudetyp": "EFH",
+    "wohnungen": 1,
+    "profil": [
+      "DE-aRdT-Ausbau",
+      "M-Firma"
+    ]
+  },
+  "artikel": {
+    "artikel_id": "K-FLI-0001",
+    "variante_id": "V01",
+    "hersteller": {
+      "name": "Beispielhersteller Keramik",
+      "serie": "Beispielserie",
+      "artikelnummer": "S60x10-SAND-M",
+      "gtin": "2000000000015"
+    },
+    "farbe": {
+      "name": "sand",
+      "system": "Hersteller",
+      "lab": [
+        72.0,
+        2.0,
+        12.0
+      ],
+      "lichtart": "D65",
+      "beobachter_grad": 10,
+      "muster_nr": "M-0001"
+    },
+    "oberflaeche": "matt",
+    "format_mm": [
+      600,
+      100
+    ],
+    "dicke_mm": 9,
+    "merkmale": [
+      {
+        "name": "Rutschhemmung",
+        "wert": "R10",
+        "pset": "HRB_Belag"
+      },
+      {
+        "name": "Barfuss",
+        "wert": "B",
+        "pset": "HRB_Belag"
+      },
+      {
+        "name": "Gruppe",
+        "wert": "BIa",
+        "norm": "DIN EN 14411"
+      }
+    ]
+  },
+  "leistung": {
+    "verlegung": {
+      "muster": "fischgraet",
+      "winkel_grad": 45,
+      "rasterursprung_uv": [
+        0.8333,
+        0.0
+      ],
+      "achsbezug": {
+        "bezug": "Mitte Punktablauf (Rost 150 × 150 mm)",
+        "xy_mm": [
+          0,
+          0
+        ]
+      },
+      "fugenbreite_mm": 3,
+      "fuge": {
+        "typ": "CG2WA",
+        "farbe": "zementgrau"
+      },
+      "silikon": {
+        "farbe": "zementgrau"
+      },
+      "gefaelle_prozent": 1.5,
+      "entwaesserung": "punkt",
+      "bewegungsfugen": [
+        "Randfuge 3 mm",
+        "Kehllinien als Fuge (8)"
+      ],
+      "schnittregeln": {
+        "min_breite_mm": 20,
+        "min_flaechenanteil": 0.3333,
+        "verfugen_unter_mm": 6,
+        "drehbar": true
+      }
+    },
+    "aufbau": {
+      "untergrund": "Gefälleestrich zementgebunden (feuchteunempfindlich)",
+      "verlegewerkstoff": "Dünnbett C2",
+      "verlegeart": "duennbett",
+      "abdichtung": {
+        "wassereinwirkungsklasse": "W2-I",
+        "typ": "AIV-F mineralisch"
+      },
+      "ebenheit": "DIN 18202 Tab. 3 Zeile 3",
+      "fussbodenheizung": true,
+      "quelle": "Aufbau nicht aus B14 berechnet (B16 ist ein eigener Raum)"
+    },
+    "stlb_lb": [
+      "024"
+    ]
+  },
+  "mengen": {
+    "einheit": "stueck",
+    "menge": 96,
+    "abrechnung_m2": 4.7717,
+    "rohlinge": {
+      "S60x10": 85
+    },
+    "pakete": {
+      "S60x10": 4
+    },
+    "verschnitt_anteil": 0.1102,
+    "bruch_reserve_anteil": 0.05,
+    "stuecke": 168,
+    "aus_reststueck": 83,
+    "schnitte_anzahl": {
+      "gerade": 24,
+      "schraeg": 32,
+      "gratschnitt": 147,
+      "ablauf": 15
+    },
+    "schnittlaenge_m": 27.033,
+    "schnittzeit_min": 515.5,
+    "quelle": "B16 fischgraet_60x10__punkt, beste Lage (Beispielwerte); Reserve 5 % auf Pakete gerundet"
+  },
+  "kosten": {
+    "mehrpreis": {
+      "betrag": 616.58,
+      "waehrung": "EUR",
+      "brutto": true
+    },
+    "formel_id": "mehrpreis@0.1",
+    "eingaben": {
+      "uvp_eur_m2": 75.0,
+      "budget_eur_m2": 50,
+      "flaeche_m2": 4.7717,
+      "verschnitt": 0.1102,
+      "verlegezuschlag_eur": 484.14,
+      "verlegezuschlag_basis": "Schnittzeit B16 × Mittellohn 56,35 €/h (Beispielwerte)"
+    },
+    "gueltig_bis": "2026-12-31"
+  },
+  "termine": {
+    "freeze": "A",
+    "freeze_termin": "2026-07-20",
+    "lieferzeit_tage": 42,
+    "einbautermin": "2026-11-16",
+    "spaetester_bestelltermin": "2026-10-05"
+  },
+  "folgen": [
+    {
+      "option": "OPT-FLI-FISCHGRAET-CHEVRON",
+      "domaene": "kosten",
+      "text": "Verschnitt 11.0 % nach Reststückverwertung (gerade 60 × 10: 5,5 %)",
+      "regel": "M.Bemusterung.Mehrpreis",
+      "beispiel": "B16"
+    },
+    {
+      "option": "OPT-SAN-BODENGLEICH",
+      "domaene": "aufbau",
+      "text": "Punktablauf: 8 Kehllinien als Fuge, 147 Gratschnitte",
+      "regel": "DE.DIN18534.W-Klasse",
+      "beispiel": "B16"
+    }
+  ],
+  "pruefungen": [
+    {
+      "regel": "DE.DIN18534.W-Klasse",
+      "ergebnis": "erfuellt",
+      "text": "Boden bodengleiche Dusche W2-I; Untergrund zementgebunden"
+    },
+    {
+      "regel": "DE.ATV18352.Fugenbreite",
+      "ergebnis": "erfuellt",
+      "text": "Fuge 3 mm in 2–8 mm"
+    },
+    {
+      "regel": "DE.DINEN16165.Rutschhemmung",
+      "ergebnis": "erfuellt",
+      "text": "Barfußklasse B (Empfehlung Duschfläche)"
+    },
+    {
+      "regel": "M.Hersteller.Fliese-Versatz",
+      "ergebnis": "nicht_anwendbar",
+      "text": "Muster fischgraet"
+    },
+    {
+      "regel": "DE.ZDB.Grossformat",
+      "ergebnis": "nicht_anwendbar",
+      "text": "0,06 m² ≤ 0,25 m²"
+    },
+    {
+      "regel": "M.Firma.Mindestschnitt",
+      "ergebnis": "verletzt",
+      "text": "weich: 2 Stücke schmaler als 20 mm, 3 Stücke verfugt; vom Bauherrn angenommen",
+      "werte": {
+        "unter_mindestbreite": 2,
+        "verfugt": 3
+      }
+    },
+    {
+      "regel": "IDS.RG-belag-A",
+      "ergebnis": "unbestimmt",
+      "text": "IFC dieser Variante in B16 nicht exportiert"
+    }
+  ],
+  "ifc": {
+    "typ_klasse": "IfcCoveringType",
+    "predefined_type": "FLOORING",
+    "bibliothek": "Bemusterung 2026",
+    "psets": [
+      "Pset_ManufacturerTypeInformation",
+      "HRB_Auswahl",
+      "HRB_Verlegung",
+      "HRB_Belag",
+      "Qto_CoveringBaseQuantities"
+    ]
+  },
+  "freigabe": {
+    "rolle": "Bauherr",
+    "datum": "2026-07-20"
+  },
+  "lieferdaten": {
+    "charge": "BEISPIEL-CHARGE-B7",
+    "kaliber": "W2"
+  },
+  "suchschluessel": [
+    "kategorie:fliese",
+    "muster:fischgraet",
+    "merkmal:FormatLaenge=600[mm]",
+    "merkmal:FormatBreite=100[mm]",
+    "merkmal:Rutschhemmung=R10",
+    "merkmal:Oberflaeche=matt",
+    "farbe:sand",
+    "fuge:3[mm]:zementgrau",
+    "w:W2-I"
+  ],
+  "hinweise": [
+    "Beispieldaten; Mengen aus Prototyp B16",
+    "Farbe am Bildschirm unverbindlich; verbindlich ist Muster M-0001"
+  ],
+  "inhaltshash": "sha256:84e441d7e013d002de17211bfa0278effefdf52cff501376c80a6d4f8c762d5b"
+}
