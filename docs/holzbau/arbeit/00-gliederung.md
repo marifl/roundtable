@@ -149,6 +149,7 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 2. Innenausbau im Detail:
    - Fliesen: Format, Rutschhemmung, Verlegemuster, Fugenbild und Fugenfarbe, Abdichtung
    - Parkett und Böden: Holzart, Sortierung, Oberfläche, Verlegemuster, Sockelleisten, Übergänge
+   - Fußbodenaufbau mit Höhenausgleich: Estrich-, Dämm- und Ausgleichsschichten werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei Parkett, Feinsteinzeug, Naturstein, Beton Ciré und Vinyl gleich bleibt. So entstehen keine Kanten an Übergängen, einschließlich schwellenfreier Duschen
    - Wandfarben, Putze einschließlich Keller, Oberflächenqualität Q1–Q4
    - Treppenformen, Stufenverziehung, Holzarten, Geländer
    - Innentüren und Beschläge
@@ -169,7 +170,11 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 5. Heizung: Heizlast, Wärmepumpe (Aufstellung, Schall), Fußbodenheizung, hydraulischer Abgleich
 6. Lichtplanung: Leuchtendaten (GLDF, EULUMDAT), Tageslicht
 7. IFC-Abbildung: Systeme, Segmente, Ports, Verbindungen, Durchbrüche
-8. Routing-Algorithmen unter Regeln (Installationszonen, Ständerschwächung, Luftdichtheit, Kollisionsfreiheit)
+8. Dimensionierung (Nennweiten, Dämmstärken) und Durchdringungen:
+   - Lage und Größe von Bohrungen in Ständern und Balken, Wechsel in Holzbalkendecken
+   - Luftdichtheitsmanschetten, Brand- und Schallschutzabschottungen
+   - Übergabe als BTLx- bzw. WUP-Bearbeitung
+9. Routing-Algorithmen unter Regeln (Installationszonen, Ständerschwächung, Luftdichtheit, Kollisionsfreiheit)
 
 ### 14. Dach, Fassade und Einbauteile
 1. Dachformen: Sattel, Walm, Krüppelwalm, Zelt, Pult, Mansarde, Gauben; Geometrie über Straight Skeleton
@@ -220,6 +225,8 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B9 (geplant) Bemusterungsoption Wand-WC mit Folgeänderungen an Vorwand, Ständer und Abwasser
 - B11 (geplant) Fliesenverlegung mit Verlegemuster, Fugenbild und Schnittplan als festgeschriebene Auswahl
 - B12 (geplant) Wechsel des Gebäudetyps EFH → ZFH mit automatisch umgeschaltetem Regelprofil
+- B14 Fußbodenaufbau-Solver: gleiche Fertigfußbodenhöhe über vier Beläge mit Fußbodenheizung
+- B15 (geplant) Durchdringung einer Abwasserleitung DN 100 durch Holzbalkendecke und Ständerwand mit Bohrungsprüfung, Durchbruch, Wechsel und Manschette
 - B13 (geplant) Assistenz: Grundriss-Score (Tageslicht, Zonierung, Space-Syntax-Integration) mit Empfehlung, Begründung und Evidenzgrad; optional Feng-Shui-Profil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 

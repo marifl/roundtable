@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BTLx xmlns="https://www.design2machine.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0.0" Language="en" xsi:schemaLocation="https://www.design2machine.com https://www.design2machine.com/btlx/btlx_2_0_0.xsd">
+   <FileHistory>
+      <InitialExportProgram CompanyName="Arbeit Holzrahmenbau" ProgramName="COMPAS_Timber" ProgramVersion="Compas: 2.15.1" ComputerName="None" UserName="None" FileName="wandelement.btlx" Date="2026-01-01" Time="00:00:00" Comment="B7 – Beispiel, Hölzer aus B1" />
+   </FileHistory>
+   <Project Name="Beispielhaus Holzrahmenbau">
+      <Parts>
+         <Part SingleMemberNumber="0" AssemblyNumber="" OrderNumber="0" Designation="Beam" Annotation="Schwelle" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="4800.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="79a0" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{79a006af-c4be-5c82-8ac9-e1f415e16715}">
+                  <Position>
+                     <ReferencePoint X="0.000" Y="27.700" Z="-0.000" />
+                     <XVector X="1.000" Y="0.000" Z="0.000" />
+                     <YVector X="-0.000" Y="1.000" Z="0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="1" AssemblyNumber="" OrderNumber="1" Designation="Beam" Annotation="Rähm" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="4800.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="9af2" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{9af29e86-79ca-58e3-ae1a-792274d91073}">
+                  <Position>
+                     <ReferencePoint X="0.000" Y="27.700" Z="2690.000" />
+                     <XVector X="1.000" Y="0.000" Z="0.000" />
+                     <YVector X="0.000" Y="1.000" Z="0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="2" AssemblyNumber="" OrderNumber="2" Designation="Beam" Annotation="Randständer links" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="5877" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{5877fb23-b4a9-59f2-9c04-f2e90bbac0e6}">
+                  <Position>
+                     <ReferencePoint X="60.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="-0.000" Y="1.000" Z="0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="3" AssemblyNumber="" OrderNumber="3" Designation="Beam" Annotation="Randständer rechts" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="fe09" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{fe09a1c8-555b-5c50-ad81-1c1485eb65e4}">
+                  <Position>
+                     <ReferencePoint X="4800.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="4" AssemblyNumber="" OrderNumber="4" Designation="Beam" Annotation="Königsständer links F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="693e" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{693ed522-1fb6-516f-a9d5-347df74e26fb}">
+                  <Position>
+                     <ReferencePoint X="1710.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="5" AssemblyNumber="" OrderNumber="5" Designation="Beam" Annotation="Königsständer rechts F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="5276" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{5276c6fd-e97f-536d-8c06-fc85fc1861d4}">
+                  <Position>
+                     <ReferencePoint X="3150.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="6" AssemblyNumber="" OrderNumber="6" Designation="Beam" Annotation="Sturzauflagerständer links F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2225.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="4687" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{4687c802-395f-5a1a-b5e9-8dc1405d50de}">
+                  <Position>
+                     <ReferencePoint X="1770.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="7" AssemblyNumber="" OrderNumber="7" Designation="Beam" Annotation="Sturzauflagerständer rechts F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2225.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="8278" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{8278c668-c03d-5a9b-89e8-bddb5f2f2795}">
+                  <Position>
+                     <ReferencePoint X="3090.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="8" AssemblyNumber="" OrderNumber="8" Designation="Beam" Annotation="Sturz F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="1380.000" Height="200.000" Width="200.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="34c9" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{34c94900-883d-5ccf-bbdc-033544e67263}">
+                  <Position>
+                     <ReferencePoint X="1710.000" Y="27.700" Z="2285.000" />
+                     <XVector X="1.000" Y="0.000" Z="0.000" />
+                     <YVector X="0.000" Y="1.000" Z="0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="9" AssemblyNumber="" OrderNumber="9" Designation="Beam" Annotation="Brüstungsriegel F1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="1260.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="33d9" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{33d9b5d7-7109-5c2e-b71e-73732d45ffe2}">
+                  <Position>
+                     <ReferencePoint X="1770.000" Y="27.700" Z="840.000" />
+                     <XVector X="1.000" Y="0.000" Z="0.000" />
+                     <YVector X="0.000" Y="1.000" Z="0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="10" AssemblyNumber="" OrderNumber="10" Designation="Beam" Annotation="Ständer R1" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="dc78" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{dc78fc8f-910c-5ac0-a578-cf57fef2a481}">
+                  <Position>
+                     <ReferencePoint X="655.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+            <Processings>
+               <Lap Name="Lap" Process="yes" Priority="0" ProcessID="0" ReferencePlaneID="1">
+                  <Orientation>start</Orientation>
+                  <StartX>990.000</StartX>
+                  <StartY>-1.000</StartY>
+                  <Angle>90.000</Angle>
+                  <Inclination>90.000</Inclination>
+                  <Slope>0.000</Slope>
+                  <Length>40.000</Length>
+                  <Width>62.000</Width>
+                  <Depth>25.000</Depth>
+                  <LeadAngleParallel>yes</LeadAngleParallel>
+                  <LeadAngle>90.000</LeadAngle>
+                  <LeadInclinationParallel>yes</LeadInclinationParallel>
+                  <LeadInclination>90.000</LeadInclination>
+                  <MachiningLimits FaceLimitedStart="yes" FaceLimitedEnd="yes" FaceLimitedFront="no" FaceLimitedBack="no" FaceLimitedTop="no" FaceLimitedBottom="yes" />
+               </Lap>
+            </Processings>
+         </Part>
+         <Part SingleMemberNumber="11" AssemblyNumber="" OrderNumber="11" Designation="Beam" Annotation="Ständer R2" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="bcdc" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{bcdcd4c9-3b71-5cca-8dc7-c0d1af78cad0}">
+                  <Position>
+                     <ReferencePoint X="1280.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="12" AssemblyNumber="" OrderNumber="12" Designation="Beam" Annotation="Füllständer R3 unten" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="780.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="b745" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{b74542a0-6417-5ba6-aa53-139dcf70a246}">
+                  <Position>
+                     <ReferencePoint X="1905.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="13" AssemblyNumber="" OrderNumber="13" Designation="Beam" Annotation="Füllständer R3 oben" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="205.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="cb8b" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{cb8bae7f-0a91-5b74-8128-9c27ffcbb90f}">
+                  <Position>
+                     <ReferencePoint X="1905.000" Y="27.700" Z="2485.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="14" AssemblyNumber="" OrderNumber="14" Designation="Beam" Annotation="Füllständer R4 unten" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="780.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="7ffb" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{7ffb4d9a-5cee-58dd-8341-6cede9a00717}">
+                  <Position>
+                     <ReferencePoint X="2530.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="15" AssemblyNumber="" OrderNumber="15" Designation="Beam" Annotation="Füllständer R4 oben" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="205.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="59bc" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{59bca47a-9e0e-5e32-957e-47feba20201f}">
+                  <Position>
+                     <ReferencePoint X="2530.000" Y="27.700" Z="2485.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="16" AssemblyNumber="" OrderNumber="16" Designation="Beam" Annotation="Ständer R6" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="ca03" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{ca03d1b7-0e43-5d9f-8394-192854db4c59}">
+                  <Position>
+                     <ReferencePoint X="3780.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+         <Part SingleMemberNumber="17" AssemblyNumber="" OrderNumber="17" Designation="Beam" Annotation="Ständer R7" Storey="" Group="" Package="" Material="KVH C24" TimberGrade="C24" QualityGrade="" Count="1" Length="2630.000" Height="200.000" Width="60.000" Weight="0" ProcessingQuality="automatic" StoreyType="" ElementNumber="2f93" Layer="0" ModuleNumber="">
+            <Transformations>
+               <Transformation GUID="{2f933860-0b09-545c-8796-13d83702a957}">
+                  <Position>
+                     <ReferencePoint X="4405.000" Y="27.700" Z="60.000" />
+                     <XVector X="0.000" Y="0.000" Z="1.000" />
+                     <YVector X="0.000" Y="1.000" Z="-0.000" />
+                  </Position>
+               </Transformation>
+            </Transformations>
+            <GrainDirection X="1" Y="0" Z="0" Align="no" />
+            <ReferenceSide Side="1" Align="no" />
+         </Part>
+      </Parts>
+   </Project>
+</BTLx>

@@ -131,6 +131,8 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
 | Innenausbau und Interior | jede Fliese mit Format, Verlegemuster, Fugenbild und Fugenfarbe; jeder Boden mit Holzart, Sortierung, Oberfläche, Verlegemuster und Sockelleiste; Wandfarben und Putze einschließlich Keller; Treppenform, Holzart und Geländer; Innentüren und Beschläge; Sanitärobjekte; Küche; Möblierung in 3D. Jeweils festgeschrieben und durchsuchbar |
 | Elektro, Netzwerk | Leitungen in Installationszonen, Dosen, Zählerschrank, Netzwerk, Smart Home |
 | Wasser | Trinkwasser kalt und warm, Zirkulation, Abwasser mit Lüftung über Dach |
+| Dimensionen und Durchdringungen | Nennweite jeder Leitung berechnet. Jede Bohrung, jeder Durchbruch, jeder Wechsel und jede Manschette ist geplant, regelgeprüft und als Fertigungsbearbeitung übergeben |
+| Fußbodenaufbau | Estrich- und Dämmhöhen werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei jedem Belag gleich bleibt (Parkett, Fliese, Naturstein, Beton Ciré). Keine Kante an Übergängen |
 | Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |
 | Licht, PV | Lichtplanung mit Leuchtendaten, Photovoltaik mit Belegung und Ertrag |
 | Dach | Dachform, Tragwerk, Ziegelform und -farbe, First, Grat, Kehle, Ortgang, Traufe, Mansarde, Gauben |
