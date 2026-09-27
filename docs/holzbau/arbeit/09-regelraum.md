@@ -648,8 +648,100 @@ Das Kapitel beantwortet FF2 in fünf Punkten:
 
 Offen bleiben drei Punkte. Die Alternativen-Generierung ist in B6 noch nicht implementiert. Vollgeschoss, Fensterfläche und Dachneigung sind spezifiziert, aber nicht lauffähig. Die Auslegungsparameter mit Status [U] (Giebelfläche, Fenstermaß) muss eine bauvorlageberechtigte Person festlegen. Kapitel 9a zeigt, wie das Profil vom Gebäudetyp abhängt und welche Freigaben daraus folgen.
 
+## 9.9 Umsetzungsvorgaben für die App
+
+Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren soll. Dieser Abschnitt übersetzt das Kapitel deshalb in Anforderungen und maschinenlesbare Vorgaben. Es gelten die Regeln aus Kapitel 3.7: „Muss“ heißt, dass ohne die Anforderung ein Rechts-, Nachweis- oder Fertigungsfehler entstehen kann. „Soll“ heißt, dass sie Qualität oder Nutzen erhöht. Jedes Abnahmekriterium ist ein Testfall mit Eingabe und erwartetem Ergebnis. Wo ein Beispiel die Referenz liefert, sind dessen gemessene Werte die Sollwerte.
+
+### 9.9.1 Maschinenlesbare Spezifikation
+
+| Datei | Inhalt |
+|---|---|
+| `spezifikation/regel.schema.json` | JSON-Schema (Draft 2020-12) des Regelkatalogs; das Schema einer Regel ist `#/$defs/regel` mit den acht Feldern aus Tabelle 9.2 und den Zusatzfeldern Klasse, Härte, Schicht, Eingaben mit Einheit, Grenzwerte mit Richtung, Status, Beispiel, Anforderungen und Tests |
+| `spezifikation/regelkatalog.yaml` | initialer Katalog mit 40 Regeln aus Kapitel 9 und 9a (R1–R4), darunter die neun Regeln aus 9.4, die Holzfeuchte-Familie aus 9.3.3, die IDS-Spezifikationen aus B2 und die typabhängigen Regeln aus 9a |
+| `spezifikation/regelprofile.yaml` | Profilregister (Version, Schicht, Geltung, Stichtag), Merkmalsvektor, Schalter, Schwellenwarnungen, Brandschutz je GK, Matrix Gebäudetyp × Regelbereich, Freigabe-Gates (Kapitel 9a) |
+
+Am 27.09.2026 geprüft: Beide YAML-Dateien und das Schema sind mit Python parsebar. Das Schema ist nach Draft 2020-12 gültig. Der Katalog validiert mit `jsonschema` 4 ohne Fehler gegen das Schema. Ein Konsistenzabgleich ergab, dass jede in `regelprofile.yaml` genannte Regel im Katalog steht, jedes Profil des Katalogs registriert ist und die Schicht jeder Regel mit der ihres Profils übereinstimmt.
+
+### 9.9.2 Anforderungen
+
+**Regeldaten und Prüfkern**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09-01 | Muss | Regeln sind Daten nach `regel.schema.json`; die Prüffunktion ist versionierter Code. Der Katalog wird nur geladen, wenn er schema-valide ist. | 9.2.3 | `regelkatalog.yaml` lädt ohne Fehler. Eine Kopie, in der bei `BY.BayBO.6.T` das Feld `quelle.fassung` fehlt, wird mit Ladefehler „fassung fehlt“ abgewiesen. |
+| ANF-09-02 | Muss | Jede Prüfung liefert einen von fünf Werten. Fehlt eine R2-Voraussetzung, ist das Ergebnis `unbestimmt`, nie `erfuellt` oder `verletzt`. | 9.2.1 | B4 „mittig“ ohne Geländemodell: `unbestimmt`, Meldung nennt `BY-R2-Gelaende-DGM`. Mit Geländemodell: `erfuellt`. |
+| ANF-09-03 | Muss | R2-Anforderungen werden je Profil und Reifegrad als IDS 1.0 erzeugt und geprüft. Der Nachweis speichert Werkzeug und Version. | 9.2.2 | B2: Datei „bestanden“ erfüllt 11 von 11 Spezifikationen; Datei „fehlerhaft“ scheitert an genau HRB-01, 03, 05, 08, 09, 11. Nachweis enthält „ifctester 0.8.5“. |
+| ANF-09-04 | Muss | Befunde werden über den Spezifikationsnamen einer Regel-ID zugeordnet, solange das Prüfwerkzeug `identifier` ignoriert. | 9.2.2 | B2 fehlerhaft: Jeder der 6 Befunde trägt die Regel-ID `IDS.HRB-01` bzw. `IDS.HRB-02-11` und den Namen der Spezifikation. |
+| ANF-09-05 | Muss | Profile sind unveränderlich und versioniert. Jeder Nachweis trägt Profil-ID, Profilversion, Funktionsversion und SHA-256 des geprüften Modells. | 9.3.1, 7a.5 | Nachweis B4 enthält `BY-BayBO-2026-05`, `0.1.0`, `abstandsflaeche@1.2` und den Modell-Hash. Eine Änderung eines Kennwerts im Profil ohne neue Version wird abgewiesen. |
+| ANF-09-06 | Muss | Das Profil wählt die Normfassung je Zweck. Für den GModG-Nachweis gilt die datiert in Bezug genommene Fassung. | 9.3.2, Fall 2 | Profil `DE-GModG-2026-07`: U-Wert-Nachweis nennt DIN EN ISO 6946:2008-04. Werkvertragliches Profil: 2018-03. Laden eines GModG-Profils mit Ausgabe 2018-03 erzeugt Warnung „datierter Verweis § 20 Abs. 6 GModG“. |
+| ANF-09-07 | Muss | Bei parallel gültigen Normgenerationen entscheidet das eingeführte Profil; das kommende Profil erzeugt Hinweise. | 9.3.2, Fall 3 | B15, Durchbruch BD-1: Verstoß nach `DE-EC5-2010-A2` (60 mm > 36 mm); zusätzlich Hinweis aus `DE-EC5-2026` „Vollholz/KVH nur verstärkt“. Keine Entscheidung aus dem kommenden Profil. |
+| ANF-09-08 | Muss | Die Vollgeschossregel verwendet die Fassung zum Datum des Bebauungsplans (Stichtagsregel). | 9.3.2, Fall 5; 9.4.2 | DG 100 m², davon 60 m² mit ≥ 2,30 m: kein Vollgeschoss; 67 m²: Vollgeschoss. Bei Z = II und drei Vollgeschossen: `verletzt`. Ohne B-Plan-Datum: `unbestimmt`. |
+| ANF-09-09 | Muss | Prüfung eines eingefrorenen Entwurfs gegen eine neue Profilversion erzeugt einen Delta-Bericht. | 9.3.2 | B4 gegen `BY-BayBO-2026-05` 0.1.0 und eine Testversion 0.2.0 mit `mindesttiefe_m` = 3,5: Bericht listet genau `BY.BayBO.6.T` als „Kennwert geändert“, Status Traufseite weiter `erfuellt` (5,00 m ≥ 3,50 m). |
+
+**Schichtung und Monotonie**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09-10 | Muss | Beim Laden eines Profils prüft die App jede Parameterüberschreibung nach Satz 9.1 (Listing 9.3). Eine Lockerung ist ein Ladefehler. | 9.3.3 | `holzfeuchte_max`: N 20 % → Q 18 %: geladen. Testprofil M mit 22 %: Ladefehler mit Nennung von Schicht, Regel und altem Wert. |
+| ANF-09-11 | Muss | Zur Laufzeit werden alle Schichten konjunktiv ausgewertet; die Meldung nennt die strengste verletzte Quelle. | 9.3.3 | Holz mit 19 %: `DE.DIN68800-2.Holzfeuchte` erfüllt, `Q.RAL-GZ422.Holzfeuchte` verletzt; Meldung nennt RAL-GZ 422 (vgl. ANF-03-07). |
+| ANF-09-12 | Muss | Regeln dürfen nur mit Freigabe-Datensatz ausgesetzt werden. Für Regeln der Schichten S1/S2 ist nur eine Behördenentscheidung zulässig. | 9.3.3 | Rolle „Vertrieb“ setzt `BY.BayBO.6.T` aus: abgewiesen. Rolle „Firma“ setzt `M.Katalog.Fenster-SSK` aus: zulässig, Nachweis mit Status „abweichend freigegeben“. |
+
+**Ablehnung, Begründung, Alternative**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09-13 | Muss | Jede Ablehnung enthält Konfliktmenge, Begründung mit Werten und Quelle sowie mindestens eine Alternative A1–A5. Die Alternative ist die gemeinsame Projektion auf alle Regeln. | 9.5.1, 9.5.3 | B6 „Kinderzimmer 1 einen Meter zwanzig schmaler“: Konfliktmenge {Mindestbreite, Mindestfläche}; Alternative „höchstens 0,55 m schmaler (2,95 m; 10,03 m²)“. B6 „Bad eins zwanzig breit“: Alternative „mindestens 1,70 m“. |
+| ANF-09-14 | Soll | Alternativen werden in der Reihenfolge A1 → A5 angeboten; A4 und A5 nur, wenn A1–A3 fehlen oder abgelehnt werden. | 9.5.2 | B19 Variante A: erste Alternative ist A3 „Schlafräume nach Süden“ (Verstöße 2 → 0, Mehrkosten 5 958 € → 3 250 €); A4 „Fremdfenster“ erscheint danach. |
+| ANF-09-15 | Muss | Rückfragen zur Absicht werden von Ablehnungen nach Regeln getrennt. | 9.5.3 | B6 „Das Bad soll zwanzig Zentimeter breiter werden“: Status `rueckfrage` (zwei Bäder); „eins fünf breiter“: `rueckfrage` (1,05 oder 1,50 m). Kein Regelnachweis. |
+| ANF-09-16 | Muss | Jede Ablehnung erzeugt einen Nachweis nach Kapitel 7a mit rotem Status. | 9.5.4 | B4 „zu nah“: Nachweis Status „nicht erfüllt“, 15,20 m² außerhalb, SVG vorhanden, Hash gesetzt. |
+
+**Wirkungsweise und Normwerte**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09-17 | Muss | Solver für R1-Regeln sind vollständig oder exakt und melden Unlösbarkeit mit Diagnose. | 9.6.2 | B5, Laufbreite 0,75 m: „keine Lösung“, Grenzwert 0,80 m. B14 Bad ohne Absenkung: „mindestens erreichbar 240 mm (fehlen 30 mm)“ mit Ausschlussgründen. |
+| ANF-09-18 | Muss | Nach der Erzeugung prüft eine vom Solver getrennte Prüfschicht das IFC-Modell. Abweichung zwischen den Kanälen sperrt jede Freigabe. | 9.6.3 | IFC nach Generierung manipuliert (U = 0,25): IDS HRB-01 scheitert, Gate „Bauvorlage“ gesperrt, Meldung „Kanalabweichung“. |
+| ANF-09-19 | Soll | Änderungen lösen nur die abhängigen Regeln neu aus; kritische Schwellen werden vorab als Grenzwert gemeldet. | 9.6.3 | Dachneigung 35° → 20°: neu ausgewertet genau Abstandsfläche, Vollgeschoss, Dachneigung, Gebäudeklasse. Intent „Kniestock ändern“: Grenzwert *k** wird vor Anwendung gemeldet. |
+| ANF-09-20 | Muss | Normwerte stehen als Einzelkennwerte mit Fundstelle im Katalog; wo möglich wird aus Formeln gerechnet statt aus Tabellen gelesen. | 9.7 | Lint: Jeder Grenzwert mit Quelle N oder H hat eine Fundstelle. B20: Test `test_lai_tabelle5_aus_iso9613_reproduziert` trifft alle 41 LAI-Werte auf ≤ 0,11 m. |
+| ANF-09-21 | Muss | Auslegungsparameter mit Status U sind vor dem Gate „Bauvorlage“ durch die bauvorlageberechtigte Person festzulegen. | 9.2.3 | `giebel_modus` nicht gesetzt: Gate gesperrt. Gesetzt auf „drittel“: Nachweis nennt 30,53 m² und die Person; „voll“: 36,40 m². |
+
+**Einzelregeln (Referenzwerte)**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09-22 | Muss | Abstandsflächen nach `BY.BayBO.6.T`. | 9.4.1, B4 | Haus 10 × 12 m, Wandhöhe 6,50 m, 45°, Dachhöhe 5,00 m: *H* = 8,17 m, *T* = 3,27 m; „zu nah“ (x = 2 m): 15,20 m² außerhalb, Alternative „1,27 m nach Osten“. |
+| ANF-09-23 | Muss | Treppen nach `DE.DIN18065.WG2WE` durch vollständige Aufzählung. | 9.4.3, B5 | 2,90 m, 0,90 m: 68 Lösungen; beste 17 × 170,6 mm / 290 mm, 2s + a = 631,2 mm, Lauflänge 4,64 m; mit max. 4,0 m: 16 × 181,25 / 265 mm. |
+| ANF-09-24 | Muss | Fensterfläche nach `BY.BayBO.45.Fensterflaeche`. | 9.4.4 | Raum 14,0 m²: Soll 1,75 m²; Fenster 1,70 m²: `verletzt`, Alternative „+0,05 m²“. |
+| ANF-09-25 | Muss | Dachneigung nach `DE.ZVDH.DZ.Dachneigung`. | 9.4.5 | Doppelmuldenfalz (RDN 30°), DN 20°: `erfuellt` mit Klasse K2 (ohne erhöhte Anforderung) bzw. K1 (mit); DN 9°: `verletzt`. |
+| ANF-09-26 | Muss | Fußbodenaufbau nach `DE.Fussboden.OKFF-gleich`. | 9.4.6, B14 | Variante A (210 mm) und B (160 mm): alle Räume OKFF auf ±2 mm; Übergänge ≤ 1,6 mm; Teppich auf FBH: R_λ,B = 0,233 > 0,15 als weiche Meldung. |
+| ANF-09-27 | Muss | Außenlärm nach `DE.DIN4109.Aussenlaerm`; EU-Lärmkarten sind als Eingang unzulässig. | 9.4.8, B19 | Variante A: Schlafzimmer erf R′w,ges = 42,0 dB, SSK 5, 2 Verstöße; Variante B: 36,8 dB, 0 Verstöße. Eingang EU-Lärmkarte: `unbestimmt`. |
+| ANF-09-28 | Muss | Wärmepumpen-Aufstellung nach `DE.TALaerm.WP-Richtwert`, `M.Hersteller.R290-Schutzbereich` und `M.Firma.WP-Irrelevanzziel`. | 9.4.9, B20 | 2 304 Rasterpunkte, 834 zulässig; Ostseite vor HWR `verletzt` (Schutzbereich); Optimum (7,25 m; 1,75 m) mit Reserve 12,9 dB; Westseite erfüllt 40 dB(A), verfehlt 34 dB(A) am Wohnzimmer. |
+| ANF-09-29 | Soll | Bewegungsflächen nach `DE.VDI6000.Bewegungsflaeche`; Überlagerung mit anderen Bewegungsflächen zulässig, mit Bauteilen nicht. | 9.4 | WC-Bewegungsfläche 0,80 × 0,75 m schneidet Waschtisch: `verletzt`. Überlagert nur die Bewegungsfläche der Dusche: `erfuellt`. |
+
 ## Verwendete Schlüssel
 
-Das Kapitel enthält 70 Zitatstellen zu 53 Schlüsseln. Ein Python-Abgleich aller `[@key]` im Text gegen `literatur/lit-*.bib` ergab am 27.09.2026 keine fehlenden Schlüssel. Der Schlüssel `mbo2bim2023` steht in zwei Bib-Dateien (bekannte Dublette, siehe `literatur/KORREKTUREN.md`); zugeordnet ist die erste Datei.
+Das Kapitel enthält 74 Zitatstellen zu 59 Schlüsseln. Ein Python-Abgleich aller `[@key]` im Text gegen `literatur/lit-*.bib` ergab am 27.09.2026 keine fehlenden Schlüssel. Der Schlüssel `mbo2bim2023` steht in zwei Bib-Dateien (bekannte Dublette, siehe `literatur/KORREKTUREN.md`); zugeordnet ist die erste Datei.
 
-SCHLUESSELLISTE
+**lit-A-acc-bim.bib** (11): `amor2021promise`, `bsi2024ids`, `eastman2009automatic`, `haeussler2021code`, `hjelseth2011capturing`, `idis2021szenarien`, `mbo2bim2023`, `merigoux2021catala`, `palmirani2011legalruleml`, `solihin2015classification`, `stepien2023openbimrl`
+
+**lit-B-vorfertigung-ki.bib** (1): `felfernig2014knowledge`
+
+**lit-C-recht-normen.bib** (22): `baunvo`, `bauvorlv`, `baybo2026`, `baytb2025`, `bgb`, `dataholz`, `din18065`, `din5034-1`, `din68800-2`, `egbgb249`, `en1995-2026`, `eugh2024publicresource`, `gmodg2026`, `ids2024`, `iso6946`, `prodhaftg2026`, `qdf2022`, `ral422`, `urhg5`, `wd2020normen`, `xplanung`, `zvdh2024`
+
+**lit-E-vergleich-automation.bib** (3): `abushwereb2019knowledge`, `erhan2026dcodeweaver`, `sydora2020rulebased`
+
+**lit-F-architekturpsychologie.bib** (3): `meseguer2006soft`, `miller2019explanation`, `who2018noise`
+
+**lit-H-ff4-ff5.bib** (1): `bgh2002genehmigungsplanung`
+
+**lit-I-schneeball-a.bib** (9): `cerovsek2025advancing`, `dimyadi2016computerizing`, `fischer2024extending`, `niemeijer2014freedom`, `pinto2026exhaustive`, `sobhkhiz2021framing`, `tonguc2026code`, `urban2026development`, `wu2025design`
+
+**lit-I-schneeball-b.bib** (1): `gregor1999explanations`
+
+**lit-J-schneeball-runde2.bib** (5): `akbas2025holistic`, `clancey1983epistemology`, `gelle2003solving`, `lottaz1998constraint`, `yang2012constraint`
+
+**lit-L-schneeball-runde3.bib** (1): `felfernig2011personalized`
+
+**lit-M-nachweis.bib** (2): `din1333`, `iso6946_2017`
+
+Die Schlüssel in den Feldern `bib` von `spezifikation/regelkatalog.yaml` und `spezifikation/regelprofile.yaml` (23 Schlüssel) sind mit demselben Abgleich geprüft; es fehlt keiner.

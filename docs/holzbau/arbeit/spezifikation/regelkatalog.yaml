@@ -746,7 +746,7 @@ regeln:
   klasse: R1
   haerte: hinweis
   quelle: {art: M, werk: "Systemregel nach Recherche 14", fundstelle: "Recherche 14, Abschnitt 3 Nr. 3", fassung: "2026-09", status: V, recherche: ["14"]}
-  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  profil: {name: M-Firma, version: 0.1.0}
   schicht: S5
   geltung:
     gebaeudetypen: [alle]

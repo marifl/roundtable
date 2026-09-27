@@ -1,0 +1,310 @@
+# Regelprofile: Gebäudetyp × Regelbereich (Kapitel 9a, Recherche 14).
+# Der Gebäudetyp ist eine ANZEIGE. Maßgeblich ist die Ableitung aus dem Merkmalsvektor
+# (Abschnitt "merkmale" und "schalter"); die Typzeilen beschreiben den typischen Fall.
+# Status: V = am Wortlaut geprüft (BayBO ab 01.05.2026), U = unsicher.
+
+stand: "2026-09-27"
+version: 0.1.0
+quelle:
+  kapitel: ["9", "9a"]
+  recherche: ["02", "07", "14"]
+  bib: [baybo2026, bauvorlv, baytb2025, holzbaurl2024, din4109-33, gmodg2026]
+
+# ---------------------------------------------------------------------------
+# 1. Registrierte Regelwerk-Profile (Kapitel 9.3.1)
+# ---------------------------------------------------------------------------
+profile:
+  BY-BayBO-2026-05:            {version: 0.1.0, schicht: S1, geltung: {von: "2026-05-01", bis: null}, stichtag: eingang_bauvorlagen}
+  DE-Planungsrecht:            {version: 0.1.0, schicht: S1, geltung: {von: null, bis: null}, stichtag: datum_bebauungsplan}
+  DE-TALaerm:                  {version: 0.1.0, schicht: S1, geltung: {von: null, bis: null}, stichtag: eingang_bauvorlagen}
+  DE-Verbraucherbauvertrag:    {version: 0.1.0, schicht: S1, geltung: {von: null, bis: null}, stichtag: vertragsschluss}
+  DE-WoFlV:                    {version: 0.1.0, schicht: S1, geltung: {von: null, bis: null}, stichtag: vertragsschluss}
+  DE-WEG:                      {version: 0.1.0, schicht: S1, geltung: {von: "2021-07-12", bis: null}, stichtag: pruefzeitpunkt}
+  T-Typengenehmigung-Platzhalter: {version: 0.1.0, schicht: S1, geltung: {von: null, bis: null}, stichtag: eingang_bauvorlagen, hinweis: "Lösungsraum L(T) je erteilter Typengenehmigung"}
+  DE-GModG-2026-07:            {version: 0.1.0, schicht: S1, geltung: {von: "2026-07-29", bis: null}, stichtag: eingang_bauvorlagen, fassungswahl: {"DIN EN ISO 6946": "2008-04 (datierter Verweis § 20 Abs. 6)"}}
+  DE-EC5-2010-A2:              {version: 0.1.0, schicht: S2, geltung: {von: null, bis: "2028-03-31"}, stichtag: einleitung_verfahren, hinweis: "Rücknahme etwa 03/2028 [U]"}
+  DE-EC5-2026:                 {version: 0.1.0, schicht: S2, geltung: {von: null, bis: null}, stichtag: einleitung_verfahren, modus: warnen, hinweis: "erschienen 2026-09, nicht eingeführt"}
+  DE-DIN4109-2018:             {version: 0.1.0, schicht: S2, geltung: {von: null, bis: null}, stichtag: eingang_bauvorlagen}
+  BY-BayTB-2025-11:            {version: 0.1.0, schicht: S2, geltung: {von: "2025-11-01", bis: null}, stichtag: eingang_bauvorlagen}
+  BY-HolzBauRL-2024-09:        {version: 0.1.0, schicht: S2, geltung: {von: "2025-11-01", bis: null}, stichtag: einleitung_verfahren, modul: holzbau_gk45}
+  DE-Holzschutz:               {version: 0.1.0, schicht: S2, geltung: {von: "2022-02-01", bis: null}, stichtag: einleitung_verfahren}
+  DE-DIN18065-WG2WE:           {version: 0.1.0, schicht: S3, geltung: {von: "2020-08-01", bis: null}, stichtag: abnahme}
+  DE-Handwerk-Dach:            {version: 0.1.0, schicht: S3, geltung: {von: "2024-04-01", bis: null}, stichtag: abnahme}
+  DE-Fussboden:                {version: 0.1.0, schicht: S3, geltung: {von: null, bis: null}, stichtag: abnahme}
+  DE-aRdT-Sanitaer:            {version: 0.1.0, schicht: S3, geltung: {von: "2024-07-01", bis: null}, stichtag: abnahme}
+  Q-RAL-GZ422:                 {version: 0.1.0, schicht: S4, geltung: {von: null, bis: null}, stichtag: vertragsschluss}
+  M-Firma:                     {version: 0.1.0, schicht: S5, geltung: {von: null, bis: null}, stichtag: pruefzeitpunkt}
+  M-Projekt:                   {version: 0.1.0, schicht: S5, geltung: {von: null, bis: null}, stichtag: pruefzeitpunkt}
+  M-Hersteller-WP:             {version: 0.1.0, schicht: S5, geltung: {von: null, bis: null}, stichtag: pruefzeitpunkt}
+  HRB-IDS-Wandelement:         {version: 0.1.0, schicht: S5, geltung: {von: null, bis: null}, stichtag: pruefzeitpunkt}
+  K-GebaeudetypE-Variante:     {version: 0.1.0, schicht: S6, geltung: {von: null, bis: null}, stichtag: vertragsschluss, rechtswirkung: false}
+
+# ---------------------------------------------------------------------------
+# 2. Merkmalsvektor (Kapitel 9a.2.2)
+# ---------------------------------------------------------------------------
+merkmale:
+  - {name: anbau, werte: [freistehend, einseitig, beidseitig], ableitung: "Gebäudeabschlusswände an der Grenze; ein IfcBuilding je DHH/RH-Einheit", quelle: "BayBO Art. 2 Abs. 3, Art. 61 Abs. 3", merkmal_quelle: BayBO}
+  - {name: n_WE, einheit: "-", ableitung: "IfcZone ObjectType = Wohnung"}
+  - {name: n_NE_sonst, einheit: "-", ableitung: "IfcZone ObjectType ≠ Wohnung, mit Nutzungsart und Fläche"}
+  - {name: h_Art2, einheit: m, ableitung: "OKFF oberstes Geschoss mit MÖGLICHEM Aufenthaltsraum minus mittleres Gelände (DGM)", quelle: "Art. 2 Abs. 3 Satz 2"}
+  - {name: BGF_NE, einheit: "m²", ableitung: "Brutto-Grundfläche je NE, oberirdisch, ohne Kellergeschosse", quelle: "Art. 2 Abs. 3 Satz 3, Abs. 6"}
+  - {name: keller, werte: [ja, nein], ableitung: "Deckenoberkante im Mittel <= 1,40 m über Gelände", quelle: "Art. 2 Abs. 7"}
+  - {name: eigentum, werte: [allein, realteilung, weg], ableitung: Eingabe}
+  - {name: gemeinde, ableitung: "Gemeindeschlüssel → Satzungsdatenbank, Einwohnerzahl"}
+  - {name: foerderung, werte: [keine, WFB], ableitung: Eingabe}
+  - {name: sonderbau, ableitung: "Kennzeichen nach Art. 2 Abs. 4 bei gemischter Nutzung"}
+  - {name: wohngebaeude, werte: [ja, nein, freigabepflichtig], ableitung: "bei gemischter Nutzung freigabepflichtig"}
+  - {name: haustrennwand, werte: [ja, nein], ableitung: "IfcWall mit Rolle Haustrennwand (eigenes Pset)"}
+  - {name: GModG.einseitig_angebaut, werte: [ja, nein], ableitung: "Anbauanteil >= 80 %", quelle: "GModG § 3 Abs. 1 Nr. 6", merkmal_quelle: GModG, hinweis: "nicht mit BayBO.anbau gleichsetzen"}
+
+# ---------------------------------------------------------------------------
+# 3. Abgeleitete Schalter (Listing 9a.1)
+# ---------------------------------------------------------------------------
+schalter:
+  - {id: GK, formel: "siehe Regel BY.BayBO.2-3.Gebaeudeklasse", regeln: [BY.BayBO.2-3.Gebaeudeklasse], status: V}
+  - {id: bauvorlage, formel: "Art61_Abs3 wenn wohngebaeude ∧ GK <= 3 ∧ n_WE <= 3 ∧ anbau ∈ {freistehend, einseitig}, sonst Art61_Abs2", regeln: [BY.BayBO.61.Bauvorlageberechtigung], fundstelle: "Art. 61 Abs. 2, 3 Nr. 1", status: V}
+  - {id: pruefung_statik, formel: "sonderbau → Behörde/Prüfingenieur; GK >= 4 → PSV; GK 3 → Kriterienkatalog; GK 1/2 Wohngebäude → keine", regeln: [BY.BayBO.62a-62b.Pruefpflichten], fundstelle: "Art. 62a", status: V}
+  - {id: pruefung_brand, formel: "GK 5 oder Sonderbau → PSV oder Bauaufsicht; GK 4 → Bestätigung Bauausführung; sonst keine", regeln: [BY.BayBO.62a-62b.Pruefpflichten], fundstelle: "Art. 62b, 78", status: V}
+  - {id: schall_tabellen, formel: "Tab3 wenn haustrennwand; Tab2 wenn n_WE + n_NE_sonst >= 2", regeln: [DE.DIN4109-1.Tab2-Trennbauteile, DE.DIN4109-1.Tab3-Haustrennwand], fundstelle: "DIN 4109-1:2018-01", status: V}
+  - {id: barrierefrei, formel: "n_WE > 2", regeln: [BY.BayBO.48.Barrierefreiheit, DE.DIN18040-2.Bewegungsflaeche], fundstelle: "Art. 48 Abs. 1", status: V}
+  - {id: aufzug, formel: "h_Art2 > 13 m", regeln: [BY.BayBO.37-4.Aufzug], fundstelle: "Art. 37 Abs. 4", status: V}
+  - {id: raumhoehe_240, formel: "GK >= 3", regeln: [BY.BayBO.45-1.Raumhoehe], fundstelle: "Art. 45 Abs. 1", status: V}
+  - {id: abstellraum, formel: "GK >= 3; zusätzlich Kinderwagen/Fahrräder, wenn nicht alle Wohnungen zu ebener Erde", fundstelle: "Art. 46 Abs. 2", status: V}
+  - {id: spielplatz, formel: "Satzung ∧ n_WE > 5", regeln: [BY.BayBO.81.Satzungspflichten], fundstelle: "Art. 81 Abs. 1 Nr. 3", status: V}
+  - {id: stellplaetze, formel: "nur mit Satzung", regeln: [BY.BayBO.81.Satzungspflichten], fundstelle: "Art. 47, 81 Abs. 1 Nr. 4", status: V}
+  - {id: holzbaurl, formel: "GK ∈ {4, 5}", regeln: [DE.HolzBauRL.Daemmstoff, DE.HolzBauRL.Entzuendungsschutz], fundstelle: "BayTB 11/2025 A 2.2.1.4", status: V}
+  - {id: hubrettung, formel: "Brüstung Anleiterstelle > 8 m", fundstelle: "Art. 31 Abs. 3", status: V}
+  - {id: abstandsflaeche_1H, formel: "Gemeinde > 250 000 Einwohner ∧ Umgebung von GK 1-3 geprägt", fundstelle: "Art. 6 Abs. 5a", status: V}
+  - {id: rettungswege_je_NE, formel: "2 Rettungswege je NE und Geschoss; Bungalow ebenerdig <= 400 m²: 1", fundstelle: "Art. 31 Abs. 1", status: V}
+  - {id: trinkwv31, formel: "Speicher > 400 l oder > 3 l Leitung ohne Zirkulation ∧ Duschen ∧ kein EFH/ZFH ∧ Vermietung", fundstelle: "TrinkwV § 31, § 2 Nr. 8", status: V}
+  - {id: heizkostenv, formel: "n_WE >= 2, Ausnahme <= 2 WE mit vom Vermieter bewohnter Wohnung", fundstelle: "HeizkostenV § 2", status: V}
+  - {id: hausanschlussraum, formel: "NE > 5", fundstelle: "DIN 18012:2018", status: U}
+  - {id: weg, formel: "eigentum = weg", regeln: [DE.WEG.3-3.Abgeschlossenheit], fundstelle: "WEG § 3 Abs. 3, § 7 Abs. 4; AVA 2021", status: V}
+  - {id: typengenehmigung, formel: "Hersteller besitzt Typengenehmigung T", regeln: [BY.BayBO.73a.Typengenehmigung], fundstelle: "Art. 73a", status: V}
+  - {id: gebaeudetyp_e, formel: "Vertragsvariante gewählt; nur S3 aussetzbar; ohne Rechtswirkung bis Inkrafttreten", regeln: [K.GebaeudetypE.Vertragsstandard], status: U}
+
+schwellenwarnungen:
+  regel: BY.Profil.Schwellenwarnung
+  hoehe_m: [7.0, 13.0, 22.0]
+  abstand_m: 0.5
+  flaeche_NE_m2: [200.0, 400.0]
+  n_WE: [2, 3, 5]
+  folgen:
+    "n_WE 2→3": "barrierefreie Erreichbarkeit (Art. 48)"
+    "n_WE 3→4": "Architekt oder Listen-Ingenieur (Art. 61 Abs. 2)"
+    "n_WE 5→6": "Spielplatz bei Satzung; Hausanschlussraum [U]"
+    "h > 7 m": "GK 4 (bzw. 3→4): PSV Statik, HolzBauRL, Treppe nichtbrennbar"
+    "h > 13 m": "GK 5, Aufzug, PSV Brandschutz"
+    "h > 22 m": "Hochhaus = Sonderbau"
+
+# ---------------------------------------------------------------------------
+# 4. Brandschutz-Bauteilanforderungen je GK (Recherche 14, 2.3)
+#    fh = feuerhemmend, hfh = hochfeuerhemmend, fb = feuerbeständig, nb = nichtbrennbar
+# ---------------------------------------------------------------------------
+brandschutz_je_gk:
+  tragende_waende_stuetzen_decken:   {GK1: "-",  GK2: fh, GK3: fh, GK4: hfh, GK5: fb}
+  keller_tragende_teile_decken:      {GK1: fh,  GK2: fh, GK3: fb, GK4: fb,  GK5: fb}
+  trennwaende_NE:                    {GK1: "- (Wohngebäude)", GK2: "- (Wohngebäude)", GK3: "wie Tragwerk, mind. fh", GK4: hfh, GK5: fb}
+  gebaeudeabschlusswand:             {GK1: "Art. 27 entspr. (fh)", GK2: "Art. 27 entspr. (fh)", GK3: "hfh oder fh innen→außen / fb außen→innen", GK4: "hfh + mech.", GK5: "Brandwand, nb"}
+  waende_notwendiger_treppenraeume:  {GK1: "-",  GK2: "-", GK3: fh, GK4: "hfh + mech.", GK5: "Bauart Brandwand (nb)"}
+  tragende_teile_notwendiger_treppen: {GK1: "-", GK2: "-", GK3: "nb oder fh", GK4: nb, GK5: "fh + nb"}
+  fahrschachtwaende:                 {GK1: "-",  GK2: "-", GK3: fh, GK4: hfh, GK5: "fb + nb"}
+
+# ---------------------------------------------------------------------------
+# 5. Matrix Gebäudetyp × Regelbereich (Tabellen 9a.2 und 9a.3)
+# ---------------------------------------------------------------------------
+gebaeudetypen:
+  EFH:
+    bezeichnung: Einfamilienhaus (Referenz)
+    merkmale_typisch: {anbau: freistehend, n_WE: 1, h_Art2_max_m: 7.0, BGF_max_m2: 400}
+    gk_typisch: 1
+    regelbereiche:
+      bauvorlage: Art61_Abs3
+      pruefung_statik: keine
+      pruefung_brand: keine
+      brandschutz: "keine Anforderung an tragende Teile; Keller feuerhemmend"
+      schall: keine
+      barrierefreiheit: keine
+      aufzug: nein
+      raumhoehe_240: nein
+      stellplaetze: "nur per Satzung"
+      weg: "-"
+    kipppunkte: ["BGF > 400 m² → GK 3", "zweite Nutzungseinheit → Schall Tab. 2, Rettungswege je Wohnung"]
+    status: V
+  EFH_ELW:
+    bezeichnung: Einfamilienhaus mit Einliegerwohnung
+    merkmale_typisch: {anbau: freistehend, n_WE: 2}
+    gk_typisch: 1
+    regelbereiche:
+      bauvorlage: Art61_Abs3
+      pruefung_statik: keine
+      pruefung_brand: keine
+      brandschutz: "innerhalb GK 1/2 keine Trennwandpflicht (Art. 27 Abs. 6); 2 Rettungswege je Wohnung"
+      schall: "Tab. 2: Decke R'w >= 54 dB, L'n,w <= 53 dB (Holz); Wand >= 53 dB"
+      barrierefreiheit: keine
+      tga: "HeizkostenV (Ausnahme § 2 bei vom Vermieter bewohnter Wohnung)"
+      weg: "Aufteilung möglich"
+    kipppunkte: ["ELW ohne eigenen Zugang → Abgrenzung der NE freigabepflichtig"]
+    status: V
+  ZFH:
+    bezeichnung: Zweifamilienhaus
+    merkmale_typisch: {anbau: freistehend, n_WE: 2}
+    gk_typisch: [1, 2]
+    regelbereiche:
+      bauvorlage: Art61_Abs3
+      pruefung_statik: keine
+      pruefung_brand: keine
+      brandschutz: "Decken in GK 2 feuerhemmend; 2 Rettungswege je Wohnung"
+      schall: "Tab. 2"
+      tga: "HeizkostenV; TrinkwV § 31 nicht (ZFH)"
+      weg: "Aufteilung möglich"
+    kipppunkte: ["dritte Wohnung → Barrierefreiheit"]
+    status: V
+  DHH:
+    bezeichnung: Doppelhaushälfte
+    merkmale_typisch: {anbau: einseitig, n_WE: 1}
+    gk_typisch: 2
+    regelbereiche:
+      bauvorlage: Art61_Abs3
+      pruefung_statik: keine
+      pruefung_brand: keine
+      brandschutz: "Gebäudeabschlusswand mindestens fh (Art. 28 Abs. 2 S. 2), bis unter die Dachhaut"
+      schall: "Tab. 3: Haustrennwand >= 59 dB (unterstes Geschoss) / >= 62 dB; Decken L'n,w <= 41 dB"
+      abstandsflaeche: "keine an der Grenze, wenn planungsrechtlich angebaut werden muss oder darf (Art. 6 Abs. 1 S. 4)"
+      planungsrecht: "Doppelhaus-Eigenschaft freigabepflichtig (BVerwG 4 C 12.14)"
+      weg: "Realteilung oder WEG"
+      energie: "GModG § 3 Abs. 1 Nr. 6: einseitig angebaut >= 80 % Anbaufläche"
+    regeln: [BY.BayBO.28-2.Gebaeudeabschlusswand, DE.DIN4109-1.Tab3-Haustrennwand, BY.BauNR.Doppelhaus]
+    kipppunkte: ["nie GK 1 (nicht freistehend)"]
+    status: V
+  RH_Ende:
+    bezeichnung: Reihenendhaus
+    merkmale_typisch: {anbau: einseitig, n_WE: 1}
+    gk_typisch: 2
+    regelbereiche:
+      bauvorlage: Art61_Abs3
+      pruefung_statik: "GK 2 keine; GK 4 PSV"
+      pruefung_brand: keine
+      brandschutz: "wie DHH; in GK 4 hfh + mechanische Beanspruchung (Art. 28 Abs. 3 S. 2 Nr. 1)"
+      schall: "Tab. 3"
+    regeln: [BY.BayBO.28-2.Gebaeudeabschlusswand, DE.DIN4109-1.Tab3-Haustrennwand]
+    kipppunkte: ["h > 7 m (ausgebautes DG, OKFF ca. 8 m) → GK 4"]
+    status: V
+  RH_Mitte:
+    bezeichnung: Reihenmittelhaus
+    merkmale_typisch: {anbau: beidseitig, n_WE: 1}
+    gk_typisch: 2
+    regelbereiche:
+      bauvorlage: Art61_Abs2
+      pruefung_statik: "wie Endhaus"
+      pruefung_brand: keine
+      brandschutz: "zwei Abschlusswände; bei traufseitiger Reihung Dach feuerhemmend von innen (Art. 30 Abs. 6) [U]"
+      schall: "Tab. 3"
+    regeln: [BY.BayBO.28-2.Gebaeudeabschlusswand, DE.DIN4109-1.Tab3-Haustrennwand, BY.BayBO.61.Bauvorlageberechtigung]
+    kipppunkte: ["Zimmerermeister nicht bauvorlageberechtigt"]
+    status: V
+  MFH_GK3:
+    bezeichnung: Mehrfamilienhaus GK 3
+    merkmale_typisch: {n_WE: [3, 4], h_Art2_max_m: 7.0}
+    gk_typisch: 3
+    regelbereiche:
+      bauvorlage: "<= 3 WE und frei/einseitig: Art61_Abs3; >= 4 WE: Art61_Abs2"
+      pruefung_statik: "Kriterienkatalog (Anlage 2 BauVorlV); Holzbau mit BSH/Scheibe/Schwingung oft PSV [U]"
+      pruefung_brand: keine
+      brandschutz: "tragende Teile, Decken, Trennwände, Treppenraum fh; Treppe nb oder fh; notwendiger Treppenraum"
+      schall: "Tab. 2 inkl. Treppenraumwände 53 dB; Wohnungstüren Rw 27/37 dB"
+      barrierefreiheit: "> 2 WE: Wohnungen eines Geschosses barrierefrei erreichbar (DIN 18040-2 ohne R)"
+      aufzug: nein
+      raumhoehe_240: ja
+      abstellraum: ja
+      spielplatz: "Satzung ∧ > 5 WE"
+      weg: "Aufteilungsplan + Abgeschlossenheit (AVA 2021)"
+      tga: "TrinkwV § 31 bei Vermietung; HeizkostenV fernablesbar; Hausanschlussraum ab > 5 NE [U]"
+      holzbaurl: "nicht anwendbar; Verzicht auf Bauartgenehmigung bei Nachweis nach Anhängen"
+    regeln: [BY.BayBO.45-1.Raumhoehe, BY.BayBO.48.Barrierefreiheit, DE.DIN4109-1.Tab2-Trennbauteile, BY.BayBO.62a-62b.Pruefpflichten]
+    kipppunkte: ["4. Wohnung → Art. 61 Abs. 2", "h > 7 m → GK 4"]
+    status: V
+  MFH_GK4:
+    bezeichnung: Mehrfamilienhaus GK 4
+    merkmale_typisch: {h_Art2_max_m: 13.0, BGF_NE_max_m2: 400}
+    gk_typisch: 4
+    regelbereiche:
+      bauvorlage: Art61_Abs2
+      pruefung_statik: PSV
+      pruefung_brand: "keine Prüfung; Bestätigung der Bauausführung (Art. 78)"
+      brandschutz: "hfh nach HolzBauRL; Treppe nb; Treppenraum hfh + mechanisch"
+      schall: "wie GK 3; Aufzugsschachtwand 57 dB"
+      barrierefreiheit: "wie GK 3"
+      aufzug: nein
+      tga: "Leitungsdurchführungen nach LAR, Abschottungen hfh"
+      holzbaurl: ja
+    regeln: [DE.HolzBauRL.Daemmstoff, DE.HolzBauRL.Entzuendungsschutz, BY.BayBO.62a-62b.Pruefpflichten]
+    kipppunkte: ["h > 13 m → GK 5, Aufzug"]
+    status: V
+  GWB_GK5:
+    bezeichnung: Geschosswohnungsbau in Holz GK 5
+    merkmale_typisch: {h_Art2_max_m: 22.0}
+    gk_typisch: 5
+    regelbereiche:
+      bauvorlage: Art61_Abs2
+      pruefung_statik: PSV
+      pruefung_brand: "PSV Brandschutz oder Bauaufsicht, mit Bauüberwachung"
+      brandschutz: "feuerbeständig ('abweichend feuerbeständig' nach HolzBauRL); Treppenraum Bauart Brandwand, nb; Holztafelbau zulässig"
+      schall: "wie GK 3"
+      barrierefreiheit: "1/3 der Wohnungen barrierefrei erreichbar; Wohnungstüren 0,90 m"
+      aufzug: "Pflicht (h > 13 m), Kabine 1,10 × 2,10 m"
+      tga: "Sicherheitsbeleuchtung in fensterlosen Treppenräumen; Rauchabzug oben"
+      holzbaurl: ja
+    regeln: [BY.BayBO.37-4.Aufzug, DE.HolzBauRL.Daemmstoff, DE.HolzBauRL.Entzuendungsschutz]
+    kipppunkte: ["h > 22 m → Hochhaus (Sonderbau)"]
+    status: V
+  Bungalow:
+    bezeichnung: Bungalow (Randfall)
+    merkmale_typisch: {anbau: freistehend, n_WE: 1, geschosse: 1}
+    gk_typisch: 1
+    regelbereiche:
+      brandschutz: "ebenerdig bis 400 m²: ein Rettungsweg genügt (Art. 31 Abs. 1 S. 2 Nr. 2)"
+    kipppunkte: []
+    status: V
+  TinyHouse:
+    bezeichnung: Tiny House / Modul (Randfall)
+    merkmale_typisch: {anbau: freistehend, n_WE: 1}
+    gk_typisch: 1
+    regelbereiche:
+      pruefung_statik: "keine; Typenprüfung möglich (Art. 62a Abs. 2 S. 3 Nr. 2)"
+      rechtsnatur: "ortsfest benutzt = bauliche Anlage (Art. 2 Abs. 1 S. 3)"
+      energie: "GModG § 104: Bauteil-U-Werte genügen für kleine Gebäude"
+    kipppunkte: []
+    status: V
+  WGH:
+    bezeichnung: Wohn- und Geschäftshaus (Randfall)
+    merkmale_typisch: {wohngebaeude: freigabepflichtig}
+    gk_typisch: [3, 4, 5]
+    regelbereiche:
+      bauvorlage: "Art61_Abs2 (kein reines Wohngebäude) [U]"
+      brandschutz: "Sonderbau-Schwellen (Art. 2 Abs. 4); notwendige Flure ab NE > 200 m²"
+      schall: "Tab. 2 fremde Arbeitsräume; Abschnitte zu lauten Räumen/Gewerbe"
+      barrierefreiheit: "öffentlich zugängliche Teile barrierefrei (Art. 48 Abs. 2)"
+      energie: "GModG § 106: Nichtwohnteil getrennt"
+    kipppunkte: ["Sonderbau-Tatbestände prüfen"]
+    status: U
+
+# ---------------------------------------------------------------------------
+# 6. Freigabe-Gates (Kapitel 9a.4)
+# ---------------------------------------------------------------------------
+gates:
+  bauvorlage:
+    regel: BY.BayBO.61.Bauvorlageberechtigung
+    reichweite:
+      architekt_listeningenieur: {profile: alle}
+      art61_abs3_person: {bedingung: "wohngebaeude ∧ GK <= 3 ∧ n_WE <= 3 ∧ anbau ∈ {freistehend, einseitig}", rollen: [ingenieur_architektur_hochbau_bau, techniker_bautechnik, maurermeister, betonbauermeister, zimmerermeister]}
+      art61_abs4_nr6_holzbau: {bedingung: "Holzbauweise; Reichweite im Übrigen [U]"}
+    ungueltig_bei: "Profilwechsel aus der Reichweite"
+  statik:
+    regel: BY.BayBO.62a-62b.Pruefpflichten
+    rollen: {GK1: nachweisersteller, GK2: nachweisersteller, GK3: "nachweisersteller + PSV falls Kriterienkatalog verfehlt", GK4: PSV, GK5: PSV}
+    beauftragung: bauherr
+    termine: ["Bescheinigung I mit Baubeginnsanzeige", "Bescheinigung II mit Anzeige der Nutzungsaufnahme"]
+  brandschutz:
+    regel: BY.BayBO.62a-62b.Pruefpflichten
+    rollen: {GK1: "-", GK2: "-", GK3: "-", GK4: "Bestätigung Bauausführung durch Nachweisersteller", GK5: "PSV Brandschutz oder Bauaufsicht"}

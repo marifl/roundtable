@@ -305,6 +305,68 @@ Die Typologie ergänzt den Regelraum aus Kapitel 9 in vier Punkten:
 3. **Gates am Profil.** Die kleine Bauvorlageberechtigung endet bei freistehenden oder einseitig angebauten Wohngebäuden der GK 1 bis 3 mit höchstens drei Wohnungen. Ab GK 4 prüft immer ein Prüfsachverständiger die Standsicherheit, ab GK 5 auch den Brandschutz. Die App prüft die Berechtigungsreichweite bei jeder Änderung neu.
 4. **Holzbau ab GK 4 als Modul, Typengenehmigung als Profil.** Die HolzBauRL 2024 wirkt als Katalogfilter. Der Gebäudetyp E darf nur Schicht *S*₃ aussetzen und ist bis zum Inkrafttreten eine Profilvariante ohne Rechtswirkung. Eine Typengenehmigung nach Art. 73a ist ein Profil, dessen Lösungsraum die Behörde einmal prüft.
 
+## 9a.10 Umsetzungsvorgaben für die App
+
+Es gelten die Regeln aus Kapitel 3.7 und 9.9. Die Matrix aus 9a.3, der Merkmalsvektor, die Schalter und die Gates stehen maschinenlesbar in `spezifikation/regelprofile.yaml`. Die typabhängigen Regeln stehen in `spezifikation/regelkatalog.yaml` (Kennungen unten). Die Referenzfälle sind Testfälle mit konstruierten Merkmalsvektoren, weil ein lauffähiges Beispiel für die Typumschaltung (B12) noch aussteht.
+
+### 9a.10.1 Anforderungen
+
+**Profilableitung**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09a-01 | Muss | Das Profil wird aus dem Merkmalsvektor abgeleitet und bei jeder relevanten Modelländerung neu berechnet; der gewählte Haustyp ist nur Startwert. | 9a.2.1 | Start „Reihenhaus“, DG ausgebaut, `h_Art2` = 8,0 m: GK 4, Schalter `holzbaurl` aktiv. Start „EFH“, 1 WE, 450 m² BGF: GK 3, `raumhoehe_240` aktiv. |
+| ANF-09a-02 | Muss | Gebäudeklasse nach `BY.BayBO.2-3.Gebaeudeklasse`; *h* bezieht sich auf das oberste Geschoss mit **möglichem** Aufenthaltsraum. | 9a.1, Listing 9a.1 | (frei, 6,5 m, 2 NE, 380 m²) → 1; (einseitig, 6,5 m, 1 NE, 150 m²) → 2; (frei, 6,9 m, 3 NE, 300 m²) → 3; (12,5 m, max. NE 380 m²) → 4; (12,5 m, eine NE 420 m²) → 5. Nicht ausgebauter, ausbaufähiger Dachraum auf 7,6 m: zählt für *h*. |
+| ANF-09a-03 | Muss | Schwellenwarnungen nach `BY.Profil.Schwellenwarnung` nennen die Folgen vor der Überschreitung. | 9a.2.2 | `h_Art2` = 6,6 m: Warnung „GK-Sprung bei > 7 m“. 3 WE: Warnung „+1 Wohnung → Architekt oder Listen-Ingenieur (Art. 61 Abs. 2)“. 2 WE: Warnung „+1 Wohnung → barrierefreie Erreichbarkeit“. |
+| ANF-09a-04 | Muss | Ein Profilwechsel löst die vollständige Neuauswertung und einen Delta-Bericht aus (B12). | 9a.2.2 | EFH → EFH mit ELW: Bericht nennt neu aktiv `DE.DIN4109-1.Tab2-Trennbauteile`, Rettungswege je Wohnung, HeizkostenV; keine neue Anforderung an die Bauvorlageberechtigung. |
+| ANF-09a-05 | Muss | Nicht deterministische Merkmale liefern `freigabepflichtig` mit Indikatoren, nie `erfuellt`. | 9a.2.3 | Zwei Hälften mit verschiedener Firstrichtung und 1,5 m Höhenversatz: `BY.BauNR.Doppelhaus` = `freigabepflichtig`, Indikatoren gelistet, Gate „Bauvorlage“ wartet auf Freigabe. |
+| ANF-09a-06 | Muss | Merkmale sind quellengebunden; gleichlautende Begriffe verschiedener Gesetze werden getrennt geführt. | 9a.2.3 | Anbauanteil 70 %: `GModG.einseitig_angebaut` = nein; `BayBO.anbau` = einseitig bleibt; Schalter `bauvorlage` = `Art61_Abs3` unverändert. |
+
+**Gates und Rollen**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09a-07 | Muss | Jede Person hat eine Berechtigungsreichweite; das Gate „Bauvorlage“ ist nur frei, wenn das Profil darin liegt. Eine Freigabe verfällt, wenn das Profil die Reichweite verlässt. | 9a.4.1 | Zimmerermeister, Reihenendhaus GK 2: Gate frei. Anbau eines weiteren Hauses (Mittelhaus): Freigabe ungültig, Meldung „Architekt oder Listen-Ingenieur (Art. 61 Abs. 2)“. MFH mit 4 WE: Gate gesperrt. |
+| ANF-09a-08 | Muss | Prüfpflichten nach `BY.BayBO.62a-62b.Pruefpflichten`; Kriterium Nr. 8 des Kriterienkatalogs wird aus dem Modell ausgewertet. | 9a.4.2 | GK 3 mit einem Bauteil aus Brettschichtholz: „PSV Standsicherheit erforderlich“. GK 4: PSV Statik + Bestätigung Bauausführung Brandschutz. GK 5: zusätzlich PSV Brandschutz. GK 2 Wohngebäude: keine Prüfung. |
+| ANF-09a-09 | Muss | Wird ein Prüfsachverständiger erforderlich, nennt die Baubeschreibung Beauftragung durch den Bauherrn, Kosten und Termine der Bescheinigungen. | 9a.4.3 | Profil GK 4: Baubeschreibung enthält Abschnitt „Prüfsachverständiger“ mit „Bescheinigung I mit Baubeginnsanzeige“ und „Bescheinigung II mit Nutzungsaufnahme“; GK 2: Abschnitt fehlt. |
+| ANF-09a-10 | Muss | Die Matrix Gebäudetyp × Regelbereich wird aus `regelprofile.yaml` geladen, nicht im Code gepflegt. | 9a.3 | Ladeprüfung: jede in `regelprofile.yaml` genannte Regel-ID existiert im Katalog; jedes Profil des Katalogs ist registriert (Stand 27.09.2026: 0 Abweichungen). |
+
+**Typabhängige Regeln**
+
+| ID | M/S | Beschreibung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-09a-11 | Muss | Schallschutz nach Tab. 2 bzw. Tab. 3 je Schalter `schall_tabellen`; der Bauteilkatalog wird vorab gefiltert. | 9a.3 | DHH, Haustrennwand OG mit R′w = 60 dB: `verletzt` (≥ 62 dB); im untersten Geschoss 60 dB: `erfuellt` (≥ 59 dB). ZFH, Holzdecke L′n,w = 52 dB: `erfuellt` (≤ 53 dB). |
+| ANF-09a-12 | Muss | Wohnfläche nach `DE.WoFlV.Wohnflaeche` je `IfcSpace` mit Anrechnungsfaktor; Ausgabe in der Baubeschreibung. | 9a.5.1 | DG-Raum 10 m², davon 6 m² mit ≥ 2 m und 4 m² mit 1–2 m: 8,0 m². Balkon 8 m²: 2,0 m². Kellerraum: 0 m². |
+| ANF-09a-13 | Muss | Abgeschlossenheit nach `DE.WEG.3-3.Abgeschlossenheit` mit Maßstab AVA 2021. | 9a.5.2 | MFH, Wohnung 2 nur durch Wohnung 1 erreichbar: `verletzt`, Meldung nennt Tür und fremde Einheit. Profil mit Maßstab „AVV 1974“: Ladefehler. |
+| ANF-09a-14 | Muss | HolzBauRL-Dämmstoffregel als Katalogfilter in GK 4/5, mit Ausnahme Fußbodenaufbau (vgl. ANF-03-08). | 9a.6 | GK 4: Wandaufbau B1/B3 (Holzfaser im Gefach) nicht wählbar; Aufbau B14 Variante B (Holzfaser-Trittschall im Fußboden) wählbar. GK 2: beide wählbar. |
+| ANF-09a-15 | Muss | Entzündungsschutz *t_ch* nach `DE.HolzBauRL.Entzuendungsschutz`. | 9a.6 | GK 4, tragende Wand mit Katalogwert *t_ch* = 30 min und NE 350 m²: `verletzt` (≥ 60 min); gleiche Wand bei NE 180 m²: `erfuellt` (reduziert, ≤ 200 m²). |
+| ANF-09a-16 | Muss | Gebäudetyp E ist eine Profilvariante ohne Rechtswirkung; sie kann nur Regeln der Schicht S3 aussetzen und erzeugt die Aufklärung in Textform. | 9a.7 | Variante aktiv, Aussetzung einer S3-Regel (erhöhter Schallschutz): zulässig, Aufklärungsdokument erzeugt, Nachweis „vertraglich abweichend, ohne Rechtswirkung“. Aussetzung von `DE.DIN4109-1.Tab2-Trennbauteile` (S2): abgewiesen. |
+| ANF-09a-17 | Soll | Eine Typengenehmigung ist ein Profil *T*; ein Entwurf außerhalb *L*(*T*) wird gemeldet und das Gate Statik neu bestimmt. | 9a.8 | Testprofil *T* mit 4–8 Obergeschossen: Entwurf mit 9 OG → Meldung „verlässt Typengenehmigung“, Gate Statik = PSV. Entwurf mit 6 OG: Typenprüfung ersetzt Prüfung. |
+| ANF-09a-18 | Muss | Schalter `barrierefrei`, `aufzug`, `raumhoehe_240`, `abstellraum` aktivieren die zugehörigen Regeln. | 9a.3 | 3 WE, GK 3: Barrierefreiheit (ein Geschoss), Raumhöhe 2,40 m, Abstellraum aktiv; Raum mit 2,35 m: `verletzt`. *h* = 13,5 m: Aufzug mit Kabine 1,10 × 2,10 m gefordert. |
+| ANF-09a-19 | Muss | Stellplatz- und Spielplatzpflicht nur über eine Satzungsdatenbank je Gemeinde. | 9a.3 | Gemeinde ohne Satzung: keine Stellplatzpflicht. Testsatzung mit 2 Stellplätzen je Wohnung und 1 geplantem bei 1 WE: `verletzt`. 6 WE mit Spielplatzsatzung: Spielplatz gefordert; 5 WE: nicht. |
+
 ## Verwendete Schlüssel
 
-SCHLUESSELLISTE
+Das Kapitel enthält 26 Zitatstellen zu 24 Schlüsseln. Ein Python-Abgleich aller `[@key]` im Text gegen `literatur/lit-*.bib` ergab am 27.09.2026 keine fehlenden Schlüssel. Der Schlüssel `mbo2bim2023` steht in zwei Bib-Dateien (bekannte Dublette, siehe `literatur/KORREKTUREN.md`); zugeordnet ist die erste Datei. Rechtsprechung (BVerwG 4 C 12.98, 4 C 12.14), WEG, WoFlV, AVA 2021, DIN 4109-1 und der Stand zum Gebäudetyp E haben keinen Schlüssel im Literaturverzeichnis; sie sind über Recherche 14 belegt und im Text so ausgewiesen.
+
+**lit-A-acc-bim.bib** (1): `mbo2bim2023`
+
+**lit-B-vorfertigung-ki.bib** (1): `kaufmann2018manual`
+
+**lit-C-recht-normen.bib** (7): `bauvorlv`, `baybo2026`, `baytb2025`, `din4109-33`, `egbgb249`, `gmodg2026`, `holzbaurl2024`
+
+**lit-D-vergleich-vorfertigung.bib** (1): `chateauvieux2023bim`
+
+**lit-G-luecken.bib** (1): `eisele2024standards`
+
+**lit-H-ff4-ff5.bib** (1): `landtagbw2023typengenehmigung`
+
+**lit-I-schneeball-a.bib** (1): `kincelova2020fire`
+
+**lit-J-schneeball-runde2.bib** (1): `rasmussen2010sound`
+
+**lit-K-ff4-jur.bib** (8): `bayverfgh1999vf4vii97`, `bmk2024mbo`, `byak2019merkblatt7`, `hdbgdw2023typengenehmigung`, `landtagby2020baybonovelle`, `landtagby2024modernisierung`, `stmb2025typengenehmigung`, `zia2023seriell`
+
+**lit-L-schneeball-runde3.bib** (1): `meacham2022fire`
+
+**lit-M-nachweis.bib** (1): `mppvo2012`
