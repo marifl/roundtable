@@ -343,12 +343,9 @@
      14.333
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
-    "lkw": 3,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "transport": "innenlader",
+    "lkw": 4,
+    "hinweise": []
    },
    {
     "id": "G-WN",
@@ -365,12 +362,9 @@
      17.667
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
-    "lkw": 3,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "transport": "innenlader",
+    "lkw": 4,
+    "hinweise": []
    },
    {
     "id": "G-OS",
@@ -387,12 +381,9 @@
      14.333
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
+    "transport": "innenlader",
     "lkw": 4,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "hinweise": []
    },
    {
     "id": "G-ON",
@@ -409,12 +400,9 @@
      17.667
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
+    "transport": "innenlader",
     "lkw": 4,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "hinweise": []
    },
    {
     "id": "R-S1",
@@ -624,17 +612,13 @@
      "D-3",
      "D-4",
      "D-5",
-     "D-6",
-     "G-WS",
-     "G-WN"
+     "D-6"
     ],
-    "masse_t": 5.694,
-    "belegung_m": 2.502,
+    "masse_t": 4.391,
+    "belegung_m": 1.827,
     "grenze_m": 2.65,
-    "uebermass": true,
+    "uebermass": false,
     "beladereihenfolge": [
-     "G-WN",
-     "G-WS",
      "D-6",
      "D-5",
      "D-4",
@@ -645,19 +629,23 @@
    },
    {
     "nr": 4,
-    "art": "plateau",
-    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
     "elemente": [
+     "G-WS",
+     "G-WN",
      "G-OS",
      "G-ON"
     ],
-    "masse_t": 1.303,
-    "belegung_m": 0.675,
-    "grenze_m": 2.65,
-    "uebermass": true,
+    "masse_t": 2.606,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
     "beladereihenfolge": [
      "G-ON",
-     "G-OS"
+     "G-OS",
+     "G-WN",
+     "G-WS"
     ]
    },
    {
@@ -798,19 +786,14 @@
     "quelle": "DGUV Vorschrift 52 § 39; BaustellV Anhang II"
    },
    {
+    "kategorie": "Wind",
+    "text": "Montage über 2 Tage: Kran bleibt über Nacht aufgebaut – Ausleger ablegen bzw. nach Betriebsanleitung sichern, wenn der Kran nicht beaufsichtigt ist.",
+    "quelle": "Liebherr „Einfluss des Windes“ Kap. 6; FEM 5.016 Kap. 6"
+   },
+   {
     "kategorie": "Boden",
     "text": "Bodenpressung 250 kN/m² ≤ 250 kN/m² mit Platte 1.0 × 1.0 m, gerechnet mit F_max = 250 kN. Tragfähigkeit nur aus Tabellenwerten geschätzt; bei Zweifel Baugrund prüfen lassen.",
     "quelle": "DGUV Information 208-059 Abschn. 4; Liebherr „Untergrund für sichere Kraneinsätze“"
-   },
-   {
-    "kategorie": "Transport",
-    "text": "LKW 3: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
-    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
-   },
-   {
-    "kategorie": "Transport",
-    "text": "LKW 4: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
-    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
    },
    {
     "kategorie": "SiGe",
@@ -1280,7 +1263,7 @@
      "beginn": "2026-10-12T12:24:00",
      "ende": "2026-10-12T12:39:00",
      "dauer_min": 15,
-     "lkw": 3
+     "lkw": 4
     },
     {
      "id": "G-WN",
@@ -1288,7 +1271,7 @@
      "beginn": "2026-10-12T12:39:00",
      "ende": "2026-10-12T12:54:00",
      "dauer_min": 15,
-     "lkw": 3
+     "lkw": 4
     },
     {
      "id": "G-OS",
@@ -1341,40 +1324,40 @@
     {
      "id": "R-N1",
      "art": "Montage dach",
-     "beginn": "2026-10-12T14:52:00",
-     "ende": "2026-10-12T15:14:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N2",
-     "art": "Montage dach",
-     "beginn": "2026-10-12T15:14:00",
-     "ende": "2026-10-12T15:36:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N3",
-     "art": "Montage dach",
-     "beginn": "2026-10-12T15:36:00",
-     "ende": "2026-10-12T15:58:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N4",
-     "art": "Montage dach",
      "beginn": "2026-10-13T07:00:00",
      "ende": "2026-10-13T07:22:00",
      "dauer_min": 22,
      "lkw": 6
     },
     {
+     "id": "R-N2",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:22:00",
+     "ende": "2026-10-13T07:44:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N3",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:44:00",
+     "ende": "2026-10-13T08:06:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N4",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T08:06:00",
+     "ende": "2026-10-13T08:28:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
      "id": "ABRUESTEN",
      "art": "Kran abrüsten",
-     "beginn": "2026-10-13T07:22:00",
-     "ende": "2026-10-13T08:22:00",
+     "beginn": "2026-10-13T08:28:00",
+     "ende": "2026-10-13T09:28:00",
      "dauer_min": 60
     }
    ],
@@ -1396,16 +1379,16 @@
     {
      "lkw": 3,
      "ankunft": "2026-10-12T09:54:00",
-     "abfahrt": "2026-10-12T12:54:00",
-     "standzeit_min": 180,
+     "abfahrt": "2026-10-12T12:24:00",
+     "standzeit_min": 150,
      "abfahrt_werk": "2026-10-12T08:14:00"
     },
     {
      "lkw": 4,
-     "ankunft": "2026-10-12T12:24:00",
+     "ankunft": "2026-10-12T11:54:00",
      "abfahrt": "2026-10-12T13:24:00",
-     "standzeit_min": 60,
-     "abfahrt_werk": "2026-10-12T10:44:00"
+     "standzeit_min": 90,
+     "abfahrt_werk": "2026-10-12T10:14:00"
     },
     {
      "lkw": 5,
@@ -1416,10 +1399,10 @@
     },
     {
      "lkw": 6,
-     "ankunft": "2026-10-12T14:22:00",
-     "abfahrt": "2026-10-13T07:22:00",
-     "standzeit_min": 1020,
-     "abfahrt_werk": "2026-10-12T12:42:00"
+     "ankunft": "2026-10-13T06:30:00",
+     "abfahrt": "2026-10-13T08:28:00",
+     "standzeit_min": 118,
+     "abfahrt_werk": "2026-10-13T04:50:00"
     }
    ],
    "montagetage": 2,
@@ -1774,12 +1757,9 @@
      14.333
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
-    "lkw": 3,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "transport": "innenlader",
+    "lkw": 4,
+    "hinweise": []
    },
    {
     "id": "G-WN",
@@ -1796,12 +1776,9 @@
      17.667
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
-    "lkw": 3,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "transport": "innenlader",
+    "lkw": 4,
+    "hinweise": []
    },
    {
     "id": "G-OS",
@@ -1818,12 +1795,9 @@
      14.333
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
+    "transport": "innenlader",
     "lkw": 4,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "hinweise": []
    },
    {
     "id": "G-ON",
@@ -1840,12 +1814,9 @@
      17.667
     ],
     "oberkante_m": 6.506,
-    "transport": "plateau_uebermass",
+    "transport": "innenlader",
     "lkw": 4,
-    "hinweise": [
-     "passt nicht stehend in den Innenlader",
-     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
-    ]
+    "hinweise": []
    },
    {
     "id": "R-S1",
@@ -2055,17 +2026,13 @@
      "D-3",
      "D-4",
      "D-5",
-     "D-6",
-     "G-WS",
-     "G-WN"
+     "D-6"
     ],
-    "masse_t": 5.694,
-    "belegung_m": 2.502,
+    "masse_t": 4.391,
+    "belegung_m": 1.827,
     "grenze_m": 2.65,
-    "uebermass": true,
+    "uebermass": false,
     "beladereihenfolge": [
-     "G-WN",
-     "G-WS",
      "D-6",
      "D-5",
      "D-4",
@@ -2076,19 +2043,23 @@
    },
    {
     "nr": 4,
-    "art": "plateau",
-    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
     "elemente": [
+     "G-WS",
+     "G-WN",
      "G-OS",
      "G-ON"
     ],
-    "masse_t": 1.303,
-    "belegung_m": 0.675,
-    "grenze_m": 2.65,
-    "uebermass": true,
+    "masse_t": 2.606,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
     "beladereihenfolge": [
      "G-ON",
-     "G-OS"
+     "G-OS",
+     "G-WN",
+     "G-WS"
     ]
    },
    {
@@ -2211,6 +2182,11 @@
     "quelle": "Mobilitätsreferat München, Antrag Baustelle privat"
    },
    {
+    "kategorie": "Straße",
+    "text": "Kranabstützung reicht vor ein benachbartes Anwesen: im Antrag angeben und Nachbarn vorab informieren (Frage im MOR-Formular).",
+    "quelle": "Mobilitätsreferat München, Antrag Baustelle öffentlich/privat"
+   },
+   {
     "kategorie": "Wind",
     "text": "26 Hübe mit A_W > 1,2 m²/t: zulässige Böe unter 7.0 m/s (min. 3.1 m/s). Hubplanung mit Windrechner des Herstellers, Windmesser am Kran.",
     "quelle": "EN 13000 (1,2 m²/t); Liebherr „Einfluss des Windes“; FEM 5.016"
@@ -2221,19 +2197,14 @@
     "quelle": "DGUV Vorschrift 52 § 39; BaustellV Anhang II"
    },
    {
+    "kategorie": "Wind",
+    "text": "Montage über 2 Tage: Kran bleibt über Nacht aufgebaut – Ausleger ablegen bzw. nach Betriebsanleitung sichern, wenn der Kran nicht beaufsichtigt ist.",
+    "quelle": "Liebherr „Einfluss des Windes“ Kap. 6; FEM 5.016 Kap. 6"
+   },
+   {
     "kategorie": "Boden",
     "text": "Bodenpressung 178 kN/m² ≤ 200 kN/m² mit Platte 1.5 × 1.5 m, gerechnet mit F_max = 400 kN. Tragfähigkeit nur aus Tabellenwerten geschätzt; bei Zweifel Baugrund prüfen lassen.",
     "quelle": "DGUV Information 208-059 Abschn. 4; Liebherr „Untergrund für sichere Kraneinsätze“"
-   },
-   {
-    "kategorie": "Transport",
-    "text": "LKW 3: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
-    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
-   },
-   {
-    "kategorie": "Transport",
-    "text": "LKW 4: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
-    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
    },
    {
     "kategorie": "SiGe",
@@ -2703,7 +2674,7 @@
      "beginn": "2026-10-12T12:24:00",
      "ende": "2026-10-12T12:39:00",
      "dauer_min": 15,
-     "lkw": 3
+     "lkw": 4
     },
     {
      "id": "G-WN",
@@ -2711,7 +2682,7 @@
      "beginn": "2026-10-12T12:39:00",
      "ende": "2026-10-12T12:54:00",
      "dauer_min": 15,
-     "lkw": 3
+     "lkw": 4
     },
     {
      "id": "G-OS",
@@ -2764,40 +2735,40 @@
     {
      "id": "R-N1",
      "art": "Montage dach",
-     "beginn": "2026-10-12T14:52:00",
-     "ende": "2026-10-12T15:14:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N2",
-     "art": "Montage dach",
-     "beginn": "2026-10-12T15:14:00",
-     "ende": "2026-10-12T15:36:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N3",
-     "art": "Montage dach",
-     "beginn": "2026-10-12T15:36:00",
-     "ende": "2026-10-12T15:58:00",
-     "dauer_min": 22,
-     "lkw": 6
-    },
-    {
-     "id": "R-N4",
-     "art": "Montage dach",
      "beginn": "2026-10-13T07:00:00",
      "ende": "2026-10-13T07:22:00",
      "dauer_min": 22,
      "lkw": 6
     },
     {
+     "id": "R-N2",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:22:00",
+     "ende": "2026-10-13T07:44:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N3",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:44:00",
+     "ende": "2026-10-13T08:06:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N4",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T08:06:00",
+     "ende": "2026-10-13T08:28:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
      "id": "ABRUESTEN",
      "art": "Kran abrüsten",
-     "beginn": "2026-10-13T07:22:00",
-     "ende": "2026-10-13T08:22:00",
+     "beginn": "2026-10-13T08:28:00",
+     "ende": "2026-10-13T09:28:00",
      "dauer_min": 60
     }
    ],
@@ -2819,16 +2790,16 @@
     {
      "lkw": 3,
      "ankunft": "2026-10-12T09:54:00",
-     "abfahrt": "2026-10-12T12:54:00",
-     "standzeit_min": 180,
+     "abfahrt": "2026-10-12T12:24:00",
+     "standzeit_min": 150,
      "abfahrt_werk": "2026-10-12T08:14:00"
     },
     {
      "lkw": 4,
-     "ankunft": "2026-10-12T12:24:00",
+     "ankunft": "2026-10-12T11:54:00",
      "abfahrt": "2026-10-12T13:24:00",
-     "standzeit_min": 60,
-     "abfahrt_werk": "2026-10-12T10:44:00"
+     "standzeit_min": 90,
+     "abfahrt_werk": "2026-10-12T10:14:00"
     },
     {
      "lkw": 5,
@@ -2839,10 +2810,10 @@
     },
     {
      "lkw": 6,
-     "ankunft": "2026-10-12T14:22:00",
-     "abfahrt": "2026-10-13T07:22:00",
-     "standzeit_min": 1020,
-     "abfahrt_werk": "2026-10-12T12:42:00"
+     "ankunft": "2026-10-13T06:30:00",
+     "abfahrt": "2026-10-13T08:28:00",
+     "standzeit_min": 118,
+     "abfahrt_werk": "2026-10-13T04:50:00"
     }
    ],
    "montagetage": 2,

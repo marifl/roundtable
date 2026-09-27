@@ -1,4 +1,4 @@
-# B19 Außenlärm – Ergebnis (Modus nachweis, Lüftung KWL)
+# B19 Außenlärm – Ergebnis (Modus nachweis, Lüftung ALD)
 
 **Alle Zahlen sind Beispielwerte.**
 
@@ -15,14 +15,14 @@
 
 | Raum | Fassaden | maßg. | La,max | erf R'w,ges | K_AL | Ziel (erf+K_AL) | R'w,ges−2 | Klassen | RK | ALD | Mehrkosten |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Wohnen/Essen (EG) | N,S,W | tag | 69.0 | 39.0 | 0.9 | 39.9 | 40.1 | SSK N:3, S:2, W:3 | AK schallgedämmt | – | 838 € |
-| Schlafen (OG) | N,W | schlaf | 72.0 | 42.0 | 1.7 | 43.7 | 44.0 | SSK N:4, W:5 | Vorbau-Raffstore (kein Kasten in der Wand) | – | 1432 € |
+| Wohnen/Essen (EG) | N,S,W | tag | 69.0 | 39.0 | 0.9 | 39.9 | 40.0 | SSK N:3, S:2, W:3 | AK schallgedämmt | ALD schallgedämmt (S) | 1018 € |
+| Schlafen (OG) | N,W | schlaf | 72.0 | 42.0 | 1.7 | 43.7 | 43.9 | SSK N:5, W:4 | Vorbau-Raffstore (kein Kasten in der Wand) | ALD Schallschutz hoch (N) | 2174 € |
 | Bad (OG) | N | – | – | – | – | – | – | – | – | – | nicht schutzbedürftig (DIN 4 |
-| Kind (OG) | E,N | schlaf | 72.0 | 42.0 | 1.9 | 43.9 | 44.2 | SSK E:5, N:4 | Vorbau-Raffstore (kein Kasten in der Wand) | – | 1247 € |
-| Arbeiten (OG) | S,W | tag | 68.9 | 38.9 | 1.9 | 40.8 | 40.9 | SSK S:2, W:3 | AK schallgedämmt | – | 309 € |
+| Kind (OG) | E,N | schlaf | 72.0 | 42.0 | 1.9 | 43.9 | 44.4 | SSK E:5, N:5 | Vorbau-Raffstore (kein Kasten in der Wand) | ALD Schallschutz hoch (E) | 2150 € |
+| Arbeiten (OG) | S,W | tag | 68.9 | 38.9 | 1.9 | 40.8 | 41.6 | SSK S:3, W:3 | AK schallgedämmt | ALD schallgedämmt (S) | 615 € |
 | Flur/Treppe (OG) | E,S | – | – | – | – | – | – | – | – | – | nicht schutzbedürftig (DIN 4 |
 
-Summe Mehrkosten: 3826 € · max. Klasse: 5 · BayTB-Nachweis: ja (La = 69.0 dB ≥ 61 dB (wohnen))
+Summe Mehrkosten: 5958 € · max. Klasse: 5 · BayTB-Nachweis: ja (La = 69.0 dB ≥ 61 dB (wohnen))
 - **Verstoß** Schlafen: nur mit Fremdprodukt (SSK 5/6 oder mehrflüglig > SSK 2) nachweisbar (Katalogregel (Firma))
 - **Verstoß** Kind: nur mit Fremdprodukt (SSK 5/6 oder mehrflüglig > SSK 2) nachweisbar (Katalogregel (Firma))
 
@@ -30,22 +30,22 @@ Summe Mehrkosten: 3826 € · max. Klasse: 5 · BayTB-Nachweis: ja (La = 69.0 dB
 
 | Raum | Fassaden | maßg. | La,max | erf R'w,ges | K_AL | Ziel (erf+K_AL) | R'w,ges−2 | Klassen | RK | ALD | Mehrkosten |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Wohnen/Essen (EG) | N,S,W | tag | 69.0 | 39.0 | 0.9 | 39.9 | 40.1 | SSK N:3, S:2, W:3 | AK schallgedämmt | – | 838 € |
-| Arbeiten (OG) | N,W | tag | 69.0 | 39.0 | 1.7 | 40.7 | 41.1 | SSK N:3, W:4 | AK schallgedämmt | – | 561 € |
+| Wohnen/Essen (EG) | N,S,W | tag | 69.0 | 39.0 | 0.9 | 39.9 | 40.0 | SSK N:3, S:2, W:3 | AK schallgedämmt | ALD schallgedämmt (S) | 1018 € |
+| Arbeiten (OG) | N,W | tag | 69.0 | 39.0 | 1.7 | 40.7 | 40.7 | SSK N:4, W:4 | AK schallgedämmt | ALD schallgedämmt (W) | 930 € |
 | Bad (OG) | N | – | – | – | – | – | – | – | – | – | nicht schutzbedürftig (DIN 4 |
 | Flur/Treppe (OG) | E,N | – | – | – | – | – | – | – | – | – | nicht schutzbedürftig (DIN 4 |
-| Kind (OG) | S,W | schlaf | 71.9 | 41.9 | 2.2 | 44.1 | 44.7 | SSK S:3 | AK schallgedämmt | – | 261 € |
-| Schlafen (OG) | S | schlaf | 66.8 | 36.8 | -1.1 | 35.7 | 36.1 | SSK S:3 | AK Standard | – | 252 € |
+| Kind (OG) | S,W | schlaf | 71.9 | 41.9 | 2.2 | 44.1 | 44.4 | SSK S:4 | AK schallgedämmt | ALD schallgedämmt (S) | 630 € |
+| Schlafen (OG) | S | schlaf | 66.8 | 36.8 | -1.1 | 35.7 | 35.9 | SSK S:3 | AK Standard | ALD Schallschutz hoch (S) | 672 € |
 | Ankleide (OG) | E,S | – | – | – | – | – | – | – | – | – | nicht schutzbedürftig (DIN 4 |
 
-Summe Mehrkosten: 1912 € · max. Klasse: 4 · BayTB-Nachweis: ja (La = 69.0 dB ≥ 61 dB (wohnen))
+Summe Mehrkosten: 3250 € · max. Klasse: 4 · BayTB-Nachweis: ja (La = 69.0 dB ≥ 61 dB (wohnen))
 
 ## Empfehlungen
 
-- **E1-grundriss-tausch** (Prio 1): Legen Sie Schlafzimmer und Kinderzimmer auf die Südseite. Dort ist es nachts deutlich leiser. Die Fenster brauchen dann eine niedrigere Schallschutzklasse, das spart ca. 1914 € (Beispielpreise).  
-  _Fach:_ Variante B senkt erf R'w,ges der Schlafräume um Kind 0.1 dB, Schlafen 5.2 dB; max. Fensterklasse 5 → 4; Regelverstöße 2 → 0; Mehrkosten 3826 € → 1912 €.  
+- **E1-grundriss-tausch** (Prio 1): Legen Sie Schlafzimmer und Kinderzimmer auf die Südseite. Dort ist es nachts deutlich leiser. Die Fenster brauchen dann eine niedrigere Schallschutzklasse, das spart ca. 2707 € (Beispielpreise).  
+  _Fach:_ Variante B senkt erf R'w,ges der Schlafräume um Kind 0.1 dB, Schlafen 5.2 dB; max. Fensterklasse 5 → 4; Regelverstöße 2 → 0; Mehrkosten 5958 € → 3250 €.  
   _Quelle:_ DIN 4109-2, 4.4.5.1 (−5 dB abgewandte Seite); BVerwG 4 CN 2.06; BVerwG 4 BN 8.15
-- **E2-lueftung** (Prio 1): An der Nordseite ist es nachts so laut, dass man bei gekipptem Fenster schlecht schläft. Schlafräume brauchen eine Lüftung, die ohne Fensteröffnen funktioniert. Die zentrale Lüftung mit Wärmerückgewinnung (Regnauer-Standard) erfüllt das; Außen- und Fortluftdurchlässe mit Schalldämpfer planen.  
+- **E2-lueftung** (Prio 1): An der Nordseite ist es nachts so laut, dass man bei gekipptem Fenster schlecht schläft. Schlafräume brauchen eine Lüftung, die ohne Fensteröffnen funktioniert. Bei dezentraler Lüftung: schallgedämmte Außenwandluftdurchlässe (ALD) – sie gehen in den Nachweis ein.  
   _Fach:_ Lr,N an der Nordfassade 59 dB(A) > 45 dB(A) (DIN 18005 Bbl. 1, Hinweis) bzw. > 50 dB(A) (VDI 2719, Abschn. 10): fensterunabhängige, schallgedämmte Lüftung der Schlafräume; Lüftungskonzept nach DIN 1946-6 (Recherche 08). Schallschutz wirkt nur bei geschlossenem Fenster (DIN 4109-1, 7.3).  
   _Quelle:_ DIN 4109-1:2018, 7.3; VDI 2719:1987; DIN 1946-6:2019-12; BVerwG 4 C 4.05
 - **E3-nachweispflicht** (Prio 2): Für dieses Grundstück ist ein rechnerischer Schallschutznachweis gegen Außenlärm Pflicht.  
