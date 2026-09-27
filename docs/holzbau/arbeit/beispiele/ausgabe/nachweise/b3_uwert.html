@@ -189,10 +189,10 @@ figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
 <p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1867, s = 0,0034, 95-%-Intervall [0,1801; 0,1935] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
 <h3>Gegenrechnung mit dem Rechenkern</h3>
 <table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
-<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,186799</td><td class="z">0,18679932937799024</td><td class="z">3.29e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,567784</td><td class="z">5,567784334633171</td><td class="z">3.35e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,138892</td><td class="z">5,138892218541071</td><td class="z">2.19e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>U</td><td><code>IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)</code></td><td class="z">0,187</td><td class="z">0,18679932937799024</td><td class="z">2.01e-04</td><td>ja (Toleranz 5e-04)</td></tr>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,186799</td><td class="z">0,18679932937799024</td><td class="z">3,3 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,567784</td><td class="z">5,567784334633171</td><td class="z">3,3 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,138892</td><td class="z">5,138892218541071</td><td class="z">2,2 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>U</td><td><code>IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)</code></td><td class="z">0,187</td><td class="z">0,18679932937799024</td><td class="z">2,0 · 10⁻⁴</td><td>ja (Toleranz 5 · 10⁻⁴)</td></tr>
 </tbody></table>
 <h3>Hinweise</h3>
 <ul>
@@ -840,9 +840,9 @@ L 423.12563 25.207656
 <p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1834, s = 0,0033, 95-%-Intervall [0,1770; 0,1900] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
 <h3>Gegenrechnung mit dem Rechenkern</h3>
 <table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
-<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,183498</td><td class="z">0,18349797236470997</td><td class="z">2.76e-08</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,670411</td><td class="z">5,670410777706296</td><td class="z">2.22e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,228892</td><td class="z">5,228892218541071</td><td class="z">2.19e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,183498</td><td class="z">0,18349797236470997</td><td class="z">2,8 · 10⁻⁸</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,670411</td><td class="z">5,670410777706296</td><td class="z">2,2 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,228892</td><td class="z">5,228892218541071</td><td class="z">2,2 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
 </tbody></table>
 <h3>Hinweise</h3>
 <ul>
@@ -1490,9 +1490,9 @@ L 441.38438 25.207656
 <p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1625, s = 0,0034, 95-%-Intervall [0,1559; 0,1691] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
 <h3>Gegenrechnung mit dem Rechenkern</h3>
 <table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
-<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,162527</td><td class="z">0,1625267602545588</td><td class="z">2.40e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,304348</td><td class="z">6,304348160715462</td><td class="z">1.61e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,001318</td><td class="z">6,001317668514656</td><td class="z">3.31e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,162527</td><td class="z">0,1625267602545588</td><td class="z">2,4 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,304348</td><td class="z">6,304348160715462</td><td class="z">1,6 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,001318</td><td class="z">6,001317668514656</td><td class="z">3,3 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
 </tbody></table>
 <h3>Hinweise</h3>
 <ul>
@@ -2155,9 +2155,9 @@ L 403.466255 25.207656
 <p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1600, s = 0,0033, 95-%-Intervall [0,1537; 0,1664] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
 <h3>Gegenrechnung mit dem Rechenkern</h3>
 <table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
-<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,160081</td><td class="z">0,16008062419998384</td><td class="z">3.76e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,402387</td><td class="z">6,402386738218921</td><td class="z">2.62e-07</td><td>ja (Toleranz 5e-07)</td></tr>
-<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,091318</td><td class="z">6,091317668514656</td><td class="z">3.31e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,160081</td><td class="z">0,16008062419998384</td><td class="z">3,8 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,402387</td><td class="z">6,402386738218921</td><td class="z">2,6 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,091318</td><td class="z">6,091317668514656</td><td class="z">3,3 · 10⁻⁷</td><td>ja (Toleranz 5 · 10⁻⁷)</td></tr>
 </tbody></table>
 <h3>Hinweise</h3>
 <ul>

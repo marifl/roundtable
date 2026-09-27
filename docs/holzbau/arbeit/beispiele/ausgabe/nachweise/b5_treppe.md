@@ -189,10 +189,10 @@ Rundung des Ergebnisses: 1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunde
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| s | `b5_treppe_din18065.loese → s_mm (2 Dez.)` = 170,59 | 170,58823529411765 | 1.76e-03 | ja (Toleranz 5e-03) |
-| S | `b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)` = 631,18 | 631,1764705882354 | 3.53e-03 | ja (Toleranz 5e-03) |
-| l_L | `b5_treppe_din18065.loese → lauflaenge_mm` = 4640 | 4640 | 0.00e+00 | ja (Toleranz 1e-09) |
-| N_L | `ergebnisse.md: 68 Lösungen` = 68 | 68 | 0.00e+00 | ja (Toleranz 0e+00) |
+| s | `b5_treppe_din18065.loese → s_mm (2 Dez.)` = 170,59 | 170,58823529411765 | 0,0018 | ja (Toleranz 0,005) |
+| S | `b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)` = 631,18 | 631,1764705882354 | 0,0035 | ja (Toleranz 0,005) |
+| l_L | `b5_treppe_din18065.loese → lauflaenge_mm` = 4640 | 4640 | 0 | ja (Toleranz 1 · 10⁻⁹) |
+| N_L | `ergebnisse.md: 68 Lösungen` = 68 | 68 | 0 | ja (Toleranz 0) |
 
 ### Hinweise
 

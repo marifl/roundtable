@@ -411,9 +411,9 @@ Ausdruck (maschinenlesbar): `abs(V_D - V_D_IFC)`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Holzvolumen: Nachweis = IFC | 0,00000000000000011102230246251565 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Beplankung: Nachweis = IFC | 0,0000000000000002220446049250313 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Dämmung: Nachweis = IFC | 0,0000000000000004440892098500626 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Holzvolumen: Nachweis = IFC | 0,00000000000000011102 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Beplankung: Nachweis = IFC | 0,00000000000000022204 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Dämmung: Nachweis = IFC | 0,00000000000000044409 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -1621,10 +1621,10 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,186799 | 0,18679932937799024 | 3.29e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3.35e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,138892 | 5,138892218541071 | 2.19e-07 | ja (Toleranz 5e-07) |
-| U | `IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)` = 0,187 | 0,18679932937799024 | 2.01e-04 | ja (Toleranz 5e-04) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,186799 | 0,18679932937799024 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,138892 | 5,138892218541071 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| U | `IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)` = 0,187 | 0,18679932937799024 | 2,0 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -1921,9 +1921,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,183498 | 0,18349797236470997 | 2.76e-08 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,670411 | 5,670410777706296 | 2.22e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,228892 | 5,228892218541071 | 2.19e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,183498 | 0,18349797236470997 | 2,8 · 10⁻⁸ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,670411 | 5,670410777706296 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,228892 | 5,228892218541071 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 
@@ -2220,9 +2220,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,162527 | 0,1625267602545588 | 2.40e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,304348 | 6,304348160715462 | 1.61e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,001318 | 6,001317668514656 | 3.31e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,162527 | 0,1625267602545588 | 2,4 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,304348 | 6,304348160715462 | 1,6 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,001318 | 6,001317668514656 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 
@@ -2519,9 +2519,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,160081 | 0,16008062419998384 | 3.76e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,402387 | 6,402386738218921 | 2.62e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,091318 | 6,091317668514656 | 3.31e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,160081 | 0,16008062419998384 | 3,8 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,402387 | 6,402386738218921 | 2,6 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,091318 | 6,091317668514656 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 
@@ -2713,14 +2713,14 @@ Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13 m | ≥ | 3,2666666666666666 m | 0,252 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9 m | ≥ | 3,2666666666666666 m | 0,363 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 3,2667 m | 0,252 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 3,2667 m | 0,363 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
@@ -2728,9 +2728,9 @@ Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8.88e-16 | ja (Toleranz 5e-04) |
+| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8,9 · 10⁻¹⁶ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -2917,14 +2917,14 @@ Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 15,2 m² | ≤ | 0 m² | – | **nicht erfüllt** | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 2 m | ≥ | 3,2666666666666666 m | 1,634 | **nicht erfüllt** | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 8 m | ≥ | 3,2666666666666666 m | 0,409 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13 m | ≥ | 3,2666666666666666 m | 0,252 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9 m | ≥ | 3,2666666666666666 m | 0,363 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 15,200 m² | ≤ | 0 m² | – | **nicht erfüllt** | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 2,0000 m | ≥ | 3,2667 m | 1,634 | **nicht erfüllt** | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 8,0000 m | ≥ | 3,2667 m | 0,409 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 3,2667 m | 0,252 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 3,2667 m | 0,363 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
@@ -2932,9 +2932,9 @@ Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8.88e-16 | ja (Toleranz 5e-04) |
+| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8,9 · 10⁻¹⁶ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -3121,14 +3121,14 @@ Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 17 m | ≥ | 3,2666666666666666 m | 0,193 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 17,000 m | ≥ | 3,2667 m | 0,193 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
@@ -3136,9 +3136,9 @@ Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8.88e-16 | ja (Toleranz 5e-04) |
+| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8,9 · 10⁻¹⁶ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -3325,14 +3325,14 @@ Ergebnis: $A_{\mathrm{a},\mathrm{N}}$ = 0 m²
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| West (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5 m | ≥ | 3,2666666666666666 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13 m | ≥ | 4,6000000000000005 m | 0,354 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
-| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
-| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9 m | ≥ | 4,6000000000000005 m | 0,512 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| West (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| West (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Ost (Traufe): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Ost (Traufe): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 5,0000 m | ≥ | 3,2667 m | 0,654 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Süd (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Süd (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 13,000 m | ≥ | 4,6000 m | 0,354 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
+| Nord (Giebel): Abstandsfläche auf dem Grundstück | 0,0000 m² | ≤ | 0 m² | – | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2 |
+| Nord (Giebel): vorhandene ≥ erforderliche Tiefe (Wandmitte) | 9,0000 m | ≥ | 4,6000 m | 0,512 | erfüllt | BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5 |
 
 Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
@@ -3340,9 +3340,9 @@ Der Vergleich erfolgt mit ungerundeten Werten, Toleranzen siehe JSON.
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3.33e-04 | ja (Toleranz 5e-04) |
-| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 4,6 | 4,6000000000000005 | 8.88e-16 | ja (Toleranz 5e-04) |
-| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8.88e-16 | ja (Toleranz 5e-04) |
+| T_T | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 3,267 | 3,2666666666666666 | 3,3 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
+| T_G | `b4_abstandsflaechen.pruefe_szenario → T_erforderlich (3 Dez.)` = 4,6 | 4,6000000000000005 | 8,9 · 10⁻¹⁶ | ja (Toleranz 5 · 10⁻⁴) |
+| h_D | `b4_abstandsflaechen.pruefe_szenario → dachhoehe (3 Dez.)` = 5 | 4,999999999999999 | 8,9 · 10⁻¹⁶ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -3528,10 +3528,10 @@ Rundung des Ergebnisses: 1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunde
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| s | `b5_treppe_din18065.loese → s_mm (2 Dez.)` = 170,59 | 170,58823529411765 | 1.76e-03 | ja (Toleranz 5e-03) |
-| S | `b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)` = 631,18 | 631,1764705882354 | 3.53e-03 | ja (Toleranz 5e-03) |
-| l_L | `b5_treppe_din18065.loese → lauflaenge_mm` = 4640 | 4640 | 0.00e+00 | ja (Toleranz 1e-09) |
-| N_L | `ergebnisse.md: 68 Lösungen` = 68 | 68 | 0.00e+00 | ja (Toleranz 0e+00) |
+| s | `b5_treppe_din18065.loese → s_mm (2 Dez.)` = 170,59 | 170,58823529411765 | 0,0018 | ja (Toleranz 0,005) |
+| S | `b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)` = 631,18 | 631,1764705882354 | 0,0035 | ja (Toleranz 0,005) |
+| l_L | `b5_treppe_din18065.loese → lauflaenge_mm` = 4640 | 4640 | 0 | ja (Toleranz 1 · 10⁻⁹) |
+| N_L | `ergebnisse.md: 68 Lösungen` = 68 | 68 | 0 | ja (Toleranz 0) |
 
 ### Hinweise
 

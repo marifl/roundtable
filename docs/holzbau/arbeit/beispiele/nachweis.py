@@ -1183,7 +1183,7 @@ class Nachweis:
                      + " sind nicht fortgepflanzt.")
         for gr in self.gegenrechnungen:
             if not gr.get("uebereinstimmung", True):
-                h.append(f"Gegenrechnung {gr['symbol']}: Abweichung zum Rechenkern {gr['abweichung']:.3g} > Toleranz.")
+                h.append(f"Gegenrechnung {gr['symbol']}: Abweichung zum Rechenkern {zahl_wiss(gr['abweichung'])} > Toleranz.")
         return h
 
     @property
@@ -1350,7 +1350,7 @@ def _md_nachweis(d: dict, svg_pfad, ebene: int = 1) -> str:
         z += ["| Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |", "|---|---:|:---:|---:|---:|---|---|"]
         for k in d["kriterien"]:
             z.append(f"| {_md_esc(k['bezeichnung'])} | {_anz(k['ist_wert'], k['einheit'], _rund_von(d, k['ist']))} | {k['vergleich']} | "
-                     f"{_anz(k['grenz_wert'], k['einheit'])} | {_eta(k['ausnutzung'])} | "
+                     f"{_anz(k['grenz_wert'], k['einheit'], _rund_von(d, k['grenzwert']))} | {_eta(k['ausnutzung'])} | "
                      f"{'erfüllt' if k['erfuellt'] else '**nicht erfüllt**'} | {_md_esc(k['norm_verweis'])} |")
         z.append("")
         z.append("Der Vergleich erfolgt mit ungerundeten Werten" + (", Toleranzen siehe JSON." if any(k["toleranz"] for k in d["kriterien"]) else "."))
@@ -1376,7 +1376,7 @@ def _md_nachweis(d: dict, svg_pfad, ebene: int = 1) -> str:
         z += ["", f"{h}# Gegenrechnung mit dem Rechenkern", "", "| Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |", "|---|---|---:|---:|---|"]
         for gr in d["gegenrechnungen"]:
             z.append(f"| {gr['symbol']} | `{gr['rechenkern']}` = {zahl_roh(gr['wert_rechenkern'])} | {zahl_roh(gr['wert_nachweis'])} | "
-                     f"{gr['abweichung']:.2e} | {'ja' if gr['uebereinstimmung'] else '**nein**'} (Toleranz {gr['toleranz_abs']:.0e}) |")
+                     f"{zahl_wiss(gr['abweichung'])} | {'ja' if gr['uebereinstimmung'] else '**nein**'} (Toleranz {zahl_wiss(gr['toleranz_abs'], 1)}) |")
     if d["hinweise"]:
         z += ["", f"{h}# Hinweise", ""] + [f"- {x}" for x in d["hinweise"]]
     if d["grafiken"]:
@@ -1397,10 +1397,27 @@ def _md_nachweis(d: dict, svg_pfad, ebene: int = 1) -> str:
 
 
 def _rund_von(d: dict, symbol: str) -> dict | None:
+    """Anzeigerundung einer Größe: eigene Regel, sonst Zwischenwertregel für berechnete Gleitkommawerte."""
     for e in d["eingaben"] + [s["ergebnis"] for s in d["schritte"]]:
         if e["symbol"] == symbol:
-            return e["rundung"]
+            if e["rundung"]:
+                return e["rundung"]
+            if e["art"] in ("zwischenergebnis", "ergebnis") and isinstance(e["wert"], float):
+                return ZWISCHENWERT.als_dict()
+            return None
     return None
+
+
+def zahl_wiss(x: float, stellen: int = 2) -> str:
+    """Kleine Zahlen als „3,3 · 10⁻⁷“ (ISO 80000-1)."""
+    if x == 0:
+        return "0"
+    e = math.floor(math.log10(abs(x)))
+    if -3 <= e <= 4:
+        return zahl_de(Rundung("signifikant", stellen).runde(x))
+    m = Rundung("signifikant", stellen).runde(x / 10 ** e)
+    hoch = str(e).translate(str.maketrans("-0123456789", "⁻⁰¹²³⁴⁵⁶⁷⁸⁹"))
+    return f"{zahl_de(m)} · 10{hoch}"
 
 
 def _md_heft(d: dict, svg_pfad) -> str:
@@ -1526,7 +1543,7 @@ def _html_nachweis(d: dict, ebene: int = 1) -> str:
         t.append("<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>")
         for k in d["kriterien"]:
             t.append(f"<tr><td>{_e(k['bezeichnung'])}</td><td class=\"z\">{_e(_anz(k['ist_wert'], k['einheit'], _rund_von(d, k['ist'])))}</td>"
-                     f"<td>{_e(k['vergleich'])}</td><td class=\"z\">{_e(_anz(k['grenz_wert'], k['einheit']))}</td>"
+                     f"<td>{_e(k['vergleich'])}</td><td class=\"z\">{_e(_anz(k['grenz_wert'], k['einheit'], _rund_von(d, k['grenzwert'])))}</td>"
                      f"<td class=\"z\">{_e(_eta(k['ausnutzung']))}</td><td>{_ampel('erfüllt' if k['erfuellt'] else 'nicht erfüllt')}</td>"
                      f"<td>{_e(k['norm_verweis'])}</td></tr>")
         t.append("</tbody></table><p class=\"leise\">Der Vergleich erfolgt mit ungerundeten Werten.</p>")
@@ -1557,8 +1574,8 @@ def _html_nachweis(d: dict, ebene: int = 1) -> str:
               "<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>"]
         for gr in d["gegenrechnungen"]:
             t.append(f"<tr><td>{_e(gr['symbol'])}</td><td><code>{_e(gr['rechenkern'])}</code></td><td class=\"z\">{_e(zahl_roh(gr['wert_rechenkern']))}</td>"
-                     f"<td class=\"z\">{_e(zahl_roh(gr['wert_nachweis']))}</td><td class=\"z\">{gr['abweichung']:.2e}</td>"
-                     f"<td>{'ja' if gr['uebereinstimmung'] else '<b>nein</b>'} (Toleranz {gr['toleranz_abs']:.0e})</td></tr>")
+                     f"<td class=\"z\">{_e(zahl_roh(gr['wert_nachweis']))}</td><td class=\"z\">{_e(zahl_wiss(gr['abweichung']))}</td>"
+                     f"<td>{'ja' if gr['uebereinstimmung'] else '<b>nein</b>'} (Toleranz {_e(zahl_wiss(gr['toleranz_abs'], 1))})</td></tr>")
         t.append("</tbody></table>")
     if d["hinweise"]:
         t += [f"<{h2}>Hinweise</{h2}>", "<ul>"] + [f"<li>{_e(x)}</li>" for x in d["hinweise"]] + ["</ul>"]

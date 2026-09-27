@@ -298,10 +298,10 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,186799 | 0,18679932937799024 | 3.29e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3.35e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,138892 | 5,138892218541071 | 2.19e-07 | ja (Toleranz 5e-07) |
-| U | `IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)` = 0,187 | 0,18679932937799024 | 2.01e-04 | ja (Toleranz 5e-04) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,186799 | 0,18679932937799024 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,567784 | 5,567784334633171 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,138892 | 5,138892218541071 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| U | `IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)` = 0,187 | 0,18679932937799024 | 2,0 · 10⁻⁴ | ja (Toleranz 5 · 10⁻⁴) |
 
 ### Hinweise
 
@@ -598,9 +598,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,183498 | 0,18349797236470997 | 2.76e-08 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,670411 | 5,670410777706296 | 2.22e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,228892 | 5,228892218541071 | 2.19e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,183498 | 0,18349797236470997 | 2,8 · 10⁻⁸ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 5,670411 | 5,670410777706296 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 5,228892 | 5,228892218541071 | 2,2 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 
@@ -897,9 +897,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,162527 | 0,1625267602545588 | 2.40e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,304348 | 6,304348160715462 | 1.61e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,001318 | 6,001317668514656 | 3.31e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,162527 | 0,1625267602545588 | 2,4 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,304348 | 6,304348160715462 | 1,6 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,001318 | 6,001317668514656 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 
@@ -1196,9 +1196,9 @@ Monte-Carlo (Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.r
 
 | Größe | Rechenkern | Nachweis | Abweichung | Übereinstimmung |
 |---|---|---:|---:|---|
-| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,160081 | 0,16008062419998384 | 3.76e-07 | ja (Toleranz 5e-07) |
-| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,402387 | 6,402386738218921 | 2.62e-07 | ja (Toleranz 5e-07) |
-| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,091318 | 6,091317668514656 | 3.31e-07 | ja (Toleranz 5e-07) |
+| U | `b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)` = 0,160081 | 0,16008062419998384 | 3,8 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_o | `b3_uwert_iso6946.berechne_uwert → r_oben` = 6,402387 | 6,402386738218921 | 2,6 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
+| R_u | `b3_uwert_iso6946.berechne_uwert → r_unten` = 6,091318 | 6,091317668514656 | 3,3 · 10⁻⁷ | ja (Toleranz 5 · 10⁻⁷) |
 
 ### Hinweise
 

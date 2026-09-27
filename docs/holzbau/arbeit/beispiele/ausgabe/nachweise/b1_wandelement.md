@@ -381,9 +381,9 @@ Ausdruck (maschinenlesbar): `abs(V_D - V_D_IFC)`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Holzvolumen: Nachweis = IFC | 0,00000000000000011102230246251565 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Beplankung: Nachweis = IFC | 0,0000000000000002220446049250313 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Dämmung: Nachweis = IFC | 0,0000000000000004440892098500626 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Holzvolumen: Nachweis = IFC | 0,00000000000000011102 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Beplankung: Nachweis = IFC | 0,00000000000000022204 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Dämmung: Nachweis = IFC | 0,00000000000000044409 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
