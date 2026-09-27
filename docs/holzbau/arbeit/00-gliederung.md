@@ -6,6 +6,19 @@ Status: Gliederung v0.4 (27.09.2026): zusätzlich Fliesen als 3D-Einzelobjekte, 
 
 ---
 
+## Zweck der Arbeit
+
+**Diese Arbeit ist die fachliche Grundlage der App, kein Selbstzweck.** Das Endergebnis ist eine voll funktionierende App. Jedes Kapitel liefert deshalb zwei Dinge:
+
+1. die fachlich belegte Begründung (Recht, Norm, Forschung, Praxis) und
+2. **Umsetzungsvorgaben für die App**:
+   - nummerierte Anforderungen `ANF-<Kapitel>-<Nr>` (Muss/Soll) mit prüfbarem Abnahmekriterium
+   - Datenstrukturen
+   - Regel- und Empfehlungskataloge als maschinenlesbare Dateien in `spezifikation/`
+   - offene Datenlieferungen von Regnauer `DAT-<Nr>`
+
+Eine Rückverfolgbarkeitsmatrix verbindet jede Anforderung mit Kapitel, Quelle, Softwaremodul und Test.
+
 ## Leitlinien für die Arbeit
 
 1. **Jede Quelle ist verifiziert.** Autor, Jahr, Titel, Venue und DOI sind über Crossref oder die Verlagsseite geprüft. Normen, Gesetze und graue Literatur sind als solche gekennzeichnet.
@@ -281,12 +294,47 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 
 ---
 
+## Teil IV: Umsetzung – die App
+
+### 23. Produktspezifikation
+1. Produktvision, Zielgruppen, Nutzungsszenarien (Kunde, Vertrieb, Architekt, Ingenieur, Werk)
+2. Anforderungskatalog: alle `ANF-*` aus den Kapiteln, priorisiert (MVP / Ausbaustufen)
+3. Rückverfolgbarkeitsmatrix: Anforderung → Kapitel → Quelle → Modul → Test
+
+### 24. Softwarearchitektur und Technologie
+1. Module und Schnittstellen:
+   - Parametermodell
+   - Regelmaschine
+   - IFC-Generator
+   - IDS-/Nachweisprüfung
+   - Solver: Grundriss, Möblierung, Routing, Dach, Fußbodenaufbau, Fliesen
+   - Fachmodule: Energie, Statik, Schall, Kosten
+   - Exporte: BTLx, WUP, GAEB, XBau, PDF
+   - Sprachschnittstelle
+   - 3D-Viewer
+2. Technologiewahl mit Lizenzprüfung (übernehmen/adaptieren/selbst bauen)
+3. Datenhaltung: CDE, Versionen, Audit-Trail, Signaturen
+4. Betrieb: Datenschutz, Barrierefreiheit, KI-Transparenz
+
+### 25. Umsetzungsplan
+1. MVP-Schnitt und Meilensteine mit Aufwandsschätzung
+2. Datenlieferungen von Regnauer (`DAT-*`) und Abhängigkeiten
+3. Teststrategie, Abnahme, Pilotbetrieb
+
+### 26. Implementierung und Abnahme
+1. Stand der Implementierung je Modul
+2. Abnahmetests gegen den Anforderungskatalog
+3. Pilotprojekt: ein reales Regnauer-Haus vom Entwurf bis zu Bauantrag und Maschinendaten
+
+---
+
 ## Anhänge
 - A Quellenverzeichnis der Recherche (`../recherche/`)
 - B Literaturverzeichnis (`literatur/`)
 - C Beispielcode und Ergebnisse (`beispiele/`)
 - D Fragenkatalog an Regnauer
 - E Glossar
+- F Spezifikationsdateien (`spezifikation/`): IFC-Mapping, Regelkatalog, Regelprofile, Empfehlungskatalog, Anforderungskatalog
 
 ---
 

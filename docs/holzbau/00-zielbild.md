@@ -6,6 +6,12 @@ Aufbau nach Simon Sineks Golden Circle: erst Why, dann How, dann What.
 
 ---
 
+## 0. Endergebnis
+
+**Eine voll funktionierende App.** Die wissenschaftliche Arbeit in `arbeit/` ist ihre fachliche Grundlage. Jedes Kapitel endet mit Umsetzungsvorgaben, die direkt in Code, Regelkataloge und Tests übergehen.
+
+---
+
 ## 1. Why
 
 **Fertighauskunden entwerfen ihr Haus selbst, innerhalb der Regeln der Firma.**
