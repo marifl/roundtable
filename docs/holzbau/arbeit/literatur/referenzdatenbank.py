@@ -46,12 +46,15 @@ def lade_csv(p):
 
 def lade_abstracts():
     ab = {}
-    for f in sorted(glob.glob(os.path.join(HERE, 'abstracts', 'teil-*.jsonl'))):
+    # teil-*.jsonl zuerst, nachtrag-*.jsonl danach: Nachträge ersetzen leere Datensätze
+    dateien = sorted(glob.glob(os.path.join(HERE, 'abstracts', 'teil-*.jsonl'))) + sorted(glob.glob(os.path.join(HERE, 'abstracts', 'nachtrag-*.jsonl')))
+    for f in dateien:
         for zeile in open(f, encoding='utf-8'):
             zeile = zeile.strip()
             if zeile:
                 d = json.loads(zeile)
-                ab[d['id']] = d
+                if d.get('abstract') or d['id'] not in ab or not ab[d['id']].get('abstract'):
+                    ab[d['id']] = {**ab.get(d['id'], {}), **{k: v for k, v in d.items() if v not in ('', None, [])}}
     return ab
 
 
