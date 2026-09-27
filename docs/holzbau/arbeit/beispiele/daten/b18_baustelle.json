@@ -137,7 +137,7 @@
     }
   ],
   "fahrzeuge": {
-    "innenlader": {"name": "Innenlader-Sattelzug (BEISPIEL)", "nutzlast_t": 24.0, "ladelaenge_m": 9.5, "ladehoehe_m": 3.5, "gestellbreite_m": 1.5, "abstand_m": 0.05, "laenge_m": 16.5, "breite_m": 2.55, "hoehe_m": 4.0},
+    "innenlader": {"name": "Innenlader-Sattelzug (BEISPIEL)", "nutzlast_t": 24.0, "ladelaenge_m": 9.5, "ladehoehe_m": 3.6, "gestellbreite_m": 1.5, "abstand_m": 0.05, "laenge_m": 16.5, "breite_m": 2.55, "hoehe_m": 4.0},
     "plateau": {"name": "Plateau-Sattelzug (BEISPIEL)", "nutzlast_t": 24.0, "ladelaenge_m": 13.6, "ladebreite_m": 2.48, "ladeflaechenhoehe_m": 1.35, "zwischenlage_m": 0.05, "laenge_m": 16.5, "breite_m": 2.55, "hoehe_m": 4.0},
     "grenzen_stvzo": {"breite_m": 2.55, "hoehe_m": 4.0, "laenge_sattel_m": 16.5, "gesamtgewicht_5achs_t": 40.0}
   },

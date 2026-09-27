@@ -557,15 +557,15 @@ def einsatzdauer_h(kran: dict, el: list[Element], h: dict) -> float:
     return kran["ruestzeit_h"] * 2 + sum(h["hubzeit_min"][e.art] for e in el) / 60.0   # Auf- und Abrüsten
 
 
-def kosten(kran: dict, el: list[Element], d: dict, auf_strasse: bool, platte: float) -> tuple[float, int]:
-    h, k = d["hub"], d["kosten"]
-    tage = math.ceil(einsatzdauer_h(kran, el, h) / h["arbeitstag_stunden"] - 1e-9)
+def kosten(kran: dict, tage: int, d: dict, auf_strasse: bool, platte: float) -> float:
+    """Beispielkosten: Einsatztage × Tagessatz + Anfahrt (+ Straße, + große Platten)."""
+    k = d["kosten"]
     eur = tage * kran["tagessatz_eur"] + kran["anfahrt_eur"]
     if auf_strasse:
         eur += k["strasse_sondernutzung_pauschale_eur"]
     if platte >= k["grosse_unterlegplatten_ab_m"]:
         eur += k["grosse_unterlegplatten_eur"]
-    return float(eur), tage
+    return float(eur)
 
 
 def last_radius(e: Element) -> float:
@@ -616,7 +616,7 @@ def lasthuebe_ueber_nachbar(c: np.ndarray, el: list[Element], ge: Gelaende) -> l
     return ids
 
 
-def suche(d: dict, el: list[Element], ge: Gelaende, raster: float | None = None) -> dict:
+def suche(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, raster: float | None = None) -> dict:
     """Rastersuche über alle Krane, Stellplätze und Orientierungen."""
     h, su = d["hub"], d["suche"]
     raster = raster or su["raster_m"]
@@ -632,6 +632,7 @@ def suche(d: dict, el: list[Element], ge: Gelaende, raster: float | None = None)
         st = stat.setdefault(kran["id"], {"gepruefte_stellungen": 0, "stellflaeche_ok": 0, "boden_ok": 0,
                                           "heck_ok": 0, "traglast_ok": 0, "freileitung_ok": 0, "zulaessig": 0,
                                           "beste_kosten_eur": None})
+        tage = zeitplan(d, el, lkws, kran)["montagetage"]
         flaeche = prep(stellflaeche(ge, kran, d))
         strasse = prep(ge.strasse)
         for x in xs:
@@ -669,7 +670,7 @@ def suche(d: dict, el: list[Element], ge: Gelaende, raster: float | None = None)
                     st["freileitung_ok"] += 1
                     pl, p, p_zul, rect = wahl
                     auf_str = strasse.intersects(rect)
-                    eur, tage = kosten(kran, el, d, auf_str, pl)
+                    eur = kosten(kran, tage, d, auf_str, pl)
                     ueber = lasthuebe_ueber_nachbar(c, el, ge)
                     for u in huebe:
                         u.ueber_nachbar_mit_last = u.element in ueber
@@ -690,7 +691,7 @@ def suche(d: dict, el: list[Element], ge: Gelaende, raster: float | None = None)
 # 6. Warnungen, Zeitplan
 # ---------------------------------------------------------------------------
 
-def warnungen(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, best: Kandidat) -> list[dict]:
+def warnungen(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, best: Kandidat, plan: dict) -> list[dict]:
     kran = next(k for k in d["krane"] if k["id"] == best.kran)
     h = d["hub"]
     c = np.array([best.x, best.y])
@@ -707,6 +708,11 @@ def warnungen(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, best: 
         add("Straße", "Kranabstützung auf öffentlichem Grund: Sondernutzungserlaubnis + verkehrsrechtliche Anordnung "
             "(§ 45 StVO) mit Verkehrszeichenplan und MVAS-verantwortlicher Person; Autokran im Antrag angeben.",
             "Mobilitätsreferat München, Antrag Baustelle privat")
+        rect, _ = abstuetzung(best.x, best.y, kran, best.ori, best.platte_m)
+        gx0, _, gx1, _ = ge.grundstueck.bounds
+        if rect.bounds[0] < gx0 - 1e-9 or rect.bounds[2] > gx1 + 1e-9:
+            add("Straße", "Kranabstützung reicht vor ein benachbartes Anwesen: im Antrag angeben und Nachbarn vorab "
+                "informieren (Frage im MOR-Formular).", "Mobilitätsreferat München, Antrag Baustelle öffentlich/privat")
     if best.lasthuebe_ueber_nachbar:
         ids = [u.element for u in best.huebe if u.ueber_nachbar_mit_last]
         add("Nachbar", f"{len(ids)} Hübe führen Last über Nachbargrund ({', '.join(ids)}): Anzeige nach Art. 46b Abs. 3 "
@@ -741,6 +747,10 @@ def warnungen(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, best: 
             f"(gefordert {ge.leitung_abstand:.1f} m inkl. Zuschlag); Netzbetreiber informieren."
             + (" < 5 m: besonders gefährliche Arbeit (BaustellV Anh. II Nr. 4) → SiGe-Plan." if d_min < 5.0 else ""),
             "DGUV Vorschrift 52 § 39; BaustellV Anhang II")
+    if plan["montagetage"] > 1:
+        add("Wind", f"Montage über {plan['montagetage']} Tage: Kran bleibt über Nacht aufgebaut – Ausleger ablegen bzw. "
+            "nach Betriebsanleitung sichern, wenn der Kran nicht beaufsichtigt ist.",
+            "Liebherr „Einfluss des Windes“ Kap. 6; FEM 5.016 Kap. 6")
     abst, nachweis = abstand_baugrube(kran["gesamtgewicht_t"], d["gelaende"]["baugrube"])
     if nachweis:
         add("Baugrube", f"Kran > 40 t: Abstand zur Böschung ({abst} m angesetzt) nur mit rechnerischem Nachweis.",
@@ -786,7 +796,13 @@ def zeitplan(d: dict, el: list[Element], lkws: list[dict], kran: dict) -> dict:
 
     ruest = int(round(kran["ruestzeit_h"] * 60))
     vorgaenge = [{"id": "RUESTEN", "art": "Kran aufrüsten", "start": block(ruest)}]
+    ladung_min = {k["nr"]: sum(h["hubzeit_min"][e.art] for e in el if e.lkw == k["nr"]) for k in lkws}
+    erstes = {k["elemente"][0] for k in lkws}
     for e in el:
+        # Eine LKW-Ladung wird nicht über Nacht geteilt (sonst Standzeit über Nacht):
+        # reicht der Resttag nicht, beginnt die Ladung am nächsten Morgen.
+        if e.id in erstes and ladung_min[e.lkw] <= tag_min and tag_min - (t % tag_min) < ladung_min[e.lkw]:
+            t += tag_min - (t % tag_min)
         vorgaenge.append({"id": e.id, "art": f"Montage {e.art}", "start": block(h["hubzeit_min"][e.art]),
                           "lkw": e.lkw})
     vorgaenge.append({"id": "ABRUESTEN", "art": "Kran abrüsten", "start": block(ruest)})
@@ -1135,15 +1151,15 @@ def plane(d: dict, szenario: str = "basis", raster: float | None = None, b1: dic
     el = montagereihenfolge(erzeuge_haus(d, b1["flaechengewicht_kg_m2"], b1["dicke_m"]))
     lkws = lkw_ladungen(el, d["fahrzeuge"])
     ge = baue_gelaende(d, szenario)
-    erg = suche(d, el, ge, raster)
+    erg = suche(d, el, lkws, ge, raster)
     best: Kandidat = erg["beste"]
     res = {"szenario": szenario, "b1": b1, "elemente": el, "lkws": lkws, "gelaende": ge, "suche": erg, "beste": best}
     if best is None:
         res["warnungen"] = [{"kategorie": "Kran", "text": "Kein zulässiger Kran/Stellplatz gefunden.", "quelle": "–"}]
         return res
     kran = next(k for k in d["krane"] if k["id"] == best.kran)
-    res["warnungen"] = warnungen(d, el, lkws, ge, best)
     res["zeitplan"] = zeitplan(d, el, lkws, kran)
+    res["warnungen"] = warnungen(d, el, lkws, ge, best, res["zeitplan"])
     return res
 
 

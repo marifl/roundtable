@@ -1,0 +1,2856 @@
+{
+ "basis": {
+  "szenario": "basis",
+  "hinweis": "Beispielrechnung; Kran-, Fahrzeug- und Kostenwerte fiktiv.",
+  "flaechengewichte_kg_m2": {
+   "aussenwand_b1_roh": 49.195,
+   "decke": 36.59,
+   "dach": 43.35
+  },
+  "b1": {
+   "datei": "wandelement.ifc",
+   "element": "Außenwand Nord, Element 1",
+   "laenge_m": 4.8,
+   "hoehe_m": 2.75,
+   "dicke_m": 0.2877,
+   "bruttoflaeche_m2": 13.2,
+   "masse_kg": 649.37,
+   "flaechengewicht_kg_m2": 49.195,
+   "je_material": {
+    "Dampfbremsbahn (feuchtevariabel)": {
+     "anzahl": 1,
+     "volumen_m3": 0.00229,
+     "dichte_kg_m3": 900.0,
+     "masse_kg": 2.06
+    },
+    "Gipsplatte Typ DF (GKF)": {
+     "anzahl": 4,
+     "volumen_m3": 0.14319,
+     "dichte_kg_m3": 800.0,
+     "masse_kg": 114.55
+    },
+    "Holzfaser-Dämmmatte (flexibel)": {
+     "anzahl": 12,
+     "volumen_m3": 1.77594,
+     "dichte_kg_m3": 50.0,
+     "masse_kg": 88.8
+    },
+    "Holzfaserdämmplatte (Putzträger)": {
+     "anzahl": 2,
+     "volumen_m3": 0.68729,
+     "dichte_kg_m3": 180.0,
+     "masse_kg": 123.71
+    },
+    "KVH C24 (Nadelholz)": {
+     "anzahl": 18,
+     "volumen_m3": 0.51498,
+     "dichte_kg_m3": 420.0,
+     "masse_kg": 216.29
+    },
+    "OSB/3": {
+     "anzahl": 4,
+     "volumen_m3": 0.17182,
+     "dichte_kg_m3": 600.0,
+     "masse_kg": 103.09
+    },
+    "Stahl, verzinkt": {
+     "anzahl": 176,
+     "volumen_m3": 0.00011,
+     "dichte_kg_m3": 7850.0,
+     "masse_kg": 0.87
+    }
+   }
+  },
+  "elemente": [
+   {
+    "id": "W-S1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 1,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     8.0,
+     11.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-S2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 2,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     14.0,
+     11.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-O1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 3,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     17.0,
+     13.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-O2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 4,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     17.0,
+     18.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-N1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 5,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     14.0,
+     21.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-N2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 6,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     8.0,
+     21.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-W1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 7,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     5.0,
+     18.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-W2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 8,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     5.0,
+     13.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "D-1",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 9,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     6.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-2",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 10,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     8.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-3",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 11,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     10.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-4",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 12,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     12.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-5",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 13,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     14.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-6",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 14,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     16.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "G-WS",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 15,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     5.0,
+     14.333
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 3,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-WN",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 16,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     5.0,
+     17.667
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 3,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-OS",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 17,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     17.0,
+     14.333
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 4,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-ON",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 18,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     17.0,
+     17.667
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 4,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "R-S1",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 19,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     6.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S2",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 20,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     9.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S3",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 21,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     12.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S4",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 22,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     15.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-N1",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 23,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     6.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N2",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 24,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     9.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N3",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 25,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     12.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N4",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 26,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     15.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   }
+  ],
+  "summe_masse_t": 22.99,
+  "reihenfolge_verstoesse": [],
+  "lkw": [
+   {
+    "nr": 1,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "W-S1",
+     "W-S2",
+     "W-O1",
+     "W-O2"
+    ],
+    "masse_t": 4.504,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "W-O2",
+     "W-O1",
+     "W-S2",
+     "W-S1"
+    ]
+   },
+   {
+    "nr": 2,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "W-N1",
+     "W-N2",
+     "W-W1",
+     "W-W2"
+    ],
+    "masse_t": 4.504,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "W-W2",
+     "W-W1",
+     "W-N2",
+     "W-N1"
+    ]
+   },
+   {
+    "nr": 3,
+    "art": "plateau",
+    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "D-1",
+     "D-2",
+     "D-3",
+     "D-4",
+     "D-5",
+     "D-6",
+     "G-WS",
+     "G-WN"
+    ],
+    "masse_t": 5.694,
+    "belegung_m": 2.502,
+    "grenze_m": 2.65,
+    "uebermass": true,
+    "beladereihenfolge": [
+     "G-WN",
+     "G-WS",
+     "D-6",
+     "D-5",
+     "D-4",
+     "D-3",
+     "D-2",
+     "D-1"
+    ]
+   },
+   {
+    "nr": 4,
+    "art": "plateau",
+    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "G-OS",
+     "G-ON"
+    ],
+    "masse_t": 1.303,
+    "belegung_m": 0.675,
+    "grenze_m": 2.65,
+    "uebermass": true,
+    "beladereihenfolge": [
+     "G-ON",
+     "G-OS"
+    ]
+   },
+   {
+    "nr": 5,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "R-S1",
+     "R-S2",
+     "R-S3",
+     "R-S4"
+    ],
+    "masse_t": 3.492,
+    "belegung_m": 1.461,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "R-S4",
+     "R-S3",
+     "R-S2",
+     "R-S1"
+    ]
+   },
+   {
+    "nr": 6,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "R-N1",
+     "R-N2",
+     "R-N3",
+     "R-N4"
+    ],
+    "masse_t": 3.492,
+    "belegung_m": 1.461,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "R-N4",
+     "R-N3",
+     "R-N2",
+     "R-N1"
+    ]
+   }
+  ],
+  "statistik_suche": {
+   "AK-35": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 590,
+    "boden_ok": 437,
+    "heck_ok": 437,
+    "traglast_ok": 40,
+    "freileitung_ok": 40,
+    "zulaessig": 40,
+    "beste_kosten_eur": 2650.0
+   },
+   "AK-60": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 326,
+    "boden_ok": 90,
+    "heck_ok": 90,
+    "traglast_ok": 22,
+    "freileitung_ok": 22,
+    "zulaessig": 22,
+    "beste_kosten_eur": 4300.0
+   },
+   "AK-100": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 86,
+    "boden_ok": 0,
+    "heck_ok": 0,
+    "traglast_ok": 0,
+    "freileitung_ok": 0,
+    "zulaessig": 0,
+    "beste_kosten_eur": null
+   },
+   "MBK-8": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 294,
+    "boden_ok": 86,
+    "heck_ok": 86,
+    "traglast_ok": 86,
+    "freileitung_ok": 64,
+    "zulaessig": 64,
+    "beste_kosten_eur": 4950.0
+   }
+  },
+  "anzahl_zulaessige_stellungen": 126,
+  "je_kran_bester": {
+   "AK-35": {
+    "x": 18.5,
+    "y": 4.0,
+    "ori": 0,
+    "kosten_eur": 2650.0,
+    "max_auslastung": 0.7839,
+    "auf_strasse": false,
+    "lasthuebe_ueber_nachbar": 2
+   },
+   "AK-60": {
+    "x": 23.0,
+    "y": -4.5,
+    "ori": 0,
+    "kosten_eur": 4300.0,
+    "max_auslastung": 0.7187,
+    "auf_strasse": true,
+    "lasthuebe_ueber_nachbar": 0
+   },
+   "AK-100": null,
+   "MBK-8": {
+    "x": 23.0,
+    "y": -4.5,
+    "ori": 0,
+    "kosten_eur": 4950.0,
+    "max_auslastung": 0.4773,
+    "auf_strasse": true,
+    "lasthuebe_ueber_nachbar": 0
+   }
+  },
+  "warnungen": [
+   {
+    "kategorie": "Straße",
+    "text": "Abladezone liegt auf öffentlichem Verkehrsgrund: vorübergehendes Haltverbot beim Mobilitätsreferat München (MOR-GB2.3) beantragen; Bearbeitung ca. 10 Arbeitstage; Schilder mind. 3 volle Kalendertage vor Gültigkeit aufstellen, Vornotierungsliste führen.",
+    "quelle": "stadt.muenchen.de Temporäre Anordnungen; Antrag HV Umzug/Baustelle"
+   },
+   {
+    "kategorie": "Nachbar",
+    "text": "2 Hübe führen Last über Nachbargrund (D-1, R-N1): Anzeige nach Art. 46b Abs. 3 BayAGBGB mind. 1 Monat vorher; bei Ablehnung Duldungsklage, keine Selbsthilfe.",
+    "quelle": "OLG München, Urt. v. 15.10.2020 – 8 U 5531/20"
+   },
+   {
+    "kategorie": "Wind",
+    "text": "26 Hübe mit A_W > 1,2 m²/t: zulässige Böe unter 7.0 m/s (min. 2.9 m/s). Hubplanung mit Windrechner des Herstellers, Windmesser am Kran.",
+    "quelle": "EN 13000 (1,2 m²/t); Liebherr „Einfluss des Windes“; FEM 5.016"
+   },
+   {
+    "kategorie": "Freileitung",
+    "text": "Kleinster Abstand Last/Ausleger zur 20-kV-Leitung 12.5 m (gefordert 4.0 m inkl. Zuschlag); Netzbetreiber informieren.",
+    "quelle": "DGUV Vorschrift 52 § 39; BaustellV Anhang II"
+   },
+   {
+    "kategorie": "Boden",
+    "text": "Bodenpressung 250 kN/m² ≤ 250 kN/m² mit Platte 1.0 × 1.0 m, gerechnet mit F_max = 250 kN. Tragfähigkeit nur aus Tabellenwerten geschätzt; bei Zweifel Baugrund prüfen lassen.",
+    "quelle": "DGUV Information 208-059 Abschn. 4; Liebherr „Untergrund für sichere Kraneinsätze“"
+   },
+   {
+    "kategorie": "Transport",
+    "text": "LKW 3: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
+    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
+   },
+   {
+    "kategorie": "Transport",
+    "text": "LKW 4: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
+    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
+   },
+   {
+    "kategorie": "SiGe",
+    "text": "Aufbau von Bauelementen mit Kran: ob vorgefertigte Holzelemente „Massivbauelemente“ im Sinne von BaustellV Anh. II Nr. 10 sind, ist ungeklärt [U] – im Zweifel SiGe-Plan.",
+    "quelle": "BaustellV Anhang II Nr. 10"
+   },
+   {
+    "kategorie": "Daten",
+    "text": "Alle Kran-, Fahrzeug- und Kostenwerte sind Beispielwerte; Freigabe nur mit Herstellersoftware (z. B. LICCON-Einsatzplaner, Crane Planner 2.0) und Einsatzplan des Kranunternehmers.",
+    "quelle": "–"
+   }
+  ],
+  "gewaehlt": {
+   "kran": "AK-35",
+   "x": 18.5,
+   "y": 4.0,
+   "orientierung_grad": 0,
+   "unterlegplatte_m": 1.0,
+   "bodenpressung_kn_m2": 250.0,
+   "bodenpressung_zul_kn_m2": 250.0,
+   "auf_strasse": false,
+   "kosten_eur": 2650.0,
+   "einsatztage": 2,
+   "max_auslastung": 0.7839,
+   "kritischer_hub": "W-N2",
+   "lasthuebe_ueber_nachbar": 2,
+   "min_wind_zul_ms": 2.85
+  },
+  "huebe": [
+   {
+    "element": "W-S1",
+    "last_t": 1.728,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 12.619,
+    "traglast_t": 5.128,
+    "auslastung": 0.337,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 27.72,
+    "wind_zul_ms": 2.91,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-S2",
+    "last_t": 1.728,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 8.322,
+    "traglast_t": 7.782,
+    "auslastung": 0.2221,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 28.86,
+    "wind_zul_ms": 2.91,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-O1",
+    "last_t": 1.524,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 9.618,
+    "traglast_t": 7.782,
+    "auslastung": 0.1958,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 28.86,
+    "wind_zul_ms": 3.0,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-O2",
+    "last_t": 1.524,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 14.577,
+    "traglast_t": 4.04,
+    "auslastung": 0.3771,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 26.72,
+    "wind_zul_ms": 3.0,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-N1",
+    "last_t": 1.728,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 17.586,
+    "traglast_t": 2.845,
+    "auslastung": 0.6075,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 24.81,
+    "wind_zul_ms": 2.91,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-N2",
+    "last_t": 1.728,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 19.981,
+    "traglast_t": 2.205,
+    "auslastung": 0.7839,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 22.88,
+    "wind_zul_ms": 2.91,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-W1",
+    "last_t": 1.524,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 19.812,
+    "traglast_t": 2.247,
+    "auslastung": 0.678,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 23.03,
+    "wind_zul_ms": 3.0,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-W2",
+    "last_t": 1.524,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 16.508,
+    "traglast_t": 3.222,
+    "auslastung": 0.4728,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 25.55,
+    "wind_zul_ms": 3.0,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-1",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 17.328,
+    "traglast_t": 2.935,
+    "auslastung": 0.4197,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 24.99,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": true
+   },
+   {
+    "element": "D-2",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 15.945,
+    "traglast_t": 3.425,
+    "auslastung": 0.3597,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 25.91,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-3",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 14.705,
+    "traglast_t": 3.983,
+    "auslastung": 0.3093,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 26.65,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-4",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 13.647,
+    "traglast_t": 4.512,
+    "auslastung": 0.273,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 27.22,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-5",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 12.816,
+    "traglast_t": 5.01,
+    "auslastung": 0.2459,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 27.62,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-6",
+    "last_t": 1.232,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 12.258,
+    "traglast_t": 5.345,
+    "auslastung": 0.2304,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 27.88,
+    "wind_zul_ms": 4.07,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-WS",
+    "last_t": 1.152,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 17.001,
+    "traglast_t": 3.05,
+    "auslastung": 0.3776,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 25.22,
+    "wind_zul_ms": 3.26,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-WN",
+    "last_t": 1.152,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 19.21,
+    "traglast_t": 2.397,
+    "auslastung": 0.4803,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 23.54,
+    "wind_zul_ms": 3.26,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-OS",
+    "last_t": 1.152,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 10.442,
+    "traglast_t": 7.058,
+    "auslastung": 0.1632,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 28.62,
+    "wind_zul_ms": 3.26,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-ON",
+    "last_t": 1.152,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 13.749,
+    "traglast_t": 4.451,
+    "auslastung": 0.2587,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 27.16,
+    "wind_zul_ms": 3.26,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S1",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 15.151,
+    "traglast_t": 3.782,
+    "auslastung": 0.3631,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 26.39,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S2",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 12.906,
+    "traglast_t": 4.956,
+    "auslastung": 0.277,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 27.58,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S3",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 11.026,
+    "traglast_t": 6.474,
+    "auslastung": 0.2121,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 28.4,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S4",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 9.724,
+    "traglast_t": 7.782,
+    "auslastung": 0.1764,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 28.86,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N1",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 19.015,
+    "traglast_t": 2.446,
+    "auslastung": 0.5613,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 23.7,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": true
+   },
+   {
+    "element": "R-N2",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 17.279,
+    "traglast_t": 2.952,
+    "auslastung": 0.4651,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 25.02,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N3",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 15.924,
+    "traglast_t": 3.434,
+    "auslastung": 0.3998,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 25.93,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N4",
+    "last_t": 1.373,
+    "r_aufnahme_m": 9.774,
+    "r_absetzen_m": 15.052,
+    "traglast_t": 3.827,
+    "auslastung": 0.3588,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 26.45,
+    "wind_zul_ms": 2.85,
+    "last_ueber_nachbar": false
+   }
+  ],
+  "zeitplan": {
+   "vorgaenge": [
+    {
+     "id": "RUESTEN",
+     "art": "Kran aufrüsten",
+     "beginn": "2026-10-12T07:00:00",
+     "ende": "2026-10-12T08:00:00",
+     "dauer_min": 60
+    },
+    {
+     "id": "W-S1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:00:00",
+     "ende": "2026-10-12T08:18:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-S2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:18:00",
+     "ende": "2026-10-12T08:36:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-O1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:36:00",
+     "ende": "2026-10-12T08:54:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-O2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:54:00",
+     "ende": "2026-10-12T09:12:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-N1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:12:00",
+     "ende": "2026-10-12T09:30:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-N2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:30:00",
+     "ende": "2026-10-12T09:48:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-W1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:48:00",
+     "ende": "2026-10-12T10:06:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-W2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T10:06:00",
+     "ende": "2026-10-12T10:24:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "D-1",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T10:24:00",
+     "ende": "2026-10-12T10:44:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-2",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T10:44:00",
+     "ende": "2026-10-12T11:04:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-3",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:04:00",
+     "ende": "2026-10-12T11:24:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-4",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:24:00",
+     "ende": "2026-10-12T11:44:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-5",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:44:00",
+     "ende": "2026-10-12T12:04:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-6",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T12:04:00",
+     "ende": "2026-10-12T12:24:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "G-WS",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:24:00",
+     "ende": "2026-10-12T12:39:00",
+     "dauer_min": 15,
+     "lkw": 3
+    },
+    {
+     "id": "G-WN",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:39:00",
+     "ende": "2026-10-12T12:54:00",
+     "dauer_min": 15,
+     "lkw": 3
+    },
+    {
+     "id": "G-OS",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:54:00",
+     "ende": "2026-10-12T13:09:00",
+     "dauer_min": 15,
+     "lkw": 4
+    },
+    {
+     "id": "G-ON",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T13:09:00",
+     "ende": "2026-10-12T13:24:00",
+     "dauer_min": 15,
+     "lkw": 4
+    },
+    {
+     "id": "R-S1",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T13:24:00",
+     "ende": "2026-10-12T13:46:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S2",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T13:46:00",
+     "ende": "2026-10-12T14:08:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S3",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:08:00",
+     "ende": "2026-10-12T14:30:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S4",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:30:00",
+     "ende": "2026-10-12T14:52:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-N1",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:52:00",
+     "ende": "2026-10-12T15:14:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N2",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T15:14:00",
+     "ende": "2026-10-12T15:36:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N3",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T15:36:00",
+     "ende": "2026-10-12T15:58:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N4",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:00:00",
+     "ende": "2026-10-13T07:22:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "ABRUESTEN",
+     "art": "Kran abrüsten",
+     "beginn": "2026-10-13T07:22:00",
+     "ende": "2026-10-13T08:22:00",
+     "dauer_min": 60
+    }
+   ],
+   "lkw": [
+    {
+     "lkw": 1,
+     "ankunft": "2026-10-12T07:30:00",
+     "abfahrt": "2026-10-12T09:12:00",
+     "standzeit_min": 102,
+     "abfahrt_werk": "2026-10-12T05:50:00"
+    },
+    {
+     "lkw": 2,
+     "ankunft": "2026-10-12T08:42:00",
+     "abfahrt": "2026-10-12T10:24:00",
+     "standzeit_min": 102,
+     "abfahrt_werk": "2026-10-12T07:02:00"
+    },
+    {
+     "lkw": 3,
+     "ankunft": "2026-10-12T09:54:00",
+     "abfahrt": "2026-10-12T12:54:00",
+     "standzeit_min": 180,
+     "abfahrt_werk": "2026-10-12T08:14:00"
+    },
+    {
+     "lkw": 4,
+     "ankunft": "2026-10-12T12:24:00",
+     "abfahrt": "2026-10-12T13:24:00",
+     "standzeit_min": 60,
+     "abfahrt_werk": "2026-10-12T10:44:00"
+    },
+    {
+     "lkw": 5,
+     "ankunft": "2026-10-12T12:54:00",
+     "abfahrt": "2026-10-12T14:52:00",
+     "standzeit_min": 118,
+     "abfahrt_werk": "2026-10-12T11:14:00"
+    },
+    {
+     "lkw": 6,
+     "ankunft": "2026-10-12T14:22:00",
+     "abfahrt": "2026-10-13T07:22:00",
+     "standzeit_min": 1020,
+     "abfahrt_werk": "2026-10-12T12:42:00"
+    }
+   ],
+   "montagetage": 2,
+   "tage": [
+    "2026-10-12",
+    "2026-10-13"
+   ],
+   "einsatzstunden": 10.33
+  }
+ },
+ "einfahrt_belegt": {
+  "szenario": "einfahrt_belegt",
+  "hinweis": "Beispielrechnung; Kran-, Fahrzeug- und Kostenwerte fiktiv.",
+  "flaechengewichte_kg_m2": {
+   "aussenwand_b1_roh": 49.195,
+   "decke": 36.59,
+   "dach": 43.35
+  },
+  "b1": {
+   "datei": "wandelement.ifc",
+   "element": "Außenwand Nord, Element 1",
+   "laenge_m": 4.8,
+   "hoehe_m": 2.75,
+   "dicke_m": 0.2877,
+   "bruttoflaeche_m2": 13.2,
+   "masse_kg": 649.37,
+   "flaechengewicht_kg_m2": 49.195,
+   "je_material": {
+    "Dampfbremsbahn (feuchtevariabel)": {
+     "anzahl": 1,
+     "volumen_m3": 0.00229,
+     "dichte_kg_m3": 900.0,
+     "masse_kg": 2.06
+    },
+    "Gipsplatte Typ DF (GKF)": {
+     "anzahl": 4,
+     "volumen_m3": 0.14319,
+     "dichte_kg_m3": 800.0,
+     "masse_kg": 114.55
+    },
+    "Holzfaser-Dämmmatte (flexibel)": {
+     "anzahl": 12,
+     "volumen_m3": 1.77594,
+     "dichte_kg_m3": 50.0,
+     "masse_kg": 88.8
+    },
+    "Holzfaserdämmplatte (Putzträger)": {
+     "anzahl": 2,
+     "volumen_m3": 0.68729,
+     "dichte_kg_m3": 180.0,
+     "masse_kg": 123.71
+    },
+    "KVH C24 (Nadelholz)": {
+     "anzahl": 18,
+     "volumen_m3": 0.51498,
+     "dichte_kg_m3": 420.0,
+     "masse_kg": 216.29
+    },
+    "OSB/3": {
+     "anzahl": 4,
+     "volumen_m3": 0.17182,
+     "dichte_kg_m3": 600.0,
+     "masse_kg": 103.09
+    },
+    "Stahl, verzinkt": {
+     "anzahl": 176,
+     "volumen_m3": 0.00011,
+     "dichte_kg_m3": 7850.0,
+     "masse_kg": 0.87
+    }
+   }
+  },
+  "elemente": [
+   {
+    "id": "W-S1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 1,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     8.0,
+     11.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-S2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 2,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     14.0,
+     11.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-O1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 3,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     17.0,
+     13.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-O2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 4,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     17.0,
+     18.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 1,
+    "hinweise": []
+   },
+   {
+    "id": "W-N1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 5,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     14.0,
+     21.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-N2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 6,
+    "masse_t": 1.228,
+    "laenge_m": 6.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 16.5,
+    "schwerpunkt": [
+     8.0,
+     21.0
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-W1",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 7,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     5.0,
+     18.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "W-W2",
+    "art": "wand",
+    "geschoss": "EG",
+    "reihenfolge": 8,
+    "masse_t": 1.024,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 2.75,
+    "dicke_m": 0.288,
+    "flaeche_m2": 13.75,
+    "schwerpunkt": [
+     5.0,
+     13.5
+    ],
+    "oberkante_m": 2.75,
+    "transport": "innenlader",
+    "lkw": 2,
+    "hinweise": []
+   },
+   {
+    "id": "D-1",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 9,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     6.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-2",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 10,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     8.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-3",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 11,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     10.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-4",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 12,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     12.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-5",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 13,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     14.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "D-6",
+    "art": "decke",
+    "geschoss": "EG",
+    "reihenfolge": 14,
+    "masse_t": 0.732,
+    "laenge_m": 10.0,
+    "hoehe_breite_m": 2.0,
+    "dicke_m": 0.255,
+    "flaeche_m2": 20.0,
+    "schwerpunkt": [
+     16.0,
+     16.0
+    ],
+    "oberkante_m": 3.005,
+    "transport": "plateau",
+    "lkw": 3,
+    "hinweise": []
+   },
+   {
+    "id": "G-WS",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 15,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     5.0,
+     14.333
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 3,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-WN",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 16,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     5.0,
+     17.667
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 3,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-OS",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 17,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     17.0,
+     14.333
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 4,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "G-ON",
+    "art": "giebel",
+    "geschoss": "DG",
+    "reihenfolge": 18,
+    "masse_t": 0.652,
+    "laenge_m": 5.0,
+    "hoehe_breite_m": 3.501,
+    "dicke_m": 0.288,
+    "flaeche_m2": 8.753,
+    "schwerpunkt": [
+     17.0,
+     17.667
+    ],
+    "oberkante_m": 6.506,
+    "transport": "plateau_uebermass",
+    "lkw": 4,
+    "hinweise": [
+     "passt nicht stehend in den Innenlader",
+     "Übermaß liegend: Breite 3.50 m > 2.55 m bzw. Länge > 13.6 m → Erlaubnis § 29 Abs. 3 StVO, Ausnahmegenehmigung § 46 Abs. 1 Nr. 5 StVO / § 70 StVZO"
+    ]
+   },
+   {
+    "id": "R-S1",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 19,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     6.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S2",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 20,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     9.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S3",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 21,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     12.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-S4",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 22,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     15.5,
+     13.25
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 5,
+    "hinweise": []
+   },
+   {
+    "id": "R-N1",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 23,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     6.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N2",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 24,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     9.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N3",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 25,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     12.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   },
+   {
+    "id": "R-N4",
+    "art": "dach",
+    "geschoss": "DG",
+    "reihenfolge": 26,
+    "masse_t": 0.873,
+    "laenge_m": 6.714,
+    "hoehe_breite_m": 3.0,
+    "dicke_m": 0.315,
+    "flaeche_m2": 20.143,
+    "schwerpunkt": [
+     15.5,
+     18.75
+    ],
+    "oberkante_m": 6.821,
+    "transport": "innenlader",
+    "lkw": 6,
+    "hinweise": []
+   }
+  ],
+  "summe_masse_t": 22.99,
+  "reihenfolge_verstoesse": [],
+  "lkw": [
+   {
+    "nr": 1,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "W-S1",
+     "W-S2",
+     "W-O1",
+     "W-O2"
+    ],
+    "masse_t": 4.504,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "W-O2",
+     "W-O1",
+     "W-S2",
+     "W-S1"
+    ]
+   },
+   {
+    "nr": 2,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "W-N1",
+     "W-N2",
+     "W-W1",
+     "W-W2"
+    ],
+    "masse_t": 4.504,
+    "belegung_m": 1.351,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "W-W2",
+     "W-W1",
+     "W-N2",
+     "W-N1"
+    ]
+   },
+   {
+    "nr": 3,
+    "art": "plateau",
+    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "D-1",
+     "D-2",
+     "D-3",
+     "D-4",
+     "D-5",
+     "D-6",
+     "G-WS",
+     "G-WN"
+    ],
+    "masse_t": 5.694,
+    "belegung_m": 2.502,
+    "grenze_m": 2.65,
+    "uebermass": true,
+    "beladereihenfolge": [
+     "G-WN",
+     "G-WS",
+     "D-6",
+     "D-5",
+     "D-4",
+     "D-3",
+     "D-2",
+     "D-1"
+    ]
+   },
+   {
+    "nr": 4,
+    "art": "plateau",
+    "fahrzeug": "Plateau-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "G-OS",
+     "G-ON"
+    ],
+    "masse_t": 1.303,
+    "belegung_m": 0.675,
+    "grenze_m": 2.65,
+    "uebermass": true,
+    "beladereihenfolge": [
+     "G-ON",
+     "G-OS"
+    ]
+   },
+   {
+    "nr": 5,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "R-S1",
+     "R-S2",
+     "R-S3",
+     "R-S4"
+    ],
+    "masse_t": 3.492,
+    "belegung_m": 1.461,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "R-S4",
+     "R-S3",
+     "R-S2",
+     "R-S1"
+    ]
+   },
+   {
+    "nr": 6,
+    "art": "innenlader",
+    "fahrzeug": "Innenlader-Sattelzug (BEISPIEL)",
+    "elemente": [
+     "R-N1",
+     "R-N2",
+     "R-N3",
+     "R-N4"
+    ],
+    "masse_t": 3.492,
+    "belegung_m": 1.461,
+    "grenze_m": 1.5,
+    "uebermass": false,
+    "beladereihenfolge": [
+     "R-N4",
+     "R-N3",
+     "R-N2",
+     "R-N1"
+    ]
+   }
+  ],
+  "statistik_suche": {
+   "AK-35": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 470,
+    "boden_ok": 366,
+    "heck_ok": 366,
+    "traglast_ok": 0,
+    "freileitung_ok": 0,
+    "zulaessig": 0,
+    "beste_kosten_eur": null
+   },
+   "AK-60": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 270,
+    "boden_ok": 86,
+    "heck_ok": 86,
+    "traglast_ok": 18,
+    "freileitung_ok": 18,
+    "zulaessig": 18,
+    "beste_kosten_eur": 4300.0
+   },
+   "AK-100": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 86,
+    "boden_ok": 0,
+    "heck_ok": 0,
+    "traglast_ok": 0,
+    "freileitung_ok": 0,
+    "zulaessig": 0,
+    "beste_kosten_eur": null
+   },
+   "MBK-8": {
+    "gepruefte_stellungen": 14694,
+    "stellflaeche_ok": 270,
+    "boden_ok": 86,
+    "heck_ok": 86,
+    "traglast_ok": 86,
+    "freileitung_ok": 64,
+    "zulaessig": 64,
+    "beste_kosten_eur": 4950.0
+   }
+  },
+  "anzahl_zulaessige_stellungen": 82,
+  "je_kran_bester": {
+   "AK-35": null,
+   "AK-60": {
+    "x": 23.0,
+    "y": -4.5,
+    "ori": 0,
+    "kosten_eur": 4300.0,
+    "max_auslastung": 0.7187,
+    "auf_strasse": true,
+    "lasthuebe_ueber_nachbar": 0
+   },
+   "AK-100": null,
+   "MBK-8": {
+    "x": 23.0,
+    "y": -4.5,
+    "ori": 0,
+    "kosten_eur": 4950.0,
+    "max_auslastung": 0.4773,
+    "auf_strasse": true,
+    "lasthuebe_ueber_nachbar": 0
+   }
+  },
+  "warnungen": [
+   {
+    "kategorie": "Straße",
+    "text": "Abladezone liegt auf öffentlichem Verkehrsgrund: vorübergehendes Haltverbot beim Mobilitätsreferat München (MOR-GB2.3) beantragen; Bearbeitung ca. 10 Arbeitstage; Schilder mind. 3 volle Kalendertage vor Gültigkeit aufstellen, Vornotierungsliste führen.",
+    "quelle": "stadt.muenchen.de Temporäre Anordnungen; Antrag HV Umzug/Baustelle"
+   },
+   {
+    "kategorie": "Straße",
+    "text": "Kranabstützung auf öffentlichem Grund: Sondernutzungserlaubnis + verkehrsrechtliche Anordnung (§ 45 StVO) mit Verkehrszeichenplan und MVAS-verantwortlicher Person; Autokran im Antrag angeben.",
+    "quelle": "Mobilitätsreferat München, Antrag Baustelle privat"
+   },
+   {
+    "kategorie": "Wind",
+    "text": "26 Hübe mit A_W > 1,2 m²/t: zulässige Böe unter 7.0 m/s (min. 3.1 m/s). Hubplanung mit Windrechner des Herstellers, Windmesser am Kran.",
+    "quelle": "EN 13000 (1,2 m²/t); Liebherr „Einfluss des Windes“; FEM 5.016"
+   },
+   {
+    "kategorie": "Freileitung",
+    "text": "Kleinster Abstand Last/Ausleger zur 20-kV-Leitung 12.5 m (gefordert 4.0 m inkl. Zuschlag); Netzbetreiber informieren.",
+    "quelle": "DGUV Vorschrift 52 § 39; BaustellV Anhang II"
+   },
+   {
+    "kategorie": "Boden",
+    "text": "Bodenpressung 178 kN/m² ≤ 200 kN/m² mit Platte 1.5 × 1.5 m, gerechnet mit F_max = 400 kN. Tragfähigkeit nur aus Tabellenwerten geschätzt; bei Zweifel Baugrund prüfen lassen.",
+    "quelle": "DGUV Information 208-059 Abschn. 4; Liebherr „Untergrund für sichere Kraneinsätze“"
+   },
+   {
+    "kategorie": "Transport",
+    "text": "LKW 3: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
+    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
+   },
+   {
+    "kategorie": "Transport",
+    "text": "LKW 4: Übermaß → Erlaubnis § 29 Abs. 3 StVO / Ausnahme § 70 StVZO.",
+    "quelle": "§ 22 Abs. 2 StVO, § 32 StVZO"
+   },
+   {
+    "kategorie": "SiGe",
+    "text": "Aufbau von Bauelementen mit Kran: ob vorgefertigte Holzelemente „Massivbauelemente“ im Sinne von BaustellV Anh. II Nr. 10 sind, ist ungeklärt [U] – im Zweifel SiGe-Plan.",
+    "quelle": "BaustellV Anhang II Nr. 10"
+   },
+   {
+    "kategorie": "Daten",
+    "text": "Alle Kran-, Fahrzeug- und Kostenwerte sind Beispielwerte; Freigabe nur mit Herstellersoftware (z. B. LICCON-Einsatzplaner, Crane Planner 2.0) und Einsatzplan des Kranunternehmers.",
+    "quelle": "–"
+   }
+  ],
+  "gewaehlt": {
+   "kran": "AK-60",
+   "x": 23.0,
+   "y": -4.5,
+   "orientierung_grad": 0,
+   "unterlegplatte_m": 1.5,
+   "bodenpressung_kn_m2": 177.8,
+   "bodenpressung_zul_kn_m2": 200.0,
+   "auf_strasse": true,
+   "kosten_eur": 4300.0,
+   "einsatztage": 2,
+   "max_auslastung": 0.7187,
+   "kritischer_hub": "W-N2",
+   "lasthuebe_ueber_nachbar": 0,
+   "min_wind_zul_ms": 3.05
+  },
+  "huebe": [
+   {
+    "element": "W-S1",
+    "last_t": 1.928,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 21.57,
+    "traglast_t": 4.751,
+    "auslastung": 0.4059,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 43.48,
+    "wind_zul_ms": 3.08,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-S2",
+    "last_t": 1.928,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 17.923,
+    "traglast_t": 6.346,
+    "auslastung": 0.3039,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 45.13,
+    "wind_zul_ms": 3.08,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-O1",
+    "last_t": 1.724,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 18.974,
+    "traglast_t": 5.813,
+    "auslastung": 0.2965,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 44.69,
+    "wind_zul_ms": 3.19,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-O2",
+    "last_t": 1.724,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 23.77,
+    "traglast_t": 4.069,
+    "auslastung": 0.4236,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 42.3,
+    "wind_zul_ms": 3.19,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-N1",
+    "last_t": 1.928,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 27.042,
+    "traglast_t": 3.192,
+    "auslastung": 0.6042,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 40.26,
+    "wind_zul_ms": 3.08,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-N2",
+    "last_t": 1.928,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 29.585,
+    "traglast_t": 2.683,
+    "auslastung": 0.7187,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 38.4,
+    "wind_zul_ms": 3.08,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-W1",
+    "last_t": 1.724,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 29.206,
+    "traglast_t": 2.759,
+    "auslastung": 0.6248,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 38.69,
+    "wind_zul_ms": 3.19,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "W-W2",
+    "last_t": 1.724,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 25.456,
+    "traglast_t": 3.563,
+    "auslastung": 0.4837,
+    "hakenhoehe_erf_m": 7.25,
+    "hakenhoehe_max_m": 41.29,
+    "wind_zul_ms": 3.19,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-1",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 26.632,
+    "traglast_t": 3.274,
+    "auslastung": 0.4374,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 40.53,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-2",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 25.402,
+    "traglast_t": 3.579,
+    "auslastung": 0.4,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 41.33,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-3",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 24.274,
+    "traglast_t": 3.918,
+    "auslastung": 0.3655,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 42.01,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-4",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 23.265,
+    "traglast_t": 4.221,
+    "auslastung": 0.3392,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 42.59,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-5",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 22.389,
+    "traglast_t": 4.483,
+    "auslastung": 0.3194,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 43.06,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "D-6",
+    "last_t": 1.432,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 21.662,
+    "traglast_t": 4.718,
+    "auslastung": 0.3035,
+    "hakenhoehe_erf_m": 6.5,
+    "hakenhoehe_max_m": 43.43,
+    "wind_zul_ms": 4.39,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-WS",
+    "last_t": 1.352,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 26.052,
+    "traglast_t": 3.39,
+    "auslastung": 0.3987,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 40.92,
+    "wind_zul_ms": 3.54,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-WN",
+    "last_t": 1.352,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 28.555,
+    "traglast_t": 2.889,
+    "auslastung": 0.4678,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 39.18,
+    "wind_zul_ms": 3.54,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-OS",
+    "last_t": 1.352,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 19.766,
+    "traglast_t": 5.417,
+    "auslastung": 0.2495,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 44.34,
+    "wind_zul_ms": 3.54,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "G-ON",
+    "last_t": 1.352,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 22.964,
+    "traglast_t": 4.311,
+    "auslastung": 0.3135,
+    "hakenhoehe_erf_m": 10.01,
+    "hakenhoehe_max_m": 42.75,
+    "wind_zul_ms": 3.54,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S1",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 24.235,
+    "traglast_t": 3.93,
+    "auslastung": 0.4003,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 42.03,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S2",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 22.301,
+    "traglast_t": 4.51,
+    "auslastung": 0.3488,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 43.11,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S3",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 20.623,
+    "traglast_t": 5.082,
+    "auslastung": 0.3096,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 43.94,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-S4",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 19.269,
+    "traglast_t": 5.665,
+    "auslastung": 0.2777,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 44.56,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N1",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 28.51,
+    "traglast_t": 2.898,
+    "auslastung": 0.5428,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 39.22,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N2",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 26.885,
+    "traglast_t": 3.223,
+    "auslastung": 0.4881,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 40.36,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N3",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 25.511,
+    "traglast_t": 3.547,
+    "auslastung": 0.4435,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 41.26,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   },
+   {
+    "element": "R-N4",
+    "last_t": 1.573,
+    "r_aufnahme_m": 11.065,
+    "r_absetzen_m": 24.43,
+    "traglast_t": 3.871,
+    "auslastung": 0.4064,
+    "hakenhoehe_erf_m": 10.32,
+    "hakenhoehe_max_m": 41.92,
+    "wind_zul_ms": 3.05,
+    "last_ueber_nachbar": false
+   }
+  ],
+  "zeitplan": {
+   "vorgaenge": [
+    {
+     "id": "RUESTEN",
+     "art": "Kran aufrüsten",
+     "beginn": "2026-10-12T07:00:00",
+     "ende": "2026-10-12T08:00:00",
+     "dauer_min": 60
+    },
+    {
+     "id": "W-S1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:00:00",
+     "ende": "2026-10-12T08:18:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-S2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:18:00",
+     "ende": "2026-10-12T08:36:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-O1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:36:00",
+     "ende": "2026-10-12T08:54:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-O2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T08:54:00",
+     "ende": "2026-10-12T09:12:00",
+     "dauer_min": 18,
+     "lkw": 1
+    },
+    {
+     "id": "W-N1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:12:00",
+     "ende": "2026-10-12T09:30:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-N2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:30:00",
+     "ende": "2026-10-12T09:48:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-W1",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T09:48:00",
+     "ende": "2026-10-12T10:06:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "W-W2",
+     "art": "Montage wand",
+     "beginn": "2026-10-12T10:06:00",
+     "ende": "2026-10-12T10:24:00",
+     "dauer_min": 18,
+     "lkw": 2
+    },
+    {
+     "id": "D-1",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T10:24:00",
+     "ende": "2026-10-12T10:44:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-2",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T10:44:00",
+     "ende": "2026-10-12T11:04:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-3",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:04:00",
+     "ende": "2026-10-12T11:24:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-4",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:24:00",
+     "ende": "2026-10-12T11:44:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-5",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T11:44:00",
+     "ende": "2026-10-12T12:04:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "D-6",
+     "art": "Montage decke",
+     "beginn": "2026-10-12T12:04:00",
+     "ende": "2026-10-12T12:24:00",
+     "dauer_min": 20,
+     "lkw": 3
+    },
+    {
+     "id": "G-WS",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:24:00",
+     "ende": "2026-10-12T12:39:00",
+     "dauer_min": 15,
+     "lkw": 3
+    },
+    {
+     "id": "G-WN",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:39:00",
+     "ende": "2026-10-12T12:54:00",
+     "dauer_min": 15,
+     "lkw": 3
+    },
+    {
+     "id": "G-OS",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T12:54:00",
+     "ende": "2026-10-12T13:09:00",
+     "dauer_min": 15,
+     "lkw": 4
+    },
+    {
+     "id": "G-ON",
+     "art": "Montage giebel",
+     "beginn": "2026-10-12T13:09:00",
+     "ende": "2026-10-12T13:24:00",
+     "dauer_min": 15,
+     "lkw": 4
+    },
+    {
+     "id": "R-S1",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T13:24:00",
+     "ende": "2026-10-12T13:46:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S2",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T13:46:00",
+     "ende": "2026-10-12T14:08:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S3",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:08:00",
+     "ende": "2026-10-12T14:30:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-S4",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:30:00",
+     "ende": "2026-10-12T14:52:00",
+     "dauer_min": 22,
+     "lkw": 5
+    },
+    {
+     "id": "R-N1",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T14:52:00",
+     "ende": "2026-10-12T15:14:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N2",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T15:14:00",
+     "ende": "2026-10-12T15:36:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N3",
+     "art": "Montage dach",
+     "beginn": "2026-10-12T15:36:00",
+     "ende": "2026-10-12T15:58:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "R-N4",
+     "art": "Montage dach",
+     "beginn": "2026-10-13T07:00:00",
+     "ende": "2026-10-13T07:22:00",
+     "dauer_min": 22,
+     "lkw": 6
+    },
+    {
+     "id": "ABRUESTEN",
+     "art": "Kran abrüsten",
+     "beginn": "2026-10-13T07:22:00",
+     "ende": "2026-10-13T08:22:00",
+     "dauer_min": 60
+    }
+   ],
+   "lkw": [
+    {
+     "lkw": 1,
+     "ankunft": "2026-10-12T07:30:00",
+     "abfahrt": "2026-10-12T09:12:00",
+     "standzeit_min": 102,
+     "abfahrt_werk": "2026-10-12T05:50:00"
+    },
+    {
+     "lkw": 2,
+     "ankunft": "2026-10-12T08:42:00",
+     "abfahrt": "2026-10-12T10:24:00",
+     "standzeit_min": 102,
+     "abfahrt_werk": "2026-10-12T07:02:00"
+    },
+    {
+     "lkw": 3,
+     "ankunft": "2026-10-12T09:54:00",
+     "abfahrt": "2026-10-12T12:54:00",
+     "standzeit_min": 180,
+     "abfahrt_werk": "2026-10-12T08:14:00"
+    },
+    {
+     "lkw": 4,
+     "ankunft": "2026-10-12T12:24:00",
+     "abfahrt": "2026-10-12T13:24:00",
+     "standzeit_min": 60,
+     "abfahrt_werk": "2026-10-12T10:44:00"
+    },
+    {
+     "lkw": 5,
+     "ankunft": "2026-10-12T12:54:00",
+     "abfahrt": "2026-10-12T14:52:00",
+     "standzeit_min": 118,
+     "abfahrt_werk": "2026-10-12T11:14:00"
+    },
+    {
+     "lkw": 6,
+     "ankunft": "2026-10-12T14:22:00",
+     "abfahrt": "2026-10-13T07:22:00",
+     "standzeit_min": 1020,
+     "abfahrt_werk": "2026-10-12T12:42:00"
+    }
+   ],
+   "montagetage": 2,
+   "tage": [
+    "2026-10-12",
+    "2026-10-13"
+   ],
+   "einsatzstunden": 10.33
+  }
+ }
+}

@@ -1,0 +1,697 @@
+{
+ "annahmen": [
+  "Bezugspegel Lr,T/Lr,N sind Beispielwerte (wie aus Gutachten nach RLS-19), keine Lärmkarte.",
+  "Ausbreitung am Haus: lange Linienquelle (3 dB je Abstandsverdopplung) und Sichtwinkelanteil; keine Reflexionen, kein Boden, keine Meteorologie, keine Geschosshöhe.",
+  "Modus 'nachweis': Minderung nur an Fassaden ohne Sicht (−5 dB, DIN 4109-2, 4.4.5.1).",
+  "Fenster-Rw = Prüfstandswert der VDI-2719-Klasse; Außenwand-Rw 47 dB (Beispiel).",
+  "ALD je schutzbedürftigem Raum an der lautesten Fassade; Rollladenkästen als Element D_n,e,w.",
+  "Nachtregel je Quelle vor der Summenbildung (Auslegung [U]).",
+  "Dach/Decke zum Dachraum nicht betrachtet (DIN 4109-1, 7.2 gesondert).",
+  "Preise sind frei gewählte Beispiel-Mehrpreise."
+ ],
+ "b19": "Schallschutz gegen Außenlärm – Beispielrechnung",
+ "empfehlungen": [
+  {
+   "evidenz": "N (Norm) / Recht",
+   "fach": "Variante B senkt erf R'w,ges der Schlafräume um Kind 0.1 dB, Schlafen 5.2 dB; max. Fensterklasse 5 → 4; Regelverstöße 2 → 0; Mehrkosten 3826 € → 1912 €.",
+   "id": "E1-grundriss-tausch",
+   "laie": "Legen Sie Schlafzimmer und Kinderzimmer auf die Südseite. Dort ist es nachts deutlich leiser. Die Fenster brauchen dann eine niedrigere Schallschutzklasse, das spart ca. 1914 € (Beispielpreise).",
+   "prioritaet": 1,
+   "quelle": "DIN 4109-2, 4.4.5.1 (−5 dB abgewandte Seite); BVerwG 4 CN 2.06; BVerwG 4 BN 8.15"
+  },
+  {
+   "evidenz": "N / Recht; Schwellen [U]",
+   "fach": "Lr,N an der Nordfassade 59 dB(A) > 45 dB(A) (DIN 18005 Bbl. 1, Hinweis) bzw. > 50 dB(A) (VDI 2719, Abschn. 10): fensterunabhängige, schallgedämmte Lüftung der Schlafräume; Lüftungskonzept nach DIN 1946-6 (Recherche 08). Schallschutz wirkt nur bei geschlossenem Fenster (DIN 4109-1, 7.3).",
+   "id": "E2-lueftung",
+   "laie": "An der Nordseite ist es nachts so laut, dass man bei gekipptem Fenster schlecht schläft. Schlafräume brauchen eine Lüftung, die ohne Fensteröffnen funktioniert. Die zentrale Lüftung mit Wärmerückgewinnung (Regnauer-Standard) erfüllt das; Außen- und Fortluftdurchlässe mit Schalldämpfer planen.",
+   "prioritaet": 1,
+   "quelle": "DIN 4109-1:2018, 7.3; VDI 2719:1987; DIN 1946-6:2019-12; BVerwG 4 C 4.05"
+  },
+  {
+   "evidenz": "N/Recht",
+   "fach": "BayTB 11/2025 Anl. A 5.2/1 Nr. 5: La = 69.0 dB ≥ 61 dB (wohnen). Bautechnischer Nachweis nach Art. 62 BayBO, § 12 BauVorlV.",
+   "id": "E3-nachweispflicht",
+   "laie": "Für dieses Grundstück ist ein rechnerischer Schallschutznachweis gegen Außenlärm Pflicht.",
+   "prioritaet": 2,
+   "quelle": "BayTB Ausgabe November 2025; BayBO Art. 62; BauVorlV § 12"
+  },
+  {
+   "evidenz": "Physik/N",
+   "fach": "Linienquelle: ΔL = 10 lg(162/150) = 0.3 dB (ANNAHME Freifeld). Abschirmung durch Nebengebäude/Lärmschutzwand nur mit Gutachten (16. BImSchV/RLS-19) anrechenbar (DIN 4109-2, 4.4.5.1).",
+   "id": "E4-abstand-riegel",
+   "laie": "Das Haus weiter nach Süden zu schieben bringt nur ca. 0.3 dB – kaum hörbar. Wirksam sind die Grundrissorientierung und ggf. eine Garage oder Wand im Norden als Riegel.",
+   "prioritaet": 3,
+   "quelle": "DIN 4109-2, 4.4.5.1; RLS-19"
+  },
+  {
+   "evidenz": "N (Orientierungswert)",
+   "fach": "Lr,T Südfassade ≈ 61 dB(A) > OW WA 55 dB(A) (DIN 18005 Bbl. 1:2023, kein Grenzwert).",
+   "id": "E5-terrasse",
+   "laie": "Auch auf der Südterrasse ist die Autobahn zu hören. Eine Terrasse im Windschatten des Hauses oder eine Mauer hilft.",
+   "prioritaet": 3,
+   "quelle": "DIN 18005 Beiblatt 1:2023-07"
+  },
+  {
+   "evidenz": "A (Wirkung), nicht bindend",
+   "fach": "EU-Lärmkarte Lden 68 / Lnight 59 dB > WHO-Empfehlung Straße 53/45 dB (WHO 2018, Evidenzgrad A in Recherche 15). EU-Lärmkarten sind für La nicht zulässig (DIN 4109-2, 4.4.5.2, Anm.).",
+   "id": "E6-who",
+   "laie": "Die Lärmkarte zeigt Werte, bei denen die Weltgesundheitsorganisation gesundheitliche Folgen erwartet. Das ist kein Bauverbot, aber ein Grund, Schlafräume ruhig zu legen.",
+   "prioritaet": 4,
+   "quelle": "WHO 2018; DIN 4109-2:2018, 4.4.5.2"
+  }
+ ],
+ "fassadenpegel": {
+  "E": {
+   "la_schlaf": 71.89,
+   "la_tag": 68.89,
+   "nachweis_tauglich": true,
+   "quellen": [
+    {
+     "abstand_m": 154.0,
+     "art": "strasse",
+     "begruendung": "zugewandt oder Streifsicht: keine Minderung ohne Gutachten",
+     "dL_abstand": -0.11,
+     "dL_orientierung": 0.0,
+     "lr_nacht": 58.89,
+     "lr_tag": 65.89,
+     "quelle": "Autobahn (Beispiel)",
+     "sichtanteil": 0.5,
+     "verfahren": "RLS-19"
+    }
+   ]
+  },
+  "N": {
+   "la_schlaf": 72.0,
+   "la_tag": 69.0,
+   "nachweis_tauglich": true,
+   "quellen": [
+    {
+     "abstand_m": 149.9,
+     "art": "strasse",
+     "begruendung": "zugewandt oder Streifsicht: keine Minderung ohne Gutachten",
+     "dL_abstand": 0.0,
+     "dL_orientierung": 0.0,
+     "lr_nacht": 59.0,
+     "lr_tag": 66.0,
+     "quelle": "Autobahn (Beispiel)",
+     "sichtanteil": 1.0,
+     "verfahren": "RLS-19"
+    }
+   ]
+  },
+  "S": {
+   "la_schlaf": 66.77,
+   "la_tag": 63.77,
+   "nachweis_tauglich": true,
+   "quellen": [
+    {
+     "abstand_m": 158.0,
+     "art": "strasse",
+     "begruendung": "abgewandt: −5 dB ohne besonderen Nachweis (DIN 4109-2, 4.4.5.1)",
+     "dL_abstand": -0.23,
+     "dL_orientierung": -5.0,
+     "lr_nacht": 53.77,
+     "lr_tag": 60.77,
+     "quelle": "Autobahn (Beispiel)",
+     "sichtanteil": 0.0,
+     "verfahren": "RLS-19"
+    }
+   ]
+  },
+  "W": {
+   "la_schlaf": 71.89,
+   "la_tag": 68.89,
+   "nachweis_tauglich": true,
+   "quellen": [
+    {
+     "abstand_m": 154.0,
+     "art": "strasse",
+     "begruendung": "zugewandt oder Streifsicht: keine Minderung ohne Gutachten",
+     "dL_abstand": -0.11,
+     "dL_orientierung": 0.0,
+     "lr_nacht": 58.89,
+     "lr_tag": 65.89,
+     "quelle": "Autobahn (Beispiel)",
+     "sichtanteil": 0.5,
+     "verfahren": "RLS-19"
+    }
+   ]
+  }
+ },
+ "fensterverzicht": {
+  "A_ursprung": [],
+  "B_tausch": []
+ },
+ "hinweis": "Alle Zahlen sind Beispielwerte. Pegel nicht aus einer realen Lärmkarte.",
+ "lueftung": "KWL",
+ "modus": "nachweis",
+ "nachweis_tauglich": true,
+ "varianten": {
+  "A_ursprung": {
+   "anzahl_fenster_ssk_ab_4": 4,
+   "baytb_grund": "La = 69.0 dB ≥ 61 dB (wohnen)",
+   "baytb_nachweis_erforderlich": true,
+   "max_klasse": 5,
+   "raeume": [
+    {
+     "erf_rw_ges": 39.0,
+     "erfuellt": true,
+     "fassaden": {
+      "N": 7.0,
+      "S": 7.0,
+      "W": 8.0
+     },
+     "flaeche_m2": 56.0,
+     "geschoss": "EG",
+     "k_al": 0.89,
+     "la_max": 69.0,
+     "massgebend": "tag",
+     "max_klasse": 3,
+     "mehrkosten_eur": 838.5,
+     "raum": "Wohnen/Essen",
+     "reserve": 0.23,
+     "rw_ges": 42.12,
+     "schlafnutzung": false,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "N": 3,
+       "S": 2,
+       "W": 3
+      },
+      "rollladen": "Aufsatzkasten schallgedämmt"
+     },
+     "zeitraeume": {
+      "tag": {
+       "erf_rw_ges": 39.0,
+       "erfuellt": true,
+       "k_al": 0.89,
+       "la_max": 69.0,
+       "reserve": 0.23,
+       "rw_ges": 42.12,
+       "rw_ges_minus_uprog": 40.12,
+       "ziel": 39.89
+      }
+     },
+     "ziel_rw_ges_minus_2": 39.89
+    },
+    {
+     "bemerkung": "Arbeitsküche ohne Essplatz: kein schutzbedürftiger Raum (DIN 4109-1, 3.16 nennt Wohnküchen)",
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "N": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "EG",
+     "raum": "Küche",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "S": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "EG",
+     "raum": "Flur/HWR",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "erf_rw_ges": 42.0,
+     "erfuellt": true,
+     "fassaden": {
+      "N": 4.5,
+      "W": 4.0
+     },
+     "flaeche_m2": 18.0,
+     "geschoss": "OG",
+     "k_al": 1.69,
+     "la_max": 72.0,
+     "massgebend": "schlaf",
+     "max_klasse": 5,
+     "mehrkosten_eur": 1432.0,
+     "raum": "Schlafen",
+     "reserve": 0.26,
+     "rw_ges": 45.95,
+     "schlafnutzung": true,
+     "schutzbeduerftig": true,
+     "stufe": "mit Fremdprodukten",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "N": 4,
+       "W": 5
+      },
+      "rollladen": "Vorbau-Raffstore (kein Kasten in der Wand)"
+     },
+     "zeitraeume": {
+      "schlaf": {
+       "erf_rw_ges": 42.0,
+       "erfuellt": true,
+       "k_al": 1.69,
+       "la_max": 72.0,
+       "reserve": 0.26,
+       "rw_ges": 45.95,
+       "rw_ges_minus_uprog": 43.95,
+       "ziel": 43.69
+      },
+      "tag": {
+       "erf_rw_ges": 39.0,
+       "erfuellt": true,
+       "k_al": 1.69,
+       "la_max": 69.0,
+       "reserve": 3.26,
+       "rw_ges": 45.95,
+       "rw_ges_minus_uprog": 43.95,
+       "ziel": 40.69
+      }
+     },
+     "ziel_rw_ges_minus_2": 43.69
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "N": 2.5
+     },
+     "flaeche_m2": 10.0,
+     "geschoss": "OG",
+     "raum": "Bad",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "erf_rw_ges": 42.0,
+     "erfuellt": true,
+     "fassaden": {
+      "E": 4.0,
+      "N": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "OG",
+     "k_al": 1.94,
+     "la_max": 72.0,
+     "massgebend": "schlaf",
+     "max_klasse": 5,
+     "mehrkosten_eur": 1247.0,
+     "raum": "Kind",
+     "reserve": 0.22,
+     "rw_ges": 46.16,
+     "schlafnutzung": true,
+     "schutzbeduerftig": true,
+     "stufe": "mit Fremdprodukten",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "E": 5,
+       "N": 4
+      },
+      "rollladen": "Vorbau-Raffstore (kein Kasten in der Wand)"
+     },
+     "zeitraeume": {
+      "schlaf": {
+       "erf_rw_ges": 42.0,
+       "erfuellt": true,
+       "k_al": 1.94,
+       "la_max": 72.0,
+       "reserve": 0.22,
+       "rw_ges": 46.16,
+       "rw_ges_minus_uprog": 44.16,
+       "ziel": 43.94
+      },
+      "tag": {
+       "erf_rw_ges": 39.0,
+       "erfuellt": true,
+       "k_al": 1.94,
+       "la_max": 69.0,
+       "reserve": 3.22,
+       "rw_ges": 46.16,
+       "rw_ges_minus_uprog": 44.16,
+       "ziel": 40.94
+      }
+     },
+     "ziel_rw_ges_minus_2": 43.94
+    },
+    {
+     "bemerkung": "als Tagraum eingestuft; wird er als Gästezimmer genutzt, gilt die Nachtregel [U]",
+     "erf_rw_ges": 38.89,
+     "erfuellt": true,
+     "fassaden": {
+      "S": 4.0,
+      "W": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "OG",
+     "k_al": 1.94,
+     "la_max": 68.89,
+     "massgebend": "tag",
+     "max_klasse": 3,
+     "mehrkosten_eur": 309.0,
+     "raum": "Arbeiten",
+     "reserve": 0.06,
+     "rw_ges": 42.89,
+     "schlafnutzung": false,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "S": 2,
+       "W": 3
+      },
+      "rollladen": "Aufsatzkasten schallgedämmt"
+     },
+     "zeitraeume": {
+      "tag": {
+       "erf_rw_ges": 38.89,
+       "erfuellt": true,
+       "k_al": 1.94,
+       "la_max": 68.89,
+       "reserve": 0.06,
+       "rw_ges": 42.89,
+       "rw_ges_minus_uprog": 40.89,
+       "ziel": 40.83
+      }
+     },
+     "ziel_rw_ges_minus_2": 40.83
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "S": 7.0
+     },
+     "flaeche_m2": 28.0,
+     "geschoss": "OG",
+     "raum": "Flur/Treppe",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    }
+   ],
+   "regelverstoesse": [
+    {
+     "raum": "Schlafen",
+     "regel": "Katalogregel (Firma)",
+     "text": "nur mit Fremdprodukt (SSK 5/6 oder mehrflüglig > SSK 2) nachweisbar"
+    },
+    {
+     "raum": "Kind",
+     "regel": "Katalogregel (Firma)",
+     "text": "nur mit Fremdprodukt (SSK 5/6 oder mehrflüglig > SSK 2) nachweisbar"
+    }
+   ],
+   "summe_mehrkosten_eur": 3826.5
+  },
+  "B_tausch": {
+   "anzahl_fenster_ssk_ab_4": 1,
+   "baytb_grund": "La = 69.0 dB ≥ 61 dB (wohnen)",
+   "baytb_nachweis_erforderlich": true,
+   "max_klasse": 4,
+   "raeume": [
+    {
+     "erf_rw_ges": 39.0,
+     "erfuellt": true,
+     "fassaden": {
+      "N": 7.0,
+      "S": 7.0,
+      "W": 8.0
+     },
+     "flaeche_m2": 56.0,
+     "geschoss": "EG",
+     "k_al": 0.89,
+     "la_max": 69.0,
+     "massgebend": "tag",
+     "max_klasse": 3,
+     "mehrkosten_eur": 838.5,
+     "raum": "Wohnen/Essen",
+     "reserve": 0.23,
+     "rw_ges": 42.12,
+     "schlafnutzung": false,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "N": 3,
+       "S": 2,
+       "W": 3
+      },
+      "rollladen": "Aufsatzkasten schallgedämmt"
+     },
+     "zeitraeume": {
+      "tag": {
+       "erf_rw_ges": 39.0,
+       "erfuellt": true,
+       "k_al": 0.89,
+       "la_max": 69.0,
+       "reserve": 0.23,
+       "rw_ges": 42.12,
+       "rw_ges_minus_uprog": 40.12,
+       "ziel": 39.89
+      }
+     },
+     "ziel_rw_ges_minus_2": 39.89
+    },
+    {
+     "bemerkung": "Arbeitsküche ohne Essplatz: kein schutzbedürftiger Raum (DIN 4109-1, 3.16 nennt Wohnküchen)",
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "N": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "EG",
+     "raum": "Küche",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "S": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "EG",
+     "raum": "Flur/HWR",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "bemerkung": "als Tagraum eingestuft [U]",
+     "erf_rw_ges": 39.0,
+     "erfuellt": true,
+     "fassaden": {
+      "N": 4.5,
+      "W": 4.0
+     },
+     "flaeche_m2": 18.0,
+     "geschoss": "OG",
+     "k_al": 1.69,
+     "la_max": 69.0,
+     "massgebend": "tag",
+     "max_klasse": 4,
+     "mehrkosten_eur": 561.0,
+     "raum": "Arbeiten",
+     "reserve": 0.42,
+     "rw_ges": 43.11,
+     "schlafnutzung": false,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "N": 3,
+       "W": 4
+      },
+      "rollladen": "Aufsatzkasten schallgedämmt"
+     },
+     "zeitraeume": {
+      "tag": {
+       "erf_rw_ges": 39.0,
+       "erfuellt": true,
+       "k_al": 1.69,
+       "la_max": 69.0,
+       "reserve": 0.42,
+       "rw_ges": 43.11,
+       "rw_ges_minus_uprog": 41.11,
+       "ziel": 40.69
+      }
+     },
+     "ziel_rw_ges_minus_2": 40.69
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "N": 2.5
+     },
+     "flaeche_m2": 10.0,
+     "geschoss": "OG",
+     "raum": "Bad",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "N": 4.0
+     },
+     "flaeche_m2": 16.0,
+     "geschoss": "OG",
+     "raum": "Flur/Treppe",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    },
+    {
+     "bemerkung": "Westwand ohne Fenster (Seitenfassade mit Streifsicht auf die Autobahn)",
+     "erf_rw_ges": 41.89,
+     "erfuellt": true,
+     "fassaden": {
+      "S": 3.5,
+      "W": 4.0
+     },
+     "flaeche_m2": 14.0,
+     "geschoss": "OG",
+     "k_al": 2.24,
+     "la_max": 71.89,
+     "massgebend": "schlaf",
+     "max_klasse": 3,
+     "mehrkosten_eur": 261.0,
+     "raum": "Kind",
+     "reserve": 0.61,
+     "rw_ges": 46.74,
+     "schlafnutzung": true,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "S": 3
+      },
+      "rollladen": "Aufsatzkasten schallgedämmt"
+     },
+     "zeitraeume": {
+      "schlaf": {
+       "erf_rw_ges": 41.89,
+       "erfuellt": true,
+       "k_al": 2.24,
+       "la_max": 71.89,
+       "reserve": 0.61,
+       "rw_ges": 46.74,
+       "rw_ges_minus_uprog": 44.74,
+       "ziel": 44.13
+      },
+      "tag": {
+       "erf_rw_ges": 38.89,
+       "erfuellt": true,
+       "k_al": 2.24,
+       "la_max": 68.89,
+       "reserve": 3.61,
+       "rw_ges": 46.74,
+       "rw_ges_minus_uprog": 44.74,
+       "ziel": 41.13
+      }
+     },
+     "ziel_rw_ges_minus_2": 44.13
+    },
+    {
+     "erf_rw_ges": 36.77,
+     "erfuellt": true,
+     "fassaden": {
+      "S": 4.5
+     },
+     "flaeche_m2": 18.0,
+     "geschoss": "OG",
+     "k_al": -1.07,
+     "la_max": 66.77,
+     "massgebend": "schlaf",
+     "max_klasse": 3,
+     "mehrkosten_eur": 252.0,
+     "raum": "Schlafen",
+     "reserve": 0.37,
+     "rw_ges": 38.06,
+     "schlafnutzung": true,
+     "schutzbeduerftig": true,
+     "stufe": "Regnauer-Katalog",
+     "wahl": {
+      "ald": null,
+      "ald_fassade": null,
+      "klasse": {
+       "S": 3
+      },
+      "rollladen": "Aufsatzkasten Standard"
+     },
+     "zeitraeume": {
+      "schlaf": {
+       "erf_rw_ges": 36.77,
+       "erfuellt": true,
+       "k_al": -1.07,
+       "la_max": 66.77,
+       "reserve": 0.37,
+       "rw_ges": 38.06,
+       "rw_ges_minus_uprog": 36.06,
+       "ziel": 35.7
+      },
+      "tag": {
+       "erf_rw_ges": 33.77,
+       "erfuellt": true,
+       "k_al": -1.07,
+       "la_max": 63.77,
+       "reserve": 3.37,
+       "rw_ges": 38.06,
+       "rw_ges_minus_uprog": 36.06,
+       "ziel": 32.7
+      }
+     },
+     "ziel_rw_ges_minus_2": 35.7
+    },
+    {
+     "ergebnis": "nicht schutzbedürftig (DIN 4109-1, 3.16): keine Anforderung",
+     "fassaden": {
+      "E": 4.0,
+      "S": 3.0
+     },
+     "flaeche_m2": 12.0,
+     "geschoss": "OG",
+     "raum": "Ankleide",
+     "schlafnutzung": false,
+     "schutzbeduerftig": false
+    }
+   ],
+   "regelverstoesse": [],
+   "summe_mehrkosten_eur": 1912.5
+  }
+ },
+ "vergleich": {
+  "empfehlung_anders_planen": true,
+  "fenster_ab_ssk4": {
+   "A": 4,
+   "B": 1
+  },
+  "max_klasse": {
+   "A": 5,
+   "B": 4
+  },
+  "mehrkosten_eur": {
+   "A": 3826.5,
+   "B": 1912.5
+  },
+  "regelverstoesse": {
+   "A": 2,
+   "B": 0
+  }
+ }
+}
