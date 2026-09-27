@@ -24,7 +24,8 @@ Eingabe und gleichen Paketversionen entstehen byte-identische IFC- und BTLx-Date
 | B5 | `b5_treppe_din18065.py` | Treppenlauf-Solver nach DIN 18065 (Wohngebäude ≤ 2 WE): alle zulässigen Lösungen und die beste Lösung | `treppe.json` |
 | B6 | `b6_intent_pipeline.py` | deutscher Zahlen- und Einheitenparser, Auflösung von Raumreferenzen gegen `daten/haus_state.json`, Intent `raum_aendern` mit Regelprüfung. **Das Intent-Modell (Laya/Jev) ist nur ein Stub** | `intent_protokoll.json` |
 | B7 | `b7_btlx_export.py` | optional: BTLx-Export der 18 Hölzer mit compas_timber, mit der Kerve als `Lap` | `wandelement.btlx` |
-| – | `alle_ausfuehren.py` | führt B1–B7 aus und sammelt die Kennzahlen | `kennzahlen.json` |
+| N | `nachweis.py`, `nachweise_b1_b5.py` | Nachweis-Framework: rechnerischer und grafischer Nachweis je Regelprüfung (Einheitenprüfung, Rundung, GUM-Unsicherheit, Hash, JSON/Markdown/HTML, maßstäbliche SVG), nachgerüstet für B1–B5 ohne Änderung der Rechenkerne; siehe [`NACHWEIS.md`](NACHWEIS.md) | `nachweise/*.json/.md/.html`, `nachweise/svg/` |
+| – | `alle_ausfuehren.py` | führt B1–B7 und die Nachweishefte aus und sammelt die Kennzahlen | `kennzahlen.json` |
 
 Die Ergebnisse und Kennzahlen stehen in [`ergebnisse.md`](ergebnisse.md).
 
@@ -52,6 +53,7 @@ python b4_abstandsflaechen.py [--giebel-modus drittel|voll]
 python b5_treppe_din18065.py [--geschosshoehe 2.90] [--laufbreite 0.90] [--max-lauflaenge 4.0]
 python b6_intent_pipeline.py ["Mach das Bad oben zwei Meter sechzig breit"]
 python b7_btlx_export.py            # optional, benötigt compas_timber
+python nachweise_b1_b5.py           # → ausgabe/nachweise/ (7 Nachweishefte, 32 Nachweise)
 python alle_ausfuehren.py           # alles + ausgabe/kennzahlen.json
 python -m pytest                    # 48 Tests
 ```
