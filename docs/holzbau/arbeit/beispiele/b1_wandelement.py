@@ -509,6 +509,7 @@ class IfcWandBauer:
                 fo.Representation = self.form(body, "SweptSolid", [self.platte_solid(poly, 0.0, 0.0, s["dicke"])])
                 self.pset(fo, "HRB_Feuchteschutz", {"Funktion": "Dampfbremse, luftdichte Ebene",
                                                      "SdWert_m": float(self.p["materialien"][s["material"]]["sd_m"])})
+                self.qto(fo, "Qto_BodyGeometryValidation", {"NetVolume": round(poly.area * s["dicke"] / 1e9, 9)})
                 mat_zu(s["material"], fo)
                 teile.append(fo)
             elif s["rolle"] == "gefach":

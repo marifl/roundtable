@@ -95,8 +95,8 @@ def test_btlx_export(tmp_path):
     import b1_wandelement as b1
     import b7_btlx_export as b7
     p = b1.lade_parameter()
-    a = b7.exportiere(p, tmp_path / "a.btlx")
-    b = b7.exportiere(p, tmp_path / "b.btlx")
+    a = b7.exportiere(p, tmp_path / "1" / "wand.btlx")   # gleicher Dateiname: er steht im Header
+    b = b7.exportiere(p, tmp_path / "2" / "wand.btlx")
     assert hashlib.sha256(a.read_bytes()).digest() == hashlib.sha256(b.read_bytes()).digest()
     text = a.read_text(encoding="utf-8")
     assert text.count("<Part ") == 18 and text.count("<Lap ") == 1
