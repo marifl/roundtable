@@ -1,6 +1,6 @@
 import os,re,glob,csv,unicodedata,collections
 def norm(t):
-    t=unicodedata.normalize('NFKD',t.lower()); return re.sub(r'[^a-z0-9]','',t)[:80]
+    t=unicodedata.normalize('NFKD',t.lower()); return re.sub(r'[^a-z0-9]','',t)
 def parse(txt):
     i=0;out=[]
     while True:
@@ -57,7 +57,7 @@ def main():
     # eindeutige Keys über den Key zuordnen (robust gegen Titelkorrekturen), doppelte Keys zusätzlich über den Titel
     sk=lambda e:(e['key'],norm(e['titel'])) if altkeys.get(e['key'],0)>1 else (e['key'],'')
     bekannt=[e for e in master if sk(e) in alt]; neu=[e for e in master if sk(e) not in alt]
-    bekannt.sort(key=lambda e:alt[sk(e)])
+    bekannt.sort(key=lambda e:int(alt[sk(e)][1:]))
     fehlend=set(alt)-{sk(e) for e in master}
     if fehlend: print('WARNUNG: Einträge aus bisheriger Masterliste fehlen:',sorted(fehlend))
     nxt=max([int(v[1:]) for v in alt.values()] or [0])+1

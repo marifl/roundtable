@@ -33384,5 +33384,297 @@
   },
   "URL": "https://www.gesetze-im-internet.de/stgb/__201.html",
   "keyword": "Q1046, FF3=1, FF4=2, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "hacker2024eprs",
+  "type": "report",
+  "title": "Proposal for a directive on adapting non-contractual civil liability rules to artificial intelligence: Complementary impact assessment",
+  "note": "Q1047",
+  "author": [
+   {
+    "family": "Hacker",
+    "given": "Philipp"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "DOI": "10.2861/1723734",
+  "URL": "https://www.europarl.europa.eu/RegData/etudes/STUD/2024/762861/EPRS_STU(2024)762861_EN.pdf",
+  "issue": "PE 762.861",
+  "ISBN": "978-92-848-2244-7",
+  "keyword": "Q1047"
+ },
+ {
+  "id": "cao2022ontologybased",
+  "type": "article-journal",
+  "title": "Ontology-based manufacturability analysis automation for industrialized construction",
+  "note": "Q1048",
+  "author": [
+   {
+    "family": "Cao",
+    "given": "Jianpeng"
+   },
+   {
+    "family": "Vakaj",
+    "given": "Edlira"
+   },
+   {
+    "family": "Soman",
+    "given": "Ranjith K."
+   },
+   {
+    "family": "Hall",
+    "given": "Daniel M."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2022.104277",
+  "container-title": "Automation in Construction",
+  "volume": "139",
+  "page": "104277",
+  "keyword": "Q1048"
+ },
+ {
+  "id": "kim2022bim",
+  "type": "article-journal",
+  "title": "BIM data requirements for 2D deliverables in construction documentation",
+  "note": "Q1049",
+  "author": [
+   {
+    "family": "Kim",
+    "given": "Y."
+   },
+   {
+    "family": "Chin",
+    "given": "S."
+   },
+   {
+    "family": "Choo",
+    "given": "S."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2022.104340",
+  "container-title": "Automation in Construction",
+  "volume": "140",
+  "page": "104340",
+  "keyword": "Q1049"
+ },
+ {
+  "id": "wang2016building",
+  "type": "article-journal",
+  "title": "Building information modeling-based integration of MEP layout designs and constructability",
+  "note": "Q1050",
+  "author": [
+   {
+    "family": "Wang",
+    "given": "J."
+   },
+   {
+    "family": "Wang",
+    "given": "X."
+   },
+   {
+    "family": "Shou",
+    "given": "W."
+   },
+   {
+    "family": "Chong",
+    "given": "H.-Y."
+   },
+   {
+    "family": "Guo",
+    "given": "J."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2015.10.003",
+  "container-title": "Automation in Construction",
+  "volume": "61",
+  "page": "134--146",
+  "keyword": "Q1050"
+ },
+ {
+  "id": "fisher2024paad",
+  "type": "article-journal",
+  "title": "PAAD: Panelization algorithm for architectural designs",
+  "note": "Q1051",
+  "author": [
+   {
+    "family": "Fisher",
+    "given": "Andrew"
+   },
+   {
+    "family": "Tan",
+    "given": "Xing"
+   },
+   {
+    "family": "Billah",
+    "given": "Muntasir"
+   },
+   {
+    "family": "Lingras",
+    "given": "Pawan"
+   },
+   {
+    "family": "Huang",
+    "given": "Jimmy"
+   },
+   {
+    "family": "Mago",
+    "given": "Vijay"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "DOI": "10.1371/journal.pone.0303646",
+  "container-title": "PLOS ONE",
+  "volume": "19",
+  "issue": "6",
+  "page": "e0303646",
+  "keyword": "Q1051"
+ },
+ {
+  "id": "cortezlara2026bimsimulated",
+  "type": "article-journal",
+  "title": "A BIM-simulated annealing approach to optimize cost, size, and environmental impact of building water networks",
+  "note": "Q1052",
+  "author": [
+   {
+    "family": "Cortez-Lara",
+    "given": "Pedro"
+   },
+   {
+    "family": "Sanchez",
+    "given": "Benjamin"
+   },
+   {
+    "family": "Barrios-Pi\\~na",
+    "given": "Hector A."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1038/s41598-026-41841-4",
+  "container-title": "Scientific Reports",
+  "keyword": "Q1052"
+ },
+ {
+  "id": "saka2023conversational",
+  "type": "article-journal",
+  "title": "Conversational artificial intelligence in the AEC industry: A review of present status, challenges and opportunities",
+  "note": "Q1053",
+  "author": [
+   {
+    "family": "Saka",
+    "given": "Abdullahi B."
+   },
+   {
+    "family": "Oyedele",
+    "given": "Lukumon O."
+   },
+   {
+    "family": "Akanbi",
+    "given": "Lukman A."
+   },
+   {
+    "family": "Ganiyu",
+    "given": "Sikiru A."
+   },
+   {
+    "family": "Chan",
+    "given": "Daniel W. M."
+   },
+   {
+    "family": "Bello",
+    "given": "Sururah A."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.aei.2022.101869",
+  "container-title": "Advanced Engineering Informatics",
+  "volume": "55",
+  "page": "101869",
+  "keyword": "Q1053"
+ },
+ {
+  "id": "weld2022survey",
+  "type": "article-journal",
+  "title": "A Survey of Joint Intent Detection and Slot Filling Models in Natural Language Understanding",
+  "note": "Q1054",
+  "author": [
+   {
+    "family": "Weld",
+    "given": "Henry"
+   },
+   {
+    "family": "Huang",
+    "given": "Xiaoqi"
+   },
+   {
+    "family": "Long",
+    "given": "Siqu"
+   },
+   {
+    "family": "Poon",
+    "given": "Josiah"
+   },
+   {
+    "family": "Han",
+    "given": "Soyeon Caren"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.1145/3547138",
+  "container-title": "ACM Computing Surveys",
+  "volume": "55",
+  "issue": "8",
+  "page": "156",
+  "keyword": "Q1054"
  }
 ]

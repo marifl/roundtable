@@ -1,8 +1,8 @@
 # Statistik der Quellenbewertung
 
-- Quellen in der Masterliste: 1046
+- Quellen in der Masterliste: 1054
 - bewertet: 1046
-- noch nicht bewertet: 0
+- noch nicht bewertet: 8 (Q1047–Q1054)
 - Kernbestand (P ≥ 5): 317
 - verifiziert V: 1038, U: 8
 

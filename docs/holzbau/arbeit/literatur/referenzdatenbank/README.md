@@ -6,7 +6,7 @@ Automatisch erzeugt von `../referenzdatenbank.py`. Nicht von Hand bearbeiten; Ä
 
 | Inhalt | Anzahl |
 |---|---|
-| Quellen | 1046 |
+| Quellen | 1054 |
 | einzeln bewertet | 1046 |
 | zweitbewertet (blind) | 80 |
 | Abstract-Datensätze | 1046 |
