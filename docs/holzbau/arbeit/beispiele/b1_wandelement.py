@@ -87,6 +87,7 @@ STANDARD_AUSGABE = HIER / "ausgabe" / "wandelement.ifc"
 
 # Fester Namensraum für uuid5 (selbst gewählt, einmalig erzeugt und hier fixiert).
 GUID_NAMENSRAUM = uuid.UUID("6f1c3b0e-8a52-5d7e-9c4b-2a1d0e7f4b10")
+UEBERSTAND = 1.0  # mm, Überstand von Abzugskörpern (Kerve)
 
 
 # ---------------------------------------------------------------------------
@@ -467,8 +468,11 @@ class IfcWandBauer:
             m, h, _, _ = holz_obj[pfad_st]
             vf = self.neu("IfcVoidingFeature", f"/wand/kerven/{kv['id']}", f"Kerve {kv['id']}", "NOTCH",
                           Description=kv.get("_zweck"),
-                          ObjectPlacement=self.platzierung(m.ObjectPlacement, (0.0, 0.0, kv["z"] - h["z0"])))
-            vf.Representation = self.form(body, "SweptSolid", [self.quader_entlang(h["x1"] - h["x0"], kv["tiefe"], kv["hoehe"], "z")])
+                          ObjectPlacement=self.platzierung(m.ObjectPlacement, (-UEBERSTAND, -UEBERSTAND, kv["z"] - h["z0"])))
+            # Der Abzugskörper steht seitlich und zur Raumseite um UEBERSTAND über
+            # den Ständer hinaus: keine koplanaren Flächen → robuste Boolesche Operation.
+            vf.Representation = self.form(body, "SweptSolid", [self.quader_entlang(
+                h["x1"] - h["x0"] + 2 * UEBERSTAND, kv["tiefe"] + UEBERSTAND, kv["hoehe"], "z")])
             self.beziehung("IfcRelVoidsElement", f"/wand/kerven/{kv['id']}#schneidet", RelatingBuildingElement=m, RelatedOpeningElement=vf)
             abzug[pfad_st] = abzug.get(pfad_st, 0) + (h["x1"] - h["x0"]) * kv["tiefe"] * kv["hoehe"]
 
