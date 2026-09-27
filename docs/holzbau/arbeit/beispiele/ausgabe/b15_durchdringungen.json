@@ -1,0 +1,201 @@
+{
+ "leitung": "SW-01",
+ "oeffnung_decke_wand_mm": 150,
+ "oeffnung_dach_mm": 130,
+ "durchdringungen": [
+  {
+   "id": "D1",
+   "bauteil": "D-OG",
+   "art": "senkrecht durch Holzbalkendecke",
+   "oeffnung_d_mm": 150,
+   "x": 3150,
+   "y": 2100,
+   "z_uk": 2600,
+   "tiefe_mm": 262,
+   "massnahmen": [
+    "Wechsel: Balken 5 (x = 3125) zwischen y = 1905 und 2295 unterbrechen, 2 Wechsel 100/240 zwischen den Nachbarbalken; Stichbalken und Wechselbalken statisch nachweisen (EC5, Balkenschuhe).",
+    "Senkrechter Durchbruch durch den Balken selbst ist ausgeschlossen (Querschnitt durchtrennt).",
+    "Schallentkopplung: Dämmschlauch im Durchbruch, keine starre Verbindung Rohr–Holz; Rohrschellen mit Gummieinlage."
+   ],
+   "verstoesse": [],
+   "wechsel": {
+    "balken_index": 5,
+    "balken_x": 3125,
+    "wechsel_y": [
+     1955.0,
+     2245.0
+    ],
+    "von_x": 2550.0,
+    "bis_x": 3700.0,
+    "stichbalken": [
+     [
+      0,
+      1905.0
+     ],
+     [
+      2295.0,
+      4500
+     ]
+    ]
+   },
+   "brandschutz": {
+    "abschottung": false,
+    "grund": "MLAR/LAR 4.1.1: nicht erforderlich in GK 1 und 2 bzw. innerhalb von Wohnungen."
+   }
+  },
+  {
+   "id": "D2",
+   "bauteil": "IW-OG-02",
+   "art": "waagrecht durch Ständerwand (WC-Anschlussleitung)",
+   "oeffnung_d_mm": 150,
+   "x": 3150,
+   "y": 2300,
+   "z": 3242,
+   "tiefe_mm": 190,
+   "massnahmen": [
+    "Ständer 5 (x = 3125) trifft die Öffnung Ø 150: Bohrung 150 mm > 25% der Ständertiefe 160 mm (Firmenregel-Platzhalter) → Ständer auswechseln: Ständer kürzen, Riegel ober- und unterhalb, Lastabtrag über Nachbarständer nachweisen (tragende Wand) oder Leitung in der Vorwand führen.",
+    "Schallentkopplung: Dämmschlauch, Gefach um die Leitung mit Mineralwolle stopfen (nicht starr)."
+   ],
+   "verstoesse": [],
+   "auswechslung": {
+    "staender_index": 5,
+    "staender_x": 3125,
+    "riegel_z": [
+     3092.0,
+     3332.0
+    ],
+    "von_x": 2530.0,
+    "bis_x": 3720.0
+   },
+   "brandschutz": {
+    "abschottung": false,
+    "grund": "MLAR/LAR 4.1.1: nicht erforderlich in GK 1 und 2 bzw. innerhalb von Wohnungen."
+   }
+  },
+  {
+   "id": "D3",
+   "bauteil": "DA-01",
+   "art": "senkrecht durch luftdichte Ebene und Dach (Hauptlüftung DN 100)",
+   "oeffnung_d_mm": 130,
+   "x": 3150,
+   "y": 2100,
+   "z_uk": 5600,
+   "tiefe_mm": 238,
+   "massnahmen": [
+    "Öffnung zwischen zwei Sparren.",
+    "Luftdichtheit DIN 4108-7: pro clima ROFLEX 100 (Rohr-Manschette) (Ø 100–120 mm), mit Systemklebeband.",
+    "Winddichtung/Unterdeckung: Dunstrohrmanschette; Dacheindeckung: Lüfterdurchgang DN 100 nach oben offen."
+   ],
+   "verstoesse": [
+    "Mündung zu nah an DF-01: seitlich 1600 mm, 300 mm über Sturz (DIN 1986-100 6.5: ≥ 1 m über Sturz oder ≥ 2 m seitlich). Mündung auf z >= 7300 mm anheben (+700 mm) oder Abstand zum Fenster >= 2000 mm (fehlen 400 mm)."
+   ],
+   "manschette": {
+    "id": "ROFLEX_100",
+    "name": "pro clima ROFLEX 100 (Rohr-Manschette)",
+    "d_min": 100,
+    "d_max": 120,
+    "quelle": "Herstellerangabe pro clima"
+   },
+   "fensterabstand": [
+    {
+     "fenster": "DF-01",
+     "seitlich_mm": 1600.0,
+     "ueber_sturz_mm": 300,
+     "ok": false,
+     "vorschlag": "Mündung auf z >= 7300 mm anheben (+700 mm) oder Abstand zum Fenster >= 2000 mm (fehlen 400 mm)."
+    }
+   ],
+   "brandschutz": {
+    "abschottung": false,
+    "grund": "Dach: keine Abschottung (MLAR 4.1.1, GK 1)."
+   }
+  },
+  {
+   "d_mm": 60,
+   "h_mm": 240,
+   "verstoesse": [
+    "hd = 60 mm > 0,15·h = 36 mm → unverstärkt unzulässig (Leitung parallel zu den Balken führen, Wechsel oder Verstärkung mit Nachweis)."
+   ],
+   "hinweise": [
+    "prEN 1995-1-1 (Entwurf): Durchbrüche in Vollholz/KVH verstärken; unverstärkt nur GL/LVL."
+   ],
+   "hro_mm": 90.0,
+   "hru_mm": 90.0,
+   "lA_mm": 1170.0,
+   "einstufung": "Durchbruch (> 50 mm, NA.6.7)",
+   "id": "BD-1",
+   "bezeichnung": "Abwasser DN 50 Duschrinne quer zur Balkenlage",
+   "balken_index": 7
+  },
+  {
+   "d_mm": 31,
+   "h_mm": 240,
+   "verstoesse": [],
+   "hinweise": [],
+   "hro_mm": 104.5,
+   "hru_mm": 104.5,
+   "lA_mm": 1484.5,
+   "einstufung": "Querschnittsschwächung (≤ 50 mm, NA: Nettoquerschnitt nachweisen)",
+   "id": "BD-2",
+   "bezeichnung": "Elektro-Leerrohr M25 quer zur Balkenlage",
+   "balken_index": 6
+  }
+ ],
+ "verstoesse": [
+  "D3: Mündung zu nah an DF-01: seitlich 1600 mm, 300 mm über Sturz (DIN 1986-100 6.5: ≥ 1 m über Sturz oder ≥ 2 m seitlich). Mündung auf z >= 7300 mm anheben (+700 mm) oder Abstand zum Fenster >= 2000 mm (fehlen 400 mm).",
+  "BD-1: hd = 60 mm > 0,15·h = 36 mm → unverstärkt unzulässig (Leitung parallel zu den Balken führen, Wechsel oder Verstärkung mit Nachweis)."
+ ],
+ "hinweise": [
+  "Gemeinsame freie Achse x = 3270 mm (Gefachmitte) läge 120 mm entfernt > zulässig 100 mm (WC-Vorwand) → Wechsel/Auswechslung. Planungsempfehlung: Fallleitungen in Gefachmitte des 625-mm-Rasters legen (Decke und Wand haben dasselbe Raster).",
+  "Dämmung Schmutzwasser-Fallleitung WC OG mit Hauptlueftung ueber Dach: keine Anforderung nach GModG Anlage 8 (nur Wärmeverteilung/Warmwasser); Schallschutz im EFH nur vertraglich (DIN 4109 schützt fremde Räume)."
+ ],
+ "fertigung": [
+  {
+   "durchdringung": "D1",
+   "bauteil": "OSB/3 22 mm (Deckenelement)",
+   "bearbeitung": "Drilling",
+   "d_mm": 150,
+   "x": 3150,
+   "y": 2100,
+   "anlage": "Multifunktionsbrücke: Bohrung mit Fräser (Ø ≥ ca. 70 mm, cadwork/Weinmann-Handbuch)"
+  },
+  {
+   "durchdringung": "D2",
+   "bauteil": "Gipsfaser 15 mm (sued, Wandtafel IW-OG-02)",
+   "bearbeitung": "Drilling",
+   "d_mm": 150,
+   "x": 3150,
+   "z": 3242,
+   "anlage": "Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID"
+  },
+  {
+   "durchdringung": "D2",
+   "bauteil": "Gipsfaser 15 mm (nord, Wandtafel IW-OG-02)",
+   "bearbeitung": "Drilling",
+   "d_mm": 150,
+   "x": 3150,
+   "z": 3242,
+   "anlage": "Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID"
+  },
+  {
+   "durchdringung": "D3",
+   "bauteil": "OSB/3 18 mm, Stoesse verklebt (Luftdichtheitsebene)",
+   "bearbeitung": "Drilling",
+   "d_mm": 130,
+   "x": 3150,
+   "y": 2100,
+   "anlage": "Dachelement (Werk) oder Baustelle"
+  },
+  {
+   "durchdringung": "BD-2",
+   "bauteil": "Deckenbalken 6",
+   "bearbeitung": "Drilling",
+   "d_mm": 31,
+   "y": 1500,
+   "z": 2720,
+   "anlage": "Abbundanlage (BTLx Drilling)"
+  }
+ ],
+ "achse_x_mm": 3150,
+ "strategie": "Wechsel"
+}

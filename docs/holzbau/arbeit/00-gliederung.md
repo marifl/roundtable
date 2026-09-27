@@ -91,6 +91,13 @@ Status: Gliederung v0.4 (27.09.2026): zusätzlich Fliesen als 3D-Einzelobjekte, 
 3. Deterministische GUIDs, Versionierung, Undo, Audit-Trail
 4. Bausteinwahl: übernehmen, adaptieren oder selbst bauen (mit Lizenzanalyse)
 
+### 7a. Nachweisführung: rechnerisch und grafisch
+1. Anforderungen an prüffähige Nachweise
+2. Größen, Einheiten, Rundung (DIN 1333, ISO 80000), Unsicherheit (GUM)
+3. Datenmodell des Nachweises: Regel und Fassung, Eingaben mit Quelle, Schritte mit Formel, Ergebnis, Grenzwert, Ausnutzung
+4. Grafische Nachweise: Lageplan, Schnitt, Diagramm, Rasterkarte (DIN ISO 128, DIN 1356-1)
+5. Nachweisheft, Hash und Rückverfolgbarkeit zu IFC-GUID und Regelwerk-Version
+
 ### 8. Informationsmodell
 1. Schemawahl IFC4X3_ADD2, Fallback IFC4
 2. Holzrahmenbau-Klassenmapping (IfcWall/Aggregation, IfcMember STUD/PLATE, IfcPlate, IfcBuildingElementPart, IfcVoidingFeature, IfcMechanicalFastener)
@@ -136,7 +143,7 @@ Assistenz statt Vorschrift. Das System hilft Laien, gute Räume zu planen, ohne 
 4. Fehlerbehandlung, Rückfragen, Transparenz nach AI Act
 
 ### 11. Reifegrade: präsentationsfertig, prüffertig, ausführungsfertig
-1. Informationsbedarf nach Level of Information Need (DIN EN ISO 7817-1) **[prüfen]**
+1. Informationsbedarf nach Level of Information Need (DIN EN ISO 7817-1:2024-11, ersetzt EN 17412-1; „Appearance“ ausdrücklich enthalten)
 2. Reifegrad P (präsentationsfertig): Geometrie, Materialien und Oberflächen für fotorealistisches 3D und AR
 3. Reifegrad R (prüffertig): alle Merkmale für Regel-, Nachweis- und Kostenprüfung
 4. Reifegrad A (ausführungsfertig): bestellbare Artikel, Einbauinformation, Fertigungsteile, Maschinendaten
@@ -172,7 +179,8 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 2. Trinkwasser kalt/warm, Zirkulation, Hygiene
 3. Abwasser mit Lüftung über Dach
 4. Lüftung nach DIN 1946-6 mit Kanalnetz
-5. Heizung: Heizlast, Wärmepumpe (Aufstellung, Schall), Fußbodenheizung, hydraulischer Abgleich
+5. Heizung: Heizlast, Fußbodenheizung, hydraulischer Abgleich
+6. Wärmepumpe (Monoblock oder Split): Schallausbreitung nach DIN ISO 9613-2, Beurteilung nach TA Lärm je Immissionsort mit Tonhaltigkeit und Abschirmung, Aufstellungsoptimierung, R290-Schutzbereich, F-Gase, Kältemittelleitung; Abgrenzung zum BWP-Schallrechner
 6. Lichtplanung: Leuchtendaten (GLDF, EULUMDAT), Tageslicht
 7. IFC-Abbildung: Systeme, Segmente, Ports, Verbindungen, Durchbrüche
 8. Dimensionierung (Nennweiten, Dämmstärken) und Durchdringungen:
@@ -254,6 +262,8 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B17 Grundstücksentwässerung: Grundleitung, Schächte, Rigolenbemessung
 - B18 Kranplanung: Elementgewichte aus IFC, Kranwahl, Stellplatz, BE-Plan
 - B19 Außenlärm: Autobahn im Norden, Fassadenpegel, erforderliche Schalldämmung je Raum, automatische Fensterwahl, Grundrissvariante „Schlafräume nach Süden“ im Vergleich
+- B20 Wärmepumpe: Schall nach DIN ISO 9613-2/TA Lärm, optimaler Aufstellort, Rasterlärmkarte
+- Nachweis-Framework: B1–B5 mit rechnerischem und grafischem Nachweisheft
 - B13 (geplant) Assistenz: Grundriss-Score (Tageslicht, Zonierung, Space-Syntax-Integration) mit Empfehlung, Begründung und Evidenzgrad; optional Feng-Shui-Profil
 - B10 (geplant) glTF-Export mit PBR-Materialien
 

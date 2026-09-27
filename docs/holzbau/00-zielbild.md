@@ -66,7 +66,16 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
    - Das Intent-Modell (Laya lokal, Jev als Fallback) erkennt nur die Absicht und liefert Wahrscheinlichkeiten.
    - Werte, Regeln, Statik und Kosten berechnet deterministischer Code.
 8. **Assistieren statt bevormunden.** Neben den harten Regeln gibt es Empfehlungen aus Architektur- und Umweltpsychologie, etwa zu Tageslicht, Zonierung, Blickbeziehungen und Möblierbarkeit. Jede Empfehlung kommt mit Begründung und Evidenzgrad. Kulturprofile wie Feng Shui, Vastu oder Baubiologie kann der Kunde wählen. Sie sind transparent als Tradition gekennzeichnet und werden nie als Wissenschaft ausgegeben. So plant niemand aus Versehen Unsinn, und trotzdem entscheidet der Kunde.
-9. **Menschen unterschreiben, was das Gesetz verlangt.**
+9. **Alles wird rechnerisch und grafisch nachgewiesen, mit wissenschaftlicher Präzision.** Jede Prüfung erzeugt einen Nachweis, den ein Prüfingenieur, eine Behörde oder ein Gutachter ohne Zugriff auf den Code nachvollziehen kann. Er enthält:
+   - Regel mit Quelle und Fassung
+   - Eingaben mit Einheit und Herkunft
+   - Formeln und Zwischenwerte
+   - Ergebnis, Grenzwert und Ausnutzung
+   - Rundungsregel und Unsicherheit
+   - Grafik (Lageplan, Schnitt, Diagramm, Lärmkarte)
+
+   Der Nachweis ist verknüpft mit der IFC-GUID und der Version des Regelwerks. Beispiel: Die Aufstellung der Wärmepumpe wird nicht nur mit einem Schallrechner abgeschätzt, sondern nach DIN ISO 9613-2 und TA Lärm je Immissionsort berechnet und als Rasterlärmkarte dargestellt.
+10. **Menschen unterschreiben, was das Gesetz verlangt.**
    - Die Firma ist Entwurfsverfasser unter Leitung einer namentlich benannten bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Bei freistehenden oder einseitig angebauten Wohngebäuden der GK 1–3 mit höchstens 3 Wohnungen kann das auch ein Zimmerermeister sein (Abs. 3). Das Reihenmittelhaus fällt nicht darunter. Bei größeren Gebäuden, etwa Mehrfamilienhäusern, braucht es Architekt oder Ingenieur mit Listeneintrag. Für GK 4/5 kommen Prüfingenieure und Prüfsachverständige hinzu. Das System wählt das Freigabe-Gate passend zum Gebäudetyp.
    - Jede Freigabe steht als `IfcApproval` im Modell.
 
@@ -137,7 +146,7 @@ Jeder Typ hat ein eigenes Regelprofil. Gebäudeklasse, Brand- und Schallschutz z
 | Schallschutz | innen zwischen Wohnungen und außen gegen Autobahn, Bahn, Flughafen und Gewerbe. Lärmkarten liefern den Pegel am Grundstück. Das System wählt Fenster und Lüfter; wo das nicht reicht, schlägt es eine andere Planung vor (Schlafräume zur ruhigen Seite) |
 | Baustellenlogistik | Elementgewichte, Kranwahl nach Ausleger und Traglast, Kranstellplatz, Abstellflächen für Wechselbrücken, Transportgenehmigungen, Montagereihenfolge |
 | Fußbodenaufbau | Estrich- und Dämmhöhen werden je Raum so berechnet, dass die Fertigfußbodenhöhe bei jedem Belag gleich bleibt (Parkett, Fliese, Naturstein, Beton Ciré). Keine Kante an Übergängen |
-| Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |
+| Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Fußbodenheizung. Die Wärmepumpe (Monoblock oder Split mit Außeneinheit) wird mit Schallnachweis je Nachbarfenster aufgestellt, dazu R290-Schutzbereich, Kältemittelleitung und Kondensat |
 | Licht, PV | Lichtplanung mit Leuchtendaten, Photovoltaik mit Belegung und Ertrag |
 | Dach | Dachform, Tragwerk, Ziegelform und -farbe, First, Grat, Kehle, Ortgang, Traufe, Mansarde, Gauben |
 | Dacheinbauteile | Dachfenster, Lüfterziegel, Solar- und Antennendurchgänge, Schneefang, Entwässerung |

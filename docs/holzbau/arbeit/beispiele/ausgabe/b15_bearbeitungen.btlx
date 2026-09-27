@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<BTLx xmlns="https://www.design2machine.com" Version="2.1.0" Language="de">
+  <FileHistory>
+    <InitialExportProgram CompanyName="Arbeit Holzrahmenbau" ProgramName="b15_durchdringungen" ProgramVersion="0.1" ExportDate="2026-01-01" ExportTime="00:00:00" />
+  </FileHistory>
+  <Project Name="Beispielhaus Holzrahmenbau">
+    <Parts>
+      <Part SingleMemberNumber="1" Designation="OSB/3 22 mm (Deckenelement)" Count="1">
+        <Processings>
+          <Drilling Name="Durchdringung D1" Process="yes" ReferencePlaneID="1">
+            <UserAttributes>
+              <UserAttribute Name="LeitungGUID">0iUaqD3ynTHuU8NvCmcH0x</UserAttribute>
+              <UserAttribute Name="Durchdringung">D1</UserAttribute>
+              <UserAttribute Name="Anlage">Multifunktionsbrücke: Bohrung mit Fräser (Ø ≥ ca. 70 mm, cadwork/Weinmann-Handbuch)</UserAttribute>
+            </UserAttributes>
+            <StartX>3150.000</StartX>
+            <StartY>2100.000</StartY>
+            <Angle>0.000</Angle>
+            <Inclination>90.000</Inclination>
+            <DepthLimited>no</DepthLimited>
+            <Depth>0.000</Depth>
+            <Diameter>150.000</Diameter>
+          </Drilling>
+        </Processings>
+      </Part>
+      <Part SingleMemberNumber="2" Designation="Gipsfaser 15 mm (sued, Wandtafel IW-OG-02)" Count="1">
+        <Processings>
+          <Drilling Name="Durchdringung D2" Process="yes" ReferencePlaneID="1">
+            <UserAttributes>
+              <UserAttribute Name="LeitungGUID">0iUaqD3ynTHuU8NvCmcH0x</UserAttribute>
+              <UserAttribute Name="Durchdringung">D2</UserAttribute>
+              <UserAttribute Name="Anlage">Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID</UserAttribute>
+            </UserAttributes>
+            <StartX>3150.000</StartX>
+            <StartY>3242.000</StartY>
+            <Angle>0.000</Angle>
+            <Inclination>90.000</Inclination>
+            <DepthLimited>no</DepthLimited>
+            <Depth>0.000</Depth>
+            <Diameter>150.000</Diameter>
+          </Drilling>
+        </Processings>
+      </Part>
+      <Part SingleMemberNumber="3" Designation="Gipsfaser 15 mm (nord, Wandtafel IW-OG-02)" Count="1">
+        <Processings>
+          <Drilling Name="Durchdringung D2" Process="yes" ReferencePlaneID="1">
+            <UserAttributes>
+              <UserAttribute Name="LeitungGUID">0iUaqD3ynTHuU8NvCmcH0x</UserAttribute>
+              <UserAttribute Name="Durchdringung">D2</UserAttribute>
+              <UserAttribute Name="Anlage">Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID</UserAttribute>
+            </UserAttributes>
+            <StartX>3150.000</StartX>
+            <StartY>3242.000</StartY>
+            <Angle>0.000</Angle>
+            <Inclination>90.000</Inclination>
+            <DepthLimited>no</DepthLimited>
+            <Depth>0.000</Depth>
+            <Diameter>150.000</Diameter>
+          </Drilling>
+        </Processings>
+      </Part>
+      <Part SingleMemberNumber="4" Designation="OSB/3 18 mm, Stoesse verklebt (Luftdichtheitsebene)" Count="1">
+        <Processings>
+          <Drilling Name="Durchdringung D3" Process="yes" ReferencePlaneID="1">
+            <UserAttributes>
+              <UserAttribute Name="LeitungGUID">0iUaqD3ynTHuU8NvCmcH0x</UserAttribute>
+              <UserAttribute Name="Durchdringung">D3</UserAttribute>
+              <UserAttribute Name="Anlage">Dachelement (Werk) oder Baustelle</UserAttribute>
+            </UserAttributes>
+            <StartX>3150.000</StartX>
+            <StartY>2100.000</StartY>
+            <Angle>0.000</Angle>
+            <Inclination>90.000</Inclination>
+            <DepthLimited>no</DepthLimited>
+            <Depth>0.000</Depth>
+            <Diameter>130.000</Diameter>
+          </Drilling>
+        </Processings>
+      </Part>
+      <Part SingleMemberNumber="5" Designation="Deckenbalken 6" Count="1">
+        <Processings>
+          <Drilling Name="Durchdringung BD-2" Process="yes" ReferencePlaneID="1">
+            <UserAttributes>
+              <UserAttribute Name="LeitungGUID">0iUaqD3ynTHuU8NvCmcH0x</UserAttribute>
+              <UserAttribute Name="Durchdringung">BD-2</UserAttribute>
+              <UserAttribute Name="Anlage">Abbundanlage (BTLx Drilling)</UserAttribute>
+            </UserAttributes>
+            <StartX>1500.000</StartX>
+            <StartY>1500.000</StartY>
+            <Angle>0.000</Angle>
+            <Inclination>90.000</Inclination>
+            <DepthLimited>no</DepthLimited>
+            <Depth>0.000</Depth>
+            <Diameter>31.000</Diameter>
+          </Drilling>
+        </Processings>
+      </Part>
+    </Parts>
+  </Project>
+</BTLx>
