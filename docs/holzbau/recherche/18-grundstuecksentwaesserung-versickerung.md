@@ -330,14 +330,14 @@ Ausgaben unter `arbeit/beispiele/ausgabe/b17_*` (JSON, Lageplan-SVG, Abwicklungs
 | *kanal_hoch* (Einlass-Sohle 518,90) | **Verstoß SW-06**: Anschlusskanal −2,6 % → Freispiegel unmöglich, **Hebeanlage für das Gebäude** (EWS § 8 Abs. 5) | Revisionsschacht-Sohle 518,78 bei Frosttiefe 1,20 m |
 | *grundwasser_hoch* (MHGW 518,40) | **Verstoß NW-02**: Sickerraum −0,05 m < 0,5 m → unzulässig; Mulde/Flächenversickerung prüfen | Rigolensohle 518,35 |
 
-**Tests:** `python -m pytest tests/test_b17.py` → **20 passed** (5,8 s). Sie decken ab:
+**Tests:** `python -m pytest tests/test_b17.py` → **20 passed** (6,9 s). Sie decken ab:
 - Nachrechnung von zwei veröffentlichten A-138-1-Bemessungen, Konsistenz von Längenformel und Speicherbedingung,
 - Mulden-Bisektion, Hydraulik,
 - alle vier Szenarien, NWFreiV-1000-m²-Grenze,
 - harte Hindernisse, keine Selbstkreuzung, Gebühr,
 - JSON/SVG deterministisch, IFC valide und byte-identisch.
 
-Die übrige Beispielsuite (ohne `test_b2_b3`, dem im System-Python `ifctester` fehlt) läuft weiter grün (136 passed, 1 skipped).
+Die übrige Beispielsuite (ohne `test_b2_b3`, dem im System-Python `ifctester` fehlt) läuft weiter grün (152 passed, 1 skipped).
 
 **Grenzen des Prototyps [U]:**
 - Gelände als Ebene (DGM1-Anbindung fehlt); nur eine Sohlhöhe je Knoten (sohlgleich, keine Scheitelgleichheit, kein Absturz im Schacht).
@@ -362,7 +362,7 @@ Die übrige Beispielsuite (ohne `test_b2_b3`, dem im System-Python `ifctester` f
 12. **Genehmigungsfiktion:** Die Genehmigung gilt nach 3 Monaten als erteilt. Das ersetzt keine Baugenehmigung und keine wasserrechtliche Erlaubnis (EWS § 10 Abs. 4) [V].
 13. **Die Gebührensätze gelten bis 31.12.2026.** Die Wirtschaftlichkeitsrechnung (Vollversickerung spart 371,70 EUR/a) ist ab 2027 zu aktualisieren [V].
 14. **Tabellenwerte (DIN 1986-100 Tab. 3 und 9, DWA-A 138-1 Tab. 9–11) nicht aus dem Normtext übernommen.** Vor produktiver Nutzung Lizenz beschaffen und die Datendatei gegen den Normtext prüfen [U].
-15. **Die Dateien von B17 sind bereits in den Commits „Zwischenstand B17“ und „Zwischenstand laufender Recherchen …“ enthalten.** Die Commits kamen nicht aus dieser Bearbeitung. Der jetzige Stand der Arbeitskopie ist nicht committet.
+15. **Die Dateien von B17 sind bereits in Commits („Zwischenstand B17“, „Zwischenstand laufender Recherchen …“) enthalten.** Die Commits kamen nicht aus dieser Bearbeitung; der Stand dieser Arbeitskopie kann davon abweichen.
 
 ## Offene Fragen an Regnauer
 
