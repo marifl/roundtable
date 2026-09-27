@@ -1,6 +1,6 @@
 # 2 Forschungsdesign
 
-Status: Entwurf v0.1 (27.09.2026). Zahlen zur Recherche stammen aus `literatur/quellen-master.csv`, `literatur/quellen-bewertung.csv`, `literatur/bewertung/STATISTIK.md`, `literatur/bewertung/KAPPA.md` und den Schneeballprotokollen `../recherche/24`, `25`, `26` und `28`. Zahlen zu den Prototypen stammen aus `beispiele/README.md`, `beispiele/ergebnisse.md` und `beispiele/NACHWEIS.md`. Das Recherche-Protokoll steht in `02a-review-protokoll.md`.
+Status: Entwurf v0.2 (27.09.2026). Zahlen zur Recherche stammen aus `literatur/quellen-master.csv`, `literatur/quellen-bewertung.csv`, `literatur/bewertung/STATISTIK.md`, `literatur/bewertung/KAPPA.md`, `literatur/referenzdatenbank/README.md` und den Schneeballprotokollen `../recherche/24`, `25`, `26` und `28`. Zahlen zu den Prototypen stammen aus `beispiele/README.md`, `beispiele/ergebnisse.md` und `beispiele/NACHWEIS.md`. Das Recherche-Protokoll steht in `02a-review-protokoll.md`.
 
 ## 2.0 Einordnung
 
@@ -26,7 +26,7 @@ Die Leitlinien von Hevner et al. dienen als Prüfliste für das Forschungsdesign
 | 2 Problemrelevanz | Das Problem ist für die Praxis bedeutsam. | Fertigbauquote, Planungsschleifen, Medienbrüche, Fachkräftemangel | Kap. 1.1 |
 | 3 Evaluation | Nutzen, Qualität und Wirksamkeit werden rigoros gezeigt. | technisch, analytisch und empirisch nach FEDS | 2.4, Kap. 20 |
 | 4 Forschungsbeitrag | Der Beitrag ist klar und überprüfbar. | Integration in einer Kette; Designprinzipien; Thesen mit Widerlegungskriterien | Kap. 1.3, 21 |
-| 5 Rigor | Konstruktion und Evaluation stützen sich auf gesicherte Methoden. | systematische Recherche mit 1.054 Quellen; IFC 4.3, IDS 1.0; Testverfahren | 2.3, Kap. 20.1 |
+| 5 Rigor | Konstruktion und Evaluation stützen sich auf gesicherte Methoden. | systematische Recherche mit 1.086 Quellen; IFC 4.3, IDS 1.0; Testverfahren | 2.3, Kap. 20.1 |
 | 6 Suchprozess | Der Entwurf ist eine Suche im Lösungsraum. | Iterationen zwischen Recherche, Beispiel und Korrektur des Zielbilds | 2.2.3 |
 | 7 Kommunikation | Ergebnisse erreichen Fachwelt und Praxis. | Dissertation, lauffähige Beispiele, Nachweishefte für Prüfer ohne Codekenntnis | Kap. 7a, 19, Anhang C |
 
@@ -136,13 +136,13 @@ Das Protokoll unterscheidet vier Quellenarten mit je eigenem Prüfweg (Tabelle 2
 
 | Art | Beispiele | Prüfweg | Anzahl | davon Kernbestand |
 |---|---|---|---:|---:|
-| W – Wissenschaft, begutachtet | Journal, Konferenz, Dissertation | DOI über Crossref bzw. Verlag oder Repositorium | 846 | 190 |
-| N – Norm, Gesetz, Rechtsprechung | BayBO, DIN, BGH-Urteile, Drucksachen | amtliche Fundstelle bzw. Normgeber | 90 | 81 |
-| G – graue Literatur | Forschungsberichte, Leitfäden, Verbandsmitteilungen | Primärquelle beim Herausgeber | 98 | 37 |
+| W – Wissenschaft, begutachtet | Journal, Konferenz, Dissertation | DOI über Crossref bzw. Verlag oder Repositorium | 874 | 197 |
+| N – Norm, Gesetz, Rechtsprechung | BayBO, DIN, BGH-Urteile, Drucksachen | amtliche Fundstelle bzw. Normgeber | 101 | 91 |
+| G – graue Literatur | Forschungsberichte, Leitfäden, Verbandsmitteilungen | Primärquelle beim Herausgeber | 99 | 37 |
 | T – Technik | Software, Datenstandards, Datensätze | Repository, Lizenzdatei, Spezifikation | 12 | 9 |
-| **Summe** | | | **1.046** | **317** |
+| **Summe** | | | **1.086** | **334** |
 
-Jeder Befund trägt eine von zwei Kennzeichnungen. **[V] verifiziert** heißt: Autor, Jahr, Titel und Fundstelle sind an einer Primärquelle geprüft, bei Normen und Gesetzen einschließlich der Fassung zum Stichtag. **[U] unsicher** heißt: Die Existenz ist belegt, aber eine Teilangabe ist offen, etwa Band, Ausgabe oder eine Zahl aus einem Sekundärzitat; der Grund steht im `note`-Feld. Von den 1.046 bewerteten Quellen tragen 1.038 [V] und 8 [U]. Quellen, deren Existenz nicht belegt werden konnte, stehen nicht im Literaturverzeichnis. Sie sind in den Recherchedokumenten als „nicht verifizierte Hinweise“ geführt und werden nie zitiert, etwa Herstellerangaben zur Zeitersparnis in der Werkplanung (Recherche 23).
+Jeder Befund trägt eine von zwei Kennzeichnungen. **[V] verifiziert** heißt: Autor, Jahr, Titel und Fundstelle sind an einer Primärquelle geprüft, bei Normen und Gesetzen einschließlich der Fassung zum Stichtag. **[U] unsicher** heißt: Die Existenz ist belegt, aber eine Teilangabe ist offen, etwa Band, Ausgabe oder eine Zahl aus einem Sekundärzitat; der Grund steht im `note`-Feld. Von den 1.086 bewerteten Quellen tragen 1.078 [V] und 8 [U]. Quellen, deren Existenz nicht belegt werden konnte, stehen nicht im Literaturverzeichnis. Sie sind in den Recherchedokumenten als „nicht verifizierte Hinweise“ geführt und werden nie zitiert, etwa Herstellerangaben zur Zeitersparnis in der Werkplanung (Recherche 23).
 
 Die Prüfung hat auch den Bestand korrigiert: Vornamen, Herausgeber- statt Autorenschaft, DOIs der Journal- statt der Tagungsfassung, amtliche Vollzitate. Jede Korrektur ist mit altem und neuem Wert und Prüfweg dokumentiert (`literatur/KORREKTUREN.md`).
 
@@ -151,10 +151,10 @@ Die Prüfung hat auch den Bestand korrigiert: Vornamen, Herausgeber- statt Autor
 Die Recherche verlief in drei Strängen:
 
 1. **Themenrecherchen 01 bis 20**, abgeleitet aus FF1 bis FF6, darunter zwei Vergleichsmatrizen vergleichbarer Arbeiten (Recherchen 11 und 12).
-2. **Lückenrecherchen**: Recherche 21 zu regionaler Holzbauforschung, deutschsprachiger Architekturpsychologie und Methodenstandards; Recherche 23 zu FF4 und FF5, weil zu diesem Zeitpunkt nur 12 Quellen FF4 und 24 Quellen FF5 mit Relevanz ≥ 2 trugen; Recherche 27 zu frei zugänglichen juristischen Quellen für FF4.
+2. **Lückenrecherchen**: Recherche 21 zu regionaler Holzbauforschung, deutschsprachiger Architekturpsychologie und Methodenstandards; Recherche 23 zu FF4 und FF5, weil zu diesem Zeitpunkt nur 12 Quellen FF4 und 24 Quellen FF5 mit Relevanz ≥ 2 trugen; Recherche 27 zu frei zugänglichen juristischen Quellen für FF4; dazu eine gezielte Recherche zu Mess-, Rundungs- und Darstellungsnormen für die Nachweisführung (Kapitel 7a, `lit-M`).
 3. **Schneeballverfahren** in drei Runden ab dem Kernbestand (2.3.7).
 
-Suchräume waren Crossref und OpenAlex, Verlagsportale (Elsevier, Springer, Taylor & Francis, ASCE, MDPI), Repositorien (mediaTUM, ETH Research Collection, DiVA, arXiv), amtliche Portale (gesetze-bayern.de, gesetze-im-internet.de, EUR-Lex, Parlamentsdokumentation) sowie Normgeber, Verbände und Hersteller. Die Masterliste ist in sechs Schritten gewachsen; jeder Schritt wurde über DOI und normalisierten Titel gegen den Bestand abgeglichen (Tabelle 2.6).
+Suchräume waren Crossref und OpenAlex, Verlagsportale (Elsevier, Springer, Taylor & Francis, ASCE, MDPI), Repositorien (mediaTUM, ETH Research Collection, DiVA, arXiv), amtliche Portale (gesetze-bayern.de, gesetze-im-internet.de, EUR-Lex, Parlamentsdokumentation) sowie Normgeber, Verbände und Hersteller. Die Masterliste ist in acht Schritten gewachsen; jeder Schritt wurde über DOI und normalisierten Titel gegen den Bestand abgeglichen (Tabelle 2.6).
 
 **Tabelle 2.6: Wachstum der Masterliste**
 
@@ -165,7 +165,9 @@ Suchräume waren Crossref und OpenAlex, Verlagsportale (Elsevier, Springer, Tayl
 | 3 | Schneeball Runde 1 (`lit-I-schneeball-a`, `-b`) | 281 | 811 |
 | 4 | Schneeball Runde 2 (`lit-J`) | 162 | 973 |
 | 5 | juristische Lückenrecherche 27 (`lit-K`) | 74 | 1.047 |
-| 6 | Schneeball Runde 3, Teil (a) (`lit-L`) | 7 | **1.054** |
+| 6 | Schneeball Runde 3, Teil (a) (`lit-L`) | 7 | 1.054 |
+| 7 | Quellen zur Nachweisführung, Kapitel 7a (`lit-M`) | 13 | 1.067 |
+| 8 | Schneeball Runde 3, Teil (b) und drei Nachträge zu Teil (a) (`lit-L`) | 19 | **1.086** |
 
 Der im Protokoll genannte Ausgangsstand von 393 Einträgen bezeichnet den Stand vor der Zusammenführung der Themenrecherchen und ist überholt.
 
@@ -197,16 +199,16 @@ Quellen mit P ≥ 5 bilden den **Kernbestand**. Er ist Ausgangspunkt des Schneeb
 
 ### 2.3.6 Ergebnis der Einzelbewertung
 
-Von den 1.054 Quellen sind 1.046 einzeln bewertet. Acht Bewertungen stehen aus (Q1047 bis Q1054): die sieben Funde der dritten Schneeballrunde und ein Nachtrag der juristischen Lückenrecherche. Alle bewerteten Quellen erfüllen R ≥ 1: 280 haben R = 1, 633 R = 2 und 133 R = 3. **317 Quellen bilden den Kernbestand.**
+Alle 1.086 Quellen sind einzeln bewertet. Alle erfüllen R ≥ 1: 286 haben R = 1, 666 R = 2 und 134 R = 3. **334 Quellen bilden den Kernbestand.** Unter den 26 Funden der dritten Schneeballrunde waren vier im Screening nur nach Titel, Venue und Referenzliste eingestuft, weil kein Abstract zugänglich war. Auch bei der Einzelbewertung fand sich über OpenAlex, die Verlagsseite und Semantic Scholar kein Abstract. Sie tragen deshalb die Nutzung „Kontext“ und liegen mit P = 4,5 außerhalb des Kernbestands. Eine weitere Quelle fiel nach Lektüre des Abstracts von Relevanz 2 auf 1.
 
-**Tabelle 2.7: Qualität, Nutzung und Übertragbarkeit (n = 1.046)**
+**Tabelle 2.7: Qualität, Nutzung und Übertragbarkeit (n = 1.086)**
 
 | Qualität | Anzahl | Nutzung | Anzahl | Übertragbarkeit | Anzahl |
 |---|---:|---|---:|---|---:|
-| A | 157 | übernehmen | 162 | 2 direkt | 260 |
-| B | 758 | adaptieren | 396 | 1 mit Anpassung | 761 |
-| C | 124 | Kontext | 429 | 0 nicht | 25 |
-| D | 7 | abgrenzen | 55 | | |
+| A | 172 | übernehmen | 168 | 2 direkt | 271 |
+| B | 782 | adaptieren | 411 | 1 mit Anpassung | 790 |
+| C | 125 | Kontext | 446 | 0 nicht | 25 |
+| D | 7 | abgrenzen | 57 | | |
 | | | verwerfen | 4 | | |
 
 Unter den vier verworfenen Quellen ist eine Dublette: Die KI-Verordnung stand unter zwei Keys im Bestand; zitiert wird nur einer.
@@ -215,14 +217,18 @@ Unter den vier verworfenen Quellen ist eine Dublette: Die KI-Verordnung stand un
 
 | | FF1 | FF2 | FF3 | FF4 | FF5 | FF6 |
 |---|---:|---:|---:|---:|---:|---:|
-| Relevanz ≥ 2 | 131 | 232 | 72 | 113 | 154 | 199 |
-| davon Relevanz 3 | 17 | 33 | 7 | 28 | 19 | 30 |
+| Relevanz ≥ 2 | 135 | 242 | 78 | 122 | 158 | 204 |
+| davon Relevanz 3 | 17 | 34 | 7 | 28 | 19 | 30 |
 
 Drei Befunde folgen daraus:
 
-1. **Die Lückenrecherchen haben gewirkt.** FF4 stieg von 12 auf 113 Quellen mit Relevanz ≥ 2, FF5 von 24 auf 154. 81 der 113 FF4-Quellen stammen aus den Recherchen 23 und 27, 44 davon sind Gesetze, Gesetzesmaterialien oder Rechtsprechung.
-2. **FF3 ist am schwächsten belegt**: 72 Quellen stützen die Sprachschnittstelle, 7 tragen sie. Das ist teils ein Befund über das Feld, denn deutschsprachige Arbeiten zur Intent-Erkennung im Hausentwurf fehlen (Kapitel 1.3.1).
-3. **Die meisten Quellen sind mit Anpassung übertragbar** (761). Direkt übertragbar sind vor allem Gesetze, Normen und deutsche Studien.
+1. **Die Lückenrecherchen haben gewirkt.** FF4 stieg von 12 auf 122 Quellen mit Relevanz ≥ 2, FF5 von 24 auf 158. 82 der 122 FF4-Quellen stammen aus den Recherchen 23 und 27, 44 davon sind Gesetze, Gesetzesmaterialien oder Rechtsprechung.
+2. **FF3 ist am schwächsten belegt**: 78 Quellen stützen die Sprachschnittstelle, 7 tragen sie. Das ist teils ein Befund über das Feld, denn deutschsprachige Arbeiten zur Intent-Erkennung im Hausentwurf fehlen (Kapitel 1.3.1).
+3. **Die meisten Quellen sind mit Anpassung übertragbar** (790). Direkt übertragbar sind vor allem Gesetze, Normen und deutsche Studien.
+
+**Referenzdatenbank.** Masterliste, Einzelbewertung, Zweitbewertung und Abstracts führt ein Skript (`literatur/referenzdatenbank.py`) zu einer Referenzdatenbank zusammen. Sie besteht aus drei Dateien: einer SQLite-Datenbank mit den Tabellen Quellen, Bewertung, Zweitbewertung und Abstract sowie Sichten für den Kernbestand und für Quellen ohne Abstract; einem BibTeX-Export für Zotero, JabRef oder Citavi, der Abstract, Schlagworte (Q-ID, Relevanz je Forschungsfrage, Nutzung, Qualität, Kernbestand) und die Begründung der Passung enthält; und einem CSL-JSON-Export für Zotero und Pandoc. Abstracts stehen nur im Originaltext, nie selbst formuliert, und jeder Datensatz nennt seine Herkunft (OpenAlex, Crossref, Verlag, Repositorium, PubMed, arXiv oder amtliche Quelle) mit URL. Für **871 der 1.086 Quellen** liegt ein Originalabstract vor, bei Normen und Gesetzen der amtliche Kurzinhalt oder Anwendungsbereich. Ohne Abstract sind 215 Quellen: 84 graue Literatur, 86 wissenschaftliche Quellen (meist Bücher oder Arbeiten, für die weder OpenAlex noch der Verlag einen Abstract liefern), 33 Normen ohne frei zugänglichen Kurzinhalt und 12 Softwarewerkzeuge. Der Open-Access-Status stammt aus OpenAlex: 428 Quellen sind nicht frei zugänglich, 140 gold, 139 green, 136 hybrid, 73 bronze und 10 diamond; 91 sind frei zugängliche amtliche Texte, bei 69 ist der Status unbekannt. Volltexte liegen nicht im Repository; frei zugängliche Fassungen sind nur verlinkt.
+
+**Nachträge.** Fehlende Abstracts wurden in zwei Nachtragsrunden gezielt nachgesucht: für 155 wissenschaftliche Quellen, von denen 74 einen Abstract erhielten, und für 96 Normen, Gesetze und Urteile, von denen 63 einen Leitsatz oder amtlichen Kurzinhalt erhielten. Die übrigen sind mit Grund vermerkt, etwa „Buch ohne Abstract“. In die Masterliste nachgetragen wurden außerdem drei Kandidaten aus Runde 3, Teil (a). Sie waren zunächst als nicht verifizierbar ausgeschlossen und sind nach dem Crossref-Abgleich aufgenommen (2.3.7).
 
 ### 2.3.7 Schneeballverfahren
 
@@ -232,22 +238,25 @@ Drei Befunde folgen daraus:
 
 **Tabelle 2.9: Kennzahlen der drei Schneeballrunden**
 
-| Kennzahl | R1 Teil A | R1 Teil B | **R1 gesamt** | **R2** | **R3 Teil (a)** |
-|---|---:|---:|---:|---:|---:|
-| Startquellen | 23 | 38 | 61 (56 verschieden) | 47 | 3 von 53 |
-| Datensätze gesichtet (roh) | 2.800 | 3.637 | 6.437 | 4.911 | 193 |
-| Kandidaten zur Abstract-Prüfung | 211 | 257 | 468 | 411 | 49 |
-| davon Dubletten zum Bestand | 99 ¹ | 42 | – | 72 | 20 (+ 2 früher ausgeschlossen) |
-| neue Kandidaten | 211 | 212 | 423 | 339 | 27 |
-| ausgeschlossen nach Abstract | 100 | 37 | 137 | 177 | 20 |
-| **aufgenommen** | 111 | 175 | **286** | **162** | **7** |
-| davon Relevanz 3 | 10 | 19 | 29 (10,1 %) | 3 (1,9 %) | 1 (14 %) |
-| Rohquote aufgenommen / gesichtet | 4,0 % | 4,8 % | 4,4 % | 3,3 % | 3,6 % |
-| Trefferquote aufgenommen / neue Kandidaten | 52,6 % | 82,5 % | 67,6 % | 47,8 % | 25,9 % |
+| Kennzahl | R1 Teil A | R1 Teil B | **R1 gesamt** | **R2** | R3 Teil (a) | R3 Teil (b) | **R3 gesamt** | Anschluss (c) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Startquellen | 23 | 38 | 61 (56 verschieden) | 47 | 3 | 50 | 53 | 1 |
+| Datensätze gesichtet (roh) | 2.800 | 3.637 | 6.437 | 4.911 | 193 | 3.448 | 3.641 | 108 |
+| Kandidaten zur Abstract-Prüfung | 211 | 257 | 468 | 411 | 49 | 496 | 545 | 26 |
+| davon Dubletten zum Bestand | 99 ¹ | 42 | – | 72 | 20 | 167 | 187 (34,3 %) | 10 |
+| davon in früherer Runde ausgeschlossen | – | – | – | – | 2 | 52 | 54 | 2 |
+| neue Kandidaten | 211 | 212 | 423 | 339 | 27 | 277 | 304 | 14 |
+| ausgeschlossen nach Abstract | 100 | 37 | 137 | 177 | 17 | 261 | 278 | 14 |
+| **aufgenommen** | 111 | 175 | **286** | **162** | 10 ² | 16 | **26** | **0** |
+| davon Relevanz 3 | 10 | 19 | 29 (10,1 %) | 3 (1,9 %) | 1 | 0 | 1 (3,8 %) | 0 |
+| Rohquote aufgenommen / gesichtet | 4,0 % | 4,8 % | **4,4 %** | **3,3 %** | 5,2 % | 0,46 % | **0,71 %** | 0 % |
+| Trefferquote aufgenommen / neue Kandidaten | 52,6 % | 82,5 % | 67,6 % | 47,8 % | 37,0 % | 5,8 % | 8,6 % | 0 % |
 
-¹ In Teil A wurden Bestandsdubletten und 410 rundeninterne Dubletten schon vor dem Titel-Screening entfernt; die 211 Kandidaten sind alle neu. In Teil B und den Runden 2 und 3 sind die Rohzahlen „gesichtet“ rundenintern nicht bereinigt. In Teil B kommen zu den 42 Bestandsdubletten 3 interne.
+¹ In Teil A wurden Bestandsdubletten und 410 rundeninterne Dubletten schon vor dem Titel-Screening entfernt; die 211 Kandidaten sind alle neu. In Teil B und den Runden 2 und 3 sind die Rohzahlen „gesichtet“ rundenintern nicht bereinigt. In Teil B kommen zu den 42 Bestandsdubletten 3 interne. In Runde 3 zählt Teil (a) die Kandidaten je Startquelle, Teil (b) eindeutig (17 Mehrfachtreffer); die Quoten ändern sich dadurch um weniger als 0,1 Prozentpunkte.
 
-Fünf Quellen fanden beide Teile der Runde 1; sie stehen nur einmal im Verzeichnis. Die 286 Aufnahmen entsprechen deshalb 281 Einträgen. Über alle Runden wurden **11.541 Datensätze gesichtet und 450 neue Einträge aufgenommen.** Ausgeschlossen wurden in Runde 2 177 Kandidaten: 102 wegen Relevanz < 2 oder anderer Forschungsfrage, 49 als redundant, 10 als Vorfassung, 9 als nicht verifizierbar, 4 Preprints und 3 nicht begutachtete Hochschulschriften. Die Preprints sind als Hinweise festgehalten und werden nach einer Begutachtung erneut geprüft.
+² 7 Aufnahmen und 3 Nachträge: Die drei zunächst als nicht verifizierbar ausgeschlossenen Kandidaten sind nach dem Crossref-Abgleich aufgenommen. Ohne sie läge die Rohquote von Teil (a) bei 3,6 %.
+
+Fünf Quellen fanden beide Teile der Runde 1; sie stehen nur einmal im Verzeichnis. Die 286 Aufnahmen entsprechen deshalb 281 Einträgen. Über die drei Runden wurden **14.989 Datensätze gesichtet und 469 neue Einträge aufgenommen**; die Anschlussprüfung (c) sichtete weitere 108 Datensätze ohne Aufnahme. Ausgeschlossen wurden in Runde 2 177 Kandidaten: 102 wegen Relevanz < 2 oder anderer Forschungsfrage, 49 als redundant, 10 als Vorfassung, 9 als nicht verifizierbar, 4 Preprints und 3 nicht begutachtete Hochschulschriften. In Runde 3 waren es 278: 217 wegen Relevanz < 2, 37 als redundant, 15 als Vorfassung, Tagungsfassung oder Preprint und 9 als nicht verifizierbar. Die Preprints sind als Hinweise festgehalten und werden nach einer Begutachtung erneut geprüft.
 
 **Abbruchkriterium und Abweichung vom Protokoll.** Das Protokoll sah vor, das Verfahren zu beenden, wenn eine Runde keine neue Quelle mit Relevanz ≥ 2 mehr liefert (2a.3 Nr. 3). Bei einem so breiten Feld ist das praktisch unerreichbar; Runde 2 lieferte noch 162 solcher Quellen. Für Runde 2 wurde das Kriterium deshalb ersetzt: Die Aufnahmequote liegt deutlich unter Runde 1, **und** keine neue Quelle erreicht Relevanz 3. Für Runde 3 wurde es präzisiert: keine neue Relevanz-3-Quelle **und** eine Rohquote unter 2 %. Diese Änderungen sind eine **Abweichung vom Protokoll**. Sie sind in den Recherchen 26 und 28 begründet.
 

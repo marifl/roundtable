@@ -6,13 +6,13 @@ Automatisch erzeugt von `../referenzdatenbank.py`. Nicht von Hand bearbeiten; Ä
 
 | Inhalt | Anzahl |
 |---|---|
-| Quellen | 1067 |
-| einzeln bewertet | 1067 |
+| Quellen | 1086 |
+| einzeln bewertet | 1086 |
 | zweitbewertet (blind) | 80 |
-| Abstract-Datensätze | 1067 |
-| davon mit Originalabstract | 857 |
+| Abstract-Datensätze | 1086 |
+| davon mit Originalabstract | 871 |
 
-Open-Access-Status: closed: 415, gold: 139, green: 138, hybrid: 133, frei (amtlich): 91, bronze: 72, unbekannt: 69, diamond: 10
+Open-Access-Status: closed: 428, gold: 140, green: 139, hybrid: 136, frei (amtlich): 91, bronze: 73, unbekannt: 69, diamond: 10
 
 ## Dateien
 

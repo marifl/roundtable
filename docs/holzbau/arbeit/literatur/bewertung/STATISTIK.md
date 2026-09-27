@@ -1,32 +1,32 @@
 # Statistik der Quellenbewertung
 
-- Quellen in der Masterliste: 1067
-- bewertet: 1067
+- Quellen in der Masterliste: 1086
+- bewertet: 1086
 - noch nicht bewertet: 0
-- Kernbestand (P ≥ 5): 330
-- verifiziert V: 1059, U: 8
+- Kernbestand (P ≥ 5): 334
+- verifiziert V: 1078, U: 8
 
 ## Nutzung
 
-- Kontext: 436
-- adaptieren: 403
+- Kontext: 446
+- adaptieren: 411
 - übernehmen: 168
-- abgrenzen: 56
+- abgrenzen: 57
 - verwerfen: 4
 
 ## Relevanz je Forschungsfrage (Anzahl Quellen mit Wert ≥ 2)
 
-- FF1: 134 (davon 3: 17)
-- FF2: 237 (davon 3: 34)
-- FF3: 74 (davon 3: 7)
-- FF4: 118 (davon 3: 28)
-- FF5: 154 (davon 3: 19)
-- FF6: 203 (davon 3: 30)
+- FF1: 135 (davon 3: 17)
+- FF2: 242 (davon 3: 34)
+- FF3: 78 (davon 3: 7)
+- FF4: 122 (davon 3: 28)
+- FF5: 158 (davon 3: 19)
+- FF6: 204 (davon 3: 30)
 
 ## Qualität
 
-- A: 170
-- B: 765
+- A: 172
+- B: 782
 - C: 125
 - D: 7
 
@@ -107,7 +107,7 @@
 | Q1057 | jcgm100 | 2008 | 6 | – | übernehmen | 7a |
 | Q1059 | iso80000-1 | 2022 | 6 | – | übernehmen | 7a |
 | Q1060 | din1333 | 1992 | 6 | – | übernehmen | 7a |
-| Q1062 | din1356-1 | 1995 | 6 | – | adaptieren | 7a; 18 |
+| Q1062 | din1356-1 | 2025 | 6 | – | adaptieren | 7a; 18 |
 | Q1064 | iso6946_2017 | 2018 | 6 | – | abgrenzen | 7a; 15 |
 | Q150 | eu2024aiact | 2024 | 6 | – | verwerfen | 4.7; 10.4 |
 | Q162 | dbauv2026 | 2026 | 6 | – | übernehmen | 18.3 |
@@ -172,6 +172,8 @@
 | Q1007 | sterz2024quest | 2024 | 5.5 | FF4 | übernehmen | 18.1; 20.3 |
 | Q103 | trentin2013sales | 2013 | 5.5 | FF5 | übernehmen | 20.3; 10 |
 | Q1048 | cao2022ontologybased | 2022 | 5.5 | FF2 | adaptieren | 9.2; 17.3; 5.3 |
+| Q1071 | schleich2018kosteneinsparpotenziale | 2018 | 5.5 | – | adaptieren | 4.2; 18.1; 21 |
+| Q1082 | ostrowskawawryniuk2020prefabrication | 2021 | 5.5 | – | adaptieren | 17.3; 9.1; 5.3 |
 | Q109 | schoenwitz2012nature | 2012 | 5.5 | – | adaptieren | 12.1; 3.4 |
 | Q118 | randall2007user | 2007 | 5.5 | FF3 | adaptieren | 10.2; 5.4 |
 | Q153 | peffers2007design | 2007 | 5.5 | – | übernehmen | 2.2; 20 |
@@ -289,12 +291,14 @@
 | Q1040 | bundestag2026kimigbe | 2026 | 5 | – | Kontext | 4.7 |
 | Q1042 | dsk2025kitom | 2025 | 5 | – | adaptieren | 10.4; 6.3 |
 | Q1053 | saka2023conversational | 2023 | 5 | – | Kontext | 5.6 |
-| Q1054 | weld2022survey | 2022 | 5 | – | adaptieren | 10.2; 5.6 |
+| Q1054 | weld2022survey | 2023 | 5 | – | adaptieren | 10.2; 5.6 |
 | Q1058 | jcgm101 | 2008 | 5 | – | übernehmen | 7a |
 | Q1061 | din1313 | 1998 | 5 | – | Kontext | 7a |
-| Q1065 | mbauvorlv1996 | 1996 | 5 | – | Kontext | 7a; 18 |
+| Q1065 | mbauvorlv1996 | 1974 | 5 | – | Kontext | 7a; 18 |
 | Q1066 | mbauvorlv2020 | 2020 | 5 | – | Kontext | 7a; 18 |
 | Q1067 | mppvo2012 | 2012 | 5 | – | Kontext | 7a; 4 |
+| Q1081 | abdelazizshawky2026product | 2026 | 5 | – | Kontext | 5.4; 12.7 |
+| Q1085 | fattahitabasi2026human | 2026 | 5 | – | Kontext | 5.5; 21 |
 | Q121 | scheibehenne2010choice | 2010 | 5 | – | Kontext | 10.2; 12.7 |
 | Q122 | chernev2015choice | 2015 | 5 | – | adaptieren | 10.2; 12.7 |
 | Q123 | lee2024generalized | 2024 | 5 | FF3 | adaptieren | 5.6; 10 |

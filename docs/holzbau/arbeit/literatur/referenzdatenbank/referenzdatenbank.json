@@ -33803,7 +33803,7 @@
   "issued": {
    "date-parts": [
     [
-     2022
+     2023
     ]
    ]
   },
@@ -34106,5 +34106,701 @@
   },
   "URL": "https://www.bauministerkonferenz.de/verzeichnis.aspx?id=991&o=991",
   "keyword": "Q1067, FF2=1, FF4=2, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "fauth2024investigating",
+  "type": "article-journal",
+  "title": "Investigating building permit processes across Europe: characteristics and patterns",
+  "note": "Q1068",
+  "author": [
+   {
+    "family": "Fauth",
+    "given": "Judith"
+   },
+   {
+    "family": "N\\orkj\\aer Gade",
+    "given": "Peter"
+   },
+   {
+    "family": "Kaiser",
+    "given": "Stefanie"
+   },
+   {
+    "family": "Raj",
+    "given": "Kavita"
+   },
+   {
+    "family": "Goul Pedersen",
+    "given": "Jonas"
+   },
+   {
+    "family": "Olsson",
+    "given": "Per-Ola"
+   },
+   {
+    "family": "Nisbet",
+    "given": "Nicholas"
+   },
+   {
+    "family": "Mastrolembo Ventura",
+    "given": "Silvia"
+   },
+   {
+    "family": "Hirvensalo",
+    "given": "Antero"
+   },
+   {
+    "family": "Granja",
+    "given": "Jos\\'e"
+   },
+   {
+    "family": "Urban",
+    "given": "Harald"
+   },
+   {
+    "family": "Rute\\vsi\\'c",
+    "given": "Sne\\vzana"
+   },
+   {
+    "family": "Verstraeten",
+    "given": "Ruben"
+   },
+   {
+    "family": "Raitviir",
+    "given": "Christopher-Robin"
+   },
+   {
+    "family": "Kallinen",
+    "given": "Anna-Riitta"
+   },
+   {
+    "family": "Schranz",
+    "given": "Christian"
+   },
+   {
+    "family": "Stojanov",
+    "given": "Trajche"
+   },
+   {
+    "family": "Tekavec",
+    "given": "Jernej"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2025
+    ]
+   ]
+  },
+  "DOI": "10.1080/09613218.2024.2400467",
+  "container-title": "Building Research \\& Information",
+  "volume": "53",
+  "issue": "4",
+  "page": "417--434",
+  "abstract": "Building permit processes serve as crucial gatekeepers for urban development, regulating compliance with building codes, land use policies, and safety and environmental standards. However, their complexity can lead to inefficiencies and hinder economic growth. While existing studies have made significant contributions to building permit process research, they often focus on individual countries or specific aspects, leaving a gap in comprehensive comparative analysis. Characteristics, and patterns of building permit processes vary widely across jurisdictions due to legal, cultural, technological, and institutional factors which makes a comparative analysis of these variations beneficial. To address the lack of building permit process studies, our research focusses on from an extensive comparative study of building permit processes in 17 European countries. Through semi-structured interviews and process diagrams, we investigate the differences and provide a comparative overview summarizing key characteristics. The findings have the potential to be used by policy makers and practice to better understand and compare the evolution of building permit systems in a broad international context. By bridging research gaps and providing a comprehensive view of these processes, we contribute to the awareness of the diversity of the processes and to fostering greater understanding of building permit processes.",
+  "keyword": "Q1068, FF4=2, FF5=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "vanderheijden2010peanuts",
+  "type": "article-journal",
+  "title": "On Peanuts and Monkeys: Private Sector Involvement in Australian Building Control",
+  "note": "Q1069",
+  "author": [
+   {
+    "family": "van der Heijden",
+    "given": "Jeroen"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2010
+    ]
+   ]
+  },
+  "DOI": "10.1080/08111141003712776",
+  "container-title": "Urban Policy and Research",
+  "volume": "28",
+  "issue": "2",
+  "page": "195--210",
+  "abstract": "In response to issues arising from municipal led regulatory enforcement, governments in Australia have reformed their regimes of building regulation and control since the 1990s. Private certifiers have been introduced as an addition to local government building control. Based on a series of interviews with 56 insiders this article addresses the implications of privatisation of Australian building control by discussing its intended and unintended impacts. The article concludes by drawing a number of case-specific lessons and more general lessons on privatisation of regulatory enforcement that move well beyond the field of building control.",
+  "keyword": "Q1069, FF4=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "meacham2022fire",
+  "type": "article-journal",
+  "title": "Fire performance and regulatory considerations with modern methods of construction",
+  "note": "Q1070",
+  "author": [
+   {
+    "family": "Meacham",
+    "given": "Brian J."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.5334/bc.201",
+  "container-title": "Buildings and Cities",
+  "volume": "3",
+  "issue": "1",
+  "page": "464--487",
+  "abstract": "Modern methods of construction (MMC) are becoming increasingly popular for a broad range of reasons. They are portrayed as providing significant economic and sustainability benefits over ‘traditional’ construction methods, e.g. efficiencies gained by integrating the processes and technologies of design, manufacturing, and construction to result in higher quality buildings. It may also include a reduction in delivery times, more predictable costs, and fewer environmental impacts. However, MMC introduces increased complexity and can present challenges for traditional building regulatory approaches, especially those which focus on inspecting and verifying construction at many points in the construction process. With prefabricated components and modules this requires different approaches. Performance concerns arise for meeting the fire safety objectives of the final building. One particular fire challenge is the presence of void spaces, often needed to facilitate the connection of modules, which can potentially serve as avenues for the spread of fire, smoke, and hot gases. These fabrication issues, performance concerns, and regulatory challenges are explained. Fire performance issues are then explored for different regulatory typologies (prescriptive, performance based, market based), the verification of subsystem performance, and the compliance of installed components/whole building. Recommendations for regulatory frameworks are provided to provide increased confidence and reduced risks. Policy relevance While every country needs to work within their regulatory framework and implement systems that work for them, it seems that with the growing use of MMC, additional regulatory guidance and oversight may be warranted to help increase confidence in the performance of modular buildings, in particular from a fire performance perspective. This might include the development of design and installation guidance, as well as regulatory review, inspection, and approval guidance. It may also mean the development of new test methods or standards, especially if materials or connection conditions (e.g. void spaces) warrant. As many countries have already mandated, it seems that the requirement for some form of quality assurance/quality control (QA/QC) procedures to help assure manufactured/fabricated components comply with regulatory requirements is an essential component.",
+  "keyword": "Q1070, FF2=1, FF4=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "schleich2018kosteneinsparpotenziale",
+  "type": "book",
+  "title": "Kosteneinsparpotenziale einer effizienteren Landesbauordnung: \\\"Okonomische Analyse der Bauordnung f\\\"ur das Land Nordrhein-Westfalen im Vergleich mit der englischen Bauverordnung",
+  "note": "Q1071",
+  "author": [
+   {
+    "family": "Schleich",
+    "given": "Michael"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "DOI": "10.1007/978-3-658-20866-0",
+  "publisher": "Springer Vieweg",
+  "ISBN": "978-3-658-20865-3",
+  "abstract": "Michael Schleich zeigt die aus dem Vergleich mit der englischen Bauverordnung abzuleitenden Optimierungen der Landesbauordnung NRW auf. Sein Ziel ist es, aus dem Vergleich der Effizienz dieser Bauordnungen Kosteneinsparpotenziale abzuleiten. Zu diesem Zweck wendet der Autor die Methode der ökonomischen Analyse des Rechts bzw. der Kosten-Nutzwert-Analyse und der Transaktionskostenanalyse an. Anhand dreier Fallstudien von Wohngebäuden untersucht er empirisch, welche der beiden Bauordnungen unter welchem Aspekt effizienter ist.",
+  "keyword": "Q1071, FF4=2, FF5=1, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
+ },
+ {
+  "id": "nowak2023identifying",
+  "type": "article-journal",
+  "title": "Identifying Visualization Opportunities to Help Architects Manage the Complexity of Building Codes",
+  "note": "Q1072",
+  "author": [
+   {
+    "family": "Nowak",
+    "given": "Stan"
+   },
+   {
+    "family": "Aseniero",
+    "given": "Bon Adriel"
+   },
+   {
+    "family": "Bartram",
+    "given": "Lyn"
+   },
+   {
+    "family": "Grossman",
+    "given": "Tovi"
+   },
+   {
+    "family": "Fitzmaurice",
+    "given": "George"
+   },
+   {
+    "family": "Matejka",
+    "given": "Justin"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "DOI": "10.1109/MCG.2023.3307971",
+  "container-title": "IEEE Computer Graphics and Applications",
+  "volume": "43",
+  "issue": "6",
+  "page": "75--86",
+  "abstract": "We report a study investigating the viability of using interactive visualizations to aid architectural design with building codes. While visualizations have been used to support general architectural design exploration, existing computational solutions treat building codes as separate from, rather than part of, the design process, creating challenges for architects. Through a series of participatory design studies with professional architects, we found that interactive visualizations have promising potential to aid design exploration and sensemaking in early stages of architectural design by providing feedback about potential allowances and consequences of design decisions. However, implementing a visualization system necessitates addressing the complexity and ambiguity inherent in building codes. To tackle these challenges, we propose various user-driven knowledge management mechanisms for integrating, negotiating, interpreting, and documenting building code rules.",
+  "keyword": "Q1072, FF2=1, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "xiao2026trusting",
+  "type": "article-journal",
+  "title": "Trusting the algorithm: transparency, information control and continuance intention in China's digital building permit systems",
+  "note": "Q1073",
+  "author": [
+   {
+    "family": "Xiao",
+    "given": "Jie"
+   },
+   {
+    "family": "Xu",
+    "given": "Jian"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1080/09613218.2026.2644942",
+  "container-title": "Building Research \\& Information",
+  "page": "1--18",
+  "abstract": "Digitalization is transforming building permit systems, especially in China, yet the determinants of sustained engagement with algorithm-driven platforms remain unclear. This study examines how algorithmic transparency and perceived AI fairness influence continuance intention, with algorithmic trust and perceived information control as mediators, and AI literacy and institutional trust as moderators. Survey data from 468 Chinese construction professionals were analysed using PLS-SEM. Results show that transparency and fairness significantly enhance trust and control, which in turn predict continuance intention. Mediation confirms trust and control as critical pathways from design to sustained use. Moderation reveals that AI literacy strengthens the transparency-trust link, and institutional trust amplifies the trust-continuance relationship. These findings extend technology acceptance and algorithmic governance theories by demonstrating how design, competence and institutional context jointly shape behaviour in regulatory settings. For policymakers and designers, this highlights the need for transparent algorithms, user control features and legitimate institutions to build accepted digital building permit systems.",
+  "keyword": "Q1073, FF4=1, FF5=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "zarghami2024explainable",
+  "type": "paper-conference",
+  "title": "Explainable Artificial Intelligence in Generative Design for Construction",
+  "note": "Q1074",
+  "author": [
+   {
+    "family": "Zarghami",
+    "given": "Sanaz"
+   },
+   {
+    "family": "Kouchaki",
+    "given": "Hanieh"
+   },
+   {
+    "family": "Yang",
+    "given": "Longzhi"
+   },
+   {
+    "family": "Martinez Rodriguez",
+    "given": "Pablo"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "DOI": "10.35490/EC3.2024.277",
+  "container-title": "Proceedings of the 2024 European Conference on Computing in Construction",
+  "volume": "5",
+  "publisher": "European Council for Computing in Construction",
+  "abstract": "As artificial intelligence rapidly advance, their growing complexity enables more sophisticated applications across sectors, including construction. However, the opaque nature of algorithms, such as generative AI, reduces human interpretability and trust. While providing benefits like enhanced efficiency, generative design’s black-box processes hamper adoption. Explainable AI can elucidate how AI algorithms generate outputs, thereby improving understanding and confidence. Despite explainable AI’s potential, construction has given it limited focus. This research systematically reviews the application of explainable AI in generative design in construction, with an aim to allay risks and enable wider utilization of these emerging technologies for improved engineering design.",
+  "keyword": "Q1074, FF2=1, FF5=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "jang2026understanding",
+  "type": "paper-conference",
+  "title": "Understanding User Requirements in LLM-Augmented BIM Systems: A TAM-Based Evaluation of NADIA-S",
+  "note": "Q1075",
+  "author": [
+   {
+    "family": "Jang",
+    "given": "Suhyung"
+   },
+   {
+    "family": "Hyun",
+    "given": "Seokho"
+   },
+   {
+    "family": "Lee",
+    "given": "Junghun"
+   },
+   {
+    "family": "Lee",
+    "given": "Ghang"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1061/9780784486436.074",
+  "container-title": "Computing in Civil Engineering 2025",
+  "page": "700--709",
+  "publisher": "American Society of Civil Engineers",
+  "abstract": "Recent research on integrating large language models (LLMs) with building information modeling (BIM) systems has heightened expectations for overcoming technical barriers that hinder BIM adoption. Despite these expectations, there remains a lack of understanding regarding users’ requirements for LLM-augmented BIM systems. Understanding these requirements is crucial for guiding development and addressing adoption barriers, yet this area remains underexplored. This study aims to investigate the factors that could drive the adoption of LLM-augmented BIM systems. An expert evaluation was conducted on an LLM-augmented BIM system—“Natural-language-based Architectural Detailing through Interaction with AI via Speech (NADIA-S)”—which is built upon a six-step, generalized LLM-augmented BIM framework. Through a case study, experts performed interactive design detailing and compliance-checking tasks in a BIM model using NADIA-S. Responses were collected through questionnaires based on the technology acceptance model (TAM) using a 5-point Likert scale, focusing on perceived ease of use (PEU), perceived usefulness (PU), and behavioral intention (BI). The results revealed high mean scores, ranging from 3.75 to 4.58 for PEU, 4.08 to 4.25 for PU, and 4.25 to 4.50 for BI, with significant positive effects observed between PEU and PU, PEU and BI, and PU and BI. Qualitative feedback highlights preferences for interactive conversational user interfaces, the need for multimodal input capabilities, improvements in AI’s comprehension of BIM systems, and the importance of enhanced system stability and control over AI-generated results. Addressing these areas will improve adaptability, reliability, and user confidence, advancing LLM-driven BIM adoption in the AECO industry.",
+  "keyword": "Q1075, FF3=1, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "alwashah2026reliable",
+  "type": "article-journal",
+  "title": "Reliable LLM-driven BIM automation through capability-based multi-dimensional evaluation",
+  "note": "Q1076",
+  "author": [
+   {
+    "family": "Alwashah",
+    "given": "Zaid"
+   },
+   {
+    "family": "Xiao",
+    "given": "Bo"
+   },
+   {
+    "family": "Liu",
+    "given": "Hexu"
+   },
+   {
+    "family": "Mueller",
+    "given": "Shane T."
+   },
+   {
+    "family": "Shao",
+    "given": "Xiaoyun"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2026.106910",
+  "container-title": "Automation in Construction",
+  "volume": "187",
+  "page": "106910",
+  "keyword": "Q1076, FF3=2, FF5=1, Nutzung:abgrenzen, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "gao2026multiagent",
+  "type": "article-journal",
+  "title": "Multi-agent framework for schema-guided reasoning and tool-augmented interaction with IFC models",
+  "note": "Q1077",
+  "author": [
+   {
+    "family": "Gao",
+    "given": "Yan"
+   },
+   {
+    "family": "Hu",
+    "given": "Fuji"
+   },
+   {
+    "family": "Chai",
+    "given": "Chengzhang"
+   },
+   {
+    "family": "Weng",
+    "given": "Yiwei"
+   },
+   {
+    "family": "Li",
+    "given": "Haijiang"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2026.106888",
+  "container-title": "Automation in Construction",
+  "volume": "186",
+  "page": "106888",
+  "abstract": "Despite recent advances in large language model (LLM)-based agents, their applications to schema-guided reasoning and interaction with Building Information Modelling (BIM) data remain limited. This paper presents IFC-Agent, a tool-augmented multi-agent framework that enables natural language querying, reasoning, and modification of Industry Foundation Classes (IFC) models. The framework integrates schema-guided traversal with LLM-driven dynamic tool composition to achieve interpretable and scalable reasoning workflows. An adaptive dual-mode execution strategy combines asynchronous parallel execution with exploration–aggregation reasoning, while a dual-memory mechanism ensures operational efficiency and semantic consistency. A prototype system was developed using LangChain and validated on benchmark IFC queries. Case studies demonstrate strong performance in field querying, multi-hop reasoning, coordinate transformation, and IFC graph construction. Comparative evaluation with recent graph-based and LLM-assisted BIM frameworks highlights IFC-Agent's advantages in schema-guided reasoning and natural language interaction, establishing a practical foundation for explainable and automated BIM workflows. • Schema-guided multi-agent framework with dynamic tool composition on native IFC data. • Adaptive dual-mode execution addressing interpretability-scalability trade-off. • Dual-memory integrating procedural context and entity caches for cross-agent reuse. • LLMs leverage implicit schema awareness for autonomous multi-hop IFC traversal. • Tools extend execution capabilities but cannot replace LLM's reasoning capacity.",
+  "keyword": "Q1077, FF1=1, FF3=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "yang2026natural",
+  "type": "article-journal",
+  "title": "From natural language to manufacturing data: A study of LLM-Mediated workflow for customized residential construction",
+  "note": "Q1078",
+  "author": [
+   {
+    "family": "Yang",
+    "given": "Xueqin"
+   },
+   {
+    "family": "Wang",
+    "given": "Yao"
+   },
+   {
+    "family": "Fang",
+    "given": "Xiaofeng"
+   },
+   {
+    "family": "Guan",
+    "given": "Haoxuan"
+   },
+   {
+    "family": "Jiang",
+    "given": "Li"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.jobe.2026.115507",
+  "container-title": "Journal of Building Engineering",
+  "volume": "120",
+  "page": "115507",
+  "keyword": "Q1078, FF1=1, FF3=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "felfernig2011personalized",
+  "type": "article-journal",
+  "title": "Personalized diagnoses for inconsistent user requirements",
+  "note": "Q1079",
+  "author": [
+   {
+    "family": "Felfernig",
+    "given": "Alexander"
+   },
+   {
+    "family": "Schubert",
+    "given": "Monika"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2011
+    ]
+   ]
+  },
+  "DOI": "10.1017/S0890060410000612",
+  "container-title": "Artificial Intelligence for Engineering Design, Analysis and Manufacturing",
+  "volume": "25",
+  "issue": "2",
+  "page": "175--183",
+  "abstract": "Knowledge-based configurators are supporting configuration tasks for complex products such as telecommunication systems, computers, or financial services. Product configurations have to fulfill the requirements articulated by the user and the constraints contained in the configuration knowledge base. If the user requirements are inconsistent with the constraints in the configuration knowledge base, users have to be supported in finding out a way from the no solution could be found dilemma. In this paper we introduce a new algorithm (PersDiag) that allows the determination of personalized diagnoses for inconsistent user requirements in knowledge-based configuration scenarios. We present the results of an empirical study that show the advantages of our approach in terms of prediction quality and efficiency.",
+  "keyword": "Q1079, FF2=2, FF5=1, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "vanhertum2016kb",
+  "type": "article-journal",
+  "title": "The KB paradigm and its application to interactive configuration",
+  "note": "Q1080",
+  "author": [
+   {
+    "family": "Van Hertum",
+    "given": "Pieter"
+   },
+   {
+    "family": "Dasseville",
+    "given": "Ingmar"
+   },
+   {
+    "family": "Janssens",
+    "given": "Gerda"
+   },
+   {
+    "family": "Denecker",
+    "given": "Marc"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  },
+  "DOI": "10.1017/S1471068416000156",
+  "container-title": "Theory and Practice of Logic Programming",
+  "volume": "17",
+  "issue": "1",
+  "page": "91--117",
+  "abstract": "The knowledge base (KB) paradigm aims to express domain knowledge in a rich formal language, and to use this domain knowledge as a KB to solve various problems and tasks that arise in the domain by applying multiple forms of inference. As such, the paradigm applies a strict separation of concerns between information and problem solving. In this paper, we analyze the principles and feasibility of the KB paradigm in the context of an important class of applications: interactive configuration problems. In interactive configuration problems, a configuration of interrelated objects under constraints is searched, where the system assists the user in reaching an intended configuration. It is widely recognized in industry that good software solutions for these problems are very difficult to develop. We investigate such problems from the perspective of the KB paradigm. We show that multiple functionalities in this domain can be achieved by applying different forms of logical inferences on a formal specification of the configuration domain. We report on a proof of concept of this approach in a real-life application with a banking company.",
+  "keyword": "Q1080, FF2=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "abdelazizshawky2026product",
+  "type": "article-journal",
+  "title": "Product configuration for mass customisation: a systematic literature review",
+  "note": "Q1081",
+  "author": [
+   {
+    "family": "Abdelaziz Shawky",
+    "given": "Doaa"
+   },
+   {
+    "family": "Le Duigou",
+    "given": "Julien"
+   },
+   {
+    "family": "Daaboul",
+    "given": "Joanna"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1080/00207543.2026.2642887",
+  "container-title": "International Journal of Production Research",
+  "volume": "64",
+  "issue": "18",
+  "page": "8101--8133",
+  "abstract": "Successful mass customisation (MC) depends on a successful and effective product configuration. It is necessary for industries adopting an MC strategy to understand all the guidelines and requirements for product configuration. This study fulfils this aim by presenting a systematic literature review (SLR) on product configuration for MC. A total of 122 relevant articles (2000-2025) were selected using the PRISMA framework to analyse four interconnected aspects of product configuration: user requirements conversion, knowledge modelling, optimisation techniques (63 articles), and recommendation systems. The analysis revealed an increasing interest in the topic over the years, with a primary focus on optimisation techniques. The review revealed existing challenges in product configuration, including scalability, user fatigue, uncertainty, and dynamic environments. Moreover, some topics have been overlooked, such as product lifecycle integration, psychological aspects of user choice, and sustainability. Few environmental indicators were considered across four studies, and none considered social performance. This review contributes by identifying trends across different domains, research gaps, and future directions. Additionally, this SLR clarifies how configuration relates to production aspects such as supply chain, production planning, and lead time. Moreover, a guideline for successful product configuration implementation that supports both customer and production requirements has been developed.",
+  "keyword": "Q1081, FF2=2, FF3=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "ostrowskawawryniuk2020prefabrication",
+  "type": "article-journal",
+  "title": "Prefabrication 4.0: BIM-aided design of sustainable DIY-oriented houses",
+  "note": "Q1082",
+  "author": [
+   {
+    "family": "Ostrowska-Wawryniuk",
+    "given": "Karolina"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "DOI": "10.1177/1478077120966496",
+  "container-title": "International Journal of Architectural Computing",
+  "volume": "19",
+  "issue": "2",
+  "page": "142--156",
+  "abstract": "In the context of continuous housing shortage, increasing construction standards and rising labour costs, one of the possibilities to address this array of problems is prefabrication directed towards do-it-yourself (DIY) construction methods. This paper presents a prototype tool for aiding the design of DIY-oriented single-family houses with the use of small-element timber prefabrication. The introduced solution uses the potential of BIM technology for adapting a traditionally designed house to the prefabrication requirements and reduction of waste generated in the assembly process. The experimental tool was developed in the Autodesk Revit software. It incorporates custom Dynamo-for-Revit scripts. The experimental tool implemented the user- and technology-specified boundary conditions and converted an input BIM model into a prefabricated alternative. The tool was tested on the design of a two-story single-family house. The results compare the automated optimized panelization with manual approach. The simulation revealed the possibility of the construction waste reduction by at least 50% when comparing to the non-optimized panelization.",
+  "keyword": "Q1082, FF1=2, FF2=2, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
+ },
+ {
+  "id": "sanchez2022feature",
+  "type": "article-journal",
+  "title": "Feature modeling for configurable and adaptable modular buildings",
+  "note": "Q1083",
+  "author": [
+   {
+    "family": "Sanchez",
+    "given": "Benjamin"
+   },
+   {
+    "family": "Rausch",
+    "given": "Christopher"
+   },
+   {
+    "family": "Haas",
+    "given": "Carl"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.aei.2021.101514",
+  "container-title": "Advanced Engineering Informatics",
+  "volume": "51",
+  "page": "101514",
+  "keyword": "Q1083, FF1=1, FF2=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "lee2026conversational",
+  "type": "article-journal",
+  "title": "Conversational programming for structural model review and editing via conversational corrective grounding (CCG)",
+  "note": "Q1084",
+  "author": [
+   {
+    "family": "Lee",
+    "given": "Justin S."
+   },
+   {
+    "family": "Lee",
+    "given": "Ghang"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2026.106989",
+  "container-title": "Automation in Construction",
+  "volume": "188",
+  "page": "106989",
+  "keyword": "Q1084, FF3=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "fattahitabasi2026human",
+  "type": "article-journal",
+  "title": "Human--AI collaboration in architectural design: Interaction, design process and controllability",
+  "note": "Q1085",
+  "author": [
+   {
+    "family": "Fattahi Tabasi",
+    "given": "Saba"
+   },
+   {
+    "family": "Fialho Leandro Alves Teixeira",
+    "given": "Fred"
+   },
+   {
+    "family": "Luo",
+    "given": "Dan"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.autcon.2026.107155",
+  "container-title": "Automation in Construction",
+  "volume": "191",
+  "page": "107155",
+  "abstract": "This review article examines the integration of artificial intelligence (AI) in architectural design, focusing on human–AI collaboration, interaction, design stages, input–output data exchange, and human controllability. Despite recent advances, existing reviews emphasize application domains, offering limited insight into how responsibility, decision-making, and controllability are distributed between designers and AI systems. Such insight is essential for developing decision support systems, enabling progression from early design stages toward construction documentation, and reducing the gap between computer-aided design and construction. To address this gap, a PRISMA-based review of 96 journal and conference papers was conducted. The findings identify four dominant collaboration modes, with Human-on-the-Loop being the most prevalent. AI applications remain concentrated in schematic design, with limited but emerging engagement in later phases. Image-based data dominates inputs and outputs despite limited precision and editability. The review shows that collaboration mode and information embedded in the design process shape human controllability over AI-generated outcomes.",
+  "keyword": "Q1085, FF3=1, FF5=2, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "huang2026bimintegrated",
+  "type": "article-journal",
+  "title": "BIM-integrated generative wiring design for residential interior lighting circuits: A network flow-based ILP optimization approach",
+  "note": "Q1086",
+  "author": [
+   {
+    "family": "Huang",
+    "given": "Xuesi"
+   },
+   {
+    "family": "Zhou",
+    "given": "Junwen"
+   },
+   {
+    "family": "Liu",
+    "given": "Jiepeng"
+   },
+   {
+    "family": "Qi",
+    "given": "Hongtuo"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "DOI": "10.1016/j.eswa.2026.133364",
+  "container-title": "Expert Systems with Applications",
+  "volume": "331",
+  "page": "133364",
+  "keyword": "Q1086, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  }
 ]
