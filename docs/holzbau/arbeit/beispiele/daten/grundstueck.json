@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Beispielgrundstück 20 x 30 m (fiktiv), Gelände eben (Höhe 0,00). Koordinaten in Metern, x nach Osten, y nach Norden. Südlich grenzt eine öffentliche Straße an.",
+  "grundstueck": [[0, 0], [20, 0], [20, 30], [0, 30]],
+  "strasse": { "seite": "sued", "breite": 8.0, "_hinweis": "BayBO Art. 6 Abs. 2 Satz 2: Abstandsflächen dürfen bis zur Mitte öffentlicher Verkehrsflächen reichen." },
+  "regel": {
+    "faktor": 0.4,
+    "mindesttiefe": 3.0,
+    "grenzneigung_grad": 70.0,
+    "dach_anteil_unter_grenzneigung": 0.3333333333333333
+  },
+  "gebaeude_vorlage": {
+    "breite": 10.0,
+    "laenge": 12.0,
+    "wandhoehe": 6.5,
+    "dachneigung_grad": 45.0,
+    "dachform": "Satteldach",
+    "firstrichtung": "y",
+    "_hinweis": "breite = Giebelbreite (quer zum First), laenge = Trauflänge (parallel zum First), wandhoehe = Gelände bis Schnittpunkt Außenwand/Dachhaut an der Traufe."
+  },
+  "szenarien": [
+    { "id": "mittig",     "beschreibung": "Haus mittig, 5 m zu den seitlichen Grenzen", "x": 5.0, "y": 9.0 },
+    { "id": "zu_nah",     "beschreibung": "Haus 2 m an die westliche Grenze gerückt", "x": 2.0, "y": 9.0 },
+    { "id": "an_strasse", "beschreibung": "Haus 1 m hinter der Straßengrenze (Süd)", "x": 5.0, "y": 1.0 }
+  ]
+}
