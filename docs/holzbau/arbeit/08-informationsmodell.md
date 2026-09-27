@@ -22,9 +22,11 @@ Die Gegenbefunde zu einem durchgängigen IFC betreffen vor allem *Autorenwerkzeu
 
 ### 8.1.1 Die Optionen
 
-Zur Wahl stehen zwei offizielle Schemata. IFC 4.3.2.0 (IFC4X3_ADD2) ist als ISO 16739-1:2024 genormt [@iso2024ifc]. IFC4 ADD2 TC1 (ISO 16739-1:2018) ist daneben weiterhin offiziell und hat heute die breitere Unterstützung in Software (Recherche 06). IFC 4.4 ist in Arbeit, IFC 5 im Alpha-Stand [@vanberlo2021future].
+Zur Wahl stehen zwei offizielle Schemata. IFC 4.3.2.0 (IFC4X3_ADD2) ist als ISO 16739-1:2024 genormt [@iso2024ifc]. IFC4 ADD2 TC1 (ISO 16739-1:2018) ist daneben weiterhin offiziell und hat heute die breitere Unterstützung in Software (Recherche 06). IFC 4.4 ist in Arbeit, IFC 5 im Alpha-Stand (Recherche 06; zu den Zielen von IFC 5 siehe [@vanberlo2021future]).
 
 Für den Holzrahmenbau sind die Unterschiede zwischen den Schemata gering, für die übrigen Phasen erheblich. Die maschinelle Gegenüberstellung beider Schemata in IfcOpenShell 0.8.5 ergibt [V]:
+
+**Tabelle 8.1: Schemavergleich IFC4 und IFC4X3_ADD2 (maschinell abgefragt)**
 
 | Konzept | IFC4 | IFC4X3_ADD2 | Bedeutung für die Arbeit |
 |---|---|---|---|
@@ -37,7 +39,7 @@ Für den Holzrahmenbau sind die Unterschiede zwischen den Schemata gering, für 
 | Hebezeug | `IfcTransportElement` LIFTINGGEAR | dto., zusätzlich HAULINGGEAR | in beiden abbildbar |
 | Enum-Umfang | z. B. `IfcPlateTypeEnum` mit 4 Werten | 11 Werte | engere Typisierung in 4.3 |
 
-Die elementierte Holzrahmenwand selbst ist also in beiden Schemata abbildbar. Die Entscheidung für IFC 4.3 fällt deshalb nicht am Wandelement, sondern an den Phasen davor und danach: Aussparungskoordination, Baugrund, Entwässerung, Logistik.
+Die Wand selbst ist in beiden Schemata abbildbar; die Entscheidung für IFC 4.3 fällt an Aussparungskoordination, Baugrund, Entwässerung und Logistik.
 
 **E8.1 – IFC4X3_ADD2 ist das kanonische Schema.** *Entscheidung.* Der Generator schreibt ausschließlich `FILE_SCHEMA(('IFC4X3_ADD2'))`. *Begründung.* Nur dieses Schema ist zugleich ISO-Norm in aktueller Ausgabe und inhaltlich breit genug für die Phasen nach 8.4. Mehrere Konzepte der Kette (PROVISIONFORVOID, `IfcVehicle`, `IfcGeotechnicalStratum`) fehlen in IFC4. Die Praxisempfehlung aus Österreich weist in dieselbe Richtung [@tugraz2025syswood]. *Beleg.* ISO 16739-1:2024 [@iso2024ifc]; Schemavergleich oben [V]; alle Beispielausgaben B1 und B14 bis B19 sind IFC4X3_ADD2 und bestehen die lokale Validierung mit 0 Meldungen [V].
 
@@ -66,7 +68,7 @@ Die Werkzeugpraxis hinkt dem Standard hinterher. hsbcad und cadwork exportieren 
 
 Daraus folgt ein Zielkonflikt: Das kanonische Modell nutzt das reichere Schema, Werkstatt und Holzbau-CAD lesen aber IFC4. Die Lösung ist ein *abgeleiteter* Export mit bekannten Verlusten.
 
-**E8.3 – Der Generator ist schema-agnostisch; IFC4 entsteht nur als abgeleiteter Export mit Verlustprotokoll.** *Entscheidung.* Das Klassenmapping wird als Tabelle je Schema gepflegt, nicht im Code verstreut. Ein IFC4-Export wird bei Bedarf aus demselben Parametermodell erzeugt, nicht durch Rückkonvertierung der 4.3-Datei. Jeder Export listet die Konzepte, die in IFC4 fehlen (Tabelle 8.1.1), und die Elemente, die davon betroffen sind. *Begründung.* Eine Rückkonvertierung auf Dateiebene müsste fehlende Konzepte raten. Die Erzeugung aus dem Parametermodell kann sie gezielt ersetzen: PROVISIONFORVOID etwa durch ein untypisiertes `IfcVirtualElement` mit Pset, `IfcDistributionBoard` durch die IFC4-Klasse. *Beleg.* Schemavergleich 8.1.1 [V]; Softwarestand Recherche 06 [V]. Der IFC4-Export ist im Prototyp **nicht umgesetzt**. Die Aussage ist deshalb eine Entwurfsentscheidung [U], deren Tragfähigkeit Kapitel 20 mit einem Import in hsbcad oder cadwork prüfen muss.
+**E8.3 – Der Generator ist schema-agnostisch; IFC4 entsteht nur als abgeleiteter Export mit Verlustprotokoll.** *Entscheidung.* Das Klassenmapping wird als Tabelle je Schema gepflegt, nicht im Code verstreut. Ein IFC4-Export wird bei Bedarf aus demselben Parametermodell erzeugt, nicht durch Rückkonvertierung der 4.3-Datei. Jeder Export listet die Konzepte, die in IFC4 fehlen (Tabelle 8.1), und die Elemente, die davon betroffen sind. *Begründung.* Eine Rückkonvertierung auf Dateiebene müsste fehlende Konzepte raten. Die Erzeugung aus dem Parametermodell kann sie gezielt ersetzen: PROVISIONFORVOID etwa durch ein untypisiertes `IfcVirtualElement` mit Pset, `IfcDistributionBoard` durch die IFC4-Klasse. *Beleg.* Schemavergleich 8.1.1 [V]; Softwarestand Recherche 06 [V]. Der IFC4-Export ist im Prototyp **nicht umgesetzt**. Die Aussage ist deshalb eine Entwurfsentscheidung [U], deren Tragfähigkeit Kapitel 20 mit einem Import in hsbcad oder cadwork prüfen muss.
 
 ### 8.1.4 Ausblick IFCX
 
@@ -305,13 +307,13 @@ Keine dieser Grenzen erzwingt eine Schemaerweiterung. Die Stellen 3 und 4 sind m
 
 ### 8.5.1 Drei Fragen an ein Objekt
 
-Die Klasse beantwortet, *was* ein Objekt im Schema ist. Für Prüfung, Kosten, Bestellung und Bauantrag reicht das nicht. Drei weitere Fragen sind zu beantworten:
+Die Klasse sagt, *was* ein Objekt im Schema ist. Für Prüfung, Kosten, Bestellung und Bauantrag braucht es drei weitere Antworten:
 
 1. **Wozu gehört es?** Klassifikation nach Kostengruppe, Leistungsbereich oder Produktklasse.
 2. **Welche Eigenschaften hat es?** Merkmale mit Einheit und definierter Bedeutung.
 3. **Welches reale Produkt ist es?** Hersteller, Artikelnummer, GTIN, Charge.
 
-Tomczak et al. zeigen, dass bSDD mit ISO 12006, Property Templates, Product Data Templates und IDS unterschiedliche Teile dieser Fragen abdecken und keine Methode alle [@tomczak2022review]. Die Arbeit kombiniert sie deshalb und legt die Rangfolge fest.
+Keine Spezifikationsmethode deckt alle drei ab [@tomczak2022review]; die Arbeit kombiniert sie und legt eine Rangfolge fest.
 
 ### 8.5.2 Klassifikation
 
@@ -454,7 +456,7 @@ In umgekehrter Richtung beantwortet die Kette die Frage, die Produkthaftung und 
 
 Das Kapitel beantwortet FF1 für das Informationsmodell mit drei Aussagen.
 
-1. **IFC4X3_ADD2 trägt die Holzrahmenwand bis zum Verbindungsmittel und fast jede Phase der Kette ohne Schemaerweiterung.** Tabelle 8.2 und Listing 8.1 zeigen das Mapping an einem erzeugten, validierten und byte-reproduzierbaren Modell mit 217 Teilen. Tabelle 8.3 zeigt für 22 Phasen und Teilgebiete, dass die Grenzen mit USERDEFINED, eigenen Psets und standardisierten Nachbarformaten überbrückt werden. Sechs Teilmodelle (B14 bis B19) sind validiert.
+1. **IFC4X3_ADD2 trägt die Holzrahmenwand bis zum Verbindungsmittel und fast jede Phase der Kette ohne Schemaerweiterung.** Tabelle 8.2 und Listing 8.1 zeigen das Mapping an einem erzeugten, validierten und byte-reproduzierbaren Modell mit 217 Teilen. Tabelle 8.3 zeigt für 23 Phasen und Teilgebiete, dass die Grenzen mit USERDEFINED, eigenen Psets und standardisierten Nachbarformaten überbrückt werden. Sechs Teilmodelle (B14 bis B19) sind validiert.
 2. **„Standardkonform“ ist eine Prüfkette, keine MVD.** Weil für IFC 4.3 keine passende MVD existiert, definiert die Arbeit Konformität über Schema, normative Regeln, IDS und Regelmaschine (E8.2). Die Kette macht eigene Konventionen sichtbar, statt sie hinter einer vermeintlichen Sicht zu verbergen.
 3. **Die Redundanz ist gewollt und kontrolliert.** Schichtenmodell und Einzelteile stehen nebeneinander, weil Autorensoftware die Aggregation nicht liest [@timbim2024]. Sie entstehen aus einer Quelle, und maßgebliche Kennwerte werden aus den Einzelteilen berechnet. Das U-Wert-Beispiel zeigt, dass die Wahl der Sicht den Nachweis um rund 13 % verschiebt.
 
@@ -505,7 +507,7 @@ Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren
 | ANF-08-26 | Muss | Georeferenz über `IfcMapConversion` und `IfcProjectedCRS` mit Name `EPSG:25832`; Scale passt zur Längeneinheit. | B1 | Name = `EPSG:25832`; Scale = 0,001 bei mm; der Ursprung des Modells wird auf die Rechts- und Hochwerte des Parametermodells abgebildet. |
 | ANF-08-27 | Muss | Einheiten: Länge mm, Fläche m², Volumen m³, Winkel rad, Masse kg, Temperatur K, in dieser Reihenfolge in `IfcUnitAssignment`. | B1 | `IfcUnitAssignment` enthält genau diese sechs Einheiten in dieser Reihenfolge. |
 | ANF-08-28 | Muss | Das `IfcProject` trägt `HRB_Generator` mit GeneratorVersion, PfadschemaVersion, Namensraum (UUID), ParameterHash (SHA-256 des kanonischen Parameter-JSON) und den Regelwerk-Profilen mit Version. | E8.27; Kap. 7a | Das Pset ist vorhanden; ParameterHash = SHA-256 der kanonisierten Eingabe; Namensraum = `NS_PROJEKT` nach G1. |
-| ANF-08-29 | Soll | Ein IFC4-Export wird aus dem Parametermodell erzeugt und protokolliert seine Verluste. | E8.3 | Die IFC4-Datei besteht K1 mit 0 Meldungen; das Protokoll listet jedes Objekt, dessen Klasse oder Enum-Wert in IFC4 fehlt (Tabelle 8.1.1). |
+| ANF-08-29 | Soll | Ein IFC4-Export wird aus dem Parametermodell erzeugt und protokolliert seine Verluste. | E8.3 | Die IFC4-Datei besteht K1 mit 0 Meldungen; das Protokoll listet jedes Objekt, dessen Klasse oder Enum-Wert in IFC4 fehlt (Tabelle 8.1). |
 | ANF-08-30 | Soll | Der glTF-Export überträgt Texturen und UV-Koordinaten in einem eigenen Schritt. | R09, R10 | Die GLB enthält `images`, `textures` und `TEXCOORD_0` für jedes Material mit `IfcImageTexture`. |
 | ANF-08-31 | Muss | Das Klassenmapping ist Konfiguration, nicht Code: Der Generator liest `spezifikation/ifc-mapping.csv`. Die CSV wird in der CI gegen das Schema geprüft. | E8.3 | Das Prüfskript meldet 0 Fehler: Jede Klasse, jeder PredefinedType und jedes Standard-Pset der CSV existiert in IFC4X3_ADD2; jedes eigene Pset beginnt mit `HRB_`. |
 

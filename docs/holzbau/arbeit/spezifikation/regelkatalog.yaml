@@ -1,0 +1,1258 @@
+# Regelkatalog (initial), abgeleitet aus Kapitel 9 und 9a.
+# Schema: regel.schema.json (#/$defs/regel). Ergebniswerte: erfuellt | verletzt | unbestimmt |
+# nicht_anwendbar | freigabepflichtig (Kapitel 9.2.1).
+# Normwerte sind Einzelkennwerte mit Fundstelle, keine Tabellenkopien (Kapitel 9.7).
+# Status U: vor dem Produktivbetrieb an der Primärquelle bzw. beim Hersteller zu bestätigen.
+
+katalog:
+  name: HRB-Regelkatalog
+  version: 0.1.0
+  stand: "2026-09-27"
+  kapitel: ["9", "9a"]
+  hinweis: "Initialer Katalog. Kennwerte aus Recherchen 02, 08, 09, 13, 14, 16, 20, 22 und Beispielen B2-B20."
+
+regeln:
+
+# ---------------------------------------------------------------------------
+# Kapitel 9.4: R1-Regeln aus Gesetz, Norm, Handwerk, Hersteller
+# ---------------------------------------------------------------------------
+
+- id: BY.BayBO.6.T
+  version: 0.1.0
+  titel: Abstandsfläche vor Außenwänden
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 6 Abs. 4 und 5", fassung: "ab 2026-05-01", status: U, bib: [baybo2026], recherche: ["02"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: "Bayern; außerhalb GE/GI; Gemeinde <= 250 000 Einwohner (sonst Abs. 5a)"
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcWall mit Pset_WallCommon.IsExternal = TRUE"
+    ausnahmen: [satzung_art81, dachueberstand_abs6, grenzgarage_abs7, waermepumpe_bis_2m_abs1_s3_nr4, grenzbebauung_planungsrechtlich_abs1_s4]
+    r2_voraussetzung: [BY-R2-Gelaende-DGM, BY-R2-Grundstuecksgrenze]
+  eingaben:
+    - {name: wandhoehe, einheit: m, quelle: Modell, beschreibung: "Gelände bis Schnittpunkt Wand/Dachhaut"}
+    - {name: dachhoehe, einheit: m, quelle: Modell}
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: grundstueck, einheit: "m (Polygon)", quelle: Kontext}
+  pruefung:
+    typ: geometrie
+    funktion: abstandsflaeche@1.2
+    formel: "H = wandhoehe + a*dachhoehe, a = 1/3 wenn dachneigung <= 70°, sonst 1; T = max(0,4*H; 3,00 m); verletzt wenn Fläche(AF \\ (Grundstück ∪ halbe Verkehrsfläche)) > 0"
+    parameter: {faktor: 0.4, mindesttiefe_m: 3.0, grenzneigung_grad: 70, dachanteil: 0.3333}
+    auslegung: {giebel_modus: "drittel [U]; Alternative: voll"}
+  grenzwerte:
+    - {name: faktor, wert: 0.4, einheit: "-", richtung: gleich, fundstelle: "Art. 6 Abs. 5", status: V}
+    - {name: mindesttiefe, wert: 3.0, einheit: m, richtung: min, fundstelle: "Art. 6 Abs. 5", status: V}
+  meldung: "Die Abstandsfläche der {wand} ist {T:.2f} m tief (0,4 · {H:.2f} m). {A:.2f} m² liegen außerhalb des Grundstücks."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Haus verschieben, bis keine Fläche außerhalb liegt", frei: [haus.x, haus.y]}
+    - {art: A2_kompensation, beschreibung: "H verkleinern über Dachneigung oder Wandhöhe", frei: [dach.neigung, wand.hoehe]}
+    - {art: A5_freigabeweg, beschreibung: "Abweichung nach Art. 63 BayBO (Behörde)"}
+  status: U
+  beispiel: [B4]
+  kapitel: "9.4.1"
+  anforderungen: [ANF-09-02, ANF-09-21, ANF-09-22]
+  tests: [tests/test_b4_b5.py::test_mass_h_und_tiefe, tests/test_b4_b5.py::test_szenarien, tests/test_b4_b5.py::test_giebelprofil_gestaucht]
+
+- id: BY.BayBO.2-5.aF2007.Vollgeschoss
+  version: 0.1.0
+  titel: Vollgeschoss (fortgeltende Fassung bis 31.12.2007)
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 83 Abs. 6 i. V. m. Art. 2 Abs. 5 a. F.", fassung: "bis 2007-12-31", status: V, bib: [baybo2026, baunvo], recherche: ["02"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: datum_bebauungsplan}
+  vorbedingung:
+    auswahl: "jedes IfcBuildingStorey"
+    anwendbar_wenn: "Bebauungsplan setzt Zahl der Vollgeschosse Z fest"
+    r2_voraussetzung: [BY-R2-Gelaende-DGM, BY-R2-BPlan-Z, BY-R2-BPlan-Datum]
+  eingaben:
+    - {name: grundflaeche_geschoss, einheit: "m²", quelle: Modell}
+    - {name: flaeche_lichte_hoehe_ge_2_30, einheit: "m²", quelle: Modell}
+    - {name: uk_decke_ueber_gelaende_mittel, einheit: m, quelle: "Modell + DGM"}
+    - {name: Z, einheit: "-", quelle: Bebauungsplan}
+  pruefung:
+    typ: geometrie
+    funktion: vollgeschoss@0.1
+    formel: "VOLL(g) = vollständig über Gelände ∧ A(h >= 2,30 m) >= 2/3·A(g); Keller zählt, wenn mittel(UK Decke − Gelände) >= 1,20 m; verletzt wenn Anzahl VOLL > Z. Vorab: k* = kleinster Kniestock mit A(h>=2,30) = 2/3·A (Bisektion)"
+    parameter: {lichte_hoehe_min_m: 2.30, flaechenanteil: 0.6667, keller_uk_min_m: 1.20}
+  grenzwerte:
+    - {name: lichte_hoehe, wert: 2.30, einheit: m, richtung: min, fundstelle: "Art. 2 Abs. 5 a. F.", status: V}
+    - {name: flaechenanteil, wert: 0.6667, einheit: "-", richtung: min, fundstelle: "Art. 2 Abs. 5 a. F.", status: V}
+    - {name: keller_uk_ueber_gelaende, wert: 1.20, einheit: m, richtung: min, fundstelle: "Art. 2 Abs. 5 a. F.", status: V}
+  meldung: "Das {geschoss} ist ein Vollgeschoss ({anteil:.0%} der Fläche mit mindestens 2,30 m). Der Bebauungsplan erlaubt {Z} Vollgeschosse."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Kniestock unter k* halten", frei: [dach.kniestock]}
+    - {art: A3_variante, beschreibung: "Dachneigung oder Gaubenbreite ändern", frei: [dach.neigung, gaube.breite]}
+  status: V
+  beispiel: [keins]
+  kapitel: "9.4.2"
+  anforderungen: [ANF-09-08, ANF-09-19]
+
+- id: DE.DIN18065.WG2WE
+  version: 0.1.0
+  titel: Treppenhauptmaße in Wohngebäuden mit höchstens zwei Wohnungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18065", fundstelle: "Hauptmaße Wohngebäude <= 2 WE", fassung: "2020-08", status: V, bib: [din18065], recherche: ["02", "13"]}
+  profil: {name: DE-DIN18065-WG2WE, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [EFH, EFH_ELW, ZFH, DHH, RH_Ende, RH_Mitte, Bungalow, TinyHouse]
+    zeit: {von: "2020-08-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcStair mit IfcStairFlight"
+    anwendbar_wenn: "n_WE <= 2; innerhalb von Wohnungen bzw. GK 1/2 nicht bauaufsichtlich eingeführt (aRdT)"
+  eingaben:
+    - {name: geschosshoehe, einheit: mm, quelle: "Modell (OKFF bis OKFF)"}
+    - {name: laufbreite, einheit: mm, quelle: Modell}
+    - {name: lauflaenge_verfuegbar, einheit: mm, quelle: Modell}
+  pruefung:
+    typ: aufzaehlung
+    funktion: treppe_solver@1.0
+    formel: "n ∈ ℕ, s = H/n, a im 5-mm-Raster; zulässig ⇔ 140<=s<=200 ∧ 230<=a<=370 ∧ 590<=2s+a<=650 ∧ laufbreite>=800 ∧ (n−1)·a <= lauflaenge; Rang: |2s+a−630| (Toleranz 2,5) → |a−s−120| → |a+s−460| → Lauflänge"
+    parameter: {raster_mm: 5, ziel_schrittmass_mm: 630, toleranz_mm: 2.5}
+  grenzwerte:
+    - {name: steigung, wert: [140, 200], einheit: mm, richtung: intervall, fundstelle: "DIN 18065", status: V}
+    - {name: auftritt, wert: [230, 370], einheit: mm, richtung: intervall, fundstelle: "DIN 18065", status: V}
+    - {name: schrittmass, wert: [590, 650], einheit: mm, richtung: intervall, fundstelle: "DIN 18065", status: V}
+    - {name: laufbreite, wert: 800, einheit: mm, richtung: min, fundstelle: "DIN 18065", status: V}
+  meldung: "Für {H} mm Geschosshöhe und {b} mm Laufbreite gibt es {anzahl} zulässige Treppen. Die Laufbreite muss mindestens 800 mm betragen."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "kleinste zulässige Laufbreite 800 mm", frei: [treppe.laufbreite]}
+    - {art: A3_variante, beschreibung: "nächstbeste Lösung, z. B. bei begrenzter Lauflänge"}
+  status: V
+  beispiel: [B5]
+  kapitel: "9.4.3"
+  anforderungen: [ANF-09-17, ANF-09-23]
+  tests: [tests/test_b4_b5.py::test_treppe_290, tests/test_b4_b5.py::test_treppe_randfaelle]
+
+- id: BY.BayBO.45.Fensterflaeche
+  version: 0.1.0
+  titel: Fensterfläche von Aufenthaltsräumen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 45", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["02"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "IfcSpace mit Nutzung Aufenthaltsraum"
+  eingaben:
+    - {name: netto_grundflaeche, einheit: "m²", quelle: Modell}
+    - {name: fensterflaeche, einheit: "m²", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: fensterflaeche@0.1
+    formel: "Σ Fensterfläche(r) >= NGF(r)/8"
+    parameter: {anteil: 0.125}
+    auslegung: {fenstermass: "rohbaumass oder lichtes_mass [U]"}
+  grenzwerte:
+    - {name: anteil, wert: 0.125, einheit: "-", richtung: min, fundstelle: "Art. 45", status: V}
+  meldung: "{raum}: Fensterfläche {ist:.2f} m² < {soll:.2f} m² (1/8 von {ngf:.1f} m²). Es fehlen {fehl:.2f} m²."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Fenster um die fehlende Fläche vergrößern", frei: [fenster.breite, fenster.hoehe]}
+    - {art: A3_variante, beschreibung: "zweites Fenster oder Dachfenster"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9.4.4"
+  anforderungen: [ANF-09-21, ANF-09-24]
+
+- id: DE.ZVDH.DZ.Dachneigung
+  version: 0.1.0
+  titel: Regeldachneigung, Mindestdachneigung und Zusatzmaßnahmen
+  klasse: R1
+  haerte: hart
+  quelle: {art: H, werk: "ZVDH-Fachregel Dachziegel und Dachsteine", fundstelle: "1.1, Tab. 3; Merkblatt Unterdächer", fassung: "2024-04", status: V, bib: [zvdh2024], recherche: ["09"]}
+  profil: {name: DE-Handwerk-Dach, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-04-01", bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "IfcRoof mit IfcCovering ROOFING Dachziegel/Dachstein"
+  eingaben:
+    - {name: dachneigung, einheit: "°", quelle: Modell}
+    - {name: deckung, einheit: "-", quelle: Bemusterung}
+    - {name: sparrenlaenge, einheit: m, quelle: Modell}
+    - {name: schneelast, einheit: "kN/m²", quelle: Kontext}
+    - {name: windzone, einheit: "-", quelle: Kontext}
+  pruefung:
+    typ: rechnung
+    funktion: zvdh_klasse@0.1
+    formel: "verletzt wenn DN < 10°; wenn DN < RDN(deckung): Klasse = Schwelle(RDN, DN, erhöhte Anforderung); z. B. RDN 30°: DN>=18° K2/K1, >=22° K3/K2, >=26° K4/K3, >=30° K5/K4 (ohne/mit erhöhter Anforderung); erhöhte Anforderungen werden nicht aufaddiert"
+    parameter: {mindestneigung_grad: 10, rdn_klassen_grad: [22, 25, 30, 35, 40], klassen: [1, 2, 3, 4, 5]}
+  grenzwerte:
+    - {name: mindestdachneigung, wert: 10, einheit: "°", richtung: min, fundstelle: "FR 04/2024, 1.1", status: V}
+    - {name: schneelast_erhoeht, wert: 1.5, einheit: "kN/m²", richtung: gleich, fundstelle: "FR 04/2024 (über Herstellerbroschüren)", status: V}
+  meldung: "Dachneigung {DN}° liegt unter der Regeldachneigung {RDN}° der Deckung {deckung}. Erforderlich ist eine Zusatzmaßnahme der Klasse K{K}."
+  alternative:
+    - {art: A3_variante, beschreibung: "Deckung mit kleinerer Regeldachneigung wählen", frei: [bemusterung.deckung]}
+    - {art: A1_grenzwert, beschreibung: "Dachneigung für die nächstschwächere Klasse nennen", frei: [dach.neigung]}
+  status: V
+  beispiel: [keins]
+  kapitel: "9.4.5"
+  anforderungen: [ANF-09-20, ANF-09-25]
+  hinweis: "Volltext kostenpflichtig; Werte je Fundstelle in eigener Regeltabelle, Lizenz ZVDH prüfen."
+
+- id: DE.Fussboden.OKFF-gleich
+  version: 0.1.0
+  titel: Fußbodenaufbau mit gleicher Fertigfußbodenhöhe je Geschoss
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18560-2; Systemregeln der Hersteller", fundstelle: "DIN 18560-2 Tab. 1, 4.2.2; IGG-Merkblatt 5", fassung: "2022-08", status: U, recherche: ["16"]}
+  profil: {name: DE-Fussboden, version: 0.1.0}
+  schicht: S3
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: abnahme}
+  vorbedingung:
+    auswahl: "alle IfcSpace eines Geschosses mit Belag"
+    r2_voraussetzung: [HRB-R2-Belag, HRB-R2-Leitungen-im-Aufbau]
+  eingaben:
+    - {name: ziel_aufbauhoehe, einheit: mm, quelle: Projekt}
+    - {name: rohdecke_absenkung, einheit: mm, quelle: Rohbau}
+    - {name: belag, einheit: "-", quelle: Bemusterung}
+    - {name: leitungen, einheit: mm, quelle: TGA}
+  pruefung:
+    typ: optimierung
+    funktion: fussboden_solver@1.0
+    formel: "je Raum: Aufzählung diskreter Kombinationen; stetige Schichten exakt (Füllen nach Stückkosten); hart: Estrich-Nenndicke + Rohrüberdeckung, Leitungen überdeckt, Zusammendrückbarkeit, U-Wert, Flächenmasse, Beschwerung, Toleranzkette <= ±2 mm, Trockenestrich nur mit Ausgleich; Ziel min w_m·Masse + w_k·Kosten + w_l·Lagen; sonst Diagnose [H_min, H_max] und Ausschlussgründe"
+    parameter: {okff_toleranz_mm: 2.0}
+  grenzwerte:
+    - {name: rohrueberdeckung_CT_F4, wert: 45, einheit: mm, richtung: min, fundstelle: "DIN 18560-2:2022-08, 4.2.2", status: U}
+    - {name: rohrueberdeckung_CAF_F4, wert: 40, einheit: mm, richtung: min, fundstelle: "DIN 18560-2 Fassung 2004; 2022 laut Sekundärquellen unverändert", status: U}
+    - {name: nenndicke_min_CT_F4, wert: 45, einheit: mm, richtung: min, fundstelle: "DIN 18560-2:2022-08, Tab. 1", status: U}
+    - {name: R_lambda_B_weich, wert: 0.15, einheit: "m²K/W", richtung: max, fundstelle: "weiche Regel FBH/Belag (B14)", status: U}
+  meldung: "Kein zulässiger Aufbau für H = {H} mm. Mindestens erreichbar: {H_min} mm (fehlen {fehl} mm). Häufigste Ausschlussgründe: {gruende}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Rohdecke im Raum um die fehlende Höhe absenken (Rohbauvorgabe)", frei: [rohbau.absenkung]}
+    - {art: A1_grenzwert, beschreibung: "Ziel-Aufbauhöhe erhöhen", frei: [geschoss.aufbauhoehe]}
+    - {art: A3_variante, beschreibung: "dünneres System oder Leitungsführung in der Balkenlage (B15)"}
+  status: U
+  beispiel: [B14]
+  kapitel: "9.4.6"
+  anforderungen: [ANF-09-17, ANF-09-26]
+  tests: [tests/test_b14.py::test_gleiche_okff_und_schichtsumme, tests/test_b14.py::test_konflikt_bad_ohne_absenkung, tests/test_b14.py::test_konflikt_abwasser_im_trockenaufbau, tests/test_b14.py::test_teppich_auf_fbh_verstoss]
+
+- id: DE.EC5-NA.NA67.Durchbruch
+  version: 0.1.0
+  titel: Durchbrüche und Querbohrungen in Holzbalken
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN EN 1995-1-1/NA", fundstelle: "NCI NA.6.7", fassung: "2010-12 + A2:2014, NA 2013-08", status: V, bib: [baytb2025], recherche: ["08", "16"]}
+  profil: {name: DE-EC5-2010-A2, version: 0.1.0}
+  schicht: S2
+  geltung:
+    raum: Deutschland
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: einleitung_verfahren}
+  vorbedingung:
+    auswahl: "IfcMember/IfcBeam mit IfcOpeningElement durch Leitung"
+  eingaben:
+    - {name: balkenhoehe_h, einheit: mm, quelle: Modell}
+    - {name: oeffnung_d, einheit: mm, quelle: TGA}
+    - {name: randabstand_oben_unten, einheit: mm, quelle: Modell}
+    - {name: abstand_auflager_lA, einheit: mm, quelle: Modell}
+    - {name: abstand_durchbrueche_lz, einheit: mm, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    funktion: durchbruch_na67@1.0
+    formel: "d <= 50 mm: Querschnittsschwächung (Nettoquerschnitt); sonst Durchbruch: unverstärkt nur wenn h_d <= 0,15 h ∧ h_ro >= 0,35 h ∧ h_ru >= 0,35 h ∧ l_A >= h/2 ∧ l_z >= max(1,5 h; 300 mm); Hinweis Profil EC5-2026: Vollholz/KVH nur verstärkt"
+    parameter: {grenze_durchbruch_mm: 50, hd_faktor: 0.15, rand_faktor: 0.35}
+  grenzwerte:
+    - {name: hd_zu_h, wert: 0.15, einheit: "-", richtung: max, fundstelle: "NA NCI NA.6.7", status: V}
+    - {name: rand_zu_h, wert: 0.35, einheit: "-", richtung: min, fundstelle: "NA NCI NA.6.7", status: V}
+  meldung: "{leitung}: h_d = {hd} mm > 0,15 · h = {grenze} mm; unverstärkt unzulässig."
+  alternative:
+    - {art: A3_variante, beschreibung: "Leitung parallel zur Balkenlage führen"}
+    - {art: A2_kompensation, beschreibung: "Wechsel oder Verstärkung mit Nachweis"}
+    - {art: A1_grenzwert, beschreibung: "nächste in Decken- und Wandraster freie Achse"}
+  status: V
+  beispiel: [B15]
+  kapitel: "9.4.7"
+  anforderungen: [ANF-09-07]
+  tests: [tests/test_b15.py::test_querbohrungen_na_6_7, tests/test_b15.py::test_rasterkollision_fuehrt_zu_wechsel]
+
+- id: M.Firma.Staenderbohrung
+  version: 0.1.0
+  titel: Bohrungen in Wandständern (Firmenregel, Platzhalter)
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Firmenregel (Platzhalter, beim Hersteller zu erfragen)", fundstelle: "B15", fassung: "Platzhalter 2026-09", status: U, recherche: ["08", "16"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: staendertiefe, einheit: mm, quelle: Modell}
+    - {name: bohrung_d, einheit: mm, quelle: TGA}
+  pruefung:
+    typ: geometrie
+    formel: "d <= 0,25 · Ständertiefe, Bohrung mittig; sonst Ständer auswechseln oder Leitung in der Vorwand"
+    parameter: {anteil_max: 0.25}
+  grenzwerte:
+    - {name: anteil_max, wert: 0.25, einheit: "-", richtung: max, fundstelle: "Platzhalter", status: U}
+  meldung: "Bohrung {d} mm > 25 % der Ständertiefe {t} mm (Firmenregel, Platzhalter)."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Ständer auswechseln (Riegel ober- und unterhalb)"}
+    - {art: A3_variante, beschreibung: "Leitung in der Vorwand führen"}
+  status: U
+  beispiel: [B15]
+  kapitel: "9.4.7"
+
+- id: DE.DIN4109.Aussenlaerm
+  version: 0.1.0
+  titel: Schallschutz gegen Außenlärm
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 4109-1, DIN 4109-2; BayTB", fundstelle: "4109-1 7.1 Gl. 6; 4109-2 4.4.5, Gl. 32/33; BayTB A 5.2/1 Nr. 5", fassung: "2018-01; BayTB 2025-11", status: V, bib: [baytb2025], recherche: ["20"]}
+  profil: {name: DE-DIN4109-2018, version: 0.1.0}
+  schicht: S2
+  geltung:
+    raum: Bayern
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-11-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "schutzbedürftige IfcSpace (Wohnen, Schlafen, Arbeiten; nicht Bad, Flur)"
+    anwendbar_wenn: "B-Plan-Festsetzung § 9 Abs. 1 Nr. 24 BauGB oder L_a >= 61 dB(A)"
+    ausnahmen: ["EU-Lärmkarten als Eingang unzulässig → unbestimmt"]
+    r2_voraussetzung: [DE-R2-Beurteilungspegel-Quelle]
+  eingaben:
+    - {name: L_rT, einheit: "dB(A)", quelle: "Gutachten RLS-19/Schall 03/TA Lärm oder B-Plan"}
+    - {name: L_rN, einheit: "dB(A)", quelle: "wie L_rT"}
+    - {name: S_S, einheit: "m²", quelle: Modell}
+    - {name: S_G, einheit: "m²", quelle: Modell}
+    - {name: R_w_bauteile, einheit: dB, quelle: "Katalog DIN 4109-31 bis -36 bzw. Hersteller"}
+  pruefung:
+    typ: rechnung
+    funktion: aussenlaerm@1.0
+    formel: "L_a = L_r + 3 dB (Schlaf: L_rN + 13 dB wenn L_rT − L_rN < 10 dB); abgewandt −5/−10 dB; erf = max(L_a,max − 30; 30); K_AL = 10 lg(S_S/(0,8·S_G)); erfüllt ⇔ R'w,ges − 2 >= erf + K_AL; Wahl min Mehrkosten, Stufe Katalog → Fremdprodukt → verletzt"
+    parameter: {K_raumart_wohnen_dB: 30, erf_min_dB: 30, u_prog_dB: 2, abgewandt_offen_dB: -5, abgewandt_geschlossen_dB: -10}
+  grenzwerte:
+    - {name: nachweisschwelle_La, wert: 61, einheit: "dB(A)", richtung: gleich, fundstelle: "BayTB 11/2025 A 5.2/1 Nr. 5", status: V}
+    - {name: erf_min, wert: 30, einheit: dB, richtung: min, fundstelle: "DIN 4109-1 7.1", status: V}
+  meldung: "{raum}: erforderlich R'w,ges = {erf:.1f} dB (+K_AL {kal:.1f}); erreichbar nur mit {loesung}."
+  alternative:
+    - {art: A3_variante, beschreibung: "Schlafräume an die abgewandte Fassade legen (−5 dB ohne Nachweis)"}
+    - {art: A2_kompensation, beschreibung: "fensterunabhängige schallgedämmte Lüftung"}
+    - {art: A4_schichtwechsel, beschreibung: "Fremdfenster höherer Klasse statt Katalogfenster (Freigabe Firma)"}
+  status: V
+  beispiel: [B19]
+  kapitel: "9.4.8"
+  anforderungen: [ANF-09-14, ANF-09-27]
+  tests: [tests/test_b19.py::test_grundrisstausch_reduziert_anforderungen, tests/test_b19.py::test_eu_laermkarte_nicht_nachweistauglich, tests/test_b19.py::test_lpb_und_baytb_schwelle]
+
+- id: M.Katalog.Fenster-SSK
+  version: 0.1.0
+  titel: Katalogfenster nur in Schallschutzklasse 3 und 4, einflüglig
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Ausstattungsbeschreibung Hersteller (KlimaPlus-Fenster)", fundstelle: "Recherche 20", fassung: "10/2024", status: U, bib: [regnauerBLB2024], recherche: ["20"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: ssk_erforderlich, einheit: "-", quelle: DE.DIN4109.Aussenlaerm}
+  pruefung:
+    typ: attribut
+    formel: "ssk_erforderlich ∈ {3, 4} ∧ einflüglig; sonst verletzt (nur Fremdprodukt)"
+    parameter: {ssk_katalog: [3, 4]}
+  grenzwerte:
+    - {name: ssk_katalog, wert: [3, 4], einheit: "-", richtung: menge, fundstelle: "Ausstattungsbeschreibung", status: U}
+  meldung: "{raum}: nur mit Fremdprodukt (SSK {ssk}) nachweisbar (Katalogregel der Firma)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Grundrisstausch (B19: Verstöße 2 → 0)"}
+    - {art: A4_schichtwechsel, beschreibung: "Fremdprodukt mit Freigabe der Firma"}
+  status: U
+  beispiel: [B19]
+  kapitel: "9.4.8"
+  anforderungen: [ANF-09-12, ANF-09-14]
+
+- id: DE.TALaerm.WP-Richtwert
+  version: 0.1.0
+  titel: Wärmepumpe - Beurteilungspegel am Immissionsort
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "TA Lärm; DIN ISO 9613-2", fundstelle: "TA Lärm 6.1, 6.4, A.1.3, A.1.4, A.2.3; ISO 9613-2 Gl. 7, 10, 11", fassung: "TA Lärm i. d. F. 2017; ISO 9613-2:1996", status: V, bib: [din1333], recherche: ["22"]}
+  profil: {name: DE-TALaerm, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    auswahl: "Außengerät (IfcUnitaryEquipment o. ä.) und Immissionsorte 0,5 m vor Fenster; unbebaut: Rand der überbaubaren Fläche"
+    r2_voraussetzung: [DE-R2-LWA-Nacht, DE-R2-Baugebiet]
+  eingaben:
+    - {name: L_WA_nacht, einheit: "dB(A)", quelle: Herstellerdatenblatt}
+    - {name: K_T, einheit: dB, quelle: "Hersteller; unbekannt → 3"}
+    - {name: gebiet, einheit: "-", quelle: Bebauungsplan}
+  pruefung:
+    typ: geometrie
+    funktion: wp_schall@1.0
+    formel: "L_r,N = L_WA − A_div − A_atm − A_gr − A_bar + D_Ω + Reflexion + K_T + K_I; runde_DIN1333(L_r,N) <= IRW_N(gebiet)"
+    parameter: {IRW_N_WA_dB: 40, IRW_T_WA_dB: 55, K_T_werte_dB: [0, 3, 6]}
+  grenzwerte:
+    - {name: IRW_N_WA, wert: 40, einheit: "dB(A)", richtung: max, fundstelle: "TA Lärm 6.1", status: V}
+  meldung: "{io}: L_r,N = {lrn} dB(A) > {irw} dB(A) (TA Lärm 6.1)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "bester zulässiger Aufstellort mit Reserve (Raster 0,5 m)"}
+    - {art: A2_kompensation, beschreibung: "Schirm nahe der Quelle, garantierter Silent-Mode"}
+  status: V
+  beispiel: [B20]
+  kapitel: "9.4.9"
+  anforderungen: [ANF-09-28]
+  tests: [tests/test_b20.py::test_optimum_erfuellt_richtwert_und_ist_maximal, tests/test_b20.py::test_rundung_din1333, tests/test_b20.py::test_lai_tabelle5_aus_iso9613_reproduziert]
+
+- id: M.Hersteller.R290-Schutzbereich
+  version: 0.1.0
+  titel: Schutzbereich einer Wärmepumpe mit R290
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Herstelleranleitung; BWP-Leitfaden A3-Kältemittel", fundstelle: "Recherche 22", fassung: "2024", status: V, recherche: ["22"]}
+  profil: {name: M-Hersteller-WP, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    anwendbar_wenn: "Kältemittel R290"
+  eingaben:
+    - {name: schutzbereich, einheit: "m (Polygon)", quelle: Herstellerangabe}
+    - {name: oeffnungen_senken, einheit: "m (Polygone)", quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "Schutzbereich ∩ (Öffnungen ∪ Lichtschächte ∪ Einläufe ∪ Senken) = ∅ ∧ Schutzbereich ⊂ Grundstück"
+    parameter: {beispiel_boden_m: 1.0, beispiel_oberkante_m: 0.5}
+  grenzwerte: []
+  meldung: "Aufstellort unzulässig: R290-Schutzbereich enthält {objekt}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächster zulässiger Rasterpunkt"}
+  status: V
+  beispiel: [B20]
+  kapitel: "9.4.9"
+  tests: [tests/test_b20.py::test_r290_schutzbereich_schliesst_hwr_fenster_aus]
+
+- id: M.Firma.WP-Irrelevanzziel
+  version: 0.1.0
+  titel: Firmenziel IRW − 6 dB am Immissionsort
+  klasse: R1
+  haerte: weich
+  quelle: {art: M, werk: "Firmenziel nach LAI-Empfehlung", fundstelle: "TA Lärm 3.2.1; LAI 2023 Kap. 4", fassung: "2023", status: V, recherche: ["22"]}
+  profil: {name: M-Firma, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: L_rN, einheit: "dB(A)", quelle: DE.TALaerm.WP-Richtwert}
+  pruefung:
+    typ: rechnung
+    formel: "L_r,N <= IRW_N − 6 dB (verschärft DE.TALaerm.WP-Richtwert monoton)"
+    parameter: {abschlag_dB: 6}
+  grenzwerte:
+    - {name: IRW_N_minus_6_WA, wert: 34, einheit: "dB(A)", richtung: max, fundstelle: "LAI 2023", status: V}
+  meldung: "{io}: {lrn} dB(A) erfüllt den Richtwert, verfehlt aber das Ziel {ziel} dB(A)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Aufstellort mit größerer Reserve"}
+  status: V
+  beispiel: [B20]
+  kapitel: "9.4.9"
+  anforderungen: [ANF-09-28]
+
+- id: DE.VDI6000.Bewegungsflaeche
+  version: 0.1.0
+  titel: Bewegungsflächen vor Sanitärobjekten
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "VDI 6000 Blatt 2", fundstelle: "VDI-FAQ", fassung: "2024-07", status: V, recherche: ["13"]}
+  profil: {name: DE-aRdT-Sanitaer, version: 0.1.0}
+  schicht: S3
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2024-07-01", bis: null, stichtag: abnahme}
+  eingaben:
+    - {name: objekt, einheit: "-", quelle: Bemusterung}
+    - {name: raumgeometrie, einheit: "m (Polygon)", quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "Rechteck vor Objekt (WC 0,80 × 0,75 m; Dusche 0,90 × 0,75 m) ∩ (Bauteile ∪ Möbel) = ∅; Überlagerung mit anderen Bewegungsflächen bei Einzelnutzung zulässig"
+    parameter: {wc_m: [0.80, 0.75], dusche_m: [0.90, 0.75]}
+  grenzwerte:
+    - {name: bewegungsflaeche_wc, wert: [0.80, 0.75], einheit: m, richtung: min, fundstelle: "VDI 6000 Bl. 2 (FAQ)", status: V}
+  meldung: "Bewegungsfläche vor {objekt} ({b} × {t} m) schneidet {hindernis}."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Objekt verschieben"}
+    - {art: A3_variante, beschreibung: "anderes Objektmaß"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9.4"
+  anforderungen: [ANF-09-29]
+
+- id: DE.DIN18040-2.Bewegungsflaeche
+  version: 0.1.0
+  titel: Bewegungsflächen in barrierefreien Wohnungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 18040-2 (eingeführt ohne R-Anforderungen)", fundstelle: "BayTB A 4.2/3Bay", fassung: "2011-09", status: V, bib: [baytb2025], recherche: ["13", "14"]}
+  profil: {name: BY-BayTB-2025-11, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [MFH_GK3, MFH_GK4, GWB_GK5]
+    schalter: barrierefrei
+    zeit: {von: "2025-11-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: objekt, einheit: "-", quelle: Bemusterung}
+  pruefung:
+    typ: geometrie
+    formel: "vor WC, Waschtisch und in der Dusche 1,20 × 1,20 m frei; Dusche niveaugleich, Absenkung <= 2 cm"
+    parameter: {flaeche_m: [1.20, 1.20], absenkung_max_m: 0.02}
+  grenzwerte:
+    - {name: bewegungsflaeche, wert: [1.20, 1.20], einheit: m, richtung: min, fundstelle: "DIN 18040-2", status: V}
+  meldung: "Barrierefreie Wohnung {we}: Bewegungsfläche vor {objekt} kleiner als 1,20 × 1,20 m."
+  alternative:
+    - {art: A3_variante, beschreibung: "Badgrundriss mit größerer Bewegungsfläche"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9.4; 9a.3"
+  anforderungen: [ANF-09a-18]
+
+- id: M.Projekt.Raum-Mindestmasse
+  version: 0.1.0
+  titel: Mindestbreite und Mindestfläche je Raumtyp (Projektregel)
+  klasse: R1
+  haerte: hart
+  quelle: {art: M, werk: "Projektregel (DIN 18011 zurückgezogen, nur Heuristik)", fundstelle: "daten/haus_state.json projektregeln", fassung: "Beispielwerte 2026-09", status: U, recherche: ["02"]}
+  profil: {name: M-Projekt, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: breite, einheit: m, quelle: Modell}
+    - {name: flaeche, einheit: "m²", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    funktion: pruefe_regeln@b6
+    formel: "breite >= b_min(raumtyp) ∧ flaeche >= A_min(raumtyp)"
+    parameter: {bad_b_min_m: 1.70, kind_b_min_m: 2.60, kind_A_min_m2: 10.0}
+  grenzwerte:
+    - {name: bad_b_min, wert: 1.70, einheit: m, richtung: min, fundstelle: "Projektregel", status: U}
+    - {name: kind_b_min, wert: 2.60, einheit: m, richtung: min, fundstelle: "Projektregel", status: U}
+    - {name: kind_A_min, wert: 10.0, einheit: "m²", richtung: min, fundstelle: "Projektregel", status: U}
+  meldung: "{raum}: Breite {b:.2f} m < Mindestbreite {bmin:.2f} m (Projektregel {typ})."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "gemeinsame Projektion auf alle Regeln des Raums (z. B. Kinderzimmer 1: höchstens 0,55 m schmaler, 2,95 m; 10,03 m²)", frei: [raum.breite]}
+  status: U
+  beispiel: [B6]
+  kapitel: "9.5.3"
+  anforderungen: [ANF-09-13, ANF-09-15]
+  tests: [tests/test_b6_b7.py::test_intent_abgelehnt_mit_begruendung]
+
+# ---------------------------------------------------------------------------
+# Kapitel 9.3.3: Schichtung am Beispiel Holzfeuchte (Regelfamilie mit Richtung)
+# ---------------------------------------------------------------------------
+
+- id: DE.DIN68800-2.Holzfeuchte
+  version: 0.1.0
+  titel: Einbaufeuchte Holz (Norm)
+  klasse: R2
+  haerte: hart
+  quelle: {art: N, werk: "DIN 68800-2", fundstelle: "GK 0 bis 3.1", fassung: "2022-02", status: V, bib: [din68800-2], recherche: ["02"]}
+  profil: {name: DE-Holzschutz, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2022-02-01", bis: null, stichtag: einleitung_verfahren}
+  eingaben:
+    - {name: holzfeuchte, einheit: "%", quelle: "Material/Lieferschein"}
+  pruefung:
+    typ: attribut
+    formel: "holzfeuchte <= holzfeuchte_max"
+    parameter: {holzfeuchte_max: 20}
+  grenzwerte:
+    - {name: holzfeuchte_max, wert: 20, einheit: "%", richtung: max, fundstelle: "DIN 68800-2", status: V}
+  meldung: "Holzfeuchte {ist} % > {max} % (DIN 68800-2)."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9.3.3"
+  anforderungen: [ANF-09-10, ANF-09-11]
+
+- id: Q.RAL-GZ422.Holzfeuchte
+  version: 0.1.0
+  titel: Holzfeuchte Gütesicherung (überschreibt holzfeuchte_max)
+  klasse: R2
+  haerte: hart
+  quelle: {art: Q, werk: "RAL-GZ 422 Holzhausbau", fundstelle: "Güte- und Prüfbestimmungen", fassung: "2016-03", status: V, bib: [ral422], recherche: ["02"]}
+  profil: {name: Q-RAL-GZ422, version: 0.1.0}
+  schicht: S4
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: holzfeuchte, einheit: "%", quelle: "Material/Lieferschein"}
+  pruefung:
+    typ: attribut
+    formel: "Überschreibung DE.DIN68800-2.Holzfeuchte.holzfeuchte_max = 18 (Richtung max: 18 <= 20 → monoton)"
+    parameter: {holzfeuchte_max: 18}
+  grenzwerte:
+    - {name: holzfeuchte_max, wert: 18, einheit: "%", richtung: max, fundstelle: "RAL-GZ 422", status: V}
+  meldung: "Holzfeuchte {ist} % > {max} % (RAL-GZ 422)."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9.3.3"
+  anforderungen: [ANF-09-10, ANF-09-11]
+
+# ---------------------------------------------------------------------------
+# Kapitel 9.2.2: R2-Regeln als IDS (B2, holzrahmenbau.ids)
+# ---------------------------------------------------------------------------
+
+- id: IDS.HRB-01
+  version: 0.1.0
+  titel: "Außenwand: U-Wert höchstens 0,20 W/(m²K) (Projektanforderung)"
+  klasse: R2
+  haerte: hart
+  quelle: {art: M, werk: "holzrahmenbau.ids", fundstelle: HRB-01, fassung: "IDS 0.1.0 (2026-01-01)", status: V, bib: [ids2024, iso6946_2017]}
+  profil: {name: HRB-IDS-Wandelement, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: ThermalTransmittance, einheit: "W/(m²K)", quelle: "Pset_WallCommon (aus B3)"}
+  pruefung:
+    typ: ids
+    formel: "applicability IFCWALL ∧ IsExternal = TRUE; requirement 0 < ThermalTransmittance <= 0,20"
+    ids: "beispiele/holzrahmenbau.ids#HRB-01"
+  grenzwerte:
+    - {name: U_max, wert: 0.20, einheit: "W/(m²K)", richtung: max, fundstelle: "Projektanforderung", status: V}
+  meldung: "Wand {guid}: U = {u} W/(m²K) > 0,20 oder nicht angegeben."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Dämmstärke erhöhen, U nach B3 neu berechnen"}
+  status: V
+  beispiel: [B2, B3]
+  kapitel: "9.2.2"
+  anforderungen: [ANF-09-03, ANF-09-04]
+  tests: [tests/test_b2_b3.py::test_ids_bestanden, tests/test_b2_b3.py::test_ids_fehlerhaft]
+
+- id: IDS.HRB-02-11
+  version: 0.1.0
+  titel: "IDS-Spezifikationen HRB-02 bis HRB-11 (Tragwirkung, DIN-276-Klassifikation, Material, KVH C24, Mengen, Aggregation, Verbindungsmittel, Dämmung, keine Proxies)"
+  klasse: R2
+  haerte: hart
+  quelle: {art: M, werk: "holzrahmenbau.ids", fundstelle: "HRB-02 bis HRB-11", fassung: "IDS 0.1.0 (2026-01-01)", status: V, bib: [ids2024]}
+  profil: {name: HRB-IDS-Wandelement, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben: []
+  pruefung:
+    typ: ids
+    formel: "je Spezifikation applicability/requirements nach holzrahmenbau.ids; Attribut-Facetten ohne Typvererbung (HRB-08 Typ, HRB-09 Exemplar)"
+    ids: "beispiele/holzrahmenbau.ids#HRB-02..HRB-11"
+  grenzwerte:
+    - {name: NominalDiameter, wert: [2, 12], einheit: mm, richtung: intervall, fundstelle: HRB-09, status: V}
+  meldung: "{spezifikation}: {anzahl_fehler} von {anwendbar} Elementen erfüllen die Anforderung nicht."
+  alternative: []
+  status: V
+  beispiel: [B2]
+  kapitel: "9.2.2"
+  anforderungen: [ANF-09-03, ANF-09-04]
+  tests: [tests/test_b2_b3.py::test_ids_datei_ist_schema_valide, tests/test_b2_b3.py::test_ids_fehlerhaft]
+
+- id: DE.EGBGB249.Baubeschreibung
+  version: 0.1.0
+  titel: Vollständigkeit der Baubeschreibung (9 Mindestinhalte)
+  klasse: R4
+  haerte: hart
+  quelle: {art: G, werk: "EGBGB Art. 249; BGB § 650j", fundstelle: "Art. 249 § 2 Nr. 1-9", fassung: "geltend 2026-09", status: V, bib: [egbgb249, bgb], recherche: ["07"]}
+  profil: {name: DE-Verbraucherbauvertrag, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben: []
+  pruefung:
+    typ: vollstaendigkeit
+    formel: "für i in 1..9: Abschnitt_i(Baubeschreibung) ≠ ∅ ∧ Fertigstellungstermin oder Bauzeit vorhanden; Übergabe in Textform vor Vertragserklärung"
+  grenzwerte: []
+  meldung: "Baubeschreibung unvollständig: es fehlt {abschnitt} (Art. 249 § 2 Nr. {nr} EGBGB)."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9.2.4"
+
+# ---------------------------------------------------------------------------
+# Kapitel 9a: typabhängige Regeln, Ableitungen und Gates
+# ---------------------------------------------------------------------------
+
+- id: BY.BayBO.2-3.Gebaeudeklasse
+  version: 0.1.0
+  titel: Ableitung der Gebäudeklasse
+  klasse: R2
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 2 Abs. 3, 6, 7", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    r2_voraussetzung: [BY-R2-Gelaende-DGM, BY-R2-Nutzungseinheiten]
+  eingaben:
+    - {name: anbau, einheit: "-", quelle: Modell}
+    - {name: h_Art2, einheit: m, quelle: "OKFF oberstes Geschoss mit möglichem Aufenthaltsraum − mittleres Gelände"}
+    - {name: n_NE, einheit: "-", quelle: "IfcZone"}
+    - {name: BGF_NE, einheit: "m²", quelle: "IfcSpace/Qto, oberirdisch, ohne Keller"}
+  pruefung:
+    typ: ableitung
+    funktion: gebaeudeklasse@1.0
+    formel: "GK1: freistehend ∧ h<=7 ∧ n_NE<=2 ∧ ΣBGF<=400; GK2: wie GK1, nicht freistehend; GK3: h<=7; GK4: h<=13 ∧ max BGF_NE<=400; sonst GK5"
+    parameter: {h1_m: 7.0, h4_m: 13.0, flaeche_m2: 400.0, keller_dok_max_m: 1.40}
+  grenzwerte:
+    - {name: h_GK1-3, wert: 7.0, einheit: m, richtung: max, fundstelle: "Art. 2 Abs. 3", status: V}
+    - {name: h_GK4, wert: 13.0, einheit: m, richtung: max, fundstelle: "Art. 2 Abs. 3", status: V}
+    - {name: flaeche_NE, wert: 400.0, einheit: "m²", richtung: max, fundstelle: "Art. 2 Abs. 3", status: V}
+  meldung: "Gebäudeklasse {gk}: h = {h:.2f} m, {n_ne} Nutzungseinheiten, {flaeche:.0f} m²."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.2.2"
+  anforderungen: [ANF-09a-01, ANF-09a-02]
+
+- id: BY.Profil.Schwellenwarnung
+  version: 0.1.0
+  titel: Warnung vor Schwellen der Profilableitung
+  klasse: R1
+  haerte: hinweis
+  quelle: {art: M, werk: "Systemregel nach Recherche 14", fundstelle: "Recherche 14, Abschnitt 3 Nr. 3", fassung: "2026-09", status: V, recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S5
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: pruefzeitpunkt}
+  eingaben:
+    - {name: h_Art2, einheit: m, quelle: BY.BayBO.2-3.Gebaeudeklasse}
+    - {name: n_WE, einheit: "-", quelle: Modell}
+    - {name: BGF_NE, einheit: "m²", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    formel: "warne wenn |h − 7| < 0,5 ∨ |h − 13| < 0,5 ∨ |h − 22| < 0,5 ∨ BGF_NE nahe 200/400 ∨ n_WE ∈ {2, 3, 5}; Meldung nennt Folgen des nächsten Schritts"
+    parameter: {abstand_h_m: 0.5, schwellen_h_m: [7.0, 13.0, 22.0], schwellen_we: [2, 3, 5]}
+  grenzwerte: []
+  meldung: "Achtung: {aenderung} → {folgen}."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.2.2"
+  anforderungen: [ANF-09a-03]
+
+- id: BY.BauNR.Doppelhaus
+  version: 0.1.0
+  titel: Doppelhaus-Eigenschaft (planungsrechtlich, nicht berechenbar)
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "BauNVO; BVerwG 4 C 12.98, 4 C 12.14", fundstelle: "Recherche 14, 2.7", fassung: "Rechtsprechung 2000/2015", status: V, bib: [baunvo], recherche: ["14"]}
+  profil: {name: DE-Planungsrecht, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [DHH]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: hoehenversatz, einheit: m, quelle: Modell}
+    - {name: tiefenversatz, einheit: m, quelle: Modell}
+    - {name: dachform_neigung_firstrichtung, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: freigabe
+    formel: "Ergebnis immer freigabepflichtig; Indikatoren: Höhen- und Tiefenversatz, Dachform, Dachneigung, Firstrichtung beider Hälften"
+  grenzwerte: []
+  meldung: "Ob die Hälften ein Doppelhaus bilden, ist eine Wertung (BVerwG 4 C 12.14). Indikatoren: {indikatoren}."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Beurteilung durch bauvorlageberechtigte Person, ggf. Abstimmung mit Gemeinde"}
+  freigabe_rolle: bauvorlageberechtigte_person
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.2.3"
+  anforderungen: [ANF-09a-05]
+
+- id: BY.BayBO.61.Bauvorlageberechtigung
+  version: 0.1.0
+  titel: Berechtigungsreichweite der Entwurfsverfasserin
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 61 Abs. 2, 3 Nr. 1, 4 Nr. 6, 6", fassung: "ab 2026-05-01", status: V, bib: [baybo2026, byak2019merkblatt7, bayverfgh1999vf4vii97], recherche: ["07", "14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: rolle_person, einheit: "-", quelle: "Rollenverwaltung"}
+    - {name: profil_schalter, einheit: "-", quelle: regelprofile.yaml}
+  pruefung:
+    typ: freigabe
+    formel: "Abs3 zulässig ⇔ Wohngebäude ∧ GK <= 3 ∧ n_WE <= 3 ∧ anbau ∈ {freistehend, einseitig}; sonst nur Abs2 (Architekt, Listen-Ingenieur); Gate Bauvorlage frei ⇔ Profil ∈ Reichweite(Person); Profilwechsel macht Freigabe ungültig"
+  grenzwerte:
+    - {name: n_WE_Abs3, wert: 3, einheit: "-", richtung: max, fundstelle: "Art. 61 Abs. 3 Nr. 1", status: V}
+    - {name: GK_Abs3, wert: 3, einheit: "-", richtung: max, fundstelle: "Art. 61 Abs. 3 Nr. 1", status: V}
+  meldung: "{person} ({rolle}) ist für dieses Profil nicht bauvorlageberechtigt ({grund}). Erforderlich: Architekt oder Listen-Ingenieur (Art. 61 Abs. 2)."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "berechtigte Person benennen"}
+    - {art: A3_variante, beschreibung: "Entwurf auf <= 3 Wohnungen bzw. einseitigen Anbau zurückführen"}
+  freigabe_rolle: bauvorlageberechtigte_person
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.4.1"
+  anforderungen: [ANF-09a-07]
+
+- id: BY.BayBO.62a-62b.Pruefpflichten
+  version: 0.1.0
+  titel: Prüfpflichten Standsicherheit und Brandschutz je Gebäudeklasse
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: "BayBO; BauVorlV Anlage 2", fundstelle: "Art. 62a, 62b, 78; Anlage 2 Nr. 4, 6, 8", fassung: "ab 2026-05-01", status: V, bib: [baybo2026, bauvorlv, mppvo2012], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: GK, einheit: "-", quelle: BY.BayBO.2-3.Gebaeudeklasse}
+    - {name: material_GL_vorhanden, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: freigabe
+    formel: "Statik: GK1/2 Wohngebäude keine; GK3 Kriterienkatalog (Nr. 8 verletzt wenn Brettschichtholz im Modell → PSV); GK4/5 PSV; Brand: GK4 Bestätigung Bauausführung; GK5 PSV Brand oder Bauaufsicht; Typenprüfung ersetzt Prüfung Statik"
+  grenzwerte: []
+  meldung: "Für dieses Profil ist ein Prüfsachverständiger für {bereich} erforderlich ({grund}). Beauftragung durch den Bauherrn."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Prüfsachverständigen beauftragen; Bescheinigung I mit Baubeginnsanzeige, II mit Nutzungsaufnahme"}
+  freigabe_rolle: pruefsachverstaendiger
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.4.2"
+  anforderungen: [ANF-09a-08, ANF-09a-09]
+
+- id: DE.DIN4109-1.Tab2-Trennbauteile
+  version: 0.1.0
+  titel: Schallschutz zwischen Wohnungen (Tab. 2)
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 4109-1", fundstelle: "Tab. 2", fassung: "2018-01", status: V, bib: [din4109-33], recherche: ["14"]}
+  profil: {name: DE-DIN4109-2018, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [EFH_ELW, ZFH, MFH_GK3, MFH_GK4, GWB_GK5]
+    schalter: schall_tabellen
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: R_w_strich, einheit: dB, quelle: "Bauteilkatalog DIN 4109-33 oder Prüfzeugnis"}
+    - {name: L_nw_strich, einheit: dB, quelle: "wie oben"}
+  pruefung:
+    typ: attribut
+    formel: "Wohnungstrenndecke R'w >= 54 ∧ L'n,w <= 50 (Holzdecke nach 4109-33: <= 53); Wohnungstrennwand R'w >= 53; Wohnungstür Rw >= 27 bzw. 37"
+    parameter: {decke_Rw_min: 54, decke_Lnw_max: 50, decke_Lnw_max_holz: 53, wand_Rw_min: 53}
+  grenzwerte:
+    - {name: decke_Rw, wert: 54, einheit: dB, richtung: min, fundstelle: "DIN 4109-1 Tab. 2", status: V}
+    - {name: decke_Lnw_holz, wert: 53, einheit: dB, richtung: max, fundstelle: "DIN 4109-1 Tab. 2 Fn. b", status: V}
+    - {name: wand_Rw, wert: 53, einheit: dB, richtung: min, fundstelle: "DIN 4109-1 Tab. 2", status: V}
+  meldung: "{bauteil}: R'w = {rw} dB < {soll} dB (DIN 4109-1 Tab. 2)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Katalogaufbau mit ausreichendem Wert wählen (Katalogfilter)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-11]
+
+- id: DE.DIN4109-1.Tab3-Haustrennwand
+  version: 0.1.0
+  titel: Haustrennwand Doppel- und Reihenhaus (Tab. 3)
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "DIN 4109-1", fundstelle: "Tab. 3", fassung: "2018-01", status: V, recherche: ["14"]}
+  profil: {name: DE-DIN4109-2018, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [DHH, RH_Ende, RH_Mitte]
+    schalter: schall_tabellen
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: R_w_strich, einheit: dB, quelle: "Bauteilkatalog oder Prüfzeugnis"}
+    - {name: geschoss_unterstes, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: attribut
+    formel: "R'w >= 59 dB im untersten Geschoss, sonst >= 62 dB; Decken L'n,w <= 41 dB"
+    parameter: {Rw_unterstes: 59, Rw_sonst: 62, Lnw_decke_max: 41}
+  grenzwerte:
+    - {name: Rw_sonst, wert: 62, einheit: dB, richtung: min, fundstelle: "DIN 4109-1 Tab. 3", status: V}
+    - {name: Rw_unterstes, wert: 59, einheit: dB, richtung: min, fundstelle: "DIN 4109-1 Tab. 3", status: V}
+  meldung: "Haustrennwand {geschoss}: R'w = {rw} dB < {soll} dB (DIN 4109-1 Tab. 3)."
+  alternative:
+    - {art: A3_variante, beschreibung: "zweischalige Haustrennwand mit durchgehender Fuge"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-11]
+
+- id: BY.BayBO.28-2.Gebaeudeabschlusswand
+  version: 0.1.0
+  titel: Gebäudeabschlusswand GK 1/2 (bayerische Sonderregel)
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 28 Abs. 2 Satz 2, Abs. 5 Satz 2", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [DHH, RH_Ende, RH_Mitte]
+    gk: [1, 2]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: FireRating, einheit: "-", quelle: "Pset_WallCommon"}
+  pruefung:
+    typ: attribut
+    formel: "Abschlusswand an der Grenze: Feuerwiderstand >= Tragkonstruktion, mindestens feuerhemmend; bis unter die Dachhaut"
+  grenzwerte:
+    - {name: feuerwiderstand, wert: feuerhemmend, einheit: "-", richtung: min, fundstelle: "Art. 28 Abs. 2 S. 2 i. V. m. Art. 27", status: V}
+  meldung: "Gebäudeabschlusswand {guid}: {ist} < feuerhemmend (Art. 28 Abs. 2 Satz 2 BayBO)."
+  alternative:
+    - {art: A3_variante, beschreibung: "zweischaliger Aufbau mit Feuerwiderstand der Tragkonstruktion"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  hinweis: "Weicht von der MBO ab; MBO-basierte Regelsätze nicht ungeprüft übernehmen. Anwendbarkeit Abs. 4-10 über Abs. 11 [U]."
+
+- id: BY.BayBO.45-1.Raumhoehe
+  version: 0.1.0
+  titel: Lichte Raumhöhe von Aufenthaltsräumen ab GK 3
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 45 Abs. 1", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [MFH_GK3, MFH_GK4, GWB_GK5]
+    gk: [3, 4, 5]
+    schalter: raumhoehe_240
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: lichte_hoehe, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "lichte Höhe >= 2,40 m; im Dachgeschoss >= 2,20 m über mindestens der Hälfte der Fläche; nicht für Wohngebäude GK 1/2"
+    parameter: {h_min_m: 2.40, h_min_dg_m: 2.20, anteil_dg: 0.5}
+  grenzwerte:
+    - {name: h_min, wert: 2.40, einheit: m, richtung: min, fundstelle: "Art. 45 Abs. 1", status: V}
+  meldung: "{raum}: lichte Höhe {h:.2f} m < 2,40 m (ab GK 3)."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "Geschosshöhe anheben"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-18]
+
+- id: BY.BayBO.48.Barrierefreiheit
+  version: 0.1.0
+  titel: Barrierefreie Erreichbarkeit ab mehr als 2 Wohnungen
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 48 Abs. 1, 4", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [MFH_GK3, MFH_GK4, GWB_GK5]
+    schalter: barrierefrei
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: n_WE, einheit: "-", quelle: Modell}
+    - {name: aufzug, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: topologie
+    formel: "n_WE > 2: Wohnungen eines Geschosses stufenlos erreichbar; mit Aufzugspflicht 1/3 der Wohnungen; in diesen Wohnungen Wohn-, Schlafräume, WC, Bad, Küche barrierefrei (DIN 18040-2 ohne R); Unverhältnismäßigkeit (Abs. 4) → freigabepflichtig"
+    parameter: {we_schwelle: 2, anteil_mit_aufzug: 0.3333}
+  grenzwerte:
+    - {name: we_schwelle, wert: 2, einheit: "-", richtung: max, fundstelle: "Art. 48 Abs. 1", status: V}
+  meldung: "Bei {n} Wohnungen müssen die Wohnungen eines Geschosses barrierefrei erreichbar sein (Art. 48 BayBO)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Erdgeschosswohnungen stufenlos erschließen"}
+    - {art: A5_freigabeweg, beschreibung: "Unverhältnismäßigkeit nach Abs. 4 prüfen lassen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-18]
+
+- id: BY.BayBO.37-4.Aufzug
+  version: 0.1.0
+  titel: Aufzugspflicht über 13 m
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 37 Abs. 4; Art. 35 Abs. 2", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [GWB_GK5]
+    schalter: aufzug
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: h_Art2, einheit: m, quelle: BY.BayBO.2-3.Gebaeudeklasse}
+    - {name: kabine, einheit: m, quelle: Modell}
+  pruefung:
+    typ: geometrie
+    formel: "h > 13 m: mindestens ein Aufzug für Rollstuhl, Trage, Lasten (Kabine >= 1,10 × 2,10 m, Tür >= 0,90 m), Halt in allen Geschossen; Wohnungstüren an der Aufzugsstrecke lichte Breite >= 0,90 m"
+    parameter: {h_schwelle_m: 13.0, kabine_m: [1.10, 2.10], tuer_m: 0.90}
+  grenzwerte:
+    - {name: kabine, wert: [1.10, 2.10], einheit: m, richtung: min, fundstelle: "Art. 37 Abs. 4", status: V}
+  meldung: "h = {h:.2f} m > 13 m: Aufzug mit Kabine 1,10 × 2,10 m erforderlich."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "h unter 13 m halten (Schwellenwarnung)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-18]
+
+- id: BY.BayBO.81.Satzungspflichten
+  version: 0.1.0
+  titel: Stellplätze und Kinderspielplatz nur mit Gemeindesatzung
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "BayBO; GaStellV", fundstelle: "Art. 47, Art. 81 Abs. 1 Nr. 3 und 4", fassung: "ab 2025-10-01", status: V, bib: [baybo2026], recherche: ["02", "14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2025-10-01", bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    r2_voraussetzung: [BY-R2-Satzungsdatenbank-Gemeinde]
+  eingaben:
+    - {name: gemeinde, einheit: "-", quelle: Kontext}
+    - {name: n_WE, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: rechnung
+    formel: "Stellplätze: Pflicht nur mit Satzung; Zahl nach Satzung (GaStellV nennt Höchstwerte, z. B. 2 je Wohnung); Spielplatz: Satzung ∧ n_WE > 5"
+    parameter: {spielplatz_we_schwelle: 5}
+  grenzwerte:
+    - {name: spielplatz_we, wert: 5, einheit: "-", richtung: max, fundstelle: "Art. 81 Abs. 1 Nr. 3", status: V}
+  meldung: "Die Satzung der Gemeinde {gemeinde} verlangt {anzahl} Stellplätze; geplant sind {ist}."
+  alternative:
+    - {art: A2_kompensation, beschreibung: "Ablöse, soweit die Satzung sie vorsieht"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.3"
+  anforderungen: [ANF-09a-19]
+
+- id: DE.HolzBauRL.Daemmstoff
+  version: 0.1.0
+  titel: Nichtbrennbare Dämmung in hochfeuerhemmenden und feuerbeständigen Holzbauteilen
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "MHolzBauRL, eingeführt über BayTB 11/2025 lfd. Nr. A 2.2.1.4", fundstelle: "Recherche 14, 2.3", fassung: "2024-09", status: V, bib: [holzbaurl2024, baytb2025], recherche: ["14"]}
+  profil: {name: BY-HolzBauRL-2024-09, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [MFH_GK4, GWB_GK5, RH_Ende, RH_Mitte]
+    gk: [4, 5]
+    schalter: holzbaurl
+    zeit: {von: "2025-11-01", bis: null, stichtag: einleitung_verfahren}
+  vorbedingung:
+    auswahl: "Dämmteile (IfcBuildingElementPart INSULATION) in Bauteilen mit Anforderung hfh oder fb"
+    ausnahmen: [fussbodenaufbau]
+  eingaben:
+    - {name: brennbarkeit, einheit: "-", quelle: "Materialmerkmal (Kap. 8)"}
+    - {name: schmelzpunkt, einheit: "°C", quelle: "Materialmerkmal"}
+  pruefung:
+    typ: attribut
+    formel: "nichtbrennbar ∧ Schmelzpunkt >= 1000 °C ∧ gefachfüllend; Katalogfilter vor der Auswahl; Anforderung wird beim Generieren an das Dämmteil geschrieben (IDS-Grenze)"
+    parameter: {schmelzpunkt_min_C: 1000}
+  grenzwerte:
+    - {name: schmelzpunkt, wert: 1000, einheit: "°C", richtung: min, fundstelle: "MHolzBauRL 2024-09", status: V}
+  meldung: "{aufbau}: Dämmstoff {material} ist brennbar; in GK {gk} unzulässig (HolzBauRL 2024-09)."
+  alternative:
+    - {art: A3_variante, beschreibung: "Aufbau mit Mineralwolle (Schmelzpunkt >= 1000 °C) aus dem gefilterten Katalog"}
+  status: V
+  beispiel: [B3, B14]
+  kapitel: "9a.6"
+  anforderungen: [ANF-09a-14]
+  hinweis: "Siehe auch ANF-03-08 (Kapitel 3)."
+
+- id: DE.HolzBauRL.Entzuendungsschutz
+  version: 0.1.0
+  titel: Entzündungsschutz t_ch der Bekleidung
+  klasse: R1
+  haerte: hart
+  quelle: {art: N, werk: "MHolzBauRL, eingeführt über BayTB 11/2025", fundstelle: "Recherche 14, 2.3", fassung: "2024-09", status: V, bib: [holzbaurl2024, baytb2025], recherche: ["14"]}
+  profil: {name: BY-HolzBauRL-2024-09, version: 0.1.0}
+  schicht: S2
+  geltung:
+    gebaeudetypen: [MFH_GK4, GWB_GK5]
+    gk: [4, 5]
+    schalter: holzbaurl
+    zeit: {von: "2025-11-01", bis: null, stichtag: einleitung_verfahren}
+  eingaben:
+    - {name: t_ch, einheit: min, quelle: "Bauteilkatalog/Nachweis"}
+    - {name: anforderung, einheit: "-", quelle: "Brandschutzstufe aus Profil"}
+    - {name: flaeche_NE, einheit: "m²", quelle: Modell}
+  pruefung:
+    typ: attribut
+    formel: "hochfeuerhemmend: t_ch >= 60 min (z. B. 2 × 15 mm GKF/GF); abweichend feuerbeständig: t_ch >= 90 min (2 × 18 mm); reduziert t_ch 30 bei NE/Raumgruppe <= 200 m²"
+    parameter: {t_ch_hfh_min: 60, t_ch_fb_min: 90, t_ch_reduziert_min: 30, flaeche_reduziert_m2: 200}
+  grenzwerte:
+    - {name: t_ch_hfh, wert: 60, einheit: min, richtung: min, fundstelle: "MHolzBauRL 2024-09", status: V}
+    - {name: t_ch_fb, wert: 90, einheit: min, richtung: min, fundstelle: "MHolzBauRL 2024-09", status: V}
+  meldung: "{bauteil}: t_ch = {t} min < {soll} min ({stufe})."
+  alternative:
+    - {art: A3_variante, beschreibung: "zweilagige GKF/GF-Bekleidung aus dem Katalog"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.6"
+  anforderungen: [ANF-09a-15]
+
+- id: DE.WoFlV.Wohnflaeche
+  version: 0.1.0
+  titel: Wohnfläche nach WoFlV
+  klasse: R2
+  haerte: hart
+  quelle: {art: G, werk: WoFlV, fundstelle: "§ 2 Abs. 3, § 4", fassung: "geltend 2026-09", status: V, recherche: ["14"]}
+  profil: {name: DE-WoFlV, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: flaeche_raumteil, einheit: "m²", quelle: "IfcSpace"}
+    - {name: lichte_hoehe, einheit: m, quelle: Modell}
+    - {name: raumart, einheit: "-", quelle: Modell}
+  pruefung:
+    typ: ableitung
+    formel: "Faktor 1 bei h >= 2 m; 0,5 bei 1 m <= h < 2 m; 0 bei h < 1 m; unbeheizter Wintergarten 0,5; Balkon/Loggia/Terrasse i. d. R. 0,25 (max. 0,5); Keller, Abstellräume außerhalb, Heizräume, Garagen 0; Ergebnis als eigene Menge je IfcSpace; Förderung: WFB-Obergrenze als R1"
+    parameter: {faktor_voll: 1.0, faktor_halb: 0.5, faktor_balkon: 0.25}
+  grenzwerte: []
+  meldung: "Wohnfläche {we}: {wfl:.2f} m² (WoFlV)."
+  alternative: []
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.5.1"
+  anforderungen: [ANF-09a-12]
+
+- id: DE.WEG.3-3.Abgeschlossenheit
+  version: 0.1.0
+  titel: Abgeschlossenheit von Sondereigentum
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: "WEG; AVA vom 12.07.2021", fundstelle: "§ 3 Abs. 3, § 7 Abs. 4 WEG", fassung: "AVA 2021 (nicht AVV 1974)", status: V, recherche: ["14"]}
+  profil: {name: DE-WEG, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [DHH, RH_Ende, RH_Mitte, MFH_GK3, MFH_GK4, GWB_GK5, ZFH, EFH_ELW]
+    zeit: {von: "2021-07-12", bis: null, stichtag: pruefzeitpunkt}
+  vorbedingung:
+    anwendbar_wenn: "eigentum = WEG"
+  eingaben:
+    - {name: raumgraph, einheit: "-", quelle: "IfcSpace, IfcDoor"}
+    - {name: zuordnung_se, einheit: "-", quelle: "IfcZone"}
+  pruefung:
+    typ: topologie
+    formel: "für jede Einheit E: Weg zu Gemeinschaft/außen nur über Räume aus E ∪ Gemeinschaft; Grenztür abschließbar; keine offene Verbindung zu anderer Einheit"
+  grenzwerte: []
+  meldung: "Einheit {e} ist nicht abgeschlossen: {raum} ist nur über {fremd} erreichbar (Tür {tuer})."
+  alternative:
+    - {art: A3_variante, beschreibung: "eigenen Zugang über Gemeinschaftsflur schaffen"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.5.2"
+  anforderungen: [ANF-09a-13]
+
+- id: BY.BayBO.73a.Typengenehmigung
+  version: 0.1.0
+  titel: Entwurf innerhalb des typengenehmigten Veränderungsspielraums
+  klasse: R1
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 73a; Art. 62a Abs. 2 Satz 3 Nr. 2", fassung: "ab 2024 (ohne Befristung)", status: V, bib: [baybo2026, landtagby2020baybonovelle, landtagby2024modernisierung], recherche: ["07", "14"]}
+  profil: {name: T-Typengenehmigung-Platzhalter, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: eingang_bauvorlagen}
+  vorbedingung:
+    anwendbar_wenn: "Hersteller besitzt Typengenehmigung T"
+  eingaben:
+    - {name: x, einheit: "-", quelle: Parametermodell}
+  pruefung:
+    typ: rechnung
+    formel: "x ∈ L(T) (alle Regeln des Profils T erfüllt) → typengeregelte Nachweise gelten als erbracht; sonst Einzelnachweis, Gate Statik nach BY.BayBO.62a-62b.Pruefpflichten"
+  grenzwerte: []
+  meldung: "Diese Änderung verlässt die Typengenehmigung ({regel}); Statik und Brandschutz müssen dann einzeln nachgewiesen werden."
+  alternative:
+    - {art: A1_grenzwert, beschreibung: "nächster Entwurf innerhalb L(T)"}
+  status: V
+  beispiel: [keins]
+  kapitel: "9a.8"
+  anforderungen: [ANF-09a-17]
+
+- id: K.GebaeudetypE.Vertragsstandard
+  version: 0.1.0
+  titel: Vertraglich vereinbarter Standard (Gebäudetyp E, ohne Rechtswirkung)
+  klasse: R3
+  haerte: hart
+  quelle: {art: K, werk: "Eckpunkte Gebäudetyp E (Bund, 20.11.2025); Entwurf 07.07.2026 nicht beschlossen", fundstelle: "Recherche 14, 2.9", fassung: "Stand 2026-09-21", status: U, bib: [eisele2024standards], recherche: ["14"]}
+  profil: {name: K-GebaeudetypE-Variante, version: 0.1.0}
+  schicht: S6
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: null, bis: null, stichtag: vertragsschluss}
+  eingaben:
+    - {name: auszusetzende_regeln, einheit: "-", quelle: Vertrag}
+  pruefung:
+    typ: freigabe
+    formel: "W = auszusetzende_regeln; zulässig ⇔ W ⊆ S3 ∧ Aufklärung in Textform erzeugt; W ∩ (S1 ∪ S2) ≠ ∅ → abgelehnt; bis Inkrafttreten: Profilvariante ohne Rechtswirkung"
+  grenzwerte: []
+  meldung: "{regel} gehört zu {schicht} und kann nicht vertraglich ausgesetzt werden."
+  alternative:
+    - {art: A5_freigabeweg, beschreibung: "Abweichung nach Art. 63 BayBO (Behörde) für S1"}
+  freigabe_rolle: kunde_nach_aufklaerung
+  status: U
+  beispiel: [keins]
+  kapitel: "9a.7"
+  anforderungen: [ANF-09-12, ANF-09a-16]
+
+- id: BY.BayBO.63.Abweichung
+  version: 0.1.0
+  titel: Abweichung von Anforderungen der BayBO
+  klasse: R3
+  haerte: hart
+  quelle: {art: G, werk: BayBO, fundstelle: "Art. 63 Abs. 1 (Satz 3: PSV-Bescheinigung)", fassung: "ab 2026-05-01", status: V, bib: [baybo2026], recherche: ["14"]}
+  profil: {name: BY-BayBO-2026-05, version: 0.1.0}
+  schicht: S1
+  geltung:
+    gebaeudetypen: [alle]
+    zeit: {von: "2026-05-01", bis: null, stichtag: eingang_bauvorlagen}
+  eingaben:
+    - {name: regel_id, einheit: "-", quelle: "Freigabe-Datensatz"}
+  pruefung:
+    typ: freigabe
+    formel: "Regel r ∈ S1 ∪ S2 darf nur mit Behördenentscheidung (bzw. PSV-Bescheinigung nach Satz 3) in W aufgenommen werden; Status 'abweichend zugelassen'"
+  grenzwerte: []
+  meldung: "Abweichung von {regel} nur mit Zulassung der Bauaufsicht."
+  alternative: []
+  freigabe_rolle: bauaufsicht
+  status: V
+  beispiel: [keins]
+  kapitel: "9.3.3"
+  anforderungen: [ANF-09-12]
