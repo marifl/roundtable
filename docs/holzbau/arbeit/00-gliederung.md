@@ -2,7 +2,7 @@
 
 **Untertitel:** Ein Design-Science-Ansatz für kundengesteuerten Entwurf mit Sprachschnittstelle, Regelprüfung nach deutschem Bau- und Handwerksrecht und Ableitung von Bauvorlagen und Maschinendaten aus einem einzigen Informationsmodell
 
-Status: Gliederung v0.1 (27.09.2026)
+Status: Gliederung v0.2 (27.09.2026): Umfang erweitert um Bemusterung, TGA mit Routing, Dach und Fassade im Detail, 3D-Präsentation
 
 ---
 
@@ -23,6 +23,7 @@ Status: Gliederung v0.1 (27.09.2026)
 - **FF3 Sprachschnittstelle:** Wie wird gesprochene deutsche Sprache zuverlässig in deterministische Modelländerungen übersetzt? Welche Aufgaben übernimmt das Sprachmodell, welche der Code?
 - **FF4 Verantwortung:** Welche Freigaben verlangt das deutsche Recht, und wie werden sie im Modell nachvollziehbar abgebildet?
 - **FF5 Wirkung:** Welche Wirkung hat das System auf Durchlaufzeit, Planungsschleifen, Fehlerquote und die Arbeitsteilung zwischen Kunde, Vertrieb, Architekt, Ingenieur und Werk?
+- **FF6 Detailtiefe:** Wie werden Bemusterung, Technische Gebäudeausrüstung (Elektro, Netzwerk, Lüftung, Heizung, Trinkwasser kalt/warm, Abwasser, Licht, PV) sowie Dach und Fassade mit allen Details und Einbauteilen regelbasiert erzeugt? Die drei Reifegrade präsentationsfertig, prüffertig und ausführungsfertig sollen dabei aus demselben Modell entstehen.
 
 ## Thesen
 
@@ -111,18 +112,57 @@ Status: Gliederung v0.1 (27.09.2026)
 3. Deterministischer Werteparser und Referenzauflösung
 4. Fehlerbehandlung, Rückfragen, Transparenz nach AI Act
 
-### 11. Fachmodule
+### 11. Reifegrade: präsentationsfertig, prüffertig, ausführungsfertig
+1. Informationsbedarf nach Level of Information Need (DIN EN ISO 7817-1) **[prüfen]**
+2. Reifegrad P (präsentationsfertig): Geometrie, Materialien und Oberflächen für fotorealistisches 3D und AR
+3. Reifegrad R (prüffertig): alle Merkmale für Regel-, Nachweis- und Kostenprüfung
+4. Reifegrad A (ausführungsfertig): bestellbare Artikel, Einbauinformation, Fertigungsteile, Maschinendaten
+5. Reifegrade je Bauteilgruppe und Phase, geprüft über IDS je Reifegrad
+
+### 12. Bemusterung und Produktdaten
+1. Taxonomie der Bemusterung: Fenster, Türen, Treppe, Böden, Fliesen, Sanitär, Elektro-Schalterprogramm, Heizung, Lüftung, Oberflächen, Fassade, Dach, Außenanlagen
+2. Abhängigkeiten zwischen Optionen (z. B. Wand-WC → Vorwand → Tragständer → Abwasser)
+3. Produktdatenstandards: ETIM, ECLASS, BMEcat, VDI 3805, GTIN, Product Data Templates (ISO 23386/23387) und ihre Kopplung an IFC
+4. Konfigurationslogik: wissensbasierte Konfiguration, Kompatibilität, Mehrpreise, Lieferzeiten
+
+### 13. Technische Gebäudeausrüstung und automatisches Routing
+1. Elektro und Netzwerk: DIN 18015 mit Installationszonen, Mindestausstattung, Schutzbereiche im Bad, Zählerschrank, Wohnungsverkabelung
+2. Trinkwasser kalt/warm, Zirkulation, Hygiene
+3. Abwasser mit Lüftung über Dach
+4. Lüftung nach DIN 1946-6 mit Kanalnetz
+5. Heizung: Heizlast, Wärmepumpe (Aufstellung, Schall), Fußbodenheizung, hydraulischer Abgleich
+6. Lichtplanung: Leuchtendaten (GLDF, EULUMDAT), Tageslicht
+7. IFC-Abbildung: Systeme, Segmente, Ports, Verbindungen, Durchbrüche
+8. Routing-Algorithmen unter Regeln (Installationszonen, Ständerschwächung, Luftdichtheit, Kollisionsfreiheit)
+
+### 14. Dach, Fassade und Einbauteile
+1. Dachformen: Sattel, Walm, Krüppelwalm, Zelt, Pult, Mansarde, Gauben; Geometrie über Straight Skeleton
+2. Dachtragwerk: Sparren, Pfetten, Grat- und Kehlsparren, Schifter, Wechsel
+3. Deckung: Ziegelformen und Farben, Lattung, First, Grat, Kehle, Ortgang, Traufe, Mansardenknick nach ZVDH
+4. Einbauteile: Dachfenster mit Eindeckrahmen, Lüfterziegel/Sanitärlüfter, Solar- und Antennendurchgänge, Schneefang, Dachtritte
+5. Dachentwässerung nach DIN 1986-100 mit Regenspende (KOSTRA-DWD)
+6. Photovoltaik: Belegung, Randabstände, Ertrag (pvlib, PVGIS), Anmeldung
+7. Fassadenvarianten: Holzschalung nach Fachregel 01, Putz auf Holzfaser, Farben, Gestaltungssatzungen
+
+### 15. Fachmodule
 1. Energie: H'T, Modellgebäudeverfahren, Monatsbilanz, Space Boundaries
 2. Tragwerk: Vorbemessung nach EC 5 mit deutschem NA
 3. Brand- und Schallschutz
 4. Mengen, Kosten (DIN 276, GAEB), Ökobilanz (ÖKOBAUDAT, QNG)
 
-### 12. Fertigung
-1. Vom IFC zu BTLx (Abbund) und WUP (Wandanlage)
-2. Fertigungsregeln: Elementgrößen, Transport, Raster
-3. Verbindungsmittel und Nagelbilder
+### 16. 3D-Präsentation
+1. IFC → glTF/USD mit PBR-Materialien
+2. Materialbibliotheken und Herstellertexturen (Lizenzen)
+3. Browser-Rendering, Pfadverfolgung, AR auf dem Grundstück
+4. Sonnenstand, Tageslicht, Innenraumansichten
 
-### 13. Freigaben und Bauantrag
+### 17. Fertigung
+1. Vom IFC zu BTLx (Abbund) und WUP (Wandanlage)
+2. Werkseitige Vorinstallation: Leerrohre, Dosen, Vorwandelemente
+3. Fertigungsregeln: Elementgrößen, Transport, Raster
+4. Verbindungsmittel und Nagelbilder
+
+### 18. Freigaben und Bauantrag
 1. Freigabe-Gates: Vertrag, Bauvorlage, Statik, Produktion
 2. IfcApproval, IfcActor, IfcPermit
 3. Ableitung von Bauvorlagen nach BauVorlV (PDF 1:100, Lageplan, Baubeschreibung) und XBau
@@ -132,25 +172,29 @@ Status: Gliederung v0.1 (27.09.2026)
 
 ## Teil III: Validierung
 
-### 14. Prototyp und Beispiele
+### 19. Prototyp und Beispiele
 - B1 Wandelement in IFC4X3 mit deterministischen GUIDs
 - B2 IDS-Profil Holzrahmenbau und Prüfung
 - B3 U-Wert nach DIN EN ISO 6946
 - B4 Abstandsflächen nach BayBO Art. 6
 - B5 Treppe nach DIN 18065
 - B6 Sprachpipeline: Werteparser, Raumreferenz, Intent-Anwendung mit Regelprüfung
+- B7 (geplant) Walmdach über Straight Skeleton mit Deckung, Grat und Kehle
+- B8 (geplant) Routing einer Abwasser- und einer Elektroleitung unter Installationszonen
+- B9 (geplant) Bemusterungsoption Wand-WC mit Folgeänderungen an Vorwand, Ständer und Abwasser
+- B10 (geplant) glTF-Export mit PBR-Materialien
 
-### 15. Evaluation
+### 20. Evaluation
 1. Technische Evaluation: Tests, Validierung, Round-Trip in Fremdsoftware
 2. Analytische Evaluation: Abdeckungsmatrix Phase × IFC-Mechanismus × Regelquelle
 3. Empirische Evaluation (Plan): Experteninterviews (Architekt, Tragwerksplaner, Werkplaner, Vertrieb), Nutzerstudie mit Kunden, Kennzahlen bei Regnauer
 
-### 16. Diskussion
+### 21. Diskussion
 1. Beantwortung der Forschungsfragen
 2. Grenzen der Arbeit
 3. Übertragbarkeit auf andere Hersteller und Bundesländer
 
-### 17. Fazit und Ausblick
+### 22. Fazit und Ausblick
 
 ---
 
