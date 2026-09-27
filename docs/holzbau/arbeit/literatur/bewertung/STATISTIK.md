@@ -1,32 +1,32 @@
 # Statistik der Quellenbewertung
 
-- Quellen in der Masterliste: 1054
-- bewertet: 1046
+- Quellen in der Masterliste: 1067
+- bewertet: 1059
 - noch nicht bewertet: 8 (Q1047–Q1054)
-- Kernbestand (P ≥ 5): 317
-- verifiziert V: 1038, U: 8
+- Kernbestand (P ≥ 5): 327
+- verifiziert V: 1038, U: 21
 
 ## Nutzung
 
-- Kontext: 429
-- adaptieren: 396
-- übernehmen: 162
-- abgrenzen: 55
+- Kontext: 434
+- adaptieren: 397
+- übernehmen: 168
+- abgrenzen: 56
 - verwerfen: 4
 
 ## Relevanz je Forschungsfrage (Anzahl Quellen mit Wert ≥ 2)
 
 - FF1: 131 (davon 3: 17)
-- FF2: 232 (davon 3: 33)
+- FF2: 236 (davon 3: 33)
 - FF3: 72 (davon 3: 7)
-- FF4: 113 (davon 3: 28)
+- FF4: 117 (davon 3: 28)
 - FF5: 154 (davon 3: 19)
-- FF6: 199 (davon 3: 30)
+- FF6: 201 (davon 3: 30)
 
 ## Qualität
 
-- A: 157
-- B: 758
+- A: 168
+- B: 760
 - C: 124
 - D: 7
 
@@ -104,6 +104,11 @@
 | Q1044 | eugh2023schufa | 2023 | 6 | – | übernehmen | 9.5; 4.7; 18.1 |
 | Q1045 | tdddg25 | 2026 | 6 | – | übernehmen | 10.1; 4.7 |
 | Q1046 | stgb201 | 2026 | 6 | – | übernehmen | 10.4; 4.7 |
+| Q1057 | jcgm100 | 2008 | 6 | – | übernehmen | 7a |
+| Q1059 | iso80000-1 | 2022 | 6 | – | übernehmen | 7a |
+| Q1060 | din1333 | 1992 | 6 | – | übernehmen | 7a |
+| Q1062 | din1356-1 | 1995 | 6 | – | adaptieren | 7a; 18 |
+| Q1064 | iso6946_2017 | 2018 | 6 | – | abgrenzen | 7a; 15 |
 | Q150 | eu2024aiact | 2024 | 6 | – | verwerfen | 4.7; 10.4 |
 | Q162 | dbauv2026 | 2026 | 6 | – | übernehmen | 18.3 |
 | Q165 | holzbaurl2024 | 2024 | 6 | – | übernehmen | 9a.4; 15.3 |
@@ -282,6 +287,11 @@
 | Q1035 | dek2019gutachten | 2019 | 5 | – | adaptieren | 18.1; 7.1 |
 | Q1040 | bundestag2026kimigbe | 2026 | 5 | – | Kontext | 4.7 |
 | Q1042 | dsk2025kitom | 2025 | 5 | – | adaptieren | 10.4; 6.3 |
+| Q1058 | jcgm101 | 2008 | 5 | – | übernehmen | 7a |
+| Q1061 | din1313 | 1998 | 5 | – | Kontext | 7a |
+| Q1065 | mbauvorlv1996 | 1996 | 5 | – | Kontext | 7a; 18 |
+| Q1066 | mbauvorlv2020 | 2020 | 5 | – | Kontext | 7a; 18 |
+| Q1067 | mppvo2012 | 2012 | 5 | – | Kontext | 7a; 4 |
 | Q121 | scheibehenne2010choice | 2010 | 5 | – | Kontext | 10.2; 12.7 |
 | Q122 | chernev2015choice | 2015 | 5 | – | adaptieren | 10.2; 12.7 |
 | Q123 | lee2024generalized | 2024 | 5 | FF3 | adaptieren | 5.6; 10 |

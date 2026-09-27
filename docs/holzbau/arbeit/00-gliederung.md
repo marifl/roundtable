@@ -251,7 +251,7 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 - B4 Abstandsflächen nach BayBO Art. 6
 - B5 Treppe nach DIN 18065
 - B6 Sprachpipeline: Werteparser, Raumreferenz, Intent-Anwendung mit Regelprüfung
-- B7 (geplant) Walmdach über Straight Skeleton mit Deckung, Grat und Kehle
+- B21 (geplant) Walmdach über Straight Skeleton mit Deckung, Grat und Kehle
 - B8 (geplant) Routing einer Abwasser- und einer Elektroleitung unter Installationszonen
 - B9 (geplant) Bemusterungsoption Wand-WC mit Folgeänderungen an Vorwand, Ständer und Abwasser
 - B11 (geplant) Fliesenverlegung mit Verlegemuster, Fugenbild und Schnittplan als festgeschriebene Auswahl

@@ -33676,5 +33676,278 @@
   "issue": "8",
   "page": "156",
   "keyword": "Q1054"
+ },
+ {
+  "id": "barker2022fair4rs",
+  "type": "article-journal",
+  "title": "Introducing the FAIR Principles for research software",
+  "note": "Q1055",
+  "author": [
+   {
+    "family": "Barker",
+    "given": "Michelle"
+   },
+   {
+    "family": "Chue Hong",
+    "given": "Neil P."
+   },
+   {
+    "family": "Katz",
+    "given": "Daniel S."
+   },
+   {
+    "family": "Lamprecht",
+    "given": "Anna-Lena"
+   },
+   {
+    "family": "Martinez-Ortiz",
+    "given": "Carlos"
+   },
+   {
+    "family": "Psomopoulos",
+    "given": "Fotis"
+   },
+   {
+    "family": "Harrow",
+    "given": "Jennifer"
+   },
+   {
+    "family": "Castro",
+    "given": "Leyla Jael"
+   },
+   {
+    "family": "Gruenpeter",
+    "given": "Morane"
+   },
+   {
+    "family": "Martinez",
+    "given": "Paula Andrea"
+   },
+   {
+    "family": "Honeyman",
+    "given": "Tom"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "DOI": "10.1038/s41597-022-01710-x",
+  "container-title": "Scientific Data",
+  "volume": "9",
+  "page": "622",
+  "keyword": "Q1055, FF1=1, FF2=1, FF4=1, FF5=1, Nutzung:übernehmen, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "smith2016softwarecitation",
+  "type": "article-journal",
+  "title": "Software citation principles",
+  "note": "Q1056",
+  "author": [
+   {
+    "family": "Smith",
+    "given": "Arfon M."
+   },
+   {
+    "family": "Katz",
+    "given": "Daniel S."
+   },
+   {
+    "family": "Niemeyer",
+    "given": "Kyle E."
+   },
+   {
+    "literal": "FORCE11 Software Citation Working Group"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  },
+  "DOI": "10.7717/peerj-cs.86",
+  "container-title": "PeerJ Computer Science",
+  "volume": "2",
+  "page": "e86",
+  "keyword": "Q1056, FF4=1, FF5=1, Nutzung:übernehmen, Qualitaet:B, Peripherie"
+ },
+ {
+  "id": "jcgm100",
+  "type": "standard",
+  "title": "JCGM 100:2008 Evaluation of measurement data -- Guide to the expression of uncertainty in measurement (GUM)",
+  "note": "Q1057",
+  "issued": {
+   "date-parts": [
+    [
+     2008
+    ]
+   ]
+  },
+  "URL": "https://www.bipm.org/en/committees/jc/jcgm/publications",
+  "keyword": "Q1057, FF2=2, FF4=2, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "jcgm101",
+  "type": "standard",
+  "title": "JCGM 101:2008 Evaluation of measurement data -- Supplement 1 to the GUM -- Propagation of distributions using a Monte Carlo method",
+  "note": "Q1058",
+  "issued": {
+   "date-parts": [
+    [
+     2008
+    ]
+   ]
+  },
+  "URL": "https://www.bipm.org/en/committees/jc/jcgm/publications",
+  "keyword": "Q1058, FF2=1, FF4=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "iso80000-1",
+  "type": "standard",
+  "title": "ISO 80000-1:2022 Quantities and units -- Part 1: General",
+  "note": "Q1059",
+  "issued": {
+   "date-parts": [
+    [
+     2022
+    ]
+   ]
+  },
+  "keyword": "Q1059, FF1=1, FF2=2, FF4=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "din1333",
+  "type": "standard",
+  "title": "DIN 1333:1992-02 Zahlenangaben",
+  "note": "Q1060",
+  "issued": {
+   "date-parts": [
+    [
+     1992
+    ]
+   ]
+  },
+  "keyword": "Q1060, FF2=2, FF4=1, FF6=1, Nutzung:übernehmen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "din1313",
+  "type": "standard",
+  "title": "DIN 1313:1998-12 Größen",
+  "note": "Q1061",
+  "issued": {
+   "date-parts": [
+    [
+     1998
+    ]
+   ]
+  },
+  "keyword": "Q1061, FF2=1, FF6=1, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "din1356-1",
+  "type": "standard",
+  "title": "DIN 1356-1:1995-02 Bauzeichnungen -- Teil 1: Arten, Inhalte und Grundregeln der Darstellung",
+  "note": "Q1062",
+  "issued": {
+   "date-parts": [
+    [
+     1995
+    ]
+   ]
+  },
+  "keyword": "Q1062, FF1=1, FF2=1, FF4=1, FF6=2, Nutzung:adaptieren, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "iso128-1",
+  "type": "standard",
+  "title": "ISO 128-1 Technical product documentation (TPD) -- General principles of representation -- Part 1: Introduction and fundamental requirements",
+  "note": "Q1063",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "keyword": "Q1063, FF6=1, Nutzung:Kontext, Qualitaet:A, Peripherie"
+ },
+ {
+  "id": "iso6946_2017",
+  "type": "standard",
+  "title": "DIN EN ISO 6946:2018-03 Bauteile -- Wärmedurchlasswiderstand und Wärmedurchgangskoeffizient -- Berechnungsverfahren (ISO 6946:2017)",
+  "note": "Q1064",
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "keyword": "Q1064, FF2=2, FF6=2, Nutzung:abgrenzen, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "mbauvorlv1996",
+  "type": "document",
+  "title": "Muster einer Verordnung über Bauvorlagen und bauaufsichtliche Anzeigen (Musterbauvorlagenverordnung -- MBauVorlV), Fassung Februar 1996",
+  "note": "Q1065",
+  "author": [
+   {
+    "literal": "Bauministerkonferenz (ARGEBAU)"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1996
+    ]
+   ]
+  },
+  "URL": "https://www.is-argebau.de",
+  "keyword": "Q1065, FF1=1, FF2=1, FF4=2, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "mbauvorlv2020",
+  "type": "document",
+  "title": "Musterbauvorlagenverordnung (MBauVorlV), zuletzt geänderte Fassung",
+  "note": "Q1066",
+  "author": [
+   {
+    "literal": "Bauministerkonferenz (ARGEBAU)"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "URL": "https://www.is-argebau.de",
+  "keyword": "Q1066, FF1=1, FF2=1, FF4=2, Nutzung:Kontext, Qualitaet:A, Kernbestand"
+ },
+ {
+  "id": "mppvo2012",
+  "type": "document",
+  "title": "Muster-Verordnung über die Prüfingenieure und Prüfsachverständigen (M-PPVO)",
+  "note": "Q1067",
+  "author": [
+   {
+    "literal": "Bauministerkonferenz (ARGEBAU)"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2012
+    ]
+   ]
+  },
+  "URL": "https://www.is-argebau.de",
+  "keyword": "Q1067, FF2=1, FF4=2, Nutzung:Kontext, Qualitaet:A, Kernbestand"
  }
 ]
