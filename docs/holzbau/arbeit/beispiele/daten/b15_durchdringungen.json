@@ -1,0 +1,61 @@
+{
+  "_hinweis": "Eingabe fuer B15 (Durchdringungen). BEISPIELWERTE. Geometrie in mm, globales System: x/y Grundriss, z nach oben (OK Rohdecke EG = 0). Normregeln nur als Kennwerte mit Verweis; Firmenregeln (Staenderbohrung) sind Platzhalter und bei Regnauer zu erfragen.",
+  "projekt": {
+    "name": "Beispielhaus Holzrahmenbau",
+    "gebaeude": "Einfamilienhaus (fiktiv)",
+    "autor": "Entwurfsgenerator (Beispiel)",
+    "organisation": "Arbeit Holzrahmenbau",
+    "zeitstempel": "2026-01-01T00:00:00"
+  },
+  "gebaeude": {"gebaeudeklasse": 1, "nutzungseinheiten": 1},
+  "leitung": {
+    "id": "SW-01",
+    "bezeichnung": "Schmutzwasser-Fallleitung WC OG mit Hauptlueftung ueber Dach",
+    "dn": 100, "da_mm": 110, "di_mm": 104.6,
+    "werkstoff": "PP mineralverstaerkt, Schallschutzrohr (Beispiel: DN/OD 110, di 104,6 mm nach REHAU-Tabelle)",
+    "brennbar": true,
+    "x": 3150, "y": 2100,
+    "z_fuss": 0, "z_anschluss_wc": 3242, "z_muendung": 6600,
+    "wc": {"y": 2900, "hinweis": "WC-Anschluss ca. 22 cm ueber OKFF OG (Herstellerwert Vorwandelement, pruefen) [U]"},
+    "verschiebung_max_mm": 100
+  },
+  "entkopplung": {"daemmschlauch_mm": 9, "ringspalt_mm": 10, "raster_rundung_mm": 10,
+                  "_quelle": "Schallentkopplung der Durchfuehrung (Daemmschlauch) und Ringspalt: Beispielwerte"},
+  "decke": {
+    "id": "D-OG", "name": "Holzbalkendecke ueber EG",
+    "balken_b": 100, "balken_h": 240, "achsabstand": 625, "erste_achse_x": 0, "anzahl": 9,
+    "y0": 0, "laenge": 4500, "z_uk_balken": 2600,
+    "beplankung": {"name": "OSB/3 22 mm", "dicke": 22},
+    "randabstand_mm": 20,
+    "luftdichtheitsebene": false,
+    "feuerwiderstand": null
+  },
+  "wand": {
+    "id": "IW-OG-02", "name": "Innenwand OG (Installationswand)", "y_kern": 2300, "kern_tiefe": 160,
+    "staender_b": 60, "achsabstand": 625, "erste_achse_x": 0, "laenge": 5000,
+    "z_uk": 2862, "hoehe": 2500, "schwelle_h": 60, "raehm_h": 60,
+    "beplankung": [{"name": "Gipsfaser 15 mm", "dicke": 15, "seite": "sued"}, {"name": "Gipsfaser 15 mm", "dicke": 15, "seite": "nord"}],
+    "randabstand_mm": 15,
+    "luftdichtheitsebene": false,
+    "feuerwiderstand": null,
+    "firmenregel_staenderbohrung": {"max_anteil_tiefe": 0.25, "mittig": true, "quelle": "Platzhalter-Firmenregel (bei Regnauer erfragen)"}
+  },
+  "dach": {
+    "id": "DA-01", "name": "Oberste Geschossdecke / Dach, luftdichte OSB-Ebene",
+    "sparren_b": 80, "sparren_h": 220, "achsabstand": 700, "erste_achse_y": 350, "anzahl": 7,
+    "x0": 0, "laenge": 5000, "z_uk_sparren": 5618,
+    "beplankung": {"name": "OSB/3 18 mm, Stoesse verklebt (Luftdichtheitsebene)", "dicke": 18},
+    "randabstand_mm": 20,
+    "luftdichtheitsebene": true,
+    "ringspalt_luftdicht_mm": 10,
+    "fenster": [{"id": "DF-01", "name": "Dachflaechenfenster Bad", "x_kante": 4750, "y": 2100, "z_sturz": 6300}]
+  },
+  "balkendurchbrueche": [
+    {"id": "BD-1", "bezeichnung": "Abwasser DN 50 Duschrinne quer zur Balkenlage", "da_mm": 50, "spiel_mm": 5, "balken_index": 7, "y": 3300, "z_achse": 2720, "auflager_y": [0, 4500]},
+    {"id": "BD-2", "bezeichnung": "Elektro-Leerrohr M25 quer zur Balkenlage", "da_mm": 25, "spiel_mm": 3, "balken_index": 6, "y": 1500, "z_achse": 2720, "auflager_y": [0, 4500]}
+  ],
+  "manschetten": [
+    {"id": "ROFLEX_20", "name": "pro clima ROFLEX 20 (Rohr-Manschette)", "d_min": 15, "d_max": 30, "quelle": "Herstellerangabe pro clima"},
+    {"id": "ROFLEX_100", "name": "pro clima ROFLEX 100 (Rohr-Manschette)", "d_min": 100, "d_max": 120, "quelle": "Herstellerangabe pro clima"}
+  ]
+}

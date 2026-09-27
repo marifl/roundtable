@@ -45,7 +45,7 @@ Status: Gliederung v0.4 (27.09.2026): zusätzlich Fliesen als 3D-Einzelobjekte, 
 ### 2. Forschungsdesign
 1. Design Science Research als Rahmen (Hevner 2004, Peffers 2007, Gregor & Hevner 2013)
 2. Vorgehen: Problem → Ziele → Artefakt → Demonstration → Evaluation → Kommunikation
-3. Recherchemethodik: systematische Literatur- und Quellenrecherche, Verifikationsregeln [V]/[U]
+3. Recherchemethodik: systematische Literatur- und Quellenrecherche nach Kitchenham/Wohlin/PRISMA, Verifikationsregeln [V]/[U], Einzelbewertung jeder Quelle auf ihre Passung zu FF1–FF6 (Protokoll: `02a-review-protokoll.md`, Bewertung: `literatur/quellen-bewertung.csv`)
 4. Evaluationsdesign: technisch (Beispiele, Tests), analytisch (Abdeckungsmatrix), empirisch (Experteninterviews, Nutzerstudie)
 5. Gütekriterien: Reproduzierbarkeit, Nachvollziehbarkeit, Standardkonformität
 
