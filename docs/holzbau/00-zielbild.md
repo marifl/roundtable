@@ -109,6 +109,31 @@ Kurz: **Niemand tippt etwas ab, was schon im Modell steht.**
 | Montage | `IfcWorkSchedule`, `IfcTask` (INSTALLATION, MOVE), `IfcVehicle` für LKW | Bauleitung | Montageplan |
 | Übergabe | `IfcAsset`, Wartung, Gewährleistung (`Pset_Warranty`) | Firma | Hausakte |
 
+### 3.3 Detailtiefe: alles, was gebaut wird, steht im Modell
+
+**Diese Gewerke sind vollständig abgedeckt:**
+
+| Bereich | Inhalt |
+|---|---|
+| Bemusterung | Fenster, Haustür, Treppe, Böden, Fliesen, Sanitär, Innentüren, Schalterprogramm, Oberflächen und Farben, Außenanlagen, jeweils als bestellbarer Artikel |
+| Elektro, Netzwerk | Leitungen in Installationszonen, Dosen, Zählerschrank, Netzwerk, Smart Home |
+| Wasser | Trinkwasser kalt und warm, Zirkulation, Abwasser mit Lüftung über Dach |
+| Lüftung, Heizung | Lüftungskonzept und Kanalnetz, Heizlast, Wärmepumpe, Fußbodenheizung |
+| Licht, PV | Lichtplanung mit Leuchtendaten, Photovoltaik mit Belegung und Ertrag |
+| Dach | Dachform, Tragwerk, Ziegelform und -farbe, First, Grat, Kehle, Ortgang, Traufe, Mansarde, Gauben |
+| Dacheinbauteile | Dachfenster, Lüfterziegel, Solar- und Antennendurchgänge, Schneefang, Entwässerung |
+| Fassade | Varianten, Materialien, Farben |
+
+**Jedes Bauteil durchläuft drei Reifegrade**, die jeweils per IDS geprüft werden:
+
+| Reifegrad | Bedeutung | Beispiel Dachfenster |
+|---|---|---|
+| **P – präsentationsfertig** | fotorealistisch in 3D und AR, mit Material und Farbe | Modell, Rahmenfarbe, Lage im Dach sichtbar |
+| **R – prüffertig** | alle Merkmale für Regeln, Nachweise und Kosten | Uw-Wert, Rettungsweg-Maße, Preis, Abstand zur Traufe geprüft |
+| **A – ausführungsfertig** | bestellbarer Artikel, Einbauinformation, Fertigungsteile | Artikelnummer, Eindeckrahmen passend zum Ziegel, Wechsel im Sparren als Abbundteil |
+
+Belege folgen in `recherche/08` (TGA), `recherche/09` (Dach, Fassade, PV) und `recherche/10` (Bemusterung, Produktdaten, 3D).
+
 ---
 
 ## 4. Erfolgskriterien (messbar)
