@@ -38,7 +38,7 @@
       "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
       "status": "erfüllt",
       "ausnutzung": 0.9710407239819006,
-      "hash": "17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301",
+      "hash": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
       "gegenstand": null
     }
   ],
@@ -240,7 +240,7 @@
           "beschreibung": "kleinste Steigungszahl",
           "ausdruck": "ceil(h_G/s_max)",
           "formel_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{max}}} \\right\\rceil",
-          "einsetzen_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{2900\\ \\mathrm{mm}}{200\\ \\mathrm{mm}} \\right\\rceil = 15{,}000",
+          "einsetzen_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{2900\\ \\mathrm{mm}}{200\\ \\mathrm{mm}} \\right\\rceil = 15",
           "eingaben": [
             "h_G",
             "s_max"
@@ -251,7 +251,7 @@
             "name": "n min",
             "symbol": "n_min",
             "latex": "n_{\\mathrm{min}}",
-            "wert": 15.0,
+            "wert": 15,
             "einheit": "1",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -268,7 +268,7 @@
           "beschreibung": "größte Steigungszahl",
           "ausdruck": "floor(h_G/s_min)",
           "formel_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{min}}} \\right\\rfloor",
-          "einsetzen_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{2900\\ \\mathrm{mm}}{140\\ \\mathrm{mm}} \\right\\rfloor = 20{,}000",
+          "einsetzen_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{2900\\ \\mathrm{mm}}{140\\ \\mathrm{mm}} \\right\\rfloor = 20",
           "eingaben": [
             "h_G",
             "s_min"
@@ -279,7 +279,7 @@
             "name": "n max",
             "symbol": "n_max",
             "latex": "n_{\\mathrm{max}}",
-            "wert": 20.0,
+            "wert": 20,
             "einheit": "1",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -439,7 +439,7 @@
           "beschreibung": "Lauflänge (n − 1 Auftritte)",
           "ausdruck": "(n - 1)*a",
           "formel_latex": "l_{\\mathrm{L}} = \\left(n - 1\\right) \\cdot a",
-          "einsetzen_latex": "l_{\\mathrm{L}} = \\left(17 - 1\\right) \\cdot 290\\ \\mathrm{mm} = 4640{,}0\\ \\mathrm{mm}",
+          "einsetzen_latex": "l_{\\mathrm{L}} = \\left(17 - 1\\right) \\cdot 290\\ \\mathrm{mm} = 4640\\ \\mathrm{mm}",
           "eingaben": [
             "a",
             "n"
@@ -450,7 +450,7 @@
             "name": "Lauflänge",
             "symbol": "l_L",
             "latex": "l_{\\mathrm{L}}",
-            "wert": 4640.0,
+            "wert": 4640,
             "einheit": "mm",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -677,8 +677,8 @@
           "rechenkern": "b5_treppe_din18065.loese → lauflaenge_mm",
           "wert_rechenkern": 4640,
           "toleranz_abs": 1e-09,
-          "wert_nachweis": 4640.0,
-          "abweichung": 0.0,
+          "wert_nachweis": 4640,
+          "abweichung": 0,
           "uebereinstimmung": true
         },
         {
@@ -736,7 +736,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301",
+        "wert": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     }
@@ -759,7 +759,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "806af5d80f80d0a0ae3a5abd425be681b5d3d73a4f053363419d9693e450ab31",
+    "wert": "52ad671a145cfa54757588382b870f2b8295759eee09f0690e56577b8098f5c1",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

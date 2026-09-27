@@ -38,7 +38,7 @@
       "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
       "status": "erfüllt",
       "ausnutzung": 4.440892098500626e-08,
-      "hash": "dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb",
+      "hash": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     }
   ],
@@ -398,7 +398,7 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,00000001 m³",
+          "anzeige": "1 · 10⁻⁸ m³",
           "rundung": null,
           "dimension": "[length] ** 3"
         }
@@ -565,7 +565,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,00006 m³",
+            "anzeige": "6 · 10⁻⁵ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1070,7 +1070,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,00000000000000011102230246251565 m³",
+            "anzeige": "1,1102230246251565 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1100,7 +1100,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,0000000000000002220446049250313 m³",
+            "anzeige": "2,220446049250313 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1128,7 +1128,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,0000000000000004440892098500626 m³",
+            "anzeige": "4,440892098500626 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1213,7 +1213,7 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,00000001 m³",
+        "anzeige": "1 · 10⁻⁸ m³",
         "rundung": null,
         "dimension": "[length] ** 3"
       },
@@ -1354,7 +1354,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb",
+        "wert": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     }
@@ -1377,7 +1377,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04",
+    "wert": "45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

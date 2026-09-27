@@ -197,9 +197,9 @@ def nachweis_b1(modell: Modell) -> Nachweis:
                     "Projektregel Mengenermittlung (eigene Festlegung)", "2026-09", "HRB-Mengen", PROFILVERSION,
                     "vgl. Qto_MemberBaseQuantities, Qto_PlateBaseQuantities (IFC 4.3)", "[V]"),
         eingaben=eingaben, schritte=schritte, ergebnis="m_ges",
-        kriterien=[Kriterium("Holzvolumen: Nachweis = IFC", "dV_H", "≤", "dV_zul", "Konsistenz Modell/IFC"),
-                   Kriterium("Beplankung: Nachweis = IFC", "dV_P", "≤", "dV_zul", "Konsistenz Modell/IFC"),
-                   Kriterium("Dämmung: Nachweis = IFC", "dV_D", "≤", "dV_zul", "Konsistenz Modell/IFC")],
+        kriterien=[Kriterium("Holzvolumen: Nachweis = IFC", "dV_H", "≤", "dV_zul", "Konsistenz Modell/IFC", mit_ausnutzung=False),
+                   Kriterium("Beplankung: Nachweis = IFC", "dV_P", "≤", "dV_zul", "Konsistenz Modell/IFC", mit_ausnutzung=False),
+                   Kriterium("Dämmung: Nachweis = IFC", "dV_D", "≤", "dV_zul", "Konsistenz Modell/IFC", mit_ausnutzung=False)],
         ergebnis_rundung=Rundung("signifikant", 3, quelle="Massen für Transport- und Montageplanung; drei Stellen genügen"),
         annahmen=["Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.",
                   "Schrauben als Zylinder d × l (Kopf und Gewinde nicht modelliert), wie die IFC-Geometrie.",
@@ -285,12 +285,15 @@ def nachweise_b2(modell: Modell, fall: str) -> list[Nachweis]:
                     G("Elemente mit Verstoß", "n_fehl", n_fehl, "Stk", "ifctester 0.8.5: Specification.failed_entities")]
         if verboten:
             eingaben.append(G("höchstzulässige Anzahl", "n_max", 0, "Stk", f"IDS {sid}: maxOccurs = 0 (verboten)", art="grenzwert"))
-            kriterien = [Kriterium("keine anwendbaren Elemente (verboten)", "n_anw", "≤", "n_max", f"{b2.IDS_DATEI.name}, {sid}")]
+            kriterien = [Kriterium("keine anwendbaren Elemente (verboten)", "n_anw", "≤", "n_max", f"{b2.IDS_DATEI.name}, {sid}",
+                                   mit_ausnutzung=False)]
         else:
             eingaben += [G("Mindestanzahl anwendbarer Elemente", "n_min", int(s.minOccurs), "Stk", f"IDS {sid}: minOccurs = {s.minOccurs}", art="grenzwert"),
                          G("zulässige Verstöße", "n_zul", 0, "Stk", "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element", art="grenzwert")]
-            kriterien = [Kriterium("Anwendbarkeit (Kardinalität)", "n_anw", "≥", "n_min", f"{b2.IDS_DATEI.name}, {sid}"),
-                         Kriterium("alle Anforderungen erfüllt", "n_fehl", "≤", "n_zul", f"{b2.IDS_DATEI.name}, {sid}")]
+            kriterien = [Kriterium("Anwendbarkeit (Kardinalität)", "n_anw", "≥", "n_min", f"{b2.IDS_DATEI.name}, {sid}",
+                                   mit_ausnutzung=False),
+                         Kriterium("alle Anforderungen erfüllt", "n_fehl", "≤", "n_zul", f"{b2.IDS_DATEI.name}, {sid}",
+                                   mit_ausnutzung=False)]
         befunde = []
         for r in s.requirements:
             for fe in (getattr(r, "failures", None) or []):
@@ -362,13 +365,26 @@ def nachweis_b3(modell: Modell, variante: str, fassade: str) -> Nachweis:
         G("Bemessungswert λ Holz (KVH C24)", "lambda_H", lam("kvh_c24"), "W/(m·K)", f"{Q}: {mats['kvh_c24']['lambda_quelle']} (Beispielwert)", lam("kvh_c24") * 0.03),
         G("Bemessungswert λ Gefachdämmung", "lambda_D", lam("holzfaser_flex"), "W/(m·K)", f"{Q}: {mats['holzfaser_flex']['lambda_quelle']}", lam("holzfaser_flex") * 0.03),
         G("Bemessungswert λ Holzfaserdämmplatte", "lambda_HFD", lam("holzfaserplatte"), "W/(m·K)", f"{Q}: {mats['holzfaserplatte']['lambda_quelle']}", lam("holzfaserplatte") * 0.03),
-        G("Holzanteil der Gefachschicht", "f_a", f_holz, "1",
-          "Raster: Ständerbreite/Achsmaß = 60/625" if variante == "raster" else
-          f"Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = "
-          f"{zahl_roh(lay['holzflaeche_mm2'])} mm² / {zahl_roh(lay['nettoflaeche_mm2'])} mm²"),
-        G("Höchstwert des U-Werts", "U_max", 0.20, "W/(m²·K)", "holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)", art="grenzwert"),
+    ]
+    st = w["staender"]
+    if variante == "raster":
+        eingaben += [G("Ständerbreite", "b_St", st["breite"], "mm", f"{Q} /wand/staender/breite"),
+                     G("Achsmaß der Ständer", "e_St", st["raster"], "mm", f"{Q} /wand/staender/raster")]
+        schritt_f = Schritt("Holzanteil aus dem Raster", G("Holzanteil", "f_a", None, "1"), "b_St/e_St",
+                            norm_verweis="Flächenanteil Abschnitt a")
+    else:
+        eingaben += [G("Ansichtsfläche aller Hölzer", "A_H", lay["holzflaeche_mm2"], "mm²",
+                       "b1_wandelement.rahmenlayout: Summe der Holzrechtecke"),
+                     G("Nettowandfläche (ohne Öffnungen)", "A_n", lay["nettoflaeche_mm2"], "mm²",
+                       "b1_wandelement.rahmenlayout: Wandfläche minus Öffnungen")]
+        schritt_f = Schritt("Holzanteil aus der Elementgeometrie", G("Holzanteil", "f_a", None, "1"), "A_H/A_n",
+                            norm_verweis="Flächenanteil Abschnitt a")
+    eingaben += [
+        G("Höchstwert des U-Werts", "U_max", 0.20, "W/(m²·K)", "holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)", art="grenzwert",
+          rundung=Rundung("dezimalstellen", 2, quelle="Angabe wie in HRB-01")),
     ]
     schritte = [
+        schritt_f,
         Schritt("Wärmedurchlasswiderstand GKF", G("R GKF", "R_GKF", None, "m²·K/W"), "d_GKF/lambda_GKF", norm_verweis=f"{ISO6946}, 6.7.1.1, Formel (3)"),
         Schritt("Wärmedurchlasswiderstand OSB/3", G("R OSB", "R_OSB", None, "m²·K/W"), "d_OSB/lambda_OSB", norm_verweis="6.7.1.1, Formel (3)"),
         Schritt("Wärmedurchlasswiderstand Holzfaserdämmplatte", G("R HFD", "R_HFD", None, "m²·K/W"), "d_HFD/lambda_HFD", norm_verweis="6.7.1.1, Formel (3)"),
@@ -426,7 +442,6 @@ def nachweis_b3(modell: Modell, variante: str, fassade: str) -> Nachweis:
         n.gegenrechnung("U", float(u_ifc), "IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)", 5e-4)
     n.rechne()
     Gd = n.groessen()
-    st = w["staender"]
     schichten = [{"name": mats[s["material"]]["name"], "dicke_mm": s["dicke"],
                   "muster": {"gkf": "gips", "osb": "holzwerkstoff", "folie": None, "gefach": "daemmung", "hfd": "daemmung"}[s["id"]],
                   "text": f"{mats[s['material']]['name']}, d = {zahl_roh(s['dicke'])} mm"
@@ -503,9 +518,9 @@ def nachweis_b4(param: dict, sz: dict, modus: str) -> Nachweis:
                                 verfahren="Polygon der Abstandsfläche minus (Grundstück ∪ halbe öffentliche Verkehrsfläche), "
                                           "Flächeninhalt (b4_abstandsflaechen.abstandsflaechen, Polygon.difference)"))
         kriterien.append(Kriterium(f"{fl['wand']}: Abstandsfläche auf dem Grundstück", f"A_a_{k}", "≤", "A_zul",
-                                   f"{BAYBO}, Abs. 2", toleranz=1e-9))
+                                   "BayBO Art. 6 Abs. 2 [U]", toleranz=1e-9))
         kriterien.append(Kriterium(f"{fl['wand']}: vorhandene ≥ erforderliche Tiefe (Wandmitte)", f"T_v_{k}", "≥", wand_t[k],
-                                   f"{BAYBO}, Abs. 5"))
+                                   "BayBO Art. 6 Abs. 5 [U]"))
     n = Nachweis(
         id=f"N-B4-{sz['id']}-{modus}", titel=f"Abstandsflächen Szenario „{sz['id']}“ ({sz['beschreibung']}, Giebel: {modus})",
         gegenstand=Gegenstand(f"Gebäudevorlage {g['dachform']} {zahl_roh(g['breite'])} × {zahl_roh(g['laenge'])} m, Szenario {sz['id']} "

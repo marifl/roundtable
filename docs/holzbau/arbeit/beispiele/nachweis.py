@@ -477,6 +477,9 @@ def zahl_roh(x: float | int) -> str:
     if isinstance(x, int):
         return zahl_de(x)
     d = Decimal(repr(float(x)))
+    if d != 0 and (abs(d) < Decimal("1e-4") or abs(d) >= Decimal("1e15")):
+        m, e = d.scaleb(-d.adjusted()).normalize(), d.adjusted()
+        return f"{zahl_de(m)} · 10" + str(e).translate(str.maketrans("-0123456789", "⁻⁰¹²³⁴⁵⁶⁷⁸⁹"))
     if d == d.to_integral_value() and abs(d) < Decimal(10) ** 15:
         d = d.quantize(Decimal(1))
     return zahl_de(d)
@@ -568,7 +571,10 @@ class Groesse:
             return "–"
         if not self.numerisch:
             return zahl_roh(self.wert) if isinstance(self.wert, bool) else str(self.wert)
-        z = zahl_de(r.runde(self.wert)) if r else zahl_roh(self.wert)
+        if r and self.wert != 0 and abs(self.wert) < 1e-4:
+            z = zahl_wiss(self.wert, r.stellen if r.art == "signifikant" else 2)
+        else:
+            z = zahl_de(r.runde(self.wert)) if r else zahl_roh(self.wert)
         e = self.einheit if self.einheit not in ("1", "", "-", "–") else ""
         return f"{z} {e}".strip()
 
@@ -578,8 +584,8 @@ class Groesse:
              "bezug": self.bezug, "anzeige": self.anzeige(),
              "rundung": self.rundung.als_dict() if self.rundung else None}
         if self.numerisch:
-            try:
-                d["dimension"] = EINHEITEN.dimension(self.einheit)
+            try:  # backendunabhängige Darstellung (L, M, T, Θ, I, N, J)
+                d["dimension"] = _dim_text(_parse_einfach(normiere_einheit(self.einheit))[1])
             except EinheitenFehler:
                 d["dimension"] = None
         return d
@@ -648,6 +654,7 @@ class Kriterium:
     grenzwert: str
     norm_verweis: str = ""
     toleranz: float = 0.0          # numerische Toleranz in der Einheit des Grenzwerts
+    mit_ausnutzung: bool = True    # False bei Zähl- und Konsistenzkriterien, für die η nichts aussagt
     # von rechne() gefüllt
     ist_wert: float | None = None
     grenz_wert: float | None = None
@@ -662,7 +669,7 @@ class Kriterium:
             raise NachweisFehler(f"Vergleich {self.vergleich!r} unbekannt")
 
     def als_dict(self) -> dict:
-        return {k: getattr(self, k) for k in ("bezeichnung", "ist", "vergleich", "grenzwert", "norm_verweis", "toleranz",
+        return {k: getattr(self, k) for k in ("bezeichnung", "ist", "vergleich", "grenzwert", "norm_verweis", "toleranz", "mit_ausnutzung",
                                               "ist_wert", "grenz_wert", "einheit", "ausnutzung", "erfuellt",
                                               "rundungsempfindlich", "innerhalb_unsicherheit")}
 
@@ -972,6 +979,9 @@ class Nachweis:
                 try:
                     q = werte_aus(baum, ns, fn)
                     erg.wert = EINHEITEN.in_einheit(q, erg.einheit)
+                    if all(isinstance(G[n].wert, int) and not isinstance(G[n].wert, bool) for n in s.eingaben) \
+                            and float(erg.wert).is_integer() and abs(erg.wert) < 2 ** 53:
+                        erg.wert = int(round(erg.wert))  # ganzzahlige Eingaben, ganzzahliges Ergebnis (Zählgrößen)
                 except EinheitenFehler as e:
                     raise EinheitenFehler(f"{self.id}, Schritt {i} ({s.beschreibung}): {e}") from e
                 if s.formel_latex is None:
@@ -1100,7 +1110,7 @@ class Nachweis:
                 raise EinheitenFehler(f"{self.id}: Kriterium '{kr.bezeichnung}': {e}") from e
             kr.ist_wert, kr.grenz_wert, kr.einheit = ist, float(gg.wert), gg.einheit
             kr.erfuellt = _vergleiche(ist, kr.grenz_wert, kr.vergleich, kr.toleranz)
-            kr.ausnutzung = _ausnutzung(ist, kr.grenz_wert, kr.vergleich)
+            kr.ausnutzung = _ausnutzung(ist, kr.grenz_wert, kr.vergleich) if kr.mit_ausnutzung else None
             r = gi.rundung or self.ergebnis_rundung if kr.ist == self.ergebnis else gi.rundung
             if r is not None:
                 gerundet = float(r.runde(gi.wert)) * (ist / gi.wert if gi.wert else 1.0)
@@ -1115,8 +1125,7 @@ class Nachweis:
             self.status, self.ausnutzung = "Hinweis", None
             return
         self.status = "erfüllt" if all(k.erfuellt for k in self.kriterien) else "nicht erfüllt"
-        werte = [k.ausnutzung for k in self.kriterien if k.ausnutzung is not None]
-        self.ausnutzung = max(werte) if werte else None
+        self.ausnutzung = maßgebend.ausnutzung   # maßgebend: nicht erfülltes Kriterium vor erfülltem, dann größtes η
         self._maßgebend = maßgebend
 
     def _gegenrechnen(self, G: dict[str, Groesse]) -> None:
@@ -1306,7 +1315,9 @@ def _anz(wert, einheit, rundung: dict | None = None) -> str:
         return "–"
     if isinstance(wert, bool) or not isinstance(wert, (int, float)):
         return zahl_roh(wert) if isinstance(wert, bool) else str(wert)
-    if rundung:
+    if rundung and wert != 0 and abs(wert) < 1e-4:
+        z = zahl_wiss(wert, rundung["stellen"] if rundung["art"] == "signifikant" else 2)
+    elif rundung:
         z = zahl_de(Rundung(rundung["art"], rundung["stellen"], rundung["verfahren"]).runde(wert))
     else:
         z = zahl_roh(wert)

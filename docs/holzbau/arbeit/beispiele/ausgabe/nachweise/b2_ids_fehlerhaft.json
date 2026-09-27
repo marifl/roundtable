@@ -37,8 +37,8 @@
       "id": "N-B2-fehlerhaft-HRB-01",
       "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft)",
       "status": "nicht erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "8009c5829e19b43a9b169e75a28308cd0d466f34afd957f76f840f418e6b88cb",
+      "ausnutzung": null,
+      "hash": "bf12eefe06ac119137a9171a8b1664d24f31c0dec7f2fa90403e048f7d31108d",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -46,15 +46,15 @@
       "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "760efa225e53ec9337ed19c02548fa67da0fb7d14b10e6649da7b113ea242976",
+      "hash": "04871a656ddeb2f402bcb8f0e6249371f0cdbad28e949b36b40555b59ee83491",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-fehlerhaft-HRB-03",
       "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft)",
       "status": "nicht erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "183f851ad2a9ff074a8888bcebe3d834b39b4111f1d36bbde0e1b21862d7390e",
+      "ausnutzung": null,
+      "hash": "b6e972fbf21970df62d6c7766406a1d477fc8c9ab76600c5d75f332e1d2c867c",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -62,15 +62,15 @@
       "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "4a5d8589af30a19bc83a9f404f08bcba32a551b563f759e7e8e0fef85d94ac79",
+      "hash": "f17eac599b129fbefb8e36d9af67b76372d62cd21c02aeec11d28ad355967182",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
       "id": "N-B2-fehlerhaft-HRB-05",
       "titel": "IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft)",
       "status": "nicht erfüllt",
-      "ausnutzung": 0.06666666666666667,
-      "hash": "981bb0e9db352d9ad23af24569c069fb549ca4fa32fd20bccea3365e09584c75",
+      "ausnutzung": null,
+      "hash": "966c1ff4ef6129d2633fd62255774ff92e19abf728c97c340e95749470878c29",
       "gegenstand": null
     },
     {
@@ -78,7 +78,7 @@
       "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft)",
       "status": "erfüllt",
       "ausnutzung": 0.05555555555555555,
-      "hash": "eeb4034028381c82795ae55eaebcc5d563368fc991a424abffe9dfce49b45f21",
+      "hash": "b29de8bd3acd29c03cc0cb103faca0f9b4d2dc8847d5bcdf4f1b7b1709eecf99",
       "gegenstand": null
     },
     {
@@ -86,23 +86,23 @@
       "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft)",
       "status": "erfüllt",
       "ausnutzung": 0.024390243902439025,
-      "hash": "d2b8b8b07b8b23f940de9f43af670b07d3ccd0e3f933444afa0f9095323db02a",
+      "hash": "35231a0b0ea217d594196676c6425308297cc737ed0746acd6a7f3b2e7fcc79d",
       "gegenstand": null
     },
     {
       "id": "N-B2-fehlerhaft-HRB-08",
       "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft)",
       "status": "nicht erfüllt",
-      "ausnutzung": 1.0,
-      "hash": "094d0d6f956dc461663a49c813988e1c7dc5f6f5c7d74bc4f1069c452711490a",
+      "ausnutzung": null,
+      "hash": "1dcf3fb0ce29cb793b0f728101d78914b7257f00d1da2914d67e4a3629291c06",
       "gegenstand": null
     },
     {
       "id": "N-B2-fehlerhaft-HRB-09",
       "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft)",
       "status": "nicht erfüllt",
-      "ausnutzung": 0.005681818181818182,
-      "hash": "5cbca4c7099f00d70aadb74e66345e3c7e39009bec652257700a92aa7bdcb29f",
+      "ausnutzung": null,
+      "hash": "b388a1a2858a5cdc3a8468cf5a281375dacacf715b4972d8fff8bbd2833bdb4b",
       "gegenstand": null
     },
     {
@@ -110,7 +110,7 @@
       "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft)",
       "status": "erfüllt",
       "ausnutzung": 0.08333333333333333,
-      "hash": "99eafa52da290ea372a57984d3174b9c7e03c48588a9929cb942b529f8216c68",
+      "hash": "6fec51100a6f117525f19fcd05e2ace233bca66938d24fb9dabc076d4d590596",
       "gegenstand": null
     },
     {
@@ -118,7 +118,7 @@
       "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft)",
       "status": "nicht erfüllt",
       "ausnutzung": null,
-      "hash": "ac2a916c19919da264cfa13496f42a287196db07a91afc75ebdbb69601ed8263",
+      "hash": "1873cbe4717710591c74ccd5b57d9cd513c858c5ed3396fcabbaeb53bbadc98f",
       "gegenstand": null
     }
   ],
@@ -239,7 +239,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -250,7 +250,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 0.0,
+            "wert": 0,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -326,7 +326,7 @@
         "dimension": "dimensionless"
       },
       "vergleich": "≤",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "nicht erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -371,7 +371,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "8009c5829e19b43a9b169e75a28308cd0d466f34afd957f76f840f418e6b88cb",
+        "wert": "bf12eefe06ac119137a9171a8b1664d24f31c0dec7f2fa90403e048f7d31108d",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -491,7 +491,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -502,7 +502,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -622,7 +622,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "760efa225e53ec9337ed19c02548fa67da0fb7d14b10e6649da7b113ea242976",
+        "wert": "04871a656ddeb2f402bcb8f0e6249371f0cdbad28e949b36b40555b59ee83491",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -742,7 +742,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -753,7 +753,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 0.0,
+            "wert": 0,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -829,7 +829,7 @@
         "dimension": "dimensionless"
       },
       "vergleich": "≤",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "nicht erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -874,7 +874,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "183f851ad2a9ff074a8888bcebe3d834b39b4111f1d36bbde0e1b21862d7390e",
+        "wert": "b6e972fbf21970df62d6c7766406a1d477fc8c9ab76600c5d75f332e1d2c867c",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -994,7 +994,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1005,7 +1005,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -1125,7 +1125,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "4a5d8589af30a19bc83a9f404f08bcba32a551b563f759e7e8e0fef85d94ac79",
+        "wert": "f17eac599b129fbefb8e36d9af67b76372d62cd21c02aeec11d28ad355967182",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -1261,7 +1261,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 15\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 14{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 15\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 14\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1272,7 +1272,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 14.0,
+            "wert": 14,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -1348,7 +1348,7 @@
         "dimension": "dimensionless"
       },
       "vergleich": "≤",
-      "ausnutzung": 0.06666666666666667,
+      "ausnutzung": null,
       "status": "nicht erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -1393,7 +1393,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "981bb0e9db352d9ad23af24569c069fb549ca4fa32fd20bccea3365e09584c75",
+        "wert": "966c1ff4ef6129d2633fd62255774ff92e19abf728c97c340e95749470878c29",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -1532,7 +1532,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 18\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 18{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 18\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 18\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1543,7 +1543,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 18.0,
+            "wert": 18,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -1663,7 +1663,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "eeb4034028381c82795ae55eaebcc5d563368fc991a424abffe9dfce49b45f21",
+        "wert": "b29de8bd3acd29c03cc0cb103faca0f9b4d2dc8847d5bcdf4f1b7b1709eecf99",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -1825,7 +1825,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 41\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 41{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 41\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 41\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1836,7 +1836,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 41.0,
+            "wert": 41,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -1956,7 +1956,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "d2b8b8b07b8b23f940de9f43af670b07d3ccd0e3f933444afa0f9095323db02a",
+        "wert": "35231a0b0ea217d594196676c6425308297cc737ed0746acd6a7f3b2e7fcc79d",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2078,7 +2078,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 0\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2089,7 +2089,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 0.0,
+            "wert": 0,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2165,7 +2165,7 @@
         "dimension": "dimensionless"
       },
       "vergleich": "≤",
-      "ausnutzung": 1.0,
+      "ausnutzung": null,
       "status": "nicht erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2210,7 +2210,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "094d0d6f956dc461663a49c813988e1c7dc5f6f5c7d74bc4f1069c452711490a",
+        "wert": "1dcf3fb0ce29cb793b0f728101d78914b7257f00d1da2914d67e4a3629291c06",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2507,7 +2507,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 176\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 175{,}00\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 176\\ \\mathrm{Stk} - 1\\ \\mathrm{Stk} = 175\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2518,7 +2518,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 175.0,
+            "wert": 175,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2594,7 +2594,7 @@
         "dimension": "dimensionless"
       },
       "vergleich": "≤",
-      "ausnutzung": 0.005681818181818182,
+      "ausnutzung": null,
       "status": "nicht erfüllt",
       "annahmen": [],
       "hinweise": [
@@ -2639,7 +2639,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "5cbca4c7099f00d70aadb74e66345e3c7e39009bec652257700a92aa7bdcb29f",
+        "wert": "b388a1a2858a5cdc3a8468cf5a281375dacacf715b4972d8fff8bbd2833bdb4b",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2772,7 +2772,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 12\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 12{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 12\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 12\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2783,7 +2783,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 12.0,
+            "wert": 12,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2903,7 +2903,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "99eafa52da290ea372a57984d3174b9c7e03c48588a9929cb942b529f8216c68",
+        "wert": "6fec51100a6f117525f19fcd05e2ace233bca66938d24fb9dabc076d4d590596",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -3010,7 +3010,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -3021,7 +3021,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -3127,7 +3127,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "ac2a916c19919da264cfa13496f42a287196db07a91afc75ebdbb69601ed8263",
+        "wert": "1873cbe4717710591c74ccd5b57d9cd513c858c5ed3396fcabbaeb53bbadc98f",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     }
@@ -3150,7 +3150,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "cef470449333ade7edcdad8f730b6ba9b0cf3bea2e6747851b1505164710ed53",
+    "wert": "c8f247dd98509cee6f17049a14ceacbea4845eec713f8c747269936f9bf62f3b",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

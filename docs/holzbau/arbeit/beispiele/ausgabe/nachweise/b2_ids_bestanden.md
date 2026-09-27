@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (11 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `bbfb50666bea1cd3e668f497052c950e2b5c07e2f4ec299cbe3423fc964a7571` |
+| Heft-Hash (SHA-256) | `ea33ffab6c95130a3e8552f006cee27f6b06857cd52b8e11e39ad42a7fe65498` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,17 +28,17 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B2-bestanden-HRB-01](#n-n-b2-bestanden-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden) | erfüllt | 1,000 | `a07c1d9de820` |
-| 2 | [N-B2-bestanden-HRB-02](#n-n-b2-bestanden-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden) | erfüllt | 1,000 | `928645d5c2e6` |
-| 3 | [N-B2-bestanden-HRB-03](#n-n-b2-bestanden-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden) | erfüllt | 1,000 | `3e56842b7319` |
-| 4 | [N-B2-bestanden-HRB-04](#n-n-b2-bestanden-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden) | erfüllt | 1,000 | `5f913a55fefa` |
-| 5 | [N-B2-bestanden-HRB-05](#n-n-b2-bestanden-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (bestanden) | erfüllt | 0,067 | `8f2612cd8712` |
-| 6 | [N-B2-bestanden-HRB-06](#n-n-b2-bestanden-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden) | erfüllt | 0,056 | `86ef24ee00e8` |
-| 7 | [N-B2-bestanden-HRB-07](#n-n-b2-bestanden-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden) | erfüllt | 0,025 | `e13049e206d9` |
-| 8 | [N-B2-bestanden-HRB-08](#n-n-b2-bestanden-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden) | erfüllt | 1,000 | `a87c5045b1d5` |
-| 9 | [N-B2-bestanden-HRB-09](#n-n-b2-bestanden-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden) | erfüllt | 0,006 | `21e7281a14f2` |
-| 10 | [N-B2-bestanden-HRB-10](#n-n-b2-bestanden-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden) | erfüllt | 0,084 | `ab68d18a2161` |
-| 11 | [N-B2-bestanden-HRB-11](#n-n-b2-bestanden-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden) | erfüllt | – | `98ded5685b74` |
+| 1 | [N-B2-bestanden-HRB-01](#n-n-b2-bestanden-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden) | erfüllt | 1,000 | `6761c4520bc5` |
+| 2 | [N-B2-bestanden-HRB-02](#n-n-b2-bestanden-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden) | erfüllt | 1,000 | `1569a8eec950` |
+| 3 | [N-B2-bestanden-HRB-03](#n-n-b2-bestanden-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden) | erfüllt | 1,000 | `4d05e970d8fc` |
+| 4 | [N-B2-bestanden-HRB-04](#n-n-b2-bestanden-hrb-04) | IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden) | erfüllt | 1,000 | `e117934af800` |
+| 5 | [N-B2-bestanden-HRB-05](#n-n-b2-bestanden-hrb-05) | IDS HRB-05: Ständer: Material KVH C24 (bestanden) | erfüllt | 0,067 | `d4dea59fe39f` |
+| 6 | [N-B2-bestanden-HRB-06](#n-n-b2-bestanden-hrb-06) | IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden) | erfüllt | 0,056 | `1ad6cb8a87d3` |
+| 7 | [N-B2-bestanden-HRB-07](#n-n-b2-bestanden-hrb-07) | IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden) | erfüllt | 0,025 | `88c4b7bae0f0` |
+| 8 | [N-B2-bestanden-HRB-08](#n-n-b2-bestanden-hrb-08) | IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden) | erfüllt | 1,000 | `3496ad701b0b` |
+| 9 | [N-B2-bestanden-HRB-09](#n-n-b2-bestanden-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden) | erfüllt | 0,006 | `94a1ed6f892c` |
+| 10 | [N-B2-bestanden-HRB-10](#n-n-b2-bestanden-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden) | erfüllt | 0,084 | `014c8a9805ed` |
+| 11 | [N-B2-bestanden-HRB-11](#n-n-b2-bestanden-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden) | erfüllt | – | `68f2d76b3e98` |
 
 <a id="n-n-b2-bestanden-hrb-01"></a>
 
@@ -88,7 +88,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -115,7 +115,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `a07c1d9de820aace04179cbc72a0f079b98c255f96629e16ec19ee1099096cb8`
+- Hash (SHA-256): `6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -169,7 +169,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -196,7 +196,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `928645d5c2e613c134da08f7855977a57ebd65618b9fc03ce15e38f58dc9d732`
+- Hash (SHA-256): `1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -250,7 +250,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -277,7 +277,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `3e56842b731965fcfd6604b3a6a59398e253e8422dd56a8ef68ee69c00b8f185`
+- Hash (SHA-256): `4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -331,7 +331,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -358,7 +358,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `5f913a55fefab7b5f4d7530ddc8bf839b86eb1ba5b3c6d6abab213b393c3d372`
+- Hash (SHA-256): `e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -413,7 +413,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 15\ \mathrm{Stk} - 0\ \mathrm{Stk} = 15{,}000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 15\ \mathrm{Stk} - 0\ \mathrm{Stk} = 15\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -440,7 +440,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `8f2612cd8712c097c3bc91d0261458b644b275c260e21d5de42d2de3ce230071`
+- Hash (SHA-256): `d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -495,7 +495,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 18\ \mathrm{Stk} - 0\ \mathrm{Stk} = 18{,}000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 18\ \mathrm{Stk} - 0\ \mathrm{Stk} = 18\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -522,7 +522,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `86ef24ee00e88a47b3bef188029f38e62a1e58f3b1e97f438d45bc845ced2ca5`
+- Hash (SHA-256): `1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -577,7 +577,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 41\ \mathrm{Stk} - 0\ \mathrm{Stk} = 41{,}000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 41\ \mathrm{Stk} - 0\ \mathrm{Stk} = 41\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -604,7 +604,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `e13049e206d96c405ce08c815040e66e0742053c8dc4c929411c04e51099c751`
+- Hash (SHA-256): `88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -659,7 +659,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -686,7 +686,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `a87c5045b1d5b47c614e78196c416ffefa338c0a6315651ee4c254de73026201`
+- Hash (SHA-256): `3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -741,7 +741,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 176\ \mathrm{Stk} - 0\ \mathrm{Stk} = 176{,}00\ \mathrm{Stk}
+n_{\mathrm{ok}} = 176\ \mathrm{Stk} - 0\ \mathrm{Stk} = 176\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -768,7 +768,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `21e7281a14f2af8cfdb1dbb72d71440fbc4b19fa30a8080237189cbe5d283c68`
+- Hash (SHA-256): `94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -823,7 +823,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 12\ \mathrm{Stk} - 0\ \mathrm{Stk} = 12{,}000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 12\ \mathrm{Stk} - 0\ \mathrm{Stk} = 12\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -850,7 +850,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `ab68d18a2161e52223e9f5dc1cfbd106cea41d85100dcc3039a1463374e4b169`
+- Hash (SHA-256): `014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -903,7 +903,7 @@ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}}
 $$
 
 $$
-n_{\mathrm{ok}} = 0\ \mathrm{Stk} - 0\ \mathrm{Stk} = 0{,}0000\ \mathrm{Stk}
+n_{\mathrm{ok}} = 0\ \mathrm{Stk} - 0\ \mathrm{Stk} = 0\ \mathrm{Stk}
 $$
 
 Ausdruck (maschinenlesbar): `n_anw - n_fehl`
@@ -929,7 +929,7 @@ Der Vergleich erfolgt mit ungerundeten Werten.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `98ded5685b740fa50c68fe4ba7bd1a7047b6cb325abaebd6d160d9cd1bac1ee2`
+- Hash (SHA-256): `68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

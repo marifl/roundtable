@@ -74,7 +74,7 @@
       "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
       "status": "erfüllt",
       "ausnutzung": 4.440892098500626e-08,
-      "hash": "dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb",
+      "hash": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -82,7 +82,7 @@
       "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "a07c1d9de820aace04179cbc72a0f079b98c255f96629e16ec19ee1099096cb8",
+      "hash": "6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -90,7 +90,7 @@
       "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "928645d5c2e613c134da08f7855977a57ebd65618b9fc03ce15e38f58dc9d732",
+      "hash": "1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -98,7 +98,7 @@
       "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "3e56842b731965fcfd6604b3a6a59398e253e8422dd56a8ef68ee69c00b8f185",
+      "hash": "4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -106,7 +106,7 @@
       "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "5f913a55fefab7b5f4d7530ddc8bf839b86eb1ba5b3c6d6abab213b393c3d372",
+      "hash": "e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -114,7 +114,7 @@
       "titel": "IDS HRB-05: Ständer: Material KVH C24 (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 0.06666666666666667,
-      "hash": "8f2612cd8712c097c3bc91d0261458b644b275c260e21d5de42d2de3ce230071",
+      "hash": "d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242",
       "gegenstand": null
     },
     {
@@ -122,7 +122,7 @@
       "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 0.05555555555555555,
-      "hash": "86ef24ee00e88a47b3bef188029f38e62a1e58f3b1e97f438d45bc845ced2ca5",
+      "hash": "1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0",
       "gegenstand": null
     },
     {
@@ -130,7 +130,7 @@
       "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 0.024390243902439025,
-      "hash": "e13049e206d96c405ce08c815040e66e0742053c8dc4c929411c04e51099c751",
+      "hash": "88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd",
       "gegenstand": null
     },
     {
@@ -138,7 +138,7 @@
       "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 1.0,
-      "hash": "a87c5045b1d5b47c614e78196c416ffefa338c0a6315651ee4c254de73026201",
+      "hash": "3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b",
       "gegenstand": null
     },
     {
@@ -146,7 +146,7 @@
       "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 0.005681818181818182,
-      "hash": "21e7281a14f2af8cfdb1dbb72d71440fbc4b19fa30a8080237189cbe5d283c68",
+      "hash": "94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f",
       "gegenstand": null
     },
     {
@@ -154,7 +154,7 @@
       "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden)",
       "status": "erfüllt",
       "ausnutzung": 0.08333333333333333,
-      "hash": "ab68d18a2161e52223e9f5dc1cfbd106cea41d85100dcc3039a1463374e4b169",
+      "hash": "014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047",
       "gegenstand": null
     },
     {
@@ -162,7 +162,7 @@
       "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden)",
       "status": "erfüllt",
       "ausnutzung": null,
-      "hash": "98ded5685b740fa50c68fe4ba7bd1a7047b6cb325abaebd6d160d9cd1bac1ee2",
+      "hash": "68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f",
       "gegenstand": null
     },
     {
@@ -170,7 +170,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.9339966468899511,
-      "hash": "b310bcd3b6b3d52d1c8442a7dd98a39d25c2e3316cdebbe2234c0a7df2ed16e0",
+      "hash": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -178,7 +178,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.9174898618235497,
-      "hash": "5b603b193fcc3d3ff975d61261b895a7d47499f240155b6878bb8369e22abc40",
+      "hash": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -186,7 +186,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt)",
       "status": "erfüllt",
       "ausnutzung": 0.812633801272794,
-      "hash": "1fe01d95196368771a6225aa1f0e572731938709cb679631a602f42398b4c647",
+      "hash": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -194,7 +194,7 @@
       "titel": "U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet)",
       "status": "erfüllt",
       "ausnutzung": 0.8004031209999192,
-      "hash": "514b86b947808ab3b2bc13be6175f17e55cb5d84c01dd75d759319c4a9280160",
+      "hash": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
       "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
     },
     {
@@ -202,7 +202,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "2891ccaff4379881631e8f5f64d36fd1eb087d9211f40856f6ebe10507e12c56",
+      "hash": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
       "gegenstand": null
     },
     {
@@ -210,7 +210,7 @@
       "titel": "Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel)",
       "status": "nicht erfüllt",
       "ausnutzung": 1.6333333333333333,
-      "hash": "97bf3dbd829a64b081d9c1cbb3208043cb14af0e2dd8f42904574c654a31d0e9",
+      "hash": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
       "gegenstand": null
     },
     {
@@ -218,7 +218,7 @@
       "titel": "Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "09720c9ae0a2bc79cd9fede144570b1ef6ec909bf14d26c4ab2592689ea46bed",
+      "hash": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
       "gegenstand": null
     },
     {
@@ -226,7 +226,7 @@
       "titel": "Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll)",
       "status": "erfüllt",
       "ausnutzung": 0.6533333333333333,
-      "hash": "3cf9eafbbb0ac5323b12e13e03c74ec5f5190ceaa8a6ab7eed89586f5523dc45",
+      "hash": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
       "gegenstand": null
     },
     {
@@ -234,7 +234,7 @@
       "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
       "status": "erfüllt",
       "ausnutzung": 0.9710407239819006,
-      "hash": "17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301",
+      "hash": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
       "gegenstand": null
     }
   ],
@@ -594,7 +594,7 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,00000001 m³",
+          "anzeige": "1 · 10⁻⁸ m³",
           "rundung": null,
           "dimension": "[length] ** 3"
         }
@@ -761,7 +761,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,00006 m³",
+            "anzeige": "6 · 10⁻⁵ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1266,7 +1266,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,00000000000000011102230246251565 m³",
+            "anzeige": "1,1102230246251565 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1296,7 +1296,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,0000000000000002220446049250313 m³",
+            "anzeige": "2,220446049250313 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1324,7 +1324,7 @@
             "unsicherheit": null,
             "verteilung": "normal",
             "bezug": null,
-            "anzeige": "0,0000000000000004440892098500626 m³",
+            "anzeige": "4,440892098500626 · 10⁻¹⁶ m³",
             "rundung": null,
             "dimension": "[length] ** 3"
           }
@@ -1409,7 +1409,7 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,00000001 m³",
+        "anzeige": "1 · 10⁻⁸ m³",
         "rundung": null,
         "dimension": "[length] ** 3"
       },
@@ -1550,7 +1550,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb",
+        "wert": "3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -1670,7 +1670,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1681,7 +1681,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -1801,7 +1801,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "a07c1d9de820aace04179cbc72a0f079b98c255f96629e16ec19ee1099096cb8",
+        "wert": "6761c4520bc52f1bea4faae71dd71498ac2297ec4f665eb28c8d65cfc61b28a6",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -1921,7 +1921,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -1932,7 +1932,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2052,7 +2052,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "928645d5c2e613c134da08f7855977a57ebd65618b9fc03ce15e38f58dc9d732",
+        "wert": "1569a8eec950338fbf289e7649fdf0ac3b00aa981d97c009f0ca0dccfc5fc65b",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2172,7 +2172,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2183,7 +2183,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2303,7 +2303,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "3e56842b731965fcfd6604b3a6a59398e253e8422dd56a8ef68ee69c00b8f185",
+        "wert": "4d05e970d8fc2cea98acc8d37f54fced3e2ac9c65618efac2654cf74a6a8ac9e",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2423,7 +2423,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2434,7 +2434,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2554,7 +2554,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "5f913a55fefab7b5f4d7530ddc8bf839b86eb1ba5b3c6d6abab213b393c3d372",
+        "wert": "e117934af800e935f1d43da9b6a8b09e9fc872ac65be405103cecd20cca0af3e",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2690,7 +2690,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 15\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 15{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 15\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 15\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2701,7 +2701,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 15.0,
+            "wert": 15,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -2821,7 +2821,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "8f2612cd8712c097c3bc91d0261458b644b275c260e21d5de42d2de3ce230071",
+        "wert": "d4dea59fe39f3eb8a5d081d18dbcb49652be17a0f9f71824c2b07ecd08cdd242",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -2960,7 +2960,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 18\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 18{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 18\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 18\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -2971,7 +2971,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 18.0,
+            "wert": 18,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -3091,7 +3091,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "86ef24ee00e88a47b3bef188029f38e62a1e58f3b1e97f438d45bc845ced2ca5",
+        "wert": "1ad6cb8a87d3b6b98204a96d43db76635301864a987e43e31c1cb503bd4f37b0",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -3253,7 +3253,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 41\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 41{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 41\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 41\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -3264,7 +3264,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 41.0,
+            "wert": 41,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -3384,7 +3384,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "e13049e206d96c405ce08c815040e66e0742053c8dc4c929411c04e51099c751",
+        "wert": "88c4b7bae0f0d29cf5e4d8edc686d645e79521d5df65a23665524166a05f21dd",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -3506,7 +3506,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -3517,7 +3517,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 1.0,
+            "wert": 1,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -3637,7 +3637,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "a87c5045b1d5b47c614e78196c416ffefa338c0a6315651ee4c254de73026201",
+        "wert": "3496ad701b0b304d057717c4d7cbdc909eacbd9c59299679422818020963032b",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -3934,7 +3934,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 176\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 176{,}00\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 176\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 176\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -3945,7 +3945,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 176.0,
+            "wert": 176,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -4065,7 +4065,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "21e7281a14f2af8cfdb1dbb72d71440fbc4b19fa30a8080237189cbe5d283c68",
+        "wert": "94a1ed6f892c679b92d8d40ca9a9a8bf61f4599741d07a8e8971f1afec9e936f",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -4198,7 +4198,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 12\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 12{,}000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 12\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 12\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -4209,7 +4209,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 12.0,
+            "wert": 12,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -4329,7 +4329,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "ab68d18a2161e52223e9f5dc1cfbd106cea41d85100dcc3039a1463374e4b169",
+        "wert": "014c8a9805edb4a75ae218a58e2721407ece6a71d8aa4f110c1fdc3508421047",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -4434,7 +4434,7 @@
           "beschreibung": "Elemente ohne Verstoß",
           "ausdruck": "n_anw - n_fehl",
           "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
-          "einsetzen_latex": "n_{\\mathrm{ok}} = 0\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 0{,}0000\\ \\mathrm{Stk}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 0\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 0\\ \\mathrm{Stk}",
           "eingaben": [
             "n_anw",
             "n_fehl"
@@ -4445,7 +4445,7 @@
             "name": "Elemente ohne Verstoß",
             "symbol": "n_ok",
             "latex": "n_{\\mathrm{ok}}",
-            "wert": 0.0,
+            "wert": 0,
             "einheit": "Stk",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -4550,7 +4550,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "98ded5685b740fa50c68fe4ba7bd1a7047b6cb325abaebd6d160d9cd1bac1ee2",
+        "wert": "68f2d76b3e98449d0504bafc4b4b27eee86326a29070963f0629ef5c245d5f9f",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -4745,19 +4745,34 @@
           "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
         },
         {
-          "name": "Holzanteil der Gefachschicht",
-          "symbol": "f_a",
-          "latex": "f_{\\mathrm{a}}",
-          "wert": 0.22481208914962156,
-          "einheit": "1",
-          "quelle": "Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm²",
+          "name": "Ansichtsfläche aller Hölzer",
+          "symbol": "A_H",
+          "latex": "A_{\\mathrm{H}}",
+          "wert": 2575200.0,
+          "einheit": "mm²",
+          "quelle": "b1_wandelement.rahmenlayout: Summe der Holzrechtecke",
           "art": "eingabe",
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,22481208914962156",
+          "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "[length] ** 2"
+        },
+        {
+          "name": "Nettowandfläche (ohne Öffnungen)",
+          "symbol": "A_n",
+          "latex": "A_{\\mathrm{n}}",
+          "wert": 11454900.0,
+          "einheit": "mm²",
+          "quelle": "b1_wandelement.rahmenlayout: Wandfläche minus Öffnungen",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "11 454 900 mm²",
+          "rundung": null,
+          "dimension": "[length] ** 2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -4770,14 +4785,48 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,2 W/(m²·K)",
-          "rundung": null,
+          "anzeige": "0,20 W/(m²·K)",
+          "rundung": {
+            "art": "dezimalstellen",
+            "stellen": 2,
+            "verfahren": "halb_auf",
+            "quelle": "Angabe wie in HRB-01",
+            "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+          },
           "dimension": "[mass] / [temperature] / [time] ** 3"
         }
       ],
       "schritte": [
         {
           "nr": 1,
+          "beschreibung": "Holzanteil aus der Elementgeometrie",
+          "ausdruck": "A_H/A_n",
+          "formel_latex": "f_{\\mathrm{a}} = \\frac{A_{\\mathrm{H}}}{A_{\\mathrm{n}}}",
+          "einsetzen_latex": "f_{\\mathrm{a}} = \\frac{2\\,575\\,200\\ \\mathrm{mm^{2}}}{11\\,454\\,900\\ \\mathrm{mm^{2}}} = 0{,}22481",
+          "eingaben": [
+            "A_H",
+            "A_n"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Flächenanteil Abschnitt a",
+          "ergebnis": {
+            "name": "Holzanteil",
+            "symbol": "f_a",
+            "latex": "f_{\\mathrm{a}}",
+            "wert": 0.22481208914962156,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,22481208914962156",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 2,
           "beschreibung": "Wärmedurchlasswiderstand GKF",
           "ausdruck": "d_GKF/lambda_GKF",
           "formel_latex": "R_{\\mathrm{GKF}} = \\frac{d_{\\mathrm{GKF}}}{\\lambda_{\\mathrm{GKF}}}",
@@ -4805,7 +4854,7 @@
           }
         },
         {
-          "nr": 2,
+          "nr": 3,
           "beschreibung": "Wärmedurchlasswiderstand OSB/3",
           "ausdruck": "d_OSB/lambda_OSB",
           "formel_latex": "R_{\\mathrm{OSB}} = \\frac{d_{\\mathrm{OSB}}}{\\lambda_{\\mathrm{OSB}}}",
@@ -4833,7 +4882,7 @@
           }
         },
         {
-          "nr": 3,
+          "nr": 4,
           "beschreibung": "Wärmedurchlasswiderstand Holzfaserdämmplatte",
           "ausdruck": "d_HFD/lambda_HFD",
           "formel_latex": "R_{\\mathrm{HFD}} = \\frac{d_{\\mathrm{HFD}}}{\\lambda_{\\mathrm{HFD}}}",
@@ -4861,7 +4910,7 @@
           }
         },
         {
-          "nr": 4,
+          "nr": 5,
           "beschreibung": "Gefachschicht, Abschnitt a (Holz)",
           "ausdruck": "d_G/lambda_H",
           "formel_latex": "R_{\\mathrm{Ga}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{H}}}",
@@ -4889,7 +4938,7 @@
           }
         },
         {
-          "nr": 5,
+          "nr": 6,
           "beschreibung": "Gefachschicht, Abschnitt b (Dämmung)",
           "ausdruck": "d_G/lambda_D",
           "formel_latex": "R_{\\mathrm{Gb}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{D}}}",
@@ -4917,7 +4966,7 @@
           }
         },
         {
-          "nr": 6,
+          "nr": 7,
           "beschreibung": "Gesamtwiderstand Abschnitt a (innen bis außen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},a} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Ga}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -4949,7 +4998,7 @@
           }
         },
         {
-          "nr": 7,
+          "nr": 8,
           "beschreibung": "Gesamtwiderstand Abschnitt b",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},b} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Gb}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -4981,11 +5030,11 @@
           }
         },
         {
-          "nr": 8,
+          "nr": 9,
           "beschreibung": "Flächenanteil Abschnitt b",
           "ausdruck": "1 - f_a",
           "formel_latex": "f_{\\mathrm{b}} = 1 - f_{\\mathrm{a}}",
-          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519",
+          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}22481 = 0{,}77519",
           "eingaben": [
             "f_a"
           ],
@@ -5008,11 +5057,11 @@
           }
         },
         {
-          "nr": 9,
+          "nr": 10,
           "beschreibung": "oberer Grenzwert R'_T (parallele Wärmeströme)",
           "ausdruck": "1/(f_a/R_Ta + f_b/R_Tb)",
           "formel_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{f_{\\mathrm{a}}}{R_{\\mathrm{T},a}} + \\frac{f_{\\mathrm{b}}}{R_{\\mathrm{T},b}}}",
-          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}22481208914962156}{3{,}2692\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}77519}{6{,}9939\\ \\mathrm{m^{2}\\cdot K/W}}} = 5{,}5678\\ \\mathrm{m^{2}\\cdot K/W}",
+          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}22481}{3{,}2692\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}77519}{6{,}9939\\ \\mathrm{m^{2}\\cdot K/W}}} = 5{,}5678\\ \\mathrm{m^{2}\\cdot K/W}",
           "eingaben": [
             "f_a",
             "R_Ta",
@@ -5038,11 +5087,11 @@
           }
         },
         {
-          "nr": 10,
+          "nr": 11,
           "beschreibung": "äquivalente Wärmeleitfähigkeit der Gefachschicht",
           "ausdruck": "f_a*lambda_H + f_b*lambda_D",
           "formel_latex": "\\lambda'' = f_{\\mathrm{a}} \\cdot \\lambda_{\\mathrm{H}} + f_{\\mathrm{b}} \\cdot \\lambda_{\\mathrm{D}}",
-          "einsetzen_latex": "\\lambda'' = 0{,}22481208914962156 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}77519 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}058683\\ \\mathrm{W/(m\\cdot K)}",
+          "einsetzen_latex": "\\lambda'' = 0{,}22481 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}77519 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}058683\\ \\mathrm{W/(m\\cdot K)}",
           "eingaben": [
             "f_a",
             "lambda_H",
@@ -5068,7 +5117,7 @@
           }
         },
         {
-          "nr": 11,
+          "nr": 12,
           "beschreibung": "Wärmedurchlasswiderstand Gefach mit λ''",
           "ausdruck": "d_G/lambda_eq",
           "formel_latex": "R''_{\\mathrm{G}} = \\frac{d_{\\mathrm{G}}}{\\lambda''}",
@@ -5096,7 +5145,7 @@
           }
         },
         {
-          "nr": 12,
+          "nr": 13,
           "beschreibung": "unterer Grenzwert R''_T (isotherme Ebenen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se",
           "formel_latex": "R''_{\\mathrm{T}} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R''_{\\mathrm{G}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -5128,7 +5177,7 @@
           }
         },
         {
-          "nr": 13,
+          "nr": 14,
           "beschreibung": "Wärmedurchgangswiderstand als arithmetisches Mittel",
           "ausdruck": "(R_o + R_u)/2",
           "formel_latex": "R_{\\mathrm{T}} = \\frac{R'_{\\mathrm{T}} + R''_{\\mathrm{T}}}{2}",
@@ -5162,7 +5211,7 @@
           }
         },
         {
-          "nr": 14,
+          "nr": 15,
           "beschreibung": "maximaler relativer Fehler",
           "ausdruck": "(R_o - R_u)/(2*R_T)",
           "formel_latex": "e_{\\mathrm{rel}} = \\frac{R'_{\\mathrm{T}} - R''_{\\mathrm{T}}}{2 \\cdot R_{\\mathrm{T}}}",
@@ -5197,7 +5246,7 @@
           }
         },
         {
-          "nr": 15,
+          "nr": 16,
           "beschreibung": "Wärmedurchgangskoeffizient",
           "ausdruck": "1/R_T",
           "formel_latex": "U = \\frac{1}{R_{\\mathrm{T}}}",
@@ -5279,8 +5328,14 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,2 W/(m²·K)",
-        "rundung": null,
+        "anzeige": "0,20 W/(m²·K)",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "halb_auf",
+          "quelle": "Angabe wie in HRB-01",
+          "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+        },
         "dimension": "[mass] / [temperature] / [time] ** 3"
       },
       "vergleich": "≤",
@@ -5299,27 +5354,27 @@
       "unsicherheit": {
         "methode": "lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette",
         "k": 2.0,
-        "u_c": 0.0034324433580309563,
-        "U": 0.006864886716061913,
+        "u_c": 0.003432443358019624,
+        "U": 0.006864886716039248,
         "einheit": "W/(m²·K)",
         "beitraege": [
           {
             "symbol": "d_GKF",
             "u": 0.3,
             "einheit": "mm",
-            "sensitivitaet": -0.00014958135841069975,
+            "sensitivitaet": -0.00014958135730047672,
             "sensitivitaet_einheit": "(W/(m²·K))/(mm)",
-            "beitrag": 4.4874407523209925e-05,
-            "anteil": 0.00017091913912949884
+            "beitrag": 4.487440719014302e-05,
+            "anteil": 0.00017091913659343476
           },
           {
             "symbol": "d_OSB",
             "u": 0.3,
             "einheit": "mm",
-            "sensitivitaet": -0.0002876564569875839,
+            "sensitivitaet": -0.0002876564560623981,
             "sensitivitaet_einheit": "(W/(m²·K))/(mm)",
-            "beitrag": 8.629693709627517e-05,
-            "anteil": 0.0006320974014551181
+            "beitrag": 8.629693681871943e-05,
+            "anteil": 0.0006320973973932783
           },
           {
             "symbol": "d_G",
@@ -5328,7 +5383,7 @@
             "sensitivitaet": -0.0006103898238934979,
             "sensitivitaet_einheit": "(W/(m²·K))/(mm)",
             "beitrag": 0.0012207796477869959,
-            "anteil": 0.12649338137660315
+            "anteil": 0.12649338137743843
           },
           {
             "symbol": "d_HFD",
@@ -5337,7 +5392,7 @@
             "sensitivitaet": -0.0008696590526417285,
             "sensitivitaet_einheit": "(W/(m²·K))/(mm)",
             "beitrag": 0.0008696590526417285,
-            "anteil": 0.06419353405365331
+            "anteil": 0.06419353405407718
           },
           {
             "symbol": "lambda_GKF",
@@ -5346,7 +5401,7 @@
             "sensitivitaet": 0.007479067865023836,
             "sensitivitaet_einheit": "(W/(m²·K))/(W/(m·K))",
             "beitrag": 5.609300898767877e-05,
-            "anteil": 0.00026706115092547836
+            "anteil": 0.0002670611509272418
           },
           {
             "symbol": "lambda_OSB",
@@ -5355,7 +5410,7 @@
             "sensitivitaet": 0.0331911294389091,
             "sensitivitaet_einheit": "(W/(m²·K))/(W/(m·K))",
             "beitrag": 0.0001294454048117455,
-            "anteil": 0.0014222191349769536
+            "anteil": 0.0014222191349863448
           },
           {
             "symbol": "lambda_H",
@@ -5364,7 +5419,7 @@
             "sensitivitaet": 0.36243573089315223,
             "sensitivitaet_einheit": "(W/(m²·K))/(W/(m·K))",
             "beitrag": 0.0014134993504832936,
-            "anteil": 0.1695838411449119
+            "anteil": 0.16958384114603167
           },
           {
             "symbol": "lambda_D",
@@ -5373,7 +5428,7 @@
             "sensitivitaet": 1.9726663095418369,
             "sensitivitaet_einheit": "(W/(m²·K))/(W/(m·K))",
             "beitrag": 0.002248839592877694,
-            "anteil": 0.42924989648577466
+            "anteil": 0.42924989648860906
           },
           {
             "symbol": "lambda_HFD",
@@ -5382,7 +5437,7 @@
             "sensitivitaet": 1.2134777472267009,
             "sensitivitaet_einheit": "(W/(m²·K))/(W/(m·K))",
             "beitrag": 0.001565386293922444,
-            "anteil": 0.20798705011256993
+            "anteil": 0.2079870501139433
           }
         ],
         "nicht_fortgepflanzt": [],
@@ -5392,7 +5447,7 @@
           "versuche": 100000,
           "seed": 20260927,
           "mittelwert": 0.18673104602043086,
-          "standardabweichung": 0.003436080262188392,
+          "standardabweichung": 0.0034360802621883923,
           "intervall_95": [
             0.1800674528291013,
             0.1935114091547114
@@ -5491,7 +5546,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "b310bcd3b6b3d52d1c8442a7dd98a39d25c2e3316cdebbe2234c0a7df2ed16e0",
+        "wert": "46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -5686,19 +5741,34 @@
           "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
         },
         {
-          "name": "Holzanteil der Gefachschicht",
-          "symbol": "f_a",
-          "latex": "f_{\\mathrm{a}}",
-          "wert": 0.22481208914962156,
-          "einheit": "1",
-          "quelle": "Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm²",
+          "name": "Ansichtsfläche aller Hölzer",
+          "symbol": "A_H",
+          "latex": "A_{\\mathrm{H}}",
+          "wert": 2575200.0,
+          "einheit": "mm²",
+          "quelle": "b1_wandelement.rahmenlayout: Summe der Holzrechtecke",
           "art": "eingabe",
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,22481208914962156",
+          "anzeige": "2 575 200 mm²",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "[length] ** 2"
+        },
+        {
+          "name": "Nettowandfläche (ohne Öffnungen)",
+          "symbol": "A_n",
+          "latex": "A_{\\mathrm{n}}",
+          "wert": 11454900.0,
+          "einheit": "mm²",
+          "quelle": "b1_wandelement.rahmenlayout: Wandfläche minus Öffnungen",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "11 454 900 mm²",
+          "rundung": null,
+          "dimension": "[length] ** 2"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -5711,14 +5781,48 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,2 W/(m²·K)",
-          "rundung": null,
+          "anzeige": "0,20 W/(m²·K)",
+          "rundung": {
+            "art": "dezimalstellen",
+            "stellen": 2,
+            "verfahren": "halb_auf",
+            "quelle": "Angabe wie in HRB-01",
+            "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+          },
           "dimension": "[mass] / [temperature] / [time] ** 3"
         }
       ],
       "schritte": [
         {
           "nr": 1,
+          "beschreibung": "Holzanteil aus der Elementgeometrie",
+          "ausdruck": "A_H/A_n",
+          "formel_latex": "f_{\\mathrm{a}} = \\frac{A_{\\mathrm{H}}}{A_{\\mathrm{n}}}",
+          "einsetzen_latex": "f_{\\mathrm{a}} = \\frac{2\\,575\\,200\\ \\mathrm{mm^{2}}}{11\\,454\\,900\\ \\mathrm{mm^{2}}} = 0{,}22481",
+          "eingaben": [
+            "A_H",
+            "A_n"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Flächenanteil Abschnitt a",
+          "ergebnis": {
+            "name": "Holzanteil",
+            "symbol": "f_a",
+            "latex": "f_{\\mathrm{a}}",
+            "wert": 0.22481208914962156,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,22481208914962156",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 2,
           "beschreibung": "Wärmedurchlasswiderstand GKF",
           "ausdruck": "d_GKF/lambda_GKF",
           "formel_latex": "R_{\\mathrm{GKF}} = \\frac{d_{\\mathrm{GKF}}}{\\lambda_{\\mathrm{GKF}}}",
@@ -5746,7 +5850,7 @@
           }
         },
         {
-          "nr": 2,
+          "nr": 3,
           "beschreibung": "Wärmedurchlasswiderstand OSB/3",
           "ausdruck": "d_OSB/lambda_OSB",
           "formel_latex": "R_{\\mathrm{OSB}} = \\frac{d_{\\mathrm{OSB}}}{\\lambda_{\\mathrm{OSB}}}",
@@ -5774,7 +5878,7 @@
           }
         },
         {
-          "nr": 3,
+          "nr": 4,
           "beschreibung": "Wärmedurchlasswiderstand Holzfaserdämmplatte",
           "ausdruck": "d_HFD/lambda_HFD",
           "formel_latex": "R_{\\mathrm{HFD}} = \\frac{d_{\\mathrm{HFD}}}{\\lambda_{\\mathrm{HFD}}}",
@@ -5802,7 +5906,7 @@
           }
         },
         {
-          "nr": 4,
+          "nr": 5,
           "beschreibung": "Gefachschicht, Abschnitt a (Holz)",
           "ausdruck": "d_G/lambda_H",
           "formel_latex": "R_{\\mathrm{Ga}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{H}}}",
@@ -5830,7 +5934,7 @@
           }
         },
         {
-          "nr": 5,
+          "nr": 6,
           "beschreibung": "Gefachschicht, Abschnitt b (Dämmung)",
           "ausdruck": "d_G/lambda_D",
           "formel_latex": "R_{\\mathrm{Gb}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{D}}}",
@@ -5858,7 +5962,7 @@
           }
         },
         {
-          "nr": 6,
+          "nr": 7,
           "beschreibung": "Gesamtwiderstand Abschnitt a (innen bis außen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},a} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Ga}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -5890,7 +5994,7 @@
           }
         },
         {
-          "nr": 7,
+          "nr": 8,
           "beschreibung": "Gesamtwiderstand Abschnitt b",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},b} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Gb}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -5922,11 +6026,11 @@
           }
         },
         {
-          "nr": 8,
+          "nr": 9,
           "beschreibung": "Flächenanteil Abschnitt b",
           "ausdruck": "1 - f_a",
           "formel_latex": "f_{\\mathrm{b}} = 1 - f_{\\mathrm{a}}",
-          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519",
+          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}22481 = 0{,}77519",
           "eingaben": [
             "f_a"
           ],
@@ -5949,11 +6053,11 @@
           }
         },
         {
-          "nr": 9,
+          "nr": 10,
           "beschreibung": "oberer Grenzwert R'_T (parallele Wärmeströme)",
           "ausdruck": "1/(f_a/R_Ta + f_b/R_Tb)",
           "formel_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{f_{\\mathrm{a}}}{R_{\\mathrm{T},a}} + \\frac{f_{\\mathrm{b}}}{R_{\\mathrm{T},b}}}",
-          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}22481208914962156}{3{,}3592\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}77519}{7{,}0839\\ \\mathrm{m^{2}\\cdot K/W}}} = 5{,}6704\\ \\mathrm{m^{2}\\cdot K/W}",
+          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}22481}{3{,}3592\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}77519}{7{,}0839\\ \\mathrm{m^{2}\\cdot K/W}}} = 5{,}6704\\ \\mathrm{m^{2}\\cdot K/W}",
           "eingaben": [
             "f_a",
             "R_Ta",
@@ -5979,11 +6083,11 @@
           }
         },
         {
-          "nr": 10,
+          "nr": 11,
           "beschreibung": "äquivalente Wärmeleitfähigkeit der Gefachschicht",
           "ausdruck": "f_a*lambda_H + f_b*lambda_D",
           "formel_latex": "\\lambda'' = f_{\\mathrm{a}} \\cdot \\lambda_{\\mathrm{H}} + f_{\\mathrm{b}} \\cdot \\lambda_{\\mathrm{D}}",
-          "einsetzen_latex": "\\lambda'' = 0{,}22481208914962156 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}77519 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}058683\\ \\mathrm{W/(m\\cdot K)}",
+          "einsetzen_latex": "\\lambda'' = 0{,}22481 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}77519 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}058683\\ \\mathrm{W/(m\\cdot K)}",
           "eingaben": [
             "f_a",
             "lambda_H",
@@ -6009,7 +6113,7 @@
           }
         },
         {
-          "nr": 11,
+          "nr": 12,
           "beschreibung": "Wärmedurchlasswiderstand Gefach mit λ''",
           "ausdruck": "d_G/lambda_eq",
           "formel_latex": "R''_{\\mathrm{G}} = \\frac{d_{\\mathrm{G}}}{\\lambda''}",
@@ -6037,7 +6141,7 @@
           }
         },
         {
-          "nr": 12,
+          "nr": 13,
           "beschreibung": "unterer Grenzwert R''_T (isotherme Ebenen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se",
           "formel_latex": "R''_{\\mathrm{T}} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R''_{\\mathrm{G}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -6069,7 +6173,7 @@
           }
         },
         {
-          "nr": 13,
+          "nr": 14,
           "beschreibung": "Wärmedurchgangswiderstand als arithmetisches Mittel",
           "ausdruck": "(R_o + R_u)/2",
           "formel_latex": "R_{\\mathrm{T}} = \\frac{R'_{\\mathrm{T}} + R''_{\\mathrm{T}}}{2}",
@@ -6103,7 +6207,7 @@
           }
         },
         {
-          "nr": 14,
+          "nr": 15,
           "beschreibung": "maximaler relativer Fehler",
           "ausdruck": "(R_o - R_u)/(2*R_T)",
           "formel_latex": "e_{\\mathrm{rel}} = \\frac{R'_{\\mathrm{T}} - R''_{\\mathrm{T}}}{2 \\cdot R_{\\mathrm{T}}}",
@@ -6138,7 +6242,7 @@
           }
         },
         {
-          "nr": 15,
+          "nr": 16,
           "beschreibung": "Wärmedurchgangskoeffizient",
           "ausdruck": "1/R_T",
           "formel_latex": "U = \\frac{1}{R_{\\mathrm{T}}}",
@@ -6220,8 +6324,14 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,2 W/(m²·K)",
-        "rundung": null,
+        "anzeige": "0,20 W/(m²·K)",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "halb_auf",
+          "quelle": "Angabe wie in HRB-01",
+          "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+        },
         "dimension": "[mass] / [temperature] / [time] ** 3"
       },
       "vergleich": "≤",
@@ -6423,7 +6533,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "5b603b193fcc3d3ff975d61261b895a7d47499f240155b6878bb8369e22abc40",
+        "wert": "8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -6618,19 +6728,34 @@
           "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
         },
         {
-          "name": "Holzanteil der Gefachschicht",
-          "symbol": "f_a",
-          "latex": "f_{\\mathrm{a}}",
-          "wert": 0.096,
-          "einheit": "1",
-          "quelle": "Raster: Ständerbreite/Achsmaß = 60/625",
+          "name": "Ständerbreite",
+          "symbol": "b_St",
+          "latex": "b_{\\mathrm{St}}",
+          "wert": 60,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/breite",
           "art": "eingabe",
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,096",
+          "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "[length]"
+        },
+        {
+          "name": "Achsmaß der Ständer",
+          "symbol": "e_St",
+          "latex": "e_{\\mathrm{St}}",
+          "wert": 625,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/raster",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "625 mm",
+          "rundung": null,
+          "dimension": "[length]"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -6643,14 +6768,48 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,2 W/(m²·K)",
-          "rundung": null,
+          "anzeige": "0,20 W/(m²·K)",
+          "rundung": {
+            "art": "dezimalstellen",
+            "stellen": 2,
+            "verfahren": "halb_auf",
+            "quelle": "Angabe wie in HRB-01",
+            "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+          },
           "dimension": "[mass] / [temperature] / [time] ** 3"
         }
       ],
       "schritte": [
         {
           "nr": 1,
+          "beschreibung": "Holzanteil aus dem Raster",
+          "ausdruck": "b_St/e_St",
+          "formel_latex": "f_{\\mathrm{a}} = \\frac{b_{\\mathrm{St}}}{e_{\\mathrm{St}}}",
+          "einsetzen_latex": "f_{\\mathrm{a}} = \\frac{60\\ \\mathrm{mm}}{625\\ \\mathrm{mm}} = 0{,}096000",
+          "eingaben": [
+            "b_St",
+            "e_St"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Flächenanteil Abschnitt a",
+          "ergebnis": {
+            "name": "Holzanteil",
+            "symbol": "f_a",
+            "latex": "f_{\\mathrm{a}}",
+            "wert": 0.096,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,096",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 2,
           "beschreibung": "Wärmedurchlasswiderstand GKF",
           "ausdruck": "d_GKF/lambda_GKF",
           "formel_latex": "R_{\\mathrm{GKF}} = \\frac{d_{\\mathrm{GKF}}}{\\lambda_{\\mathrm{GKF}}}",
@@ -6678,7 +6837,7 @@
           }
         },
         {
-          "nr": 2,
+          "nr": 3,
           "beschreibung": "Wärmedurchlasswiderstand OSB/3",
           "ausdruck": "d_OSB/lambda_OSB",
           "formel_latex": "R_{\\mathrm{OSB}} = \\frac{d_{\\mathrm{OSB}}}{\\lambda_{\\mathrm{OSB}}}",
@@ -6706,7 +6865,7 @@
           }
         },
         {
-          "nr": 3,
+          "nr": 4,
           "beschreibung": "Wärmedurchlasswiderstand Holzfaserdämmplatte",
           "ausdruck": "d_HFD/lambda_HFD",
           "formel_latex": "R_{\\mathrm{HFD}} = \\frac{d_{\\mathrm{HFD}}}{\\lambda_{\\mathrm{HFD}}}",
@@ -6734,7 +6893,7 @@
           }
         },
         {
-          "nr": 4,
+          "nr": 5,
           "beschreibung": "Gefachschicht, Abschnitt a (Holz)",
           "ausdruck": "d_G/lambda_H",
           "formel_latex": "R_{\\mathrm{Ga}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{H}}}",
@@ -6762,7 +6921,7 @@
           }
         },
         {
-          "nr": 5,
+          "nr": 6,
           "beschreibung": "Gefachschicht, Abschnitt b (Dämmung)",
           "ausdruck": "d_G/lambda_D",
           "formel_latex": "R_{\\mathrm{Gb}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{D}}}",
@@ -6790,7 +6949,7 @@
           }
         },
         {
-          "nr": 6,
+          "nr": 7,
           "beschreibung": "Gesamtwiderstand Abschnitt a (innen bis außen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},a} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Ga}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -6822,7 +6981,7 @@
           }
         },
         {
-          "nr": 7,
+          "nr": 8,
           "beschreibung": "Gesamtwiderstand Abschnitt b",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},b} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Gb}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -6854,11 +7013,11 @@
           }
         },
         {
-          "nr": 8,
+          "nr": 9,
           "beschreibung": "Flächenanteil Abschnitt b",
           "ausdruck": "1 - f_a",
           "formel_latex": "f_{\\mathrm{b}} = 1 - f_{\\mathrm{a}}",
-          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}096 = 0{,}90400",
+          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}096000 = 0{,}90400",
           "eingaben": [
             "f_a"
           ],
@@ -6881,11 +7040,11 @@
           }
         },
         {
-          "nr": 9,
+          "nr": 10,
           "beschreibung": "oberer Grenzwert R'_T (parallele Wärmeströme)",
           "ausdruck": "1/(f_a/R_Ta + f_b/R_Tb)",
           "formel_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{f_{\\mathrm{a}}}{R_{\\mathrm{T},a}} + \\frac{f_{\\mathrm{b}}}{R_{\\mathrm{T},b}}}",
-          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}096}{3{,}2692\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}90400}{6{,}9939\\ \\mathrm{m^{2}\\cdot K/W}}} = 6{,}3043\\ \\mathrm{m^{2}\\cdot K/W}",
+          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}096000}{3{,}2692\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}90400}{6{,}9939\\ \\mathrm{m^{2}\\cdot K/W}}} = 6{,}3043\\ \\mathrm{m^{2}\\cdot K/W}",
           "eingaben": [
             "f_a",
             "R_Ta",
@@ -6911,11 +7070,11 @@
           }
         },
         {
-          "nr": 10,
+          "nr": 11,
           "beschreibung": "äquivalente Wärmeleitfähigkeit der Gefachschicht",
           "ausdruck": "f_a*lambda_H + f_b*lambda_D",
           "formel_latex": "\\lambda'' = f_{\\mathrm{a}} \\cdot \\lambda_{\\mathrm{H}} + f_{\\mathrm{b}} \\cdot \\lambda_{\\mathrm{D}}",
-          "einsetzen_latex": "\\lambda'' = 0{,}096 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}90400 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}046832\\ \\mathrm{W/(m\\cdot K)}",
+          "einsetzen_latex": "\\lambda'' = 0{,}096000 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}90400 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}046832\\ \\mathrm{W/(m\\cdot K)}",
           "eingaben": [
             "f_a",
             "lambda_H",
@@ -6941,7 +7100,7 @@
           }
         },
         {
-          "nr": 11,
+          "nr": 12,
           "beschreibung": "Wärmedurchlasswiderstand Gefach mit λ''",
           "ausdruck": "d_G/lambda_eq",
           "formel_latex": "R''_{\\mathrm{G}} = \\frac{d_{\\mathrm{G}}}{\\lambda''}",
@@ -6969,7 +7128,7 @@
           }
         },
         {
-          "nr": 12,
+          "nr": 13,
           "beschreibung": "unterer Grenzwert R''_T (isotherme Ebenen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se",
           "formel_latex": "R''_{\\mathrm{T}} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R''_{\\mathrm{G}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -7001,7 +7160,7 @@
           }
         },
         {
-          "nr": 13,
+          "nr": 14,
           "beschreibung": "Wärmedurchgangswiderstand als arithmetisches Mittel",
           "ausdruck": "(R_o + R_u)/2",
           "formel_latex": "R_{\\mathrm{T}} = \\frac{R'_{\\mathrm{T}} + R''_{\\mathrm{T}}}{2}",
@@ -7035,7 +7194,7 @@
           }
         },
         {
-          "nr": 14,
+          "nr": 15,
           "beschreibung": "maximaler relativer Fehler",
           "ausdruck": "(R_o - R_u)/(2*R_T)",
           "formel_latex": "e_{\\mathrm{rel}} = \\frac{R'_{\\mathrm{T}} - R''_{\\mathrm{T}}}{2 \\cdot R_{\\mathrm{T}}}",
@@ -7070,7 +7229,7 @@
           }
         },
         {
-          "nr": 15,
+          "nr": 16,
           "beschreibung": "Wärmedurchgangskoeffizient",
           "ausdruck": "1/R_T",
           "formel_latex": "U = \\frac{1}{R_{\\mathrm{T}}}",
@@ -7152,8 +7311,14 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,2 W/(m²·K)",
-        "rundung": null,
+        "anzeige": "0,20 W/(m²·K)",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "halb_auf",
+          "quelle": "Angabe wie in HRB-01",
+          "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+        },
         "dimension": "[mass] / [temperature] / [time] ** 3"
       },
       "vergleich": "≤",
@@ -7355,7 +7520,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "1fe01d95196368771a6225aa1f0e572731938709cb679631a602f42398b4c647",
+        "wert": "d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -7550,19 +7715,34 @@
           "dimension": "[mass] * [length] / [time] ** 3 / [temperature]"
         },
         {
-          "name": "Holzanteil der Gefachschicht",
-          "symbol": "f_a",
-          "latex": "f_{\\mathrm{a}}",
-          "wert": 0.096,
-          "einheit": "1",
-          "quelle": "Raster: Ständerbreite/Achsmaß = 60/625",
+          "name": "Ständerbreite",
+          "symbol": "b_St",
+          "latex": "b_{\\mathrm{St}}",
+          "wert": 60,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/breite",
           "art": "eingabe",
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,096",
+          "anzeige": "60 mm",
           "rundung": null,
-          "dimension": "dimensionless"
+          "dimension": "[length]"
+        },
+        {
+          "name": "Achsmaß der Ständer",
+          "symbol": "e_St",
+          "latex": "e_{\\mathrm{St}}",
+          "wert": 625,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/raster",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "625 mm",
+          "rundung": null,
+          "dimension": "[length]"
         },
         {
           "name": "Höchstwert des U-Werts",
@@ -7575,14 +7755,48 @@
           "unsicherheit": null,
           "verteilung": "normal",
           "bezug": null,
-          "anzeige": "0,2 W/(m²·K)",
-          "rundung": null,
+          "anzeige": "0,20 W/(m²·K)",
+          "rundung": {
+            "art": "dezimalstellen",
+            "stellen": 2,
+            "verfahren": "halb_auf",
+            "quelle": "Angabe wie in HRB-01",
+            "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+          },
           "dimension": "[mass] / [temperature] / [time] ** 3"
         }
       ],
       "schritte": [
         {
           "nr": 1,
+          "beschreibung": "Holzanteil aus dem Raster",
+          "ausdruck": "b_St/e_St",
+          "formel_latex": "f_{\\mathrm{a}} = \\frac{b_{\\mathrm{St}}}{e_{\\mathrm{St}}}",
+          "einsetzen_latex": "f_{\\mathrm{a}} = \\frac{60\\ \\mathrm{mm}}{625\\ \\mathrm{mm}} = 0{,}096000",
+          "eingaben": [
+            "b_St",
+            "e_St"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Flächenanteil Abschnitt a",
+          "ergebnis": {
+            "name": "Holzanteil",
+            "symbol": "f_a",
+            "latex": "f_{\\mathrm{a}}",
+            "wert": 0.096,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,096",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 2,
           "beschreibung": "Wärmedurchlasswiderstand GKF",
           "ausdruck": "d_GKF/lambda_GKF",
           "formel_latex": "R_{\\mathrm{GKF}} = \\frac{d_{\\mathrm{GKF}}}{\\lambda_{\\mathrm{GKF}}}",
@@ -7610,7 +7824,7 @@
           }
         },
         {
-          "nr": 2,
+          "nr": 3,
           "beschreibung": "Wärmedurchlasswiderstand OSB/3",
           "ausdruck": "d_OSB/lambda_OSB",
           "formel_latex": "R_{\\mathrm{OSB}} = \\frac{d_{\\mathrm{OSB}}}{\\lambda_{\\mathrm{OSB}}}",
@@ -7638,7 +7852,7 @@
           }
         },
         {
-          "nr": 3,
+          "nr": 4,
           "beschreibung": "Wärmedurchlasswiderstand Holzfaserdämmplatte",
           "ausdruck": "d_HFD/lambda_HFD",
           "formel_latex": "R_{\\mathrm{HFD}} = \\frac{d_{\\mathrm{HFD}}}{\\lambda_{\\mathrm{HFD}}}",
@@ -7666,7 +7880,7 @@
           }
         },
         {
-          "nr": 4,
+          "nr": 5,
           "beschreibung": "Gefachschicht, Abschnitt a (Holz)",
           "ausdruck": "d_G/lambda_H",
           "formel_latex": "R_{\\mathrm{Ga}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{H}}}",
@@ -7694,7 +7908,7 @@
           }
         },
         {
-          "nr": 5,
+          "nr": 6,
           "beschreibung": "Gefachschicht, Abschnitt b (Dämmung)",
           "ausdruck": "d_G/lambda_D",
           "formel_latex": "R_{\\mathrm{Gb}} = \\frac{d_{\\mathrm{G}}}{\\lambda_{\\mathrm{D}}}",
@@ -7722,7 +7936,7 @@
           }
         },
         {
-          "nr": 6,
+          "nr": 7,
           "beschreibung": "Gesamtwiderstand Abschnitt a (innen bis außen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},a} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Ga}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -7754,7 +7968,7 @@
           }
         },
         {
-          "nr": 7,
+          "nr": 8,
           "beschreibung": "Gesamtwiderstand Abschnitt b",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se",
           "formel_latex": "R_{\\mathrm{T},b} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R_{\\mathrm{Gb}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -7786,11 +8000,11 @@
           }
         },
         {
-          "nr": 8,
+          "nr": 9,
           "beschreibung": "Flächenanteil Abschnitt b",
           "ausdruck": "1 - f_a",
           "formel_latex": "f_{\\mathrm{b}} = 1 - f_{\\mathrm{a}}",
-          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}096 = 0{,}90400",
+          "einsetzen_latex": "f_{\\mathrm{b}} = 1 - 0{,}096000 = 0{,}90400",
           "eingaben": [
             "f_a"
           ],
@@ -7813,11 +8027,11 @@
           }
         },
         {
-          "nr": 9,
+          "nr": 10,
           "beschreibung": "oberer Grenzwert R'_T (parallele Wärmeströme)",
           "ausdruck": "1/(f_a/R_Ta + f_b/R_Tb)",
           "formel_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{f_{\\mathrm{a}}}{R_{\\mathrm{T},a}} + \\frac{f_{\\mathrm{b}}}{R_{\\mathrm{T},b}}}",
-          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}096}{3{,}3592\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}90400}{7{,}0839\\ \\mathrm{m^{2}\\cdot K/W}}} = 6{,}4024\\ \\mathrm{m^{2}\\cdot K/W}",
+          "einsetzen_latex": "R'_{\\mathrm{T}} = \\frac{1}{\\frac{0{,}096000}{3{,}3592\\ \\mathrm{m^{2}\\cdot K/W}} + \\frac{0{,}90400}{7{,}0839\\ \\mathrm{m^{2}\\cdot K/W}}} = 6{,}4024\\ \\mathrm{m^{2}\\cdot K/W}",
           "eingaben": [
             "f_a",
             "R_Ta",
@@ -7843,11 +8057,11 @@
           }
         },
         {
-          "nr": 10,
+          "nr": 11,
           "beschreibung": "äquivalente Wärmeleitfähigkeit der Gefachschicht",
           "ausdruck": "f_a*lambda_H + f_b*lambda_D",
           "formel_latex": "\\lambda'' = f_{\\mathrm{a}} \\cdot \\lambda_{\\mathrm{H}} + f_{\\mathrm{b}} \\cdot \\lambda_{\\mathrm{D}}",
-          "einsetzen_latex": "\\lambda'' = 0{,}096 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}90400 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}046832\\ \\mathrm{W/(m\\cdot K)}",
+          "einsetzen_latex": "\\lambda'' = 0{,}096000 \\cdot 0{,}13\\ \\mathrm{W/(m\\cdot K)} + 0{,}90400 \\cdot 0{,}038\\ \\mathrm{W/(m\\cdot K)} = 0{,}046832\\ \\mathrm{W/(m\\cdot K)}",
           "eingaben": [
             "f_a",
             "lambda_H",
@@ -7873,7 +8087,7 @@
           }
         },
         {
-          "nr": 11,
+          "nr": 12,
           "beschreibung": "Wärmedurchlasswiderstand Gefach mit λ''",
           "ausdruck": "d_G/lambda_eq",
           "formel_latex": "R''_{\\mathrm{G}} = \\frac{d_{\\mathrm{G}}}{\\lambda''}",
@@ -7901,7 +8115,7 @@
           }
         },
         {
-          "nr": 12,
+          "nr": 13,
           "beschreibung": "unterer Grenzwert R''_T (isotherme Ebenen)",
           "ausdruck": "R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se",
           "formel_latex": "R''_{\\mathrm{T}} = R_{\\mathrm{si}} + R_{\\mathrm{GKF}} + R_{\\mathrm{OSB}} + R''_{\\mathrm{G}} + R_{\\mathrm{HFD}} + R_{\\mathrm{se}}",
@@ -7933,7 +8147,7 @@
           }
         },
         {
-          "nr": 13,
+          "nr": 14,
           "beschreibung": "Wärmedurchgangswiderstand als arithmetisches Mittel",
           "ausdruck": "(R_o + R_u)/2",
           "formel_latex": "R_{\\mathrm{T}} = \\frac{R'_{\\mathrm{T}} + R''_{\\mathrm{T}}}{2}",
@@ -7967,7 +8181,7 @@
           }
         },
         {
-          "nr": 14,
+          "nr": 15,
           "beschreibung": "maximaler relativer Fehler",
           "ausdruck": "(R_o - R_u)/(2*R_T)",
           "formel_latex": "e_{\\mathrm{rel}} = \\frac{R'_{\\mathrm{T}} - R''_{\\mathrm{T}}}{2 \\cdot R_{\\mathrm{T}}}",
@@ -8002,7 +8216,7 @@
           }
         },
         {
-          "nr": 15,
+          "nr": 16,
           "beschreibung": "Wärmedurchgangskoeffizient",
           "ausdruck": "1/R_T",
           "formel_latex": "U = \\frac{1}{R_{\\mathrm{T}}}",
@@ -8084,8 +8298,14 @@
         "unsicherheit": null,
         "verteilung": "normal",
         "bezug": null,
-        "anzeige": "0,2 W/(m²·K)",
-        "rundung": null,
+        "anzeige": "0,20 W/(m²·K)",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 2,
+          "verfahren": "halb_auf",
+          "quelle": "Angabe wie in HRB-01",
+          "text": "2 Dezimalstellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Angabe wie in HRB-01"
+        },
         "dimension": "[mass] / [temperature] / [time] ** 3"
       },
       "vergleich": "≤",
@@ -8287,7 +8507,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "514b86b947808ab3b2bc13be6175f17e55cb5d84c01dd75d759319c4a9280160",
+        "wert": "15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -8834,7 +9054,7 @@
           "ist": "A_a_W",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -8849,7 +9069,7 @@
           "ist": "T_v_W",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -8864,7 +9084,7 @@
           "ist": "A_a_O",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -8879,7 +9099,7 @@
           "ist": "T_v_O",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -8894,7 +9114,7 @@
           "ist": "A_a_S",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -8909,7 +9129,7 @@
           "ist": "T_v_S",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
@@ -8924,7 +9144,7 @@
           "ist": "A_a_N",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -8939,7 +9159,7 @@
           "ist": "T_v_N",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
@@ -9066,7 +9286,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "2891ccaff4379881631e8f5f64d36fd1eb087d9211f40856f6ebe10507e12c56",
+        "wert": "0676e9b04fab03b8c0b5acf3cf846624738cd66c6998281ff6318090aa58a3fd",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -9613,7 +9833,7 @@
           "ist": "A_a_W",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 15.2,
           "grenz_wert": 0.0,
@@ -9628,7 +9848,7 @@
           "ist": "T_v_W",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 2.0,
           "grenz_wert": 3.2666666666666666,
@@ -9643,7 +9863,7 @@
           "ist": "A_a_O",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -9658,7 +9878,7 @@
           "ist": "T_v_O",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 8.0,
           "grenz_wert": 3.2666666666666666,
@@ -9673,7 +9893,7 @@
           "ist": "A_a_S",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -9688,7 +9908,7 @@
           "ist": "T_v_S",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 13.0,
           "grenz_wert": 3.2666666666666666,
@@ -9703,7 +9923,7 @@
           "ist": "A_a_N",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -9718,7 +9938,7 @@
           "ist": "T_v_N",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 9.0,
           "grenz_wert": 3.2666666666666666,
@@ -9845,7 +10065,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "97bf3dbd829a64b081d9c1cbb3208043cb14af0e2dd8f42904574c654a31d0e9",
+        "wert": "833f7f6c74c3cf0985677c59306e212739de06c9f67f557c5a6ef8c459eff957",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -10392,7 +10612,7 @@
           "ist": "A_a_W",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -10407,7 +10627,7 @@
           "ist": "T_v_W",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -10422,7 +10642,7 @@
           "ist": "A_a_O",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -10437,7 +10657,7 @@
           "ist": "T_v_O",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -10452,7 +10672,7 @@
           "ist": "A_a_S",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -10467,7 +10687,7 @@
           "ist": "T_v_S",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -10482,7 +10702,7 @@
           "ist": "A_a_N",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -10497,7 +10717,7 @@
           "ist": "T_v_N",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 17.0,
           "grenz_wert": 3.2666666666666666,
@@ -10624,7 +10844,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "09720c9ae0a2bc79cd9fede144570b1ef6ec909bf14d26c4ab2592689ea46bed",
+        "wert": "c39ad8abf9142906532b856ac0879f409da4205932b8a834a4116ec05a287670",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -11171,7 +11391,7 @@
           "ist": "A_a_W",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -11186,7 +11406,7 @@
           "ist": "T_v_W",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -11201,7 +11421,7 @@
           "ist": "A_a_O",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -11216,7 +11436,7 @@
           "ist": "T_v_O",
           "vergleich": "≥",
           "grenzwert": "T_T",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 5.0,
           "grenz_wert": 3.2666666666666666,
@@ -11231,7 +11451,7 @@
           "ist": "A_a_S",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -11246,7 +11466,7 @@
           "ist": "T_v_S",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 13.0,
           "grenz_wert": 4.6000000000000005,
@@ -11261,7 +11481,7 @@
           "ist": "A_a_N",
           "vergleich": "≤",
           "grenzwert": "A_zul",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 2",
+          "norm_verweis": "BayBO Art. 6 Abs. 2 [U]",
           "toleranz": 1e-09,
           "ist_wert": 0.0,
           "grenz_wert": 0.0,
@@ -11276,7 +11496,7 @@
           "ist": "T_v_N",
           "vergleich": "≥",
           "grenzwert": "T_G",
-          "norm_verweis": "BayBO Art. 6 (Fassung ab 01.05.2026) nach Recherche 02; Primärtext nicht geprüft, Abs. 5",
+          "norm_verweis": "BayBO Art. 6 Abs. 5 [U]",
           "toleranz": 0.0,
           "ist_wert": 9.0,
           "grenz_wert": 4.6000000000000005,
@@ -11403,7 +11623,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "3cf9eafbbb0ac5323b12e13e03c74ec5f5190ceaa8a6ab7eed89586f5523dc45",
+        "wert": "e31acb476e7d2515ac33ffab98f9068cc2ae820e791e47f0f0f94d5aa10f017e",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     },
@@ -11604,7 +11824,7 @@
           "beschreibung": "kleinste Steigungszahl",
           "ausdruck": "ceil(h_G/s_max)",
           "formel_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{max}}} \\right\\rceil",
-          "einsetzen_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{2900\\ \\mathrm{mm}}{200\\ \\mathrm{mm}} \\right\\rceil = 15{,}000",
+          "einsetzen_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{2900\\ \\mathrm{mm}}{200\\ \\mathrm{mm}} \\right\\rceil = 15",
           "eingaben": [
             "h_G",
             "s_max"
@@ -11615,7 +11835,7 @@
             "name": "n min",
             "symbol": "n_min",
             "latex": "n_{\\mathrm{min}}",
-            "wert": 15.0,
+            "wert": 15,
             "einheit": "1",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -11632,7 +11852,7 @@
           "beschreibung": "größte Steigungszahl",
           "ausdruck": "floor(h_G/s_min)",
           "formel_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{min}}} \\right\\rfloor",
-          "einsetzen_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{2900\\ \\mathrm{mm}}{140\\ \\mathrm{mm}} \\right\\rfloor = 20{,}000",
+          "einsetzen_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{2900\\ \\mathrm{mm}}{140\\ \\mathrm{mm}} \\right\\rfloor = 20",
           "eingaben": [
             "h_G",
             "s_min"
@@ -11643,7 +11863,7 @@
             "name": "n max",
             "symbol": "n_max",
             "latex": "n_{\\mathrm{max}}",
-            "wert": 20.0,
+            "wert": 20,
             "einheit": "1",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -11803,7 +12023,7 @@
           "beschreibung": "Lauflänge (n − 1 Auftritte)",
           "ausdruck": "(n - 1)*a",
           "formel_latex": "l_{\\mathrm{L}} = \\left(n - 1\\right) \\cdot a",
-          "einsetzen_latex": "l_{\\mathrm{L}} = \\left(17 - 1\\right) \\cdot 290\\ \\mathrm{mm} = 4640{,}0\\ \\mathrm{mm}",
+          "einsetzen_latex": "l_{\\mathrm{L}} = \\left(17 - 1\\right) \\cdot 290\\ \\mathrm{mm} = 4640\\ \\mathrm{mm}",
           "eingaben": [
             "a",
             "n"
@@ -11814,7 +12034,7 @@
             "name": "Lauflänge",
             "symbol": "l_L",
             "latex": "l_{\\mathrm{L}}",
-            "wert": 4640.0,
+            "wert": 4640,
             "einheit": "mm",
             "quelle": "",
             "art": "zwischenergebnis",
@@ -12041,8 +12261,8 @@
           "rechenkern": "b5_treppe_din18065.loese → lauflaenge_mm",
           "wert_rechenkern": 4640,
           "toleranz_abs": 1e-09,
-          "wert_nachweis": 4640.0,
-          "abweichung": 0.0,
+          "wert_nachweis": 4640,
+          "abweichung": 0,
           "uebereinstimmung": true
         },
         {
@@ -12100,7 +12320,7 @@
       "zeitstempel": null,
       "hash": {
         "algorithmus": "SHA-256",
-        "wert": "17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301",
+        "wert": "0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb",
         "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
       }
     }
@@ -12123,7 +12343,7 @@
   "zeitstempel": null,
   "hash": {
     "algorithmus": "SHA-256",
-    "wert": "2a87d877a54d5d2ae6ad77f60d27844353e2b84f3006cc25004194abcfd0474c",
+    "wert": "6942614b079912cd9099e9b9ed1f3e8c76edf752a3eec1745f0d2a34226e501f",
     "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
   }
 }

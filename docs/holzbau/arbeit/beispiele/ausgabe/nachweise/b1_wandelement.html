@@ -49,12 +49,12 @@ figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
 <tr><th>Verfasser</th><td>Entwurfsgenerator (Beispiel), ohne Prüfvermerk</td></tr>
 <tr><th>Regelwerk-Profile</th><td><code>HRB-Mengen</code> Version <code>0.1.0</code></td></tr>
 <tr><th>Regelquellen</th><td>Projektregel Mengenermittlung (eigene Festlegung), Fassung 2026-09 [V]</td></tr>
-<tr><th>Heft-Hash (SHA-256)</th><td><code>caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
+<tr><th>Heft-Hash (SHA-256)</th><td><code>45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
 <tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
 </section>
 <h2>Inhaltsverzeichnis</h2>
 <table><thead><tr><th>Nr.</th><th>ID</th><th>Titel</th><th>Status</th><th>η</th><th>Hash</th></tr></thead><tbody>
-<tr><td class="z">1</td><td><a href="#n-n-b1-01">N-B1-01</a></td><td>Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,001</td><td><code>dd536b84265a…</code></td></tr>
+<tr><td class="z">1</td><td><a href="#n-n-b1-01">N-B1-01</a></td><td>Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,001</td><td><code>3984bfb486b3…</code></td></tr>
 </tbody></table>
 <section class="nachweis" id="n-n-b1-01">
 <h2>N-B1-01 – Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)</h2>
@@ -90,7 +90,7 @@ figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
 <tr class="annahme"><td>Rohdichte Holzfaser-Dämmmatte (flexibel)</td><td>$\rho_{\mathrm{holzfaser},\mathrm{flex}}$</td><td class="z">50 kg/m³</td><td class="z">7,5 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen</td></tr>
 <tr class="annahme"><td>Rohdichte Holzfaserdämmplatte (Putzträger)</td><td>$\rho_{\mathrm{holzfaserplatte}}$</td><td class="z">180 kg/m³</td><td class="z">18 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</td></tr>
 <tr class="annahme"><td>Rohdichte Stahl</td><td>$\rho_{\mathrm{St}}$</td><td class="z">7850 kg/m³</td><td class="z">–</td><td>annahme</td><td>daten/wandelement.json /materialien/stahl_verzinkt/rho</td></tr>
-<tr><td>zulässige Mengenabweichung Modell/IFC</td><td>$\mathrm{dV}_{\mathrm{zul}}$</td><td class="z">0,00000001 m³</td><td class="z">–</td><td>grenzwert</td><td>Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³</td></tr>
+<tr><td>zulässige Mengenabweichung Modell/IFC</td><td>$\mathrm{dV}_{\mathrm{zul}}$</td><td class="z">1 · 10⁻⁸ m³</td><td class="z">–</td><td>grenzwert</td><td>Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³</td></tr>
 </tbody></table>
 <h3>Annahmen</h3>
 <p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.</p>
@@ -226,9 +226,9 @@ figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
 </div>
 <h3>Nachweis</h3>
 <table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
-<tr><td>Holzvolumen: Nachweis = IFC</td><td class="z">0,00000000000000011102 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
-<tr><td>Beplankung: Nachweis = IFC</td><td class="z">0,00000000000000022204 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
-<tr><td>Dämmung: Nachweis = IFC</td><td class="z">0,00000000000000044409 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+<tr><td>Holzvolumen: Nachweis = IFC</td><td class="z">1,1102 · 10⁻¹⁶ m³</td><td>≤</td><td class="z">1 · 10⁻⁸ m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+<tr><td>Beplankung: Nachweis = IFC</td><td class="z">2,2204 · 10⁻¹⁶ m³</td><td>≤</td><td class="z">1 · 10⁻⁸ m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+<tr><td>Dämmung: Nachweis = IFC</td><td class="z">4,4409 · 10⁻¹⁶ m³</td><td>≤</td><td class="z">1 · 10⁻⁸ m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
 </tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
 <p class="leise">Rundung des Ergebnisses: 3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen.</p>
 <h3>Messunsicherheit</h3>
@@ -716,7 +716,7 @@ L 0 -3
 </svg><figcaption>Abbildung N-B1-01/massen: Massen je Bestandteil<br><span class="leise">SHA-256 <code>078611872ca4a219668c0265791217ea8bd74826ba6977ad11fb194c44465ab7</code></span></figcaption></figure>
 <h3>Rückverfolgbarkeit</h3>
 <table>
-<tr><th>Hash (SHA-256)</th><td><code>dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Hash (SHA-256)</th><td><code>3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
 <tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
 <tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
 </section>

@@ -5,7 +5,7 @@
     "erfüllt": 1,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04"
+    "hash": "45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4"
   },
   "b2_ids_bestanden": {
     "status": "erfüllt",
@@ -13,7 +13,7 @@
     "erfüllt": 11,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "bbfb50666bea1cd3e668f497052c950e2b5c07e2f4ec299cbe3423fc964a7571"
+    "hash": "ea33ffab6c95130a3e8552f006cee27f6b06857cd52b8e11e39ad42a7fe65498"
   },
   "b2_ids_fehlerhaft": {
     "status": "nicht erfüllt",
@@ -21,7 +21,7 @@
     "erfüllt": 5,
     "nicht erfüllt": 6,
     "Hinweis": 0,
-    "hash": "cef470449333ade7edcdad8f730b6ba9b0cf3bea2e6747851b1505164710ed53"
+    "hash": "c8f247dd98509cee6f17049a14ceacbea4845eec713f8c747269936f9bf62f3b"
   },
   "b3_uwert": {
     "status": "erfüllt",
@@ -29,7 +29,7 @@
     "erfüllt": 4,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "f0466a8453aa6934c0a2bc64ac28fedc9809f8e38200605eb2797b462744270e"
+    "hash": "f39a75819d33ab1d178a801f521a1ffc528e3991d8a2be4a7f0d287837cd0087"
   },
   "b4_abstandsflaechen": {
     "status": "nicht erfüllt",
@@ -37,7 +37,7 @@
     "erfüllt": 3,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "bc43ba96d685511ed37f9d3f82eabbba6e4b63c0df1c94e4dee38ddd577353b8"
+    "hash": "1ddf2abb02422c525ac59a70c220cab593c2ff74a5fd3850004b9d36c9f2efd3"
   },
   "b5_treppe": {
     "status": "erfüllt",
@@ -45,7 +45,7 @@
     "erfüllt": 1,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "806af5d80f80d0a0ae3a5abd425be681b5d3d73a4f053363419d9693e450ab31"
+    "hash": "52ad671a145cfa54757588382b870f2b8295759eee09f0690e56577b8098f5c1"
   },
   "gesamt": {
     "status": "nicht erfüllt",
@@ -53,6 +53,6 @@
     "erfüllt": 20,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "2a87d877a54d5d2ae6ad77f60d27844353e2b84f3006cc25004194abcfd0474c"
+    "hash": "6942614b079912cd9099e9b9ed1f3e8c76edf752a3eec1745f0d2a34226e501f"
   }
 }

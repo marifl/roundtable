@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (4 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `f0466a8453aa6934c0a2bc64ac28fedc9809f8e38200605eb2797b462744270e` |
+| Heft-Hash (SHA-256) | `f39a75819d33ab1d178a801f521a1ffc528e3991d8a2be4a7f0d287837cd0087` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,10 +28,10 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `b310bcd3b6b3` |
-| 2 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `5b603b193fcc` |
-| 3 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `1fe01d951963` |
-| 4 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `514b86b94780` |
+| 1 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `46b1a54c5c98` |
+| 2 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `8a2c26bee9cd` |
+| 3 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `d83c1467a650` |
+| 4 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `15589a73043a` |
 
 <a id="n-n-b3-geometrie-verputzt"></a>
 
@@ -70,8 +70,9 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 | Bemessungswert λ Holz (KVH C24) | $\lambda_{\mathrm{H}}$ | 0,13 W/(m·K) | 0,0039 W/(m·K) | eingabe | daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert) |
 | Bemessungswert λ Gefachdämmung | $\lambda_{\mathrm{D}}$ | 0,038 W/(m·K) | 0,00114 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
 | Bemessungswert λ Holzfaserdämmplatte | $\lambda_{\mathrm{HFD}}$ | 0,043 W/(m·K) | 0,00129 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
-| Holzanteil der Gefachschicht | $f_{\mathrm{a}}$ | 0,22481208914962156 | – | eingabe | Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm² |
-| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,2 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
+| Ansichtsfläche aller Hölzer | $A_{\mathrm{H}}$ | 2 575 200 mm² | – | eingabe | b1_wandelement.rahmenlayout: Summe der Holzrechtecke |
+| Nettowandfläche (ohne Öffnungen) | $A_{\mathrm{n}}$ | 11 454 900 mm² | – | eingabe | b1_wandelement.rahmenlayout: Wandfläche minus Öffnungen |
+| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,20 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
 
 ### Annahmen
 
@@ -84,7 +85,19 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 
 Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).
 
-**Schritt 1: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
+**Schritt 1: Holzanteil aus der Elementgeometrie** (Flächenanteil Abschnitt a)
+
+$$
+f_{\mathrm{a}} = \frac{A_{\mathrm{H}}}{A_{\mathrm{n}}}
+$$
+
+$$
+f_{\mathrm{a}} = \frac{2\,575\,200\ \mathrm{mm^{2}}}{11\,454\,900\ \mathrm{mm^{2}}} = 0{,}22481
+$$
+
+Ausdruck (maschinenlesbar): `A_H/A_n`
+
+**Schritt 2: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}}
@@ -96,7 +109,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_GKF/lambda_GKF`
 
-**Schritt 2: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
+**Schritt 3: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}}
@@ -108,7 +121,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_OSB/lambda_OSB`
 
-**Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
+**Schritt 4: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}}
@@ -120,7 +133,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_HFD/lambda_HFD`
 
-**Schritt 4: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
+**Schritt 5: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
 
 $$
 R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}}
@@ -132,7 +145,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_H`
 
-**Schritt 5: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
+**Schritt 6: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
 
 $$
 R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}}
@@ -144,7 +157,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_D`
 
-**Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
+**Schritt 7: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
 
 $$
 R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -156,7 +169,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se`
 
-**Schritt 7: Gesamtwiderstand Abschnitt b** (6.7.2)
+**Schritt 8: Gesamtwiderstand Abschnitt b** (6.7.2)
 
 $$
 R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -168,43 +181,43 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se`
 
-**Schritt 8: Flächenanteil Abschnitt b**
+**Schritt 9: Flächenanteil Abschnitt b**
 
 $$
 f_{\mathrm{b}} = 1 - f_{\mathrm{a}}
 $$
 
 $$
-f_{\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519
+f_{\mathrm{b}} = 1 - 0{,}22481 = 0{,}77519
 $$
 
 Ausdruck (maschinenlesbar): `1 - f_a`
 
-**Schritt 9: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
+**Schritt 10: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
 
 $$
 R'_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}}
 $$
 
 $$
-R'_{\mathrm{T}} = \frac{1}{\frac{0{,}22481208914962156}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 5{,}5678\ \mathrm{m^{2}\cdot K/W}
+R'_{\mathrm{T}} = \frac{1}{\frac{0{,}22481}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 5{,}5678\ \mathrm{m^{2}\cdot K/W}
 $$
 
 Ausdruck (maschinenlesbar): `1/(f_a/R_Ta + f_b/R_Tb)`
 
-**Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
+**Schritt 11: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
 
 $$
 \lambda'' = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}}
 $$
 
 $$
-\lambda'' = 0{,}22481208914962156 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)}
+\lambda'' = 0{,}22481 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)}
 $$
 
 Ausdruck (maschinenlesbar): `f_a*lambda_H + f_b*lambda_D`
 
-**Schritt 11: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
+**Schritt 12: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
 
 $$
 R''_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda''}
@@ -216,7 +229,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_eq`
 
-**Schritt 12: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
+**Schritt 13: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
 
 $$
 R''_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R''_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -228,7 +241,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se`
 
-**Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
+**Schritt 14: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
 
 $$
 R_{\mathrm{T}} = \frac{R'_{\mathrm{T}} + R''_{\mathrm{T}}}{2}
@@ -240,7 +253,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o + R_u)/2`
 
-**Schritt 14: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
+**Schritt 15: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
 
 $$
 e_{\mathrm{rel}} = \frac{R'_{\mathrm{T}} - R''_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}}
@@ -252,7 +265,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o - R_u)/(2*R_T)`
 
-**Schritt 15: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
+**Schritt 16: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
 
 $$
 U = \frac{1}{R_{\mathrm{T}}}
@@ -268,7 +281,7 @@ Ausdruck (maschinenlesbar): `1/R_T`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| U ≤ U_max | 0,19 W/(m²·K) | ≤ | 0,2 W/(m²·K) | 0,934 | erfüllt | holzrahmenbau.ids HRB-01 |
+| U ≤ U_max | 0,19 W/(m²·K) | ≤ | 0,20 W/(m²·K) | 0,934 | erfüllt | holzrahmenbau.ids HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -327,7 +340,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `b310bcd3b6b3d52d1c8442a7dd98a39d25c2e3316cdebbe2234c0a7df2ed16e0`
+- Hash (SHA-256): `46b1a54c5c98f27ee4029c5ebdf124c1b682f70f88fc2bd5c5dab6bfa35c3bd1`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -370,8 +383,9 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 | Bemessungswert λ Holz (KVH C24) | $\lambda_{\mathrm{H}}$ | 0,13 W/(m·K) | 0,0039 W/(m·K) | eingabe | daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert) |
 | Bemessungswert λ Gefachdämmung | $\lambda_{\mathrm{D}}$ | 0,038 W/(m·K) | 0,00114 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
 | Bemessungswert λ Holzfaserdämmplatte | $\lambda_{\mathrm{HFD}}$ | 0,043 W/(m·K) | 0,00129 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
-| Holzanteil der Gefachschicht | $f_{\mathrm{a}}$ | 0,22481208914962156 | – | eingabe | Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm² |
-| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,2 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
+| Ansichtsfläche aller Hölzer | $A_{\mathrm{H}}$ | 2 575 200 mm² | – | eingabe | b1_wandelement.rahmenlayout: Summe der Holzrechtecke |
+| Nettowandfläche (ohne Öffnungen) | $A_{\mathrm{n}}$ | 11 454 900 mm² | – | eingabe | b1_wandelement.rahmenlayout: Wandfläche minus Öffnungen |
+| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,20 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
 
 ### Annahmen
 
@@ -384,7 +398,19 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 
 Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).
 
-**Schritt 1: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
+**Schritt 1: Holzanteil aus der Elementgeometrie** (Flächenanteil Abschnitt a)
+
+$$
+f_{\mathrm{a}} = \frac{A_{\mathrm{H}}}{A_{\mathrm{n}}}
+$$
+
+$$
+f_{\mathrm{a}} = \frac{2\,575\,200\ \mathrm{mm^{2}}}{11\,454\,900\ \mathrm{mm^{2}}} = 0{,}22481
+$$
+
+Ausdruck (maschinenlesbar): `A_H/A_n`
+
+**Schritt 2: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}}
@@ -396,7 +422,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_GKF/lambda_GKF`
 
-**Schritt 2: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
+**Schritt 3: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}}
@@ -408,7 +434,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_OSB/lambda_OSB`
 
-**Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
+**Schritt 4: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}}
@@ -420,7 +446,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_HFD/lambda_HFD`
 
-**Schritt 4: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
+**Schritt 5: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
 
 $$
 R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}}
@@ -432,7 +458,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_H`
 
-**Schritt 5: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
+**Schritt 6: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
 
 $$
 R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}}
@@ -444,7 +470,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_D`
 
-**Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
+**Schritt 7: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
 
 $$
 R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -456,7 +482,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se`
 
-**Schritt 7: Gesamtwiderstand Abschnitt b** (6.7.2)
+**Schritt 8: Gesamtwiderstand Abschnitt b** (6.7.2)
 
 $$
 R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -468,43 +494,43 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se`
 
-**Schritt 8: Flächenanteil Abschnitt b**
+**Schritt 9: Flächenanteil Abschnitt b**
 
 $$
 f_{\mathrm{b}} = 1 - f_{\mathrm{a}}
 $$
 
 $$
-f_{\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519
+f_{\mathrm{b}} = 1 - 0{,}22481 = 0{,}77519
 $$
 
 Ausdruck (maschinenlesbar): `1 - f_a`
 
-**Schritt 9: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
+**Schritt 10: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
 
 $$
 R'_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}}
 $$
 
 $$
-R'_{\mathrm{T}} = \frac{1}{\frac{0{,}22481208914962156}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 5{,}6704\ \mathrm{m^{2}\cdot K/W}
+R'_{\mathrm{T}} = \frac{1}{\frac{0{,}22481}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 5{,}6704\ \mathrm{m^{2}\cdot K/W}
 $$
 
 Ausdruck (maschinenlesbar): `1/(f_a/R_Ta + f_b/R_Tb)`
 
-**Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
+**Schritt 11: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
 
 $$
 \lambda'' = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}}
 $$
 
 $$
-\lambda'' = 0{,}22481208914962156 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)}
+\lambda'' = 0{,}22481 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)}
 $$
 
 Ausdruck (maschinenlesbar): `f_a*lambda_H + f_b*lambda_D`
 
-**Schritt 11: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
+**Schritt 12: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
 
 $$
 R''_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda''}
@@ -516,7 +542,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_eq`
 
-**Schritt 12: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
+**Schritt 13: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
 
 $$
 R''_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R''_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -528,7 +554,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se`
 
-**Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
+**Schritt 14: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
 
 $$
 R_{\mathrm{T}} = \frac{R'_{\mathrm{T}} + R''_{\mathrm{T}}}{2}
@@ -540,7 +566,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o + R_u)/2`
 
-**Schritt 14: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
+**Schritt 15: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
 
 $$
 e_{\mathrm{rel}} = \frac{R'_{\mathrm{T}} - R''_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}}
@@ -552,7 +578,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o - R_u)/(2*R_T)`
 
-**Schritt 15: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
+**Schritt 16: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
 
 $$
 U = \frac{1}{R_{\mathrm{T}}}
@@ -568,7 +594,7 @@ Ausdruck (maschinenlesbar): `1/R_T`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| U ≤ U_max | 0,18 W/(m²·K) | ≤ | 0,2 W/(m²·K) | 0,918 | erfüllt | holzrahmenbau.ids HRB-01 |
+| U ≤ U_max | 0,18 W/(m²·K) | ≤ | 0,20 W/(m²·K) | 0,918 | erfüllt | holzrahmenbau.ids HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -626,7 +652,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `5b603b193fcc3d3ff975d61261b895a7d47499f240155b6878bb8369e22abc40`
+- Hash (SHA-256): `8a2c26bee9cd9276c43f328a5a12e03e06932a9952445521a5593a5d43056cb3`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -669,8 +695,9 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 | Bemessungswert λ Holz (KVH C24) | $\lambda_{\mathrm{H}}$ | 0,13 W/(m·K) | 0,0039 W/(m·K) | eingabe | daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert) |
 | Bemessungswert λ Gefachdämmung | $\lambda_{\mathrm{D}}$ | 0,038 W/(m·K) | 0,00114 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
 | Bemessungswert λ Holzfaserdämmplatte | $\lambda_{\mathrm{HFD}}$ | 0,043 W/(m·K) | 0,00129 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
-| Holzanteil der Gefachschicht | $f_{\mathrm{a}}$ | 0,096 | – | eingabe | Raster: Ständerbreite/Achsmaß = 60/625 |
-| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,2 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
+| Ständerbreite | $b_{\mathrm{St}}$ | 60 mm | – | eingabe | daten/wandelement.json /wand/staender/breite |
+| Achsmaß der Ständer | $e_{\mathrm{St}}$ | 625 mm | – | eingabe | daten/wandelement.json /wand/staender/raster |
+| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,20 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
 
 ### Annahmen
 
@@ -683,7 +710,19 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 
 Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).
 
-**Schritt 1: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
+**Schritt 1: Holzanteil aus dem Raster** (Flächenanteil Abschnitt a)
+
+$$
+f_{\mathrm{a}} = \frac{b_{\mathrm{St}}}{e_{\mathrm{St}}}
+$$
+
+$$
+f_{\mathrm{a}} = \frac{60\ \mathrm{mm}}{625\ \mathrm{mm}} = 0{,}096000
+$$
+
+Ausdruck (maschinenlesbar): `b_St/e_St`
+
+**Schritt 2: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}}
@@ -695,7 +734,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_GKF/lambda_GKF`
 
-**Schritt 2: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
+**Schritt 3: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}}
@@ -707,7 +746,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_OSB/lambda_OSB`
 
-**Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
+**Schritt 4: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}}
@@ -719,7 +758,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_HFD/lambda_HFD`
 
-**Schritt 4: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
+**Schritt 5: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
 
 $$
 R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}}
@@ -731,7 +770,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_H`
 
-**Schritt 5: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
+**Schritt 6: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
 
 $$
 R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}}
@@ -743,7 +782,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_D`
 
-**Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
+**Schritt 7: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
 
 $$
 R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -755,7 +794,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se`
 
-**Schritt 7: Gesamtwiderstand Abschnitt b** (6.7.2)
+**Schritt 8: Gesamtwiderstand Abschnitt b** (6.7.2)
 
 $$
 R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -767,43 +806,43 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se`
 
-**Schritt 8: Flächenanteil Abschnitt b**
+**Schritt 9: Flächenanteil Abschnitt b**
 
 $$
 f_{\mathrm{b}} = 1 - f_{\mathrm{a}}
 $$
 
 $$
-f_{\mathrm{b}} = 1 - 0{,}096 = 0{,}90400
+f_{\mathrm{b}} = 1 - 0{,}096000 = 0{,}90400
 $$
 
 Ausdruck (maschinenlesbar): `1 - f_a`
 
-**Schritt 9: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
+**Schritt 10: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
 
 $$
 R'_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}}
 $$
 
 $$
-R'_{\mathrm{T}} = \frac{1}{\frac{0{,}096}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 6{,}3043\ \mathrm{m^{2}\cdot K/W}
+R'_{\mathrm{T}} = \frac{1}{\frac{0{,}096000}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 6{,}3043\ \mathrm{m^{2}\cdot K/W}
 $$
 
 Ausdruck (maschinenlesbar): `1/(f_a/R_Ta + f_b/R_Tb)`
 
-**Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
+**Schritt 11: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
 
 $$
 \lambda'' = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}}
 $$
 
 $$
-\lambda'' = 0{,}096 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)}
+\lambda'' = 0{,}096000 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)}
 $$
 
 Ausdruck (maschinenlesbar): `f_a*lambda_H + f_b*lambda_D`
 
-**Schritt 11: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
+**Schritt 12: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
 
 $$
 R''_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda''}
@@ -815,7 +854,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_eq`
 
-**Schritt 12: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
+**Schritt 13: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
 
 $$
 R''_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R''_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -827,7 +866,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se`
 
-**Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
+**Schritt 14: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
 
 $$
 R_{\mathrm{T}} = \frac{R'_{\mathrm{T}} + R''_{\mathrm{T}}}{2}
@@ -839,7 +878,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o + R_u)/2`
 
-**Schritt 14: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
+**Schritt 15: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
 
 $$
 e_{\mathrm{rel}} = \frac{R'_{\mathrm{T}} - R''_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}}
@@ -851,7 +890,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o - R_u)/(2*R_T)`
 
-**Schritt 15: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
+**Schritt 16: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
 
 $$
 U = \frac{1}{R_{\mathrm{T}}}
@@ -867,7 +906,7 @@ Ausdruck (maschinenlesbar): `1/R_T`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| U ≤ U_max | 0,16 W/(m²·K) | ≤ | 0,2 W/(m²·K) | 0,813 | erfüllt | holzrahmenbau.ids HRB-01 |
+| U ≤ U_max | 0,16 W/(m²·K) | ≤ | 0,20 W/(m²·K) | 0,813 | erfüllt | holzrahmenbau.ids HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -925,7 +964,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `1fe01d95196368771a6225aa1f0e572731938709cb679631a602f42398b4c647`
+- Hash (SHA-256): `d83c1467a6507169db1402f90ad691d747392a18284991720d3da732d0a26ac4`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -968,8 +1007,9 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 | Bemessungswert λ Holz (KVH C24) | $\lambda_{\mathrm{H}}$ | 0,13 W/(m·K) | 0,0039 W/(m·K) | eingabe | daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert) |
 | Bemessungswert λ Gefachdämmung | $\lambda_{\mathrm{D}}$ | 0,038 W/(m·K) | 0,00114 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
 | Bemessungswert λ Holzfaserdämmplatte | $\lambda_{\mathrm{HFD}}$ | 0,043 W/(m·K) | 0,00129 W/(m·K) | eingabe | daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert) |
-| Holzanteil der Gefachschicht | $f_{\mathrm{a}}$ | 0,096 | – | eingabe | Raster: Ständerbreite/Achsmaß = 60/625 |
-| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,2 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
+| Ständerbreite | $b_{\mathrm{St}}$ | 60 mm | – | eingabe | daten/wandelement.json /wand/staender/breite |
+| Achsmaß der Ständer | $e_{\mathrm{St}}$ | 625 mm | – | eingabe | daten/wandelement.json /wand/staender/raster |
+| Höchstwert des U-Werts | $U_{\mathrm{max}}$ | 0,20 W/(m²·K) | – | grenzwert | holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert) |
 
 ### Annahmen
 
@@ -982,7 +1022,19 @@ Regelwerk-Profil: `DE-Waermeschutz-Beispiel` Version `0.1.0`
 
 Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).
 
-**Schritt 1: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
+**Schritt 1: Holzanteil aus dem Raster** (Flächenanteil Abschnitt a)
+
+$$
+f_{\mathrm{a}} = \frac{b_{\mathrm{St}}}{e_{\mathrm{St}}}
+$$
+
+$$
+f_{\mathrm{a}} = \frac{60\ \mathrm{mm}}{625\ \mathrm{mm}} = 0{,}096000
+$$
+
+Ausdruck (maschinenlesbar): `b_St/e_St`
+
+**Schritt 2: Wärmedurchlasswiderstand GKF** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}}
@@ -994,7 +1046,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_GKF/lambda_GKF`
 
-**Schritt 2: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
+**Schritt 3: Wärmedurchlasswiderstand OSB/3** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}}
@@ -1006,7 +1058,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_OSB/lambda_OSB`
 
-**Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
+**Schritt 4: Wärmedurchlasswiderstand Holzfaserdämmplatte** (6.7.1.1, Formel (3))
 
 $$
 R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}}
@@ -1018,7 +1070,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_HFD/lambda_HFD`
 
-**Schritt 4: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
+**Schritt 5: Gefachschicht, Abschnitt a (Holz)** (6.7.1.1)
 
 $$
 R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}}
@@ -1030,7 +1082,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_H`
 
-**Schritt 5: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
+**Schritt 6: Gefachschicht, Abschnitt b (Dämmung)** (6.7.1.1)
 
 $$
 R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}}
@@ -1042,7 +1094,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_D`
 
-**Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
+**Schritt 7: Gesamtwiderstand Abschnitt a (innen bis außen)** (6.7.2 (oberer Grenzwert, Abschnittswiderstände))
 
 $$
 R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -1054,7 +1106,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se`
 
-**Schritt 7: Gesamtwiderstand Abschnitt b** (6.7.2)
+**Schritt 8: Gesamtwiderstand Abschnitt b** (6.7.2)
 
 $$
 R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -1066,43 +1118,43 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se`
 
-**Schritt 8: Flächenanteil Abschnitt b**
+**Schritt 9: Flächenanteil Abschnitt b**
 
 $$
 f_{\mathrm{b}} = 1 - f_{\mathrm{a}}
 $$
 
 $$
-f_{\mathrm{b}} = 1 - 0{,}096 = 0{,}90400
+f_{\mathrm{b}} = 1 - 0{,}096000 = 0{,}90400
 $$
 
 Ausdruck (maschinenlesbar): `1 - f_a`
 
-**Schritt 9: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
+**Schritt 10: oberer Grenzwert R'_T (parallele Wärmeströme)** (6.7.2, oberer Grenzwert [Absatznummer U])
 
 $$
 R'_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}}
 $$
 
 $$
-R'_{\mathrm{T}} = \frac{1}{\frac{0{,}096}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 6{,}4024\ \mathrm{m^{2}\cdot K/W}
+R'_{\mathrm{T}} = \frac{1}{\frac{0{,}096000}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 6{,}4024\ \mathrm{m^{2}\cdot K/W}
 $$
 
 Ausdruck (maschinenlesbar): `1/(f_a/R_Ta + f_b/R_Tb)`
 
-**Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
+**Schritt 11: äquivalente Wärmeleitfähigkeit der Gefachschicht** (6.7.2, unterer Grenzwert)
 
 $$
 \lambda'' = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}}
 $$
 
 $$
-\lambda'' = 0{,}096 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)}
+\lambda'' = 0{,}096000 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)}
 $$
 
 Ausdruck (maschinenlesbar): `f_a*lambda_H + f_b*lambda_D`
 
-**Schritt 11: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
+**Schritt 12: Wärmedurchlasswiderstand Gefach mit λ''** (6.7.2, unterer Grenzwert)
 
 $$
 R''_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda''}
@@ -1114,7 +1166,7 @@ $$
 
 Ausdruck (maschinenlesbar): `d_G/lambda_eq`
 
-**Schritt 12: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
+**Schritt 13: unterer Grenzwert R''_T (isotherme Ebenen)** (6.7.2, unterer Grenzwert [Absatznummer U])
 
 $$
 R''_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R''_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}}
@@ -1126,7 +1178,7 @@ $$
 
 Ausdruck (maschinenlesbar): `R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se`
 
-**Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
+**Schritt 14: Wärmedurchgangswiderstand als arithmetisches Mittel** (6.7.2.2 [V])
 
 $$
 R_{\mathrm{T}} = \frac{R'_{\mathrm{T}} + R''_{\mathrm{T}}}{2}
@@ -1138,7 +1190,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o + R_u)/2`
 
-**Schritt 14: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
+**Schritt 15: maximaler relativer Fehler** (6.7.2, Abschätzung des Fehlers)
 
 $$
 e_{\mathrm{rel}} = \frac{R'_{\mathrm{T}} - R''_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}}
@@ -1150,7 +1202,7 @@ $$
 
 Ausdruck (maschinenlesbar): `(R_o - R_u)/(2*R_T)`
 
-**Schritt 15: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
+**Schritt 16: Wärmedurchgangskoeffizient** (DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))
 
 $$
 U = \frac{1}{R_{\mathrm{T}}}
@@ -1166,7 +1218,7 @@ Ausdruck (maschinenlesbar): `1/R_T`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| U ≤ U_max | 0,16 W/(m²·K) | ≤ | 0,2 W/(m²·K) | 0,801 | erfüllt | holzrahmenbau.ids HRB-01 |
+| U ≤ U_max | 0,16 W/(m²·K) | ≤ | 0,20 W/(m²·K) | 0,801 | erfüllt | holzrahmenbau.ids HRB-01 |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -1224,7 +1276,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `514b86b947808ab3b2bc13be6175f17e55cb5d84c01dd75d759319c4a9280160`
+- Hash (SHA-256): `15589a73043acae3c88e3fb2219289b0b6b020dd05be5f72f5eaf9a7ff2e5761`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

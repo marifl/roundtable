@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04` |
+| Heft-Hash (SHA-256) | `45741b8366d151e8090119cbbacd3c23ac5625e826747989f4d4c953199a26f4` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,7 +28,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `dd536b84265a` |
+| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `3984bfb486b3` |
 
 <a id="n-n-b1-01"></a>
 
@@ -77,7 +77,7 @@ Regelwerk-Profil: `HRB-Mengen` Version `0.1.0`
 | Rohdichte Holzfaser-Dämmmatte (flexibel) | $\rho_{\mathrm{holzfaser},\mathrm{flex}}$ | 50 kg/m³ | 7,5 kg/m³ | annahme | daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen |
 | Rohdichte Holzfaserdämmplatte (Putzträger) | $\rho_{\mathrm{holzfaserplatte}}$ | 180 kg/m³ | 18 kg/m³ | annahme | daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen |
 | Rohdichte Stahl | $\rho_{\mathrm{St}}$ | 7850 kg/m³ | – | annahme | daten/wandelement.json /materialien/stahl_verzinkt/rho |
-| zulässige Mengenabweichung Modell/IFC | $\mathrm{dV}_{\mathrm{zul}}$ | 0,00000001 m³ | – | grenzwert | Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³ |
+| zulässige Mengenabweichung Modell/IFC | $\mathrm{dV}_{\mathrm{zul}}$ | 1 · 10⁻⁸ m³ | – | grenzwert | Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³ |
 
 ### Annahmen
 
@@ -381,9 +381,9 @@ Ausdruck (maschinenlesbar): `abs(V_D - V_D_IFC)`
 
 | Kriterium | Ist | Vergleich | Grenzwert | η | Ergebnis | Normverweis |
 |---|---:|:---:|---:|---:|---|---|
-| Holzvolumen: Nachweis = IFC | 0,00000000000000011102 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Beplankung: Nachweis = IFC | 0,00000000000000022204 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
-| Dämmung: Nachweis = IFC | 0,00000000000000044409 m³ | ≤ | 0,00000001 m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Holzvolumen: Nachweis = IFC | 1,1102 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Beplankung: Nachweis = IFC | 2,2204 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
+| Dämmung: Nachweis = IFC | 4,4409 · 10⁻¹⁶ m³ | ≤ | 1 · 10⁻⁸ m³ | 0,001 | erfüllt | Konsistenz Modell/IFC |
 
 Der Vergleich erfolgt mit ungerundeten Werten.
 
@@ -425,7 +425,7 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb`
+- Hash (SHA-256): `3984bfb486b36ef8f82b34a4a028415fee791610c21254d31ce814a329987bfb`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

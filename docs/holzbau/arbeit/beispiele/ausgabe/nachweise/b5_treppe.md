@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `806af5d80f80d0a0ae3a5abd425be681b5d3d73a4f053363419d9693e450ab31` |
+| Heft-Hash (SHA-256) | `52ad671a145cfa54757588382b870f2b8295759eee09f0690e56577b8098f5c1` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,7 +28,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `17e9b1a28f43` |
+| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `0c03e40e3563` |
 
 <a id="n-n-b5-01"></a>
 
@@ -86,7 +86,7 @@ n_{\mathrm{min}} = \left\lceil \frac{h_{\mathrm{G}}}{s_{\mathrm{max}}} \right\rc
 $$
 
 $$
-n_{\mathrm{min}} = \left\lceil \frac{2900\ \mathrm{mm}}{200\ \mathrm{mm}} \right\rceil = 15{,}000
+n_{\mathrm{min}} = \left\lceil \frac{2900\ \mathrm{mm}}{200\ \mathrm{mm}} \right\rceil = 15
 $$
 
 Ausdruck (maschinenlesbar): `ceil(h_G/s_max)`
@@ -98,7 +98,7 @@ n_{\mathrm{max}} = \left\lfloor \frac{h_{\mathrm{G}}}{s_{\mathrm{min}}} \right\r
 $$
 
 $$
-n_{\mathrm{max}} = \left\lfloor \frac{2900\ \mathrm{mm}}{140\ \mathrm{mm}} \right\rfloor = 20{,}000
+n_{\mathrm{max}} = \left\lfloor \frac{2900\ \mathrm{mm}}{140\ \mathrm{mm}} \right\rfloor = 20
 $$
 
 Ausdruck (maschinenlesbar): `floor(h_G/s_min)`
@@ -152,7 +152,7 @@ l_{\mathrm{L}} = \left(n - 1\right) \cdot a
 $$
 
 $$
-l_{\mathrm{L}} = \left(17 - 1\right) \cdot 290\ \mathrm{mm} = 4640{,}0\ \mathrm{mm}
+l_{\mathrm{L}} = \left(17 - 1\right) \cdot 290\ \mathrm{mm} = 4640\ \mathrm{mm}
 $$
 
 Ausdruck (maschinenlesbar): `(n - 1)*a`
@@ -215,7 +215,7 @@ Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301`
+- Hash (SHA-256): `0c03e40e3563f5590db3af9ee7411b3d205adb916f08fa4196497d3d0a8fbedb`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

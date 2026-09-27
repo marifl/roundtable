@@ -73,6 +73,7 @@
         "grenzwert": { "type": "string" },
         "norm_verweis": { "type": "string" },
         "toleranz": { "type": "number", "minimum": 0 },
+        "mit_ausnutzung": { "type": "boolean" },
         "ist_wert": { "type": "number" },
         "grenz_wert": { "type": "number" },
         "einheit": { "type": "string" },
