@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (20 erfüllt, 1 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `f4874c58035e88fdd548fff8a2a057c8054bb49b2ac02babf4807329c441c7d1` |
+| Heft-Hash (SHA-256) | `2a87d877a54d5d2ae6ad77f60d27844353e2b84f3006cc25004194abcfd0474c` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Das Heft bündelt die Nachweise der Beispiele B1–B5. Szenario „zu_nah“ (B4) ist absichtlich unzulässig; der IDS-Fall „fehlerhaft“ steht im eigenen Heft b2_ids_fehlerhaft.
@@ -56,7 +56,7 @@ Regelquellen:
 | 16 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `514b86b94780` |
 | 17 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `2891ccaff437` |
 | 18 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `97bf3dbd829a` |
-| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `df940b2017d5` |
+| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `09720c9ae0a2` |
 | 20 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `3cf9eafbbb0a` |
 | 21 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `17e9b1a28f43` |
 
@@ -3159,7 +3159,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `df940b2017d574ee0a7ee14aaf6a8b961600e773d6393e43c38c94b07460861a`
+- Hash (SHA-256): `09720c9ae0a2bc79cd9fede144570b1ef6ec909bf14d26c4ab2592689ea46bed`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

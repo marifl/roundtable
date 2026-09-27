@@ -37,7 +37,7 @@
     "erfüllt": 3,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "ca5b8b34753c40ccb3733aa9142d2b38a7d3f13a2af603bcdb3c0c438e909905"
+    "hash": "bc43ba96d685511ed37f9d3f82eabbba6e4b63c0df1c94e4dee38ddd577353b8"
   },
   "b5_treppe": {
     "status": "erfüllt",
@@ -53,6 +53,6 @@
     "erfüllt": 20,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "f4874c58035e88fdd548fff8a2a057c8054bb49b2ac02babf4807329c441c7d1"
+    "hash": "2a87d877a54d5d2ae6ad77f60d27844353e2b84f3006cc25004194abcfd0474c"
   }
 }

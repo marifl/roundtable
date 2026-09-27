@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (3 erfüllt, 1 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `ca5b8b34753c40ccb3733aa9142d2b38a7d3f13a2af603bcdb3c0c438e909905` |
+| Heft-Hash (SHA-256) | `bc43ba96d685511ed37f9d3f82eabbba6e4b63c0df1c94e4dee38ddd577353b8` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Szenario „zu_nah“ ist absichtlich unzulässig und demonstriert den negativen Nachweis.
@@ -32,7 +32,7 @@ Regelquellen:
 |---:|---|---|---|---:|---|
 | 1 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `2891ccaff437` |
 | 2 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `97bf3dbd829a` |
-| 3 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `df940b2017d5` |
+| 3 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `09720c9ae0a2` |
 | 4 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `3cf9eafbbb0a` |
 
 <a id="n-n-b4-mittig-drittel"></a>
@@ -641,7 +641,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `df940b2017d574ee0a7ee14aaf6a8b961600e773d6393e43c38c94b07460861a`
+- Hash (SHA-256): `09720c9ae0a2bc79cd9fede144570b1ef6ec909bf14d26c4ab2592689ea46bed`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
