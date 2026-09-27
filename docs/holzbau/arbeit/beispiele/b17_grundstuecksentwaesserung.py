@@ -1176,9 +1176,9 @@ def svg_abwicklung(d: dict, e: dict) -> str:
     o.append(pl([(x, g - R(d, "frosttiefe_sw")) for x, g in zip(xs[:-1], goks[:-1])], stroke="#6fa8dc", stroke_dasharray="4,3"))
     o.append(pl(list(zip(xs, sohlen)), stroke="#8b4513", stroke_width="2.5"))
     rse = d["strasse"]["rueckstauebene"]
-    o.append(pl([(0, rse), (xs[-1], rse)], stroke="#cc0000", stroke_dasharray="8,4"))
+    o.append(pl([(0, rse), (xs[-1], rse)], stroke="#7b3294", stroke_dasharray="8,4"))
     x0, y0 = pt(0, rse)
-    o.append(f'<text x="{x0 + 2:.1f}" y="{y0 - 3:.1f}" fill="#cc0000">Rückstauebene {rse:.2f}</text>')
+    o.append(f'<text x="{x0 + 2:.1f}" y="{y0 - 3:.1f}" fill="#7b3294">Rückstauebene {rse:.2f}</text>')
     ffb = d["gebaeude"]["ffb_eg"]
     o.append(pl([(0, ffb), (xs[1], ffb)], stroke="#333", stroke_width="1.2"))
     x0, y0 = pt(0, ffb)

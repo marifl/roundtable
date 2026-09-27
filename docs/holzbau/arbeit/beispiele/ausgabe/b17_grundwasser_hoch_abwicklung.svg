@@ -3,8 +3,8 @@
 <polyline points="50.0,154.5 100.0,155.5 126.3,156.0 390.0,177.1 565.0,183.6 655.9,187.0 770.9,190.0" fill="none" stroke="#3a7d2c" stroke-width="1.5"/>
 <polyline points="50.0,274.5 100.0,275.5 126.3,276.0 390.0,297.1 565.0,303.6 655.9,307.0" fill="none" stroke="#6fa8dc" stroke-dasharray="4,3"/>
 <polyline points="50.0,265.5 100.0,275.5 126.3,276.2 390.0,297.1 565.0,303.6 655.9,307.0 770.9,505.0" fill="none" stroke="#8b4513" stroke-width="2.5"/>
-<polyline points="50.0,190.0 770.9,190.0" fill="none" stroke="#cc0000" stroke-dasharray="8,4"/>
-<text x="52.0" y="187.0" fill="#cc0000">Rückstauebene 519.95</text>
+<polyline points="50.0,190.0 770.9,190.0" fill="none" stroke="#7b3294" stroke-dasharray="8,4"/>
+<text x="52.0" y="187.0" fill="#7b3294">Rückstauebene 519.95</text>
 <polyline points="50.0,130.0 100.0,130.0" fill="none" stroke="#333" stroke-width="1.2"/>
 <text x="52.0" y="127.0" fill="#333">FFB EG 520.55</text>
 <line x1="50.0" y1="265.5" x2="50.0" y2="154.5" stroke="#999" stroke-width="0.8"/>

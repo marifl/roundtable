@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nachweisheft B5 – Treppe (DIN 18065)</title>
+<style>
+:root{--flaeche:#fcfcfb;--seite:#f9f9f7;--tinte:#0b0b0b;--tinte2:#52514e;--leise:#898781;--linie:#e1e0d9;
+--gut:#0ca30c;--gut-text:#006300;--warn:#fab219;--krit:#d03b3b;--akzent:#2a78d6;color-scheme:light}
+body{background:var(--seite);color:var(--tinte);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px;background:var(--flaeche)}
+h1{font-size:1.6em;margin:.2em 0}h2{font-size:1.3em;border-bottom:1px solid var(--linie);padding-bottom:.2em;margin-top:1.6em}
+h3{font-size:1.1em;margin-top:1.3em}h4{font-size:1em}
+table{border-collapse:collapse;width:100%;margin:.5em 0;font-size:.92em}
+th,td{border:1px solid var(--linie);padding:4px 6px;vertical-align:top;text-align:left}
+th{background:#f0efec;font-weight:600}td.z{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font-size:.88em;word-break:break-all}.leise{color:var(--tinte2);font-size:.9em}
+.ampel{display:inline-flex;align-items:center;gap:.45em;font-weight:700;padding:.25em .7em;border-radius:4px;border:1px solid var(--linie)}
+.ampel i{width:.9em;height:.9em;border-radius:50%;display:inline-block}
+.s-erfuellt i{background:var(--gut)}.s-nicht i{background:var(--krit)}.s-hinweis i{background:var(--warn)}
+.s-erfuellt{color:var(--gut-text)}.s-nicht{color:var(--krit)}.s-hinweis{color:#7a5500}
+.regel{border-left:4px solid var(--akzent);background:#f3f7fd;padding:.5em .9em;margin:.5em 0}
+.annahme{background:#fff7e0;border-left:4px solid var(--warn);padding:.3em .8em;margin:.2em 0}
+.schritt{border:1px solid var(--linie);border-radius:4px;padding:.4em .8em;margin:.6em 0;overflow-x:auto}
+.formel{overflow-x:auto}figure{margin:1em 0;overflow-x:auto}figcaption{font-size:.9em;color:var(--tinte2)}
+figure svg{max-width:100%;height:auto;background:#fff}
+.deckblatt{border:2px solid var(--tinte);padding:1em 1.2em;margin-bottom:2em}
+section.nachweis{margin-top:2.5em}
+@media print{body{background:#fff}main{max-width:none;padding:0}section.nachweis{break-before:page}
+figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
+@page{size:A4;margin:18mm 15mm}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<main>
+<section class="deckblatt">
+<h1>Nachweisheft B5 – Treppe (DIN 18065)</h1>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;1 erfüllt · 0 nicht erfüllt · 0 Hinweis</p>
+<table>
+<tr><th>Projekt</th><td>Beispielhaus Holzrahmenbau</td></tr>
+<tr><th>Gebäude</th><td>Einfamilienhaus (fiktiv)</td></tr>
+<tr><th>Geschoss</th><td>EG</td></tr>
+<tr><th>Parametermodell</th><td>daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)</td></tr>
+<tr><th>Grundstück</th><td>daten/grundstueck.json (SHA-256 a60954d2a172493d…)</td></tr>
+<tr><th>Rechtsstand der Beispiele</th><td>27.09.2026</td></tr>
+<tr><th>Hinweis</th><td>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</td></tr>
+<tr><th>Verfasser</th><td>Entwurfsgenerator (Beispiel), ohne Prüfvermerk</td></tr>
+<tr><th>Regelwerk-Profile</th><td><code>DE-DIN18065-WG2WE</code> Version <code>0.1.0</code></td></tr>
+<tr><th>Regelquellen</th><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02), Fassung 2020-08 [U]</td></tr>
+<tr><th>Heft-Hash (SHA-256)</th><td><code>862596797a7df4beb4e51fb57d0bfba326dd9844e2e8fd4832d9bb93c9e36e0e</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<h2>Inhaltsverzeichnis</h2>
+<table><thead><tr><th>Nr.</th><th>ID</th><th>Titel</th><th>Status</th><th>η</th><th>Hash</th></tr></thead><tbody>
+<tr><td class="z">1</td><td><a href="#n-n-b5-01">N-B5-01</a></td><td>Treppenlauf gerade einläufig, Geschosshöhe 2,90 m</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,972</td><td><code>7dc41095ed43…</code></td></tr>
+</tbody></table>
+<section class="nachweis" id="n-n-b5-01">
+<h2>N-B5-01 – Treppenlauf gerade einläufig, Geschosshöhe 2,90 m</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,972</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>notwendige Treppe EG–OG, gerade einläufig (kein IFC-Modell in B5; IfcStair folgt mit dem Gebäudegenerator)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>–<br><span class="leise">SHA-256 <code>–</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Baurechtlich notwendige Treppe in Wohngebäuden mit höchstens zwei Wohnungen: Steigung 140 … 200 mm, Auftritt 230 … 370 mm, Schrittmaß 2s + a = 590 … 650 mm, nutzbare Laufbreite ≥ 800 mm.</p>
+<p class="leise">Quelle: DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02) · Fassung: 2020-08 · Fundstelle: Tabelle der Grenzmaße (Tabellen nicht übernommen) · Prüfung am Primärtext: [U]<br>Regelwerk-Profil <code>DE-DIN18065-WG2WE</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Geschosshöhe (OKFF bis OKFF)</td><td>$h_{\mathrm{G}}$</td><td class="z">2900 mm</td><td class="z">–</td><td>eingabe</td><td>Eingabe (Kommandozeile B5, Standard 2,90 m)</td></tr>
+<tr><td>nutzbare Laufbreite</td><td>$b_{\mathrm{L}}$</td><td class="z">900 mm</td><td class="z">–</td><td>eingabe</td><td>Eingabe (Kommandozeile B5)</td></tr>
+<tr class="annahme"><td>Fertigungsraster Auftritt</td><td>$r_{\mathrm{a}}$</td><td class="z">5 mm</td><td class="z">–</td><td>annahme</td><td>Annahme B5: übliches Raster im Treppenbau</td></tr>
+<tr><td>Steigung min.</td><td>$s_{\mathrm{min}}$</td><td class="z">140 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Steigung max.</td><td>$s_{\mathrm{max}}$</td><td class="z">200 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Auftritt min.</td><td>$a_{\mathrm{min}}$</td><td class="z">230 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Auftritt max.</td><td>$a_{\mathrm{max}}$</td><td class="z">370 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Schrittmaß min.</td><td>$S_{\mathrm{min}}$</td><td class="z">590 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Schrittmaß max.</td><td>$S_{\mathrm{max}}$</td><td class="z">650 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr><td>Laufbreite min.</td><td>$b_{\mathrm{min}}$</td><td class="z">800 mm</td><td class="z">–</td><td>grenzwert</td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN</td></tr>
+<tr class="annahme"><td>Zielwert Schrittmaß</td><td>$S_{\mathrm{Z}}$</td><td class="z">630 mm</td><td class="z">–</td><td>annahme</td><td>Vorgabe der Aufgabe (Rangfolge, keine Normanforderung)</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Nur gerade einläufige Treppe; Kopfhöhe, Podeste, Wendelung und Maßtoleranzen sind nicht geprüft.</p>
+<p class="annahme"><b>Annahme:</b> Bequemlichkeits- und Sicherheitsregel sind Faustregeln und dienen nur der Rangfolge.</p>
+<p class="annahme"><b>Annahme:</b> Fertigungsraster Auftritt (r_a) = 5 mm: Annahme B5: übliches Raster im Treppenbau</p>
+<p class="annahme"><b>Annahme:</b> Zielwert Schrittmaß (S_Z) = 630 mm: Vorgabe der Aufgabe (Rangfolge, keine Normanforderung)</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: kleinste Steigungszahl</b></p>
+<div class="formel">$$ n_{\mathrm{min}} = \left\lceil \frac{h_{\mathrm{G}}}{s_{\mathrm{max}}} \right\rceil $$</div>
+<div class="formel">$$ n_{\mathrm{min}} = \left\lceil \frac{2900\ \mathrm{mm}}{200\ \mathrm{mm}} \right\rceil = 15{,}000 $$</div>
+<p class="leise">Ausdruck: <code>ceil(h_G/s_max)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: größte Steigungszahl</b></p>
+<div class="formel">$$ n_{\mathrm{max}} = \left\lfloor \frac{h_{\mathrm{G}}}{s_{\mathrm{min}}} \right\rfloor $$</div>
+<div class="formel">$$ n_{\mathrm{max}} = \left\lfloor \frac{2900\ \mathrm{mm}}{140\ \mathrm{mm}} \right\rfloor = 20{,}000 $$</div>
+<p class="leise">Ausdruck: <code>floor(h_G/s_min)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: zulässige Lösungen im Suchraum</b></p>
+<p>Verfahren: vollständige Aufzählung n = n_min … n_max, a im Raster 5 mm, Filter nach allen Grenzwerten (exakte Arithmetik mit fractions.Fraction)<br>Ergebnis: $N_{\mathrm{L}}$ = 68</p>
+</div>
+<div class="schritt"><p><b>Schritt 4: gewählte Steigungszahl</b></p>
+<p>Verfahren: lexikografische Rangfolge: |2s+a−630| (Toleranz ≤ halbe Rasterweite), |a−s−120|, |a+s−460|, Lauflänge<br>Ergebnis: $n$ = 17</p>
+</div>
+<div class="schritt"><p><b>Schritt 5: gewählter Auftritt</b></p>
+<p>Verfahren: wie vor<br>Ergebnis: $a$ = 290 mm</p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Steigung (alle gleich)</b></p>
+<div class="formel">$$ s = \frac{h_{\mathrm{G}}}{n} $$</div>
+<div class="formel">$$ s = \frac{2900\ \mathrm{mm}}{17} = 170{,}59\ \mathrm{mm} $$</div>
+<p class="leise">Ausdruck: <code>h_G/n</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Schrittmaß</b> <span class="leise">(Schrittmaßregel 2s + a)</span></p>
+<div class="formel">$$ S = 2 \cdot s + a $$</div>
+<div class="formel">$$ S = 2 \cdot 170{,}59\ \mathrm{mm} + 290\ \mathrm{mm} = 631{,}18\ \mathrm{mm} $$</div>
+<p class="leise">Ausdruck: <code>2*s + a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Lauflänge (n − 1 Auftritte)</b></p>
+<div class="formel">$$ l_{\mathrm{L}} = \left(n - 1\right) \cdot a $$</div>
+<div class="formel">$$ l_{\mathrm{L}} = \left(17 - 1\right) \cdot 290\ \mathrm{mm} = 4640{,}0\ \mathrm{mm} $$</div>
+<p class="leise">Ausdruck: <code>(n - 1)*a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: Abweichung vom Zielschrittmaß</b></p>
+<div class="formel">$$ \mathrm{dS} = \left|S - S_{\mathrm{Z}}\right| $$</div>
+<div class="formel">$$ \mathrm{dS} = \left|631{,}18\ \mathrm{mm} - 630\ \mathrm{mm}\right| = 1{,}1765\ \mathrm{mm} $$</div>
+<p class="leise">Ausdruck: <code>abs(S - S_Z)</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Steigung ≥ min.</td><td class="z">170,6 mm</td><td>≥</td><td class="z">140 mm</td><td class="z">0,821</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Steigung ≤ max.</td><td class="z">170,6 mm</td><td>≤</td><td class="z">200 mm</td><td class="z">0,853</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Auftritt ≥ min.</td><td class="z">290 mm</td><td>≥</td><td class="z">230 mm</td><td class="z">0,794</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Auftritt ≤ max.</td><td class="z">290 mm</td><td>≤</td><td class="z">370 mm</td><td class="z">0,784</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Schrittmaß ≥ min.</td><td class="z">631,2 mm</td><td>≥</td><td class="z">590 mm</td><td class="z">0,935</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Schrittmaß ≤ max.</td><td class="z">631,2 mm</td><td>≤</td><td class="z">650 mm</td><td class="z">0,972</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+<tr><td>Laufbreite ≥ min.</td><td class="z">900 mm</td><td>≥</td><td class="z">800 mm</td><td class="z">0,889</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02.</p>
+<h3>Gegenrechnung mit dem Rechenkern</h3>
+<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
+<tr><td>s</td><td><code>b5_treppe_din18065.loese → s_mm (2 Dez.)</code></td><td class="z">170,59</td><td class="z">170,58823529411765</td><td class="z">1.76e-03</td><td>ja (Toleranz 5e-03)</td></tr>
+<tr><td>S</td><td><code>b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)</code></td><td class="z">631,18</td><td class="z">631,1764705882354</td><td class="z">3.53e-03</td><td>ja (Toleranz 5e-03)</td></tr>
+<tr><td>l_L</td><td><code>b5_treppe_din18065.loese → lauflaenge_mm</code></td><td class="z">4640</td><td class="z">4640</td><td class="z">0.00e+00</td><td>ja (Toleranz 1e-09)</td></tr>
+<tr><td>N_L</td><td><code>ergebnisse.md: 68 Lösungen</code></td><td class="z">68</td><td class="z">68</td><td class="z">0.00e+00</td><td>ja (Toleranz 0e+00)</td></tr>
+</tbody></table>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="470.918516pt" height="300.935141pt" viewBox="0 0 470.918516 300.935141" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 300.935141 
+L 470.918516 300.935141 
+L 470.918516 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 44.379453 264.734437 
+L 401.499453 264.734437 
+L 401.499453 20.798437 
+L 44.379453 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 385.266726 253.646437 
+L 277.048544 253.646437 
+L 60.61218 126.926437 
+L 60.61218 31.886437 
+L 385.266726 221.966437 
+z
+" clip-path="url(#pcf3638dff6)" style="fill: #e8f4e8; stroke: #0ca30c; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 60.61218 63.566438 
+L 385.266726 253.646437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #52514e"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_2">
+      <path d="M 60.61218 264.734437 
+L 60.61218 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_3">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="60.61218" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="60.61218" y="278.572328" transform="rotate(-0 60.61218 278.572328)">140</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_4">
+      <path d="M 114.721271 264.734437 
+L 114.721271 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m5ecce93918" x="114.721271" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="114.721271" y="278.572328" transform="rotate(-0 114.721271 278.572328)">150</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_6">
+      <path d="M 168.830362 264.734437 
+L 168.830362 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m5ecce93918" x="168.830362" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="168.830362" y="278.572328" transform="rotate(-0 168.830362 278.572328)">160</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_8">
+      <path d="M 222.939453 264.734437 
+L 222.939453 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m5ecce93918" x="222.939453" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="222.939453" y="278.572328" transform="rotate(-0 222.939453 278.572328)">170</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_10">
+      <path d="M 277.048544 264.734437 
+L 277.048544 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m5ecce93918" x="277.048544" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="277.048544" y="278.572328" transform="rotate(-0 277.048544 278.572328)">180</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_12">
+      <path d="M 331.157635 264.734437 
+L 331.157635 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m5ecce93918" x="331.157635" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="331.157635" y="278.572328" transform="rotate(-0 331.157635 278.572328)">190</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_14">
+      <path d="M 385.266726 264.734437 
+L 385.266726 20.798437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m5ecce93918" x="385.266726" y="264.734437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="385.266726" y="278.572328" transform="rotate(-0 385.266726 278.572328)">200</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="222.939453" y="291.573031" transform="rotate(-0 222.939453 291.573031)">Steigung s in mm</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_16">
+      <path d="M 44.379453 237.806437 
+L 401.499453 237.806437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_17">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="237.806437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="241.225383" transform="rotate(-0 37.379453 241.225383)">240</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_18">
+      <path d="M 44.379453 206.126437 
+L 401.499453 206.126437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="206.126437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="209.545383" transform="rotate(-0 37.379453 209.545383)">260</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_20">
+      <path d="M 44.379453 174.446437 
+L 401.499453 174.446437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="174.446437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="177.865383" transform="rotate(-0 37.379453 177.865383)">280</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_22">
+      <path d="M 44.379453 142.766437 
+L 401.499453 142.766437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="142.766437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="146.185383" transform="rotate(-0 37.379453 146.185383)">300</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_24">
+      <path d="M 44.379453 111.086437 
+L 401.499453 111.086437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_25">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="111.086437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="114.505383" transform="rotate(-0 37.379453 114.505383)">320</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_26">
+      <path d="M 44.379453 79.406437 
+L 401.499453 79.406437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_27">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="79.406437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="82.825383" transform="rotate(-0 37.379453 82.825383)">340</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_28">
+      <path d="M 44.379453 47.726437 
+L 401.499453 47.726437 
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="44.379453" y="47.726437" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="37.379453" y="51.145383" transform="rotate(-0 37.379453 51.145383)">360</text>
+     </g>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="14.038594" y="142.766437" transform="rotate(-90 14.038594 142.766437)">Auftritt a in mm</text>
+    </g>
+   </g>
+   <g id="patch_4">
+    <path d="M 44.379453 264.734437 
+L 44.379453 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 44.379453 264.734437 
+L 401.499453 264.734437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m33ebbe91d2" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: #ffffff; stroke-width: 0.5"/>
+    </defs>
+    <g clip-path="url(#pcf3638dff6)">
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="158.606437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="126.926437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="190.286437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="198.206437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="103.166437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="229.886437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="79.406437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="134.846437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="237.806437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="166.526437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="111.086437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="87.326437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="71.486437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="95.246437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="150.686437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="221.966437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="119.006437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="182.366437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="206.126437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="142.766437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="245.726437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="174.446437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="119.006437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="95.246437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="63.566438" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="87.326437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="142.766437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="214.046437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="111.086437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="174.446437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="214.046437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="150.686437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="253.646437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="182.366437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="126.926437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="103.166437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="55.646437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="79.406437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="134.846437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="349.175962" y="206.126437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="103.166437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="166.526437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="221.966437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="158.606437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="190.286437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="134.846437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="111.086437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="47.726437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="229.886437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="166.526437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="198.206437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="142.766437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="119.006437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="237.806437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="174.446437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="206.126437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="150.686437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="126.926437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="245.726437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="182.366437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="214.046437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="158.606437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="134.846437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="283.81218" y="253.646437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="174.836471" y="190.286437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="226.131889" y="221.966437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="128.951962" y="166.526437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     <use xlink:href="#m33ebbe91d2" x="87.666726" y="142.766437" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+    </g>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="349.193999" y="197.98868" transform="rotate(-0 349.193999 197.98868)">n=15</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="283.81218" y="158.38868" transform="rotate(-0 283.81218 158.38868)">n=16</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="226.122341" y="126.70868" transform="rotate(-0 226.122341 126.70868)">n=17</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="174.842483" y="95.02868" transform="rotate(-0 174.842483 95.02868)">n=18</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="128.960506" y="71.26868" transform="rotate(-0 128.960506 71.26868)">n=19</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="87.666726" y="39.58868" transform="rotate(-0 87.666726 39.58868)">n=20</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="44.379453" y="14.798437" transform="rotate(-0 44.379453 14.798437)">Zulässiger Bereich nach DIN 18065 (WG ≤ 2 WE) und 68 Lösungen im 5-mm-Raster</text>
+   </g>
+   <g id="PathCollection_2">
+    <path d="M 226.131889 163.850482 
+C 227.522626 163.850482 228.856589 163.297936 229.839989 162.314537 
+C 230.823388 161.331137 231.375934 159.997174 231.375934 158.606437 
+C 231.375934 157.215701 230.823388 155.881738 229.839989 154.898338 
+C 228.856589 153.914939 227.522626 153.362393 226.131889 153.362393 
+C 224.741153 153.362393 223.40719 153.914939 222.42379 154.898338 
+C 221.440391 155.881738 220.887845 157.215701 220.887845 158.606437 
+C 220.887845 159.997174 221.440391 161.331137 222.42379 162.314537 
+C 223.40719 163.297936 224.741153 163.850482 226.131889 163.850482 
+L 226.131889 163.850482 
+z
+" clip-path="url(#pcf3638dff6)" style="fill: none; stroke: #0b0b0b; stroke-width: 1.6"/>
+   </g>
+   <g id="legend_1">
+    <g id="patch_6">
+     <path d="M 137.541484 32.417344 
+L 151.541484 32.417344 
+L 151.541484 27.517344 
+L 137.541484 27.517344 
+z
+" style="fill: #e8f4e8; stroke: #0ca30c; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="157.141484" y="32.417344" transform="rotate(-0 157.141484 32.417344)">zulässiger Bereich</text>
+    </g>
+    <g id="line2d_30">
+     <path d="M 137.541484 40.467891 
+L 144.541484 40.467891 
+L 151.541484 40.467891 
+" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #52514e"/>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="157.141484" y="42.917891" transform="rotate(-0 157.141484 42.917891)">Ziel 2s + a = 630 mm</text>
+    </g>
+    <g id="PathCollection_3">
+     <g>
+      <use xlink:href="#m33ebbe91d2" x="255.600859" y="30.579844" style="fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5"/>
+     </g>
+    </g>
+    <g id="text_26">
+     <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="268.200859" y="32.417344" transform="rotate(-0 268.200859 32.417344)">zulässige Lösung (68)</text>
+    </g>
+    <g id="PathCollection_4">
+     <path d="M 255.600859 46.324435 
+C 256.991596 46.324435 258.325559 45.771889 259.308959 44.78849 
+C 260.292358 43.80509 260.844904 42.471127 260.844904 41.080391 
+C 260.844904 39.689654 260.292358 38.355691 259.308959 37.372291 
+C 258.325559 36.388892 256.991596 35.836346 255.600859 35.836346 
+C 254.210123 35.836346 252.87616 36.388892 251.89276 37.372291 
+C 250.909361 38.355691 250.356815 39.689654 250.356815 41.080391 
+C 250.356815 42.471127 250.909361 43.80509 251.89276 44.78849 
+C 252.87616 45.771889 254.210123 46.324435 255.600859 46.324435 
+L 255.600859 46.324435 
+z
+" style="fill: none; stroke: #0b0b0b; stroke-width: 1.6"/>
+    </g>
+    <g id="text_27">
+     <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="268.200859" y="42.917891" transform="rotate(-0 268.200859 42.917891)">gewählt: n = 17, s = 170,6, a = 290</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pcf3638dff6">
+   <rect x="44.379453" y="20.798437" width="357.12" height="243.936"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B5-01/schrittmass: Schrittmaß-Diagramm: alle zulässigen Lösungen. Jede Spalte gehört zu einer Steigungszahl n (s = h/n); innerhalb der Spalte variiert a im Raster.<br><span class="leise">SHA-256 <code>78ffba7e7705bc223cf2a869f21ae68c97cd5b43dd8686b645761c16be3ff9de</code></span></figcaption></figure>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="140.8mm" height="102mm" viewBox="0 0 140.8 102" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Treppenschnitt">
+<title>Treppenschnitt</title>
+<rect width="140.8" height="102" fill="#ffffff"/>
+<defs><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="14,75 22,75 22,71.59 27.8,71.59 27.8,68.18 33.6,68.18 33.6,64.76 39.4,64.76 39.4,61.35 45.2,61.35 45.2,57.94 51,57.94 51,54.53 56.8,54.53 56.8,51.12 62.6,51.12 62.6,47.71 68.4,47.71 68.4,44.29 74.2,44.29 74.2,40.88 80,40.88 80,37.47 85.8,37.47 85.8,34.06 91.6,34.06 91.6,30.65 97.4,30.65 97.4,27.24 103.2,27.24 103.2,23.82 109,23.82 109,20.41 114.8,20.41 114.8,17 126.8,17 126.8,18.2 114.8,18.2 22,76.2 14,76.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.5"><title>Stufenprofil (schematisch)</title></polygon>
+<line x1="14" y1="75" x2="126.8" y2="75" stroke="#898781" stroke-width="0.18" stroke-dasharray="3 1.5"/>
+<line x1="14" y1="17" x2="126.8" y2="17" stroke="#898781" stroke-width="0.18" stroke-dasharray="3 1.5"/>
+<text x="14.4" y="74.4" font-size="2.2" text-anchor="start" fill="#0b0b0b">OKFF unten ±0,00</text>
+<text x="126.4" y="16.4" font-size="2.2" text-anchor="end" fill="#0b0b0b">OKFF oben +2,90</text>
+<line x1="127.8" y1="75" x2="136.3" y2="75" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="127.8" y1="17" x2="136.3" y2="17" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="134.8" y1="76.5" x2="134.8" y2="15.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="135.9" y1="76.1" x2="133.7" y2="73.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="135.9" y1="18.1" x2="133.7" y2="15.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="135.6" y="46" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 135.6 46)">17 × 170,6 = 2900</text>
+<line x1="22" y1="76" x2="22" y2="84.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="114.8" y1="76" x2="114.8" y2="84.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="20.5" y1="83" x2="116.3" y2="83" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="20.9" y1="84.1" x2="23.1" y2="81.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="113.7" y1="84.1" x2="115.9" y2="81.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="68.4" y="82.2" font-size="2.2" text-anchor="middle" fill="#0b0b0b">16 × 290 = 4640</text>
+<line x1="62.6" y1="46.71" x2="62.6" y2="42.21" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="68.4" y1="46.71" x2="68.4" y2="42.21" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="61.1" y1="43.71" x2="69.9" y2="43.71" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="61.5" y1="44.81" x2="63.7" y2="42.61" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="67.3" y1="44.81" x2="69.5" y2="42.61" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="65.5" y="42.91" font-size="2" text-anchor="middle" fill="#0b0b0b">a = 290</text>
+<line x1="67.4" y1="47.71" x2="62.9" y2="47.71" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="67.4" y1="44.29" x2="62.9" y2="44.29" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="64.4" y1="49.21" x2="64.4" y2="42.79" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="65.5" y1="48.81" x2="63.3" y2="46.61" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="65.5" y1="45.39" x2="63.3" y2="43.19" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="65.2" y="46" font-size="2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 65.2 46)">s = 170,6</text>
+<rect x="14" y="94" width="20" height="1.5" fill="#0b0b0b" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="14" y="98.5" font-size="2.2" text-anchor="middle" fill="#0b0b0b">0</text>
+<rect x="34" y="94" width="20" height="1.5" fill="#ffffff" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="34" y="98.5" font-size="2.2" text-anchor="middle" fill="#0b0b0b">1</text>
+<text x="54" y="98.5" font-size="2.2" text-anchor="middle" fill="#0b0b0b">2</text>
+<text x="57" y="95.5" font-size="2.5" text-anchor="start" fill="#0b0b0b">m   M 1:50   Maße in mm</text>
+<rect x="62.8" y="78" width="64" height="20" fill="#ffffff" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="64.8" y="82.5" font-size="3" text-anchor="start" fill="#0b0b0b" font-weight="bold">Treppe EG–OG (Beispiel)</text>
+<text x="64.8" y="87" font-size="2.5" text-anchor="start" fill="#0b0b0b">17 STG 170,6/290</text>
+<text x="64.8" y="91.5" font-size="2.5" text-anchor="start" fill="#0b0b0b">2s + a = 631,2 mm</text>
+<text x="64.8" y="96" font-size="2.5" text-anchor="start" fill="#0b0b0b">M 1:50, Nachweis N-B5-01</text>
+</svg><figcaption>Abbildung N-B5-01/schnitt: Treppenschnitt der gewählten Lösung (17 Steigungen) (Maßstab 1:50, bei Druck in 100 %). Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.<br><span class="leise">SHA-256 <code>e60bbe9795abea768b380fcfba9e9fa715e2219ed029cbb59b94d64323eb3578</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>7dc41095ed4385399614491cdb7cfa8796f2222823fe6e3ca23ca0910e143085</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nachweisheft B3 – Wärmedurchgangskoeffizient Außenwand AW-01 (DIN EN ISO 6946)</title>
+<style>
+:root{--flaeche:#fcfcfb;--seite:#f9f9f7;--tinte:#0b0b0b;--tinte2:#52514e;--leise:#898781;--linie:#e1e0d9;
+--gut:#0ca30c;--gut-text:#006300;--warn:#fab219;--krit:#d03b3b;--akzent:#2a78d6;color-scheme:light}
+body{background:var(--seite);color:var(--tinte);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px;background:var(--flaeche)}
+h1{font-size:1.6em;margin:.2em 0}h2{font-size:1.3em;border-bottom:1px solid var(--linie);padding-bottom:.2em;margin-top:1.6em}
+h3{font-size:1.1em;margin-top:1.3em}h4{font-size:1em}
+table{border-collapse:collapse;width:100%;margin:.5em 0;font-size:.92em}
+th,td{border:1px solid var(--linie);padding:4px 6px;vertical-align:top;text-align:left}
+th{background:#f0efec;font-weight:600}td.z{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font-size:.88em;word-break:break-all}.leise{color:var(--tinte2);font-size:.9em}
+.ampel{display:inline-flex;align-items:center;gap:.45em;font-weight:700;padding:.25em .7em;border-radius:4px;border:1px solid var(--linie)}
+.ampel i{width:.9em;height:.9em;border-radius:50%;display:inline-block}
+.s-erfuellt i{background:var(--gut)}.s-nicht i{background:var(--krit)}.s-hinweis i{background:var(--warn)}
+.s-erfuellt{color:var(--gut-text)}.s-nicht{color:var(--krit)}.s-hinweis{color:#7a5500}
+.regel{border-left:4px solid var(--akzent);background:#f3f7fd;padding:.5em .9em;margin:.5em 0}
+.annahme{background:#fff7e0;border-left:4px solid var(--warn);padding:.3em .8em;margin:.2em 0}
+.schritt{border:1px solid var(--linie);border-radius:4px;padding:.4em .8em;margin:.6em 0;overflow-x:auto}
+.formel{overflow-x:auto}figure{margin:1em 0;overflow-x:auto}figcaption{font-size:.9em;color:var(--tinte2)}
+figure svg{max-width:100%;height:auto;background:#fff}
+.deckblatt{border:2px solid var(--tinte);padding:1em 1.2em;margin-bottom:2em}
+section.nachweis{margin-top:2.5em}
+@media print{body{background:#fff}main{max-width:none;padding:0}section.nachweis{break-before:page}
+figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
+@page{size:A4;margin:18mm 15mm}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<main>
+<section class="deckblatt">
+<h1>Nachweisheft B3 – Wärmedurchgangskoeffizient Außenwand AW-01 (DIN EN ISO 6946)</h1>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;4 erfüllt · 0 nicht erfüllt · 0 Hinweis</p>
+<table>
+<tr><th>Projekt</th><td>Beispielhaus Holzrahmenbau</td></tr>
+<tr><th>Gebäude</th><td>Einfamilienhaus (fiktiv)</td></tr>
+<tr><th>Geschoss</th><td>EG</td></tr>
+<tr><th>Parametermodell</th><td>daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)</td></tr>
+<tr><th>Grundstück</th><td>daten/grundstueck.json (SHA-256 a60954d2a172493d…)</td></tr>
+<tr><th>Rechtsstand der Beispiele</th><td>27.09.2026</td></tr>
+<tr><th>Hinweis</th><td>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</td></tr>
+<tr><th>Verfasser</th><td>Entwurfsgenerator (Beispiel), ohne Prüfvermerk</td></tr>
+<tr><th>Regelwerk-Profile</th><td><code>DE-Waermeschutz-Beispiel</code> Version <code>0.1.0</code></td></tr>
+<tr><th>Regelquellen</th><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017); Grenzwert: holzrahmenbau.ids HRB-01 (Projektanforderung), Fassung 2018-03 [V]</td></tr>
+<tr><th>Heft-Hash (SHA-256)</th><td><code>73c1e10be721152cd5a7f72d475f4bf1773402b66da4efd310cab9315c1a7afc</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<h2>Inhaltsverzeichnis</h2>
+<table><thead><tr><th>Nr.</th><th>ID</th><th>Titel</th><th>Status</th><th>η</th><th>Hash</th></tr></thead><tbody>
+<tr><td class="z">1</td><td><a href="#n-n-b3-geometrie-verputzt">N-B3-geometrie-verputzt</a></td><td>U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,934</td><td><code>c9be9bf83a9c…</code></td></tr>
+<tr><td class="z">2</td><td><a href="#n-n-b3-geometrie-hinterlueftet">N-B3-geometrie-hinterlueftet</a></td><td>U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,918</td><td><code>c5ce6828b373…</code></td></tr>
+<tr><td class="z">3</td><td><a href="#n-n-b3-raster-verputzt">N-B3-raster-verputzt</a></td><td>U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,813</td><td><code>477cffed6648…</code></td></tr>
+<tr><td class="z">4</td><td><a href="#n-n-b3-raster-hinterlueftet">N-B3-raster-hinterlueftet</a></td><td>U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,801</td><td><code>6affe8a4a000…</code></td></tr>
+</tbody></table>
+<section class="nachweis" id="n-n-b3-geometrie-verputzt">
+<h2>N-B3-geometrie-verputzt – U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,934</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>Außenwand AW-01, Typ AW-HRB-01, Variante geometrie/verputzt</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement.ifc (aus B1)<br><span class="leise">SHA-256 <code>5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Der Wärmedurchgangskoeffizient der Außenwand darf 0,20 W/(m²·K) nicht überschreiten. Berechnung nach dem vereinfachten Verfahren für Bauteile aus homogenen und inhomogenen Schichten (oberer und unterer Grenzwert).</p>
+<p class="leise">Quelle: DIN EN ISO 6946:2018-03 (ISO 6946:2017); Grenzwert: holzrahmenbau.ids HRB-01 (Projektanforderung) · Fassung: 2018-03 · Fundstelle: 6.5.2, 6.6, 6.7.1.1, 6.7.2, 6.8 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>DE-Waermeschutz-Beispiel</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Wärmeübergangswiderstand innen</td><td>$R_{\mathrm{si}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8, horizontaler Wärmestrom</td></tr>
+<tr><td>Wärmeübergangswiderstand außen</td><td>$R_{\mathrm{se}}$</td><td class="z">0,04 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8 (Fassade verputzt)</td></tr>
+<tr><td>Dicke GKF</td><td>$d_{\mathrm{GKF}}$</td><td class="z">12,5 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gkf</td></tr>
+<tr><td>Dicke OSB/3</td><td>$d_{\mathrm{OSB}}$</td><td class="z">15 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht osb</td></tr>
+<tr><td>Dicke Gefach</td><td>$d_{\mathrm{G}}$</td><td class="z">200 mm</td><td class="z">2 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gefach</td></tr>
+<tr><td>Dicke Holzfaserdämmplatte</td><td>$d_{\mathrm{HFD}}$</td><td class="z">60 mm</td><td class="z">1 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht hfd</td></tr>
+<tr><td>Bemessungswert λ GKF</td><td>$\lambda_{\mathrm{GKF}}$</td><td class="z">0,25 W/(m·K)</td><td class="z">0,0075 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ OSB/3</td><td>$\lambda_{\mathrm{OSB}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe / DIN EN 13986 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Holz (KVH C24)</td><td>$\lambda_{\mathrm{H}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Gefachdämmung</td><td>$\lambda_{\mathrm{D}}$</td><td class="z">0,038 W/(m·K)</td><td class="z">0,00114 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Bemessungswert λ Holzfaserdämmplatte</td><td>$\lambda_{\mathrm{HFD}}$</td><td class="z">0,043 W/(m·K)</td><td class="z">0,00129 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Holzanteil der Gefachschicht</td><td>$f_{\mathrm{a}}$</td><td class="z">0,22481208914962156</td><td class="z">–</td><td>eingabe</td><td>Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm²</td></tr>
+<tr><td>Höchstwert des U-Werts</td><td>$U_{\mathrm{max}}$</td><td class="z">0,2 W/(m²·K)</td><td class="z">–</td><td>grenzwert</td><td>holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Korrekturen ΔU nach Anhang F nicht angesetzt: Luftspalte Stufe 0 (Dämmung passgenau), Befestigungen durchdringen die Dämmschicht nicht (6.4 d: Korrektur nur bei &gt; 3 % von U).</p>
+<p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) ist thermisch vernachlässigt.</p>
+<p class="annahme"><b>Annahme:</b> λ-Werte sind Beispielwerte aus dem Parametermodell, keine Tabellenwerte der DIN 4108-4.</p>
+<p class="annahme"><b>Annahme:</b> Unsicherheiten der Dicken (Rechteckverteilung) und der λ-Werte (3 %, normal): Annahme zur Demonstration der Unsicherheitsfortpflanzung.</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: Wärmedurchlasswiderstand GKF</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}} $$</div>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{12{,}5\ \mathrm{mm}}{0{,}25\ \mathrm{W/(m\cdot K)}} = 0{,}050000\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_GKF/lambda_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Wärmedurchlasswiderstand OSB/3</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}} $$</div>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{15\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 0{,}11538\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_OSB/lambda_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}} $$</div>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{60\ \mathrm{mm}}{0{,}043\ \mathrm{W/(m\cdot K)}} = 1{,}3953\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_HFD/lambda_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 4: Gefachschicht, Abschnitt a (Holz)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{200\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 1{,}5385\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 5: Gefachschicht, Abschnitt b (Dämmung)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{200\ \mathrm{mm}}{0{,}038\ \mathrm{W/(m\cdot K)}} = 5{,}2632\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)</b> <span class="leise">(6.7.2 (oberer Grenzwert, Abschnittswiderstände))</span></p>
+<div class="formel">$$ R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},a} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 1{,}5385\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 3{,}2692\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Gesamtwiderstand Abschnitt b</b> <span class="leise">(6.7.2)</span></p>
+<div class="formel">$$ R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},b} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 5{,}2632\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 6{,}9939\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Flächenanteil Abschnitt b</b></p>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - f_{\mathrm{a}} $$</div>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519 $$</div>
+<p class="leise">Ausdruck: <code>1 - f_a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: oberer Grenzwert R&#x27;_T (parallele Wärmeströme)</b> <span class="leise">(6.7.2, oberer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}} $$</div>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{0{,}22481208914962156}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 5{,}5678\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>1/(f_a/R_Ta + f_b/R_Tb)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ \lambda&#x27;&#x27; = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}} $$</div>
+<div class="formel">$$ \lambda&#x27;&#x27; = 0{,}22481208914962156 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>f_a*lambda_H + f_b*lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 11: Wärmedurchlasswiderstand Gefach mit λ&#x27;&#x27;</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda&#x27;&#x27;} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{200\ \mathrm{mm}}{0{,}058683\ \mathrm{W/(m\cdot K)}} = 3{,}4082\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_eq</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 12: unterer Grenzwert R&#x27;&#x27;_T (isotherme Ebenen)</b> <span class="leise">(6.7.2, unterer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R&#x27;&#x27;_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 3{,}4082\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 5{,}1389\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel</b> <span class="leise">(6.7.2.2 [V])</span></p>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{R&#x27;_{\mathrm{T}} + R&#x27;&#x27;_{\mathrm{T}}}{2} $$</div>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{5{,}5678\ \mathrm{m^{2}\cdot K/W} + 5{,}1389\ \mathrm{m^{2}\cdot K/W}}{2} = 5{,}3533\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>(R_o + R_u)/2</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 14: maximaler relativer Fehler</b> <span class="leise">(6.7.2, Abschätzung des Fehlers)</span></p>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{R&#x27;_{\mathrm{T}} - R&#x27;&#x27;_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{5{,}5678\ \mathrm{m^{2}\cdot K/W} - 5{,}1389\ \mathrm{m^{2}\cdot K/W}}{2 \cdot 5{,}3533\ \mathrm{m^{2}\cdot K/W}} = 4{,}0058\ \mathrm{\%} $$</div>
+<p class="leise">Ausdruck: <code>(R_o - R_u)/(2*R_T)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 15: Wärmedurchgangskoeffizient</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))</span></p>
+<div class="formel">$$ U = \frac{1}{R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ U = \frac{1}{5{,}3533\ \mathrm{m^{2}\cdot K/W}} = 0{,}18680\ \mathrm{W/(m^{2}\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>1/R_T</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>U ≤ U_max</td><td class="z">0,19 W/(m²·K)</td><td>≤</td><td class="z">0,2 W/(m²·K)</td><td class="z">0,934</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids HRB-01</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V].</p>
+<h3>Messunsicherheit</h3>
+<p>Ergebnis: <b>0,187 ± 0,007 W/(m²·K) (k = 2)</b>; u<sub>c</sub> = 0,0034 W/(m²·K).</p><p class="leise">lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette.</p>
+<table><thead><tr><th>Eingang</th><th>u(x)</th><th>Sensitivität c</th><th>Einheit von c</th><th>|c|·u</th><th>Anteil an u<sub>c</sub>²</th></tr></thead><tbody>
+<tr><td>d_GKF</td><td class="z">0,3 mm</td><td class="z">−0,000150</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000045</td><td class="z">0,0 %</td></tr>
+<tr><td>d_OSB</td><td class="z">0,3 mm</td><td class="z">−0,000288</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000086</td><td class="z">0,1 %</td></tr>
+<tr><td>d_G</td><td class="z">2 mm</td><td class="z">−0,000610</td><td>(W/(m²·K))/(mm)</td><td class="z">0,0012</td><td class="z">12,6 %</td></tr>
+<tr><td>d_HFD</td><td class="z">1 mm</td><td class="z">−0,000870</td><td>(W/(m²·K))/(mm)</td><td class="z">0,00087</td><td class="z">6,4 %</td></tr>
+<tr><td>lambda_GKF</td><td class="z">0,0075 W/(m·K)</td><td class="z">0,00748</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000056</td><td class="z">0,0 %</td></tr>
+<tr><td>lambda_OSB</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,0332</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,00013</td><td class="z">0,1 %</td></tr>
+<tr><td>lambda_H</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,362</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0014</td><td class="z">17,0 %</td></tr>
+<tr><td>lambda_D</td><td class="z">0,00114 W/(m·K)</td><td class="z">1,97</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0022</td><td class="z">42,9 %</td></tr>
+<tr><td>lambda_HFD</td><td class="z">0,00129 W/(m·K)</td><td class="z">1,21</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0016</td><td class="z">20,8 %</td></tr>
+</tbody></table>
+<p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1867, s = 0,0034, 95-%-Intervall [0,1801; 0,1935] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
+<h3>Gegenrechnung mit dem Rechenkern</h3>
+<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,186799</td><td class="z">0,18679932937799024</td><td class="z">3.29e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,567784</td><td class="z">5,567784334633171</td><td class="z">3.35e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,138892</td><td class="z">5,138892218541071</td><td class="z">2.19e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>U</td><td><code>IFC Pset_WallCommon.ThermalTransmittance (3 Dezimalstellen)</code></td><td class="z">0,187</td><td class="z">0,18679932937799024</td><td class="z">2.01e-04</td><td>ja (Toleranz 5e-04)</td></tr>
+</tbody></table>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+<li>Im IFC-Modell (Pset_WallCommon.ThermalTransmittance) steht der U-Wert mit drei Dezimalstellen. Das ist ein Zwischenwert für Folgerechnungen (vgl. JCGM 100:2008, 7.2.6); als Endergebnis gilt die Angabe mit zwei signifikanten Stellen.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="191mm" height="127.54mm" viewBox="0 0 191 127.54" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Horizontalschnitt AW-01">
+<title>Horizontalschnitt AW-01</title>
+<rect width="191" height="127.54" fill="#ffffff"/>
+<defs><pattern id="m-gips" patternUnits="userSpaceOnUse" width="1.5" height="1.5"><rect width="1.5" height="1.5" fill="#eeeeee"/><circle cx="0.75" cy="0.75" r="0.18" fill="#777777"/></pattern><pattern id="m-holzwerkstoff" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(-45)"><rect width="2" height="2" fill="#e8d2a6"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern><pattern id="m-daemmung" patternUnits="userSpaceOnUse" width="3" height="3"><rect width="3" height="3" fill="#fdf6d8"/><path d="M0,1.5 L0.75,0.3 L1.5,1.5 L2.25,2.7 L3,1.5" fill="none" stroke="#b08900" stroke-width="0.2"/></pattern><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="14,71.54 139,71.54 139,69.04 14,69.04" fill="url(#m-gips)" stroke="#0b0b0b" stroke-width="0.35"><title>Gipsplatte Typ DF (GKF)</title></polygon>
+<polygon points="14,69.04 139,69.04 139,66.04 14,66.04" fill="url(#m-holzwerkstoff)" stroke="#0b0b0b" stroke-width="0.35"><title>OSB/3</title></polygon>
+<line x1="14" y1="66" x2="139" y2="66" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<polygon points="14,66 139,66 139,26 14,26" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaser-Dämmmatte (flexibel)</title></polygon>
+<polygon points="14,26 139,26 139,14 14,14" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaserdämmplatte (Putzträger)</title></polygon>
+<polygon points="70.5,66 82.5,66 82.5,26 70.5,26" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.5"><title>Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</title></polygon>
+<line x1="70.5" y1="66" x2="82.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="70.5" y1="26" x2="82.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="146.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="67.54" x2="145" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="70.44" x2="146.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="70.29" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 70.29)">12,5</text>
+<line x1="140" y1="66.04" x2="146.5" y2="66.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="64.54" x2="145" y2="70.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="64.94" x2="146.1" y2="67.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="67.54" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 67.54)">15</text>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="66" x2="146.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="24.5" x2="145" y2="67.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="64.9" x2="146.1" y2="67.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="46" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 46)">200</text>
+<line x1="140" y1="14" x2="146.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="12.5" x2="145" y2="27.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="12.9" x2="146.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="20" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 20)">60</text>
+<line x1="140" y1="14" x2="156.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="156.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="155" y1="12.5" x2="155" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="153.9" y1="12.9" x2="156.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="153.9" y1="70.44" x2="156.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="155.8" y="42.77" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 155.8 42.77)">287,7</text>
+<line x1="70.5" y1="72.54" x2="70.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="82.5" y1="72.54" x2="82.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="69" y1="77.54" x2="84" y2="77.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="69.4" y1="78.64" x2="71.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="81.4" y1="78.64" x2="83.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="76.74" font-size="2.2" text-anchor="middle" fill="#0b0b0b">60</text>
+<line x1="14" y1="72.54" x2="14" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="139" y1="72.54" x2="139" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="12.5" y1="83.54" x2="140.5" y2="83.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="12.9" y1="84.64" x2="15.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="137.9" y1="84.64" x2="140.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="82.74" font-size="2.5" text-anchor="middle" fill="#0b0b0b">625</text>
+<text x="76.5" y="12" font-size="3" text-anchor="middle" fill="#0b0b0b">außen (R_se = 0,04, verputzt)</text>
+<text x="76.5" y="93.54" font-size="3" text-anchor="middle" fill="#0b0b0b">innen (R_si = 0,13)</text>
+<rect x="14" y="89.54" width="6" height="3" fill="url(#m-gips)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="92.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">1  Gipsplatte Typ DF (GKF), d = 12,5 mm, λ = 0,25 W/(m·K)</text>
+<rect x="14" y="94.54" width="6" height="3" fill="url(#m-holzwerkstoff)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="97.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">2  OSB/3, d = 15 mm, λ = 0,13 W/(m·K)</text>
+<line x1="14" y1="101.04" x2="20" y2="101.04" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<text x="22" y="102.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">3  Dampfbremsbahn (feuchtevariabel), d = 0,2 mm (thermisch vernachlässigt)</text>
+<rect x="14" y="104.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="107.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">4  Holzfaser-Dämmmatte (flexibel), d = 200 mm, λ = 0,038 W/(m·K)</text>
+<rect x="14" y="109.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="112.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">5  Holzfaserdämmplatte (Putzträger), d = 60 mm, λ = 0,043 W/(m·K)</text>
+<rect x="14" y="114.54" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="117.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</text>
+<text x="12" y="71.19" font-size="2.5" text-anchor="end" fill="#0b0b0b">1</text>
+<text x="12" y="68.44" font-size="2.5" text-anchor="end" fill="#0b0b0b">2</text>
+<text x="12" y="66.92" font-size="2.5" text-anchor="end" fill="#0b0b0b">3</text>
+<text x="12" y="46.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">4</text>
+<text x="12" y="20.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">5</text>
+</svg><figcaption>Abbildung N-B3-geometrie-verputzt/schnitt: Horizontalschnitt Außenwand AW-01 (ein Ständerfeld, e = 625 mm) (Maßstab 1:5, bei Druck in 100 %). Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.<br><span class="leise">SHA-256 <code>62b1f8d64961e2ebefd6591b8fbc26191013aa1ed994533cb1576f3fd7c61e85</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="485.217812pt" height="187.836838pt" viewBox="0 0 485.217812 187.836838" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 187.836838 
+L 485.217812 187.836838 
+L 485.217812 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+L 478.017813 20.798437 
+L 120.897812 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="120.897812" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="120.897812" y="165.474728" transform="rotate(-0 120.897812 165.474728)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 174.348159 151.636838 
+L 174.348159 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="174.348159" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="174.348159" y="165.474728" transform="rotate(-0 174.348159 165.474728)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 227.798505 151.636838 
+L 227.798505 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="227.798505" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="227.798505" y="165.474728" transform="rotate(-0 227.798505 165.474728)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 281.248851 151.636838 
+L 281.248851 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="281.248851" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="281.248851" y="165.474728" transform="rotate(-0 281.248851 165.474728)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 334.699197 151.636838 
+L 334.699197 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="334.699197" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="334.699197" y="165.474728" transform="rotate(-0 334.699197 165.474728)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 388.149543 151.636838 
+L 388.149543 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5ecce93918" x="388.149543" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="388.149543" y="165.474728" transform="rotate(-0 388.149543 165.474728)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 441.599889 151.636838 
+L 441.599889 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m5ecce93918" x="441.599889" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="441.599889" y="165.474728" transform="rotate(-0 441.599889 165.474728)">6</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="299.457813" y="178.474728" transform="rotate(-0 299.457813 178.474728)">m²·K/W</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="132.862343" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="136.28164" transform="rotate(-0 113.897812 136.28164)">oberer Grenzwert R'_T</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="86.217637" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="89.636934" transform="rotate(-0 113.897812 89.636934)">Mittelwert R_T</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="39.572932" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="42.991877" transform="rotate(-0 113.897812 42.991877)">unterer Grenzwert R''_T</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 120.897812 52.400226 
+L 395.57338 52.400226 
+L 395.57338 26.745637 
+L 120.897812 26.745637 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.897812 99.044932 
+L 407.035596 99.044932 
+L 407.035596 73.390343 
+L 120.897812 73.390343 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 120.897812 145.689638 
+L 418.497813 145.689638 
+L 418.497813 120.035049 
+L 120.897812 120.035049 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="399.57338" y="42.572932" transform="rotate(-0 399.57338 42.572932)">5,14</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="411.035596" y="89.217637" transform="rotate(-0 411.035596 89.217637)">5,35</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="422.497813" y="135.862343" transform="rotate(-0 422.497813 135.862343)">5,57</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="120.897812" y="14.798438" transform="rotate(-0 120.897812 14.798438)">R''_T ≤ R_T ≤ R'_T, maximaler relativer Fehler e = 4,0 %</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8f5602b27d">
+   <rect x="120.897812" y="20.798438" width="357.12" height="130.8384"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-geometrie-verputzt/grenzwerte: Grenzwerte des Wärmedurchgangswiderstands<br><span class="leise">SHA-256 <code>2eb44383a07e6bc103950aa3c396245289465a30785adcdce77117ca3c9cf3bf</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="484.801562pt" height="154.017656pt" viewBox="0 0 484.801562 154.017656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 154.017656 
+L 484.801562 154.017656 
+L 484.801562 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 120.481562 117.817656 
+L 477.601563 117.817656 
+L 477.601563 20.797656 
+L 120.481562 20.797656 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 120.481562 117.817656 
+L 120.481562 20.797656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="120.481562" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="120.481562" y="131.655547" transform="rotate(-0 120.481562 131.655547)">0.00</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 196.142579 117.817656 
+L 196.142579 20.797656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="196.142579" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="196.142579" y="131.655547" transform="rotate(-0 196.142579 131.655547)">0.05</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 271.803596 117.817656 
+L 271.803596 20.797656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="271.803596" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="271.803596" y="131.655547" transform="rotate(-0 271.803596 131.655547)">0.10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 347.464613 117.817656 
+L 347.464613 20.797656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="347.464613" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="347.464613" y="131.655547" transform="rotate(-0 347.464613 131.655547)">0.15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 423.12563 117.817656 
+L 423.12563 20.797656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="423.12563" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="423.12563" y="131.655547" transform="rotate(-0 423.12563 131.655547)">0.20</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="299.041563" y="144.655547" transform="rotate(-0 299.041563 144.655547)">W/(m²·K)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.481562" y="69.307656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.481562" y="72.726953" transform="rotate(-0 113.481562 72.726953)">U (geometrie, verputzt)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 120.481562 98.320814 
+L 403.150107 98.320814 
+L 403.150107 40.294498 
+L 120.481562 40.294498 
+z
+" clip-path="url(#p0e677f348f)" style="fill: #0ca30c; opacity: 0.85"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.481562 117.817656 
+L 120.481562 20.797656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 120.481562 117.817656 
+L 477.601563 117.817656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 392.762021 69.307656 
+L 413.538193 69.307656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #0b0b0b"/>
+   </g>
+   <g id="line2d_12">
+    <defs>
+     <path id="mefab6c26c2" d="M 0 3 
+L 0 -3 
+" style="stroke: #0b0b0b"/>
+    </defs>
+    <g clip-path="url(#p0e677f348f)">
+     <use xlink:href="#mefab6c26c2" x="392.762021" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="line2d_13">
+    <g clip-path="url(#p0e677f348f)">
+     <use xlink:href="#mefab6c26c2" x="413.538193" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="426.12563" y="24.207656" transform="rotate(-0 426.12563 24.207656)">≤ 0,200</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="124.481562" y="72.307656" transform="rotate(-0 124.481562 72.307656)">0,187 (erfüllt)</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="120.481562" y="14.797656" transform="rotate(-0 120.481562 14.797656)">U ≤ U_max = 0,20 W/(m²·K)</text>
+   </g>
+   <g id="line2d_14">
+    <path d="M 423.12563 113.407656 
+L 423.12563 25.207656 
+" clip-path="url(#p0e677f348f)" style="fill: none; stroke: #0b0b0b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0e677f348f">
+   <rect x="120.481562" y="20.797656" width="357.12" height="97.02"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-geometrie-verputzt/uwert: U-Wert gegen Höchstwert (mit erweiterter Unsicherheit U, k = 2)<br><span class="leise">SHA-256 <code>1182b8e5be2d6fae44ac096819473dd4f4ec785afc2966fad2814b93fab65fdf</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>c9be9bf83a9c39c6f9cd3561d228745df002b4bfc57289f0468e1ce0b7622701</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b3-geometrie-hinterlueftet">
+<h2>N-B3-geometrie-hinterlueftet – U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,918</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>Außenwand AW-01, Typ AW-HRB-01, Variante geometrie/hinterlueftet</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement.ifc (aus B1)<br><span class="leise">SHA-256 <code>5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Der Wärmedurchgangskoeffizient der Außenwand darf 0,20 W/(m²·K) nicht überschreiten. Berechnung nach dem vereinfachten Verfahren für Bauteile aus homogenen und inhomogenen Schichten (oberer und unterer Grenzwert).</p>
+<p class="leise">Quelle: DIN EN ISO 6946:2018-03 (ISO 6946:2017); Grenzwert: holzrahmenbau.ids HRB-01 (Projektanforderung) · Fassung: 2018-03 · Fundstelle: 6.5.2, 6.6, 6.7.1.1, 6.7.2, 6.8 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>DE-Waermeschutz-Beispiel</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Wärmeübergangswiderstand innen</td><td>$R_{\mathrm{si}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8, horizontaler Wärmestrom</td></tr>
+<tr><td>Wärmeübergangswiderstand außen</td><td>$R_{\mathrm{se}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8; stark belüftete Luftschicht: R_se = R_si (6.9.4)</td></tr>
+<tr><td>Dicke GKF</td><td>$d_{\mathrm{GKF}}$</td><td class="z">12,5 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gkf</td></tr>
+<tr><td>Dicke OSB/3</td><td>$d_{\mathrm{OSB}}$</td><td class="z">15 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht osb</td></tr>
+<tr><td>Dicke Gefach</td><td>$d_{\mathrm{G}}$</td><td class="z">200 mm</td><td class="z">2 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gefach</td></tr>
+<tr><td>Dicke Holzfaserdämmplatte</td><td>$d_{\mathrm{HFD}}$</td><td class="z">60 mm</td><td class="z">1 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht hfd</td></tr>
+<tr><td>Bemessungswert λ GKF</td><td>$\lambda_{\mathrm{GKF}}$</td><td class="z">0,25 W/(m·K)</td><td class="z">0,0075 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ OSB/3</td><td>$\lambda_{\mathrm{OSB}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe / DIN EN 13986 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Holz (KVH C24)</td><td>$\lambda_{\mathrm{H}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Gefachdämmung</td><td>$\lambda_{\mathrm{D}}$</td><td class="z">0,038 W/(m·K)</td><td class="z">0,00114 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Bemessungswert λ Holzfaserdämmplatte</td><td>$\lambda_{\mathrm{HFD}}$</td><td class="z">0,043 W/(m·K)</td><td class="z">0,00129 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Holzanteil der Gefachschicht</td><td>$f_{\mathrm{a}}$</td><td class="z">0,22481208914962156</td><td class="z">–</td><td>eingabe</td><td>Geometrie: Holzansichtsfläche/Nettowandfläche aus b1_wandelement.rahmenlayout = 2 575 200 mm² / 11 454 900 mm²</td></tr>
+<tr><td>Höchstwert des U-Werts</td><td>$U_{\mathrm{max}}$</td><td class="z">0,2 W/(m²·K)</td><td class="z">–</td><td>grenzwert</td><td>holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Korrekturen ΔU nach Anhang F nicht angesetzt: Luftspalte Stufe 0 (Dämmung passgenau), Befestigungen durchdringen die Dämmschicht nicht (6.4 d: Korrektur nur bei &gt; 3 % von U).</p>
+<p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) ist thermisch vernachlässigt.</p>
+<p class="annahme"><b>Annahme:</b> λ-Werte sind Beispielwerte aus dem Parametermodell, keine Tabellenwerte der DIN 4108-4.</p>
+<p class="annahme"><b>Annahme:</b> Unsicherheiten der Dicken (Rechteckverteilung) und der λ-Werte (3 %, normal): Annahme zur Demonstration der Unsicherheitsfortpflanzung.</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: Wärmedurchlasswiderstand GKF</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}} $$</div>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{12{,}5\ \mathrm{mm}}{0{,}25\ \mathrm{W/(m\cdot K)}} = 0{,}050000\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_GKF/lambda_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Wärmedurchlasswiderstand OSB/3</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}} $$</div>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{15\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 0{,}11538\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_OSB/lambda_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}} $$</div>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{60\ \mathrm{mm}}{0{,}043\ \mathrm{W/(m\cdot K)}} = 1{,}3953\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_HFD/lambda_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 4: Gefachschicht, Abschnitt a (Holz)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{200\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 1{,}5385\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 5: Gefachschicht, Abschnitt b (Dämmung)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{200\ \mathrm{mm}}{0{,}038\ \mathrm{W/(m\cdot K)}} = 5{,}2632\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)</b> <span class="leise">(6.7.2 (oberer Grenzwert, Abschnittswiderstände))</span></p>
+<div class="formel">$$ R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},a} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 1{,}5385\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 3{,}3592\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Gesamtwiderstand Abschnitt b</b> <span class="leise">(6.7.2)</span></p>
+<div class="formel">$$ R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},b} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 5{,}2632\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 7{,}0839\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Flächenanteil Abschnitt b</b></p>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - f_{\mathrm{a}} $$</div>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - 0{,}22481208914962156 = 0{,}77519 $$</div>
+<p class="leise">Ausdruck: <code>1 - f_a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: oberer Grenzwert R&#x27;_T (parallele Wärmeströme)</b> <span class="leise">(6.7.2, oberer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}} $$</div>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{0{,}22481208914962156}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}77519}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 5{,}6704\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>1/(f_a/R_Ta + f_b/R_Tb)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ \lambda&#x27;&#x27; = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}} $$</div>
+<div class="formel">$$ \lambda&#x27;&#x27; = 0{,}22481208914962156 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}77519 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}058683\ \mathrm{W/(m\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>f_a*lambda_H + f_b*lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 11: Wärmedurchlasswiderstand Gefach mit λ&#x27;&#x27;</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda&#x27;&#x27;} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{200\ \mathrm{mm}}{0{,}058683\ \mathrm{W/(m\cdot K)}} = 3{,}4082\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_eq</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 12: unterer Grenzwert R&#x27;&#x27;_T (isotherme Ebenen)</b> <span class="leise">(6.7.2, unterer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R&#x27;&#x27;_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 3{,}4082\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 5{,}2289\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel</b> <span class="leise">(6.7.2.2 [V])</span></p>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{R&#x27;_{\mathrm{T}} + R&#x27;&#x27;_{\mathrm{T}}}{2} $$</div>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{5{,}6704\ \mathrm{m^{2}\cdot K/W} + 5{,}2289\ \mathrm{m^{2}\cdot K/W}}{2} = 5{,}4497\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>(R_o + R_u)/2</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 14: maximaler relativer Fehler</b> <span class="leise">(6.7.2, Abschätzung des Fehlers)</span></p>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{R&#x27;_{\mathrm{T}} - R&#x27;&#x27;_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{5{,}6704\ \mathrm{m^{2}\cdot K/W} - 5{,}2289\ \mathrm{m^{2}\cdot K/W}}{2 \cdot 5{,}4497\ \mathrm{m^{2}\cdot K/W}} = 4{,}0509\ \mathrm{\%} $$</div>
+<p class="leise">Ausdruck: <code>(R_o - R_u)/(2*R_T)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 15: Wärmedurchgangskoeffizient</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))</span></p>
+<div class="formel">$$ U = \frac{1}{R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ U = \frac{1}{5{,}4497\ \mathrm{m^{2}\cdot K/W}} = 0{,}18350\ \mathrm{W/(m^{2}\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>1/R_T</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>U ≤ U_max</td><td class="z">0,18 W/(m²·K)</td><td>≤</td><td class="z">0,2 W/(m²·K)</td><td class="z">0,918</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids HRB-01</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V].</p>
+<h3>Messunsicherheit</h3>
+<p>Ergebnis: <b>0,183 ± 0,007 W/(m²·K) (k = 2)</b>; u<sub>c</sub> = 0,0033 W/(m²·K).</p><p class="leise">lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette.</p>
+<table><thead><tr><th>Eingang</th><th>u(x)</th><th>Sensitivität c</th><th>Einheit von c</th><th>|c|·u</th><th>Anteil an u<sub>c</sub>²</th></tr></thead><tbody>
+<tr><td>d_GKF</td><td class="z">0,3 mm</td><td class="z">−0,000144</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000043</td><td class="z">0,0 %</td></tr>
+<tr><td>d_OSB</td><td class="z">0,3 mm</td><td class="z">−0,000277</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000083</td><td class="z">0,1 %</td></tr>
+<tr><td>d_G</td><td class="z">2 mm</td><td class="z">−0,000590</td><td>(W/(m²·K))/(mm)</td><td class="z">0,0012</td><td class="z">12,7 %</td></tr>
+<tr><td>d_HFD</td><td class="z">1 mm</td><td class="z">−0,000837</td><td>(W/(m²·K))/(mm)</td><td class="z">0,00084</td><td class="z">6,4 %</td></tr>
+<tr><td>lambda_GKF</td><td class="z">0,0075 W/(m·K)</td><td class="z">0,00720</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000054</td><td class="z">0,0 %</td></tr>
+<tr><td>lambda_OSB</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,0319</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,00012</td><td class="z">0,1 %</td></tr>
+<tr><td>lambda_H</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,347</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0014</td><td class="z">16,7 %</td></tr>
+<tr><td>lambda_D</td><td class="z">0,00114 W/(m·K)</td><td class="z">1,92</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0022</td><td class="z">43,4 %</td></tr>
+<tr><td>lambda_HFD</td><td class="z">0,00129 W/(m·K)</td><td class="z">1,17</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0015</td><td class="z">20,6 %</td></tr>
+</tbody></table>
+<p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1834, s = 0,0033, 95-%-Intervall [0,1770; 0,1900] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
+<h3>Gegenrechnung mit dem Rechenkern</h3>
+<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,183498</td><td class="z">0,18349797236470997</td><td class="z">2.76e-08</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">5,670411</td><td class="z">5,670410777706296</td><td class="z">2.22e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">5,228892</td><td class="z">5,228892218541071</td><td class="z">2.19e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+</tbody></table>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+<li>Im IFC-Modell (Pset_WallCommon.ThermalTransmittance) steht der U-Wert mit drei Dezimalstellen. Das ist ein Zwischenwert für Folgerechnungen (vgl. JCGM 100:2008, 7.2.6); als Endergebnis gilt die Angabe mit zwei signifikanten Stellen.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="191mm" height="127.54mm" viewBox="0 0 191 127.54" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Horizontalschnitt AW-01">
+<title>Horizontalschnitt AW-01</title>
+<rect width="191" height="127.54" fill="#ffffff"/>
+<defs><pattern id="m-gips" patternUnits="userSpaceOnUse" width="1.5" height="1.5"><rect width="1.5" height="1.5" fill="#eeeeee"/><circle cx="0.75" cy="0.75" r="0.18" fill="#777777"/></pattern><pattern id="m-holzwerkstoff" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(-45)"><rect width="2" height="2" fill="#e8d2a6"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern><pattern id="m-daemmung" patternUnits="userSpaceOnUse" width="3" height="3"><rect width="3" height="3" fill="#fdf6d8"/><path d="M0,1.5 L0.75,0.3 L1.5,1.5 L2.25,2.7 L3,1.5" fill="none" stroke="#b08900" stroke-width="0.2"/></pattern><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="14,71.54 139,71.54 139,69.04 14,69.04" fill="url(#m-gips)" stroke="#0b0b0b" stroke-width="0.35"><title>Gipsplatte Typ DF (GKF)</title></polygon>
+<polygon points="14,69.04 139,69.04 139,66.04 14,66.04" fill="url(#m-holzwerkstoff)" stroke="#0b0b0b" stroke-width="0.35"><title>OSB/3</title></polygon>
+<line x1="14" y1="66" x2="139" y2="66" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<polygon points="14,66 139,66 139,26 14,26" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaser-Dämmmatte (flexibel)</title></polygon>
+<polygon points="14,26 139,26 139,14 14,14" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaserdämmplatte (Putzträger)</title></polygon>
+<polygon points="70.5,66 82.5,66 82.5,26 70.5,26" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.5"><title>Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</title></polygon>
+<line x1="70.5" y1="66" x2="82.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="70.5" y1="26" x2="82.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="146.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="67.54" x2="145" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="70.44" x2="146.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="70.29" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 70.29)">12,5</text>
+<line x1="140" y1="66.04" x2="146.5" y2="66.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="64.54" x2="145" y2="70.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="64.94" x2="146.1" y2="67.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="67.54" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 67.54)">15</text>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="66" x2="146.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="24.5" x2="145" y2="67.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="64.9" x2="146.1" y2="67.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="46" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 46)">200</text>
+<line x1="140" y1="14" x2="146.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="12.5" x2="145" y2="27.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="12.9" x2="146.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="20" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 20)">60</text>
+<line x1="140" y1="14" x2="156.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="156.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="155" y1="12.5" x2="155" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="153.9" y1="12.9" x2="156.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="153.9" y1="70.44" x2="156.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="155.8" y="42.77" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 155.8 42.77)">287,7</text>
+<line x1="70.5" y1="72.54" x2="70.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="82.5" y1="72.54" x2="82.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="69" y1="77.54" x2="84" y2="77.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="69.4" y1="78.64" x2="71.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="81.4" y1="78.64" x2="83.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="76.74" font-size="2.2" text-anchor="middle" fill="#0b0b0b">60</text>
+<line x1="14" y1="72.54" x2="14" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="139" y1="72.54" x2="139" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="12.5" y1="83.54" x2="140.5" y2="83.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="12.9" y1="84.64" x2="15.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="137.9" y1="84.64" x2="140.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="82.74" font-size="2.5" text-anchor="middle" fill="#0b0b0b">625</text>
+<text x="76.5" y="12" font-size="3" text-anchor="middle" fill="#0b0b0b">außen (R_se = 0,13, hinterlueftet)</text>
+<text x="76.5" y="93.54" font-size="3" text-anchor="middle" fill="#0b0b0b">innen (R_si = 0,13)</text>
+<rect x="14" y="89.54" width="6" height="3" fill="url(#m-gips)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="92.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">1  Gipsplatte Typ DF (GKF), d = 12,5 mm, λ = 0,25 W/(m·K)</text>
+<rect x="14" y="94.54" width="6" height="3" fill="url(#m-holzwerkstoff)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="97.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">2  OSB/3, d = 15 mm, λ = 0,13 W/(m·K)</text>
+<line x1="14" y1="101.04" x2="20" y2="101.04" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<text x="22" y="102.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">3  Dampfbremsbahn (feuchtevariabel), d = 0,2 mm (thermisch vernachlässigt)</text>
+<rect x="14" y="104.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="107.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">4  Holzfaser-Dämmmatte (flexibel), d = 200 mm, λ = 0,038 W/(m·K)</text>
+<rect x="14" y="109.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="112.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">5  Holzfaserdämmplatte (Putzträger), d = 60 mm, λ = 0,043 W/(m·K)</text>
+<rect x="14" y="114.54" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="117.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</text>
+<text x="12" y="71.19" font-size="2.5" text-anchor="end" fill="#0b0b0b">1</text>
+<text x="12" y="68.44" font-size="2.5" text-anchor="end" fill="#0b0b0b">2</text>
+<text x="12" y="66.92" font-size="2.5" text-anchor="end" fill="#0b0b0b">3</text>
+<text x="12" y="46.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">4</text>
+<text x="12" y="20.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">5</text>
+</svg><figcaption>Abbildung N-B3-geometrie-hinterlueftet/schnitt: Horizontalschnitt Außenwand AW-01 (ein Ständerfeld, e = 625 mm) (Maßstab 1:5, bei Druck in 100 %). Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.<br><span class="leise">SHA-256 <code>434710df5c32c35b6d76dc4c8ceed6b9e48e041b0160ff4981f753836babc316</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="485.217812pt" height="187.836838pt" viewBox="0 0 485.217812 187.836838" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 187.836838 
+L 485.217812 187.836838 
+L 485.217812 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+L 478.017813 20.798437 
+L 120.897812 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="120.897812" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="120.897812" y="165.474728" transform="rotate(-0 120.897812 165.474728)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 173.380783 151.636838 
+L 173.380783 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="173.380783" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="173.380783" y="165.474728" transform="rotate(-0 173.380783 165.474728)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 225.863753 151.636838 
+L 225.863753 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="225.863753" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="225.863753" y="165.474728" transform="rotate(-0 225.863753 165.474728)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 278.346723 151.636838 
+L 278.346723 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="278.346723" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="278.346723" y="165.474728" transform="rotate(-0 278.346723 165.474728)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 330.829693 151.636838 
+L 330.829693 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="330.829693" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="330.829693" y="165.474728" transform="rotate(-0 330.829693 165.474728)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 383.312664 151.636838 
+L 383.312664 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5ecce93918" x="383.312664" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="383.312664" y="165.474728" transform="rotate(-0 383.312664 165.474728)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 435.795634 151.636838 
+L 435.795634 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m5ecce93918" x="435.795634" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="435.795634" y="165.474728" transform="rotate(-0 435.795634 165.474728)">6</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="299.457813" y="178.474728" transform="rotate(-0 299.457813 178.474728)">m²·K/W</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="132.862343" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="136.28164" transform="rotate(-0 113.897812 136.28164)">oberer Grenzwert R'_T</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="86.217637" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="89.636934" transform="rotate(-0 113.897812 89.636934)">Mittelwert R_T</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="39.572932" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="42.991877" transform="rotate(-0 113.897812 42.991877)">unterer Grenzwert R''_T</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 120.897812 52.400226 
+L 395.325607 52.400226 
+L 395.325607 26.745637 
+L 120.897812 26.745637 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.897812 99.044932 
+L 406.91171 99.044932 
+L 406.91171 73.390343 
+L 120.897812 73.390343 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 120.897812 145.689638 
+L 418.497813 145.689638 
+L 418.497813 120.035049 
+L 120.897812 120.035049 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="399.325607" y="42.572932" transform="rotate(-0 399.325607 42.572932)">5,23</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="410.91171" y="89.217637" transform="rotate(-0 410.91171 89.217637)">5,45</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="422.497813" y="135.862343" transform="rotate(-0 422.497813 135.862343)">5,67</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="120.897812" y="14.798438" transform="rotate(-0 120.897812 14.798438)">R''_T ≤ R_T ≤ R'_T, maximaler relativer Fehler e = 4,1 %</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8f5602b27d">
+   <rect x="120.897812" y="20.798438" width="357.12" height="130.8384"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-geometrie-hinterlueftet/grenzwerte: Grenzwerte des Wärmedurchgangswiderstands<br><span class="leise">SHA-256 <code>ed71338953a031bcbd11c499d2e4821ce34192e918ea241f5a1543018624cb4d</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="503.060312pt" height="154.017656pt" viewBox="0 0 503.060312 154.017656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 154.017656 
+L 503.060312 154.017656 
+L 503.060312 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 138.740313 117.817656 
+L 495.860313 117.817656 
+L 495.860313 20.797656 
+L 138.740313 20.797656 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 138.740313 117.817656 
+L 138.740313 20.797656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="138.740313" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="138.740313" y="131.655547" transform="rotate(-0 138.740313 131.655547)">0.00</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 214.401329 117.817656 
+L 214.401329 20.797656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="214.401329" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="214.401329" y="131.655547" transform="rotate(-0 214.401329 131.655547)">0.05</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 290.062346 117.817656 
+L 290.062346 20.797656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="290.062346" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="290.062346" y="131.655547" transform="rotate(-0 290.062346 131.655547)">0.10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 365.723363 117.817656 
+L 365.723363 20.797656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="365.723363" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="365.723363" y="131.655547" transform="rotate(-0 365.723363 131.655547)">0.15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 441.38438 117.817656 
+L 441.38438 20.797656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="441.38438" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="441.38438" y="131.655547" transform="rotate(-0 441.38438 131.655547)">0.20</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="317.300313" y="144.655547" transform="rotate(-0 317.300313 144.655547)">W/(m²·K)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="138.740313" y="69.307656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="131.740313" y="72.726953" transform="rotate(-0 131.740313 72.726953)">U (geometrie, hinterlueftet)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 138.740313 98.320814 
+L 416.413176 98.320814 
+L 416.413176 40.294498 
+L 138.740313 40.294498 
+z
+" clip-path="url(#p33049c2df7)" style="fill: #0ca30c; opacity: 0.85"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 138.740313 117.817656 
+L 138.740313 20.797656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 138.740313 117.817656 
+L 495.860313 117.817656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 406.377355 69.307656 
+L 426.448998 69.307656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #0b0b0b"/>
+   </g>
+   <g id="line2d_12">
+    <defs>
+     <path id="mefab6c26c2" d="M 0 3 
+L 0 -3 
+" style="stroke: #0b0b0b"/>
+    </defs>
+    <g clip-path="url(#p33049c2df7)">
+     <use xlink:href="#mefab6c26c2" x="406.377355" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="line2d_13">
+    <g clip-path="url(#p33049c2df7)">
+     <use xlink:href="#mefab6c26c2" x="426.448998" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="444.38438" y="24.207656" transform="rotate(-0 444.38438 24.207656)">≤ 0,200</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="142.740313" y="72.307656" transform="rotate(-0 142.740313 72.307656)">0,183 (erfüllt)</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="138.740313" y="14.797656" transform="rotate(-0 138.740313 14.797656)">U ≤ U_max = 0,20 W/(m²·K)</text>
+   </g>
+   <g id="line2d_14">
+    <path d="M 441.38438 113.407656 
+L 441.38438 25.207656 
+" clip-path="url(#p33049c2df7)" style="fill: none; stroke: #0b0b0b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p33049c2df7">
+   <rect x="138.740313" y="20.797656" width="357.12" height="97.02"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-geometrie-hinterlueftet/uwert: U-Wert gegen Höchstwert (mit erweiterter Unsicherheit U, k = 2)<br><span class="leise">SHA-256 <code>432850d77ee89a112210dec53a791129bc4c46c8c1d3c7ab8920131d4df9184c</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>c5ce6828b373d349cbf68c3ec5bbd0fcaa5688cbdae4f966c910a60ea5498339</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b3-raster-verputzt">
+<h2>N-B3-raster-verputzt – U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,813</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>Außenwand AW-01, Typ AW-HRB-01, Variante raster/verputzt</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement.ifc (aus B1)<br><span class="leise">SHA-256 <code>5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Der Wärmedurchgangskoeffizient der Außenwand darf 0,20 W/(m²·K) nicht überschreiten. Berechnung nach dem vereinfachten Verfahren für Bauteile aus homogenen und inhomogenen Schichten (oberer und unterer Grenzwert).</p>
+<p class="leise">Quelle: DIN EN ISO 6946:2018-03 (ISO 6946:2017); Grenzwert: holzrahmenbau.ids HRB-01 (Projektanforderung) · Fassung: 2018-03 · Fundstelle: 6.5.2, 6.6, 6.7.1.1, 6.7.2, 6.8 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>DE-Waermeschutz-Beispiel</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Wärmeübergangswiderstand innen</td><td>$R_{\mathrm{si}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8, horizontaler Wärmestrom</td></tr>
+<tr><td>Wärmeübergangswiderstand außen</td><td>$R_{\mathrm{se}}$</td><td class="z">0,04 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8 (Fassade verputzt)</td></tr>
+<tr><td>Dicke GKF</td><td>$d_{\mathrm{GKF}}$</td><td class="z">12,5 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gkf</td></tr>
+<tr><td>Dicke OSB/3</td><td>$d_{\mathrm{OSB}}$</td><td class="z">15 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht osb</td></tr>
+<tr><td>Dicke Gefach</td><td>$d_{\mathrm{G}}$</td><td class="z">200 mm</td><td class="z">2 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gefach</td></tr>
+<tr><td>Dicke Holzfaserdämmplatte</td><td>$d_{\mathrm{HFD}}$</td><td class="z">60 mm</td><td class="z">1 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht hfd</td></tr>
+<tr><td>Bemessungswert λ GKF</td><td>$\lambda_{\mathrm{GKF}}$</td><td class="z">0,25 W/(m·K)</td><td class="z">0,0075 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ OSB/3</td><td>$\lambda_{\mathrm{OSB}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe / DIN EN 13986 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Holz (KVH C24)</td><td>$\lambda_{\mathrm{H}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Gefachdämmung</td><td>$\lambda_{\mathrm{D}}$</td><td class="z">0,038 W/(m·K)</td><td class="z">0,00114 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Bemessungswert λ Holzfaserdämmplatte</td><td>$\lambda_{\mathrm{HFD}}$</td><td class="z">0,043 W/(m·K)</td><td class="z">0,00129 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Holzanteil der Gefachschicht</td><td>$f_{\mathrm{a}}$</td><td class="z">0,096</td><td class="z">–</td><td>eingabe</td><td>Raster: Ständerbreite/Achsmaß = 60/625</td></tr>
+<tr><td>Höchstwert des U-Werts</td><td>$U_{\mathrm{max}}$</td><td class="z">0,2 W/(m²·K)</td><td class="z">–</td><td>grenzwert</td><td>holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Korrekturen ΔU nach Anhang F nicht angesetzt: Luftspalte Stufe 0 (Dämmung passgenau), Befestigungen durchdringen die Dämmschicht nicht (6.4 d: Korrektur nur bei &gt; 3 % von U).</p>
+<p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) ist thermisch vernachlässigt.</p>
+<p class="annahme"><b>Annahme:</b> λ-Werte sind Beispielwerte aus dem Parametermodell, keine Tabellenwerte der DIN 4108-4.</p>
+<p class="annahme"><b>Annahme:</b> Unsicherheiten der Dicken (Rechteckverteilung) und der λ-Werte (3 %, normal): Annahme zur Demonstration der Unsicherheitsfortpflanzung.</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: Wärmedurchlasswiderstand GKF</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}} $$</div>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{12{,}5\ \mathrm{mm}}{0{,}25\ \mathrm{W/(m\cdot K)}} = 0{,}050000\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_GKF/lambda_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Wärmedurchlasswiderstand OSB/3</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}} $$</div>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{15\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 0{,}11538\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_OSB/lambda_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}} $$</div>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{60\ \mathrm{mm}}{0{,}043\ \mathrm{W/(m\cdot K)}} = 1{,}3953\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_HFD/lambda_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 4: Gefachschicht, Abschnitt a (Holz)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{200\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 1{,}5385\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 5: Gefachschicht, Abschnitt b (Dämmung)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{200\ \mathrm{mm}}{0{,}038\ \mathrm{W/(m\cdot K)}} = 5{,}2632\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)</b> <span class="leise">(6.7.2 (oberer Grenzwert, Abschnittswiderstände))</span></p>
+<div class="formel">$$ R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},a} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 1{,}5385\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 3{,}2692\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Gesamtwiderstand Abschnitt b</b> <span class="leise">(6.7.2)</span></p>
+<div class="formel">$$ R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},b} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 5{,}2632\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 6{,}9939\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Flächenanteil Abschnitt b</b></p>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - f_{\mathrm{a}} $$</div>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - 0{,}096 = 0{,}90400 $$</div>
+<p class="leise">Ausdruck: <code>1 - f_a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: oberer Grenzwert R&#x27;_T (parallele Wärmeströme)</b> <span class="leise">(6.7.2, oberer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}} $$</div>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{0{,}096}{3{,}2692\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{6{,}9939\ \mathrm{m^{2}\cdot K/W}}} = 6{,}3043\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>1/(f_a/R_Ta + f_b/R_Tb)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ \lambda&#x27;&#x27; = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}} $$</div>
+<div class="formel">$$ \lambda&#x27;&#x27; = 0{,}096 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>f_a*lambda_H + f_b*lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 11: Wärmedurchlasswiderstand Gefach mit λ&#x27;&#x27;</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda&#x27;&#x27;} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{200\ \mathrm{mm}}{0{,}046832\ \mathrm{W/(m\cdot K)}} = 4{,}2706\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_eq</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 12: unterer Grenzwert R&#x27;&#x27;_T (isotherme Ebenen)</b> <span class="leise">(6.7.2, unterer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R&#x27;&#x27;_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 4{,}2706\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}04\ \mathrm{m^{2}\cdot K/W} = 6{,}0013\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel</b> <span class="leise">(6.7.2.2 [V])</span></p>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{R&#x27;_{\mathrm{T}} + R&#x27;&#x27;_{\mathrm{T}}}{2} $$</div>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{6{,}3043\ \mathrm{m^{2}\cdot K/W} + 6{,}0013\ \mathrm{m^{2}\cdot K/W}}{2} = 6{,}1528\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>(R_o + R_u)/2</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 14: maximaler relativer Fehler</b> <span class="leise">(6.7.2, Abschätzung des Fehlers)</span></p>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{R&#x27;_{\mathrm{T}} - R&#x27;&#x27;_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{6{,}3043\ \mathrm{m^{2}\cdot K/W} - 6{,}0013\ \mathrm{m^{2}\cdot K/W}}{2 \cdot 6{,}1528\ \mathrm{m^{2}\cdot K/W}} = 2{,}4625\ \mathrm{\%} $$</div>
+<p class="leise">Ausdruck: <code>(R_o - R_u)/(2*R_T)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 15: Wärmedurchgangskoeffizient</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))</span></p>
+<div class="formel">$$ U = \frac{1}{R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ U = \frac{1}{6{,}1528\ \mathrm{m^{2}\cdot K/W}} = 0{,}16253\ \mathrm{W/(m^{2}\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>1/R_T</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>U ≤ U_max</td><td class="z">0,16 W/(m²·K)</td><td>≤</td><td class="z">0,2 W/(m²·K)</td><td class="z">0,813</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids HRB-01</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V].</p>
+<h3>Messunsicherheit</h3>
+<p>Ergebnis: <b>0,163 ± 0,007 W/(m²·K) (k = 2)</b>; u<sub>c</sub> = 0,0033 W/(m²·K).</p><p class="leise">lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette.</p>
+<table><thead><tr><th>Eingang</th><th>u(x)</th><th>Sensitivität c</th><th>Einheit von c</th><th>|c|·u</th><th>Anteil an u<sub>c</sub>²</th></tr></thead><tbody>
+<tr><td>d_GKF</td><td class="z">0,3 mm</td><td class="z">−0,000110</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000033</td><td class="z">0,0 %</td></tr>
+<tr><td>d_OSB</td><td class="z">0,3 mm</td><td class="z">−0,000212</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000064</td><td class="z">0,0 %</td></tr>
+<tr><td>d_G</td><td class="z">2 mm</td><td class="z">−0,000574</td><td>(W/(m²·K))/(mm)</td><td class="z">0,0011</td><td class="z">11,7 %</td></tr>
+<tr><td>d_HFD</td><td class="z">1 mm</td><td class="z">−0,000642</td><td>(W/(m²·K))/(mm)</td><td class="z">0,00064</td><td class="z">3,7 %</td></tr>
+<tr><td>lambda_GKF</td><td class="z">0,0075 W/(m·K)</td><td class="z">0,00552</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000041</td><td class="z">0,0 %</td></tr>
+<tr><td>lambda_OSB</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,0245</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000096</td><td class="z">0,1 %</td></tr>
+<tr><td>lambda_H</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,171</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,00067</td><td class="z">4,0 %</td></tr>
+<tr><td>lambda_D</td><td class="z">0,00114 W/(m·K)</td><td class="z">2,43</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0028</td><td class="z">68,5 %</td></tr>
+<tr><td>lambda_HFD</td><td class="z">0,00129 W/(m·K)</td><td class="z">0,896</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0012</td><td class="z">11,9 %</td></tr>
+</tbody></table>
+<p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1625, s = 0,0034, 95-%-Intervall [0,1559; 0,1691] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
+<h3>Gegenrechnung mit dem Rechenkern</h3>
+<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,162527</td><td class="z">0,1625267602545588</td><td class="z">2.40e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,304348</td><td class="z">6,304348160715462</td><td class="z">1.61e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,001318</td><td class="z">6,001317668514656</td><td class="z">3.31e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+</tbody></table>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+<li>Im IFC-Modell (Pset_WallCommon.ThermalTransmittance) steht der U-Wert mit drei Dezimalstellen. Das ist ein Zwischenwert für Folgerechnungen (vgl. JCGM 100:2008, 7.2.6); als Endergebnis gilt die Angabe mit zwei signifikanten Stellen.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="191mm" height="127.54mm" viewBox="0 0 191 127.54" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Horizontalschnitt AW-01">
+<title>Horizontalschnitt AW-01</title>
+<rect width="191" height="127.54" fill="#ffffff"/>
+<defs><pattern id="m-gips" patternUnits="userSpaceOnUse" width="1.5" height="1.5"><rect width="1.5" height="1.5" fill="#eeeeee"/><circle cx="0.75" cy="0.75" r="0.18" fill="#777777"/></pattern><pattern id="m-holzwerkstoff" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(-45)"><rect width="2" height="2" fill="#e8d2a6"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern><pattern id="m-daemmung" patternUnits="userSpaceOnUse" width="3" height="3"><rect width="3" height="3" fill="#fdf6d8"/><path d="M0,1.5 L0.75,0.3 L1.5,1.5 L2.25,2.7 L3,1.5" fill="none" stroke="#b08900" stroke-width="0.2"/></pattern><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="14,71.54 139,71.54 139,69.04 14,69.04" fill="url(#m-gips)" stroke="#0b0b0b" stroke-width="0.35"><title>Gipsplatte Typ DF (GKF)</title></polygon>
+<polygon points="14,69.04 139,69.04 139,66.04 14,66.04" fill="url(#m-holzwerkstoff)" stroke="#0b0b0b" stroke-width="0.35"><title>OSB/3</title></polygon>
+<line x1="14" y1="66" x2="139" y2="66" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<polygon points="14,66 139,66 139,26 14,26" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaser-Dämmmatte (flexibel)</title></polygon>
+<polygon points="14,26 139,26 139,14 14,14" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaserdämmplatte (Putzträger)</title></polygon>
+<polygon points="70.5,66 82.5,66 82.5,26 70.5,26" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.5"><title>Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</title></polygon>
+<line x1="70.5" y1="66" x2="82.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="70.5" y1="26" x2="82.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="146.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="67.54" x2="145" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="70.44" x2="146.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="70.29" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 70.29)">12,5</text>
+<line x1="140" y1="66.04" x2="146.5" y2="66.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="64.54" x2="145" y2="70.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="64.94" x2="146.1" y2="67.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="67.54" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 67.54)">15</text>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="66" x2="146.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="24.5" x2="145" y2="67.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="64.9" x2="146.1" y2="67.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="46" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 46)">200</text>
+<line x1="140" y1="14" x2="146.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="12.5" x2="145" y2="27.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="12.9" x2="146.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="20" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 20)">60</text>
+<line x1="140" y1="14" x2="156.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="156.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="155" y1="12.5" x2="155" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="153.9" y1="12.9" x2="156.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="153.9" y1="70.44" x2="156.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="155.8" y="42.77" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 155.8 42.77)">287,7</text>
+<line x1="70.5" y1="72.54" x2="70.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="82.5" y1="72.54" x2="82.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="69" y1="77.54" x2="84" y2="77.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="69.4" y1="78.64" x2="71.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="81.4" y1="78.64" x2="83.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="76.74" font-size="2.2" text-anchor="middle" fill="#0b0b0b">60</text>
+<line x1="14" y1="72.54" x2="14" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="139" y1="72.54" x2="139" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="12.5" y1="83.54" x2="140.5" y2="83.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="12.9" y1="84.64" x2="15.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="137.9" y1="84.64" x2="140.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="82.74" font-size="2.5" text-anchor="middle" fill="#0b0b0b">625</text>
+<text x="76.5" y="12" font-size="3" text-anchor="middle" fill="#0b0b0b">außen (R_se = 0,04, verputzt)</text>
+<text x="76.5" y="93.54" font-size="3" text-anchor="middle" fill="#0b0b0b">innen (R_si = 0,13)</text>
+<rect x="14" y="89.54" width="6" height="3" fill="url(#m-gips)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="92.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">1  Gipsplatte Typ DF (GKF), d = 12,5 mm, λ = 0,25 W/(m·K)</text>
+<rect x="14" y="94.54" width="6" height="3" fill="url(#m-holzwerkstoff)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="97.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">2  OSB/3, d = 15 mm, λ = 0,13 W/(m·K)</text>
+<line x1="14" y1="101.04" x2="20" y2="101.04" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<text x="22" y="102.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">3  Dampfbremsbahn (feuchtevariabel), d = 0,2 mm (thermisch vernachlässigt)</text>
+<rect x="14" y="104.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="107.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">4  Holzfaser-Dämmmatte (flexibel), d = 200 mm, λ = 0,038 W/(m·K)</text>
+<rect x="14" y="109.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="112.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">5  Holzfaserdämmplatte (Putzträger), d = 60 mm, λ = 0,043 W/(m·K)</text>
+<rect x="14" y="114.54" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="117.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</text>
+<text x="12" y="71.19" font-size="2.5" text-anchor="end" fill="#0b0b0b">1</text>
+<text x="12" y="68.44" font-size="2.5" text-anchor="end" fill="#0b0b0b">2</text>
+<text x="12" y="66.92" font-size="2.5" text-anchor="end" fill="#0b0b0b">3</text>
+<text x="12" y="46.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">4</text>
+<text x="12" y="20.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">5</text>
+</svg><figcaption>Abbildung N-B3-raster-verputzt/schnitt: Horizontalschnitt Außenwand AW-01 (ein Ständerfeld, e = 625 mm) (Maßstab 1:5, bei Druck in 100 %). Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.<br><span class="leise">SHA-256 <code>62b1f8d64961e2ebefd6591b8fbc26191013aa1ed994533cb1576f3fd7c61e85</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="485.217812pt" height="187.836838pt" viewBox="0 0 485.217812 187.836838" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 187.836838 
+L 485.217812 187.836838 
+L 485.217812 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+L 478.017813 20.798437 
+L 120.897812 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="120.897812" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="120.897812" y="165.474728" transform="rotate(-0 120.897812 165.474728)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 168.103327 151.636838 
+L 168.103327 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="168.103327" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="168.103327" y="165.474728" transform="rotate(-0 168.103327 165.474728)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 215.308842 151.636838 
+L 215.308842 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="215.308842" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="215.308842" y="165.474728" transform="rotate(-0 215.308842 165.474728)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 262.514357 151.636838 
+L 262.514357 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="262.514357" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="262.514357" y="165.474728" transform="rotate(-0 262.514357 165.474728)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 309.719871 151.636838 
+L 309.719871 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="309.719871" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="309.719871" y="165.474728" transform="rotate(-0 309.719871 165.474728)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 356.925386 151.636838 
+L 356.925386 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5ecce93918" x="356.925386" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="356.925386" y="165.474728" transform="rotate(-0 356.925386 165.474728)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 404.130901 151.636838 
+L 404.130901 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m5ecce93918" x="404.130901" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="404.130901" y="165.474728" transform="rotate(-0 404.130901 165.474728)">6</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 451.336416 151.636838 
+L 451.336416 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m5ecce93918" x="451.336416" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="451.336416" y="165.474728" transform="rotate(-0 451.336416 165.474728)">7</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="299.457813" y="178.474728" transform="rotate(-0 299.457813 178.474728)">m²·K/W</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_17">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="132.862343" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="136.28164" transform="rotate(-0 113.897812 136.28164)">oberer Grenzwert R'_T</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="86.217637" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="89.636934" transform="rotate(-0 113.897812 89.636934)">Mittelwert R_T</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="39.572932" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="42.991877" transform="rotate(-0 113.897812 42.991877)">unterer Grenzwert R''_T</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 120.897812 52.400226 
+L 404.193102 52.400226 
+L 404.193102 26.745637 
+L 120.897812 26.745637 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.897812 99.044932 
+L 411.345457 99.044932 
+L 411.345457 73.390343 
+L 120.897812 73.390343 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 120.897812 145.689638 
+L 418.497813 145.689638 
+L 418.497813 120.035049 
+L 120.897812 120.035049 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="408.193102" y="42.572932" transform="rotate(-0 408.193102 42.572932)">6,00</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="415.345457" y="89.217637" transform="rotate(-0 415.345457 89.217637)">6,15</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="422.497813" y="135.862343" transform="rotate(-0 422.497813 135.862343)">6,30</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="120.897812" y="14.798438" transform="rotate(-0 120.897812 14.798438)">R''_T ≤ R_T ≤ R'_T, maximaler relativer Fehler e = 2,5 %</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8f5602b27d">
+   <rect x="120.897812" y="20.798438" width="357.12" height="130.8384"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-raster-verputzt/grenzwerte: Grenzwerte des Wärmedurchgangswiderstands<br><span class="leise">SHA-256 <code>cf26fba440b390e6f30390ce5c82351a2e85b5ea3ec3abe58f2bef79ba3e25cc</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="465.142187pt" height="154.017656pt" viewBox="0 0 465.142187 154.017656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 154.017656 
+L 465.142187 154.017656 
+L 465.142187 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 100.822187 117.817656 
+L 457.942187 117.817656 
+L 457.942187 20.797656 
+L 100.822187 20.797656 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 100.822187 117.817656 
+L 100.822187 20.797656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="100.822187" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="100.822187" y="131.655547" transform="rotate(-0 100.822187 131.655547)">0.00</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 176.483204 117.817656 
+L 176.483204 20.797656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="176.483204" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="176.483204" y="131.655547" transform="rotate(-0 176.483204 131.655547)">0.05</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 252.144221 117.817656 
+L 252.144221 20.797656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="252.144221" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="252.144221" y="131.655547" transform="rotate(-0 252.144221 131.655547)">0.10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 327.805238 117.817656 
+L 327.805238 20.797656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="327.805238" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="327.805238" y="131.655547" transform="rotate(-0 327.805238 131.655547)">0.15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 403.466255 117.817656 
+L 403.466255 20.797656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="403.466255" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="403.466255" y="131.655547" transform="rotate(-0 403.466255 131.655547)">0.20</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="279.382187" y="144.655547" transform="rotate(-0 279.382187 144.655547)">W/(m²·K)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="100.822187" y="69.307656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="93.822187" y="72.726602" transform="rotate(-0 93.822187 72.726602)">U (raster, verputzt)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 100.822187 98.320814 
+L 346.760987 98.320814 
+L 346.760987 40.294498 
+L 100.822187 40.294498 
+z
+" clip-path="url(#p7930c9059d)" style="fill: #0ca30c; opacity: 0.85"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 100.822187 117.817656 
+L 100.822187 20.797656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 100.822187 117.817656 
+L 457.942187 117.817656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 336.624351 69.307656 
+L 356.897623 69.307656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #0b0b0b"/>
+   </g>
+   <g id="line2d_12">
+    <defs>
+     <path id="mefab6c26c2" d="M 0 3 
+L 0 -3 
+" style="stroke: #0b0b0b"/>
+    </defs>
+    <g clip-path="url(#p7930c9059d)">
+     <use xlink:href="#mefab6c26c2" x="336.624351" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="line2d_13">
+    <g clip-path="url(#p7930c9059d)">
+     <use xlink:href="#mefab6c26c2" x="356.897623" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="406.466255" y="24.207656" transform="rotate(-0 406.466255 24.207656)">≤ 0,200</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="104.822187" y="72.307656" transform="rotate(-0 104.822187 72.307656)">0,163 (erfüllt)</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="100.822187" y="14.797656" transform="rotate(-0 100.822187 14.797656)">U ≤ U_max = 0,20 W/(m²·K)</text>
+   </g>
+   <g id="line2d_14">
+    <path d="M 403.466255 113.407656 
+L 403.466255 25.207656 
+" clip-path="url(#p7930c9059d)" style="fill: none; stroke: #0b0b0b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7930c9059d">
+   <rect x="100.822187" y="20.797656" width="357.12" height="97.02"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-raster-verputzt/uwert: U-Wert gegen Höchstwert (mit erweiterter Unsicherheit U, k = 2)<br><span class="leise">SHA-256 <code>411b97fa00b53260b77ad7b7e5348ed60569f90e5a090a448703bc2f44b87492</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>477cffed6648199c58178b7e3fe9de5674662059d12e258e46d764a16f0078cd</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b3-raster-hinterlueftet">
+<h2>N-B3-raster-hinterlueftet – U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,801</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>Außenwand AW-01, Typ AW-HRB-01, Variante raster/hinterlueftet</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement.ifc (aus B1)<br><span class="leise">SHA-256 <code>5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Der Wärmedurchgangskoeffizient der Außenwand darf 0,20 W/(m²·K) nicht überschreiten. Berechnung nach dem vereinfachten Verfahren für Bauteile aus homogenen und inhomogenen Schichten (oberer und unterer Grenzwert).</p>
+<p class="leise">Quelle: DIN EN ISO 6946:2018-03 (ISO 6946:2017); Grenzwert: holzrahmenbau.ids HRB-01 (Projektanforderung) · Fassung: 2018-03 · Fundstelle: 6.5.2, 6.6, 6.7.1.1, 6.7.2, 6.8 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>DE-Waermeschutz-Beispiel</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Wärmeübergangswiderstand innen</td><td>$R_{\mathrm{si}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8, horizontaler Wärmestrom</td></tr>
+<tr><td>Wärmeübergangswiderstand außen</td><td>$R_{\mathrm{se}}$</td><td class="z">0,13 m²·K/W</td><td class="z">–</td><td>konstante</td><td>DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.8; stark belüftete Luftschicht: R_se = R_si (6.9.4)</td></tr>
+<tr><td>Dicke GKF</td><td>$d_{\mathrm{GKF}}$</td><td class="z">12,5 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gkf</td></tr>
+<tr><td>Dicke OSB/3</td><td>$d_{\mathrm{OSB}}$</td><td class="z">15 mm</td><td class="z">0,3 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht osb</td></tr>
+<tr><td>Dicke Gefach</td><td>$d_{\mathrm{G}}$</td><td class="z">200 mm</td><td class="z">2 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht gefach</td></tr>
+<tr><td>Dicke Holzfaserdämmplatte</td><td>$d_{\mathrm{HFD}}$</td><td class="z">60 mm</td><td class="z">1 mm</td><td>eingabe</td><td>daten/wandelement.json Schicht hfd</td></tr>
+<tr><td>Bemessungswert λ GKF</td><td>$\lambda_{\mathrm{GKF}}$</td><td class="z">0,25 W/(m·K)</td><td class="z">0,0075 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ OSB/3</td><td>$\lambda_{\mathrm{OSB}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typische Herstellerangabe / DIN EN 13986 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Holz (KVH C24)</td><td>$\lambda_{\mathrm{H}}$</td><td class="z">0,13 W/(m·K)</td><td class="z">0,0039 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: typischer Wert Nadelholz, vgl. DIN EN ISO 10456 (Beispielwert)</td></tr>
+<tr><td>Bemessungswert λ Gefachdämmung</td><td>$\lambda_{\mathrm{D}}$</td><td class="z">0,038 W/(m·K)</td><td class="z">0,00114 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Bemessungswert λ Holzfaserdämmplatte</td><td>$\lambda_{\mathrm{HFD}}$</td><td class="z">0,043 W/(m·K)</td><td class="z">0,00129 W/(m·K)</td><td>eingabe</td><td>daten/wandelement.json: Beispielwert Herstellerangabe (Bemessungswert)</td></tr>
+<tr><td>Holzanteil der Gefachschicht</td><td>$f_{\mathrm{a}}$</td><td class="z">0,096</td><td class="z">–</td><td>eingabe</td><td>Raster: Ständerbreite/Achsmaß = 60/625</td></tr>
+<tr><td>Höchstwert des U-Werts</td><td>$U_{\mathrm{max}}$</td><td class="z">0,2 W/(m²·K)</td><td class="z">–</td><td>grenzwert</td><td>holzrahmenbau.ids, HRB-01 (Projektanforderung, Beispielwert)</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Korrekturen ΔU nach Anhang F nicht angesetzt: Luftspalte Stufe 0 (Dämmung passgenau), Befestigungen durchdringen die Dämmschicht nicht (6.4 d: Korrektur nur bei &gt; 3 % von U).</p>
+<p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) ist thermisch vernachlässigt.</p>
+<p class="annahme"><b>Annahme:</b> λ-Werte sind Beispielwerte aus dem Parametermodell, keine Tabellenwerte der DIN 4108-4.</p>
+<p class="annahme"><b>Annahme:</b> Unsicherheiten der Dicken (Rechteckverteilung) und der λ-Werte (3 %, normal): Annahme zur Demonstration der Unsicherheitsfortpflanzung.</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: Wärmedurchlasswiderstand GKF</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{d_{\mathrm{GKF}}}{\lambda_{\mathrm{GKF}}} $$</div>
+<div class="formel">$$ R_{\mathrm{GKF}} = \frac{12{,}5\ \mathrm{mm}}{0{,}25\ \mathrm{W/(m\cdot K)}} = 0{,}050000\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_GKF/lambda_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Wärmedurchlasswiderstand OSB/3</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{d_{\mathrm{OSB}}}{\lambda_{\mathrm{OSB}}} $$</div>
+<div class="formel">$$ R_{\mathrm{OSB}} = \frac{15\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 0{,}11538\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_OSB/lambda_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: Wärmedurchlasswiderstand Holzfaserdämmplatte</b> <span class="leise">(6.7.1.1, Formel (3))</span></p>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{d_{\mathrm{HFD}}}{\lambda_{\mathrm{HFD}}} $$</div>
+<div class="formel">$$ R_{\mathrm{HFD}} = \frac{60\ \mathrm{mm}}{0{,}043\ \mathrm{W/(m\cdot K)}} = 1{,}3953\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_HFD/lambda_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 4: Gefachschicht, Abschnitt a (Holz)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{H}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Ga}} = \frac{200\ \mathrm{mm}}{0{,}13\ \mathrm{W/(m\cdot K)}} = 1{,}5385\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 5: Gefachschicht, Abschnitt b (Dämmung)</b> <span class="leise">(6.7.1.1)</span></p>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{d_{\mathrm{G}}}{\lambda_{\mathrm{D}}} $$</div>
+<div class="formel">$$ R_{\mathrm{Gb}} = \frac{200\ \mathrm{mm}}{0{,}038\ \mathrm{W/(m\cdot K)}} = 5{,}2632\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Gesamtwiderstand Abschnitt a (innen bis außen)</b> <span class="leise">(6.7.2 (oberer Grenzwert, Abschnittswiderstände))</span></p>
+<div class="formel">$$ R_{\mathrm{T},a} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Ga}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},a} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 1{,}5385\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 3{,}3592\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Ga + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Gesamtwiderstand Abschnitt b</b> <span class="leise">(6.7.2)</span></p>
+<div class="formel">$$ R_{\mathrm{T},b} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R_{\mathrm{Gb}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R_{\mathrm{T},b} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 5{,}2632\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 7{,}0839\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Gb + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Flächenanteil Abschnitt b</b></p>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - f_{\mathrm{a}} $$</div>
+<div class="formel">$$ f_{\mathrm{b}} = 1 - 0{,}096 = 0{,}90400 $$</div>
+<p class="leise">Ausdruck: <code>1 - f_a</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: oberer Grenzwert R&#x27;_T (parallele Wärmeströme)</b> <span class="leise">(6.7.2, oberer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{f_{\mathrm{a}}}{R_{\mathrm{T},a}} + \frac{f_{\mathrm{b}}}{R_{\mathrm{T},b}}} $$</div>
+<div class="formel">$$ R&#x27;_{\mathrm{T}} = \frac{1}{\frac{0{,}096}{3{,}3592\ \mathrm{m^{2}\cdot K/W}} + \frac{0{,}90400}{7{,}0839\ \mathrm{m^{2}\cdot K/W}}} = 6{,}4024\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>1/(f_a/R_Ta + f_b/R_Tb)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 10: äquivalente Wärmeleitfähigkeit der Gefachschicht</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ \lambda&#x27;&#x27; = f_{\mathrm{a}} \cdot \lambda_{\mathrm{H}} + f_{\mathrm{b}} \cdot \lambda_{\mathrm{D}} $$</div>
+<div class="formel">$$ \lambda&#x27;&#x27; = 0{,}096 \cdot 0{,}13\ \mathrm{W/(m\cdot K)} + 0{,}90400 \cdot 0{,}038\ \mathrm{W/(m\cdot K)} = 0{,}046832\ \mathrm{W/(m\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>f_a*lambda_H + f_b*lambda_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 11: Wärmedurchlasswiderstand Gefach mit λ&#x27;&#x27;</b> <span class="leise">(6.7.2, unterer Grenzwert)</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{d_{\mathrm{G}}}{\lambda&#x27;&#x27;} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{G}} = \frac{200\ \mathrm{mm}}{0{,}046832\ \mathrm{W/(m\cdot K)}} = 4{,}2706\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>d_G/lambda_eq</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 12: unterer Grenzwert R&#x27;&#x27;_T (isotherme Ebenen)</b> <span class="leise">(6.7.2, unterer Grenzwert [Absatznummer U])</span></p>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = R_{\mathrm{si}} + R_{\mathrm{GKF}} + R_{\mathrm{OSB}} + R&#x27;&#x27;_{\mathrm{G}} + R_{\mathrm{HFD}} + R_{\mathrm{se}} $$</div>
+<div class="formel">$$ R&#x27;&#x27;_{\mathrm{T}} = 0{,}13\ \mathrm{m^{2}\cdot K/W} + 0{,}050000\ \mathrm{m^{2}\cdot K/W} + 0{,}11538\ \mathrm{m^{2}\cdot K/W} + 4{,}2706\ \mathrm{m^{2}\cdot K/W} + 1{,}3953\ \mathrm{m^{2}\cdot K/W} + 0{,}13\ \mathrm{m^{2}\cdot K/W} = 6{,}0913\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>R_si + R_GKF + R_OSB + R_Geq + R_HFD + R_se</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 13: Wärmedurchgangswiderstand als arithmetisches Mittel</b> <span class="leise">(6.7.2.2 [V])</span></p>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{R&#x27;_{\mathrm{T}} + R&#x27;&#x27;_{\mathrm{T}}}{2} $$</div>
+<div class="formel">$$ R_{\mathrm{T}} = \frac{6{,}4024\ \mathrm{m^{2}\cdot K/W} + 6{,}0913\ \mathrm{m^{2}\cdot K/W}}{2} = 6{,}2469\ \mathrm{m^{2}\cdot K/W} $$</div>
+<p class="leise">Ausdruck: <code>(R_o + R_u)/2</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 14: maximaler relativer Fehler</b> <span class="leise">(6.7.2, Abschätzung des Fehlers)</span></p>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{R&#x27;_{\mathrm{T}} - R&#x27;&#x27;_{\mathrm{T}}}{2 \cdot R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ e_{\mathrm{rel}} = \frac{6{,}4024\ \mathrm{m^{2}\cdot K/W} - 6{,}0913\ \mathrm{m^{2}\cdot K/W}}{2 \cdot 6{,}2469\ \mathrm{m^{2}\cdot K/W}} = 2{,}4898\ \mathrm{\%} $$</div>
+<p class="leise">Ausdruck: <code>(R_o - R_u)/(2*R_T)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 15: Wärmedurchgangskoeffizient</b> <span class="leise">(DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2, Formel (1))</span></p>
+<div class="formel">$$ U = \frac{1}{R_{\mathrm{T}}} $$</div>
+<div class="formel">$$ U = \frac{1}{6{,}2469\ \mathrm{m^{2}\cdot K/W}} = 0{,}16008\ \mathrm{W/(m^{2}\cdot K)} $$</div>
+<p class="leise">Ausdruck: <code>1/R_T</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>U ≤ U_max</td><td class="z">0,16 W/(m²·K)</td><td>≤</td><td class="z">0,2 W/(m²·K)</td><td class="z">0,801</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids HRB-01</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 2 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: DIN EN ISO 6946:2018-03 (ISO 6946:2017), 6.5.2: Endergebnis auf zwei signifikante Stellen [V].</p>
+<h3>Messunsicherheit</h3>
+<p>Ergebnis: <b>0,160 ± 0,007 W/(m²·K) (k = 2)</b>; u<sub>c</sub> = 0,0033 W/(m²·K).</p><p class="leise">lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette.</p>
+<table><thead><tr><th>Eingang</th><th>u(x)</th><th>Sensitivität c</th><th>Einheit von c</th><th>|c|·u</th><th>Anteil an u<sub>c</sub>²</th></tr></thead><tbody>
+<tr><td>d_GKF</td><td class="z">0,3 mm</td><td class="z">−0,000107</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000032</td><td class="z">0,0 %</td></tr>
+<tr><td>d_OSB</td><td class="z">0,3 mm</td><td class="z">−0,000206</td><td>(W/(m²·K))/(mm)</td><td class="z">0,000062</td><td class="z">0,0 %</td></tr>
+<tr><td>d_G</td><td class="z">2 mm</td><td class="z">−0,000557</td><td>(W/(m²·K))/(mm)</td><td class="z">0,0011</td><td class="z">11,7 %</td></tr>
+<tr><td>d_HFD</td><td class="z">1 mm</td><td class="z">−0,000622</td><td>(W/(m²·K))/(mm)</td><td class="z">0,00062</td><td class="z">3,7 %</td></tr>
+<tr><td>lambda_GKF</td><td class="z">0,0075 W/(m·K)</td><td class="z">0,00535</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000040</td><td class="z">0,0 %</td></tr>
+<tr><td>lambda_OSB</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,0237</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,000093</td><td class="z">0,1 %</td></tr>
+<tr><td>lambda_H</td><td class="z">0,0039 W/(m·K)</td><td class="z">0,165</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,00064</td><td class="z">3,9 %</td></tr>
+<tr><td>lambda_D</td><td class="z">0,00114 W/(m·K)</td><td class="z">2,37</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0027</td><td class="z">68,7 %</td></tr>
+<tr><td>lambda_HFD</td><td class="z">0,00129 W/(m·K)</td><td class="z">0,868</td><td>(W/(m²·K))/(W/(m·K))</td><td class="z">0,0011</td><td class="z">11,8 %</td></tr>
+</tbody></table>
+<p>Monte-Carlo: 100 000 Versuche (Seed 20260927), Mittelwert 0,1600, s = 0,0033, 95-%-Intervall [0,1537; 0,1664] W/(m²·K). <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
+<h3>Gegenrechnung mit dem Rechenkern</h3>
+<table><thead><tr><th>Größe</th><th>Rechenkern</th><th>Wert Rechenkern</th><th>Wert Nachweis</th><th>Abweichung</th><th>Übereinstimmung</th></tr></thead><tbody>
+<tr><td>U</td><td><code>b3_uwert_iso6946.berechne_uwert → u_wert (6 Dezimalstellen)</code></td><td class="z">0,160081</td><td class="z">0,16008062419998384</td><td class="z">3.76e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_o</td><td><code>b3_uwert_iso6946.berechne_uwert → r_oben</code></td><td class="z">6,402387</td><td class="z">6,402386738218921</td><td class="z">2.62e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+<tr><td>R_u</td><td><code>b3_uwert_iso6946.berechne_uwert → r_unten</code></td><td class="z">6,091318</td><td class="z">6,091317668514656</td><td class="z">3.31e-07</td><td>ja (Toleranz 5e-07)</td></tr>
+</tbody></table>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+<li>Im IFC-Modell (Pset_WallCommon.ThermalTransmittance) steht der U-Wert mit drei Dezimalstellen. Das ist ein Zwischenwert für Folgerechnungen (vgl. JCGM 100:2008, 7.2.6); als Endergebnis gilt die Angabe mit zwei signifikanten Stellen.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="191mm" height="127.54mm" viewBox="0 0 191 127.54" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Horizontalschnitt AW-01">
+<title>Horizontalschnitt AW-01</title>
+<rect width="191" height="127.54" fill="#ffffff"/>
+<defs><pattern id="m-gips" patternUnits="userSpaceOnUse" width="1.5" height="1.5"><rect width="1.5" height="1.5" fill="#eeeeee"/><circle cx="0.75" cy="0.75" r="0.18" fill="#777777"/></pattern><pattern id="m-holzwerkstoff" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(-45)"><rect width="2" height="2" fill="#e8d2a6"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern><pattern id="m-daemmung" patternUnits="userSpaceOnUse" width="3" height="3"><rect width="3" height="3" fill="#fdf6d8"/><path d="M0,1.5 L0.75,0.3 L1.5,1.5 L2.25,2.7 L3,1.5" fill="none" stroke="#b08900" stroke-width="0.2"/></pattern><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="14,71.54 139,71.54 139,69.04 14,69.04" fill="url(#m-gips)" stroke="#0b0b0b" stroke-width="0.35"><title>Gipsplatte Typ DF (GKF)</title></polygon>
+<polygon points="14,69.04 139,69.04 139,66.04 14,66.04" fill="url(#m-holzwerkstoff)" stroke="#0b0b0b" stroke-width="0.35"><title>OSB/3</title></polygon>
+<line x1="14" y1="66" x2="139" y2="66" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<polygon points="14,66 139,66 139,26 14,26" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaser-Dämmmatte (flexibel)</title></polygon>
+<polygon points="14,26 139,26 139,14 14,14" fill="url(#m-daemmung)" stroke="#0b0b0b" stroke-width="0.35"><title>Holzfaserdämmplatte (Putzträger)</title></polygon>
+<polygon points="70.5,66 82.5,66 82.5,26 70.5,26" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.5"><title>Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</title></polygon>
+<line x1="70.5" y1="66" x2="82.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="70.5" y1="26" x2="82.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="146.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="67.54" x2="145" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="70.44" x2="146.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="70.29" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 70.29)">12,5</text>
+<line x1="140" y1="66.04" x2="146.5" y2="66.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="69.04" x2="146.5" y2="69.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="64.54" x2="145" y2="70.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="64.94" x2="146.1" y2="67.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="67.94" x2="146.1" y2="70.14" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="67.54" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 67.54)">15</text>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="66" x2="146.5" y2="66" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="24.5" x2="145" y2="67.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="64.9" x2="146.1" y2="67.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="46" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 46)">200</text>
+<line x1="140" y1="14" x2="146.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="26" x2="146.5" y2="26" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="145" y1="12.5" x2="145" y2="27.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="143.9" y1="12.9" x2="146.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="143.9" y1="24.9" x2="146.1" y2="27.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="145.8" y="20" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 145.8 20)">60</text>
+<line x1="140" y1="14" x2="156.5" y2="14" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="140" y1="71.54" x2="156.5" y2="71.54" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="155" y1="12.5" x2="155" y2="73.04" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="153.9" y1="12.9" x2="156.1" y2="15.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="153.9" y1="70.44" x2="156.1" y2="72.64" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="155.8" y="42.77" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 155.8 42.77)">287,7</text>
+<line x1="70.5" y1="72.54" x2="70.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="82.5" y1="72.54" x2="82.5" y2="79.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="69" y1="77.54" x2="84" y2="77.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="69.4" y1="78.64" x2="71.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="81.4" y1="78.64" x2="83.6" y2="76.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="76.74" font-size="2.2" text-anchor="middle" fill="#0b0b0b">60</text>
+<line x1="14" y1="72.54" x2="14" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="139" y1="72.54" x2="139" y2="85.04" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="12.5" y1="83.54" x2="140.5" y2="83.54" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="12.9" y1="84.64" x2="15.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="137.9" y1="84.64" x2="140.1" y2="82.44" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="76.5" y="82.74" font-size="2.5" text-anchor="middle" fill="#0b0b0b">625</text>
+<text x="76.5" y="12" font-size="3" text-anchor="middle" fill="#0b0b0b">außen (R_se = 0,13, hinterlueftet)</text>
+<text x="76.5" y="93.54" font-size="3" text-anchor="middle" fill="#0b0b0b">innen (R_si = 0,13)</text>
+<rect x="14" y="89.54" width="6" height="3" fill="url(#m-gips)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="92.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">1  Gipsplatte Typ DF (GKF), d = 12,5 mm, λ = 0,25 W/(m·K)</text>
+<rect x="14" y="94.54" width="6" height="3" fill="url(#m-holzwerkstoff)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="97.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">2  OSB/3, d = 15 mm, λ = 0,13 W/(m·K)</text>
+<line x1="14" y1="101.04" x2="20" y2="101.04" stroke="#1565c0" stroke-width="0.35" stroke-dasharray="1.5 0.8"/>
+<text x="22" y="102.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">3  Dampfbremsbahn (feuchtevariabel), d = 0,2 mm (thermisch vernachlässigt)</text>
+<rect x="14" y="104.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="107.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">4  Holzfaser-Dämmmatte (flexibel), d = 200 mm, λ = 0,038 W/(m·K)</text>
+<rect x="14" y="109.54" width="6" height="3" fill="url(#m-daemmung)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="112.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">5  Holzfaserdämmplatte (Putzträger), d = 60 mm, λ = 0,043 W/(m·K)</text>
+<rect x="14" y="114.54" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="22" y="117.14" font-size="2.5" text-anchor="start" fill="#0b0b0b">Ständer KVH C24 60/200, λ = 0,13 W/(m·K)</text>
+<text x="12" y="71.19" font-size="2.5" text-anchor="end" fill="#0b0b0b">1</text>
+<text x="12" y="68.44" font-size="2.5" text-anchor="end" fill="#0b0b0b">2</text>
+<text x="12" y="66.92" font-size="2.5" text-anchor="end" fill="#0b0b0b">3</text>
+<text x="12" y="46.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">4</text>
+<text x="12" y="20.9" font-size="2.5" text-anchor="end" fill="#0b0b0b">5</text>
+</svg><figcaption>Abbildung N-B3-raster-hinterlueftet/schnitt: Horizontalschnitt Außenwand AW-01 (ein Ständerfeld, e = 625 mm) (Maßstab 1:5, bei Druck in 100 %). Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.<br><span class="leise">SHA-256 <code>434710df5c32c35b6d76dc4c8ceed6b9e48e041b0160ff4981f753836babc316</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="485.217812pt" height="187.836838pt" viewBox="0 0 485.217812 187.836838" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 187.836838 
+L 485.217812 187.836838 
+L 485.217812 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+L 478.017813 20.798437 
+L 120.897812 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="120.897812" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="120.897812" y="165.474728" transform="rotate(-0 120.897812 165.474728)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 167.380478 151.636838 
+L 167.380478 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="167.380478" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="167.380478" y="165.474728" transform="rotate(-0 167.380478 165.474728)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 213.863143 151.636838 
+L 213.863143 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="213.863143" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="213.863143" y="165.474728" transform="rotate(-0 213.863143 165.474728)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 260.345808 151.636838 
+L 260.345808 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="260.345808" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="260.345808" y="165.474728" transform="rotate(-0 260.345808 165.474728)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 306.828474 151.636838 
+L 306.828474 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="306.828474" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="306.828474" y="165.474728" transform="rotate(-0 306.828474 165.474728)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 353.311139 151.636838 
+L 353.311139 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5ecce93918" x="353.311139" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="353.311139" y="165.474728" transform="rotate(-0 353.311139 165.474728)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 399.793804 151.636838 
+L 399.793804 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m5ecce93918" x="399.793804" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="399.793804" y="165.474728" transform="rotate(-0 399.793804 165.474728)">6</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 446.27647 151.636838 
+L 446.27647 20.798437 
+" clip-path="url(#p8f5602b27d)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m5ecce93918" x="446.27647" y="151.636838" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="446.27647" y="165.474728" transform="rotate(-0 446.27647 165.474728)">7</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="299.457813" y="178.474728" transform="rotate(-0 299.457813 178.474728)">m²·K/W</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_17">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="132.862343" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="136.28164" transform="rotate(-0 113.897812 136.28164)">oberer Grenzwert R'_T</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="86.217637" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="89.636934" transform="rotate(-0 113.897812 89.636934)">Mittelwert R_T</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="120.897812" y="39.572932" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="113.897812" y="42.991877" transform="rotate(-0 113.897812 42.991877)">unterer Grenzwert R''_T</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 120.897812 52.400226 
+L 404.038493 52.400226 
+L 404.038493 26.745637 
+L 120.897812 26.745637 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.897812 99.044932 
+L 411.268153 99.044932 
+L 411.268153 73.390343 
+L 120.897812 73.390343 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 120.897812 145.689638 
+L 418.497813 145.689638 
+L 418.497813 120.035049 
+L 120.897812 120.035049 
+z
+" clip-path="url(#p8f5602b27d)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 120.897812 151.636838 
+L 120.897812 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 120.897812 151.636838 
+L 478.017813 151.636838 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="408.038493" y="42.572932" transform="rotate(-0 408.038493 42.572932)">6,09</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="415.268153" y="89.217637" transform="rotate(-0 415.268153 89.217637)">6,25</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="422.497813" y="135.862343" transform="rotate(-0 422.497813 135.862343)">6,40</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="120.897812" y="14.798438" transform="rotate(-0 120.897812 14.798438)">R''_T ≤ R_T ≤ R'_T, maximaler relativer Fehler e = 2,5 %</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8f5602b27d">
+   <rect x="120.897812" y="20.798438" width="357.12" height="130.8384"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-raster-hinterlueftet/grenzwerte: Grenzwerte des Wärmedurchgangswiderstands<br><span class="leise">SHA-256 <code>c3f336f711533a3fecd484dbb6188aeecac3786eb346a826f061796c22bc2116</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="483.400937pt" height="154.017656pt" viewBox="0 0 483.400937 154.017656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 154.017656 
+L 483.400938 154.017656 
+L 483.400938 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 119.080938 117.817656 
+L 476.200938 117.817656 
+L 476.200938 20.797656 
+L 119.080938 20.797656 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 119.080938 117.817656 
+L 119.080938 20.797656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="119.080938" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="119.080938" y="131.655547" transform="rotate(-0 119.080938 131.655547)">0.00</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 194.741954 117.817656 
+L 194.741954 20.797656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="194.741954" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="194.741954" y="131.655547" transform="rotate(-0 194.741954 131.655547)">0.05</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 270.402971 117.817656 
+L 270.402971 20.797656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="270.402971" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="270.402971" y="131.655547" transform="rotate(-0 270.402971 131.655547)">0.10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 346.063988 117.817656 
+L 346.063988 20.797656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="346.063988" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="346.063988" y="131.655547" transform="rotate(-0 346.063988 131.655547)">0.15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 421.725005 117.817656 
+L 421.725005 20.797656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="421.725005" y="117.817656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="421.725005" y="131.655547" transform="rotate(-0 421.725005 131.655547)">0.20</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="297.640938" y="144.655547" transform="rotate(-0 297.640938 144.655547)">W/(m²·K)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="119.080938" y="69.307656" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="112.080938" y="72.726953" transform="rotate(-0 112.080938 72.726953)">U (raster, hinterlueftet)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 119.080938 98.320814 
+L 361.318194 98.320814 
+L 361.318194 40.294498 
+L 119.080938 40.294498 
+z
+" clip-path="url(#p2214567db7)" style="fill: #0ca30c; opacity: 0.85"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 119.080938 117.817656 
+L 119.080938 20.797656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 119.080938 117.817656 
+L 476.200938 117.817656 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 351.469771 69.307656 
+L 371.166617 69.307656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #0b0b0b"/>
+   </g>
+   <g id="line2d_12">
+    <defs>
+     <path id="mefab6c26c2" d="M 0 3 
+L 0 -3 
+" style="stroke: #0b0b0b"/>
+    </defs>
+    <g clip-path="url(#p2214567db7)">
+     <use xlink:href="#mefab6c26c2" x="351.469771" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="line2d_13">
+    <g clip-path="url(#p2214567db7)">
+     <use xlink:href="#mefab6c26c2" x="371.166617" y="69.307656" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="424.725005" y="24.207656" transform="rotate(-0 424.725005 24.207656)">≤ 0,200</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="123.080938" y="72.307656" transform="rotate(-0 123.080938 72.307656)">0,160 (erfüllt)</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="119.080938" y="14.797656" transform="rotate(-0 119.080938 14.797656)">U ≤ U_max = 0,20 W/(m²·K)</text>
+   </g>
+   <g id="line2d_14">
+    <path d="M 421.725005 113.407656 
+L 421.725005 25.207656 
+" clip-path="url(#p2214567db7)" style="fill: none; stroke: #0b0b0b; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2214567db7">
+   <rect x="119.080938" y="20.797656" width="357.12" height="97.02"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B3-raster-hinterlueftet/uwert: U-Wert gegen Höchstwert (mit erweiterter Unsicherheit U, k = 2)<br><span class="leise">SHA-256 <code>ad39ec01c92d240c804637e4c36a7ab444a46872231e2bee70ef2d712b880b15</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>6affe8a4a0007d318304928c233c878616c40d323518daf48b336b34bcb5105b</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+</main>
+</body>
+</html>

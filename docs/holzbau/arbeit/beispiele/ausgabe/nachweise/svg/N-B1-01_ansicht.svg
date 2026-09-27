@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125mm" height="103mm" viewBox="0 0 125 103" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Wandansicht AW-01">
+<title>Wandansicht AW-01</title>
+<rect width="125" height="103" fill="#ffffff"/>
+<defs><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="16,68 112,68 112,13 16,13" fill="#fbfbfb" stroke="#0b0b0b" stroke-width="0.5"><title>Wandumriss</title></polygon>
+<polygon points="16,68 112,68 112,66.8 16,66.8" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Schwelle</title></polygon>
+<polygon points="16,14.2 112,14.2 112,13 16,13" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Rähm</title></polygon>
+<polygon points="16,66.8 17.2,66.8 17.2,14.2 16,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Randständer links</title></polygon>
+<polygon points="110.8,66.8 112,66.8 112,14.2 110.8,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Randständer rechts</title></polygon>
+<polygon points="49,66.8 50.2,66.8 50.2,14.2 49,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Königsständer links F1</title></polygon>
+<polygon points="77.8,66.8 79,66.8 79,14.2 77.8,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Königsständer rechts F1</title></polygon>
+<polygon points="50.2,66.8 51.4,66.8 51.4,22.3 50.2,22.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturzauflagerständer links F1</title></polygon>
+<polygon points="76.6,66.8 77.8,66.8 77.8,22.3 76.6,22.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturzauflagerständer rechts F1</title></polygon>
+<polygon points="50.2,22.3 77.8,22.3 77.8,18.3 50.2,18.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturz F1</title></polygon>
+<polygon points="51.4,51.2 76.6,51.2 76.6,50 51.4,50" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Brüstungsriegel F1</title></polygon>
+<polygon points="27.9,66.8 29.1,66.8 29.1,14.2 27.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R1</title></polygon>
+<polygon points="40.4,66.8 41.6,66.8 41.6,14.2 40.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R2</title></polygon>
+<polygon points="52.9,66.8 54.1,66.8 54.1,51.2 52.9,51.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R3 unten</title></polygon>
+<polygon points="52.9,18.3 54.1,18.3 54.1,14.2 52.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R3 oben</title></polygon>
+<polygon points="65.4,66.8 66.6,66.8 66.6,51.2 65.4,51.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R4 unten</title></polygon>
+<polygon points="65.4,18.3 66.6,18.3 66.6,14.2 65.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R4 oben</title></polygon>
+<polygon points="90.4,66.8 91.6,66.8 91.6,14.2 90.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R6</title></polygon>
+<polygon points="102.9,66.8 104.1,66.8 104.1,14.2 102.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R7</title></polygon>
+<polygon points="51.4,50 76.6,50 76.6,22.3 51.4,22.3" fill="#ffffff" stroke="#0b0b0b" stroke-width="0.5"><title>Fenster F1</title></polygon>
+<line x1="51.4" y1="50" x2="76.6" y2="22.3" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="22.3" x2="76.6" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="21.3" x2="51.4" y2="16.8" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="76.6" y1="21.3" x2="76.6" y2="16.8" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="49.9" y1="18.3" x2="78.1" y2="18.3" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="50.3" y1="19.4" x2="52.5" y2="17.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="75.5" y1="19.4" x2="77.7" y2="17.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="64" y="17.5" font-size="2.2" text-anchor="middle" fill="#0b0b0b">1260</text>
+<line x1="75.6" y1="50" x2="71.1" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="75.6" y1="22.3" x2="71.1" y2="22.3" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="72.6" y1="51.5" x2="72.6" y2="20.8" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="73.7" y1="51.1" x2="71.5" y2="48.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="73.7" y1="23.4" x2="71.5" y2="21.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="73.4" y="36.15" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 73.4 36.15)">1385</text>
+<line x1="16" y1="49" x2="16" y2="45.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="49" x2="51.4" y2="45.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="47" x2="52.9" y2="47" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="48.1" x2="17.1" y2="45.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="50.3" y1="48.1" x2="52.5" y2="45.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="33.7" y="46.2" font-size="2.2" text-anchor="middle" fill="#0b0b0b">1770</text>
+<line x1="79.6" y1="68" x2="76.1" y2="68" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="79.6" y1="50" x2="76.1" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="77.6" y1="69.5" x2="77.6" y2="48.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="78.7" y1="69.1" x2="76.5" y2="66.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="78.7" y1="51.1" x2="76.5" y2="48.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="78.4" y="59" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 78.4 59)">900</text>
+<polygon points="27.9,47 29.1,47 29.1,46.2 27.9,46.2" fill="#d03b3b" stroke="#d03b3b" stroke-width="0.25"><title>Kerve K1</title></polygon>
+<line x1="16" y1="69" x2="16" y2="83.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="112" y1="69" x2="112" y2="83.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="82" x2="113.5" y2="82" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="83.1" x2="17.1" y2="80.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="110.9" y1="83.1" x2="113.1" y2="80.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="64" y="81.2" font-size="2.5" text-anchor="middle" fill="#0b0b0b">4800</text>
+<line x1="16" y1="69" x2="16" y2="76.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="28.5" y1="69" x2="28.5" y2="76.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="75" x2="30" y2="75" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="76.1" x2="17.1" y2="73.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="27.4" y1="76.1" x2="29.6" y2="73.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="22.25" y="74.2" font-size="2.2" text-anchor="middle" fill="#0b0b0b">e = 625</text>
+<line x1="17" y1="13" x2="23.5" y2="13" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="17" y1="68" x2="23.5" y2="68" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="22" y1="11.5" x2="22" y2="69.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="20.9" y1="11.9" x2="23.1" y2="14.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="20.9" y1="66.9" x2="23.1" y2="69.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="22.8" y="40.5" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 22.8 40.5)">2750</text>
+<rect x="10" y="87" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="89.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">KVH C24 (Ständer, Schwelle, Rähm, Sturz, Riegel)</text>
+<rect x="10" y="92" width="6" height="3" fill="#d03b3b" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="94.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">Kerve K1 (40 × 25 mm)</text>
+<rect x="10" y="97" width="6" height="3" fill="#ffffff" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="99.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">Fensteröffnung F1 (Rohbaumaß)</text>
+<text x="115" y="90" font-size="2.5" text-anchor="end" fill="#0b0b0b">Maße in mm   M 1:50</text>
+</svg>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nachweisheft B1 – Mengen und Massen Wandelement AW-01</title>
+<style>
+:root{--flaeche:#fcfcfb;--seite:#f9f9f7;--tinte:#0b0b0b;--tinte2:#52514e;--leise:#898781;--linie:#e1e0d9;
+--gut:#0ca30c;--gut-text:#006300;--warn:#fab219;--krit:#d03b3b;--akzent:#2a78d6;color-scheme:light}
+body{background:var(--seite);color:var(--tinte);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px;background:var(--flaeche)}
+h1{font-size:1.6em;margin:.2em 0}h2{font-size:1.3em;border-bottom:1px solid var(--linie);padding-bottom:.2em;margin-top:1.6em}
+h3{font-size:1.1em;margin-top:1.3em}h4{font-size:1em}
+table{border-collapse:collapse;width:100%;margin:.5em 0;font-size:.92em}
+th,td{border:1px solid var(--linie);padding:4px 6px;vertical-align:top;text-align:left}
+th{background:#f0efec;font-weight:600}td.z{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font-size:.88em;word-break:break-all}.leise{color:var(--tinte2);font-size:.9em}
+.ampel{display:inline-flex;align-items:center;gap:.45em;font-weight:700;padding:.25em .7em;border-radius:4px;border:1px solid var(--linie)}
+.ampel i{width:.9em;height:.9em;border-radius:50%;display:inline-block}
+.s-erfuellt i{background:var(--gut)}.s-nicht i{background:var(--krit)}.s-hinweis i{background:var(--warn)}
+.s-erfuellt{color:var(--gut-text)}.s-nicht{color:var(--krit)}.s-hinweis{color:#7a5500}
+.regel{border-left:4px solid var(--akzent);background:#f3f7fd;padding:.5em .9em;margin:.5em 0}
+.annahme{background:#fff7e0;border-left:4px solid var(--warn);padding:.3em .8em;margin:.2em 0}
+.schritt{border:1px solid var(--linie);border-radius:4px;padding:.4em .8em;margin:.6em 0;overflow-x:auto}
+.formel{overflow-x:auto}figure{margin:1em 0;overflow-x:auto}figcaption{font-size:.9em;color:var(--tinte2)}
+figure svg{max-width:100%;height:auto;background:#fff}
+.deckblatt{border:2px solid var(--tinte);padding:1em 1.2em;margin-bottom:2em}
+section.nachweis{margin-top:2.5em}
+@media print{body{background:#fff}main{max-width:none;padding:0}section.nachweis{break-before:page}
+figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
+@page{size:A4;margin:18mm 15mm}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<main>
+<section class="deckblatt">
+<h1>Nachweisheft B1 – Mengen und Massen Wandelement AW-01</h1>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;1 erfüllt · 0 nicht erfüllt · 0 Hinweis</p>
+<table>
+<tr><th>Projekt</th><td>Beispielhaus Holzrahmenbau</td></tr>
+<tr><th>Gebäude</th><td>Einfamilienhaus (fiktiv)</td></tr>
+<tr><th>Geschoss</th><td>EG</td></tr>
+<tr><th>Parametermodell</th><td>daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)</td></tr>
+<tr><th>Grundstück</th><td>daten/grundstueck.json (SHA-256 a60954d2a172493d…)</td></tr>
+<tr><th>Rechtsstand der Beispiele</th><td>27.09.2026</td></tr>
+<tr><th>Hinweis</th><td>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</td></tr>
+<tr><th>Verfasser</th><td>Entwurfsgenerator (Beispiel), ohne Prüfvermerk</td></tr>
+<tr><th>Regelwerk-Profile</th><td><code>HRB-Mengen</code> Version <code>0.1.0</code></td></tr>
+<tr><th>Regelquellen</th><td>Projektregel Mengenermittlung (eigene Festlegung), Fassung 2026-09 [V]</td></tr>
+<tr><th>Heft-Hash (SHA-256)</th><td><code>0a1c0eeb57413efdd0be83264b2144ae6665e7445ec9f21b3477354ffafda627</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<h2>Inhaltsverzeichnis</h2>
+<table><thead><tr><th>Nr.</th><th>ID</th><th>Titel</th><th>Status</th><th>η</th><th>Hash</th></tr></thead><tbody>
+<tr><td class="z">1</td><td><a href="#n-n-b1-01">N-B1-01</a></td><td>Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,001</td><td><code>ecee11751c40…</code></td></tr>
+</tbody></table>
+<section class="nachweis" id="n-n-b1-01">
+<h2>N-B1-01 – Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,001</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>Wandelement AW-01 mit 18 Hölzern</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement.ifc (aus B1)<br><span class="leise">SHA-256 <code>5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>3N9BxbmVjJqfMasIm6VCTu</code> <code>1TymEnbXzHcunnMbwZo5Cm</code> <code>0ruebnGhrPUPaN5fsim6Vf</code> <code>26xC9QsMnO6BHuxmSviBaF</code> <code>254V3I5NrHxx6g9J9WAbEp</code> <code>3ZVVDbGwDO7x2vg7I4UXpp</code> <code>3BO1mSw7HO89jMsBG9Jb7H</code> <code>1Shh7ZI39PQgxArHuFCIxO</code> <code>2rWYAdwuXR2upUkdv7j_IN</code> <code>0AkqIXRtnLZxJbnMw9nqYO</code> <code>18vNpgLaTOYgpLpdvN0aeA</code> <code>02QVWAdt9VqxV8$c1qnuss</code> <code>2D$QiiYtvNEfIXBRFteHwH</code> <code>34BO68Wo1LCuqY8xgHmwWu</code> <code>3AhW$EEQvKugecqAFgh9u9</code> <code>2iTQbcNzXG0QrtGvQDByPB</code> <code>3vUFGDn6DHcfHamn5gMQdo</code> <code>0tHI18naLITuRuul3rI$7I</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Mengen und Massen des vorgefertigten Wandelements aus dem Parametermodell ermitteln; die Mengen müssen mit den Mengenangaben (Qto) des IFC-Modells übereinstimmen.</p>
+<p class="leise">Quelle: Projektregel Mengenermittlung (eigene Festlegung) · Fassung: 2026-09 · Fundstelle: vgl. Qto_MemberBaseQuantities, Qto_PlateBaseQuantities (IFC 4.3) · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-Mengen</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>Wandlänge</td><td>$L$</td><td class="z">4800 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/laenge</td></tr>
+<tr><td>Wandhöhe</td><td>$H$</td><td class="z">2750 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/hoehe</td></tr>
+<tr><td>Fensterbreite (Rohbau)</td><td>$b_{\mathrm{F}}$</td><td class="z">1260 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/oeffnungen/0/breite</td></tr>
+<tr><td>Fensterhöhe (Rohbau)</td><td>$h_{\mathrm{F}}$</td><td class="z">1385 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/oeffnungen/0/hoehe</td></tr>
+<tr><td>Holzquerschnittstiefe</td><td>$t_{\mathrm{H}}$</td><td class="z">200 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/staender/tiefe</td></tr>
+<tr><td>Kervenbreite (= Ständerbreite)</td><td>$b_{\mathrm{K}}$</td><td class="z">60 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/staender/breite</td></tr>
+<tr><td>Kerventiefe</td><td>$t_{\mathrm{K}}$</td><td class="z">25 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/kerven/0/tiefe</td></tr>
+<tr><td>Kervenhöhe</td><td>$h_{\mathrm{K}}$</td><td class="z">40 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/kerven/0/hoehe</td></tr>
+<tr><td>Dicke GKF</td><td>$d_{\mathrm{GKF}}$</td><td class="z">12,5 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json Schicht gkf</td></tr>
+<tr><td>Dicke OSB/3</td><td>$d_{\mathrm{OSB}}$</td><td class="z">15 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json Schicht osb</td></tr>
+<tr><td>Dicke Gefach</td><td>$d_{\mathrm{G}}$</td><td class="z">200 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json Schicht gefach</td></tr>
+<tr><td>Dicke Holzfaserdämmplatte</td><td>$d_{\mathrm{HFD}}$</td><td class="z">60 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json Schicht hfd</td></tr>
+<tr><td>Schraubendurchmesser</td><td>$d_{\mathrm{S}}$</td><td class="z">4 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/verbindungsmittel/0/durchmesser</td></tr>
+<tr><td>Schraubenlänge</td><td>$l_{\mathrm{S}}$</td><td class="z">50 mm</td><td class="z">–</td><td>eingabe</td><td>daten/wandelement.json /wand/verbindungsmittel/0/laenge</td></tr>
+<tr class="annahme"><td>Rohdichte KVH C24 (Nadelholz)</td><td>$\rho_{\mathrm{kvh},\mathrm{c24}}$</td><td class="z">420 kg/m³</td><td class="z">42 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/kvh_c24/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</td></tr>
+<tr class="annahme"><td>Rohdichte Gipsplatte Typ DF (GKF)</td><td>$\rho_{\mathrm{gkf}}$</td><td class="z">800 kg/m³</td><td class="z">40 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/gkf/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 5 % angenommen</td></tr>
+<tr class="annahme"><td>Rohdichte OSB/3</td><td>$\rho_{\mathrm{osb3}}$</td><td class="z">600 kg/m³</td><td class="z">60 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/osb3/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</td></tr>
+<tr class="annahme"><td>Rohdichte Holzfaser-Dämmmatte (flexibel)</td><td>$\rho_{\mathrm{holzfaser},\mathrm{flex}}$</td><td class="z">50 kg/m³</td><td class="z">7,5 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen</td></tr>
+<tr class="annahme"><td>Rohdichte Holzfaserdämmplatte (Putzträger)</td><td>$\rho_{\mathrm{holzfaserplatte}}$</td><td class="z">180 kg/m³</td><td class="z">18 kg/m³</td><td>annahme</td><td>daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</td></tr>
+<tr class="annahme"><td>Rohdichte Stahl</td><td>$\rho_{\mathrm{St}}$</td><td class="z">7850 kg/m³</td><td class="z">–</td><td>annahme</td><td>daten/wandelement.json /materialien/stahl_verzinkt/rho</td></tr>
+<tr><td>zulässige Mengenabweichung Modell/IFC</td><td>$\mathrm{dV}_{\mathrm{zul}}$</td><td class="z">0,00000001 m³</td><td class="z">–</td><td>grenzwert</td><td>Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³</td></tr>
+</tbody></table>
+<h3>Annahmen</h3>
+<p class="annahme"><b>Annahme:</b> Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.</p>
+<p class="annahme"><b>Annahme:</b> Schrauben als Zylinder d × l (Kopf und Gewinde nicht modelliert), wie die IFC-Geometrie.</p>
+<p class="annahme"><b>Annahme:</b> Die Unsicherheiten der Rohdichten sind Annahmen zur Demonstration der Unsicherheitsfortpflanzung.</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte KVH C24 (Nadelholz) (rho_kvh_c24) = 420 kg/m³: daten/wandelement.json /materialien/kvh_c24/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte Gipsplatte Typ DF (GKF) (rho_gkf) = 800 kg/m³: daten/wandelement.json /materialien/gkf/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 5 % angenommen</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte OSB/3 (rho_osb3) = 600 kg/m³: daten/wandelement.json /materialien/osb3/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte Holzfaser-Dämmmatte (flexibel) (rho_holzfaser_flex) = 50 kg/m³: daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte Holzfaserdämmplatte (Putzträger) (rho_holzfaserplatte) = 180 kg/m³: daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen</p>
+<p class="annahme"><b>Annahme:</b> Rohdichte Stahl (rho_St) = 7850 kg/m³: daten/wandelement.json /materialien/stahl_verzinkt/rho</p>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: Bruttowandfläche</b></p>
+<div class="formel">$$ A_{\mathrm{b}} = L \cdot H $$</div>
+<div class="formel">$$ A_{\mathrm{b}} = 4800\ \mathrm{mm} \cdot 2750\ \mathrm{mm} = 13{,}200\ \mathrm{m^{2}} $$</div>
+<p class="leise">Ausdruck: <code>L*H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Öffnungsfläche Fenster F1</b></p>
+<div class="formel">$$ A_{\mathrm{F}} = b_{\mathrm{F}} \cdot h_{\mathrm{F}} $$</div>
+<div class="formel">$$ A_{\mathrm{F}} = 1260\ \mathrm{mm} \cdot 1385\ \mathrm{mm} = 1{,}7451\ \mathrm{m^{2}} $$</div>
+<p class="leise">Ausdruck: <code>b_F*h_F</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 3: Nettowandfläche</b></p>
+<div class="formel">$$ A_{\mathrm{n}} = A_{\mathrm{b}} - A_{\mathrm{F}} $$</div>
+<div class="formel">$$ A_{\mathrm{n}} = 13{,}200\ \mathrm{m^{2}} - 1{,}7451\ \mathrm{m^{2}} = 11{,}455\ \mathrm{m^{2}} $$</div>
+<p class="leise">Ausdruck: <code>A_b - A_F</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 4: Ansichtsfläche aller Hölzer</b></p>
+<p>Verfahren: Summe der 18 achsparallelen Holzrechtecke aus b1_wandelement.rahmenlayout; Überlappungsfreiheit per shapely-Vereinigung geprüft (Differenz &lt; 1e-6 mm²)<br>Ergebnis: $A_{\mathrm{H}}$ = 2,5752 m²</p>
+</div>
+<div class="schritt"><p><b>Schritt 5: Gefachfläche (Dämmung)</b></p>
+<div class="formel">$$ A_{\mathrm{G}} = A_{\mathrm{n}} - A_{\mathrm{H}} $$</div>
+<div class="formel">$$ A_{\mathrm{G}} = 11{,}455\ \mathrm{m^{2}} - 2{,}5752\ \mathrm{m^{2}} = 8{,}8797\ \mathrm{m^{2}} $$</div>
+<p class="leise">Ausdruck: <code>A_n - A_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 6: Volumen der Kerve K1</b></p>
+<div class="formel">$$ V_{\mathrm{K}} = b_{\mathrm{K}} \cdot t_{\mathrm{K}} \cdot h_{\mathrm{K}} $$</div>
+<div class="formel">$$ V_{\mathrm{K}} = 60\ \mathrm{mm} \cdot 25\ \mathrm{mm} \cdot 40\ \mathrm{mm} = 0{,}000060000\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>b_K*t_K*h_K</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 7: Holzvolumen netto</b></p>
+<div class="formel">$$ V_{\mathrm{H}} = A_{\mathrm{H}} \cdot t_{\mathrm{H}} - V_{\mathrm{K}} $$</div>
+<div class="formel">$$ V_{\mathrm{H}} = 2{,}5752\ \mathrm{m^{2}} \cdot 200\ \mathrm{mm} - 0{,}000060000\ \mathrm{m^{3}} = 0{,}51498\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>A_H*t_H - V_K</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 8: Volumen GKF</b> <span class="leise">(Platten decken A_n vollständig)</span></p>
+<div class="formel">$$ V_{\mathrm{GKF}} = A_{\mathrm{n}} \cdot d_{\mathrm{GKF}} $$</div>
+<div class="formel">$$ V_{\mathrm{GKF}} = 11{,}455\ \mathrm{m^{2}} \cdot 12{,}5\ \mathrm{mm} = 0{,}14319\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>A_n*d_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 9: Volumen OSB/3</b></p>
+<div class="formel">$$ V_{\mathrm{OSB}} = A_{\mathrm{n}} \cdot d_{\mathrm{OSB}} $$</div>
+<div class="formel">$$ V_{\mathrm{OSB}} = 11{,}455\ \mathrm{m^{2}} \cdot 15\ \mathrm{mm} = 0{,}17182\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>A_n*d_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 10: Volumen Holzfaserdämmplatte</b></p>
+<div class="formel">$$ V_{\mathrm{HFD}} = A_{\mathrm{n}} \cdot d_{\mathrm{HFD}} $$</div>
+<div class="formel">$$ V_{\mathrm{HFD}} = 11{,}455\ \mathrm{m^{2}} \cdot 60\ \mathrm{mm} = 0{,}68729\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>A_n*d_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 11: Volumen Gefachdämmung</b></p>
+<div class="formel">$$ V_{\mathrm{D}} = A_{\mathrm{G}} \cdot d_{\mathrm{G}} $$</div>
+<div class="formel">$$ V_{\mathrm{D}} = 8{,}8797\ \mathrm{m^{2}} \cdot 200\ \mathrm{mm} = 1{,}7759\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>A_G*d_G</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 12: Anzahl Schrauben (aus dem IFC-Modell)</b></p>
+<p>Verfahren: Zählung der IfcMechanicalFastener im Modell (Raster 150 mm, Randabstand 75 mm, Plattenrand ≥ 10 mm)<br>Ergebnis: $n_{\mathrm{S}}$ = 176 Stk</p>
+</div>
+<div class="schritt"><p><b>Schritt 13: Masse Holz</b></p>
+<div class="formel">$$ m_{\mathrm{H}} = \rho_{\mathrm{kvh},\mathrm{c24}} \cdot V_{\mathrm{H}} $$</div>
+<div class="formel">$$ m_{\mathrm{H}} = 420\ \mathrm{kg/m^{3}} \cdot 0{,}51498\ \mathrm{m^{3}} = 216{,}29\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>rho_kvh_c24*V_H</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 14: Masse GKF</b></p>
+<div class="formel">$$ m_{\mathrm{GKF}} = \rho_{\mathrm{gkf}} \cdot V_{\mathrm{GKF}} $$</div>
+<div class="formel">$$ m_{\mathrm{GKF}} = 800\ \mathrm{kg/m^{3}} \cdot 0{,}14319\ \mathrm{m^{3}} = 114{,}55\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>rho_gkf*V_GKF</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 15: Masse OSB/3</b></p>
+<div class="formel">$$ m_{\mathrm{OSB}} = \rho_{\mathrm{osb3}} \cdot V_{\mathrm{OSB}} $$</div>
+<div class="formel">$$ m_{\mathrm{OSB}} = 600\ \mathrm{kg/m^{3}} \cdot 0{,}17182\ \mathrm{m^{3}} = 103{,}09\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>rho_osb3*V_OSB</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 16: Masse Holzfaserdämmplatte</b></p>
+<div class="formel">$$ m_{\mathrm{HFD}} = \rho_{\mathrm{holzfaserplatte}} \cdot V_{\mathrm{HFD}} $$</div>
+<div class="formel">$$ m_{\mathrm{HFD}} = 180\ \mathrm{kg/m^{3}} \cdot 0{,}68729\ \mathrm{m^{3}} = 123{,}71\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>rho_holzfaserplatte*V_HFD</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 17: Masse Gefachdämmung</b></p>
+<div class="formel">$$ m_{\mathrm{D}} = \rho_{\mathrm{holzfaser},\mathrm{flex}} \cdot V_{\mathrm{D}} $$</div>
+<div class="formel">$$ m_{\mathrm{D}} = 50\ \mathrm{kg/m^{3}} \cdot 1{,}7759\ \mathrm{m^{3}} = 88{,}797\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>rho_holzfaser_flex*V_D</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 18: Masse Schrauben (Schaft als Zylinder, wie Modellgeometrie)</b></p>
+<div class="formel">$$ m_{\mathrm{S}} = n_{\mathrm{S}} \cdot \rho_{\mathrm{St}} \cdot \pi \cdot {\frac{d_{\mathrm{S}}}{2}}^{2} \cdot l_{\mathrm{S}} $$</div>
+<div class="formel">$$ m_{\mathrm{S}} = 176\ \mathrm{Stk} \cdot 7850\ \mathrm{kg/m^{3}} \cdot \pi \cdot {\frac{4\ \mathrm{mm}}{2}}^{2} \cdot 50\ \mathrm{mm} = 0{,}86808\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>n_S*rho_St*pi*(d_S/2)**2*l_S</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 19: Gesamtmasse des Wandelements</b></p>
+<div class="formel">$$ m_{\mathrm{ges}} = m_{\mathrm{H}} + m_{\mathrm{GKF}} + m_{\mathrm{OSB}} + m_{\mathrm{HFD}} + m_{\mathrm{D}} + m_{\mathrm{S}} $$</div>
+<div class="formel">$$ m_{\mathrm{ges}} = 216{,}29\ \mathrm{kg} + 114{,}55\ \mathrm{kg} + 103{,}09\ \mathrm{kg} + 123{,}71\ \mathrm{kg} + 88{,}797\ \mathrm{kg} + 0{,}86808\ \mathrm{kg} = 647{,}31\ \mathrm{kg} $$</div>
+<p class="leise">Ausdruck: <code>m_H + m_GKF + m_OSB + m_HFD + m_D + m_S</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 20: flächenbezogene Masse</b></p>
+<div class="formel">$$ m_{\mathrm{A}} = \frac{m_{\mathrm{ges}}}{A_{\mathrm{n}}} $$</div>
+<div class="formel">$$ m_{\mathrm{A}} = \frac{647{,}31\ \mathrm{kg}}{11{,}455\ \mathrm{m^{2}}} = 56{,}510\ \mathrm{kg/m^{2}} $$</div>
+<p class="leise">Ausdruck: <code>m_ges/A_n</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 21: Holzvolumen laut IFC (Summe Qto_MemberBaseQuantities.NetVolume)</b></p>
+<p>Verfahren: Summe NetVolume über 18 IfcMember (GUIDs im Gegenstand)<br>Ergebnis: $V_{\mathrm{H},\mathrm{IFC}}$ = 0,51498 m³</p>
+</div>
+<div class="schritt"><p><b>Schritt 22: Beplankungsvolumen laut IFC (Summe Qto_PlateBaseQuantities.NetVolume)</b></p>
+<p>Verfahren: Summe NetVolume über 10 IfcPlate<br>Ergebnis: $V_{\mathrm{P},\mathrm{IFC}}$ = 1,00230375 m³</p>
+</div>
+<div class="schritt"><p><b>Schritt 23: Dämmvolumen laut IFC (Summe Qto_BodyGeometryValidation.NetVolume)</b></p>
+<p>Verfahren: Summe NetVolume über 12 IfcBuildingElementPart INSULATION<br>Ergebnis: $V_{\mathrm{D},\mathrm{IFC}}$ = 1,77594 m³</p>
+</div>
+<div class="schritt"><p><b>Schritt 24: Abweichung Holzvolumen Nachweis/IFC</b></p>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{H}} = \left|V_{\mathrm{H}} - V_{\mathrm{H},\mathrm{IFC}}\right| $$</div>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{H}} = \left|0{,}51498\ \mathrm{m^{3}} - 0{,}51498\ \mathrm{m^{3}}\right| = 0{,}00000000000000011102\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>abs(V_H - V_H_IFC)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 25: Abweichung Beplankung Nachweis/IFC</b></p>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{P}} = \left|V_{\mathrm{GKF}} + V_{\mathrm{OSB}} + V_{\mathrm{HFD}} - V_{\mathrm{P},\mathrm{IFC}}\right| $$</div>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{P}} = \left|0{,}14319\ \mathrm{m^{3}} + 0{,}17182\ \mathrm{m^{3}} + 0{,}68729\ \mathrm{m^{3}} - 1{,}0023\ \mathrm{m^{3}}\right| = 0{,}00000000000000022204\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>abs(V_GKF + V_OSB + V_HFD - V_P_IFC)</code></p>
+</div>
+<div class="schritt"><p><b>Schritt 26: Abweichung Dämmung Nachweis/IFC</b></p>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{D}} = \left|V_{\mathrm{D}} - V_{\mathrm{D},\mathrm{IFC}}\right| $$</div>
+<div class="formel">$$ \mathrm{dV}_{\mathrm{D}} = \left|1{,}7759\ \mathrm{m^{3}} - 1{,}7759\ \mathrm{m^{3}}\right| = 0{,}00000000000000044409\ \mathrm{m^{3}} $$</div>
+<p class="leise">Ausdruck: <code>abs(V_D - V_D_IFC)</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Holzvolumen: Nachweis = IFC</td><td class="z">0,00000000000000011102230246251565 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+<tr><td>Beplankung: Nachweis = IFC</td><td class="z">0,0000000000000002220446049250313 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+<tr><td>Dämmung: Nachweis = IFC</td><td class="z">0,0000000000000004440892098500626 m³</td><td>≤</td><td class="z">0,00000001 m³</td><td class="z">0,001</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>Konsistenz Modell/IFC</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<p class="leise">Rundung des Ergebnisses: 3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen.</p>
+<h3>Messunsicherheit</h3>
+<p>Ergebnis: <b>650 ± 70 kg (k = 2)</b>; u<sub>c</sub> = 31 kg.</p><p class="leise">lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette.</p>
+<table><thead><tr><th>Eingang</th><th>u(x)</th><th>Sensitivität c</th><th>Einheit von c</th><th>|c|·u</th><th>Anteil an u<sub>c</sub>²</th></tr></thead><tbody>
+<tr><td>rho_kvh_c24</td><td class="z">42 kg/m³</td><td class="z">0,515</td><td>(kg)/(kg/m³)</td><td class="z">22</td><td class="z">49,9 %</td></tr>
+<tr><td>rho_gkf</td><td class="z">40 kg/m³</td><td class="z">0,143</td><td>(kg)/(kg/m³)</td><td class="z">5,7</td><td class="z">3,5 %</td></tr>
+<tr><td>rho_osb3</td><td class="z">60 kg/m³</td><td class="z">0,172</td><td>(kg)/(kg/m³)</td><td class="z">10</td><td class="z">11,3 %</td></tr>
+<tr><td>rho_holzfaser_flex</td><td class="z">7,5 kg/m³</td><td class="z">1,78</td><td>(kg)/(kg/m³)</td><td class="z">13</td><td class="z">18,9 %</td></tr>
+<tr><td>rho_holzfaserplatte</td><td class="z">18 kg/m³</td><td class="z">0,687</td><td>(kg)/(kg/m³)</td><td class="z">12</td><td class="z">16,3 %</td></tr>
+</tbody></table>
+<p>Monte-Carlo: 50 000 Versuche (Seed 20260927), Mittelwert 647,4, s = 31, 95-%-Intervall [587,3; 707,1] kg. <span class="leise">Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)</span></p>
+<h3>Hinweise</h3>
+<ul>
+<li>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</li>
+<li>Unsicherheitsbeiträge der Verfahrensschritte A_H, n_S, V_H_IFC, V_P_IFC, V_D_IFC sind nicht fortgepflanzt.</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="125mm" height="103mm" viewBox="0 0 125 103" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="Wandansicht AW-01">
+<title>Wandansicht AW-01</title>
+<rect width="125" height="103" fill="#ffffff"/>
+<defs><pattern id="m-holz" patternUnits="userSpaceOnUse" width="2" height="2" patternTransform="rotate(45)"><rect width="2" height="2" fill="#f3e3c7"/><line x1="0" y1="0" x2="0" y2="2" stroke="#8d6e63" stroke-width="0.25"/></pattern></defs>
+<polygon points="16,68 112,68 112,13 16,13" fill="#fbfbfb" stroke="#0b0b0b" stroke-width="0.5"><title>Wandumriss</title></polygon>
+<polygon points="16,68 112,68 112,66.8 16,66.8" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Schwelle</title></polygon>
+<polygon points="16,14.2 112,14.2 112,13 16,13" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Rähm</title></polygon>
+<polygon points="16,66.8 17.2,66.8 17.2,14.2 16,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Randständer links</title></polygon>
+<polygon points="110.8,66.8 112,66.8 112,14.2 110.8,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Randständer rechts</title></polygon>
+<polygon points="49,66.8 50.2,66.8 50.2,14.2 49,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Königsständer links F1</title></polygon>
+<polygon points="77.8,66.8 79,66.8 79,14.2 77.8,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Königsständer rechts F1</title></polygon>
+<polygon points="50.2,66.8 51.4,66.8 51.4,22.3 50.2,22.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturzauflagerständer links F1</title></polygon>
+<polygon points="76.6,66.8 77.8,66.8 77.8,22.3 76.6,22.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturzauflagerständer rechts F1</title></polygon>
+<polygon points="50.2,22.3 77.8,22.3 77.8,18.3 50.2,18.3" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Sturz F1</title></polygon>
+<polygon points="51.4,51.2 76.6,51.2 76.6,50 51.4,50" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Brüstungsriegel F1</title></polygon>
+<polygon points="27.9,66.8 29.1,66.8 29.1,14.2 27.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R1</title></polygon>
+<polygon points="40.4,66.8 41.6,66.8 41.6,14.2 40.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R2</title></polygon>
+<polygon points="52.9,66.8 54.1,66.8 54.1,51.2 52.9,51.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R3 unten</title></polygon>
+<polygon points="52.9,18.3 54.1,18.3 54.1,14.2 52.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R3 oben</title></polygon>
+<polygon points="65.4,66.8 66.6,66.8 66.6,51.2 65.4,51.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R4 unten</title></polygon>
+<polygon points="65.4,18.3 66.6,18.3 66.6,14.2 65.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Füllständer R4 oben</title></polygon>
+<polygon points="90.4,66.8 91.6,66.8 91.6,14.2 90.4,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R6</title></polygon>
+<polygon points="102.9,66.8 104.1,66.8 104.1,14.2 102.9,14.2" fill="url(#m-holz)" stroke="#0b0b0b" stroke-width="0.35"><title>Ständer R7</title></polygon>
+<polygon points="51.4,50 76.6,50 76.6,22.3 51.4,22.3" fill="#ffffff" stroke="#0b0b0b" stroke-width="0.5"><title>Fenster F1</title></polygon>
+<line x1="51.4" y1="50" x2="76.6" y2="22.3" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="22.3" x2="76.6" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="21.3" x2="51.4" y2="16.8" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="76.6" y1="21.3" x2="76.6" y2="16.8" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="49.9" y1="18.3" x2="78.1" y2="18.3" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="50.3" y1="19.4" x2="52.5" y2="17.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="75.5" y1="19.4" x2="77.7" y2="17.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="64" y="17.5" font-size="2.2" text-anchor="middle" fill="#0b0b0b">1260</text>
+<line x1="75.6" y1="50" x2="71.1" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="75.6" y1="22.3" x2="71.1" y2="22.3" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="72.6" y1="51.5" x2="72.6" y2="20.8" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="73.7" y1="51.1" x2="71.5" y2="48.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="73.7" y1="23.4" x2="71.5" y2="21.2" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="73.4" y="36.15" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 73.4 36.15)">1385</text>
+<line x1="16" y1="49" x2="16" y2="45.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="51.4" y1="49" x2="51.4" y2="45.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="47" x2="52.9" y2="47" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="48.1" x2="17.1" y2="45.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="50.3" y1="48.1" x2="52.5" y2="45.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="33.7" y="46.2" font-size="2.2" text-anchor="middle" fill="#0b0b0b">1770</text>
+<line x1="79.6" y1="68" x2="76.1" y2="68" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="79.6" y1="50" x2="76.1" y2="50" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="77.6" y1="69.5" x2="77.6" y2="48.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="78.7" y1="69.1" x2="76.5" y2="66.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="78.7" y1="51.1" x2="76.5" y2="48.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="78.4" y="59" font-size="2.2" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 78.4 59)">900</text>
+<polygon points="27.9,47 29.1,47 29.1,46.2 27.9,46.2" fill="#d03b3b" stroke="#d03b3b" stroke-width="0.25"><title>Kerve K1</title></polygon>
+<line x1="16" y1="69" x2="16" y2="83.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="112" y1="69" x2="112" y2="83.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="82" x2="113.5" y2="82" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="83.1" x2="17.1" y2="80.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="110.9" y1="83.1" x2="113.1" y2="80.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="64" y="81.2" font-size="2.5" text-anchor="middle" fill="#0b0b0b">4800</text>
+<line x1="16" y1="69" x2="16" y2="76.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="28.5" y1="69" x2="28.5" y2="76.5" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="14.5" y1="75" x2="30" y2="75" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="14.9" y1="76.1" x2="17.1" y2="73.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="27.4" y1="76.1" x2="29.6" y2="73.9" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="22.25" y="74.2" font-size="2.2" text-anchor="middle" fill="#0b0b0b">e = 625</text>
+<line x1="17" y1="13" x2="23.5" y2="13" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="17" y1="68" x2="23.5" y2="68" stroke="#0b0b0b" stroke-width="0.18"/>
+<line x1="22" y1="11.5" x2="22" y2="69.5" stroke="#0b0b0b" stroke-width="0.25"/>
+<line x1="20.9" y1="11.9" x2="23.1" y2="14.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<line x1="20.9" y1="66.9" x2="23.1" y2="69.1" stroke="#0b0b0b" stroke-width="0.5"/>
+<text x="22.8" y="40.5" font-size="2.5" text-anchor="middle" fill="#0b0b0b" transform="rotate(90 22.8 40.5)">2750</text>
+<rect x="10" y="87" width="6" height="3" fill="url(#m-holz)" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="89.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">KVH C24 (Ständer, Schwelle, Rähm, Sturz, Riegel)</text>
+<rect x="10" y="92" width="6" height="3" fill="#d03b3b" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="94.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">Kerve K1 (40 × 25 mm)</text>
+<rect x="10" y="97" width="6" height="3" fill="#ffffff" fill-opacity="1" stroke="#0b0b0b" stroke-width="0.25"/>
+<text x="18" y="99.6" font-size="2.5" text-anchor="start" fill="#0b0b0b">Fensteröffnung F1 (Rohbaumaß)</text>
+<text x="115" y="90" font-size="2.5" text-anchor="end" fill="#0b0b0b">Maße in mm   M 1:50</text>
+</svg><figcaption>Abbildung N-B1-01/ansicht: Wandansicht AW-01 von innen (Holzgerüst, Öffnung, Kerve) (Maßstab 1:50, bei Druck in 100 %). Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.<br><span class="leise">SHA-256 <code>d4833d841a944e6e2c28d11198b2d0f92aac236683da246df884d8a224e4aad1</code></span></figcaption></figure>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="457.815625pt" height="280.976741pt" viewBox="0 0 457.815625 280.976741" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 280.976741 
+L 457.815625 280.976741 
+L 457.815625 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 93.495625 244.776038 
+L 450.615625 244.776038 
+L 450.615625 20.798437 
+L 93.495625 20.798437 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 93.495625 244.776038 
+L 93.495625 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m5ecce93918" d="M 0 0 
+L 0 3.5 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ecce93918" x="93.495625" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="93.495625" y="258.613928" transform="rotate(-0 93.495625 258.613928)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 135.497155 244.776038 
+L 135.497155 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5ecce93918" x="135.497155" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="135.497155" y="258.613928" transform="rotate(-0 135.497155 258.613928)">100</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 177.498685 244.776038 
+L 177.498685 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m5ecce93918" x="177.498685" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="177.498685" y="258.613928" transform="rotate(-0 177.498685 258.613928)">200</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 219.500215 244.776038 
+L 219.500215 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m5ecce93918" x="219.500215" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="219.500215" y="258.613928" transform="rotate(-0 219.500215 258.613928)">300</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 261.501744 244.776038 
+L 261.501744 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5ecce93918" x="261.501744" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="261.501744" y="258.613928" transform="rotate(-0 261.501744 258.613928)">400</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 303.503274 244.776038 
+L 303.503274 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5ecce93918" x="303.503274" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="303.503274" y="258.613928" transform="rotate(-0 303.503274 258.613928)">500</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 345.504804 244.776038 
+L 345.504804 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m5ecce93918" x="345.504804" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="345.504804" y="258.613928" transform="rotate(-0 345.504804 258.613928)">600</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 387.506334 244.776038 
+L 387.506334 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m5ecce93918" x="387.506334" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="387.506334" y="258.613928" transform="rotate(-0 387.506334 258.613928)">700</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_17">
+      <path d="M 429.507864 244.776038 
+L 429.507864 20.798437 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m5ecce93918" x="429.507864" y="244.776038" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="429.507864" y="258.613928" transform="rotate(-0 429.507864 258.613928)">800</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="272.055625" y="271.614631" transform="rotate(-0 272.055625 271.614631)">Masse in kg</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_19">
+      <defs>
+       <path id="m8cbefe311c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #52514e; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="226.046474" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="229.465419" transform="rotate(-0 86.495625 229.465419)">Gesamtmasse</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="194.960062" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="198.379359" transform="rotate(-0 86.495625 198.379359)">Masse Schrauben</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="163.87365" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="167.292595" transform="rotate(-0 86.495625 167.292595)">Masse Dämmung</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="132.787237" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="136.206183" transform="rotate(-0 86.495625 136.206183)">Masse HFD</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="101.700825" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="105.119771" transform="rotate(-0 86.495625 105.119771)">Masse OSB</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="70.614413" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="74.033358" transform="rotate(-0 86.495625 74.033358)">Masse GKF</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_25">
+      <g>
+       <use xlink:href="#m8cbefe311c" x="93.495625" y="39.528001" style="fill: #52514e; stroke: #52514e; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="86.495625" y="42.947298" transform="rotate(-0 86.495625 42.947298)">Masse Holz</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 93.495625 48.076764 
+L 184.341406 48.076764 
+L 184.341406 30.979237 
+L 93.495625 30.979237 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 93.495625 79.163176 
+L 141.607957 79.163176 
+L 141.607957 62.06565 
+L 93.495625 62.06565 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 93.495625 110.249589 
+L 136.796724 110.249589 
+L 136.796724 93.152062 
+L 93.495625 93.152062 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 93.495625 141.336001 
+L 145.456944 141.336001 
+L 145.456944 124.238474 
+L 93.495625 124.238474 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 93.495625 172.422413 
+L 130.791723 172.422413 
+L 130.791723 155.324886 
+L 93.495625 155.324886 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 93.495625 203.508825 
+L 93.860234 203.508825 
+L 93.860234 186.411299 
+L 93.495625 186.411299 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 93.495625 234.595237 
+L 365.376864 234.595237 
+L 365.376864 217.497711 
+L 93.495625 217.497711 
+z
+" clip-path="url(#p10e6de424b)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 93.495625 244.776037 
+L 93.495625 20.798437 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 93.495625 244.776038 
+L 450.615625 244.776038 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="188.341406" y="42.528001" transform="rotate(-0 188.341406 42.528001)">216</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="145.607957" y="73.614413" transform="rotate(-0 145.607957 73.614413)">115</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="140.796724" y="104.700825" transform="rotate(-0 140.796724 104.700825)">103</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="149.456944" y="135.787237" transform="rotate(-0 149.456944 135.787237)">124</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="134.791723" y="166.87365" transform="rotate(-0 134.791723 166.87365)">88,8</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="97.860234" y="197.960062" transform="rotate(-0 97.860234 197.960062)">0,868</text>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 339.658103 226.046474 
+L 391.095625 226.046474 
+" clip-path="url(#p10e6de424b)" style="fill: none; stroke: #0b0b0b"/>
+   </g>
+   <g id="line2d_26">
+    <defs>
+     <path id="mefab6c26c2" d="M 0 3 
+L 0 -3 
+" style="stroke: #0b0b0b"/>
+    </defs>
+    <g clip-path="url(#p10e6de424b)">
+     <use xlink:href="#mefab6c26c2" x="339.658103" y="226.046474" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="line2d_27">
+    <g clip-path="url(#p10e6de424b)">
+     <use xlink:href="#mefab6c26c2" x="391.095625" y="226.046474" style="fill: #1f77b4; stroke: #0b0b0b"/>
+    </g>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="395.095625" y="229.046474" transform="rotate(-0 395.095625 229.046474)">647</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="93.495625" y="14.798437" transform="rotate(-0 93.495625 14.798437)">Massen je Bestandteil (Gesamtmasse mit U, k = 2)</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p10e6de424b">
+   <rect x="93.495625" y="20.798437" width="357.12" height="223.9776"/>
+  </clipPath>
+ </defs>
+</svg><figcaption>Abbildung N-B1-01/massen: Massen je Bestandteil<br><span class="leise">SHA-256 <code>078611872ca4a219668c0265791217ea8bd74826ba6977ad11fb194c44465ab7</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>ecee11751c40ed0a76742a268dcd598611875e620b19ddab26078cf76602614f</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+</main>
+</body>
+</html>

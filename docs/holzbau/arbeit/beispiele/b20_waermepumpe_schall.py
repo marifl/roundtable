@@ -561,7 +561,13 @@ class Szene:
             teil = [max(prof["D_z_dB"] - agr, 0.0)]                      # Gl. (12)
             gekreuzt = [h for h in self.hindernisse if h.id in prof["hindernisse"]]
             seitlich, verworfen = seitliche_pfade(S, R, hs, hr, gekreuzt, self.hindernisse, lam)
-            teil += [p["D_z_dB"] for p in seitlich]                       # Gl. (13)
+            # Relevanz seitlicher Pfade: nur wenn z_seitlich ≤ 8·z_oben (Praxisregel nach ISO/TR 17534-3,
+            # zitiert u. a. im EMD-WindPRO-Handbuch; verhindert, dass sehr lange Schirme über die 20-dB-Kappung
+            # immer −20 dB "Umwegenergie" erhalten) [U]
+            relevant = [p for p in seitlich if p["z_m"] <= 8.0 * prof["z_m"]]
+            for p in seitlich:
+                p["relevant"] = p in relevant
+            teil += [p["D_z_dB"] for p in relevant]                       # Gl. (13)
             abar = -10.0 * math.log10(sum(10.0 ** (-0.1 * a) for a in teil))  # Pfade energetisch (ISO 7.4)
         L_dir = LW + DI + dom - adiv - aatm - agr - abar
         beitraege.append(L_dir)
@@ -700,6 +706,12 @@ def sichtklasse(S, hs, R, hr, szene):
     return 5.0, "indirekte Sicht (Hindernis)"
 
 
+def bwp_lr(LWA: float, KT: float, K0: float, s: float, D_abschirm: float = 0.0, KR: float = 0.0) -> float:
+    """BWP-Leitfaden Schall Gl. (4.1) = TA Lärm A.2.4.3 (G4) mit Zuschlägen:
+    L_r = L_W,Aeq + K_T + K0 − 20 lg(s_m) − 11 dB (− Abschirmmaß) (+ K_R nur tags, pauschal)."""
+    return LWA + KT + K0 - 20.0 * math.log10(s) - 11.0 - D_abschirm + KR
+
+
 def vereinfachte_verfahren(S, hs, R, hr, szene, wp, gebiet):
     """BWP-Rechner (TA Lärm G4) und LAI-Tabelle zum Vergleich mit der detaillierten Prognose."""
     n_ref = zaehle_reflektoren(S, szene)
@@ -707,7 +719,7 @@ def vereinfachte_verfahren(S, hs, R, hr, szene, wp, gebiet):
     s = math.hypot(dp, hr - hs)
     sicht_db, sicht_txt = sichtklasse(S, hs, R, hr, szene)
     k0 = {0: 3.0, 1: 6.0}.get(n_ref, 9.0)                 # BWP: 3/6/9 dB
-    lr_bwp_n = wp["LWA_nacht_dB"] + wp["KT_dB"] + k0 - 20 * math.log10(s) - 11.0 - sicht_db
+    lr_bwp_n = bwp_lr(wp["LWA_nacht_dB"], wp["KT_dB"], k0, s, sicht_db)
     refl_lai = {0: 0.0, 1: 3.0}.get(n_ref, 6.0)            # LAI Tab. 3: 0/3/6 dB
     L_E = wp["LWA_nacht_dB"] - sicht_db + refl_lai + wp["KT_dB"]   # LAI Kap. 4.2
     lr_lai_n = lai_pegel_modell(L_E, dp)
@@ -951,11 +963,11 @@ SVG_STIL = """
   text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--tinte); }
   .klein { font-size: 11px; fill: var(--tinte2); }
 """
-KLASSEN_KARTE = ((-1e9, 25), (25, 30), (30, 35), (35, 40), (40, 45), (45, 50), (50, 1e9))
+KLASSEN_KARTE = ((-1e9, 20), (20, 25), (25, 30), (30, 35), (35, 40), (40, 45), (45, 1e9))
 
 
 class SvgRahmen:
-    def __init__(self, bbox, skala, rand_links=40, rand_oben=50, breite_legende=230):
+    def __init__(self, bbox, skala, rand_links=40, rand_oben=70, breite_legende=300):
         self.x0, self.y0, self.x1, self.y1 = bbox
         self.s = skala
         self.rl, self.ro = rand_links, rand_oben
@@ -985,6 +997,10 @@ def _svg_szene(teile, R, daten, szene, S=None, zone=None, ios=None):
         (ax, ay), (bx, by) = o["linie"]
         teile.append(f'<line x1="{R.X(ax):.1f}" y1="{R.Y(ay):.1f}" x2="{R.X(bx):.1f}" y2="{R.Y(by):.1f}" '
                      f'stroke="var(--flaeche)" stroke-width="3"><title>{o["id"]}: {o["art"]}, UK {o["unterkante_m"]} m</title></line>')
+    for sk in daten.get("senken_eigen", []):
+        pts = " ".join(f"{R.X(x):.1f},{R.Y(y):.1f}" for x, y in sk["polygon"])
+        teile.append(f'<polygon points="{pts}" fill="var(--tinte)" stroke="var(--tinte)" stroke-width="2">'
+                     f'<title>{sk["id"]}: {sk["art"]}</title></polygon>')
     if zone is not None:
         pts = " ".join(f"{R.X(x):.1f},{R.Y(y):.1f}" for x, y in zone.exterior.coords)
         teile.append(f'<polygon points="{pts}" fill="none" stroke="var(--neg3)" stroke-width="1.6" stroke-dasharray="3 2">'
@@ -1010,14 +1026,50 @@ def _svg_szene(teile, R, daten, szene, S=None, zone=None, ios=None):
                      f'stroke="var(--tinte)" stroke-width="1.5"><title>WP-Außengerät ({r1(S[0])}/{r1(S[1])})</title></rect>')
 
 
+def _legende_symbole(lx, y, mit_isolinien):
+    """Legende mit den tatsächlichen Symbolen (Identität nie nur über Farbe)."""
+    t, zeilen = [], []
+    if mit_isolinien:
+        zeilen += [("iso40", "Isolinie 40 dB(A) = IRW Nacht WA"), ("iso35", "Isolinien 35 und 45 dB(A)")]
+    zeilen += [("wp", "WP-Außengerät (Punktquelle)"), ("sb", "R290-Schutzbereich (1 m + Hüllkreis)"),
+               ("io", "Immissionsort 0,5 m vor Fenster"), ("iol", "IO5: Stützpunkte Baugrenze"),
+               ("geb", "Gebäude / Gartenmauer M1"), ("oeff", "Öffnung eigenes Haus (weiß)"),
+               ("senke", "Senke/Einlauf (Schutzbereich)"), ("grenze", "Grundstücksgrenze")]
+    for n, (art, txt) in enumerate(zeilen):
+        yy = y + 18 * n
+        if art == "iso40":
+            t.append(f'<line x1="{lx}" y1="{yy - 4}" x2="{lx + 18}" y2="{yy - 4}" stroke="var(--tinte)" stroke-width="2.4"/>')
+        elif art == "iso35":
+            t.append(f'<line x1="{lx}" y1="{yy - 4}" x2="{lx + 18}" y2="{yy - 4}" stroke="var(--tinte)" stroke-width="1.4" stroke-dasharray="5 3"/>')
+        elif art == "wp":
+            t.append(f'<rect x="{lx + 3}" y="{yy - 10}" width="12" height="12" fill="var(--neg2)" stroke="var(--tinte)" stroke-width="1.5"/>')
+        elif art == "sb":
+            t.append(f'<circle cx="{lx + 9}" cy="{yy - 4}" r="7" fill="none" stroke="var(--neg3)" stroke-width="1.6" stroke-dasharray="3 2"/>')
+        elif art == "io":
+            t.append(f'<circle cx="{lx + 9}" cy="{yy - 4}" r="5" fill="var(--flaeche)" stroke="var(--tinte)" stroke-width="2"/>')
+        elif art == "iol":
+            t.append(f'<rect x="{lx + 6}" y="{yy - 7}" width="6" height="6" fill="var(--flaeche)" stroke="var(--tinte)" stroke-width="1.5"/>')
+        elif art == "geb":
+            t.append(f'<rect x="{lx}" y="{yy - 11}" width="18" height="14" fill="var(--geb)" stroke="var(--tinte)" stroke-width="0.8"/>')
+        elif art == "oeff":
+            t.append(f'<rect x="{lx}" y="{yy - 11}" width="18" height="14" fill="var(--geb)"/><line x1="{lx + 2}" y1="{yy - 4}" x2="{lx + 16}" y2="{yy - 4}" stroke="var(--flaeche)" stroke-width="3"/>')
+        elif art == "senke":
+            t.append(f'<rect x="{lx + 5}" y="{yy - 8}" width="8" height="8" fill="var(--tinte)"/>')
+        elif art == "grenze":
+            t.append(f'<line x1="{lx}" y1="{yy - 4}" x2="{lx + 18}" y2="{yy - 4}" stroke="var(--tinte)" stroke-width="1.5" stroke-dasharray="6 3"/>')
+        t.append(f'<text x="{lx + 26}" y="{yy}" font-size="12">{txt}</text>')
+    return "\n".join(t)
+
+
 def svg_laermkarte(xs, ys, Z, S, daten, szene, zone, ios, titel):
+    wp_lwa, wp_kt = daten["waermepumpe"]["LWA_nacht_dB"], daten["waermepumpe"]["KT_dB"]
     R = SvgRahmen(daten["berechnung"]["karte_bbox"], 13.0)
     st = daten["berechnung"]["raster_karte_m"]
     t = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{R.w:.0f}" height="{R.h:.0f}" viewBox="0 0 {R.w:.0f} {R.h:.0f}" role="img" aria-label="{titel}">',
          f"<style>{SVG_STIL}</style>", f'<rect width="100%" height="100%" fill="var(--flaeche)"/>',
          f'<text x="{R.rl}" y="22" font-size="15" font-weight="600">{titel}</text>',
-         f'<text x="{R.rl}" y="40" class="klein">DIN ISO 9613-2 (500 Hz), Spiegelquellen bis 2. Ordnung, h = {daten["berechnung"]["kartenhoehe_m"]} m, '
-         f'L_WA,N = {daten["waermepumpe"]["LWA_nacht_dB"]} dB, K_T = {daten["waermepumpe"]["KT_dB"]} dB – BEISPIEL</text>']
+         f'<text x="{R.rl}" y="40" class="klein">DIN ISO 9613-2 (A-bewertet, Dämpfung bei 500 Hz), Spiegelquellen bis 2. Ordnung, Rasterhöhe {daten["berechnung"]["kartenhoehe_m"]} m</text>',
+         f'<text x="{R.rl}" y="56" class="klein">L_r,N = L_AT + K_T; L_WA,Nacht = {wp_lwa} dB, K_T = {wp_kt} dB – BEISPIELDATEN, kein Gutachten</text>']
     for j, y in enumerate(ys):
         for i, x in enumerate(xs):
             v = Z[j, i]
@@ -1034,21 +1086,19 @@ def svg_laermkarte(xs, ys, Z, S, daten, szene, zone, ios, titel):
                  f'<title>Isolinie {stufe} dB(A)</title></path>')
         if seg:
             a, b, c, e = max(seg, key=lambda s_: (s_[0] + s_[2], s_[1]))
-            t.append(f'<text x="{R.X(a) + 3:.1f}" y="{R.Y(b) - 3:.1f}" font-size="11" font-weight="600" '
-                     f'paint-order="stroke" stroke="var(--flaeche)" stroke-width="3">{stufe}</text>')
+            for halo in (True, False):
+                zus = ' stroke="var(--flaeche)" stroke-width="3"' if halo else ""
+                t.append(f'<text x="{R.X(a) + 3:.1f}" y="{R.Y(b) - 3:.1f}" font-size="11" font-weight="600"{zus}>{stufe}</text>')
     _svg_szene(t, R, daten, szene, S, zone, ios)
     lx, ly = R.X(R.x1) + 20, R.ro + 10
     t.append(f'<text x="{lx}" y="{ly}" font-size="12" font-weight="600">L_r,Nacht in dB(A)</text>')
-    namen = ("&lt; 25", "25–30", "30–35", "35–40", "40–45", "45–50", "≥ 50")
+    namen = ("&lt; 20", "20–25", "25–30", "30–35", "35–40", "40–45", "≥ 45")
     for n, nm in enumerate(namen):
         t.append(f'<rect x="{lx}" y="{ly + 10 + 20 * n}" width="18" height="14" fill="var(--k{n})" rx="2"/>'
                  f'<text x="{lx + 26}" y="{ly + 21 + 20 * n}" font-size="12">{nm}</text>')
     y2 = ly + 170
-    for zeile in ("── 40 dB(A) = IRW Nacht WA", "- - 35 / 45 dB(A)", "■ WP-Außengerät", "○ IO (0,5 m vor Fenster)",
-                  "□ IO5 Baugrenze", "┅ R290-Schutzbereich", "grau: Gebäude, Mauer M1",
-                  "weiß: Öffnungen eigenes Haus", f"Maßstab: {R.s:g} px = 1 m"):
-        t.append(f'<text x="{lx}" y="{y2}" class="klein">{zeile}</text>')
-        y2 += 17
+    t.append(_legende_symbole(lx, y2, mit_isolinien=True))
+    t.append(f'<text x="{lx}" y="{y2 + 190}" class="klein">Maßstab: {R.s:g} px = 1 m; Nord oben</text>')
     t.append("</svg>")
     return "\n".join(t)
 
@@ -1060,7 +1110,8 @@ def svg_standortkarte(kandidaten, opt, daten, szene, ios, titel):
     t = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{R.w:.0f}" height="{R.h:.0f}" viewBox="0 0 {R.w:.0f} {R.h:.0f}" role="img" aria-label="{titel}">',
          f"<style>{SVG_STIL}</style>", '<rect width="100%" height="100%" fill="var(--flaeche)"/>',
          f'<text x="{R.rl}" y="22" font-size="15" font-weight="600">{titel}</text>',
-         f'<text x="{R.rl}" y="40" class="klein">Farbe: kleinste Reserve zum Irrelevanz-Zielwert (IRW − 6 dB) über alle IO; grau = unzulässig (Aufstellregel)</text>',
+         f'<text x="{R.rl}" y="40" class="klein">Farbe je 0,5-m-Rasterpunkt: kleinste Reserve (IRW − 6 dB) − L_r,N über alle IO</text>',
+         f'<text x="{R.rl}" y="56" class="klein">schraffiert = unzulässig (R290-Schutzbereich, Leitungslänge, Abstände, Ausblas) – Tooltip nennt den Grund</text>',
          '<defs><pattern id="schraff" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
          '<line x1="0" y1="0" x2="0" y2="5" stroke="var(--tinte2)" stroke-width="0.6"/></pattern></defs>']
     klassen = ((-1e9, -6, "neg3"), (-6, -3, "neg2"), (-3, -1, "neg1"), (-1, 1, "neu"), (1, 3, "pos1"), (3, 6, "pos2"), (6, 1e9, "pos3"))
@@ -1083,7 +1134,8 @@ def svg_standortkarte(kandidaten, opt, daten, szene, ios, titel):
                  f'<text x="{lx + 26}" y="{ly + 21 + 20 * n}" font-size="12">{nm}</text>')
     t.append(f'<rect x="{lx}" y="{ly + 150}" width="18" height="14" fill="url(#schraff)" stroke="var(--tinte2)" stroke-width="0.5"/>'
              f'<text x="{lx + 26}" y="{ly + 161}" font-size="12">unzulässig</text>')
-    t.append(f'<text x="{lx}" y="{ly + 190}" class="klein">■ Optimum ({r1(opt["xy"][0])}/{r1(opt["xy"][1])})</text>')
+    t.append(_legende_symbole(lx, ly + 185, mit_isolinien=False))
+    t.append(f'<text x="{lx}" y="{ly + 345}" class="klein">Optimum: x = {opt["xy"][0]:.2f} m, y = {opt["xy"][1]:.2f} m</text>')
     t.append("</svg>")
     return "\n".join(t)
 
@@ -1268,6 +1320,9 @@ def rechne(daten: dict, mit_karte: bool = True) -> dict:
     if mit_karte:
         xs, ys, Z = rasterkarte(szene, wp, opt["xy"], daten)
         erg["_intern"]["karte"] = (xs, ys, Z)
+        r1xy = tuple(daten["berechnung"]["referenzstandorte"][0]["xy"])
+        erg["_intern"]["karte_R1"] = (rasterkarte(szene, wp, r1xy, daten), r1xy,
+                                      pruefe_standort(r1xy, daten, szene, wp, [io["xy"] for io in ios])[2]["schutzbereich"])
     return erg
 
 
@@ -1319,6 +1374,12 @@ def schreibe_ausgaben(erg, daten, ziel: Path = AUSGABE):
         (ziel / "b20_laermkarte.svg").write_text(
             svg_laermkarte(xs, ys, Z, it["opt"]["xy"], daten, it["szene"], it["opt"].get("zone"), it["ios"],
                            "B20 Rasterlärmkarte L_r,Nacht – WP am optimalen Aufstellort"), encoding="utf-8")
+    if "karte_R1" in it:
+        (xs, ys, Z), xy, zone = it["karte_R1"]
+        ref = erg["referenzstandorte"][0]
+        (ziel / "b20_laermkarte_R1.svg").write_text(
+            svg_laermkarte(xs, ys, Z, xy, daten, it["szene"], zone, it["ios"],
+                           f"B20 Rasterlärmkarte L_r,Nacht – Referenz {ref['id']}: {ref['name']}"), encoding="utf-8")
     (ziel / "b20_standortkarte.svg").write_text(
         svg_standortkarte(it["kandidaten"], it["opt"], daten, it["szene"], it["ios"],
                           "B20 Aufstellorte: Reserve zum Irrelevanz-Zielwert (Nacht)"), encoding="utf-8")

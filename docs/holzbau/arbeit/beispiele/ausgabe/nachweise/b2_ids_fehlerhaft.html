@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nachweisheft B2 – IDS-Prüfung, Fall „fehlerhaft“</title>
+<style>
+:root{--flaeche:#fcfcfb;--seite:#f9f9f7;--tinte:#0b0b0b;--tinte2:#52514e;--leise:#898781;--linie:#e1e0d9;
+--gut:#0ca30c;--gut-text:#006300;--warn:#fab219;--krit:#d03b3b;--akzent:#2a78d6;color-scheme:light}
+body{background:var(--seite);color:var(--tinte);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+main{max-width:980px;margin:0 auto;padding:24px 16px;background:var(--flaeche)}
+h1{font-size:1.6em;margin:.2em 0}h2{font-size:1.3em;border-bottom:1px solid var(--linie);padding-bottom:.2em;margin-top:1.6em}
+h3{font-size:1.1em;margin-top:1.3em}h4{font-size:1em}
+table{border-collapse:collapse;width:100%;margin:.5em 0;font-size:.92em}
+th,td{border:1px solid var(--linie);padding:4px 6px;vertical-align:top;text-align:left}
+th{background:#f0efec;font-weight:600}td.z{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font-size:.88em;word-break:break-all}.leise{color:var(--tinte2);font-size:.9em}
+.ampel{display:inline-flex;align-items:center;gap:.45em;font-weight:700;padding:.25em .7em;border-radius:4px;border:1px solid var(--linie)}
+.ampel i{width:.9em;height:.9em;border-radius:50%;display:inline-block}
+.s-erfuellt i{background:var(--gut)}.s-nicht i{background:var(--krit)}.s-hinweis i{background:var(--warn)}
+.s-erfuellt{color:var(--gut-text)}.s-nicht{color:var(--krit)}.s-hinweis{color:#7a5500}
+.regel{border-left:4px solid var(--akzent);background:#f3f7fd;padding:.5em .9em;margin:.5em 0}
+.annahme{background:#fff7e0;border-left:4px solid var(--warn);padding:.3em .8em;margin:.2em 0}
+.schritt{border:1px solid var(--linie);border-radius:4px;padding:.4em .8em;margin:.6em 0;overflow-x:auto}
+.formel{overflow-x:auto}figure{margin:1em 0;overflow-x:auto}figcaption{font-size:.9em;color:var(--tinte2)}
+figure svg{max-width:100%;height:auto;background:#fff}
+.deckblatt{border:2px solid var(--tinte);padding:1em 1.2em;margin-bottom:2em}
+section.nachweis{margin-top:2.5em}
+@media print{body{background:#fff}main{max-width:none;padding:0}section.nachweis{break-before:page}
+figure,table,.schritt{break-inside:avoid}a{color:inherit;text-decoration:none}}
+@page{size:A4;margin:18mm 15mm}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<main>
+<section class="deckblatt">
+<h1>Nachweisheft B2 – IDS-Prüfung, Fall „fehlerhaft“</h1>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;5 erfüllt · 6 nicht erfüllt · 0 Hinweis</p>
+<table>
+<tr><th>Projekt</th><td>Beispielhaus Holzrahmenbau</td></tr>
+<tr><th>Gebäude</th><td>Einfamilienhaus (fiktiv)</td></tr>
+<tr><th>Geschoss</th><td>EG</td></tr>
+<tr><th>Parametermodell</th><td>daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)</td></tr>
+<tr><th>Grundstück</th><td>daten/grundstueck.json (SHA-256 a60954d2a172493d…)</td></tr>
+<tr><th>Rechtsstand der Beispiele</th><td>27.09.2026</td></tr>
+<tr><th>Hinweis</th><td>Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.</td></tr>
+<tr><th>Verfasser</th><td>Entwurfsgenerator (Beispiel), ohne Prüfvermerk</td></tr>
+<tr><th>Regelwerk-Profile</th><td><code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></td></tr>
+<tr><th>Regelquellen</th><td>holzrahmenbau.ids (Information Delivery Specification, IDS 1.0), Fassung IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… [V]</td></tr>
+<tr><th>Heft-Hash (SHA-256)</th><td><code>cef470449333ade7edcdad8f730b6ba9b0cf3bea2e6747851b1505164710ed53</code><br><span class="leise">kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise</span></td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+<p>Die Datei enthält sechs absichtlich eingebaute Fehler (F1–F6, siehe b2_ids_pruefung.py); die zugehörigen Nachweise müssen scheitern.</p>
+</section>
+<h2>Inhaltsverzeichnis</h2>
+<table><thead><tr><th>Nr.</th><th>ID</th><th>Titel</th><th>Status</th><th>η</th><th>Hash</th></tr></thead><tbody>
+<tr><td class="z">1</td><td><a href="#n-n-b2-fehlerhaft-hrb-01">N-B2-fehlerhaft-HRB-01</a></td><td>IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">1,000</td><td><code>8009c5829e19…</code></td></tr>
+<tr><td class="z">2</td><td><a href="#n-n-b2-fehlerhaft-hrb-02">N-B2-fehlerhaft-HRB-02</a></td><td>IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">1,000</td><td><code>760efa225e53…</code></td></tr>
+<tr><td class="z">3</td><td><a href="#n-n-b2-fehlerhaft-hrb-03">N-B2-fehlerhaft-HRB-03</a></td><td>IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">1,000</td><td><code>183f851ad2a9…</code></td></tr>
+<tr><td class="z">4</td><td><a href="#n-n-b2-fehlerhaft-hrb-04">N-B2-fehlerhaft-HRB-04</a></td><td>IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">1,000</td><td><code>4a5d8589af30…</code></td></tr>
+<tr><td class="z">5</td><td><a href="#n-n-b2-fehlerhaft-hrb-05">N-B2-fehlerhaft-HRB-05</a></td><td>IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">0,067</td><td><code>981bb0e9db35…</code></td></tr>
+<tr><td class="z">6</td><td><a href="#n-n-b2-fehlerhaft-hrb-06">N-B2-fehlerhaft-HRB-06</a></td><td>IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,056</td><td><code>eeb403402838…</code></td></tr>
+<tr><td class="z">7</td><td><a href="#n-n-b2-fehlerhaft-hrb-07">N-B2-fehlerhaft-HRB-07</a></td><td>IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,025</td><td><code>d2b8b8b07b8b…</code></td></tr>
+<tr><td class="z">8</td><td><a href="#n-n-b2-fehlerhaft-hrb-08">N-B2-fehlerhaft-HRB-08</a></td><td>IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">1,000</td><td><code>094d0d6f956d…</code></td></tr>
+<tr><td class="z">9</td><td><a href="#n-n-b2-fehlerhaft-hrb-09">N-B2-fehlerhaft-HRB-09</a></td><td>IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">0,006</td><td><code>5cbca4c7099f…</code></td></tr>
+<tr><td class="z">10</td><td><a href="#n-n-b2-fehlerhaft-hrb-10">N-B2-fehlerhaft-HRB-10</a></td><td>IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft)</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td class="z">0,084</td><td><code>99eafa52da29…</code></td></tr>
+<tr><td class="z">11</td><td><a href="#n-n-b2-fehlerhaft-hrb-11">N-B2-fehlerhaft-HRB-11</a></td><td>IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft)</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td class="z">–</td><td><code>ac2a916c1991…</code></td></tr>
+</tbody></table>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-01">
+<h2>N-B2-fehlerhaft-HRB-01 – IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>1,000</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (All IFCWALL data; Elements with IsExternal data of TRUE in the dataset Pset_WallCommon)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jede Außenwand trägt Pset_WallCommon.ThermalTransmittance mit U &lt;= 0,20 W/(m²K) (Projektanforderung, Beispiel). Anwendbarkeit: All IFCWALL data; Elements with IsExternal data of TRUE in the dataset Pset_WallCommon. Anforderung: ThermalTransmittance data shall be {&#x27;minExclusive&#x27;: &#x27;0&#x27;, &#x27;maxInclusive&#x27;: &#x27;0.20&#x27;} and in the dataset Pset_WallCommon.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-01 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-01: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 1\ \mathrm{Stk} = 0{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">1 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">1,000</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-01</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-01</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: IfcWall „Außenwand Nord, Element 1“ GUID 0gsiGQj_bG3wx8M0qwRA0U: The property value &quot;0.25&quot; does not match the requirements</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-01 (fehlerhaft): nicht erfüllt">
+<title>HRB-01 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-01 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 0   mit Verstoß: 1 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-01/anteil: HRB-01: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>a3d87ba7fd4b689b03cd07339814bd8a7a2a55025ae5fd1a13438e6080b69660</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>8009c5829e19b43a9b169e75a28308cd0d466f34afd957f76f840f418e6b88cb</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-02">
+<h2>N-B2-fehlerhaft-HRB-02 – IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (fehlerhaft)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>1,000</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (All IFCWALL data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jede Wand gibt Pset_WallCommon.IsExternal und LoadBearing an. Anwendbarkeit: All IFCWALL data. Anforderung: IsExternal data shall be provided in the dataset Pset_WallCommon; LoadBearing data shall be provided in the dataset Pset_WallCommon.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-02 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-02: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = ja</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">1 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">1,000</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-02</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">0 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-02</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-02 (fehlerhaft): erfüllt">
+<title>HRB-02 (fehlerhaft): erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-02 (fehlerhaft): erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#0ca30c"><title>ohne Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-02/anteil: HRB-02: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>6267e8fdcafcd13fc580f082edbe473957201c0027597ed82bc076c9d719b091</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>760efa225e53ec9337ed19c02548fa67da0fb7d14b10e6649da7b113ea242976</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-03">
+<h2>N-B2-fehlerhaft-HRB-03 – IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>1,000</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (All IFCWALL data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jede Wand ist nach DIN 276 in eine Kostengruppe 330–339 (Außenwände) klassifiziert. Anwendbarkeit: All IFCWALL data. Anforderung: Shall have a DIN 276 reference of {&#x27;pattern&#x27;: &#x27;33[0-9]&#x27;}.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-03 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-03: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 1\ \mathrm{Stk} = 0{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">1 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">1,000</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-03</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-03</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: IfcWall „Außenwand Nord, Element 1“ GUID 0gsiGQj_bG3wx8M0qwRA0U: The entity has no classification</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-03 (fehlerhaft): nicht erfüllt">
+<title>HRB-03 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-03 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 0   mit Verstoß: 1 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-03/anteil: HRB-03: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>c8716d36f2541065d2a90a07966a2822ba83b05a3b85036979f5ad147ad37d6a</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>183f851ad2a9ff074a8888bcebe3d834b39b4111f1d36bbde0e1b21862d7390e</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-04">
+<h2>N-B2-fehlerhaft-HRB-04 – IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (fehlerhaft)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>1,000</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (All IFCWALL data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>0gsiGQj_bG3wx8M0qwRA0U</code> (IfcWall)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jede Wand hat ein Material; im Generator ist das eine IfcMaterialLayerSetUsage. Anwendbarkeit: All IFCWALL data. Anforderung: Shall have a material.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-04 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-04: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = ja</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">1 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">1,000</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-04</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">0 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-04</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-04 (fehlerhaft): erfüllt">
+<title>HRB-04 (fehlerhaft): erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-04 (fehlerhaft): erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#0ca30c"><title>ohne Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-04/anteil: HRB-04: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>2d0735ade6ef816f193449aed843259ac968b4fe832fa7df1bb50cf968268814</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>4a5d8589af30a19bc83a9f404f08bcba32a551b563f759e7e8e0fef85d94ac79</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-05">
+<h2>N-B2-fehlerhaft-HRB-05 – IDS HRB-05: Ständer: Material KVH C24 (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,067</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 15 anwendbare Elemente (All IFCMEMBER data of type STUD)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>0ruebnGhrPUPaN5fsim6Vf</code> <code>26xC9QsMnO6BHuxmSviBaF</code> <code>254V3I5NrHxx6g9J9WAbEp</code> <code>3ZVVDbGwDO7x2vg7I4UXpp</code> <code>3BO1mSw7HO89jMsBG9Jb7H</code> <code>1Shh7ZI39PQgxArHuFCIxO</code> <code>2rWYAdwuXR2upUkdv7j_IN</code> <code>18vNpgLaTOYgpLpdvN0aeA</code> <code>02QVWAdt9VqxV8$c1qnuss</code> <code>2D$QiiYtvNEfIXBRFteHwH</code> <code>34BO68Wo1LCuqY8xgHmwWu</code> <code>3AhW$EEQvKugecqAFgh9u9</code> <code>2iTQbcNzXG0QrtGvQDByPB</code> <code>3vUFGDn6DHcfHamn5gMQdo</code> <code>0tHI18naLITuRuul3rI$7I</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jeder Ständer (IfcMember STUD) hat ein Material, dessen Name mit &#x27;KVH C24&#x27; beginnt. Anwendbarkeit: All IFCMEMBER data of type STUD. Anforderung: Shall have a material of {&#x27;pattern&#x27;: &#x27;KVH C24.*&#x27;}.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-05 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">15 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-05: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 15\ \mathrm{Stk} - 1\ \mathrm{Stk} = 14{,}000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">15 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">0,067</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-05</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-05</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: IfcMember „Ständer R2“ GUID 02QVWAdt9VqxV8$c1qnuss: The entity has no material</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-05 (fehlerhaft): nicht erfüllt">
+<title>HRB-05 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-05 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="136.27" height="6" fill="#0ca30c"><title>ohne Verstoß: 14</title></rect>
+<rect x="138.27" y="8" width="9.73" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 14   mit Verstoß: 1 (von 15 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-05/anteil: HRB-05: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>147c40813c6204b420b27fb3023344b7229b52e43a457d5699ef84310e9f1411</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>981bb0e9db352d9ad23af24569c069fb549ca4fa32fd20bccea3365e09584c75</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-06">
+<h2>N-B2-fehlerhaft-HRB-06 – IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (fehlerhaft)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,056</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 18 anwendbare Elemente (All IFCMEMBER data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>3N9BxbmVjJqfMasIm6VCTu</code> <code>1TymEnbXzHcunnMbwZo5Cm</code> <code>0ruebnGhrPUPaN5fsim6Vf</code> <code>26xC9QsMnO6BHuxmSviBaF</code> <code>254V3I5NrHxx6g9J9WAbEp</code> <code>3ZVVDbGwDO7x2vg7I4UXpp</code> <code>3BO1mSw7HO89jMsBG9Jb7H</code> <code>1Shh7ZI39PQgxArHuFCIxO</code> <code>2rWYAdwuXR2upUkdv7j_IN</code> <code>0AkqIXRtnLZxJbnMw9nqYO</code> <code>18vNpgLaTOYgpLpdvN0aeA</code> <code>02QVWAdt9VqxV8$c1qnuss</code> <code>2D$QiiYtvNEfIXBRFteHwH</code> <code>34BO68Wo1LCuqY8xgHmwWu</code> <code>3AhW$EEQvKugecqAFgh9u9</code> <code>2iTQbcNzXG0QrtGvQDByPB</code> <code>3vUFGDn6DHcfHamn5gMQdo</code> <code>0tHI18naLITuRuul3rI$7I</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jedes IfcMember hat Qto_MemberBaseQuantities.Length und NetVolume (für Abbundliste/Kalkulation). Anwendbarkeit: All IFCMEMBER data. Anforderung: Length data shall be provided in the dataset Qto_MemberBaseQuantities; NetVolume data shall be provided in the dataset Qto_MemberBaseQuantities.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-06 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">18 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-06: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = ja</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 18\ \mathrm{Stk} - 0\ \mathrm{Stk} = 18{,}000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">18 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">0,056</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-06</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">0 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-06</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-06 (fehlerhaft): erfüllt">
+<title>HRB-06 (fehlerhaft): erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-06 (fehlerhaft): erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#0ca30c"><title>ohne Verstoß: 18</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 18   mit Verstoß: 0 (von 18 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-06/anteil: HRB-06: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>a90ef8bd349d1edc3112cbe8d44a685b077d5ddbf4720a7579866364cb97e421</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>eeb4034028381c82795ae55eaebcc5d563368fc991a424abffe9dfce49b45f21</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-07">
+<h2>N-B2-fehlerhaft-HRB-07 – IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (fehlerhaft)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,025</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 41 anwendbare Elemente (All {&#x27;enumeration&#x27;: [&#x27;IFCMEMBER&#x27;, &#x27;IFCPLATE&#x27;, &#x27;IFCBUILDINGELEMENTPART&#x27;]} data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>3lvMev6E9LueSQsQL9SyqJ</code> <code>1ywZMKJxHHBwmNn$0DLcPP</code> <code>2kOR3SNJLRhvgIkZqCD35O</code> <code>0VAqV5cMTKoxFvJZ1sRPIh</code> <code>1tGyPqPTzVWAaP6qdMPAhC</code> <code>0sFfeJ3pvQ$eLlaJ2G66F8</code> <code>1smMtnPdLGAwZZZIO4b8b3</code> <code>3rhw57K3fGLOwjuPbWNuIt</code> <code>32e_GlraTGcPYRh18u2qEF</code> <code>1Do_$HborOExVic9UwPLxq</code> <code>2lwpYyXkHJi9POHX6FZxkn</code> <code>3lsRC1LKzOzeO81ZbRUvP3</code> <code>3Ea167a$bV2f_2XSF35CFa</code> <code>3N9BxbmVjJqfMasIm6VCTu</code> <code>1TymEnbXzHcunnMbwZo5Cm</code> <code>0ruebnGhrPUPaN5fsim6Vf</code> <code>26xC9QsMnO6BHuxmSviBaF</code> <code>254V3I5NrHxx6g9J9WAbEp</code> <code>3ZVVDbGwDO7x2vg7I4UXpp</code> <code>3BO1mSw7HO89jMsBG9Jb7H</code> <code>1Shh7ZI39PQgxArHuFCIxO</code> <code>2rWYAdwuXR2upUkdv7j_IN</code> <code>0AkqIXRtnLZxJbnMw9nqYO</code> <code>18vNpgLaTOYgpLpdvN0aeA</code> <code>02QVWAdt9VqxV8$c1qnuss</code> <code>2D$QiiYtvNEfIXBRFteHwH</code> <code>34BO68Wo1LCuqY8xgHmwWu</code> <code>3AhW$EEQvKugecqAFgh9u9</code> <code>2iTQbcNzXG0QrtGvQDByPB</code> <code>3vUFGDn6DHcfHamn5gMQdo</code> <code>0tHI18naLITuRuul3rI$7I</code> <code>2nIT03iLDPzfWvcV6bn2Yw</code> <code>1C0hrr2XrIIfomNCjfIarV</code> <code>3q$$zqdE5PjPGlf$E3QvhN</code> <code>3ZUwmBxVbOOA29oviTjJmZ</code> <code>1InbNmZlrQfOXcySzuZ0x9</code> <code>2Yn93nLXHLJeXxWtsg73Sv</code> <code>2Fk1z0RJrLoQREzcc91YNK</code> <code>3d5dN$q1vMZ91u7g3Gdgto</code> <code>1HO9HDFOXPLeihHYjbY7KX</code> <code>3r$LABR7DNEAfy1ODi61PA</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jedes IfcMember, IfcPlate und IfcBuildingElementPart ist über IfcRelAggregates Teil einer IfcWall. Anwendbarkeit: All {&#x27;enumeration&#x27;: [&#x27;IFCMEMBER&#x27;, &#x27;IFCPLATE&#x27;, &#x27;IFCBUILDINGELEMENTPART&#x27;]} data. Anforderung: An element must have an IFCRELAGGREGATES relationship with an IFCWALL.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-07 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">41 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-07: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = ja</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 41\ \mathrm{Stk} - 0\ \mathrm{Stk} = 41{,}000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">41 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">0,025</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-07</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">0 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-07</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-07 (fehlerhaft): erfüllt">
+<title>HRB-07 (fehlerhaft): erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-07 (fehlerhaft): erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#0ca30c"><title>ohne Verstoß: 41</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 41   mit Verstoß: 0 (von 41 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-07/anteil: HRB-07: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>0abba2f226c657208bc906637da05c165b73cebd529d00b424291770c525dc3b</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>d2b8b8b07b8b23f940de9f43af670b07d3ccd0e3f933444afa0f9095323db02a</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-08">
+<h2>N-B2-fehlerhaft-HRB-08 – IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>1,000</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (All IFCMECHANICALFASTENERTYPE data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>10kcZK2DzMauPxIfg5Yrjt</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jeder IfcMechanicalFastenerType gibt NominalDiameter und NominalLength an. Anwendbarkeit: All IFCMECHANICALFASTENERTYPE data. Anforderung: The NominalDiameter shall be provided; The NominalLength shall be provided.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-08 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-08: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 1\ \mathrm{Stk} = 0{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">1 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">1,000</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-08</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-08</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: IfcMechanicalFastenerType „Spanplattenschraube 4,0x50“ GUID 10kcZK2DzMauPxIfg5Yrjt: The attribute value &quot;None&quot; is empty</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-08 (fehlerhaft): nicht erfüllt">
+<title>HRB-08 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-08 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 0   mit Verstoß: 1 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-08/anteil: HRB-08: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>de23f6f216a78840c6565c18d20450c9b11c2f09f1c786b926ccad1f1b7c0b59</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>094d0d6f956dc461663a49c813988e1c7dc5f6f5c7d74bc4f1069c452711490a</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-09">
+<h2>N-B2-fehlerhaft-HRB-09 – IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,006</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 176 anwendbare Elemente (All IFCMECHANICALFASTENER data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>39T8Vw55TT3BNaXCjVnHka</code> <code>2LK0D15qDLIeeLmQIUpDKF</code> <code>03p5SdiZHRCOt6vnISiQTU</code> <code>34qH3t$EnVNw_5m_ScCw8W</code> <code>1bIh0GI91UqOR6WrOOk916</code> <code>3A7FgnPFbPVf127Vh8zJ5l</code> <code>2QWW7utA9QC8KEdBDl7ZUD</code> <code>2$Z16YAuDTjB3KIHN4kjFe</code> <code>2istCiW8LPHO8exuLlTSRF</code> <code>0C5DVI2hLJuRjcCk1h99cE</code> <code>0iKI3vu2PJkeduptESFlTQ</code> <code>02jeHreGLMD9_yczVveoz4</code> <code>0gFjUCuxzTSfEKY1_rpqQ3</code> <code>3wBano6krPy9mjtUiPVRf8</code> <code>0GPzT4TeXRNeOqmayTsJdW</code> <code>2Z3paP5A5PNhuGL$ylXdtj</code> <code>3971_tY9XKEPtwe63jRAsT</code> <code>16eQHnUbTU3gzrDWBn58WV</code> <code>089o4Iu2DMteEeP3doG0mb</code> <code>3C1FlPMvTNNfI7AmNmMzLj</code> <code>3v4WzOQKHHR83nvLIj0g4f</code> <code>01w0o5QkTP_Q1DRXR9r$6a</code> <code>169vx5GUTLZOTPgCb4ChAT</code> <code>0emonZlmzITxcLtihlGCW1</code> <code>2NTROHQb5TZgPQFzca_6$P</code> <code>00bf8fSCfLcPhxxVrqm_2r</code> <code>3L07quLBvIlQ9EeTfZZV3b</code> <code>1G7tmJMdrPagqDRErvQgUv</code> <code>1akk8wp2DRa9qJusjMl24S</code> <code>0tM$ViAljOuvBNHgH6Cswx</code> <code>3vrRqeqcbL9edRqq1oDO92</code> <code>0prEjf0MvKlAG4hh9RQgZJ</code> <code>2paO7h2IHHBuA4V1EYdvS0</code> <code>09XnidnNvVM85HTn9Pk1ee</code> <code>32KN2y9mvUKh7x0nK0dZ0R</code> <code>29OlAbRmbTYRvZgRx$OpEQ</code> <code>1c0zUDdTbLbPPOqpQ85wcV</code> <code>2tJZ0pkuLKlPcedlH6Gq9z</code> <code>38BL1h9cjH_8zkF_vLN6Vr</code> <code>3LXpyw0FLOvPqEGd7fYku6</code> <code>2fT2IH_ofSmRtkP3nXfyEa</code> <code>0fCH_jBs9RC8UO5_2cPU81</code> <code>3tmbK52_1Qmv7BtxP6b21S</code> <code>0AEY1CbiXP8fIR_jVhnvV7</code> <code>3MxNPqxVHM_uPxneM$x7LA</code> <code>1bg2vChmXGtPlJc73BDrSt</code> <code>3PUfTJ519Nv9HTjbJSUfDM</code> <code>1TEa4G549QSxtBd_PGvzn0</code> <code>3vF7BwG3zQkQIVcgKMjOEo</code> <code>0iKRdy$51IoPw04SatnMTc</code> <code>2NccRt9vPL0hihUgEzLzAO</code> <code>1bX47CvbPH0hs1KZLcdrOy</code> <code>0zJL6oNFDTvwMHWubM60UV</code> <code>3xo7jF55HPFuWB2U6gVi8Q</code> <code>2pVtCtxGfMIQr9SM7XvlPV</code> <code>3f72jBrSTMEROynfHXy2Qk</code> <code>3fmqBJ1_jRSemxDbHd4WJH</code> <code>0nHpr9XqvVw80In73IhUy6</code> <code>1TgCYKIVnIH8WPbvW9PAXY</code> <code>2mCQv6$FLKWQ9m5QFuTa8k</code> <code>2ksZYwg3zPcBoXkN3CIzDH</code> <code>0jXVb20bDHbgEzDjS2qWKh</code> <code>0H1CpGrGjThhW3sGckWHdj</code> <code>0r$WtrA9PRyuBKjjDkNYoZ</code> <code>1PHmOxHajLsAAd4lQcbROH</code> <code>3nWC8OJjTSi8RRsV5o6nnw</code> <code>29jJMSbkHO0u2hOd$UqShj</code> <code>2VAIAfq5DQVRSogj9DxXPg</code> <code>0u$QijRsDTS9gTlkHvhjo1</code> <code>3GVnjXPyjLlgLzQewRJZCG</code> <code>30QO14lG5KTvv40H6qq7k5</code> <code>0wPj9AxjzK1vgjluhDg7wX</code> <code>1OupK4OlfGc94EpCyUEsEh</code> <code>31R$u_7WXUYBKGpE54F0C6</code> <code>0k2aXdFcnH888CTstCrwhm</code> <code>3$5bV4Tr1LDu_9OAKBHxaB</code> <code>0xDPfXXl9IFPYhMj6jGv3C</code> <code>39_uAZP21RtxTcgk1o2eM$</code> <code>3yMlXefETM7ArdxPLtfuqG</code> <code>0hSztCUMrPO8qjXE3VqudU</code> <code>2fPiDPjsHLCfDjPcBjaFOH</code> <code>31khabgvnQrAttPQ0vQjoE</code> <code>261BiD6XDV5AvTKATjS$Jf</code> <code>2utLo5w7fIghitJigp89q7</code> <code>3WnOeEcUDNb8hnZqMk5$Dl</code> <code>0xizUKKubKDA8g9ulWFTNN</code> <code>1aqEz0DXbSVRCfkkznG4QU</code> <code>1e4IoUDtfL6Qkz0WYtr6Kp</code> <code>030Ld$DxHTCu_3Fnpjy8FB</code> <code>33M4o16vnPTxUZwC_CUAow</code> <code>3gTAcTfkvHEvKQwDYQ84un</code> <code>1INfuDFx5SrBsEx_poN1FL</code> <code>1rs_zsnI1LJvznMiw7JXTg</code> <code>2hrhxrckrOoxD1hwsGVWd9</code> <code>0nIEEq5nPMbAf0VtxKy_m0</code> <code>2S6B0hAoTR0uElgKKAJ8tO</code> <code>2GEbjtG85TUh4MBVlHVzPz</code> <code>1psTfuzCrQVuAnJdZLUuhw</code> <code>2p35M8SxTMtfXPK6XY1XRL</code> <code>1gXz4aQ0DQhgZBmiaytYRK</code> <code>1Q5XeEhxvVbvqVNxCBv7UW</code> <code>3HEbXV9y9KqfW8vzkAfY0M</code> <code>1$fvh8BCvVcwUcN0qk3voO</code> <code>1WviW_EDrSex1ig2C93NPg</code> <code>1xmD1xxI1HDvw07V1c0VbW</code> <code>0oGsBmFZvPc8Kgf6py21ym</code> <code>3FThRjZ3vKUBwyZtllLetO</code> <code>2ImJ_N9tDLHxA7sYG3k03G</code> <code>1H7fuHxNLRNhJCn7o1xhxV</code> <code>1u3salt0HMTv2lFmwW53Qz</code> <code>0SkJFhgPDVhOJtnE74Kr8R</code> <code>3apVWi$VfI6x0wsNji0cHV</code> <code>3_YObBNSnPmgyYpXiFZ1aT</code> <code>3gFCt7I05JBBCenQ92SGUi</code> <code>3RfvRtS7DTdecDNE_dGbxY</code> <code>3WLA1dPoXSre_X14GDzFO4</code> <code>1C1XU0rHjStRIc7tjmw8Fp</code> <code>2GnwHB3MLRZx$Tk0R230dt</code> <code>10_TYyU$vHwuMdj$SNubjD</code> <code>1j3FaZQVbUAwzUNSkuwduu</code> <code>1wax4FU2XJ6u3YXxe1nzgC</code> <code>2vb3LO6RzIahsZgRDYuC7o</code> <code>2beGV6dZXP8hNYq7f4IRlu</code> <code>1NXGAlU2vTcueHXodW5yOP</code> <code>0YdOqyw8LHWvpDR2gUY4jp</code> <code>0VcDnh1TTS5u2SYubKzuv3</code> <code>1iLgnKsnvMXAcdy43Qbdcy</code> <code>1TGan1jRXRvOoPj4V28mQA</code> <code>0G5jrzFCjNK8i2ZousDNpg</code> <code>0zBIQPNhvRC8pnzqY4N7E2</code> <code>1G3nPaUOzUDA83M1dR0xmt</code> <code>0T_WS87BTG8RpdBKiOfLCc</code> <code>1tu0PH2KTPuviJSlxDvrhT</code> <code>3cnxTrdV9QhfcSEL5NZdHU</code> <code>2xo6tQiJLHKOVj4IR6yqlQ</code> <code>3dC62pHdTTbv$EUz$FcC1I</code> <code>2Cz$3VElvNienOASgbt6Pe</code> <code>3pWfsH5GfLQBOQo_wuPvj$</code> <code>2FwQQIwSDVCu6HOiToOe$k</code> <code>0b1hmWekrPMv4eiYZpPzB9</code> <code>2yqf34tHPV_wuYlQYjxZr2</code> <code>2HL9MGUkfHxR6rBhxs2XaR</code> <code>3lVdzp1sLL$w3Swj22cBeV</code> <code>3tXV6lSaXQ9Bid4y_zBMhB</code> <code>2Sou7RivTSzQxJTsR6sBJc</code> <code>2wtwLLOu9M6eWxJ_1B98LE</code> <code>3Ass1u2hHTO8wQQ1C3RXwf</code> <code>3SkgAxEgTUN9WnQsj1vmx2</code> <code>0Zf73DcvjK9vWzIXGhg1$Y</code> <code>2FRqovo1jNCfv40sQwAqa$</code> <code>24sjZ1prrPXQcerPwpBTW8</code> <code>2IovYkC3zPRfYheeCBOebe</code> <code>25I$C4c_PHrP_3eDpU2kOF</code> <code>1M$1Spd5LVlRCxdQf0zXFK</code> <code>2KwTR7V$bURuYE90FqlY_C</code> <code>1Z56nrx3bPGRuoCkGU0omP</code> <code>1FDEomzZfUygHFIFN1cCin</code> <code>2JVELvJLPTCOxpLgBqLnuq</code> <code>0tG4BEfjPHYPz9b7ChOylE</code> <code>3NqoTQyzrLxOjyVEHjWXW3</code> <code>3lmbJYnGfUHf4JydBQLdQm</code> <code>0oCa0FM39UKfRRp9qkNtbi</code> <code>05tkQ8yGzOigf4DUaVASZB</code> <code>1Mhx4GoGrJJwtM_s0Wvp26</code> <code>3KJMciX1LSWBHF$3b7q4SR</code> <code>0oQz5DoZDOvxqMffVHynhB</code> <code>2mnwRXeSvJ9ur6ny$oXBXs</code> <code>0DkbeFPjrNyQQxfTHMgZ6M</code> <code>1QdePCWp5JU9EuLYenIEJb</code> <code>1_nOhU5dbQYvIMvQRxHE$v</code> <code>2m4hAu_c1JDgYE9uzPVUXF</code> <code>1AhVwlSY9JER$JXUCWlQI9</code> <code>3g0RnWZ$bJLgBudZ5LaMJ1</code> <code>1vStMyUNrN8vhbQnm290y5</code> <code>0pFVVVC8nRthg4KIRY7YoX</code> <code>2F1feFQJLSoOOFbJxITEku</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jedes IfcMechanicalFastener gibt NominalDiameter an (zwischen 2 und 12 mm, Projekteinheit mm). Anwendbarkeit: All IFCMECHANICALFASTENER data. Anforderung: The NominalDiameter shall be {&#x27;minInclusive&#x27;: &#x27;2&#x27;, &#x27;maxInclusive&#x27;: &#x27;12&#x27;}.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-09 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">176 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-09: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 176\ \mathrm{Stk} - 1\ \mathrm{Stk} = 175{,}00\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">176 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">0,006</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-09</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-09</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: IfcMechanicalFastener „Spanplattenschraube 4,0x50 #1“ GUID 39T8Vw55TT3BNaXCjVnHka: The attribute value &quot;20.0&quot; does not match the requirement</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-09 (fehlerhaft): nicht erfüllt">
+<title>HRB-09 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-09 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="145.17" height="6" fill="#0ca30c"><title>ohne Verstoß: 175</title></rect>
+<rect x="147.17" y="8" width="0.83" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 175   mit Verstoß: 1 (von 176 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-09/anteil: HRB-09: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>a66b216efc8a0fdc809d899b1f34bec81edb708cc91de6b878fd376d9d920e53</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>5cbca4c7099f00d70aadb74e66345e3c7e39009bec652257700a92aa7bdcb29f</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-10">
+<h2>N-B2-fehlerhaft-HRB-10 – IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (fehlerhaft)</h2>
+<p><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span> &nbsp;maßgebende Ausnutzung η = <b>0,084</b></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 12 anwendbare Elemente (All IFCBUILDINGELEMENTPART data of type INSULATION)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>1ywZMKJxHHBwmNn$0DLcPP</code> <code>2kOR3SNJLRhvgIkZqCD35O</code> <code>0VAqV5cMTKoxFvJZ1sRPIh</code> <code>1tGyPqPTzVWAaP6qdMPAhC</code> <code>0sFfeJ3pvQ$eLlaJ2G66F8</code> <code>1smMtnPdLGAwZZZIO4b8b3</code> <code>3rhw57K3fGLOwjuPbWNuIt</code> <code>32e_GlraTGcPYRh18u2qEF</code> <code>1Do_$HborOExVic9UwPLxq</code> <code>2lwpYyXkHJi9POHX6FZxkn</code> <code>3lsRC1LKzOzeO81ZbRUvP3</code> <code>3Ea167a$bV2f_2XSF35CFa</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Jedes IfcBuildingElementPart INSULATION hat ein Material der Kategorie &#x27;insulation&#x27;. Anwendbarkeit: All IFCBUILDINGELEMENTPART data of type INSULATION. Anforderung: Shall have a material of insulation.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-10 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">12 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>Mindestanzahl anwendbarer Elemente</td><td>$n_{\mathrm{min}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-10: minOccurs = 1</td></tr>
+<tr><td>zulässige Verstöße</td><td>$n_{\mathrm{zul}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS 1.0: jede Anforderung gilt für jedes anwendbare Element</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = ja</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 12\ \mathrm{Stk} - 0\ \mathrm{Stk} = 12{,}000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>Anwendbarkeit (Kardinalität)</td><td class="z">12 Stk</td><td>≥</td><td class="z">1 Stk</td><td class="z">0,084</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-10</td></tr>
+<tr><td>alle Anforderungen erfüllt</td><td class="z">0 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-erfuellt" role="status"><i aria-hidden="true"></i>ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-10</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-10 (fehlerhaft): erfüllt">
+<title>HRB-10 (fehlerhaft): erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-10 (fehlerhaft): erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#0ca30c"><title>ohne Verstoß: 12</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 12   mit Verstoß: 0 (von 12 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-10/anteil: HRB-10: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>fb3bca29e696ea2e4f86d5d03c693729538a9457f605ce9061aa7d05862e8902</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>99eafa52da290ea372a57984d3174b9c7e03c48588a9929cb942b529f8216c68</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+<section class="nachweis" id="n-n-b2-fehlerhaft-hrb-11">
+<h2>N-B2-fehlerhaft-HRB-11 – IDS HRB-11: Keine unklassifizierten Proxy-Elemente (fehlerhaft)</h2>
+<p><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></p>
+<h3>Gegenstand</h3><table>
+<tr><th>Bezeichnung</th><td>wandelement_fehlerhaft.ifc: 1 anwendbare Elemente (Shall not be IFCBUILDINGELEMENTPROXY data)</td></tr>
+<tr><th>IFC-GlobalId</th><td><code>–</code> (–)</td></tr>
+<tr><th>IFC-Datei</th><td>wandelement_fehlerhaft.ifc<br><span class="leise">SHA-256 <code>bc366788e43bc4ae408c9907dc787474036c8c19066fd45bff2260c03c6b8f86</code></span></td></tr>
+<tr><th>weitere GUIDs</th><td><code>0000000000000000000001</code></td></tr>
+</table>
+<h3>Regel</h3>
+<div class="regel"><p>Das Modell enthält kein IfcBuildingElementProxy (jedes Bauteil hat eine fachliche IFC-Klasse). Anwendbarkeit: Shall not be IFCBUILDINGELEMENTPROXY data. Anforderung: –.</p>
+<p class="leise">Quelle: holzrahmenbau.ids (Information Delivery Specification, IDS 1.0) · Fassung: IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785… · Fundstelle: HRB-11 · Prüfung am Primärtext: [V]<br>Regelwerk-Profil <code>HRB-IDS-Wandelement</code> Version <code>0.1.0</code></p></div>
+<h3>Eingangsgrößen</h3>
+<table><thead><tr><th>Größe</th><th>Symbol</th><th>Wert</th><th>u (k=1)</th><th>Art</th><th>Quelle</th></tr></thead><tbody>
+<tr><td>anwendbare Elemente</td><td>$n_{\mathrm{anw}}$</td><td class="z">1 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.applicable_entities</td></tr>
+<tr><td>Elemente mit Verstoß</td><td>$n_{\mathrm{fehl}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>eingabe</td><td>ifctester 0.8.5: Specification.failed_entities</td></tr>
+<tr><td>höchstzulässige Anzahl</td><td>$n_{\mathrm{max}}$</td><td class="z">0 Stk</td><td class="z">–</td><td>grenzwert</td><td>IDS HRB-11: maxOccurs = 0 (verboten)</td></tr>
+</tbody></table>
+<h3>Rechengang</h3>
+<p class="leise">Gerechnet wird ungerundet. Angezeigte Zwischenwerte: 5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen).</p>
+<div class="schritt"><p><b>Schritt 1: IDS-Prüfung des Modells</b></p>
+<p>Verfahren: ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement_fehlerhaft.ifc, SHA-256 bc366788e43bc4ae…<br>Ergebnis: $\mathrm{status}_{\mathrm{ifctester}}$ = nein</p>
+</div>
+<div class="schritt"><p><b>Schritt 2: Elemente ohne Verstoß</b></p>
+<div class="formel">$$ n_{\mathrm{ok}} = n_{\mathrm{anw}} - n_{\mathrm{fehl}} $$</div>
+<div class="formel">$$ n_{\mathrm{ok}} = 1\ \mathrm{Stk} - 0\ \mathrm{Stk} = 1{,}0000\ \mathrm{Stk} $$</div>
+<p class="leise">Ausdruck: <code>n_anw - n_fehl</code></p>
+</div>
+<h3>Nachweis</h3>
+<table><thead><tr><th>Kriterium</th><th>Ist</th><th></th><th>Grenzwert</th><th>η</th><th>Ergebnis</th><th>Normverweis</th></tr></thead><tbody>
+<tr><td>keine anwendbaren Elemente (verboten)</td><td class="z">1 Stk</td><td>≤</td><td class="z">0 Stk</td><td class="z">–</td><td><span class="ampel s-nicht" role="status"><i aria-hidden="true"></i>NICHT ERFÜLLT</span></td><td>holzrahmenbau.ids, HRB-11</td></tr>
+</tbody></table><p class="leise">Der Vergleich erfolgt mit ungerundeten Werten.</p>
+<h3>Hinweise</h3>
+<ul>
+<li>Befund: verbotenes Element IfcBuildingElementProxy „Unbekanntes Bauteil“ GUID 0000000000000000000001</li>
+<li>Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung).</li>
+</ul>
+<h3>Grafischer Nachweis</h3>
+<figure><svg xmlns="http://www.w3.org/2000/svg" width="150mm" height="22mm" viewBox="0 0 150 22" font-family="DejaVu Sans, Arial, sans-serif" role="img" aria-label="HRB-11 (fehlerhaft): nicht erfüllt">
+<title>HRB-11 (fehlerhaft): nicht erfüllt</title>
+<rect width="150" height="22" fill="#ffffff"/>
+<text x="2" y="5" font-size="3.2" fill="#0b0b0b">HRB-11 (fehlerhaft): nicht erfüllt</text>
+<rect x="2" y="8" width="146" height="6" fill="#d03b3b"><title>mit Verstoß: 1</title></rect>
+<text x="2" y="19.5" font-size="3" fill="#52514e">ohne Verstoß: 0   mit Verstoß: 1 (von 1 anwendbaren Elementen)</text>
+</svg><figcaption>Abbildung N-B2-fehlerhaft-HRB-11/anteil: HRB-11: Elemente mit und ohne Verstoß<br><span class="leise">SHA-256 <code>e4e6793cf3b339d4d8efd8270ea8edbd7d28c68363a9329aeaf71ef41e8c9ab2</code></span></figcaption></figure>
+<h3>Rückverfolgbarkeit</h3>
+<table>
+<tr><th>Hash (SHA-256)</th><td><code>ac2a916c19919da264cfa13496f42a287196db07a91afc75ebdbb69601ed8263</code><br><span class="leise">kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung</span></td></tr>
+<tr><th>Umgebung</th><td>Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib; numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5</td></tr>
+<tr><th>Zeitstempel</th><td>nicht gesetzt (deterministischer Lauf)</td></tr></table>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,3148 @@
+{
+  "art": "nachweisheft",
+  "schema_version": "1.0",
+  "titel": "Nachweisheft B2 – IDS-Prüfung, Fall „bestanden“",
+  "projekt": {
+    "Projekt": "Beispielhaus Holzrahmenbau",
+    "Gebäude": "Einfamilienhaus (fiktiv)",
+    "Geschoss": "EG",
+    "Parametermodell": "daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)",
+    "Grundstück": "daten/grundstueck.json (SHA-256 a60954d2a172493d…)",
+    "Rechtsstand der Beispiele": "27.09.2026",
+    "Hinweis": "Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis."
+  },
+  "verfasser": "Entwurfsgenerator (Beispiel), ohne Prüfvermerk",
+  "vorbemerkung": "",
+  "regelwerk_profile": [
+    {
+      "name": "HRB-IDS-Wandelement",
+      "version": "0.1.0"
+    }
+  ],
+  "regelquellen": [
+    {
+      "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+      "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+      "verifikation": "[V]"
+    }
+  ],
+  "zusammenfassung": {
+    "erfüllt": 11,
+    "nicht erfüllt": 0,
+    "Hinweis": 0
+  },
+  "status": "erfüllt",
+  "inhalt": [
+    {
+      "id": "N-B2-bestanden-HRB-01",
+      "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 1.0,
+      "hash": "a07c1d9de820aace04179cbc72a0f079b98c255f96629e16ec19ee1099096cb8",
+      "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
+    },
+    {
+      "id": "N-B2-bestanden-HRB-02",
+      "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 1.0,
+      "hash": "928645d5c2e613c134da08f7855977a57ebd65618b9fc03ce15e38f58dc9d732",
+      "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
+    },
+    {
+      "id": "N-B2-bestanden-HRB-03",
+      "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 1.0,
+      "hash": "3e56842b731965fcfd6604b3a6a59398e253e8422dd56a8ef68ee69c00b8f185",
+      "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
+    },
+    {
+      "id": "N-B2-bestanden-HRB-04",
+      "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 1.0,
+      "hash": "5f913a55fefab7b5f4d7530ddc8bf839b86eb1ba5b3c6d6abab213b393c3d372",
+      "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
+    },
+    {
+      "id": "N-B2-bestanden-HRB-05",
+      "titel": "IDS HRB-05: Ständer: Material KVH C24 (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 0.06666666666666667,
+      "hash": "8f2612cd8712c097c3bc91d0261458b644b275c260e21d5de42d2de3ce230071",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-06",
+      "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 0.05555555555555555,
+      "hash": "86ef24ee00e88a47b3bef188029f38e62a1e58f3b1e97f438d45bc845ced2ca5",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-07",
+      "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 0.024390243902439025,
+      "hash": "e13049e206d96c405ce08c815040e66e0742053c8dc4c929411c04e51099c751",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-08",
+      "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 1.0,
+      "hash": "a87c5045b1d5b47c614e78196c416ffefa338c0a6315651ee4c254de73026201",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-09",
+      "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 0.005681818181818182,
+      "hash": "21e7281a14f2af8cfdb1dbb72d71440fbc4b19fa30a8080237189cbe5d283c68",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-10",
+      "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": 0.08333333333333333,
+      "hash": "ab68d18a2161e52223e9f5dc1cfbd106cea41d85100dcc3039a1463374e4b169",
+      "gegenstand": null
+    },
+    {
+      "id": "N-B2-bestanden-HRB-11",
+      "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden)",
+      "status": "erfüllt",
+      "ausnutzung": null,
+      "hash": "98ded5685b740fa50c68fe4ba7bd1a7047b6cb325abaebd6d160d9cd1bac1ee2",
+      "gegenstand": null
+    }
+  ],
+  "nachweise": [
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-01",
+      "titel": "IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 1 anwendbare Elemente (All IFCWALL data; Elements with IsExternal data of TRUE in the dataset Pset_WallCommon)",
+        "ifc_guid": "0gsiGQj_bG3wx8M0qwRA0U",
+        "ifc_klasse": "IfcWall",
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Jede Außenwand trägt Pset_WallCommon.ThermalTransmittance mit U <= 0,20 W/(m²K) (Projektanforderung, Beispiel). Anwendbarkeit: All IFCWALL data; Elements with IsExternal data of TRUE in the dataset Pset_WallCommon. Anforderung: ThermalTransmittance data shall be {'minExclusive': '0', 'maxInclusive': '0.20'} and in the dataset Pset_WallCommon.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-01",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-01: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 1.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-01",
+          "toleranz": 0.0,
+          "ist_wert": 1.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 1.0,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-01",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-01: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 1.0,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-01: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "0c006f46e41c49c04ab0861cd2d39b8db865cae68caca7b529fa04897ee0a7ee",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-01 (bestanden): erfüllt\">\n<title>HRB-01 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-01 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 1</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "a07c1d9de820aace04179cbc72a0f079b98c255f96629e16ec19ee1099096cb8",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-02",
+      "titel": "IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 1 anwendbare Elemente (All IFCWALL data)",
+        "ifc_guid": "0gsiGQj_bG3wx8M0qwRA0U",
+        "ifc_klasse": "IfcWall",
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Jede Wand gibt Pset_WallCommon.IsExternal und LoadBearing an. Anwendbarkeit: All IFCWALL data. Anforderung: IsExternal data shall be provided in the dataset Pset_WallCommon; LoadBearing data shall be provided in the dataset Pset_WallCommon.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-02",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-02: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 1.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-02",
+          "toleranz": 0.0,
+          "ist_wert": 1.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 1.0,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-02",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-02: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 1.0,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-02: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "3c80db180b58547ac5ac056940859a8d5f438cc9ee71b1342b7084887128f137",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-02 (bestanden): erfüllt\">\n<title>HRB-02 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-02 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 1</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "928645d5c2e613c134da08f7855977a57ebd65618b9fc03ce15e38f58dc9d732",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-03",
+      "titel": "IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 1 anwendbare Elemente (All IFCWALL data)",
+        "ifc_guid": "0gsiGQj_bG3wx8M0qwRA0U",
+        "ifc_klasse": "IfcWall",
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Jede Wand ist nach DIN 276 in eine Kostengruppe 330–339 (Außenwände) klassifiziert. Anwendbarkeit: All IFCWALL data. Anforderung: Shall have a DIN 276 reference of {'pattern': '33[0-9]'}.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-03",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-03: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 1.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-03",
+          "toleranz": 0.0,
+          "ist_wert": 1.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 1.0,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-03",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-03: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 1.0,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-03: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "4f59ac076fbd47ba3f746126eb1a521fedaa6d0ea7eaa0d8c0add4b902eefbc3",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-03 (bestanden): erfüllt\">\n<title>HRB-03 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-03 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 1</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "3e56842b731965fcfd6604b3a6a59398e253e8422dd56a8ef68ee69c00b8f185",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-04",
+      "titel": "IDS HRB-04: Wand: Material (Schichtaufbau) zugeordnet (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 1 anwendbare Elemente (All IFCWALL data)",
+        "ifc_guid": "0gsiGQj_bG3wx8M0qwRA0U",
+        "ifc_klasse": "IfcWall",
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Jede Wand hat ein Material; im Generator ist das eine IfcMaterialLayerSetUsage. Anwendbarkeit: All IFCWALL data. Anforderung: Shall have a material.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-04",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-04: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 1.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-04",
+          "toleranz": 0.0,
+          "ist_wert": 1.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 1.0,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-04",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-04: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 1.0,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-04: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "66766b83975e6d62a8f86c5587a572f0da6525e45e6bf294560251b66f894a96",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-04 (bestanden): erfüllt\">\n<title>HRB-04 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-04 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 1</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "5f913a55fefab7b5f4d7530ddc8bf839b86eb1ba5b3c6d6abab213b393c3d372",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-05",
+      "titel": "IDS HRB-05: Ständer: Material KVH C24 (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 15 anwendbare Elemente (All IFCMEMBER data of type STUD)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "0ruebnGhrPUPaN5fsim6Vf",
+          "26xC9QsMnO6BHuxmSviBaF",
+          "254V3I5NrHxx6g9J9WAbEp",
+          "3ZVVDbGwDO7x2vg7I4UXpp",
+          "3BO1mSw7HO89jMsBG9Jb7H",
+          "1Shh7ZI39PQgxArHuFCIxO",
+          "2rWYAdwuXR2upUkdv7j_IN",
+          "18vNpgLaTOYgpLpdvN0aeA",
+          "02QVWAdt9VqxV8$c1qnuss",
+          "2D$QiiYtvNEfIXBRFteHwH",
+          "34BO68Wo1LCuqY8xgHmwWu",
+          "3AhW$EEQvKugecqAFgh9u9",
+          "2iTQbcNzXG0QrtGvQDByPB",
+          "3vUFGDn6DHcfHamn5gMQdo",
+          "0tHI18naLITuRuul3rI$7I"
+        ]
+      },
+      "regel": {
+        "text": "Jeder Ständer (IfcMember STUD) hat ein Material, dessen Name mit 'KVH C24' beginnt. Anwendbarkeit: All IFCMEMBER data of type STUD. Anforderung: Shall have a material of {'pattern': 'KVH C24.*'}.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-05",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 15,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "15 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-05: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 15\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 15{,}000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 15.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "15 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-05",
+          "toleranz": 0.0,
+          "ist_wert": 15.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 0.06666666666666667,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-05",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-05: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 0.06666666666666667,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-05: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "ee0225ed961d399710e6cdcec6da7463437eec47e8a8eb66180602011f1ccaf2",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-05 (bestanden): erfüllt\">\n<title>HRB-05 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-05 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 15</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 15   mit Verstoß: 0 (von 15 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "8f2612cd8712c097c3bc91d0261458b644b275c260e21d5de42d2de3ce230071",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-06",
+      "titel": "IDS HRB-06: Hölzer: Länge und Nettovolumen als Menge (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 18 anwendbare Elemente (All IFCMEMBER data)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "3N9BxbmVjJqfMasIm6VCTu",
+          "1TymEnbXzHcunnMbwZo5Cm",
+          "0ruebnGhrPUPaN5fsim6Vf",
+          "26xC9QsMnO6BHuxmSviBaF",
+          "254V3I5NrHxx6g9J9WAbEp",
+          "3ZVVDbGwDO7x2vg7I4UXpp",
+          "3BO1mSw7HO89jMsBG9Jb7H",
+          "1Shh7ZI39PQgxArHuFCIxO",
+          "2rWYAdwuXR2upUkdv7j_IN",
+          "0AkqIXRtnLZxJbnMw9nqYO",
+          "18vNpgLaTOYgpLpdvN0aeA",
+          "02QVWAdt9VqxV8$c1qnuss",
+          "2D$QiiYtvNEfIXBRFteHwH",
+          "34BO68Wo1LCuqY8xgHmwWu",
+          "3AhW$EEQvKugecqAFgh9u9",
+          "2iTQbcNzXG0QrtGvQDByPB",
+          "3vUFGDn6DHcfHamn5gMQdo",
+          "0tHI18naLITuRuul3rI$7I"
+        ]
+      },
+      "regel": {
+        "text": "Jedes IfcMember hat Qto_MemberBaseQuantities.Length und NetVolume (für Abbundliste/Kalkulation). Anwendbarkeit: All IFCMEMBER data. Anforderung: Length data shall be provided in the dataset Qto_MemberBaseQuantities; NetVolume data shall be provided in the dataset Qto_MemberBaseQuantities.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-06",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 18,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "18 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-06: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 18\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 18{,}000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 18.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "18 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-06",
+          "toleranz": 0.0,
+          "ist_wert": 18.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 0.05555555555555555,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-06",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-06: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 0.05555555555555555,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-06: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "b5e8452b4e0de007bd90016083b79902a1a80d94a3709beae63b806129c00628",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-06 (bestanden): erfüllt\">\n<title>HRB-06 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-06 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 18</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 18   mit Verstoß: 0 (von 18 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "86ef24ee00e88a47b3bef188029f38e62a1e58f3b1e97f438d45bc845ced2ca5",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-07",
+      "titel": "IDS HRB-07: Hölzer, Platten, Dämmung: Teil einer Wand (IfcRelAggregates) (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 41 anwendbare Elemente (All {'enumeration': ['IFCMEMBER', 'IFCPLATE', 'IFCBUILDINGELEMENTPART']} data)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "3lvMev6E9LueSQsQL9SyqJ",
+          "1ywZMKJxHHBwmNn$0DLcPP",
+          "2kOR3SNJLRhvgIkZqCD35O",
+          "0VAqV5cMTKoxFvJZ1sRPIh",
+          "1tGyPqPTzVWAaP6qdMPAhC",
+          "0sFfeJ3pvQ$eLlaJ2G66F8",
+          "1smMtnPdLGAwZZZIO4b8b3",
+          "3rhw57K3fGLOwjuPbWNuIt",
+          "32e_GlraTGcPYRh18u2qEF",
+          "1Do_$HborOExVic9UwPLxq",
+          "2lwpYyXkHJi9POHX6FZxkn",
+          "3lsRC1LKzOzeO81ZbRUvP3",
+          "3Ea167a$bV2f_2XSF35CFa",
+          "3N9BxbmVjJqfMasIm6VCTu",
+          "1TymEnbXzHcunnMbwZo5Cm",
+          "0ruebnGhrPUPaN5fsim6Vf",
+          "26xC9QsMnO6BHuxmSviBaF",
+          "254V3I5NrHxx6g9J9WAbEp",
+          "3ZVVDbGwDO7x2vg7I4UXpp",
+          "3BO1mSw7HO89jMsBG9Jb7H",
+          "1Shh7ZI39PQgxArHuFCIxO",
+          "2rWYAdwuXR2upUkdv7j_IN",
+          "0AkqIXRtnLZxJbnMw9nqYO",
+          "18vNpgLaTOYgpLpdvN0aeA",
+          "02QVWAdt9VqxV8$c1qnuss",
+          "2D$QiiYtvNEfIXBRFteHwH",
+          "34BO68Wo1LCuqY8xgHmwWu",
+          "3AhW$EEQvKugecqAFgh9u9",
+          "2iTQbcNzXG0QrtGvQDByPB",
+          "3vUFGDn6DHcfHamn5gMQdo",
+          "0tHI18naLITuRuul3rI$7I",
+          "2nIT03iLDPzfWvcV6bn2Yw",
+          "1C0hrr2XrIIfomNCjfIarV",
+          "3q$$zqdE5PjPGlf$E3QvhN",
+          "3ZUwmBxVbOOA29oviTjJmZ",
+          "1InbNmZlrQfOXcySzuZ0x9",
+          "2Yn93nLXHLJeXxWtsg73Sv",
+          "2Fk1z0RJrLoQREzcc91YNK",
+          "3d5dN$q1vMZ91u7g3Gdgto",
+          "1HO9HDFOXPLeihHYjbY7KX",
+          "3r$LABR7DNEAfy1ODi61PA"
+        ]
+      },
+      "regel": {
+        "text": "Jedes IfcMember, IfcPlate und IfcBuildingElementPart ist über IfcRelAggregates Teil einer IfcWall. Anwendbarkeit: All {'enumeration': ['IFCMEMBER', 'IFCPLATE', 'IFCBUILDINGELEMENTPART']} data. Anforderung: An element must have an IFCRELAGGREGATES relationship with an IFCWALL.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-07",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 41,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "41 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-07: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 41\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 41{,}000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 41.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "41 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-07",
+          "toleranz": 0.0,
+          "ist_wert": 41.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 0.024390243902439025,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-07",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-07: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 0.024390243902439025,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-07: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "61104c87f5bc299f4ae12330f8417598ab7d62d110aadb2ed8844645ffac516a",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-07 (bestanden): erfüllt\">\n<title>HRB-07 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-07 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 41</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 41   mit Verstoß: 0 (von 41 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "e13049e206d96c405ce08c815040e66e0742053c8dc4c929411c04e51099c751",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-08",
+      "titel": "IDS HRB-08: Verbindungsmitteltyp: Nenndurchmesser und Nennlänge (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 1 anwendbare Elemente (All IFCMECHANICALFASTENERTYPE data)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "10kcZK2DzMauPxIfg5Yrjt"
+        ]
+      },
+      "regel": {
+        "text": "Jeder IfcMechanicalFastenerType gibt NominalDiameter und NominalLength an. Anwendbarkeit: All IFCMECHANICALFASTENERTYPE data. Anforderung: The NominalDiameter shall be provided; The NominalLength shall be provided.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-08",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-08: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 1\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 1{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 1.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-08",
+          "toleranz": 0.0,
+          "ist_wert": 1.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 1.0,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-08",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-08: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 1.0,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-08: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "ad921af54a1032c4d541ef3cc88eebea3031454fd1b8aea64c3f42ad754d1b43",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-08 (bestanden): erfüllt\">\n<title>HRB-08 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-08 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 1</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 1   mit Verstoß: 0 (von 1 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "a87c5045b1d5b47c614e78196c416ffefa338c0a6315651ee4c254de73026201",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-09",
+      "titel": "IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 176 anwendbare Elemente (All IFCMECHANICALFASTENER data)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "39T8Vw55TT3BNaXCjVnHka",
+          "2LK0D15qDLIeeLmQIUpDKF",
+          "03p5SdiZHRCOt6vnISiQTU",
+          "34qH3t$EnVNw_5m_ScCw8W",
+          "1bIh0GI91UqOR6WrOOk916",
+          "3A7FgnPFbPVf127Vh8zJ5l",
+          "2QWW7utA9QC8KEdBDl7ZUD",
+          "2$Z16YAuDTjB3KIHN4kjFe",
+          "2istCiW8LPHO8exuLlTSRF",
+          "0C5DVI2hLJuRjcCk1h99cE",
+          "0iKI3vu2PJkeduptESFlTQ",
+          "02jeHreGLMD9_yczVveoz4",
+          "0gFjUCuxzTSfEKY1_rpqQ3",
+          "3wBano6krPy9mjtUiPVRf8",
+          "0GPzT4TeXRNeOqmayTsJdW",
+          "2Z3paP5A5PNhuGL$ylXdtj",
+          "3971_tY9XKEPtwe63jRAsT",
+          "16eQHnUbTU3gzrDWBn58WV",
+          "089o4Iu2DMteEeP3doG0mb",
+          "3C1FlPMvTNNfI7AmNmMzLj",
+          "3v4WzOQKHHR83nvLIj0g4f",
+          "01w0o5QkTP_Q1DRXR9r$6a",
+          "169vx5GUTLZOTPgCb4ChAT",
+          "0emonZlmzITxcLtihlGCW1",
+          "2NTROHQb5TZgPQFzca_6$P",
+          "00bf8fSCfLcPhxxVrqm_2r",
+          "3L07quLBvIlQ9EeTfZZV3b",
+          "1G7tmJMdrPagqDRErvQgUv",
+          "1akk8wp2DRa9qJusjMl24S",
+          "0tM$ViAljOuvBNHgH6Cswx",
+          "3vrRqeqcbL9edRqq1oDO92",
+          "0prEjf0MvKlAG4hh9RQgZJ",
+          "2paO7h2IHHBuA4V1EYdvS0",
+          "09XnidnNvVM85HTn9Pk1ee",
+          "32KN2y9mvUKh7x0nK0dZ0R",
+          "29OlAbRmbTYRvZgRx$OpEQ",
+          "1c0zUDdTbLbPPOqpQ85wcV",
+          "2tJZ0pkuLKlPcedlH6Gq9z",
+          "38BL1h9cjH_8zkF_vLN6Vr",
+          "3LXpyw0FLOvPqEGd7fYku6",
+          "2fT2IH_ofSmRtkP3nXfyEa",
+          "0fCH_jBs9RC8UO5_2cPU81",
+          "3tmbK52_1Qmv7BtxP6b21S",
+          "0AEY1CbiXP8fIR_jVhnvV7",
+          "3MxNPqxVHM_uPxneM$x7LA",
+          "1bg2vChmXGtPlJc73BDrSt",
+          "3PUfTJ519Nv9HTjbJSUfDM",
+          "1TEa4G549QSxtBd_PGvzn0",
+          "3vF7BwG3zQkQIVcgKMjOEo",
+          "0iKRdy$51IoPw04SatnMTc",
+          "2NccRt9vPL0hihUgEzLzAO",
+          "1bX47CvbPH0hs1KZLcdrOy",
+          "0zJL6oNFDTvwMHWubM60UV",
+          "3xo7jF55HPFuWB2U6gVi8Q",
+          "2pVtCtxGfMIQr9SM7XvlPV",
+          "3f72jBrSTMEROynfHXy2Qk",
+          "3fmqBJ1_jRSemxDbHd4WJH",
+          "0nHpr9XqvVw80In73IhUy6",
+          "1TgCYKIVnIH8WPbvW9PAXY",
+          "2mCQv6$FLKWQ9m5QFuTa8k",
+          "2ksZYwg3zPcBoXkN3CIzDH",
+          "0jXVb20bDHbgEzDjS2qWKh",
+          "0H1CpGrGjThhW3sGckWHdj",
+          "0r$WtrA9PRyuBKjjDkNYoZ",
+          "1PHmOxHajLsAAd4lQcbROH",
+          "3nWC8OJjTSi8RRsV5o6nnw",
+          "29jJMSbkHO0u2hOd$UqShj",
+          "2VAIAfq5DQVRSogj9DxXPg",
+          "0u$QijRsDTS9gTlkHvhjo1",
+          "3GVnjXPyjLlgLzQewRJZCG",
+          "30QO14lG5KTvv40H6qq7k5",
+          "0wPj9AxjzK1vgjluhDg7wX",
+          "1OupK4OlfGc94EpCyUEsEh",
+          "31R$u_7WXUYBKGpE54F0C6",
+          "0k2aXdFcnH888CTstCrwhm",
+          "3$5bV4Tr1LDu_9OAKBHxaB",
+          "0xDPfXXl9IFPYhMj6jGv3C",
+          "39_uAZP21RtxTcgk1o2eM$",
+          "3yMlXefETM7ArdxPLtfuqG",
+          "0hSztCUMrPO8qjXE3VqudU",
+          "2fPiDPjsHLCfDjPcBjaFOH",
+          "31khabgvnQrAttPQ0vQjoE",
+          "261BiD6XDV5AvTKATjS$Jf",
+          "2utLo5w7fIghitJigp89q7",
+          "3WnOeEcUDNb8hnZqMk5$Dl",
+          "0xizUKKubKDA8g9ulWFTNN",
+          "1aqEz0DXbSVRCfkkznG4QU",
+          "1e4IoUDtfL6Qkz0WYtr6Kp",
+          "030Ld$DxHTCu_3Fnpjy8FB",
+          "33M4o16vnPTxUZwC_CUAow",
+          "3gTAcTfkvHEvKQwDYQ84un",
+          "1INfuDFx5SrBsEx_poN1FL",
+          "1rs_zsnI1LJvznMiw7JXTg",
+          "2hrhxrckrOoxD1hwsGVWd9",
+          "0nIEEq5nPMbAf0VtxKy_m0",
+          "2S6B0hAoTR0uElgKKAJ8tO",
+          "2GEbjtG85TUh4MBVlHVzPz",
+          "1psTfuzCrQVuAnJdZLUuhw",
+          "2p35M8SxTMtfXPK6XY1XRL",
+          "1gXz4aQ0DQhgZBmiaytYRK",
+          "1Q5XeEhxvVbvqVNxCBv7UW",
+          "3HEbXV9y9KqfW8vzkAfY0M",
+          "1$fvh8BCvVcwUcN0qk3voO",
+          "1WviW_EDrSex1ig2C93NPg",
+          "1xmD1xxI1HDvw07V1c0VbW",
+          "0oGsBmFZvPc8Kgf6py21ym",
+          "3FThRjZ3vKUBwyZtllLetO",
+          "2ImJ_N9tDLHxA7sYG3k03G",
+          "1H7fuHxNLRNhJCn7o1xhxV",
+          "1u3salt0HMTv2lFmwW53Qz",
+          "0SkJFhgPDVhOJtnE74Kr8R",
+          "3apVWi$VfI6x0wsNji0cHV",
+          "3_YObBNSnPmgyYpXiFZ1aT",
+          "3gFCt7I05JBBCenQ92SGUi",
+          "3RfvRtS7DTdecDNE_dGbxY",
+          "3WLA1dPoXSre_X14GDzFO4",
+          "1C1XU0rHjStRIc7tjmw8Fp",
+          "2GnwHB3MLRZx$Tk0R230dt",
+          "10_TYyU$vHwuMdj$SNubjD",
+          "1j3FaZQVbUAwzUNSkuwduu",
+          "1wax4FU2XJ6u3YXxe1nzgC",
+          "2vb3LO6RzIahsZgRDYuC7o",
+          "2beGV6dZXP8hNYq7f4IRlu",
+          "1NXGAlU2vTcueHXodW5yOP",
+          "0YdOqyw8LHWvpDR2gUY4jp",
+          "0VcDnh1TTS5u2SYubKzuv3",
+          "1iLgnKsnvMXAcdy43Qbdcy",
+          "1TGan1jRXRvOoPj4V28mQA",
+          "0G5jrzFCjNK8i2ZousDNpg",
+          "0zBIQPNhvRC8pnzqY4N7E2",
+          "1G3nPaUOzUDA83M1dR0xmt",
+          "0T_WS87BTG8RpdBKiOfLCc",
+          "1tu0PH2KTPuviJSlxDvrhT",
+          "3cnxTrdV9QhfcSEL5NZdHU",
+          "2xo6tQiJLHKOVj4IR6yqlQ",
+          "3dC62pHdTTbv$EUz$FcC1I",
+          "2Cz$3VElvNienOASgbt6Pe",
+          "3pWfsH5GfLQBOQo_wuPvj$",
+          "2FwQQIwSDVCu6HOiToOe$k",
+          "0b1hmWekrPMv4eiYZpPzB9",
+          "2yqf34tHPV_wuYlQYjxZr2",
+          "2HL9MGUkfHxR6rBhxs2XaR",
+          "3lVdzp1sLL$w3Swj22cBeV",
+          "3tXV6lSaXQ9Bid4y_zBMhB",
+          "2Sou7RivTSzQxJTsR6sBJc",
+          "2wtwLLOu9M6eWxJ_1B98LE",
+          "3Ass1u2hHTO8wQQ1C3RXwf",
+          "3SkgAxEgTUN9WnQsj1vmx2",
+          "0Zf73DcvjK9vWzIXGhg1$Y",
+          "2FRqovo1jNCfv40sQwAqa$",
+          "24sjZ1prrPXQcerPwpBTW8",
+          "2IovYkC3zPRfYheeCBOebe",
+          "25I$C4c_PHrP_3eDpU2kOF",
+          "1M$1Spd5LVlRCxdQf0zXFK",
+          "2KwTR7V$bURuYE90FqlY_C",
+          "1Z56nrx3bPGRuoCkGU0omP",
+          "1FDEomzZfUygHFIFN1cCin",
+          "2JVELvJLPTCOxpLgBqLnuq",
+          "0tG4BEfjPHYPz9b7ChOylE",
+          "3NqoTQyzrLxOjyVEHjWXW3",
+          "3lmbJYnGfUHf4JydBQLdQm",
+          "0oCa0FM39UKfRRp9qkNtbi",
+          "05tkQ8yGzOigf4DUaVASZB",
+          "1Mhx4GoGrJJwtM_s0Wvp26",
+          "3KJMciX1LSWBHF$3b7q4SR",
+          "0oQz5DoZDOvxqMffVHynhB",
+          "2mnwRXeSvJ9ur6ny$oXBXs",
+          "0DkbeFPjrNyQQxfTHMgZ6M",
+          "1QdePCWp5JU9EuLYenIEJb",
+          "1_nOhU5dbQYvIMvQRxHE$v",
+          "2m4hAu_c1JDgYE9uzPVUXF",
+          "1AhVwlSY9JER$JXUCWlQI9",
+          "3g0RnWZ$bJLgBudZ5LaMJ1",
+          "1vStMyUNrN8vhbQnm290y5",
+          "0pFVVVC8nRthg4KIRY7YoX",
+          "2F1feFQJLSoOOFbJxITEku"
+        ]
+      },
+      "regel": {
+        "text": "Jedes IfcMechanicalFastener gibt NominalDiameter an (zwischen 2 und 12 mm, Projekteinheit mm). Anwendbarkeit: All IFCMECHANICALFASTENER data. Anforderung: The NominalDiameter shall be {'minInclusive': '2', 'maxInclusive': '12'}.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-09",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 176,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "176 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-09: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 176\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 176{,}00\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 176.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "176 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-09",
+          "toleranz": 0.0,
+          "ist_wert": 176.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 0.005681818181818182,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-09",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-09: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 0.005681818181818182,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-09: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "4fbcf7afc6108893e82a23a74172edf3d95c1b938bc2f3e0d924cea1555a0889",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-09 (bestanden): erfüllt\">\n<title>HRB-09 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-09 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 176</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 176   mit Verstoß: 0 (von 176 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "21e7281a14f2af8cfdb1dbb72d71440fbc4b19fa30a8080237189cbe5d283c68",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-10",
+      "titel": "IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 12 anwendbare Elemente (All IFCBUILDINGELEMENTPART data of type INSULATION)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "1ywZMKJxHHBwmNn$0DLcPP",
+          "2kOR3SNJLRhvgIkZqCD35O",
+          "0VAqV5cMTKoxFvJZ1sRPIh",
+          "1tGyPqPTzVWAaP6qdMPAhC",
+          "0sFfeJ3pvQ$eLlaJ2G66F8",
+          "1smMtnPdLGAwZZZIO4b8b3",
+          "3rhw57K3fGLOwjuPbWNuIt",
+          "32e_GlraTGcPYRh18u2qEF",
+          "1Do_$HborOExVic9UwPLxq",
+          "2lwpYyXkHJi9POHX6FZxkn",
+          "3lsRC1LKzOzeO81ZbRUvP3",
+          "3Ea167a$bV2f_2XSF35CFa"
+        ]
+      },
+      "regel": {
+        "text": "Jedes IfcBuildingElementPart INSULATION hat ein Material der Kategorie 'insulation'. Anwendbarkeit: All IFCBUILDINGELEMENTPART data of type INSULATION. Anforderung: Shall have a material of insulation.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-10",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 12,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "12 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Mindestanzahl anwendbarer Elemente",
+          "symbol": "n_min",
+          "latex": "n_{\\mathrm{min}}",
+          "wert": 1,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-10: minOccurs = 1",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "zulässige Verstöße",
+          "symbol": "n_zul",
+          "latex": "n_{\\mathrm{zul}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS 1.0: jede Anforderung gilt für jedes anwendbare Element",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 12\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 12{,}000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 12.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "12 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Anwendbarkeit (Kardinalität)",
+          "ist": "n_anw",
+          "vergleich": "≥",
+          "grenzwert": "n_min",
+          "norm_verweis": "holzrahmenbau.ids, HRB-10",
+          "toleranz": 0.0,
+          "ist_wert": 12.0,
+          "grenz_wert": 1.0,
+          "einheit": "Stk",
+          "ausnutzung": 0.08333333333333333,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "alle Anforderungen erfüllt",
+          "ist": "n_fehl",
+          "vergleich": "≤",
+          "grenzwert": "n_zul",
+          "norm_verweis": "holzrahmenbau.ids, HRB-10",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Elemente mit Verstoß",
+        "symbol": "n_fehl",
+        "latex": "n_{\\mathrm{fehl}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.failed_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "Mindestanzahl anwendbarer Elemente",
+        "symbol": "n_min",
+        "latex": "n_{\\mathrm{min}}",
+        "wert": 1,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-10: minOccurs = 1",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "1 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≥",
+      "ausnutzung": 0.08333333333333333,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-10: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "36e00584227a5cc2818912aed6d4ddd5c4f801892cbb81f9ca1e3f5c12699d4a",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-10 (bestanden): erfüllt\">\n<title>HRB-10 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-10 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#0ca30c\"><title>ohne Verstoß: 12</title></rect>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 12   mit Verstoß: 0 (von 12 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "ab68d18a2161e52223e9f5dc1cfbd106cea41d85100dcc3039a1463374e4b169",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    },
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B2-bestanden-HRB-11",
+      "titel": "IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden)",
+      "gegenstand": {
+        "bezeichnung": "wandelement.ifc: 0 anwendbare Elemente (Shall not be IFCBUILDINGELEMENTPROXY data)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": "wandelement.ifc",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Das Modell enthält kein IfcBuildingElementProxy (jedes Bauteil hat eine fachliche IFC-Klasse). Anwendbarkeit: Shall not be IFCBUILDINGELEMENTPROXY data. Anforderung: –.",
+        "quelle": "holzrahmenbau.ids (Information Delivery Specification, IDS 1.0)",
+        "fassung": "IDS-Datei Version 0.1.0 vom 2026-01-01, SHA-256 31003d3f5117b785…",
+        "fundstelle": "HRB-11",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-IDS-Wandelement",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "anwendbare Elemente",
+          "symbol": "n_anw",
+          "latex": "n_{\\mathrm{anw}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "Elemente mit Verstoß",
+          "symbol": "n_fehl",
+          "latex": "n_{\\mathrm{fehl}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "ifctester 0.8.5: Specification.failed_entities",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        },
+        {
+          "name": "höchstzulässige Anzahl",
+          "symbol": "n_max",
+          "latex": "n_{\\mathrm{max}}",
+          "wert": 0,
+          "einheit": "Stk",
+          "quelle": "IDS HRB-11: maxOccurs = 0 (verboten)",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0 Stk",
+          "rundung": null,
+          "dimension": "dimensionless"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "IDS-Prüfung des Modells",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "ifctester 0.8.5: ids.open(validate=True) gegen die IDS-1.0-XSD, Specification.validate(IFC); Modell wandelement.ifc, SHA-256 5a796ea7b0f1d8c0…",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Prüfstatus ifctester",
+            "symbol": "status_ifctester",
+            "latex": "\\mathrm{status}_{\\mathrm{ifctester}}",
+            "wert": true,
+            "einheit": "1",
+            "quelle": "ifctester 0.8.5",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "ja",
+            "rundung": null
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Elemente ohne Verstoß",
+          "ausdruck": "n_anw - n_fehl",
+          "formel_latex": "n_{\\mathrm{ok}} = n_{\\mathrm{anw}} - n_{\\mathrm{fehl}}",
+          "einsetzen_latex": "n_{\\mathrm{ok}} = 0\\ \\mathrm{Stk} - 0\\ \\mathrm{Stk} = 0{,}0000\\ \\mathrm{Stk}",
+          "eingaben": [
+            "n_anw",
+            "n_fehl"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Elemente ohne Verstoß",
+            "symbol": "n_ok",
+            "latex": "n_{\\mathrm{ok}}",
+            "wert": 0.0,
+            "einheit": "Stk",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "keine anwendbaren Elemente (verboten)",
+          "ist": "n_anw",
+          "vergleich": "≤",
+          "grenzwert": "n_max",
+          "norm_verweis": "holzrahmenbau.ids, HRB-11",
+          "toleranz": 0.0,
+          "ist_wert": 0.0,
+          "grenz_wert": 0.0,
+          "einheit": "Stk",
+          "ausnutzung": null,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "anwendbare Elemente",
+        "symbol": "n_anw",
+        "latex": "n_{\\mathrm{anw}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "ifctester 0.8.5: Specification.applicable_entities",
+        "art": "eingabe",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "grenzwert": {
+        "name": "höchstzulässige Anzahl",
+        "symbol": "n_max",
+        "latex": "n_{\\mathrm{max}}",
+        "wert": 0,
+        "einheit": "Stk",
+        "quelle": "IDS HRB-11: maxOccurs = 0 (verboten)",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0 Stk",
+        "rundung": null,
+        "dimension": "dimensionless"
+      },
+      "vergleich": "≤",
+      "ausnutzung": null,
+      "status": "erfüllt",
+      "annahmen": [],
+      "hinweise": [
+        "Der Nachweisstatus stimmt mit dem Status von ifctester überein (Gegenprüfung)."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "anteil",
+          "titel": "HRB-11: Elemente mit und ohne Verstoß",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "61a9d3cbe57c1901ded2dc01d857c5017e9b7c36a147d6ad169f78d3da6c8751",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150mm\" height=\"22mm\" viewBox=\"0 0 150 22\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"HRB-11 (bestanden): erfüllt\">\n<title>HRB-11 (bestanden): erfüllt</title>\n<rect width=\"150\" height=\"22\" fill=\"#ffffff\"/>\n<text x=\"2\" y=\"5\" font-size=\"3.2\" fill=\"#0b0b0b\">HRB-11 (bestanden): erfüllt</text>\n<rect x=\"2\" y=\"8\" width=\"146\" height=\"6\" fill=\"#ffffff\" stroke=\"#c3c2b7\" stroke-width=\"0.3\"/>\n<text x=\"75\" y=\"12.3\" font-size=\"3\" text-anchor=\"middle\" fill=\"#52514e\">keine anwendbaren Elemente</text>\n<text x=\"2\" y=\"19.5\" font-size=\"3\" fill=\"#52514e\">ohne Verstoß: 0   mit Verstoß: 0 (von 0 anwendbaren Elementen)</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "98ded5685b740fa50c68fe4ba7bd1a7047b6cb325abaebd6d160d9cd1bac1ee2",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    }
+  ],
+  "umgebung": {
+    "nachweis_modul": "1.0.0",
+    "schema_version": "1.0",
+    "python": "3.11.15",
+    "einheiten_backend": "pint",
+    "grafik_backend": "matplotlib",
+    "pakete": {
+      "numpy": "2.4.6",
+      "pint": "0.25.3",
+      "matplotlib": "3.11.2",
+      "shapely": "2.1.2",
+      "ifcopenshell": "0.8.5",
+      "ifctester": "0.8.5"
+    }
+  },
+  "zeitstempel": null,
+  "hash": {
+    "algorithmus": "SHA-256",
+    "wert": "bbfb50666bea1cd3e668f497052c950e2b5c07e2f4ec299cbe3423fc964a7571",
+    "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
+  }
+}

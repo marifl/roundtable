@@ -982,7 +982,8 @@ class Nachweis:
             if erg.numerisch:
                 ns[erg.symbol] = EINHEITEN.groesse(erg.wert, erg.einheit)
         if self.ergebnis:
-            G[self.ergebnis].art = "ergebnis"
+            if G[self.ergebnis].art == "zwischenergebnis":
+                G[self.ergebnis].art = "ergebnis"
             if self.ergebnis_rundung:
                 G[self.ergebnis].rundung = self.ergebnis_rundung
         self._unsicherheit(G)
@@ -1726,6 +1727,8 @@ class SvgZeichnung:
         winkel = math.degrees(math.atan2(dy, dx))
         if winkel > 90 or winkel <= -90:                        # lesbar von unten bzw. rechts
             winkel -= 180 if winkel > 90 else -180
+        if text == "":
+            return
         mx, my = (ax + bx) / 2, (ay + by) / 2
         off = 0.8
         rx, ry = math.sin(math.radians(winkel)) * off, -math.cos(math.radians(winkel)) * off
@@ -1737,8 +1740,9 @@ class SvgZeichnung:
             f = FARBE["tinte"] if i % 2 == 0 else "#ffffff"
             self.teiles_rect(x_mm + i * seg, y_mm, seg, 1.5, f)
         for i in range(teile + 1):
-            self.text_papier(x_mm + i * seg, y_mm + 4.5, zahl_roh(laenge_modell / teile * i), 2.2, "middle")
-        self.text_papier(x_mm + teile * seg + 2.5, y_mm + 1.5, f"{einheit}   M 1:{zahl_roh(self.massstab)}", 2.5, "start")
+            t = zahl_roh(laenge_modell / teile * i) + (f" {einheit}" if i == teile else "")
+            self.text_papier(x_mm + i * seg, y_mm + 4.5, t, 2.2, "middle")
+        self.text_papier(x_mm + teile * seg + 8, y_mm + 1.6, f"M 1:{zahl_roh(self.massstab)}", 2.5, "start", fett=True)
 
     def teiles_rect(self, x, y, w, h, fill) -> None:
         self.teile.append(f'<rect x="{_f(x)}" y="{_f(y)}" width="{_f(w)}" height="{_f(h)}" fill="{fill}" stroke="{FARBE["tinte"]}" stroke-width="0.25"/>')
@@ -1810,6 +1814,17 @@ def _mpl_vorbereiten():
     return plt
 
 
+def _de_achsen(ax, y: bool = False) -> None:
+    """Achsbeschriftung mit Dezimalkomma (DIN 1333 / ISO 80000-1)."""
+    from matplotlib.ticker import FuncFormatter
+
+    def fmt(v, _p):
+        return zahl_de(int(round(v))) if abs(v - round(v)) < 1e-9 else zahl_de(Decimal(repr(round(v, 10))).normalize())
+    ax.xaxis.set_major_formatter(FuncFormatter(fmt))
+    if y:
+        ax.yaxis.set_major_formatter(FuncFormatter(fmt))
+
+
 def diagramm_ist_grenzwert(zeilen: Sequence[dict], einheit: str, titel: str) -> str:
     """Ist-Wert gegen Grenzwert je Zeile: dict(label, ist, grenz, vergleich, U=None).
     Balken = Ist (grün erfüllt / rot nicht erfüllt), senkrechter Strich = Grenzwert,
@@ -1836,6 +1851,7 @@ def diagramm_ist_grenzwert(zeilen: Sequence[dict], einheit: str, titel: str) -> 
         ax.set_xlim(0, max(max(z["ist"] + (z.get("U") or 0) for z in zeilen), max(z["grenz"] for z in zeilen)) * 1.18)
         ax.set_title(titel, fontsize=10, loc="left", color=FARBE["tinte"])
         ax.grid(axis="y", visible=False)
+        _de_achsen(ax)
         return _mpl_svg(fig)
     return _svg_balken_fallback(zeilen, einheit, titel)
 
@@ -1892,6 +1908,7 @@ def diagramm_punkte(punkte: Sequence[dict], x_label: str, y_label: str, titel: s
         ax.set_ylabel(y_label)
         ax.set_title(titel, fontsize=10, loc="left", color=FARBE["tinte"])
         ax.legend(fontsize=7, loc="upper right", frameon=False, ncol=2)
+        _de_achsen(ax, y=True)
         return _mpl_svg(fig)
     # Fallback: reines SVG
     xs = [p["x"] for p in punkte] + [x for x, _ in (bereich or [])]
@@ -1930,6 +1947,7 @@ def diagramm_balken(werte: Sequence[dict], einheit: str, titel: str) -> str:
         ax.set_xlabel(einheit)
         ax.set_title(titel, fontsize=10, loc="left", color=FARBE["tinte"])
         ax.grid(axis="y", visible=False)
+        _de_achsen(ax)
         return _mpl_svg(fig)
     return _svg_balken_fallback([{"label": w["label"], "ist": w["wert"], "grenz": w["wert"], "vergleich": "="} for w in werte], einheit, titel)
 
@@ -1978,7 +1996,7 @@ def lageplan_svg(grundstueck, gebaeude, abstandsflaechen: Sequence[dict], massst
     if strasse is not None:
         alle.append(SPoly(coords(strasse)))
     minx, miny, maxx, maxy = unary_union(alle).buffer(puffer).bounds
-    leg_h = 34.0
+    leg_h = 40.0
     z = SvgZeichnung((minx, miny, maxx, maxy), massstab, 1.0, rand_mm=10.0, unten_mm=leg_h, titel=titel)
     if strasse is not None:
         z.polygon(coords(strasse), fill=z.muster("strasse"), stroke=FARBE["leise"], lw=0.25, stroke_dasharray="2 1.2",
@@ -1998,10 +2016,10 @@ def lageplan_svg(grundstueck, gebaeude, abstandsflaechen: Sequence[dict], massst
                                 ({"fill": "#8d6e63", "stroke": "#3e2723"}, "geplantes Gebäude"),
                                 ({"fill": FARBE["gut"], "opacity": 0.28, "stroke": FARBE["gut"]}, "Abstandsfläche zulässig"),
                                 ({"fill": FARBE["krit"], "opacity": 0.28, "stroke": FARBE["krit"]}, "Abstandsfläche außerhalb"),
-                                ({"fill": "url(#m-strasse)", "stroke": FARBE["leise"]}, "öffentl. Verkehrsfläche")],
-              spalten=2, spaltenbreite=48)
+                                ({"fill": "url(#m-strasse)", "stroke": FARBE["leise"]}, "öffentliche Verkehrsfläche")],
+              spalten=1)
     if schriftfeld:
-        z.schriftfeld(list(schriftfeld), breite=min(70.0, z.b - 2 * z.rand - 100) if z.b > 190 else 60.0)
+        z.schriftfeld(list(schriftfeld), breite=66.0)
     return z.svg()
 
 
@@ -2013,7 +2031,7 @@ def schnitt_svg(schichten: Sequence[dict], breite_mm: float, massstab: int = 5, 
     Darstellung: innen unten, außen oben, Maßkette rechts, Beschriftung links."""
     gesamt = sum(s["dicke_mm"] for s in schichten)
     n = len(schichten)
-    leg_h = 6.0 * n + 12
+    leg_h = 5.0 * (n + 1) + 22
     z = SvgZeichnung((-0.0, 0.0, breite_mm, gesamt), massstab, 0.001, rand_mm=14.0, unten_mm=leg_h, titel=titel)
     z.b += 38                                                  # Platz für die Maßkette rechts
     y = 0.0
@@ -2033,31 +2051,48 @@ def schnitt_svg(schichten: Sequence[dict], breite_mm: float, massstab: int = 5, 
                    titel=e.get("name"))
         z.linie((e["x0_mm"], y0), (e["x0_mm"] + e["breite_mm"], y1), stroke=FARBE["tinte"], lw=0.18)
         z.linie((e["x0_mm"], y1), (e["x0_mm"] + e["breite_mm"], y0), stroke=FARBE["tinte"], lw=0.18)
-    # Maßkette rechts (Schichtdicken), außen Gesamtmaß
+    # Maßkette rechts (Schichtdicken), außen Gesamtmaß. Schmale Schichten (< 8 mm auf Papier):
+    # Maßzahl waagerecht neben der Kette, gegen Überdeckung nach unten versetzt (von außen nach innen).
     xr = breite_mm
+    xk, _ = z.p(xr, 0)
+    klein = []
     for (y0, y1), s in zip(lagen, schichten):
-        if (y1 - y0) * z.k >= 0.6:
+        hp = (y1 - y0) * z.k
+        if hp >= 8.0:
             z.bemassung((xr, y1), (xr, y0), 6.0, zahl_roh(s["dicke_mm"]), groesse=2.2)
-    z.bemassung((xr, gesamt), (xr, 0), 16.0, zahl_roh(round(gesamt, 3)), groesse=2.5)
+        else:
+            if hp >= 0.6:
+                z.bemassung((xr, y1), (xr, y0), 6.0, "", groesse=2.2)
+            klein.append(((y0 + y1) / 2, zahl_roh(s["dicke_mm"]) + (" (Folie)" if hp < 0.6 else "")))
+    letzte = -1e9
+    for ym_mod, txt in sorted(klein, key=lambda t: -t[0]):
+        _, yp = z.p(0, ym_mod)
+        yp = max(yp + 0.8, letzte + 2.9)
+        z.text_papier(xk + 7.5, yp, txt, 2.2, "start")
+        letzte = yp
+    z.bemassung((xr, gesamt), (xr, 0), 22.0, zahl_roh(round(gesamt, 3)), groesse=2.5)
     for e in einlagen[:1]:
         z.bemassung((e["x0_mm"], 0), (e["x0_mm"] + e["breite_mm"], 0), -6.0, zahl_roh(e["breite_mm"]), groesse=2.2)
     z.bemassung((0, 0), (breite_mm, 0), -12.0, zahl_roh(breite_mm), groesse=2.5)
-    z.text((breite_mm / 2, gesamt), aussen, 3.0, "middle")
     xm, ym = z.p(breite_mm / 2, gesamt)
-    z.teile[-1] = z.teile[-1].replace(f'y="{_f(ym)}"', f'y="{_f(ym - 2)}"')
+    z.text_papier(xm, ym - 2.0, aussen, 3.0, "middle")
     xm, ym = z.p(breite_mm / 2, 0)
-    z.text_papier(xm, ym + 22, innen, 3.0, "middle")
+    z.text_papier(xm, ym + 18.0, innen, 3.0, "middle")
     # Legende unten
-    yl = z.h_zeichnung + 4
+    yl = ym + 23.0
     eintr = [({"fill": z.muster(s["muster"]) if s.get("muster") else "#ffffff"} if s["dicke_mm"] * z.k >= 0.6
               else {"linie": True, "stroke": "#1565c0", "dash": "1.5 0.8", "lw": 0.35}, f"{i + 1}  {s.get('text', s['name'])}")
              for i, s in enumerate(schichten)]
     eintr += [({"fill": z.muster(e.get("muster", "holz"))}, e.get("name", "Einlage")) for e in einlagen]
     z.legende(z.rand, yl, eintr)
-    # Nummern an den Schichten links
-    for i, (y0, y1) in enumerate(lagen):
+    z.text_papier(z.b - 4, yl + 2.6, f"Maße in mm   M 1:{zahl_roh(massstab)}", 2.5, "end")
+    # Nummern an den Schichten links, schmale Schichten versetzt
+    letzte = -1e9
+    for i, (y0, y1) in reversed(list(enumerate(lagen))):
         px, py = z.p(0, (y0 + y1) / 2)
-        z.text_papier(px - 2, py + 0.9, str(i + 1), 2.5, "end")
+        py = max(py + 0.9, letzte + 2.7)
+        z.text_papier(px - 2, py, str(i + 1), 2.3, "end")
+        letzte = py
     if schriftfeld:
         z.schriftfeld(list(schriftfeld), breite=64)
     return z.svg()
@@ -2065,10 +2100,11 @@ def schnitt_svg(schichten: Sequence[dict], breite_mm: float, massstab: int = 5, 
 
 def treppenschnitt_svg(n_steigungen: int, s_mm: float, a_mm: float, massstab: int = 50,
                        titel: str = "Treppenschnitt", schriftfeld: Sequence[str] = ()) -> str:
-    """Vertikalschnitt einer geraden einläufigen Treppe mit n Steigungen und n−1 Auftritten."""
+    """Vertikalschnitt einer geraden einläufigen Treppe mit n Steigungen und n−1 Auftritten
+    (Stufenprofil schematisch, Maße in mm)."""
     h = n_steigungen * s_mm
     L = (n_steigungen - 1) * a_mm
-    z = SvgZeichnung((-400.0, -150.0, L + 600.0, h + 150.0), massstab, 0.001, rand_mm=14.0, unten_mm=10.0, titel=titel)
+    z = SvgZeichnung((-400.0, -150.0, L + 600.0, h + 150.0), massstab, 0.001, rand_mm=16.0, unten_mm=36.0, titel=titel)
     pts = [(-400.0, 0.0), (0.0, 0.0)]
     x, y = 0.0, 0.0
     for i in range(n_steigungen):
@@ -2078,26 +2114,32 @@ def treppenschnitt_svg(n_steigungen: int, s_mm: float, a_mm: float, massstab: in
             x += a_mm
             pts.append((x, y))
     pts.append((L + 600.0, h))
-    z.polygon(pts + [(L + 600.0, h - 60.0), (L, h - 60.0)] + [(0.0, -60.0), (-400.0, -60.0)], fill=z.muster("holz"), stroke=FARBE["tinte"], lw=0.5,
-              titel="Stufenprofil (schematisch)")
+    z.polygon(pts + [(L + 600.0, h - 60.0), (L, h - 60.0), (0.0, -60.0), (-400.0, -60.0)], fill=z.muster("holz"),
+              stroke=FARBE["tinte"], lw=0.5, titel="Stufenprofil (schematisch)")
     z.linie((-400.0, 0.0), (L + 600.0, 0.0), stroke=FARBE["leise"], lw=0.18, stroke_dasharray="3 1.5")
     z.linie((-400.0, h), (L + 600.0, h), stroke=FARBE["leise"], lw=0.18, stroke_dasharray="3 1.5")
-    z.text((-380.0, 30.0), "OKFF unten ±0,00", 2.2, "start")
-    z.text((L + 580.0, h + 30.0), f"OKFF oben +{zahl_de(Rundung('dezimalstellen', 2).runde(h / 1000))}", 2.2, "end")
-    z.bemassung((L + 600.0, 0.0), (L + 600.0, h), -8.0, f"{n_steigungen} × {zahl_de(Rundung('dezimalstellen', 1).runde(s_mm))} = {zahl_roh(round(h, 3))}", groesse=2.2)
-    z.bemassung((0.0, 0.0), (L, 0.0), -8.0, f"{n_steigungen - 1} × {zahl_roh(a_mm)} = {zahl_roh(round(L, 3))}", groesse=2.2)
-    # eine Stufe herausgehoben
+    z.text((-380.0, 40.0), "OKFF unten ±0,00", 2.2, "start")
+    z.text((L + 580.0, h + 40.0), f"OKFF oben +{zahl_de(Rundung('dezimalstellen', 2).runde(h / 1000))}", 2.2, "end")
+    z.bemassung((L + 600.0, 0.0), (L + 600.0, h), -8.0,
+                f"{n_steigungen} × {zahl_de(Rundung('dezimalstellen', 1).runde(s_mm))} = {zahl_roh(round(h, 3))}", groesse=2.2)
+    z.bemassung((0.0, 0.0), (L, 0.0), -9.0, f"Lauflänge {n_steigungen - 1} × {zahl_roh(a_mm)} = {zahl_roh(round(L, 3))}", groesse=2.2)
+    # eine Stufe herausgehoben: Maßlinien ohne Zahl, Maßzahlen daneben
     k = n_steigungen // 2
     x0, y0 = (k - 1) * a_mm, k * s_mm
-    z.bemassung((x0, y0), (x0 + a_mm, y0), 4.0, f"a = {zahl_roh(a_mm)}", groesse=2.0)
-    z.bemassung((x0 + a_mm, y0), (x0 + a_mm, y0 + s_mm), 4.0, f"s = {zahl_de(Rundung('dezimalstellen', 1).runde(s_mm))}", groesse=2.0)
+    z.bemassung((x0, y0), (x0 + a_mm, y0), 2.5, "", groesse=2.0)
+    z.bemassung((x0 + a_mm, y0), (x0 + a_mm, y0 + s_mm), -2.5, "", groesse=2.0)
+    px, py = z.p(x0 + a_mm / 2, y0)
+    z.text_papier(px - 1.0, py - 4.5, f"a = {zahl_roh(a_mm)}", 2.2, "end")
+    px, py = z.p(x0 + a_mm, y0 + s_mm / 2)
+    z.text_papier(px + 4.5, py + 0.8, f"s = {zahl_de(Rundung('dezimalstellen', 1).runde(s_mm))}", 2.2, "start")
     # Maßstabsleiste in m (Modell in mm: 1 m = 1000 Modelleinheiten)
+    y_ml = z.h_zeichnung + 4
     seg = 1000.0 * z.k
     for i in range(2):
-        z.teiles_rect(z.rand + i * seg, z.h_zeichnung + 2, seg, 1.5, FARBE["tinte"] if i % 2 == 0 else "#ffffff")
-        z.text_papier(z.rand + i * seg, z.h_zeichnung + 6.5, str(i), 2.2, "middle")
-    z.text_papier(z.rand + 2 * seg, z.h_zeichnung + 6.5, "2", 2.2, "middle")
-    z.text_papier(z.rand + 2 * seg + 3, z.h_zeichnung + 3.5, f"m   M 1:{massstab}   Maße in mm", 2.5, "start")
+        z.teiles_rect(z.rand + i * seg, y_ml, seg, 1.5, FARBE["tinte"] if i % 2 == 0 else "#ffffff")
+    for i, t in enumerate(("0", "1", "2 m")):
+        z.text_papier(z.rand + i * seg, y_ml + 4.5, t, 2.2, "middle")
+    z.text_papier(z.rand, y_ml + 11, f"M 1:{massstab}, Maße in mm", 2.5, "start", fett=True)
     if schriftfeld:
         z.schriftfeld(list(schriftfeld), breite=64)
     return z.svg()

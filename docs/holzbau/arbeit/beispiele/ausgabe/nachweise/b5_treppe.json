@@ -1,0 +1,765 @@
+{
+  "art": "nachweisheft",
+  "schema_version": "1.0",
+  "titel": "Nachweisheft B5 – Treppe (DIN 18065)",
+  "projekt": {
+    "Projekt": "Beispielhaus Holzrahmenbau",
+    "Gebäude": "Einfamilienhaus (fiktiv)",
+    "Geschoss": "EG",
+    "Parametermodell": "daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)",
+    "Grundstück": "daten/grundstueck.json (SHA-256 a60954d2a172493d…)",
+    "Rechtsstand der Beispiele": "27.09.2026",
+    "Hinweis": "Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis."
+  },
+  "verfasser": "Entwurfsgenerator (Beispiel), ohne Prüfvermerk",
+  "vorbemerkung": "",
+  "regelwerk_profile": [
+    {
+      "name": "DE-DIN18065-WG2WE",
+      "version": "0.1.0"
+    }
+  ],
+  "regelquellen": [
+    {
+      "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+      "fassung": "2020-08",
+      "verifikation": "[U]"
+    }
+  ],
+  "zusammenfassung": {
+    "erfüllt": 1,
+    "nicht erfüllt": 0,
+    "Hinweis": 0
+  },
+  "status": "erfüllt",
+  "inhalt": [
+    {
+      "id": "N-B5-01",
+      "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
+      "status": "erfüllt",
+      "ausnutzung": 0.9710407239819006,
+      "hash": "7dc41095ed4385399614491cdb7cfa8796f2222823fe6e3ca23ca0910e143085",
+      "gegenstand": null
+    }
+  ],
+  "nachweise": [
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B5-01",
+      "titel": "Treppenlauf gerade einläufig, Geschosshöhe 2,90 m",
+      "gegenstand": {
+        "bezeichnung": "notwendige Treppe EG–OG, gerade einläufig (kein IFC-Modell in B5; IfcStair folgt mit dem Gebäudegenerator)",
+        "ifc_guid": null,
+        "ifc_klasse": null,
+        "ifc_datei": null,
+        "ifc_sha256": null,
+        "weitere_guids": []
+      },
+      "regel": {
+        "text": "Baurechtlich notwendige Treppe in Wohngebäuden mit höchstens zwei Wohnungen: Steigung 140 … 200 mm, Auftritt 230 … 370 mm, Schrittmaß 2s + a = 590 … 650 mm, nutzbare Laufbreite ≥ 800 mm.",
+        "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+        "fassung": "2020-08",
+        "fundstelle": "Tabelle der Grenzmaße (Tabellen nicht übernommen)",
+        "verifikation": "[U]",
+        "regelwerk_profil": {
+          "name": "DE-DIN18065-WG2WE",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "Geschosshöhe (OKFF bis OKFF)",
+          "symbol": "h_G",
+          "latex": "h_{\\mathrm{G}}",
+          "wert": 2900,
+          "einheit": "mm",
+          "quelle": "Eingabe (Kommandozeile B5, Standard 2,90 m)",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "2900 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "nutzbare Laufbreite",
+          "symbol": "b_L",
+          "latex": "b_{\\mathrm{L}}",
+          "wert": 900,
+          "einheit": "mm",
+          "quelle": "Eingabe (Kommandozeile B5)",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "900 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Fertigungsraster Auftritt",
+          "symbol": "r_a",
+          "latex": "r_{\\mathrm{a}}",
+          "wert": 5,
+          "einheit": "mm",
+          "quelle": "Annahme B5: übliches Raster im Treppenbau",
+          "art": "annahme",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "5 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Steigung min.",
+          "symbol": "s_min",
+          "latex": "s_{\\mathrm{min}}",
+          "wert": 140,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "140 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Steigung max.",
+          "symbol": "s_max",
+          "latex": "s_{\\mathrm{max}}",
+          "wert": 200,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "200 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Auftritt min.",
+          "symbol": "a_min",
+          "latex": "a_{\\mathrm{min}}",
+          "wert": 230,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "230 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Auftritt max.",
+          "symbol": "a_max",
+          "latex": "a_{\\mathrm{max}}",
+          "wert": 370,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "370 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Schrittmaß min.",
+          "symbol": "S_min",
+          "latex": "S_{\\mathrm{min}}",
+          "wert": 590,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "590 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Schrittmaß max.",
+          "symbol": "S_max",
+          "latex": "S_{\\mathrm{max}}",
+          "wert": 650,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "650 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Laufbreite min.",
+          "symbol": "b_min",
+          "latex": "b_{\\mathrm{min}}",
+          "wert": 800,
+          "einheit": "mm",
+          "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "800 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Zielwert Schrittmaß",
+          "symbol": "S_Z",
+          "latex": "S_{\\mathrm{Z}}",
+          "wert": 630,
+          "einheit": "mm",
+          "quelle": "Vorgabe der Aufgabe (Rangfolge, keine Normanforderung)",
+          "art": "annahme",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "630 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "kleinste Steigungszahl",
+          "ausdruck": "ceil(h_G/s_max)",
+          "formel_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{max}}} \\right\\rceil",
+          "einsetzen_latex": "n_{\\mathrm{min}} = \\left\\lceil \\frac{2900\\ \\mathrm{mm}}{200\\ \\mathrm{mm}} \\right\\rceil = 15{,}000",
+          "eingaben": [
+            "h_G",
+            "s_max"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "n min",
+            "symbol": "n_min",
+            "latex": "n_{\\mathrm{min}}",
+            "wert": 15.0,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "15",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "größte Steigungszahl",
+          "ausdruck": "floor(h_G/s_min)",
+          "formel_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{h_{\\mathrm{G}}}{s_{\\mathrm{min}}} \\right\\rfloor",
+          "einsetzen_latex": "n_{\\mathrm{max}} = \\left\\lfloor \\frac{2900\\ \\mathrm{mm}}{140\\ \\mathrm{mm}} \\right\\rfloor = 20{,}000",
+          "eingaben": [
+            "h_G",
+            "s_min"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "n max",
+            "symbol": "n_max",
+            "latex": "n_{\\mathrm{max}}",
+            "wert": 20.0,
+            "einheit": "1",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "20",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 3,
+          "beschreibung": "zulässige Lösungen im Suchraum",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "vollständige Aufzählung n = n_min … n_max, a im Raster 5 mm, Filter nach allen Grenzwerten (exakte Arithmetik mit fractions.Fraction)",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Anzahl Lösungen",
+            "symbol": "N_L",
+            "latex": "N_{\\mathrm{L}}",
+            "wert": 68,
+            "einheit": "1",
+            "quelle": "b5_treppe_din18065.loese",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "68",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 4,
+          "beschreibung": "gewählte Steigungszahl",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "lexikografische Rangfolge: |2s+a−630| (Toleranz ≤ halbe Rasterweite), |a−s−120|, |a+s−460|, Lauflänge",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Steigungen",
+            "symbol": "n",
+            "latex": "n",
+            "wert": 17,
+            "einheit": "1",
+            "quelle": "b5_treppe_din18065.loese, Rang 1",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "17",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 5,
+          "beschreibung": "gewählter Auftritt",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "wie vor",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Auftritt",
+            "symbol": "a",
+            "latex": "a",
+            "wert": 290,
+            "einheit": "mm",
+            "quelle": "b5_treppe_din18065.loese, Rang 1",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "290 mm",
+            "rundung": null,
+            "dimension": "[length]"
+          }
+        },
+        {
+          "nr": 6,
+          "beschreibung": "Steigung (alle gleich)",
+          "ausdruck": "h_G/n",
+          "formel_latex": "s = \\frac{h_{\\mathrm{G}}}{n}",
+          "einsetzen_latex": "s = \\frac{2900\\ \\mathrm{mm}}{17} = 170{,}59\\ \\mathrm{mm}",
+          "eingaben": [
+            "h_G",
+            "n"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Steigung",
+            "symbol": "s",
+            "latex": "s",
+            "wert": 170.58823529411765,
+            "einheit": "mm",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "170,6 mm",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 1,
+              "verfahren": "halb_auf",
+              "quelle": "",
+              "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
+            },
+            "dimension": "[length]"
+          }
+        },
+        {
+          "nr": 7,
+          "beschreibung": "Schrittmaß",
+          "ausdruck": "2*s + a",
+          "formel_latex": "S = 2 \\cdot s + a",
+          "einsetzen_latex": "S = 2 \\cdot 170{,}59\\ \\mathrm{mm} + 290\\ \\mathrm{mm} = 631{,}18\\ \\mathrm{mm}",
+          "eingaben": [
+            "a",
+            "s"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Schrittmaßregel 2s + a",
+          "ergebnis": {
+            "name": "Schrittmaß",
+            "symbol": "S",
+            "latex": "S",
+            "wert": 631.1764705882354,
+            "einheit": "mm",
+            "quelle": "",
+            "art": "ergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "631,2 mm",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 1,
+              "verfahren": "halb_auf",
+              "quelle": "",
+              "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
+            },
+            "dimension": "[length]"
+          }
+        },
+        {
+          "nr": 8,
+          "beschreibung": "Lauflänge (n − 1 Auftritte)",
+          "ausdruck": "(n - 1)*a",
+          "formel_latex": "l_{\\mathrm{L}} = \\left(n - 1\\right) \\cdot a",
+          "einsetzen_latex": "l_{\\mathrm{L}} = \\left(17 - 1\\right) \\cdot 290\\ \\mathrm{mm} = 4640{,}0\\ \\mathrm{mm}",
+          "eingaben": [
+            "a",
+            "n"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Lauflänge",
+            "symbol": "l_L",
+            "latex": "l_{\\mathrm{L}}",
+            "wert": 4640.0,
+            "einheit": "mm",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "4640 mm",
+            "rundung": null,
+            "dimension": "[length]"
+          }
+        },
+        {
+          "nr": 9,
+          "beschreibung": "Abweichung vom Zielschrittmaß",
+          "ausdruck": "abs(S - S_Z)",
+          "formel_latex": "\\mathrm{dS} = \\left|S - S_{\\mathrm{Z}}\\right|",
+          "einsetzen_latex": "\\mathrm{dS} = \\left|631{,}18\\ \\mathrm{mm} - 630\\ \\mathrm{mm}\\right| = 1{,}1765\\ \\mathrm{mm}",
+          "eingaben": [
+            "S",
+            "S_Z"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Abweichung Ziel",
+            "symbol": "dS",
+            "latex": "\\mathrm{dS}",
+            "wert": 1.176470588235361,
+            "einheit": "mm",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1,2 mm",
+            "rundung": {
+              "art": "dezimalstellen",
+              "stellen": 1,
+              "verfahren": "halb_auf",
+              "quelle": "",
+              "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
+            },
+            "dimension": "[length]"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Steigung ≥ min.",
+          "ist": "s",
+          "vergleich": "≥",
+          "grenzwert": "s_min",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 170.58823529411765,
+          "grenz_wert": 140.0,
+          "einheit": "mm",
+          "ausnutzung": 0.8206896551724138,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Steigung ≤ max.",
+          "ist": "s",
+          "vergleich": "≤",
+          "grenzwert": "s_max",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 170.58823529411765,
+          "grenz_wert": 200.0,
+          "einheit": "mm",
+          "ausnutzung": 0.8529411764705883,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Auftritt ≥ min.",
+          "ist": "a",
+          "vergleich": "≥",
+          "grenzwert": "a_min",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 290.0,
+          "grenz_wert": 230.0,
+          "einheit": "mm",
+          "ausnutzung": 0.7931034482758621,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Auftritt ≤ max.",
+          "ist": "a",
+          "vergleich": "≤",
+          "grenzwert": "a_max",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 290.0,
+          "grenz_wert": 370.0,
+          "einheit": "mm",
+          "ausnutzung": 0.7837837837837838,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Schrittmaß ≥ min.",
+          "ist": "S",
+          "vergleich": "≥",
+          "grenzwert": "S_min",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 631.1764705882354,
+          "grenz_wert": 590.0,
+          "einheit": "mm",
+          "ausnutzung": 0.9347623485554519,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Schrittmaß ≤ max.",
+          "ist": "S",
+          "vergleich": "≤",
+          "grenzwert": "S_max",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 631.1764705882354,
+          "grenz_wert": 650.0,
+          "einheit": "mm",
+          "ausnutzung": 0.9710407239819006,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Laufbreite ≥ min.",
+          "ist": "b_L",
+          "vergleich": "≥",
+          "grenzwert": "b_min",
+          "norm_verweis": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02)",
+          "toleranz": 0.0,
+          "ist_wert": 900.0,
+          "grenz_wert": 800.0,
+          "einheit": "mm",
+          "ausnutzung": 0.8888888888888888,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Schrittmaß",
+        "symbol": "S",
+        "latex": "S",
+        "wert": 631.1764705882354,
+        "einheit": "mm",
+        "quelle": "",
+        "art": "ergebnis",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "631,2 mm",
+        "rundung": {
+          "art": "dezimalstellen",
+          "stellen": 1,
+          "verfahren": "halb_auf",
+          "quelle": "",
+          "text": "1 Dezimalstelle, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02"
+        },
+        "dimension": "[length]"
+      },
+      "grenzwert": {
+        "name": "Schrittmaß max.",
+        "symbol": "S_max",
+        "latex": "S_{\\mathrm{max}}",
+        "wert": 650,
+        "einheit": "mm",
+        "quelle": "DIN 18065:2020-08, Grenzwerte für Wohngebäude mit höchstens zwei Wohnungen (nach Recherche 02); b5_treppe_din18065.GRENZEN",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "650 mm",
+        "rundung": null,
+        "dimension": "[length]"
+      },
+      "vergleich": "≤",
+      "ausnutzung": 0.9710407239819006,
+      "status": "erfüllt",
+      "annahmen": [
+        "Nur gerade einläufige Treppe; Kopfhöhe, Podeste, Wendelung und Maßtoleranzen sind nicht geprüft.",
+        "Bequemlichkeits- und Sicherheitsregel sind Faustregeln und dienen nur der Rangfolge.",
+        "Fertigungsraster Auftritt (r_a) = 5 mm: Annahme B5: übliches Raster im Treppenbau",
+        "Zielwert Schrittmaß (S_Z) = 630 mm: Vorgabe der Aufgabe (Rangfolge, keine Normanforderung)"
+      ],
+      "hinweise": [
+        "Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis."
+      ],
+      "unsicherheit": null,
+      "gegenrechnungen": [
+        {
+          "symbol": "s",
+          "rechenkern": "b5_treppe_din18065.loese → s_mm (2 Dez.)",
+          "wert_rechenkern": 170.59,
+          "toleranz_abs": 0.005,
+          "wert_nachweis": 170.58823529411765,
+          "abweichung": 0.0017647058823513362,
+          "uebereinstimmung": true
+        },
+        {
+          "symbol": "S",
+          "rechenkern": "b5_treppe_din18065.loese → schrittmass_mm (2 Dez.)",
+          "wert_rechenkern": 631.18,
+          "toleranz_abs": 0.005,
+          "wert_nachweis": 631.1764705882354,
+          "abweichung": 0.0035294117645889855,
+          "uebereinstimmung": true
+        },
+        {
+          "symbol": "l_L",
+          "rechenkern": "b5_treppe_din18065.loese → lauflaenge_mm",
+          "wert_rechenkern": 4640,
+          "toleranz_abs": 1e-09,
+          "wert_nachweis": 4640.0,
+          "abweichung": 0.0,
+          "uebereinstimmung": true
+        },
+        {
+          "symbol": "N_L",
+          "rechenkern": "ergebnisse.md: 68 Lösungen",
+          "wert_rechenkern": 68,
+          "toleranz_abs": 0.0,
+          "wert_nachweis": 68,
+          "abweichung": 0,
+          "uebereinstimmung": true
+        }
+      ],
+      "grafiken": [
+        {
+          "id": "schrittmass",
+          "titel": "Schrittmaß-Diagramm: alle zulässigen Lösungen",
+          "art": "diagramm",
+          "beschreibung": "Jede Spalte gehört zu einer Steigungszahl n (s = h/n); innerhalb der Spalte variiert a im Raster.",
+          "massstab": null,
+          "sha256": "78ffba7e7705bc223cf2a869f21ae68c97cd5b43dd8686b645761c16be3ff9de",
+          "svg": "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"470.918516pt\" height=\"300.935141pt\" viewBox=\"0 0 470.918516 300.935141\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n <metadata>\n  <rdf:RDF xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n   <cc:Work>\n    <dc:type rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\"/>\n    <dc:format>image/svg+xml</dc:format>\n   </cc:Work>\n  </rdf:RDF>\n </metadata>\n <defs>\n  <style type=\"text/css\">*{stroke-linejoin: round; stroke-linecap: butt}</style>\n </defs>\n <g id=\"figure_1\">\n  <g id=\"patch_1\">\n   <path d=\"M 0 300.935141 \nL 470.918516 300.935141 \nL 470.918516 0 \nL 0 0 \nz\n\" style=\"fill: #ffffff\"/>\n  </g>\n  <g id=\"axes_1\">\n   <g id=\"patch_2\">\n    <path d=\"M 44.379453 264.734437 \nL 401.499453 264.734437 \nL 401.499453 20.798437 \nL 44.379453 20.798437 \nz\n\" style=\"fill: #ffffff\"/>\n   </g>\n   <g id=\"patch_3\">\n    <path d=\"M 385.266726 253.646437 \nL 277.048544 253.646437 \nL 60.61218 126.926437 \nL 60.61218 31.886437 \nL 385.266726 221.966437 \nz\n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: #e8f4e8; stroke: #0ca30c; stroke-linejoin: miter\"/>\n   </g>\n   <g id=\"line2d_1\">\n    <path d=\"M 60.61218 63.566438 \nL 385.266726 253.646437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #52514e\"/>\n   </g>\n   <g id=\"matplotlib.axis_1\">\n    <g id=\"xtick_1\">\n     <g id=\"line2d_2\">\n      <path d=\"M 60.61218 264.734437 \nL 60.61218 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_3\">\n      <defs>\n       <path id=\"m5ecce93918\" d=\"M 0 0 \nL 0 3.5 \n\" style=\"stroke: #52514e; stroke-width: 0.8\"/>\n      </defs>\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"60.61218\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_1\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"60.61218\" y=\"278.572328\" transform=\"rotate(-0 60.61218 278.572328)\">140</text>\n     </g>\n    </g>\n    <g id=\"xtick_2\">\n     <g id=\"line2d_4\">\n      <path d=\"M 114.721271 264.734437 \nL 114.721271 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_5\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"114.721271\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_2\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"114.721271\" y=\"278.572328\" transform=\"rotate(-0 114.721271 278.572328)\">150</text>\n     </g>\n    </g>\n    <g id=\"xtick_3\">\n     <g id=\"line2d_6\">\n      <path d=\"M 168.830362 264.734437 \nL 168.830362 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_7\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"168.830362\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_3\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"168.830362\" y=\"278.572328\" transform=\"rotate(-0 168.830362 278.572328)\">160</text>\n     </g>\n    </g>\n    <g id=\"xtick_4\">\n     <g id=\"line2d_8\">\n      <path d=\"M 222.939453 264.734437 \nL 222.939453 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_9\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"222.939453\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_4\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"222.939453\" y=\"278.572328\" transform=\"rotate(-0 222.939453 278.572328)\">170</text>\n     </g>\n    </g>\n    <g id=\"xtick_5\">\n     <g id=\"line2d_10\">\n      <path d=\"M 277.048544 264.734437 \nL 277.048544 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_11\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"277.048544\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_5\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"277.048544\" y=\"278.572328\" transform=\"rotate(-0 277.048544 278.572328)\">180</text>\n     </g>\n    </g>\n    <g id=\"xtick_6\">\n     <g id=\"line2d_12\">\n      <path d=\"M 331.157635 264.734437 \nL 331.157635 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_13\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"331.157635\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_6\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"331.157635\" y=\"278.572328\" transform=\"rotate(-0 331.157635 278.572328)\">190</text>\n     </g>\n    </g>\n    <g id=\"xtick_7\">\n     <g id=\"line2d_14\">\n      <path d=\"M 385.266726 264.734437 \nL 385.266726 20.798437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_15\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"385.266726\" y=\"264.734437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_7\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"385.266726\" y=\"278.572328\" transform=\"rotate(-0 385.266726 278.572328)\">200</text>\n     </g>\n    </g>\n    <g id=\"text_8\">\n     <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"222.939453\" y=\"291.573031\" transform=\"rotate(-0 222.939453 291.573031)\">Steigung s in mm</text>\n    </g>\n   </g>\n   <g id=\"matplotlib.axis_2\">\n    <g id=\"ytick_1\">\n     <g id=\"line2d_16\">\n      <path d=\"M 44.379453 237.806437 \nL 401.499453 237.806437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_17\">\n      <defs>\n       <path id=\"m8cbefe311c\" d=\"M 0 0 \nL -3.5 0 \n\" style=\"stroke: #52514e; stroke-width: 0.8\"/>\n      </defs>\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"237.806437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_9\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"241.225383\" transform=\"rotate(-0 37.379453 241.225383)\">240</text>\n     </g>\n    </g>\n    <g id=\"ytick_2\">\n     <g id=\"line2d_18\">\n      <path d=\"M 44.379453 206.126437 \nL 401.499453 206.126437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_19\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"206.126437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_10\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"209.545383\" transform=\"rotate(-0 37.379453 209.545383)\">260</text>\n     </g>\n    </g>\n    <g id=\"ytick_3\">\n     <g id=\"line2d_20\">\n      <path d=\"M 44.379453 174.446437 \nL 401.499453 174.446437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_21\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"174.446437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_11\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"177.865383\" transform=\"rotate(-0 37.379453 177.865383)\">280</text>\n     </g>\n    </g>\n    <g id=\"ytick_4\">\n     <g id=\"line2d_22\">\n      <path d=\"M 44.379453 142.766437 \nL 401.499453 142.766437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_23\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"142.766437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_12\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"146.185383\" transform=\"rotate(-0 37.379453 146.185383)\">300</text>\n     </g>\n    </g>\n    <g id=\"ytick_5\">\n     <g id=\"line2d_24\">\n      <path d=\"M 44.379453 111.086437 \nL 401.499453 111.086437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_25\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"111.086437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_13\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"114.505383\" transform=\"rotate(-0 37.379453 114.505383)\">320</text>\n     </g>\n    </g>\n    <g id=\"ytick_6\">\n     <g id=\"line2d_26\">\n      <path d=\"M 44.379453 79.406437 \nL 401.499453 79.406437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_27\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"79.406437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_14\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"82.825383\" transform=\"rotate(-0 37.379453 82.825383)\">340</text>\n     </g>\n    </g>\n    <g id=\"ytick_7\">\n     <g id=\"line2d_28\">\n      <path d=\"M 44.379453 47.726437 \nL 401.499453 47.726437 \n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_29\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"44.379453\" y=\"47.726437\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_15\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"37.379453\" y=\"51.145383\" transform=\"rotate(-0 37.379453 51.145383)\">360</text>\n     </g>\n    </g>\n    <g id=\"text_16\">\n     <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"14.038594\" y=\"142.766437\" transform=\"rotate(-90 14.038594 142.766437)\">Auftritt a in mm</text>\n    </g>\n   </g>\n   <g id=\"patch_4\">\n    <path d=\"M 44.379453 264.734437 \nL 44.379453 20.798437 \n\" style=\"fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square\"/>\n   </g>\n   <g id=\"patch_5\">\n    <path d=\"M 44.379453 264.734437 \nL 401.499453 264.734437 \n\" style=\"fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square\"/>\n   </g>\n   <g id=\"PathCollection_1\">\n    <defs>\n     <path id=\"m33ebbe91d2\" d=\"M 0 2 \nC 0.530406 2 1.03916 1.789267 1.414214 1.414214 \nC 1.789267 1.03916 2 0.530406 2 0 \nC 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 \nC 1.03916 -1.789267 0.530406 -2 0 -2 \nC -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 \nC -1.789267 -1.03916 -2 -0.530406 -2 0 \nC -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 \nC -1.03916 1.789267 -0.530406 2 0 2 \nz\n\" style=\"stroke: #ffffff; stroke-width: 0.5\"/>\n    </defs>\n    <g clip-path=\"url(#pcf3638dff6)\">\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"158.606437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"126.926437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"190.286437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"198.206437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"103.166437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"229.886437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"79.406437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"134.846437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"237.806437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"166.526437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"111.086437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"87.326437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"71.486437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"95.246437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"150.686437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"221.966437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"119.006437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"182.366437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"206.126437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"142.766437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"245.726437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"174.446437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"119.006437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"95.246437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"63.566438\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"87.326437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"142.766437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"214.046437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"111.086437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"174.446437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"214.046437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"150.686437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"253.646437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"182.366437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"126.926437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"103.166437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"55.646437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"79.406437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"134.846437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"349.175962\" y=\"206.126437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"103.166437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"166.526437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"221.966437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"158.606437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"190.286437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"134.846437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"111.086437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"47.726437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"229.886437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"166.526437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"198.206437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"142.766437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"119.006437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"237.806437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"174.446437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"206.126437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"150.686437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"126.926437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"245.726437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"182.366437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"214.046437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"158.606437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"134.846437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"283.81218\" y=\"253.646437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"174.836471\" y=\"190.286437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"226.131889\" y=\"221.966437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"128.951962\" y=\"166.526437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     <use xlink:href=\"#m33ebbe91d2\" x=\"87.666726\" y=\"142.766437\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n    </g>\n   </g>\n   <g id=\"text_17\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"349.193999\" y=\"197.98868\" transform=\"rotate(-0 349.193999 197.98868)\">n=15</text>\n   </g>\n   <g id=\"text_18\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"283.81218\" y=\"158.38868\" transform=\"rotate(-0 283.81218 158.38868)\">n=16</text>\n   </g>\n   <g id=\"text_19\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"226.122341\" y=\"126.70868\" transform=\"rotate(-0 226.122341 126.70868)\">n=17</text>\n   </g>\n   <g id=\"text_20\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"174.842483\" y=\"95.02868\" transform=\"rotate(-0 174.842483 95.02868)\">n=18</text>\n   </g>\n   <g id=\"text_21\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"128.960506\" y=\"71.26868\" transform=\"rotate(-0 128.960506 71.26868)\">n=19</text>\n   </g>\n   <g id=\"text_22\">\n    <text style=\"font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"87.666726\" y=\"39.58868\" transform=\"rotate(-0 87.666726 39.58868)\">n=20</text>\n   </g>\n   <g id=\"text_23\">\n    <text style=\"font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"44.379453\" y=\"14.798437\" transform=\"rotate(-0 44.379453 14.798437)\">Zulässiger Bereich nach DIN 18065 (WG ≤ 2 WE) und 68 Lösungen im 5-mm-Raster</text>\n   </g>\n   <g id=\"PathCollection_2\">\n    <path d=\"M 226.131889 163.850482 \nC 227.522626 163.850482 228.856589 163.297936 229.839989 162.314537 \nC 230.823388 161.331137 231.375934 159.997174 231.375934 158.606437 \nC 231.375934 157.215701 230.823388 155.881738 229.839989 154.898338 \nC 228.856589 153.914939 227.522626 153.362393 226.131889 153.362393 \nC 224.741153 153.362393 223.40719 153.914939 222.42379 154.898338 \nC 221.440391 155.881738 220.887845 157.215701 220.887845 158.606437 \nC 220.887845 159.997174 221.440391 161.331137 222.42379 162.314537 \nC 223.40719 163.297936 224.741153 163.850482 226.131889 163.850482 \nL 226.131889 163.850482 \nz\n\" clip-path=\"url(#pcf3638dff6)\" style=\"fill: none; stroke: #0b0b0b; stroke-width: 1.6\"/>\n   </g>\n   <g id=\"legend_1\">\n    <g id=\"patch_6\">\n     <path d=\"M 137.541484 32.417344 \nL 151.541484 32.417344 \nL 151.541484 27.517344 \nL 137.541484 27.517344 \nz\n\" style=\"fill: #e8f4e8; stroke: #0ca30c; stroke-linejoin: miter\"/>\n    </g>\n    <g id=\"text_24\">\n     <text style=\"font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start\" x=\"157.141484\" y=\"32.417344\" transform=\"rotate(-0 157.141484 32.417344)\">zulässiger Bereich</text>\n    </g>\n    <g id=\"line2d_30\">\n     <path d=\"M 137.541484 40.467891 \nL 144.541484 40.467891 \nL 151.541484 40.467891 \n\" style=\"fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #52514e\"/>\n    </g>\n    <g id=\"text_25\">\n     <text style=\"font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start\" x=\"157.141484\" y=\"42.917891\" transform=\"rotate(-0 157.141484 42.917891)\">Ziel 2s + a = 630 mm</text>\n    </g>\n    <g id=\"PathCollection_3\">\n     <g>\n      <use xlink:href=\"#m33ebbe91d2\" x=\"255.600859\" y=\"30.579844\" style=\"fill: #2a78d6; stroke: #ffffff; stroke-width: 0.5\"/>\n     </g>\n    </g>\n    <g id=\"text_26\">\n     <text style=\"font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start\" x=\"268.200859\" y=\"32.417344\" transform=\"rotate(-0 268.200859 32.417344)\">zulässige Lösung (68)</text>\n    </g>\n    <g id=\"PathCollection_4\">\n     <path d=\"M 255.600859 46.324435 \nC 256.991596 46.324435 258.325559 45.771889 259.308959 44.78849 \nC 260.292358 43.80509 260.844904 42.471127 260.844904 41.080391 \nC 260.844904 39.689654 260.292358 38.355691 259.308959 37.372291 \nC 258.325559 36.388892 256.991596 35.836346 255.600859 35.836346 \nC 254.210123 35.836346 252.87616 36.388892 251.89276 37.372291 \nC 250.909361 38.355691 250.356815 39.689654 250.356815 41.080391 \nC 250.356815 42.471127 250.909361 43.80509 251.89276 44.78849 \nC 252.87616 45.771889 254.210123 46.324435 255.600859 46.324435 \nL 255.600859 46.324435 \nz\n\" style=\"fill: none; stroke: #0b0b0b; stroke-width: 1.6\"/>\n    </g>\n    <g id=\"text_27\">\n     <text style=\"font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start\" x=\"268.200859\" y=\"42.917891\" transform=\"rotate(-0 268.200859 42.917891)\">gewählt: n = 17, s = 170,6, a = 290</text>\n    </g>\n   </g>\n  </g>\n </g>\n <defs>\n  <clipPath id=\"pcf3638dff6\">\n   <rect x=\"44.379453\" y=\"20.798437\" width=\"357.12\" height=\"243.936\"/>\n  </clipPath>\n </defs>\n</svg>\n"
+        },
+        {
+          "id": "schnitt",
+          "titel": "Treppenschnitt der gewählten Lösung (17 Steigungen)",
+          "art": "schnitt",
+          "beschreibung": "Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.",
+          "massstab": "1:50",
+          "sha256": "e60bbe9795abea768b380fcfba9e9fa715e2219ed029cbb59b94d64323eb3578",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"140.8mm\" height=\"102mm\" viewBox=\"0 0 140.8 102\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"Treppenschnitt\">\n<title>Treppenschnitt</title>\n<rect width=\"140.8\" height=\"102\" fill=\"#ffffff\"/>\n<defs><pattern id=\"m-holz\" patternUnits=\"userSpaceOnUse\" width=\"2\" height=\"2\" patternTransform=\"rotate(45)\"><rect width=\"2\" height=\"2\" fill=\"#f3e3c7\"/><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"2\" stroke=\"#8d6e63\" stroke-width=\"0.25\"/></pattern></defs>\n<polygon points=\"14,75 22,75 22,71.59 27.8,71.59 27.8,68.18 33.6,68.18 33.6,64.76 39.4,64.76 39.4,61.35 45.2,61.35 45.2,57.94 51,57.94 51,54.53 56.8,54.53 56.8,51.12 62.6,51.12 62.6,47.71 68.4,47.71 68.4,44.29 74.2,44.29 74.2,40.88 80,40.88 80,37.47 85.8,37.47 85.8,34.06 91.6,34.06 91.6,30.65 97.4,30.65 97.4,27.24 103.2,27.24 103.2,23.82 109,23.82 109,20.41 114.8,20.41 114.8,17 126.8,17 126.8,18.2 114.8,18.2 22,76.2 14,76.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"><title>Stufenprofil (schematisch)</title></polygon>\n<line x1=\"14\" y1=\"75\" x2=\"126.8\" y2=\"75\" stroke=\"#898781\" stroke-width=\"0.18\" stroke-dasharray=\"3 1.5\"/>\n<line x1=\"14\" y1=\"17\" x2=\"126.8\" y2=\"17\" stroke=\"#898781\" stroke-width=\"0.18\" stroke-dasharray=\"3 1.5\"/>\n<text x=\"14.4\" y=\"74.4\" font-size=\"2.2\" text-anchor=\"start\" fill=\"#0b0b0b\">OKFF unten ±0,00</text>\n<text x=\"126.4\" y=\"16.4\" font-size=\"2.2\" text-anchor=\"end\" fill=\"#0b0b0b\">OKFF oben +2,90</text>\n<line x1=\"127.8\" y1=\"75\" x2=\"136.3\" y2=\"75\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"127.8\" y1=\"17\" x2=\"136.3\" y2=\"17\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"134.8\" y1=\"76.5\" x2=\"134.8\" y2=\"15.5\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"135.9\" y1=\"76.1\" x2=\"133.7\" y2=\"73.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"135.9\" y1=\"18.1\" x2=\"133.7\" y2=\"15.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"135.6\" y=\"46\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\" transform=\"rotate(90 135.6 46)\">17 × 170,6 = 2900</text>\n<line x1=\"22\" y1=\"76\" x2=\"22\" y2=\"84.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"114.8\" y1=\"76\" x2=\"114.8\" y2=\"84.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"20.5\" y1=\"83\" x2=\"116.3\" y2=\"83\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"20.9\" y1=\"84.1\" x2=\"23.1\" y2=\"81.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"113.7\" y1=\"84.1\" x2=\"115.9\" y2=\"81.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"68.4\" y=\"82.2\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">16 × 290 = 4640</text>\n<line x1=\"62.6\" y1=\"46.71\" x2=\"62.6\" y2=\"42.21\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"68.4\" y1=\"46.71\" x2=\"68.4\" y2=\"42.21\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"61.1\" y1=\"43.71\" x2=\"69.9\" y2=\"43.71\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"61.5\" y1=\"44.81\" x2=\"63.7\" y2=\"42.61\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"67.3\" y1=\"44.81\" x2=\"69.5\" y2=\"42.61\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"65.5\" y=\"42.91\" font-size=\"2\" text-anchor=\"middle\" fill=\"#0b0b0b\">a = 290</text>\n<line x1=\"67.4\" y1=\"47.71\" x2=\"62.9\" y2=\"47.71\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"67.4\" y1=\"44.29\" x2=\"62.9\" y2=\"44.29\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"64.4\" y1=\"49.21\" x2=\"64.4\" y2=\"42.79\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"65.5\" y1=\"48.81\" x2=\"63.3\" y2=\"46.61\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"65.5\" y1=\"45.39\" x2=\"63.3\" y2=\"43.19\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"65.2\" y=\"46\" font-size=\"2\" text-anchor=\"middle\" fill=\"#0b0b0b\" transform=\"rotate(90 65.2 46)\">s = 170,6</text>\n<rect x=\"14\" y=\"94\" width=\"20\" height=\"1.5\" fill=\"#0b0b0b\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<text x=\"14\" y=\"98.5\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">0</text>\n<rect x=\"34\" y=\"94\" width=\"20\" height=\"1.5\" fill=\"#ffffff\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<text x=\"34\" y=\"98.5\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">1</text>\n<text x=\"54\" y=\"98.5\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">2</text>\n<text x=\"57\" y=\"95.5\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">m   M 1:50   Maße in mm</text>\n<rect x=\"62.8\" y=\"78\" width=\"64\" height=\"20\" fill=\"#ffffff\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"64.8\" y=\"82.5\" font-size=\"3\" text-anchor=\"start\" fill=\"#0b0b0b\" font-weight=\"bold\">Treppe EG–OG (Beispiel)</text>\n<text x=\"64.8\" y=\"87\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">17 STG 170,6/290</text>\n<text x=\"64.8\" y=\"91.5\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">2s + a = 631,2 mm</text>\n<text x=\"64.8\" y=\"96\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">M 1:50, Nachweis N-B5-01</text>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "7dc41095ed4385399614491cdb7cfa8796f2222823fe6e3ca23ca0910e143085",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    }
+  ],
+  "umgebung": {
+    "nachweis_modul": "1.0.0",
+    "schema_version": "1.0",
+    "python": "3.11.15",
+    "einheiten_backend": "pint",
+    "grafik_backend": "matplotlib",
+    "pakete": {
+      "numpy": "2.4.6",
+      "pint": "0.25.3",
+      "matplotlib": "3.11.2",
+      "shapely": "2.1.2",
+      "ifcopenshell": "0.8.5",
+      "ifctester": "0.8.5"
+    }
+  },
+  "zeitstempel": null,
+  "hash": {
+    "algorithmus": "SHA-256",
+    "wert": "862596797a7df4beb4e51fb57d0bfba326dd9844e2e8fd4832d9bb93c9e36e0e",
+    "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
+  }
+}

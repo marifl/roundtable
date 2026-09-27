@@ -1,0 +1,1383 @@
+{
+  "art": "nachweisheft",
+  "schema_version": "1.0",
+  "titel": "Nachweisheft B1 – Mengen und Massen Wandelement AW-01",
+  "projekt": {
+    "Projekt": "Beispielhaus Holzrahmenbau",
+    "Gebäude": "Einfamilienhaus (fiktiv)",
+    "Geschoss": "EG",
+    "Parametermodell": "daten/wandelement.json (SHA-256 dcdbed63cc3d9ae5…)",
+    "Grundstück": "daten/grundstueck.json (SHA-256 a60954d2a172493d…)",
+    "Rechtsstand der Beispiele": "27.09.2026",
+    "Hinweis": "Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis."
+  },
+  "verfasser": "Entwurfsgenerator (Beispiel), ohne Prüfvermerk",
+  "vorbemerkung": "",
+  "regelwerk_profile": [
+    {
+      "name": "HRB-Mengen",
+      "version": "0.1.0"
+    }
+  ],
+  "regelquellen": [
+    {
+      "quelle": "Projektregel Mengenermittlung (eigene Festlegung)",
+      "fassung": "2026-09",
+      "verifikation": "[V]"
+    }
+  ],
+  "zusammenfassung": {
+    "erfüllt": 1,
+    "nicht erfüllt": 0,
+    "Hinweis": 0
+  },
+  "status": "erfüllt",
+  "inhalt": [
+    {
+      "id": "N-B1-01",
+      "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
+      "status": "erfüllt",
+      "ausnutzung": 4.440892098500626e-08,
+      "hash": "ecee11751c40ed0a76742a268dcd598611875e620b19ddab26078cf76602614f",
+      "gegenstand": "0gsiGQj_bG3wx8M0qwRA0U"
+    }
+  ],
+  "nachweise": [
+    {
+      "art": "nachweis",
+      "schema_version": "1.0",
+      "id": "N-B1-01",
+      "titel": "Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1)",
+      "gegenstand": {
+        "bezeichnung": "Wandelement AW-01 mit 18 Hölzern",
+        "ifc_guid": "0gsiGQj_bG3wx8M0qwRA0U",
+        "ifc_klasse": "IfcWall",
+        "ifc_datei": "wandelement.ifc (aus B1)",
+        "ifc_sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+        "weitere_guids": [
+          "3N9BxbmVjJqfMasIm6VCTu",
+          "1TymEnbXzHcunnMbwZo5Cm",
+          "0ruebnGhrPUPaN5fsim6Vf",
+          "26xC9QsMnO6BHuxmSviBaF",
+          "254V3I5NrHxx6g9J9WAbEp",
+          "3ZVVDbGwDO7x2vg7I4UXpp",
+          "3BO1mSw7HO89jMsBG9Jb7H",
+          "1Shh7ZI39PQgxArHuFCIxO",
+          "2rWYAdwuXR2upUkdv7j_IN",
+          "0AkqIXRtnLZxJbnMw9nqYO",
+          "18vNpgLaTOYgpLpdvN0aeA",
+          "02QVWAdt9VqxV8$c1qnuss",
+          "2D$QiiYtvNEfIXBRFteHwH",
+          "34BO68Wo1LCuqY8xgHmwWu",
+          "3AhW$EEQvKugecqAFgh9u9",
+          "2iTQbcNzXG0QrtGvQDByPB",
+          "3vUFGDn6DHcfHamn5gMQdo",
+          "0tHI18naLITuRuul3rI$7I"
+        ]
+      },
+      "regel": {
+        "text": "Mengen und Massen des vorgefertigten Wandelements aus dem Parametermodell ermitteln; die Mengen müssen mit den Mengenangaben (Qto) des IFC-Modells übereinstimmen.",
+        "quelle": "Projektregel Mengenermittlung (eigene Festlegung)",
+        "fassung": "2026-09",
+        "fundstelle": "vgl. Qto_MemberBaseQuantities, Qto_PlateBaseQuantities (IFC 4.3)",
+        "verifikation": "[V]",
+        "regelwerk_profil": {
+          "name": "HRB-Mengen",
+          "version": "0.1.0"
+        }
+      },
+      "eingaben": [
+        {
+          "name": "Wandlänge",
+          "symbol": "L",
+          "latex": "L",
+          "wert": 4800,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/laenge",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "4800 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Wandhöhe",
+          "symbol": "H",
+          "latex": "H",
+          "wert": 2750,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/hoehe",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "2750 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Fensterbreite (Rohbau)",
+          "symbol": "b_F",
+          "latex": "b_{\\mathrm{F}}",
+          "wert": 1260,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/oeffnungen/0/breite",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1260 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Fensterhöhe (Rohbau)",
+          "symbol": "h_F",
+          "latex": "h_{\\mathrm{F}}",
+          "wert": 1385,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/oeffnungen/0/hoehe",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "1385 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Holzquerschnittstiefe",
+          "symbol": "t_H",
+          "latex": "t_{\\mathrm{H}}",
+          "wert": 200,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/tiefe",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "200 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Kervenbreite (= Ständerbreite)",
+          "symbol": "b_K",
+          "latex": "b_{\\mathrm{K}}",
+          "wert": 60,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/staender/breite",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "60 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Kerventiefe",
+          "symbol": "t_K",
+          "latex": "t_{\\mathrm{K}}",
+          "wert": 25,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/kerven/0/tiefe",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "25 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Kervenhöhe",
+          "symbol": "h_K",
+          "latex": "h_{\\mathrm{K}}",
+          "wert": 40,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/kerven/0/hoehe",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "40 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Dicke GKF",
+          "symbol": "d_GKF",
+          "latex": "d_{\\mathrm{GKF}}",
+          "wert": 12.5,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json Schicht gkf",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "12,5 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Dicke OSB/3",
+          "symbol": "d_OSB",
+          "latex": "d_{\\mathrm{OSB}}",
+          "wert": 15,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json Schicht osb",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "15 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Dicke Gefach",
+          "symbol": "d_G",
+          "latex": "d_{\\mathrm{G}}",
+          "wert": 200,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json Schicht gefach",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "200 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Dicke Holzfaserdämmplatte",
+          "symbol": "d_HFD",
+          "latex": "d_{\\mathrm{HFD}}",
+          "wert": 60,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json Schicht hfd",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "60 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Schraubendurchmesser",
+          "symbol": "d_S",
+          "latex": "d_{\\mathrm{S}}",
+          "wert": 4.0,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/verbindungsmittel/0/durchmesser",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "4 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Schraubenlänge",
+          "symbol": "l_S",
+          "latex": "l_{\\mathrm{S}}",
+          "wert": 50,
+          "einheit": "mm",
+          "quelle": "daten/wandelement.json /wand/verbindungsmittel/0/laenge",
+          "art": "eingabe",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "50 mm",
+          "rundung": null,
+          "dimension": "[length]"
+        },
+        {
+          "name": "Rohdichte KVH C24 (Nadelholz)",
+          "symbol": "rho_kvh_c24",
+          "latex": "\\rho_{\\mathrm{kvh},\\mathrm{c24}}",
+          "wert": 420,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/kvh_c24/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+          "art": "annahme",
+          "unsicherheit": 42.0,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "420 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "Rohdichte Gipsplatte Typ DF (GKF)",
+          "symbol": "rho_gkf",
+          "latex": "\\rho_{\\mathrm{gkf}}",
+          "wert": 800,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/gkf/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 5 % angenommen",
+          "art": "annahme",
+          "unsicherheit": 40.0,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "800 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "Rohdichte OSB/3",
+          "symbol": "rho_osb3",
+          "latex": "\\rho_{\\mathrm{osb3}}",
+          "wert": 600,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/osb3/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+          "art": "annahme",
+          "unsicherheit": 60.0,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "600 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "Rohdichte Holzfaser-Dämmmatte (flexibel)",
+          "symbol": "rho_holzfaser_flex",
+          "latex": "\\rho_{\\mathrm{holzfaser},\\mathrm{flex}}",
+          "wert": 50,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen",
+          "art": "annahme",
+          "unsicherheit": 7.5,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "50 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "Rohdichte Holzfaserdämmplatte (Putzträger)",
+          "symbol": "rho_holzfaserplatte",
+          "latex": "\\rho_{\\mathrm{holzfaserplatte}}",
+          "wert": 180,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+          "art": "annahme",
+          "unsicherheit": 18.0,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "180 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "Rohdichte Stahl",
+          "symbol": "rho_St",
+          "latex": "\\rho_{\\mathrm{St}}",
+          "wert": 7850,
+          "einheit": "kg/m³",
+          "quelle": "daten/wandelement.json /materialien/stahl_verzinkt/rho",
+          "art": "annahme",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "7850 kg/m³",
+          "rundung": null,
+          "dimension": "[mass] / [length] ** 3"
+        },
+        {
+          "name": "zulässige Mengenabweichung Modell/IFC",
+          "symbol": "dV_zul",
+          "latex": "\\mathrm{dV}_{\\mathrm{zul}}",
+          "wert": 1e-08,
+          "einheit": "m³",
+          "quelle": "Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³",
+          "art": "grenzwert",
+          "unsicherheit": null,
+          "verteilung": "normal",
+          "bezug": null,
+          "anzeige": "0,00000001 m³",
+          "rundung": null,
+          "dimension": "[length] ** 3"
+        }
+      ],
+      "schritte": [
+        {
+          "nr": 1,
+          "beschreibung": "Bruttowandfläche",
+          "ausdruck": "L*H",
+          "formel_latex": "A_{\\mathrm{b}} = L \\cdot H",
+          "einsetzen_latex": "A_{\\mathrm{b}} = 4800\\ \\mathrm{mm} \\cdot 2750\\ \\mathrm{mm} = 13{,}200\\ \\mathrm{m^{2}}",
+          "eingaben": [
+            "L",
+            "H"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Bruttowandfläche",
+            "symbol": "A_b",
+            "latex": "A_{\\mathrm{b}}",
+            "wert": 13.2,
+            "einheit": "m²",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "13,2 m²",
+            "rundung": null,
+            "dimension": "[length] ** 2"
+          }
+        },
+        {
+          "nr": 2,
+          "beschreibung": "Öffnungsfläche Fenster F1",
+          "ausdruck": "b_F*h_F",
+          "formel_latex": "A_{\\mathrm{F}} = b_{\\mathrm{F}} \\cdot h_{\\mathrm{F}}",
+          "einsetzen_latex": "A_{\\mathrm{F}} = 1260\\ \\mathrm{mm} \\cdot 1385\\ \\mathrm{mm} = 1{,}7451\\ \\mathrm{m^{2}}",
+          "eingaben": [
+            "b_F",
+            "h_F"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Öffnungsfläche",
+            "symbol": "A_F",
+            "latex": "A_{\\mathrm{F}}",
+            "wert": 1.7450999999999999,
+            "einheit": "m²",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1,7450999999999999 m²",
+            "rundung": null,
+            "dimension": "[length] ** 2"
+          }
+        },
+        {
+          "nr": 3,
+          "beschreibung": "Nettowandfläche",
+          "ausdruck": "A_b - A_F",
+          "formel_latex": "A_{\\mathrm{n}} = A_{\\mathrm{b}} - A_{\\mathrm{F}}",
+          "einsetzen_latex": "A_{\\mathrm{n}} = 13{,}200\\ \\mathrm{m^{2}} - 1{,}7451\\ \\mathrm{m^{2}} = 11{,}455\\ \\mathrm{m^{2}}",
+          "eingaben": [
+            "A_b",
+            "A_F"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Nettowandfläche",
+            "symbol": "A_n",
+            "latex": "A_{\\mathrm{n}}",
+            "wert": 11.454899999999999,
+            "einheit": "m²",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "11,454899999999999 m²",
+            "rundung": null,
+            "dimension": "[length] ** 2"
+          }
+        },
+        {
+          "nr": 4,
+          "beschreibung": "Ansichtsfläche aller Hölzer",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "Summe der 18 achsparallelen Holzrechtecke aus b1_wandelement.rahmenlayout; Überlappungsfreiheit per shapely-Vereinigung geprüft (Differenz < 1e-6 mm²)",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Holzansichtsfläche",
+            "symbol": "A_H",
+            "latex": "A_{\\mathrm{H}}",
+            "wert": 2.5752,
+            "einheit": "m²",
+            "quelle": "b1_wandelement.rahmenlayout",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "2,5752 m²",
+            "rundung": null,
+            "dimension": "[length] ** 2"
+          }
+        },
+        {
+          "nr": 5,
+          "beschreibung": "Gefachfläche (Dämmung)",
+          "ausdruck": "A_n - A_H",
+          "formel_latex": "A_{\\mathrm{G}} = A_{\\mathrm{n}} - A_{\\mathrm{H}}",
+          "einsetzen_latex": "A_{\\mathrm{G}} = 11{,}455\\ \\mathrm{m^{2}} - 2{,}5752\\ \\mathrm{m^{2}} = 8{,}8797\\ \\mathrm{m^{2}}",
+          "eingaben": [
+            "A_n",
+            "A_H"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Gefachfläche",
+            "symbol": "A_G",
+            "latex": "A_{\\mathrm{G}}",
+            "wert": 8.879699999999998,
+            "einheit": "m²",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "8,879699999999998 m²",
+            "rundung": null,
+            "dimension": "[length] ** 2"
+          }
+        },
+        {
+          "nr": 6,
+          "beschreibung": "Volumen der Kerve K1",
+          "ausdruck": "b_K*t_K*h_K",
+          "formel_latex": "V_{\\mathrm{K}} = b_{\\mathrm{K}} \\cdot t_{\\mathrm{K}} \\cdot h_{\\mathrm{K}}",
+          "einsetzen_latex": "V_{\\mathrm{K}} = 60\\ \\mathrm{mm} \\cdot 25\\ \\mathrm{mm} \\cdot 40\\ \\mathrm{mm} = 0{,}000060000\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "h_K",
+            "b_K",
+            "t_K"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Kervenvolumen",
+            "symbol": "V_K",
+            "latex": "V_{\\mathrm{K}}",
+            "wert": 6e-05,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,00006 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 7,
+          "beschreibung": "Holzvolumen netto",
+          "ausdruck": "A_H*t_H - V_K",
+          "formel_latex": "V_{\\mathrm{H}} = A_{\\mathrm{H}} \\cdot t_{\\mathrm{H}} - V_{\\mathrm{K}}",
+          "einsetzen_latex": "V_{\\mathrm{H}} = 2{,}5752\\ \\mathrm{m^{2}} \\cdot 200\\ \\mathrm{mm} - 0{,}000060000\\ \\mathrm{m^{3}} = 0{,}51498\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "V_K",
+            "A_H",
+            "t_H"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Holzvolumen",
+            "symbol": "V_H",
+            "latex": "V_{\\mathrm{H}}",
+            "wert": 0.5149800000000001,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,5149800000000001 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 8,
+          "beschreibung": "Volumen GKF",
+          "ausdruck": "A_n*d_GKF",
+          "formel_latex": "V_{\\mathrm{GKF}} = A_{\\mathrm{n}} \\cdot d_{\\mathrm{GKF}}",
+          "einsetzen_latex": "V_{\\mathrm{GKF}} = 11{,}455\\ \\mathrm{m^{2}} \\cdot 12{,}5\\ \\mathrm{mm} = 0{,}14319\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "A_n",
+            "d_GKF"
+          ],
+          "verfahren": null,
+          "norm_verweis": "Platten decken A_n vollständig",
+          "ergebnis": {
+            "name": "Volumen GKF",
+            "symbol": "V_GKF",
+            "latex": "V_{\\mathrm{GKF}}",
+            "wert": 0.14318625,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,14318625 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 9,
+          "beschreibung": "Volumen OSB/3",
+          "ausdruck": "A_n*d_OSB",
+          "formel_latex": "V_{\\mathrm{OSB}} = A_{\\mathrm{n}} \\cdot d_{\\mathrm{OSB}}",
+          "einsetzen_latex": "V_{\\mathrm{OSB}} = 11{,}455\\ \\mathrm{m^{2}} \\cdot 15\\ \\mathrm{mm} = 0{,}17182\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "A_n",
+            "d_OSB"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Volumen OSB",
+            "symbol": "V_OSB",
+            "latex": "V_{\\mathrm{OSB}}",
+            "wert": 0.17182349999999996,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,17182349999999996 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 10,
+          "beschreibung": "Volumen Holzfaserdämmplatte",
+          "ausdruck": "A_n*d_HFD",
+          "formel_latex": "V_{\\mathrm{HFD}} = A_{\\mathrm{n}} \\cdot d_{\\mathrm{HFD}}",
+          "einsetzen_latex": "V_{\\mathrm{HFD}} = 11{,}455\\ \\mathrm{m^{2}} \\cdot 60\\ \\mathrm{mm} = 0{,}68729\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "A_n",
+            "d_HFD"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Volumen HFD",
+            "symbol": "V_HFD",
+            "latex": "V_{\\mathrm{HFD}}",
+            "wert": 0.6872939999999998,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,6872939999999998 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 11,
+          "beschreibung": "Volumen Gefachdämmung",
+          "ausdruck": "A_G*d_G",
+          "formel_latex": "V_{\\mathrm{D}} = A_{\\mathrm{G}} \\cdot d_{\\mathrm{G}}",
+          "einsetzen_latex": "V_{\\mathrm{D}} = 8{,}8797\\ \\mathrm{m^{2}} \\cdot 200\\ \\mathrm{mm} = 1{,}7759\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "A_G",
+            "d_G"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Volumen Dämmung",
+            "symbol": "V_D",
+            "latex": "V_{\\mathrm{D}}",
+            "wert": 1.7759399999999996,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1,7759399999999996 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 12,
+          "beschreibung": "Anzahl Schrauben (aus dem IFC-Modell)",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "Zählung der IfcMechanicalFastener im Modell (Raster 150 mm, Randabstand 75 mm, Plattenrand ≥ 10 mm)",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Anzahl Schrauben",
+            "symbol": "n_S",
+            "latex": "n_{\\mathrm{S}}",
+            "wert": 176,
+            "einheit": "Stk",
+            "quelle": "IFC: IfcMechanicalFastener",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "176 Stk",
+            "rundung": null,
+            "dimension": "dimensionless"
+          }
+        },
+        {
+          "nr": 13,
+          "beschreibung": "Masse Holz",
+          "ausdruck": "rho_kvh_c24*V_H",
+          "formel_latex": "m_{\\mathrm{H}} = \\rho_{\\mathrm{kvh},\\mathrm{c24}} \\cdot V_{\\mathrm{H}}",
+          "einsetzen_latex": "m_{\\mathrm{H}} = 420\\ \\mathrm{kg/m^{3}} \\cdot 0{,}51498\\ \\mathrm{m^{3}} = 216{,}29\\ \\mathrm{kg}",
+          "eingaben": [
+            "rho_kvh_c24",
+            "V_H"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse Holz",
+            "symbol": "m_H",
+            "latex": "m_{\\mathrm{H}}",
+            "wert": 216.29160000000005,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "216,29160000000005 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 14,
+          "beschreibung": "Masse GKF",
+          "ausdruck": "rho_gkf*V_GKF",
+          "formel_latex": "m_{\\mathrm{GKF}} = \\rho_{\\mathrm{gkf}} \\cdot V_{\\mathrm{GKF}}",
+          "einsetzen_latex": "m_{\\mathrm{GKF}} = 800\\ \\mathrm{kg/m^{3}} \\cdot 0{,}14319\\ \\mathrm{m^{3}} = 114{,}55\\ \\mathrm{kg}",
+          "eingaben": [
+            "rho_gkf",
+            "V_GKF"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse GKF",
+            "symbol": "m_GKF",
+            "latex": "m_{\\mathrm{GKF}}",
+            "wert": 114.54899999999999,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "114,54899999999999 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 15,
+          "beschreibung": "Masse OSB/3",
+          "ausdruck": "rho_osb3*V_OSB",
+          "formel_latex": "m_{\\mathrm{OSB}} = \\rho_{\\mathrm{osb3}} \\cdot V_{\\mathrm{OSB}}",
+          "einsetzen_latex": "m_{\\mathrm{OSB}} = 600\\ \\mathrm{kg/m^{3}} \\cdot 0{,}17182\\ \\mathrm{m^{3}} = 103{,}09\\ \\mathrm{kg}",
+          "eingaben": [
+            "rho_osb3",
+            "V_OSB"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse OSB",
+            "symbol": "m_OSB",
+            "latex": "m_{\\mathrm{OSB}}",
+            "wert": 103.09409999999998,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "103,09409999999998 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 16,
+          "beschreibung": "Masse Holzfaserdämmplatte",
+          "ausdruck": "rho_holzfaserplatte*V_HFD",
+          "formel_latex": "m_{\\mathrm{HFD}} = \\rho_{\\mathrm{holzfaserplatte}} \\cdot V_{\\mathrm{HFD}}",
+          "einsetzen_latex": "m_{\\mathrm{HFD}} = 180\\ \\mathrm{kg/m^{3}} \\cdot 0{,}68729\\ \\mathrm{m^{3}} = 123{,}71\\ \\mathrm{kg}",
+          "eingaben": [
+            "rho_holzfaserplatte",
+            "V_HFD"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse HFD",
+            "symbol": "m_HFD",
+            "latex": "m_{\\mathrm{HFD}}",
+            "wert": 123.71291999999997,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "123,71291999999997 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 17,
+          "beschreibung": "Masse Gefachdämmung",
+          "ausdruck": "rho_holzfaser_flex*V_D",
+          "formel_latex": "m_{\\mathrm{D}} = \\rho_{\\mathrm{holzfaser},\\mathrm{flex}} \\cdot V_{\\mathrm{D}}",
+          "einsetzen_latex": "m_{\\mathrm{D}} = 50\\ \\mathrm{kg/m^{3}} \\cdot 1{,}7759\\ \\mathrm{m^{3}} = 88{,}797\\ \\mathrm{kg}",
+          "eingaben": [
+            "rho_holzfaser_flex",
+            "V_D"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse Dämmung",
+            "symbol": "m_D",
+            "latex": "m_{\\mathrm{D}}",
+            "wert": 88.79699999999998,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "88,79699999999998 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 18,
+          "beschreibung": "Masse Schrauben (Schaft als Zylinder, wie Modellgeometrie)",
+          "ausdruck": "n_S*rho_St*pi*(d_S/2)**2*l_S",
+          "formel_latex": "m_{\\mathrm{S}} = n_{\\mathrm{S}} \\cdot \\rho_{\\mathrm{St}} \\cdot \\pi \\cdot {\\frac{d_{\\mathrm{S}}}{2}}^{2} \\cdot l_{\\mathrm{S}}",
+          "einsetzen_latex": "m_{\\mathrm{S}} = 176\\ \\mathrm{Stk} \\cdot 7850\\ \\mathrm{kg/m^{3}} \\cdot \\pi \\cdot {\\frac{4\\ \\mathrm{mm}}{2}}^{2} \\cdot 50\\ \\mathrm{mm} = 0{,}86808\\ \\mathrm{kg}",
+          "eingaben": [
+            "l_S",
+            "n_S",
+            "rho_St",
+            "d_S"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Masse Schrauben",
+            "symbol": "m_S",
+            "latex": "m_{\\mathrm{S}}",
+            "wert": 0.8680848820399317,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,8680848820399317 kg",
+            "rundung": null,
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 19,
+          "beschreibung": "Gesamtmasse des Wandelements",
+          "ausdruck": "m_H + m_GKF + m_OSB + m_HFD + m_D + m_S",
+          "formel_latex": "m_{\\mathrm{ges}} = m_{\\mathrm{H}} + m_{\\mathrm{GKF}} + m_{\\mathrm{OSB}} + m_{\\mathrm{HFD}} + m_{\\mathrm{D}} + m_{\\mathrm{S}}",
+          "einsetzen_latex": "m_{\\mathrm{ges}} = 216{,}29\\ \\mathrm{kg} + 114{,}55\\ \\mathrm{kg} + 103{,}09\\ \\mathrm{kg} + 123{,}71\\ \\mathrm{kg} + 88{,}797\\ \\mathrm{kg} + 0{,}86808\\ \\mathrm{kg} = 647{,}31\\ \\mathrm{kg}",
+          "eingaben": [
+            "m_S",
+            "m_D",
+            "m_HFD",
+            "m_OSB",
+            "m_H",
+            "m_GKF"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Gesamtmasse",
+            "symbol": "m_ges",
+            "latex": "m_{\\mathrm{ges}}",
+            "wert": 647.31270488204,
+            "einheit": "kg",
+            "quelle": "",
+            "art": "ergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "647 kg",
+            "rundung": {
+              "art": "signifikant",
+              "stellen": 3,
+              "verfahren": "halb_auf",
+              "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
+              "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
+            },
+            "dimension": "[mass]"
+          }
+        },
+        {
+          "nr": 20,
+          "beschreibung": "flächenbezogene Masse",
+          "ausdruck": "m_ges/A_n",
+          "formel_latex": "m_{\\mathrm{A}} = \\frac{m_{\\mathrm{ges}}}{A_{\\mathrm{n}}}",
+          "einsetzen_latex": "m_{\\mathrm{A}} = \\frac{647{,}31\\ \\mathrm{kg}}{11{,}455\\ \\mathrm{m^{2}}} = 56{,}510\\ \\mathrm{kg/m^{2}}",
+          "eingaben": [
+            "m_ges",
+            "A_n"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "flächenbezogene Masse",
+            "symbol": "m_A",
+            "latex": "m_{\\mathrm{A}}",
+            "wert": 56.509677507620324,
+            "einheit": "kg/m²",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "56,509677507620324 kg/m²",
+            "rundung": null,
+            "dimension": "[mass] / [length] ** 2"
+          }
+        },
+        {
+          "nr": 21,
+          "beschreibung": "Holzvolumen laut IFC (Summe Qto_MemberBaseQuantities.NetVolume)",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "Summe NetVolume über 18 IfcMember (GUIDs im Gegenstand)",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Holzvolumen IFC",
+            "symbol": "V_H_IFC",
+            "latex": "V_{\\mathrm{H},\\mathrm{IFC}}",
+            "wert": 0.51498,
+            "einheit": "m³",
+            "quelle": "IFC-Modell",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,51498 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 22,
+          "beschreibung": "Beplankungsvolumen laut IFC (Summe Qto_PlateBaseQuantities.NetVolume)",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "Summe NetVolume über 10 IfcPlate",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Beplankungsvolumen IFC",
+            "symbol": "V_P_IFC",
+            "latex": "V_{\\mathrm{P},\\mathrm{IFC}}",
+            "wert": 1.00230375,
+            "einheit": "m³",
+            "quelle": "IFC-Modell",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1,00230375 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 23,
+          "beschreibung": "Dämmvolumen laut IFC (Summe Qto_BodyGeometryValidation.NetVolume)",
+          "ausdruck": null,
+          "formel_latex": null,
+          "einsetzen_latex": null,
+          "eingaben": [],
+          "verfahren": "Summe NetVolume über 12 IfcBuildingElementPart INSULATION",
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Dämmvolumen IFC",
+            "symbol": "V_D_IFC",
+            "latex": "V_{\\mathrm{D},\\mathrm{IFC}}",
+            "wert": 1.77594,
+            "einheit": "m³",
+            "quelle": "IFC-Modell",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "1,77594 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 24,
+          "beschreibung": "Abweichung Holzvolumen Nachweis/IFC",
+          "ausdruck": "abs(V_H - V_H_IFC)",
+          "formel_latex": "\\mathrm{dV}_{\\mathrm{H}} = \\left|V_{\\mathrm{H}} - V_{\\mathrm{H},\\mathrm{IFC}}\\right|",
+          "einsetzen_latex": "\\mathrm{dV}_{\\mathrm{H}} = \\left|0{,}51498\\ \\mathrm{m^{3}} - 0{,}51498\\ \\mathrm{m^{3}}\\right| = 0{,}00000000000000011102\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "V_H",
+            "V_H_IFC"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Abweichung Holz",
+            "symbol": "dV_H",
+            "latex": "\\mathrm{dV}_{\\mathrm{H}}",
+            "wert": 1.1102230246251565e-16,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,00000000000000011102230246251565 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 25,
+          "beschreibung": "Abweichung Beplankung Nachweis/IFC",
+          "ausdruck": "abs(V_GKF + V_OSB + V_HFD - V_P_IFC)",
+          "formel_latex": "\\mathrm{dV}_{\\mathrm{P}} = \\left|V_{\\mathrm{GKF}} + V_{\\mathrm{OSB}} + V_{\\mathrm{HFD}} - V_{\\mathrm{P},\\mathrm{IFC}}\\right|",
+          "einsetzen_latex": "\\mathrm{dV}_{\\mathrm{P}} = \\left|0{,}14319\\ \\mathrm{m^{3}} + 0{,}17182\\ \\mathrm{m^{3}} + 0{,}68729\\ \\mathrm{m^{3}} - 1{,}0023\\ \\mathrm{m^{3}}\\right| = 0{,}00000000000000022204\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "V_P_IFC",
+            "V_HFD",
+            "V_GKF",
+            "V_OSB"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Abweichung Beplankung",
+            "symbol": "dV_P",
+            "latex": "\\mathrm{dV}_{\\mathrm{P}}",
+            "wert": 2.220446049250313e-16,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,0000000000000002220446049250313 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        },
+        {
+          "nr": 26,
+          "beschreibung": "Abweichung Dämmung Nachweis/IFC",
+          "ausdruck": "abs(V_D - V_D_IFC)",
+          "formel_latex": "\\mathrm{dV}_{\\mathrm{D}} = \\left|V_{\\mathrm{D}} - V_{\\mathrm{D},\\mathrm{IFC}}\\right|",
+          "einsetzen_latex": "\\mathrm{dV}_{\\mathrm{D}} = \\left|1{,}7759\\ \\mathrm{m^{3}} - 1{,}7759\\ \\mathrm{m^{3}}\\right| = 0{,}00000000000000044409\\ \\mathrm{m^{3}}",
+          "eingaben": [
+            "V_D",
+            "V_D_IFC"
+          ],
+          "verfahren": null,
+          "norm_verweis": "",
+          "ergebnis": {
+            "name": "Abweichung Dämmung",
+            "symbol": "dV_D",
+            "latex": "\\mathrm{dV}_{\\mathrm{D}}",
+            "wert": 4.440892098500626e-16,
+            "einheit": "m³",
+            "quelle": "",
+            "art": "zwischenergebnis",
+            "unsicherheit": null,
+            "verteilung": "normal",
+            "bezug": null,
+            "anzeige": "0,0000000000000004440892098500626 m³",
+            "rundung": null,
+            "dimension": "[length] ** 3"
+          }
+        }
+      ],
+      "kriterien": [
+        {
+          "bezeichnung": "Holzvolumen: Nachweis = IFC",
+          "ist": "dV_H",
+          "vergleich": "≤",
+          "grenzwert": "dV_zul",
+          "norm_verweis": "Konsistenz Modell/IFC",
+          "toleranz": 0.0,
+          "ist_wert": 1.1102230246251565e-16,
+          "grenz_wert": 1e-08,
+          "einheit": "m³",
+          "ausnutzung": 1.1102230246251565e-08,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Beplankung: Nachweis = IFC",
+          "ist": "dV_P",
+          "vergleich": "≤",
+          "grenzwert": "dV_zul",
+          "norm_verweis": "Konsistenz Modell/IFC",
+          "toleranz": 0.0,
+          "ist_wert": 2.220446049250313e-16,
+          "grenz_wert": 1e-08,
+          "einheit": "m³",
+          "ausnutzung": 2.220446049250313e-08,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        },
+        {
+          "bezeichnung": "Dämmung: Nachweis = IFC",
+          "ist": "dV_D",
+          "vergleich": "≤",
+          "grenzwert": "dV_zul",
+          "norm_verweis": "Konsistenz Modell/IFC",
+          "toleranz": 0.0,
+          "ist_wert": 4.440892098500626e-16,
+          "grenz_wert": 1e-08,
+          "einheit": "m³",
+          "ausnutzung": 4.440892098500626e-08,
+          "erfuellt": true,
+          "rundungsempfindlich": false,
+          "innerhalb_unsicherheit": null
+        }
+      ],
+      "ergebnis": {
+        "name": "Gesamtmasse",
+        "symbol": "m_ges",
+        "latex": "m_{\\mathrm{ges}}",
+        "wert": 647.31270488204,
+        "einheit": "kg",
+        "quelle": "",
+        "art": "ergebnis",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "647 kg",
+        "rundung": {
+          "art": "signifikant",
+          "stellen": 3,
+          "verfahren": "halb_auf",
+          "quelle": "Massen für Transport- und Montageplanung; drei Stellen genügen",
+          "text": "3 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Massen für Transport- und Montageplanung; drei Stellen genügen"
+        },
+        "dimension": "[mass]"
+      },
+      "grenzwert": {
+        "name": "zulässige Mengenabweichung Modell/IFC",
+        "symbol": "dV_zul",
+        "latex": "\\mathrm{dV}_{\\mathrm{zul}}",
+        "wert": 1e-08,
+        "einheit": "m³",
+        "quelle": "Projektregel: Qto-Werte sind auf 1e-9 m³ gerundet; Summe über ≤ 18 Teile ergibt höchstens 9e-9 m³",
+        "art": "grenzwert",
+        "unsicherheit": null,
+        "verteilung": "normal",
+        "bezug": null,
+        "anzeige": "0,00000001 m³",
+        "rundung": null,
+        "dimension": "[length] ** 3"
+      },
+      "vergleich": "≤",
+      "ausnutzung": 4.440892098500626e-08,
+      "status": "erfüllt",
+      "annahmen": [
+        "Die Dampfbremse (0,2 mm) hat im Parametermodell keine Rohdichte und bleibt in der Masse unberücksichtigt.",
+        "Schrauben als Zylinder d × l (Kopf und Gewinde nicht modelliert), wie die IFC-Geometrie.",
+        "Die Unsicherheiten der Rohdichten sind Annahmen zur Demonstration der Unsicherheitsfortpflanzung.",
+        "Rohdichte KVH C24 (Nadelholz) (rho_kvh_c24) = 420 kg/m³: daten/wandelement.json /materialien/kvh_c24/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+        "Rohdichte Gipsplatte Typ DF (GKF) (rho_gkf) = 800 kg/m³: daten/wandelement.json /materialien/gkf/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 5 % angenommen",
+        "Rohdichte OSB/3 (rho_osb3) = 600 kg/m³: daten/wandelement.json /materialien/osb3/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+        "Rohdichte Holzfaser-Dämmmatte (flexibel) (rho_holzfaser_flex) = 50 kg/m³: daten/wandelement.json /materialien/holzfaser_flex/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 15 % angenommen",
+        "Rohdichte Holzfaserdämmplatte (Putzträger) (rho_holzfaserplatte) = 180 kg/m³: daten/wandelement.json /materialien/holzfaserplatte/rho: Beispielwert (Mittelwert), keine Wichte nach DIN EN 1991-1-1; u = 10 % angenommen",
+        "Rohdichte Stahl (rho_St) = 7850 kg/m³: daten/wandelement.json /materialien/stahl_verzinkt/rho"
+      ],
+      "hinweise": [
+        "Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis.",
+        "Unsicherheitsbeiträge der Verfahrensschritte A_H, n_S, V_H_IFC, V_P_IFC, V_D_IFC sind nicht fortgepflanzt."
+      ],
+      "unsicherheit": {
+        "methode": "lineare Fortpflanzung erster Ordnung, unkorrelierte Eingangsgrößen (JCGM 100:2008, 5.1.2, Gl. 10); Sensitivitäten numerisch durch zentrale Differenzen über die gesamte Rechenkette",
+        "k": 2.0,
+        "u_c": 30.616457310604574,
+        "U": 61.23291462120915,
+        "einheit": "kg",
+        "beitraege": [
+          {
+            "symbol": "rho_kvh_c24",
+            "u": 42.0,
+            "einheit": "kg/m³",
+            "sensitivitaet": 0.5149799999939898,
+            "sensitivitaet_einheit": "(kg)/(kg/m³)",
+            "beitrag": 21.62915999974757,
+            "anteil": 0.4990791585266195
+          },
+          {
+            "symbol": "rho_gkf",
+            "u": 40.0,
+            "einheit": "kg/m³",
+            "sensitivitaet": 0.14318624998566065,
+            "sensitivitaet_einheit": "(kg)/(kg/m³)",
+            "beitrag": 5.727449999426426,
+            "anteil": 0.03499554332417241
+          },
+          {
+            "symbol": "rho_osb3",
+            "u": 60.0,
+            "einheit": "kg/m³",
+            "sensitivitaet": 0.1718234999733189,
+            "sensitivitaet_einheit": "(kg)/(kg/m³)",
+            "beitrag": 10.309409998399133,
+            "anteil": 0.11338556035781502
+          },
+          {
+            "symbol": "rho_holzfaser_flex",
+            "u": 7.5,
+            "einheit": "kg/m³",
+            "sensitivitaet": 1.7759399997885341,
+            "sensitivitaet_einheit": "(kg)/(kg/m³)",
+            "beitrag": 13.319549998414006,
+            "anteil": 0.18926453078611377
+          },
+          {
+            "symbol": "rho_holzfaserplatte",
+            "u": 18.0,
+            "einheit": "kg/m³",
+            "sensitivitaet": 0.6872940000827537,
+            "sensitivitaet_einheit": "(kg)/(kg/m³)",
+            "beitrag": 12.371292001489566,
+            "anteil": 0.1632752070052794
+          }
+        ],
+        "nicht_fortgepflanzt": [
+          "A_H",
+          "n_S",
+          "V_H_IFC",
+          "V_P_IFC",
+          "V_D_IFC"
+        ],
+        "anzeige": "650 ± 70 kg (k = 2)",
+        "monte_carlo": {
+          "methode": "Monte-Carlo-Fortpflanzung der Verteilungen (JCGM 101:2008), numpy.random.default_rng (PCG64)",
+          "versuche": 50000,
+          "seed": 20260927,
+          "mittelwert": 647.3818767049517,
+          "standardabweichung": 30.62174753099754,
+          "intervall_95": [
+            587.2636846899194,
+            707.1063599992304
+          ]
+        }
+      },
+      "gegenrechnungen": [],
+      "grafiken": [
+        {
+          "id": "ansicht",
+          "titel": "Wandansicht AW-01 von innen (Holzgerüst, Öffnung, Kerve)",
+          "art": "ansicht",
+          "beschreibung": "Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.",
+          "massstab": "1:50",
+          "sha256": "d4833d841a944e6e2c28d11198b2d0f92aac236683da246df884d8a224e4aad1",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"125mm\" height=\"103mm\" viewBox=\"0 0 125 103\" font-family=\"DejaVu Sans, Arial, sans-serif\" role=\"img\" aria-label=\"Wandansicht AW-01\">\n<title>Wandansicht AW-01</title>\n<rect width=\"125\" height=\"103\" fill=\"#ffffff\"/>\n<defs><pattern id=\"m-holz\" patternUnits=\"userSpaceOnUse\" width=\"2\" height=\"2\" patternTransform=\"rotate(45)\"><rect width=\"2\" height=\"2\" fill=\"#f3e3c7\"/><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"2\" stroke=\"#8d6e63\" stroke-width=\"0.25\"/></pattern></defs>\n<polygon points=\"16,68 112,68 112,13 16,13\" fill=\"#fbfbfb\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"><title>Wandumriss</title></polygon>\n<polygon points=\"16,68 112,68 112,66.8 16,66.8\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Schwelle</title></polygon>\n<polygon points=\"16,14.2 112,14.2 112,13 16,13\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Rähm</title></polygon>\n<polygon points=\"16,66.8 17.2,66.8 17.2,14.2 16,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Randständer links</title></polygon>\n<polygon points=\"110.8,66.8 112,66.8 112,14.2 110.8,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Randständer rechts</title></polygon>\n<polygon points=\"49,66.8 50.2,66.8 50.2,14.2 49,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Königsständer links F1</title></polygon>\n<polygon points=\"77.8,66.8 79,66.8 79,14.2 77.8,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Königsständer rechts F1</title></polygon>\n<polygon points=\"50.2,66.8 51.4,66.8 51.4,22.3 50.2,22.3\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Sturzauflagerständer links F1</title></polygon>\n<polygon points=\"76.6,66.8 77.8,66.8 77.8,22.3 76.6,22.3\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Sturzauflagerständer rechts F1</title></polygon>\n<polygon points=\"50.2,22.3 77.8,22.3 77.8,18.3 50.2,18.3\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Sturz F1</title></polygon>\n<polygon points=\"51.4,51.2 76.6,51.2 76.6,50 51.4,50\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Brüstungsriegel F1</title></polygon>\n<polygon points=\"27.9,66.8 29.1,66.8 29.1,14.2 27.9,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Ständer R1</title></polygon>\n<polygon points=\"40.4,66.8 41.6,66.8 41.6,14.2 40.4,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Ständer R2</title></polygon>\n<polygon points=\"52.9,66.8 54.1,66.8 54.1,51.2 52.9,51.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Füllständer R3 unten</title></polygon>\n<polygon points=\"52.9,18.3 54.1,18.3 54.1,14.2 52.9,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Füllständer R3 oben</title></polygon>\n<polygon points=\"65.4,66.8 66.6,66.8 66.6,51.2 65.4,51.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Füllständer R4 unten</title></polygon>\n<polygon points=\"65.4,18.3 66.6,18.3 66.6,14.2 65.4,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Füllständer R4 oben</title></polygon>\n<polygon points=\"90.4,66.8 91.6,66.8 91.6,14.2 90.4,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Ständer R6</title></polygon>\n<polygon points=\"102.9,66.8 104.1,66.8 104.1,14.2 102.9,14.2\" fill=\"url(#m-holz)\" stroke=\"#0b0b0b\" stroke-width=\"0.35\"><title>Ständer R7</title></polygon>\n<polygon points=\"51.4,50 76.6,50 76.6,22.3 51.4,22.3\" fill=\"#ffffff\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"><title>Fenster F1</title></polygon>\n<line x1=\"51.4\" y1=\"50\" x2=\"76.6\" y2=\"22.3\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"51.4\" y1=\"22.3\" x2=\"76.6\" y2=\"50\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"51.4\" y1=\"21.3\" x2=\"51.4\" y2=\"16.8\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"76.6\" y1=\"21.3\" x2=\"76.6\" y2=\"16.8\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"49.9\" y1=\"18.3\" x2=\"78.1\" y2=\"18.3\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"50.3\" y1=\"19.4\" x2=\"52.5\" y2=\"17.2\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"75.5\" y1=\"19.4\" x2=\"77.7\" y2=\"17.2\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"64\" y=\"17.5\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">1260</text>\n<line x1=\"75.6\" y1=\"50\" x2=\"71.1\" y2=\"50\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"75.6\" y1=\"22.3\" x2=\"71.1\" y2=\"22.3\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"72.6\" y1=\"51.5\" x2=\"72.6\" y2=\"20.8\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"73.7\" y1=\"51.1\" x2=\"71.5\" y2=\"48.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"73.7\" y1=\"23.4\" x2=\"71.5\" y2=\"21.2\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"73.4\" y=\"36.15\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\" transform=\"rotate(90 73.4 36.15)\">1385</text>\n<line x1=\"16\" y1=\"49\" x2=\"16\" y2=\"45.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"51.4\" y1=\"49\" x2=\"51.4\" y2=\"45.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"14.5\" y1=\"47\" x2=\"52.9\" y2=\"47\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"14.9\" y1=\"48.1\" x2=\"17.1\" y2=\"45.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"50.3\" y1=\"48.1\" x2=\"52.5\" y2=\"45.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"33.7\" y=\"46.2\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">1770</text>\n<line x1=\"79.6\" y1=\"68\" x2=\"76.1\" y2=\"68\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"79.6\" y1=\"50\" x2=\"76.1\" y2=\"50\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"77.6\" y1=\"69.5\" x2=\"77.6\" y2=\"48.5\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"78.7\" y1=\"69.1\" x2=\"76.5\" y2=\"66.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"78.7\" y1=\"51.1\" x2=\"76.5\" y2=\"48.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"78.4\" y=\"59\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\" transform=\"rotate(90 78.4 59)\">900</text>\n<polygon points=\"27.9,47 29.1,47 29.1,46.2 27.9,46.2\" fill=\"#d03b3b\" stroke=\"#d03b3b\" stroke-width=\"0.25\"><title>Kerve K1</title></polygon>\n<line x1=\"16\" y1=\"69\" x2=\"16\" y2=\"83.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"112\" y1=\"69\" x2=\"112\" y2=\"83.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"14.5\" y1=\"82\" x2=\"113.5\" y2=\"82\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"14.9\" y1=\"83.1\" x2=\"17.1\" y2=\"80.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"110.9\" y1=\"83.1\" x2=\"113.1\" y2=\"80.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"64\" y=\"81.2\" font-size=\"2.5\" text-anchor=\"middle\" fill=\"#0b0b0b\">4800</text>\n<line x1=\"16\" y1=\"69\" x2=\"16\" y2=\"76.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"28.5\" y1=\"69\" x2=\"28.5\" y2=\"76.5\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"14.5\" y1=\"75\" x2=\"30\" y2=\"75\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"14.9\" y1=\"76.1\" x2=\"17.1\" y2=\"73.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"27.4\" y1=\"76.1\" x2=\"29.6\" y2=\"73.9\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"22.25\" y=\"74.2\" font-size=\"2.2\" text-anchor=\"middle\" fill=\"#0b0b0b\">e = 625</text>\n<line x1=\"17\" y1=\"13\" x2=\"23.5\" y2=\"13\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"17\" y1=\"68\" x2=\"23.5\" y2=\"68\" stroke=\"#0b0b0b\" stroke-width=\"0.18\"/>\n<line x1=\"22\" y1=\"11.5\" x2=\"22\" y2=\"69.5\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<line x1=\"20.9\" y1=\"11.9\" x2=\"23.1\" y2=\"14.1\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<line x1=\"20.9\" y1=\"66.9\" x2=\"23.1\" y2=\"69.1\" stroke=\"#0b0b0b\" stroke-width=\"0.5\"/>\n<text x=\"22.8\" y=\"40.5\" font-size=\"2.5\" text-anchor=\"middle\" fill=\"#0b0b0b\" transform=\"rotate(90 22.8 40.5)\">2750</text>\n<rect x=\"10\" y=\"87\" width=\"6\" height=\"3\" fill=\"url(#m-holz)\" fill-opacity=\"1\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<text x=\"18\" y=\"89.6\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">KVH C24 (Ständer, Schwelle, Rähm, Sturz, Riegel)</text>\n<rect x=\"10\" y=\"92\" width=\"6\" height=\"3\" fill=\"#d03b3b\" fill-opacity=\"1\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<text x=\"18\" y=\"94.6\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">Kerve K1 (40 × 25 mm)</text>\n<rect x=\"10\" y=\"97\" width=\"6\" height=\"3\" fill=\"#ffffff\" fill-opacity=\"1\" stroke=\"#0b0b0b\" stroke-width=\"0.25\"/>\n<text x=\"18\" y=\"99.6\" font-size=\"2.5\" text-anchor=\"start\" fill=\"#0b0b0b\">Fensteröffnung F1 (Rohbaumaß)</text>\n<text x=\"115\" y=\"90\" font-size=\"2.5\" text-anchor=\"end\" fill=\"#0b0b0b\">Maße in mm   M 1:50</text>\n</svg>\n"
+        },
+        {
+          "id": "massen",
+          "titel": "Massen je Bestandteil",
+          "art": "diagramm",
+          "beschreibung": "",
+          "massstab": null,
+          "sha256": "078611872ca4a219668c0265791217ea8bd74826ba6977ad11fb194c44465ab7",
+          "svg": "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"457.815625pt\" height=\"280.976741pt\" viewBox=\"0 0 457.815625 280.976741\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n <metadata>\n  <rdf:RDF xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n   <cc:Work>\n    <dc:type rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\"/>\n    <dc:format>image/svg+xml</dc:format>\n   </cc:Work>\n  </rdf:RDF>\n </metadata>\n <defs>\n  <style type=\"text/css\">*{stroke-linejoin: round; stroke-linecap: butt}</style>\n </defs>\n <g id=\"figure_1\">\n  <g id=\"patch_1\">\n   <path d=\"M 0 280.976741 \nL 457.815625 280.976741 \nL 457.815625 0 \nL 0 0 \nz\n\" style=\"fill: #ffffff\"/>\n  </g>\n  <g id=\"axes_1\">\n   <g id=\"patch_2\">\n    <path d=\"M 93.495625 244.776038 \nL 450.615625 244.776038 \nL 450.615625 20.798437 \nL 93.495625 20.798437 \nz\n\" style=\"fill: #ffffff\"/>\n   </g>\n   <g id=\"matplotlib.axis_1\">\n    <g id=\"xtick_1\">\n     <g id=\"line2d_1\">\n      <path d=\"M 93.495625 244.776038 \nL 93.495625 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_2\">\n      <defs>\n       <path id=\"m5ecce93918\" d=\"M 0 0 \nL 0 3.5 \n\" style=\"stroke: #52514e; stroke-width: 0.8\"/>\n      </defs>\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"93.495625\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_1\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"93.495625\" y=\"258.613928\" transform=\"rotate(-0 93.495625 258.613928)\">0</text>\n     </g>\n    </g>\n    <g id=\"xtick_2\">\n     <g id=\"line2d_3\">\n      <path d=\"M 135.497155 244.776038 \nL 135.497155 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_4\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"135.497155\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_2\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"135.497155\" y=\"258.613928\" transform=\"rotate(-0 135.497155 258.613928)\">100</text>\n     </g>\n    </g>\n    <g id=\"xtick_3\">\n     <g id=\"line2d_5\">\n      <path d=\"M 177.498685 244.776038 \nL 177.498685 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_6\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"177.498685\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_3\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"177.498685\" y=\"258.613928\" transform=\"rotate(-0 177.498685 258.613928)\">200</text>\n     </g>\n    </g>\n    <g id=\"xtick_4\">\n     <g id=\"line2d_7\">\n      <path d=\"M 219.500215 244.776038 \nL 219.500215 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_8\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"219.500215\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_4\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"219.500215\" y=\"258.613928\" transform=\"rotate(-0 219.500215 258.613928)\">300</text>\n     </g>\n    </g>\n    <g id=\"xtick_5\">\n     <g id=\"line2d_9\">\n      <path d=\"M 261.501744 244.776038 \nL 261.501744 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_10\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"261.501744\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_5\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"261.501744\" y=\"258.613928\" transform=\"rotate(-0 261.501744 258.613928)\">400</text>\n     </g>\n    </g>\n    <g id=\"xtick_6\">\n     <g id=\"line2d_11\">\n      <path d=\"M 303.503274 244.776038 \nL 303.503274 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_12\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"303.503274\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_6\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"303.503274\" y=\"258.613928\" transform=\"rotate(-0 303.503274 258.613928)\">500</text>\n     </g>\n    </g>\n    <g id=\"xtick_7\">\n     <g id=\"line2d_13\">\n      <path d=\"M 345.504804 244.776038 \nL 345.504804 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_14\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"345.504804\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_7\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"345.504804\" y=\"258.613928\" transform=\"rotate(-0 345.504804 258.613928)\">600</text>\n     </g>\n    </g>\n    <g id=\"xtick_8\">\n     <g id=\"line2d_15\">\n      <path d=\"M 387.506334 244.776038 \nL 387.506334 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_16\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"387.506334\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_8\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"387.506334\" y=\"258.613928\" transform=\"rotate(-0 387.506334 258.613928)\">700</text>\n     </g>\n    </g>\n    <g id=\"xtick_9\">\n     <g id=\"line2d_17\">\n      <path d=\"M 429.507864 244.776038 \nL 429.507864 20.798437 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #e1e0d9; stroke-width: 0.6; stroke-linecap: square\"/>\n     </g>\n     <g id=\"line2d_18\">\n      <g>\n       <use xlink:href=\"#m5ecce93918\" x=\"429.507864\" y=\"244.776038\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_9\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"429.507864\" y=\"258.613928\" transform=\"rotate(-0 429.507864 258.613928)\">800</text>\n     </g>\n    </g>\n    <g id=\"text_10\">\n     <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e\" x=\"272.055625\" y=\"271.614631\" transform=\"rotate(-0 272.055625 271.614631)\">Masse in kg</text>\n    </g>\n   </g>\n   <g id=\"matplotlib.axis_2\">\n    <g id=\"ytick_1\">\n     <g id=\"line2d_19\">\n      <defs>\n       <path id=\"m8cbefe311c\" d=\"M 0 0 \nL -3.5 0 \n\" style=\"stroke: #52514e; stroke-width: 0.8\"/>\n      </defs>\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"226.046474\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_11\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"229.465419\" transform=\"rotate(-0 86.495625 229.465419)\">Gesamtmasse</text>\n     </g>\n    </g>\n    <g id=\"ytick_2\">\n     <g id=\"line2d_20\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"194.960062\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_12\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"198.379359\" transform=\"rotate(-0 86.495625 198.379359)\">Masse Schrauben</text>\n     </g>\n    </g>\n    <g id=\"ytick_3\">\n     <g id=\"line2d_21\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"163.87365\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_13\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"167.292595\" transform=\"rotate(-0 86.495625 167.292595)\">Masse Dämmung</text>\n     </g>\n    </g>\n    <g id=\"ytick_4\">\n     <g id=\"line2d_22\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"132.787237\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_14\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"136.206183\" transform=\"rotate(-0 86.495625 136.206183)\">Masse HFD</text>\n     </g>\n    </g>\n    <g id=\"ytick_5\">\n     <g id=\"line2d_23\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"101.700825\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_15\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"105.119771\" transform=\"rotate(-0 86.495625 105.119771)\">Masse OSB</text>\n     </g>\n    </g>\n    <g id=\"ytick_6\">\n     <g id=\"line2d_24\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"70.614413\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_16\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"74.033358\" transform=\"rotate(-0 86.495625 74.033358)\">Masse GKF</text>\n     </g>\n    </g>\n    <g id=\"ytick_7\">\n     <g id=\"line2d_25\">\n      <g>\n       <use xlink:href=\"#m8cbefe311c\" x=\"93.495625\" y=\"39.528001\" style=\"fill: #52514e; stroke: #52514e; stroke-width: 0.8\"/>\n      </g>\n     </g>\n     <g id=\"text_17\">\n      <text style=\"font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #52514e\" x=\"86.495625\" y=\"42.947298\" transform=\"rotate(-0 86.495625 42.947298)\">Masse Holz</text>\n     </g>\n    </g>\n   </g>\n   <g id=\"patch_3\">\n    <path d=\"M 93.495625 48.076764 \nL 184.341406 48.076764 \nL 184.341406 30.979237 \nL 93.495625 30.979237 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_4\">\n    <path d=\"M 93.495625 79.163176 \nL 141.607957 79.163176 \nL 141.607957 62.06565 \nL 93.495625 62.06565 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_5\">\n    <path d=\"M 93.495625 110.249589 \nL 136.796724 110.249589 \nL 136.796724 93.152062 \nL 93.495625 93.152062 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_6\">\n    <path d=\"M 93.495625 141.336001 \nL 145.456944 141.336001 \nL 145.456944 124.238474 \nL 93.495625 124.238474 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_7\">\n    <path d=\"M 93.495625 172.422413 \nL 130.791723 172.422413 \nL 130.791723 155.324886 \nL 93.495625 155.324886 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_8\">\n    <path d=\"M 93.495625 203.508825 \nL 93.860234 203.508825 \nL 93.860234 186.411299 \nL 93.495625 186.411299 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_9\">\n    <path d=\"M 93.495625 234.595237 \nL 365.376864 234.595237 \nL 365.376864 217.497711 \nL 93.495625 217.497711 \nz\n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: #2a78d6\"/>\n   </g>\n   <g id=\"patch_10\">\n    <path d=\"M 93.495625 244.776037 \nL 93.495625 20.798437 \n\" style=\"fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square\"/>\n   </g>\n   <g id=\"patch_11\">\n    <path d=\"M 93.495625 244.776038 \nL 450.615625 244.776038 \n\" style=\"fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square\"/>\n   </g>\n   <g id=\"text_18\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"188.341406\" y=\"42.528001\" transform=\"rotate(-0 188.341406 42.528001)\">216</text>\n   </g>\n   <g id=\"text_19\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"145.607957\" y=\"73.614413\" transform=\"rotate(-0 145.607957 73.614413)\">115</text>\n   </g>\n   <g id=\"text_20\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"140.796724\" y=\"104.700825\" transform=\"rotate(-0 140.796724 104.700825)\">103</text>\n   </g>\n   <g id=\"text_21\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"149.456944\" y=\"135.787237\" transform=\"rotate(-0 149.456944 135.787237)\">124</text>\n   </g>\n   <g id=\"text_22\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"134.791723\" y=\"166.87365\" transform=\"rotate(-0 134.791723 166.87365)\">88,8</text>\n   </g>\n   <g id=\"text_23\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"97.860234\" y=\"197.960062\" transform=\"rotate(-0 97.860234 197.960062)\">0,868</text>\n   </g>\n   <g id=\"LineCollection_1\">\n    <path d=\"M 339.658103 226.046474 \nL 391.095625 226.046474 \n\" clip-path=\"url(#p10e6de424b)\" style=\"fill: none; stroke: #0b0b0b\"/>\n   </g>\n   <g id=\"line2d_26\">\n    <defs>\n     <path id=\"mefab6c26c2\" d=\"M 0 3 \nL 0 -3 \n\" style=\"stroke: #0b0b0b\"/>\n    </defs>\n    <g clip-path=\"url(#p10e6de424b)\">\n     <use xlink:href=\"#mefab6c26c2\" x=\"339.658103\" y=\"226.046474\" style=\"fill: #1f77b4; stroke: #0b0b0b\"/>\n    </g>\n   </g>\n   <g id=\"line2d_27\">\n    <g clip-path=\"url(#p10e6de424b)\">\n     <use xlink:href=\"#mefab6c26c2\" x=\"391.095625\" y=\"226.046474\" style=\"fill: #1f77b4; stroke: #0b0b0b\"/>\n    </g>\n   </g>\n   <g id=\"text_24\">\n    <text style=\"font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"395.095625\" y=\"229.046474\" transform=\"rotate(-0 395.095625 229.046474)\">647</text>\n   </g>\n   <g id=\"text_25\">\n    <text style=\"font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b\" x=\"93.495625\" y=\"14.798437\" transform=\"rotate(-0 93.495625 14.798437)\">Massen je Bestandteil (Gesamtmasse mit U, k = 2)</text>\n   </g>\n  </g>\n </g>\n <defs>\n  <clipPath id=\"p10e6de424b\">\n   <rect x=\"93.495625\" y=\"20.798437\" width=\"357.12\" height=\"223.9776\"/>\n  </clipPath>\n </defs>\n</svg>\n"
+        }
+      ],
+      "rundung_zwischenwerte": {
+        "art": "signifikant",
+        "stellen": 5,
+        "verfahren": "halb_auf",
+        "quelle": "Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)",
+        "text": "5 signifikante Stellen, Regel B (bei 5 betragsmäßig aufrunden) nach ISO 80000-1:2022 Anh. B.3; entspricht DIN 1333:1992-02; Begründung: Anzeige von Zwischenwerten; gerechnet wird ungerundet (vgl. DIN EN ISO 6946:2018-03, 6.7.1.1: mindestens drei Dezimalstellen)"
+      },
+      "umgebung": {
+        "nachweis_modul": "1.0.0",
+        "schema_version": "1.0",
+        "python": "3.11.15",
+        "einheiten_backend": "pint",
+        "grafik_backend": "matplotlib",
+        "pakete": {
+          "numpy": "2.4.6",
+          "pint": "0.25.3",
+          "matplotlib": "3.11.2",
+          "shapely": "2.1.2",
+          "ifcopenshell": "0.8.5",
+          "ifctester": "0.8.5"
+        }
+      },
+      "zeitstempel": null,
+      "hash": {
+        "algorithmus": "SHA-256",
+        "wert": "ecee11751c40ed0a76742a268dcd598611875e620b19ddab26078cf76602614f",
+        "umfang": "kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung"
+      }
+    }
+  ],
+  "umgebung": {
+    "nachweis_modul": "1.0.0",
+    "schema_version": "1.0",
+    "python": "3.11.15",
+    "einheiten_backend": "pint",
+    "grafik_backend": "matplotlib",
+    "pakete": {
+      "numpy": "2.4.6",
+      "pint": "0.25.3",
+      "matplotlib": "3.11.2",
+      "shapely": "2.1.2",
+      "ifcopenshell": "0.8.5",
+      "ifctester": "0.8.5"
+    }
+  },
+  "zeitstempel": null,
+  "hash": {
+    "algorithmus": "SHA-256",
+    "wert": "0a1c0eeb57413efdd0be83264b2144ae6665e7445ec9f21b3477354ffafda627",
+    "umfang": "kanonisches JSON aus Titel, Projekt und der geordneten Liste (ID, Status, Ausnutzung, Hash, GUID) aller Nachweise"
+  }
+}

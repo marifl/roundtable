@@ -1076,7 +1076,8 @@
         14.0,
         19.0
        ]
-      ]
+      ],
+      "relevant": true
      },
      {
       "seite": "rechts",
@@ -1098,7 +1099,8 @@
         4.0,
         19.0
        ]
-      ]
+      ],
+      "relevant": true
      }
     ],
     "oben": {
@@ -1461,7 +1463,8 @@
         14.0,
         19.0
        ]
-      ]
+      ],
+      "relevant": true
      },
      {
       "seite": "rechts",
@@ -1483,7 +1486,8 @@
         4.0,
         19.0
        ]
-      ]
+      ],
+      "relevant": true
      }
     ],
     "oben": {
@@ -2233,7 +2237,8 @@
          4.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       },
       {
        "seite": "rechts",
@@ -2255,7 +2260,8 @@
          4.0,
          9.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -2649,7 +2655,8 @@
          4.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       },
       {
        "seite": "rechts",
@@ -2671,7 +2678,8 @@
          4.0,
          9.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -3030,7 +3038,8 @@
          14.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       },
       {
        "seite": "rechts",
@@ -3056,7 +3065,8 @@
          4.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -3415,7 +3425,8 @@
          14.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       },
       {
        "seite": "rechts",
@@ -3441,7 +3452,8 @@
          4.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -5124,7 +5136,8 @@
          14.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       },
       {
        "seite": "rechts",
@@ -5142,7 +5155,8 @@
          4.0,
          19.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -5525,7 +5539,8 @@
          4.0,
          9.0
         ]
-       ]
+       ],
+       "relevant": true
       }
      ],
      "oben": {
@@ -7145,7 +7160,7 @@
     16.25,
     9.25
    ],
-   "reserve_min_N_dB": 7.139526,
+   "reserve_min_N_dB": 7.245263,
    "leitung_m": 7.3,
    "anzahl_zulaessig": 48
   },
@@ -7181,15 +7196,15 @@
    "nur_Reflexion_1_Ordnung": 12.921109
   },
   "Ostseite": {
-   "basis": 7.139526,
-   "LWA_-1dB": 8.139526,
-   "LWA_+1dB": 6.139526,
-   "KT_0dB": 10.139526,
-   "KT_6dB": 4.139526,
-   "rho_1.0_alle_Flaechen": 6.487309,
+   "basis": 7.245263,
+   "LWA_-1dB": 8.245263,
+   "LWA_+1dB": 6.245263,
+   "KT_0dB": 10.245263,
+   "KT_6dB": 4.245263,
+   "rho_1.0_alle_Flaechen": 6.578147,
    "Wandkonsole_hs_1.6m": 6.136635,
    "ohne_Gartenmauer": 3.683864,
-   "nur_Reflexion_1_Ordnung": 8.451142
+   "nur_Reflexion_1_Ordnung": 8.594783
   },
   "rangfolge_bei_LWA_pm1dB_unveraendert": true
  },
@@ -7412,18 +7427,18 @@
    },
    {
     "io": "IO5",
-    "L_A_oktav": 29.615964,
-    "L_A_500Hz": 29.860474,
-    "differenz_dB": -0.24451,
+    "L_A_oktav": 29.500456,
+    "L_A_500Hz": 29.754737,
+    "differenz_dB": -0.254281,
     "baender": {
-     "63": 7.3,
-     "125": 15.4,
-     "250": 22.4,
-     "500": 25.3,
-     "1000": 24.0,
-     "2000": 19.6,
-     "4000": 13.0,
-     "8000": 2.8
+     "63": 6.7,
+     "125": 15.0,
+     "250": 22.3,
+     "500": 25.2,
+     "1000": 23.9,
+     "2000": 19.5,
+     "4000": 12.9,
+     "8000": 2.7
     }
    }
   ]
