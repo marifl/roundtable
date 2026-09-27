@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (20 erfüllt, 1 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `c5339a5c09386ec39264418405b6a70bedb550de9a610c0a6300738c2a7cb2df` |
+| Heft-Hash (SHA-256) | `f4874c58035e88fdd548fff8a2a057c8054bb49b2ac02babf4807329c441c7d1` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Das Heft bündelt die Nachweise der Beispiele B1–B5. Szenario „zu_nah“ (B4) ist absichtlich unzulässig; der IDS-Fall „fehlerhaft“ steht im eigenen Heft b2_ids_fehlerhaft.
@@ -38,7 +38,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `ecee11751c40` |
+| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `dd536b84265a` |
 | 2 | [N-B2-bestanden-HRB-01](#n-n-b2-bestanden-hrb-01) | IDS HRB-01: Außenwand: U-Wert höchstens 0,20 W/(m²K) (bestanden) | erfüllt | 1,000 | `a07c1d9de820` |
 | 3 | [N-B2-bestanden-HRB-02](#n-n-b2-bestanden-hrb-02) | IDS HRB-02: Wand: Außen/Innen und Tragwirkung angegeben (bestanden) | erfüllt | 1,000 | `928645d5c2e6` |
 | 4 | [N-B2-bestanden-HRB-03](#n-n-b2-bestanden-hrb-03) | IDS HRB-03: Wand: Klassifikation nach DIN 276 (KG 33x) (bestanden) | erfüllt | 1,000 | `3e56842b7319` |
@@ -50,15 +50,15 @@ Regelquellen:
 | 10 | [N-B2-bestanden-HRB-09](#n-n-b2-bestanden-hrb-09) | IDS HRB-09: Verbindungsmittel: Nenndurchmesser am Exemplar (bestanden) | erfüllt | 0,006 | `21e7281a14f2` |
 | 11 | [N-B2-bestanden-HRB-10](#n-n-b2-bestanden-hrb-10) | IDS HRB-10: Gefachdämmung: Dämmstoff zugeordnet (bestanden) | erfüllt | 0,084 | `ab68d18a2161` |
 | 12 | [N-B2-bestanden-HRB-11](#n-n-b2-bestanden-hrb-11) | IDS HRB-11: Keine unklassifizierten Proxy-Elemente (bestanden) | erfüllt | – | `98ded5685b74` |
-| 13 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `c9be9bf83a9c` |
-| 14 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `c5ce6828b373` |
-| 15 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `477cffed6648` |
-| 16 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `6affe8a4a000` |
-| 17 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `03f02d08205e` |
-| 18 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `7e99f501173d` |
-| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `fd9ed310d25a` |
-| 20 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `ed8d6adf699b` |
-| 21 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `7dc41095ed43` |
+| 13 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `b310bcd3b6b3` |
+| 14 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `5b603b193fcc` |
+| 15 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `1fe01d951963` |
+| 16 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `514b86b94780` |
+| 17 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `2891ccaff437` |
+| 18 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `97bf3dbd829a` |
+| 19 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `df940b2017d5` |
+| 20 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `3cf9eafbbb0a` |
+| 21 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `17e9b1a28f43` |
 
 <a id="n-n-b1-01"></a>
 
@@ -455,7 +455,7 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `ecee11751c40ed0a76742a268dcd598611875e620b19ddab26078cf76602614f`
+- Hash (SHA-256): `dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -1650,7 +1650,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `c9be9bf83a9c39c6f9cd3561d228745df002b4bfc57289f0468e1ce0b7622701`
+- Hash (SHA-256): `b310bcd3b6b3d52d1c8442a7dd98a39d25c2e3316cdebbe2234c0a7df2ed16e0`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -1949,7 +1949,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `c5ce6828b373d349cbf68c3ec5bbd0fcaa5688cbdae4f966c910a60ea5498339`
+- Hash (SHA-256): `5b603b193fcc3d3ff975d61261b895a7d47499f240155b6878bb8369e22abc40`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -2248,7 +2248,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `477cffed6648199c58178b7e3fe9de5674662059d12e258e46d764a16f0078cd`
+- Hash (SHA-256): `1fe01d95196368771a6225aa1f0e572731938709cb679631a602f42398b4c647`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -2547,7 +2547,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `6affe8a4a0007d318304928c233c878616c40d323518daf48b336b34bcb5105b`
+- Hash (SHA-256): `514b86b947808ab3b2bc13be6175f17e55cb5d84c01dd75d759319c4a9280160`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -2751,7 +2751,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `03f02d08205eccd59ca3dc859cf187798f8f36d367b42fc0988486a549063131`
+- Hash (SHA-256): `2891ccaff4379881631e8f5f64d36fd1eb087d9211f40856f6ebe10507e12c56`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -2955,7 +2955,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `7e99f501173dc128fd91d51f78a62ef3d55fd7420045861bbf28121581d23bd5`
+- Hash (SHA-256): `97bf3dbd829a64b081d9c1cbb3208043cb14af0e2dd8f42904574c654a31d0e9`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -3159,7 +3159,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `fd9ed310d25a11b849ea009b409d74ae4467227e5ccfc439d2c237a6c5164e48`
+- Hash (SHA-256): `df940b2017d574ee0a7ee14aaf6a8b961600e773d6393e43c38c94b07460861a`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -3363,7 +3363,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `ed8d6adf699b305e0d660c45e14383134a96faa3530945968fadb36f2df1ebe9`
+- Hash (SHA-256): `3cf9eafbbb0ac5323b12e13e03c74ec5f5190ceaa8a6ab7eed89586f5523dc45`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -3554,7 +3554,7 @@ Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `7dc41095ed4385399614491cdb7cfa8796f2222823fe6e3ca23ca0910e143085`
+- Hash (SHA-256): `17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

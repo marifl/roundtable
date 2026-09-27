@@ -5,7 +5,7 @@
     "erfüllt": 1,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "0a1c0eeb57413efdd0be83264b2144ae6665e7445ec9f21b3477354ffafda627"
+    "hash": "caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04"
   },
   "b2_ids_bestanden": {
     "status": "erfüllt",
@@ -29,7 +29,7 @@
     "erfüllt": 4,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "73c1e10be721152cd5a7f72d475f4bf1773402b66da4efd310cab9315c1a7afc"
+    "hash": "f0466a8453aa6934c0a2bc64ac28fedc9809f8e38200605eb2797b462744270e"
   },
   "b4_abstandsflaechen": {
     "status": "nicht erfüllt",
@@ -37,7 +37,7 @@
     "erfüllt": 3,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "0c14f6cc5482442339345f936f9beb4d480f2d9c4ce26a1aeb6a83368e5525be"
+    "hash": "ca5b8b34753c40ccb3733aa9142d2b38a7d3f13a2af603bcdb3c0c438e909905"
   },
   "b5_treppe": {
     "status": "erfüllt",
@@ -45,7 +45,7 @@
     "erfüllt": 1,
     "nicht erfüllt": 0,
     "Hinweis": 0,
-    "hash": "862596797a7df4beb4e51fb57d0bfba326dd9844e2e8fd4832d9bb93c9e36e0e"
+    "hash": "806af5d80f80d0a0ae3a5abd425be681b5d3d73a4f053363419d9693e450ab31"
   },
   "gesamt": {
     "status": "nicht erfüllt",
@@ -53,6 +53,6 @@
     "erfüllt": 20,
     "nicht erfüllt": 1,
     "Hinweis": 0,
-    "hash": "c5339a5c09386ec39264418405b6a70bedb550de9a610c0a6300738c2a7cb2df"
+    "hash": "f4874c58035e88fdd548fff8a2a057c8054bb49b2ac02babf4807329c441c7d1"
   }
 }

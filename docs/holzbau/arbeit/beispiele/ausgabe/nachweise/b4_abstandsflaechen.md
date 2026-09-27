@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[NICHT ERFÜLLT]** (3 erfüllt, 1 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `0c14f6cc5482442339345f936f9beb4d480f2d9c4ce26a1aeb6a83368e5525be` |
+| Heft-Hash (SHA-256) | `ca5b8b34753c40ccb3733aa9142d2b38a7d3f13a2af603bcdb3c0c438e909905` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Szenario „zu_nah“ ist absichtlich unzulässig und demonstriert den negativen Nachweis.
@@ -30,10 +30,10 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `03f02d08205e` |
-| 2 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `7e99f501173d` |
-| 3 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `fd9ed310d25a` |
-| 4 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `ed8d6adf699b` |
+| 1 | [N-B4-mittig-drittel](#n-n-b4-mittig-drittel) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: drittel) | erfüllt | 0,654 | `2891ccaff437` |
+| 2 | [N-B4-zu_nah-drittel](#n-n-b4-zu-nah-drittel) | Abstandsflächen Szenario „zu_nah“ (Haus 2 m an die westliche Grenze gerückt, Giebel: drittel) | nicht erfüllt | 1,634 | `97bf3dbd829a` |
+| 3 | [N-B4-an_strasse-drittel](#n-n-b4-an-strasse-drittel) | Abstandsflächen Szenario „an_strasse“ (Haus 1 m hinter der Straßengrenze (Süd), Giebel: drittel) | erfüllt | 0,654 | `df940b2017d5` |
+| 4 | [N-B4-mittig-voll](#n-n-b4-mittig-voll) | Abstandsflächen Szenario „mittig“ (Haus mittig, 5 m zu den seitlichen Grenzen, Giebel: voll) | erfüllt | 0,654 | `3cf9eafbbb0a` |
 
 <a id="n-n-b4-mittig-drittel"></a>
 
@@ -233,7 +233,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `03f02d08205eccd59ca3dc859cf187798f8f36d367b42fc0988486a549063131`
+- Hash (SHA-256): `2891ccaff4379881631e8f5f64d36fd1eb087d9211f40856f6ebe10507e12c56`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -437,7 +437,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `7e99f501173dc128fd91d51f78a62ef3d55fd7420045861bbf28121581d23bd5`
+- Hash (SHA-256): `97bf3dbd829a64b081d9c1cbb3208043cb14af0e2dd8f42904574c654a31d0e9`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -641,7 +641,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `fd9ed310d25a11b849ea009b409d74ae4467227e5ccfc439d2c237a6c5164e48`
+- Hash (SHA-256): `df940b2017d574ee0a7ee14aaf6a8b961600e773d6393e43c38c94b07460861a`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -845,7 +845,7 @@ Nordrichtung = +y. Grün: Abstandsfläche innerhalb von Grundstück und halber S
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `ed8d6adf699b305e0d660c45e14383134a96faa3530945968fadb36f2df1ebe9`
+- Hash (SHA-256): `3cf9eafbbb0ac5323b12e13e03c74ec5f5190ceaa8a6ab7eed89586f5523dc45`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

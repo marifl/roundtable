@@ -236,7 +236,7 @@ def wandansicht_svg(param: dict, lay: dict) -> str:
     for kv in w["kerven"]:
         st = next(h for h in lay["hoelzer"] if h["pfad"] == f"/wand/staender/raster/{kv['staender_rasterindex']}")
         z.rechteck(st["x0"], kv["z"], st["x1"], kv["z"] + kv["hoehe"], fill=FARBE["krit"], stroke=FARBE["krit"], lw=0.25, titel=f"Kerve {kv['id']}")
-        z.text((st["x1"] + 40, kv["z"] - 20), f"Kerve {kv['id']}, OK {kv['z'] + kv['hoehe']}", 2.0, "start")
+        z.text((st["x1"] + 90, kv["z"] - 20), f"Kerve {kv['id']}, OK {kv['z'] + kv['hoehe']}", 2.0, "start")
     o = lay["oeffnungen"][0]
     e = w["staender"]["raster"]
     # Maßketten außen: unten Öffnungslage und Gesamtlänge, rechts Brüstung/Öffnung/Sturzbereich, links Gesamthöhe, oben Raster

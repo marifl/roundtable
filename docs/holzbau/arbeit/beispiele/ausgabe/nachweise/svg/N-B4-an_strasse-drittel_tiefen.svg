@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="447.613876pt" height="245.495141pt" viewBox="0 0 447.613876 245.495141" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="443.320594pt" height="245.495141pt" viewBox="0 0 443.320594 245.495141" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -16,8 +16,8 @@
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 245.495141 
-L 447.613876 245.495141 
-L 447.613876 -0 
+L 443.320594 245.495141 
+L 443.320594 -0 
 L 0 -0 
 z
 " style="fill: #ffffff"/>
@@ -49,7 +49,7 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="74.3425" y="223.132328" transform="rotate(-0 74.3425 223.132328)">0.0</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="74.3425" y="223.132328" transform="rotate(-0 74.3425 223.132328)">0</text>
      </g>
     </g>
     <g id="xtick_2">
@@ -64,7 +64,7 @@ L 118.848981 20.798437
       </g>
      </g>
      <g id="text_2">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="118.848981" y="223.132328" transform="rotate(-0 118.848981 223.132328)">2.5</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="118.848981" y="223.132328" transform="rotate(-0 118.848981 223.132328)">2,5</text>
      </g>
     </g>
     <g id="xtick_3">
@@ -79,7 +79,7 @@ L 163.355461 20.798437
       </g>
      </g>
      <g id="text_3">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="163.355461" y="223.132328" transform="rotate(-0 163.355461 223.132328)">5.0</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="163.355461" y="223.132328" transform="rotate(-0 163.355461 223.132328)">5</text>
      </g>
     </g>
     <g id="xtick_4">
@@ -94,7 +94,7 @@ L 207.861942 20.798437
       </g>
      </g>
      <g id="text_4">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="207.861942" y="223.132328" transform="rotate(-0 207.861942 223.132328)">7.5</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="207.861942" y="223.132328" transform="rotate(-0 207.861942 223.132328)">7,5</text>
      </g>
     </g>
     <g id="xtick_5">
@@ -109,7 +109,7 @@ L 252.368422 20.798437
       </g>
      </g>
      <g id="text_5">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="252.368422" y="223.132328" transform="rotate(-0 252.368422 223.132328)">10.0</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="252.368422" y="223.132328" transform="rotate(-0 252.368422 223.132328)">10</text>
      </g>
     </g>
     <g id="xtick_6">
@@ -124,7 +124,7 @@ L 296.874903 20.798437
       </g>
      </g>
      <g id="text_6">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="296.874903" y="223.132328" transform="rotate(-0 296.874903 223.132328)">12.5</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="296.874903" y="223.132328" transform="rotate(-0 296.874903 223.132328)">12,5</text>
      </g>
     </g>
     <g id="xtick_7">
@@ -139,7 +139,7 @@ L 341.381383 20.798437
       </g>
      </g>
      <g id="text_7">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="341.381383" y="223.132328" transform="rotate(-0 341.381383 223.132328)">15.0</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="341.381383" y="223.132328" transform="rotate(-0 341.381383 223.132328)">15</text>
      </g>
     </g>
     <g id="xtick_8">
@@ -154,7 +154,7 @@ L 385.887864 20.798437
       </g>
      </g>
      <g id="text_8">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="385.887864" y="223.132328" transform="rotate(-0 385.887864 223.132328)">17.5</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="385.887864" y="223.132328" transform="rotate(-0 385.887864 223.132328)">17,5</text>
      </g>
     </g>
     <g id="xtick_9">
@@ -169,7 +169,7 @@ L 430.394344 20.798437
       </g>
      </g>
      <g id="text_9">
-      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="430.394344" y="223.132328" transform="rotate(-0 430.394344 223.132328)">20.0</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="430.394344" y="223.132328" transform="rotate(-0 430.394344 223.132328)">20</text>
      </g>
     </g>
     <g id="text_10">

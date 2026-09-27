@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `862596797a7df4beb4e51fb57d0bfba326dd9844e2e8fd4832d9bb93c9e36e0e` |
+| Heft-Hash (SHA-256) | `806af5d80f80d0a0ae3a5abd425be681b5d3d73a4f053363419d9693e450ab31` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,7 +28,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `7dc41095ed43` |
+| 1 | [N-B5-01](#n-n-b5-01) | Treppenlauf gerade einläufig, Geschosshöhe 2,90 m | erfüllt | 0,972 | `17e9b1a28f43` |
 
 <a id="n-n-b5-01"></a>
 
@@ -215,7 +215,7 @@ Stufenprofil schematisch; Laufplatte und Stufenstärke nicht bemessen.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `7dc41095ed4385399614491cdb7cfa8796f2222823fe6e3ca23ca0910e143085`
+- Hash (SHA-256): `17e9b1a28f4377a34d99ed7456f3417f775818288a19d0cbab61fd03fff8f301`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

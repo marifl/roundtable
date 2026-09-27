@@ -1730,6 +1730,9 @@ class SvgZeichnung:
         if text == "":
             return
         mx, my = (ax + bx) / 2, (ay + by) / 2
+        breite_text = 0.58 * groesse * len(text)
+        if breite_text + 1.0 > L:                              # kurze Maßlinie: Maßzahl hinter das Ende setzen
+            mx, my = bx + ux * (breite_text / 2 + 2.0), by + uy * (breite_text / 2 + 2.0)
         off = 0.8
         rx, ry = math.sin(math.radians(winkel)) * off, -math.cos(math.radians(winkel)) * off
         self.text_papier(mx + rx, my + ry, text, groesse, "middle", drehung=winkel)

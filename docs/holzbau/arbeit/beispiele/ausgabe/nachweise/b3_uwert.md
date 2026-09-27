@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (4 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `73c1e10be721152cd5a7f72d475f4bf1773402b66da4efd310cab9315c1a7afc` |
+| Heft-Hash (SHA-256) | `f0466a8453aa6934c0a2bc64ac28fedc9809f8e38200605eb2797b462744270e` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,10 +28,10 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `c9be9bf83a9c` |
-| 2 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `c5ce6828b373` |
-| 3 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `477cffed6648` |
-| 4 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `6affe8a4a000` |
+| 1 | [N-B3-geometrie-verputzt](#n-n-b3-geometrie-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, verputzt) | erfüllt | 0,934 | `b310bcd3b6b3` |
+| 2 | [N-B3-geometrie-hinterlueftet](#n-n-b3-geometrie-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus der Elementgeometrie, hinterlueftet) | erfüllt | 0,918 | `5b603b193fcc` |
+| 3 | [N-B3-raster-verputzt](#n-n-b3-raster-verputzt) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, verputzt) | erfüllt | 0,813 | `1fe01d951963` |
+| 4 | [N-B3-raster-hinterlueftet](#n-n-b3-raster-hinterlueftet) | U-Wert Außenwand AW-01 (Holzanteil aus dem Raster, hinterlueftet) | erfüllt | 0,801 | `514b86b94780` |
 
 <a id="n-n-b3-geometrie-verputzt"></a>
 
@@ -327,7 +327,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `c9be9bf83a9c39c6f9cd3561d228745df002b4bfc57289f0468e1ce0b7622701`
+- Hash (SHA-256): `b310bcd3b6b3d52d1c8442a7dd98a39d25c2e3316cdebbe2234c0a7df2ed16e0`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -626,7 +626,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `c5ce6828b373d349cbf68c3ec5bbd0fcaa5688cbdae4f966c910a60ea5498339`
+- Hash (SHA-256): `5b603b193fcc3d3ff975d61261b895a7d47499f240155b6878bb8369e22abc40`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -925,7 +925,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `477cffed6648199c58178b7e3fe9de5674662059d12e258e46d764a16f0078cd`
+- Hash (SHA-256): `1fe01d95196368771a6225aa1f0e572731938709cb679631a602f42398b4c647`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
@@ -1224,7 +1224,7 @@ Abschnitt a = Holz (Ständer), Abschnitt b = Dämmung. Maße in mm.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `6affe8a4a0007d318304928c233c878616c40d323518daf48b336b34bcb5105b`
+- Hash (SHA-256): `514b86b947808ab3b2bc13be6175f17e55cb5d84c01dd75d759319c4a9280160`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)

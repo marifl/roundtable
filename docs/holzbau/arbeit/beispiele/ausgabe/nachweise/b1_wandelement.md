@@ -13,7 +13,7 @@
 | Hinweis | Beispielrechnung für eine wissenschaftliche Arbeit; keine Rechts- oder Normauskunft, kein geprüfter bautechnischer Nachweis. |
 | Verfasser | Entwurfsgenerator (Beispiel), ohne Prüfvermerk |
 | Gesamtergebnis | **[ERFÜLLT]** (1 erfüllt, 0 nicht erfüllt, 0 Hinweis) |
-| Heft-Hash (SHA-256) | `0a1c0eeb57413efdd0be83264b2144ae6665e7445ec9f21b3477354ffafda627` |
+| Heft-Hash (SHA-256) | `caec588719fdd77eda35ba89bdd7003033d031ca041e9c4372cf43a69f5e2a04` |
 | Zeitstempel | nicht gesetzt (deterministischer Lauf) |
 
 Regelwerk-Profile:
@@ -28,7 +28,7 @@ Regelquellen:
 
 | Nr. | ID | Titel | Status | η | Hash (Anfang) |
 |---:|---|---|---|---:|---|
-| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `ecee11751c40` |
+| 1 | [N-B1-01](#n-n-b1-01) | Mengen- und Massenermittlung Wandelement AW-01 (Außenwand Nord, Element 1) | erfüllt | 0,001 | `dd536b84265a` |
 
 <a id="n-n-b1-01"></a>
 
@@ -425,7 +425,7 @@ Bemaßung in mm. Hölzer schraffiert, Öffnung mit Kreuz, Kerve rot.
 
 ### Rückverfolgbarkeit
 
-- Hash (SHA-256): `ecee11751c40ed0a76742a268dcd598611875e620b19ddab26078cf76602614f`
+- Hash (SHA-256): `dd536b84265a297e0dd4699a910395fbd1be4c232290fd52cbc49fd6af0637eb`
 - Umfang: kanonisches JSON des Nachweises ohne die Felder hash, zeitstempel und umgebung
 - Umgebung: Python 3.11.15, Modul nachweis 1.0.0, Einheiten: pint, Grafik: matplotlib, numpy 2.4.6, pint 0.25.3, matplotlib 3.11.2, shapely 2.1.2, ifcopenshell 0.8.5, ifctester 0.8.5
 - Zeitstempel: nicht gesetzt (deterministischer Lauf)
