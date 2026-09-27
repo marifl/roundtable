@@ -1,33 +1,33 @@
 # Statistik der Quellenbewertung
 
 - Quellen in der Masterliste: 462
-- bewertet: 393
-- noch nicht bewertet: 69 (Q394–Q462)
-- Kernbestand (P ≥ 5): 142
-- verifiziert V: 392, U: 1
+- bewertet: 462
+- noch nicht bewertet: 0
+- Kernbestand (P ≥ 5): 165
+- verifiziert V: 458, U: 4
 
 ## Nutzung
 
-- Kontext: 153
-- adaptieren: 127
-- übernehmen: 77
-- abgrenzen: 35
-- verwerfen: 1
+- Kontext: 184
+- adaptieren: 144
+- übernehmen: 92
+- abgrenzen: 38
+- verwerfen: 4
 
 ## Relevanz je Forschungsfrage (Anzahl Quellen mit Wert ≥ 2)
 
-- FF1: 66 (davon 3: 17)
-- FF2: 116 (davon 3: 23)
-- FF3: 34 (davon 3: 4)
-- FF4: 12 (davon 3: 2)
-- FF5: 24 (davon 3: 4)
-- FF6: 78 (davon 3: 20)
+- FF1: 74 (davon 3: 17)
+- FF2: 123 (davon 3: 24)
+- FF3: 35 (davon 3: 4)
+- FF4: 13 (davon 3: 2)
+- FF5: 42 (davon 3: 10)
+- FF6: 89 (davon 3: 21)
 
 ## Qualität
 
-- A: 76
-- B: 255
-- C: 55
+- A: 78
+- B: 283
+- C: 94
 - D: 7
 
 ## Kernbestand, sortiert nach P
@@ -52,6 +52,7 @@
 | Q319 | din2019tageslicht | 2019 | 7 | FF6 | übernehmen | 9b.2; 13.6; 16.4 |
 | Q340 | who2018noise | 2018 | 7 | FF6 | übernehmen | 9b.2; 15.4; 19 |
 | Q388 | miller2019explanation | 2019 | 7 | FF6 | übernehmen | 9b.6; 9.5; 10.4 |
+| Q461 | iso2018usability | 2018 | 7 | FF5 | übernehmen | 2.4; 20.3 |
 | Q110 | schoenwitz2017product | 2017 | 6.5 | FF6 | übernehmen | 12.1; 9.1 |
 | Q233 | geier2018analysemodell | 2018 | 6.5 | FF2 | adaptieren | 9.1; 3.2 |
 | Q234 | chateauvieux2023bim | 2023 | 6.5 | FF6 | adaptieren | 15.4 |
@@ -61,6 +62,9 @@
 | Q326 | spoerrle2010sleeping | 2010 | 6.5 | FF6 | übernehmen | 9b.2; 9b.5; 19 |
 | Q384 | meseguer2006soft | 2006 | 6.5 | FF2 | übernehmen | 9b.1; 9.2 |
 | Q385 | fischer1991critiquing | 1991 | 6.5 | FF6 | übernehmen | 9b.6; 10.4 |
+| Q452 | sonnenberg2012evaluations | 2012 | 6.5 | FF5 | übernehmen | 2.4; 20 |
+| Q453 | mayring2022inhaltsanalyse | 2022 | 6.5 | FF5 | übernehmen | 2.4; 20.3 |
+| Q455 | bogner2014interviews | 2014 | 6.5 | FF5 | übernehmen | 2.4; 20.3 |
 | Q001 | eastman2009automatic | 2009 | 6 | FF2 | übernehmen | 5.2; 9.2 |
 | Q033 | bimbauantrag2020abschluss | 2020 | 6 | FF1 | übernehmen | 8.4; 18.3 |
 | Q041 | bsi2025validation | 2025 | 6 | FF1 | übernehmen | 8.1; 20.1 |
@@ -94,6 +98,8 @@
 | Q381 | air2016formaldehyd | 2016 | 6 | – | übernehmen | 9b.5; 12.7 |
 | Q386 | silverman1992critiquing | 1992 | 6 | – | adaptieren | 9b.6 |
 | Q393 | guyatt2008grade | 2008 | 6 | FF6 | adaptieren | 9b.6; 2.3 |
+| Q434 | wegener2024funktionswandel | 2024 | 6 | FF6 | übernehmen | 9b.1; 9b.2; 9b.3 |
+| Q462 | iso2020interaction | 2020 | 6 | – | übernehmen | 10.4; 20.3 |
 | Q002 | solihin2015classification | 2015 | 5.5 | FF2 | adaptieren | 5.2; 9.1 |
 | Q009 | hjelseth2011capturing | 2011 | 5.5 | FF2 | übernehmen | 9.2 |
 | Q014 | moult2020compliance | 2020 | 5.5 | FF2 | übernehmen | 7.3; 9.2 |
@@ -138,6 +144,16 @@
 | Q347 | ostwald2011mathematics | 2011 | 5.5 | – | adaptieren | 9b.3 |
 | Q349 | oswald2007housing | 2007 | 5.5 | – | adaptieren | 9b.2; 9a.2 |
 | Q379 | enright1995dowsing | 1995 | 5.5 | – | übernehmen | 9b.5; 9b.6 |
+| Q394 | heinzmann2022automatisierung | 2022 | 5.5 | – | adaptieren | 3.2; 5.3; 17 |
+| Q402 | schuster2022bimwood | 2022 | 5.5 | – | adaptieren | 5.3; 8.4 |
+| Q415 | prochiner2006homes24 | 2006 | 5.5 | – | adaptieren | 17.2; 13 |
+| Q423 | flade2006wohnen | 2006 | 5.5 | – | adaptieren | 9b.2; 9b.3; 9b.5 |
+| Q435 | neumann2022homeoffice | 2022 | 5.5 | – | adaptieren | 9b.2 |
+| Q450 | cohen1960coefficient | 1960 | 5.5 | – | übernehmen | 2.3; 20.3 |
+| Q454 | kuckartz2024inhaltsanalyse | 2024 | 5.5 | – | adaptieren | 2.4; 20.3 |
+| Q456 | glaeser2010experteninterviews | 2010 | 5.5 | – | adaptieren | 20.3 |
+| Q457 | brooke1996sus | 1996 | 5.5 | FF5 | übernehmen | 20.3 |
+| Q459 | hart1988development | 1988 | 5.5 | FF5 | übernehmen | 20.3 |
 | Q003 | amor2021promise | 2021 | 5 | – | Kontext | 5.2 |
 | Q028 | noardo2022unveiling | 2022 | 5 | – | Kontext | 5.2; 18.4 |
 | Q034 | mbo2bim2023 | 2023 | 5 | – | adaptieren | 4.2; 9.2 |
@@ -176,3 +192,10 @@
 | Q358 | dgnb2023soc | 2023 | 5 | – | adaptieren | 9b.4; 15.5 |
 | Q391 | mertens2022nudging | 2022 | 5 | – | Kontext | 9b.6; 20.3 |
 | Q392 | maier2022nudging | 2022 | 5 | – | übernehmen | 9b.6; 20.3 |
+| Q396 | schanda2022akustik | 2022 | 5 | – | adaptieren | 15.4; 9.2 |
+| Q399 | sass2026fugenschall | 2026 | 5 | – | Kontext | 12.1; 15.4 |
+| Q400 | kaufmann2018leanwood | 2018 | 5 | – | adaptieren | 3.4; 6.1; 18.1 |
+| Q401 | kaufmann2019holzbim | 2019 | 5 | – | Kontext | 1.1; 5.3 |
+| Q410 | eisfeld2022variowohnen | 2022 | 5 | FF2 | adaptieren | 5.4; 5.7; 9.2 |
+| Q413 | fraunhoferipa0000designchain |  | 5 | – | adaptieren | 5.3; 5.7; 17.4 |
+| Q418 | np2025haas | 2025 | 5 | – | abgrenzen | 5.4; 5.7; 3.4 |
