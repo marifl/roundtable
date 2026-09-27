@@ -28216,6 +28216,7 @@
   "container-title": "Automation in Construction",
   "volume": "174",
   "page": "106146",
+  "abstract": "In the Architecture, Engineering, and Construction (AEC) industry, design processes remain fragmented across architectural, structural, and mechanical domains, limiting integration and optimization opportunities throughout building lifecycles. This paper investigates how artificial intelligence can be leveraged to create a comprehensive framework for parametric generative design in industrialized construction that integrates multiple design disciplines and optimization criteria. The methodology employs knowledge graph question answering (KGQA) enabled by large language models (LLMs) to acquire design requirements and constraints, implements multi-objective optimization algorithms to balance competing criteria, and establishes a three-tier priority hierarchy to resolve conflicts in cross-domain design processes. The framework demonstrates significant improvements in a real-world case study, achieving 15.8 % reduction in lifecycle costs, 21.2 % decrease in energy consumption, and significantly reducing preliminary design modelling time. These findings provide valuable insights for AEC practitioners seeking to implement human-AI collaborative design workflows and illustrate pathways for integrating domain-specific knowledge with advanced AI systems.",
   "keyword": "Q864, FF1=1, FF2=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -28290,6 +28291,7 @@
   "container-title": "Automation in Construction",
   "volume": "180",
   "page": "106563",
+  "abstract": "The building construction domain relies heavily on human experts for specialized tasks, often leading to excessive workload and inefficiency. For example, building design coordination typically requires BIM coordinators to operate BIM tools on participants' behalf, with limited ability to capture procedural knowledge. To address this gap, this paper introduces AI-based BIM coordinators to enable non-BIM experts to seamlessly interact with BIM tools while automatically documenting valuable procedural information. The approach customizes five LLM-based agents equipped with fundamental building knowledge and skills. Through user prompts, the collaboration of “bim_assistant” and “checker” agents ensures the accuracy and consistency of generated code, while the “sender” and “executor” agents facilitate direct execution in BIM tools beyond text-based responses, with the “terminator” ending the process. An AutoGen-Revit prototype demonstrates feasibility, flexibility, robustness, and time-cost effectiveness for common BIM-based design coordination tasks, including space reasoning, 3D element creation, clash detection, informative 3D view saving, documentation, and retrieval. This paper enables specialist-free workflows and generates procedural logs and images that serve as datasets for future analysis.",
   "keyword": "Q866, FF3=2, FF5=1, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -28322,6 +28324,7 @@
   "container-title": "Automation in Construction",
   "volume": "174",
   "page": "106119",
+  "abstract": "Numerous efforts have been devoted to utilizing a natural language-based interface for BIM interaction. These interfaces require extracting user's intent (i.e., the operation type) and slots (i.e., the targeted elements and properties). However, there is a lack of a fine-grained approach for extracting intent and slot information simultaneously. This paper introduces a text-to-structure approach based on language models to interpret user requests for BIM interaction (T2S4BIM). It proposed a synthetic data generation method and a curated dataset as data support. Employing Transformer-based models, T2S4BIM converts unstructured user requests into a structured format with intent and slot information. Experiments demonstrated that T2S4BIM outperformed existing approaches, with encoder-decoder models like T5 and FLAN-T5 achieving performance comparable to larger, decoder-only models such as Llama3.1-8B and Qwen2.5-7B, while improving efficiency. The practical applicability of T2S4BIM was illustrated through a Revit plug-in that interprets user requests and executes corresponding actions (e.g., manipulating object properties).",
   "keyword": "Q867, FF3=3, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
  },
  {
@@ -28358,6 +28361,7 @@
   "container-title": "Automation in Construction",
   "volume": "185",
   "page": "106879",
+  "abstract": "Building Information Modeling (BIM) produces structured datasets, commonly exchanged through Industry Foundation Classes (IFC) format, that capture information about building geometry, object properties, and spatial relationships. Although these datasets are rich in detail, they usually require proprietary software and expert knowledge to interpret, which limits their broader usability. Recent advances in large language models (LLMs) raise the question of whether they can serve as independent interpreters of BIM data when provided in text-based formats. This paper investigates that possibility by restructuring IFC files into JSON and testing LLMs across two tasks: (1) exploring natural language queries on a BIM model and (2) detecting modifications between paired models. Results show that LLMs can extract and summarize information with reasonable accuracy when data is explicitly structured, though spatial reasoning and subtle modifications posed consistent challenges. These findings provide evidence for a text-driven approach to BIM interpretation and highlight opportunities for platform-independent applications.",
   "keyword": "Q868, FF1=1, FF3=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -28558,6 +28562,7 @@
   "volume": "67",
   "issue": "1",
   "page": "145--148",
+  "abstract": "The key to successful product design is better understanding of customer needs (CNs), and efficiently translating CNs into design parameters (DPs). With the recent trend toward the diversification of CNs, the rapid introduction of new products, and shortened lead times, there is a growing need to speed up the mapping from CNs to DPs. By leveraging on product review data extracted e-commerce websites, this paper proposes a deep learning-based approach to improve the effectiveness and efficiency of mapping CNs to DPs. The results show that the proposed approach can meet customer needs with high efficiency.",
   "keyword": "Q874, FF3=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -28783,6 +28788,7 @@
   "container-title": "Automation in Construction",
   "volume": "120",
   "page": "103388",
+  "abstract": "A persistent barrier to the adoption of offsite construction is the lack of information for assessing prefabrication alternatives and the choices of suppliers. This study integrates three aspects of offsite construction, including BIM, DFMA and big data, to propose a Big data Design Options Repository (BIG-DOR). The proposed BIG-DOR system will connect BIM clients to manufacturers/supplier’s information such as prefab component cost and production lead times. In this study, we propose a framework for integrating BIG-DOR into the process of offsite construction delivery. The design of the BIG-DOR system architecture, as well as the key components such as the DFMA option-based 3D objects classifier, is presented. The contribution to the knowledge of this study is the successful integration of BIM, big data, DFMA and offsite construction in a single framework and the development of a design alternatives assessment system for offsite construction adoption using this framework.",
   "keyword": "Q880, FF1=2, FF2=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -28815,7 +28821,8 @@
   "container-title": "Automation in Construction",
   "volume": "150",
   "page": "104782",
-  "keyword": "Q881, FF1=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+  "abstract": "Technological interoperability is a driver for seamless data and information exchange between project team members in the Architecture, Engineering, and Construction (AEC) industry. It is defined as the ability of different systems to exchange information with minimum loss. Therefore, interoperability lack is often a barrier in modern construction applications, such as robotics. Construction and robotics, seen from their respective areas, are highly divergent in context, organization, procedures, and technologies. However, both paradigms use computation, which gives computational systems the potential to enable construction robotics. This research is based on the Design Science Research (DSR) methodology and aims to develop a framework for operationalizing industrial robots in construction. To this end, it uses Computational Design (CD) driven by Building Information Modeling (BIM) for Robotic Manufacturing (RM) within Off Site Construction (OSC) systems. This technological alignment allowed the development of an integrated Design-to-Manufacturing (DtM) framework, validated by 16 evaluators.",
+  "keyword": "Q881, FF1=2, Nutzung:Kontext, Qualitaet:B, Peripherie, Design-to-manufacturing, BIM, Computational design, Robotic manufacturing, Off-site construction, Interoperability"
  },
  {
   "id": "an2020bimbased",
@@ -29186,6 +29193,7 @@
   "volume": "22",
   "issue": "3",
   "page": "173--187",
+  "abstract": "An advocated panacea for reducing design errors and rework in construction and engineering projects is building information modeling (BIM). Yet, it would appear that advocates of BIM have overlooked why and how design errors occur. In this article, the nature of error is explained and the principal underlying causes identified with reference to the normative literature and the authors phenomenological research. A systemic model for reducing esign errors is presented and the enabling role of BIM discussed.",
   "keyword": "Q892, FF5=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -29395,6 +29403,7 @@
   "container-title": "Computers & Industrial Engineering",
   "volume": "153",
   "page": "107095",
+  "abstract": "Product configuration systems (PCSs) have been successful applications of artificial intelligence principles in engineer-to-order (ETO) companies in recent decades. Such applications mainly focus on quotation or production processes rather than multiple business processes. However, in some cases, there could be a benefit of applying multistage PCSs, that is, PCSs that can support several business processes. To investigate the conditions required for the beneficial application of multistage PCSs, this study examines the costs and the benefits associated with this approach. This is done by outlining a framework that defines multistage configuration, hereunder the identification of costs and benefits, as well as the strategies for implementing the approach. The framework is tested through a case study of an ETO company, which provides empirical evidence of the feasibility and the potential benefits of multistage configuration projects. Specifically, the case study shows that investments are modest when moving from a single-stage configurator strategy to a multistage strategy, while demonstrating significant benefits. This paper thereby provides two novel contributions: (1) a definition of multistage configuration, hereunder two strategies for its implementation and (2) empirical evidence that identifies costs and benefits of multistage product configuration, thereby, supporting its feasibility.",
   "keyword": "Q898, FF2=1, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -29776,6 +29785,7 @@
   "volume": "26",
   "issue": "3",
   "page": "592--602",
+  "abstract": "Product configuration is an essential means for selecting various components to constitute a customized product with the aim of meeting the individualized requirements of a customer. Nevertheless, configuration conflicts may occur when too strict requirements of the customer are given and thus any configuration cannot be found to satisfy the customer requirements. In this situation, it is vital important for a product configurator to recommend the corrective actions for generating valid configurations. In this paper, we present a method of applying constraint satisfaction to resolve product configuration conflicts. In the presented approach, the configuration conflict problem is encoded as a CSP (constraint satisfaction problem). Therefore, the resolution to the configuration conflict problem can be regarded as solving a CSP. As a consequence, corrective actions such as removing selected components or adding new components are suggested by the system. In the case of multiple resolving strategies, a multi-objective decision model is adopted to find the optimal repair strategy according to customer preferences. A computer configuration is illustrated to demonstrate the effectiveness of the presented approach.",
   "keyword": "Q910, FF2=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -29891,7 +29901,8 @@
   "volume": "32",
   "issue": "7",
   "page": "1199--1215",
-  "keyword": "Q914, FF5=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+  "abstract": "Manufacturers customarily provide only a few product variants to address the average needs of users in the major segments of markets they serve. When user needs are highly heterogeneous, this approach leaves many seriously dissatisfied. One solution is to enable users to modify products on their own using “innovation toolkits.” We explore the effectiveness of this solution in an empirical study of Apache security software. We find high heterogeneity of need in that field, and also find that users modifying their own software to be significantly more satisfied than non-innovating users. We propose that the “user toolkits” solution will be useful in many markets characterized by heterogeneous demand.",
+  "keyword": "Q914, FF5=2, Nutzung:Kontext, Qualitaet:B, Peripherie, Open Source, Apache Security Software, Innovation, Innovation Toolkits"
  },
  {
   "id": "langer2021want",
@@ -29943,6 +29954,7 @@
   "container-title": "Artificial Intelligence",
   "volume": "296",
   "page": "103473",
+  "abstract": "Previous research in Explainable Artificial Intelligence (XAI) suggests that a main aim of explainability approaches is to satisfy specific interests, goals, expectations, needs, and demands regarding artificial systems (we call these stakeholders' desiderata) in a variety of contexts. However, the literature on XAI is vast, spreads out across multiple largely disconnected disciplines, and it often remains unclear how explainability approaches are supposed to achieve the goal of satisfying stakeholders' desiderata. This paper discusses the main classes of stakeholders calling for explainability of artificial systems and reviews their desiderata. We provide a model that explicitly spells out the main concepts and relations necessary to consider and investigate when evaluating, adjusting, choosing, and developing explainability approaches that aim to satisfy stakeholders' desiderata. This model can serve researchers from the variety of different disciplines involved in XAI as a common ground. It emphasizes where there is interdisciplinary potential in the evaluation and the development of explainability approaches.",
   "keyword": "Q915, FF3=1, FF4=1, FF5=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -30039,7 +30051,8 @@
   "container-title": "Automation in Construction",
   "volume": "35",
   "page": "338--352",
-  "keyword": "Q918, FF5=1, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+  "abstract": "Designing spaces that are able to balance illumination, glare and solar gains over a year is a real challenge, yet a problem faced every day by building designers. To assist them, a full year, climate-based daylighting simulation method, called Lightsolve, was developed, providing guided search based on the variation of daylight performance over the year by combining temporal performance visualization with spatial renderings. This paper focuses on the user’s perspective for Lightsolve. After a summary of its foundational concepts, it discusses the results of several pilot and more formal user studies conducted in educational contexts. As a core element of the paper, the method and results of an original, design-oriented user study on Lightsolve’s expert system are discussed. It was conducted to determine how well its decision-making algorithm would work when independent human interactions were included. It demonstrated that the expert system is generally successful as a performance-driven design tool respectful of the non-deterministic nature of the design process itself, and as a method for educating designers to improve daylighting performance.",
+  "keyword": "Q918, FF5=1, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie, daylighting, goal-based design support, expert system, climate-based modeling, guided search, user interactivity"
  },
  {
   "id": "schaper2023toolkits",
@@ -30128,7 +30141,8 @@
   "volume": "57",
   "issue": "6",
   "page": "103347",
-  "keyword": "Q921, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
+  "abstract": "Online configuration tool kits present attractive opportunities for creating customized offers. The purpose of this study is to analyze the relevance of both the TAM (Technology Acceptance Model) and the experiential learning theory to understand how configuration contributes to provide value for end users. The qualitative survey shows that the TAM needs to be adapted to the case of configurators by measuring both perceived usefulness (PU) of the configured product and PU and ease of use of the configurator itself. The study shows the relevance of experiential learning theory as an antecedent of the TAM. A model summarizing our observations is proposed and discussed.",
+  "keyword": "Q921, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie, Product configurator, configuration tool kit, learning process, experiential learning theory, customization, technology acceptance model"
  },
  {
   "id": "zhao2018evaluation",
@@ -30209,6 +30223,7 @@
   "container-title": "Lecture Notes in Computer Science",
   "page": "18--35",
   "publisher": "Springer Nature Switzerland",
+  "abstract": "The development of digital psychometric assessments requires tools that enable domain experts to translate methodological expertise into structured digital formats without programming knowledge. This study compares two interaction paradigms for assessment authoring: a graphical drag-and-drop interface (DDI) and a conversational interface (CI). A mixed-methods comparative usability study was conducted with six participants experienced in psychometric assessment development. Each participant constructed two equivalent assessments using both interfaces in a counterbalanced design. Data collection included objective performance metrics (task completion time, errors, completeness), standardized usability questionnaires (SUS, NASA-TLX, perceived control), think-aloud protocols, and semi-structured interviews. Results indicate complementary strengths. The drag-and-drop interface supported flexibility, transparency, and user control, leading to faster task completion for most participants. The conversational interface provided structured, stepwise guidance and yielded more consistent scale construction and assessment descriptions, particularly benefiting less experienced users. Findings highlight a domain-specific trade-off between flexibility and methodological consistency, extending beyond traditional usability metrics. The results offer concrete design implications for developing user-centered tools that bridge domain expertise and structured digital implementation.",
   "keyword": "Q923, FF3=1, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -30489,6 +30504,7 @@
   "container-title": "Building and Environment",
   "volume": "132",
   "page": "11--20",
+  "abstract": "An appropriate sleep environment is critical to achieve adequate quality and quantity of sleep. General sleep hygiene recommendations suggest that individuals should maintain a cool, dark, quiet sleep environment. Our goal was to conduct a review of the evidence surrounding the optimal characteristics for the sleep environment in the categories of noise, temperature, lighting, and air quality in order to provide specific recommendations for each of these components. We found that all forms of noise in the sleep environment should be reduced to below 35 dB. The optimal ambient temperature varies based on humidity and the bedding microclimate, ranging between 17 and 28 °C at 40–60% relative humidity. Complete darkness is optimal for sleep and blue light should be avoided during the sleep opportunity. Sea level air quality, with ventilation is optimal for sleep and supplemental oxygen is a useful countermeasure for improving sleep quality at altitude. Architectural design that incorporates these elements into bedroom design may improve sleep quality among inhabitants of such environments.",
   "keyword": "Q932, FF6=2, Nutzung:adaptieren, Qualitaet:A, Kernbestand"
  },
  {
@@ -30591,6 +30607,7 @@
   "container-title": "Renewable and Sustainable Energy Reviews",
   "volume": "80",
   "page": "585--596",
+  "abstract": "This paper presents a literature overview of the acoustic studies dedicated to lightweight wooden constructions. The reviewed articles contain prediction models, laboratory and field measurements, finite element or computational investigations as well as subjective survey describing the vibro-acoustic behaviour of a large range of wooden structures. The review analyses different type of timber constructions and investigates the acoustic research methodologies highlighting the following aspects: airborne sound insulation, impact noise reduction, flanking transmissions, human perceptions and pros and cons of the presented methods. Furthermore, an in-depth analysis of impact noise of bare floors focuses on how impact sound reduction could not be as efficient as in heavyweight constructions; the comparison between the different approaches on prediction of airborne sound insulation of multilayer timber partitions compared to traditional heavy building materials is shown. Finally a subjective method survey is provided, underlining the weakest point of timber buildings: low frequency sound insulation.",
   "keyword": "Q935, FF6=2, Nutzung:adaptieren, Qualitaet:A, Kernbestand"
  },
  {
@@ -30623,6 +30640,7 @@
   "container-title": "Science of The Total Environment",
   "volume": "500-501",
   "page": "84--90",
+  "abstract": "The aim of this field study is to gain more insight into the way nocturnal road traffic noise impacts the sleep of inhabitants living in noisy regions, by taking into account several modifying variables. Participants were tested during five consecutive nights in their homes and comparisons between effective indoor and outdoor noise levels (LAeq, LAmax, number of noise events), sleep (actigraphy and sleep logs) and aspects of well-being (questionnaires) were made. Also, we investigated into what extent nocturnal noise exposure - objectively measured as well as perceived - directly relates to sleep outcomes and how the bedroom location influenced our measurements. We found that subjects living and sleeping in noisy regions correctly perceive their environment in terms of noise exposure and reported an overall discomfort due to traffic noise. In the evaluation of the objective noise levels, the inside noise levels did not follow the outside noise levels, though the different noise patterns could be described as characteristic for a noise and quiet environment. The impact on sleep, however, was only modest and we did not find any influence of noise intrusion on mood or pre-sleep arousal levels. Concerning the subjectively reported noise disturbances during the night, a clear relationship between noise and sleep outcomes could be established; with sleep onset latencies and judged sleep quality being particularly affected. The importance of inside and outside noise assessment as well as the use of multiple noise indicators in a home environment is further described. Additional emphasis is put on the determination of quiet control regions and the bedroom location, as this can alter noise levels and sleep outcomes. Also, including subjective noise evaluations during the night might not only provide crucial information on how participants experience the noise, but also allows for a more qualitative interpretation of the actual noise situation.",
   "keyword": "Q936, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -30899,6 +30917,7 @@
   "volume": "6",
   "issue": "1",
   "page": "9--24",
+  "abstract": "The theory of “prospect and refuge” seeks to describe why certain environments feel secure and thereby meet basic human psychological needs. Environments that meet such needs will often provide people with the capacity to observe (prospect) without being seen (refuge). Since its original proposition in 1975, prospect-refuge theory has been discussed and debated by art historians and philosophers and it has also been put into practice by landscape designers. However, it wasn’t until 1991, when Grant Hildebrand applied this theory to the architecture of Frank Lloyd Wright, that designers became more aware of, and interested in, this theory. One reason for this interest is that Hildebrand expanded the theory to add several additional spatial dimensions to the concept of prospect, including a love of complexity, exploration and opportunity. Hildebrand identifies that prospect and refuge may result intuitively in the work of an architect who seeks to control the manner in which open and bright spaces are framed spatially. He also applied a variation of the theory to analyse ceiling heights, the size of terraces, and the spatial complexity of a design. While prospect-refuge theory has since been widely used to interpret a range of architects’ works, relatively little evidence is available to support its application. After more than two decades of use, scholars still do not know which elements of a design shape the presence of prospect and refuge or whether they are independent factors or are mutually dependent on each other. However, one of the primary impediments to the detailed analysis and testing of prospect-refuge theory is the lack of an accepted definition. Thus, the present paper sets out to construct a critical definition of prospect and refuge theory, drawing on the body of past research that was undertaken originally in art theory and landscape design and later in architectural and interior design",
   "keyword": "Q943, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -30992,6 +31011,7 @@
   "volume": "56",
   "issue": "1",
   "page": "2381220",
+  "abstract": "Human circadian clocks are synchronized daily with the external light-dark cycle and entrained to the 24-hour day. There is increasing evidence that a lack of synchronization and circadian entrainment can lead to adverse health effects. Beyond vision, light plays a critical role in modulating many so-called non-visual functions, including sleep-wake cycles, alertness, mood and endocrine functions. To assess (and potentially optimize) the impact of light on non-visual functions, it is necessary to know the exact 'dose' (i.e. spectral irradiance and exposure duration at eye level) of 24-hour light exposures, but also to include metadata about the lighting environment, individual needs and resources. To address this problem, a new assessment tool is needed that uses existing metrics to provide metadata and information about light quality and quantity from all sources. In this commentary, we discuss the need to develop an evidence-based integrative lighting score that is tailored to specific audiences and lighting environments. We will summarize the most compelling evidence from the literature and outline a future plan for developing such a lighting score using internationally accepted metrics, stakeholder and user feedback. We propose a weighting system that combines light qualities with physiological and behavioral effects, and the use of mathematical modelling for an output score. Such a scoring system will facilitate a holistic assessment of a lighting environment, integrating all available light sources.",
   "keyword": "Q946, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31054,7 +31074,8 @@
   "container-title": "Building and Environment",
   "volume": "273",
   "page": "112733",
-  "keyword": "Q948, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
+  "abstract": "Sleep is closely linked to residential environmental factors such as light, noise, and temperature. Addressing sleep problems requires realistic contributions from both architectural and medical fields. Exposure to moderate light before waking positively impacts awakening quality. Individuals are beginning to use Internet of Things (IoT) devices, like motorized curtains, to introduce natural morning light into bedrooms while avoiding nighttime light. This study aims to explore the effectiveness of controlling natural light via window equipment to improve awakening quality. In a crossover randomized controlled trial, sleepiness, alertness, and fatigue were measured in 19 participants (nine females) after waking under three different natural light exposure conditions: IA, natural light exposure for 20 min before waking; IB, natural light exposure from dawn to waking; CC, no natural light exposure before waking. The effects of each condition on awakening quality were analyzed. The results showed no statistically significant differences in cumulative or maximum illuminance between IA and IB. Objective alertness and subjective sleepiness in the IA and IB were significantly better than in the CC. Objective sleepiness was significantly lower in IA compared with both IB and CC. These findings suggest that natural light control through window equipment can improve awakening quality; however, excessive or early exposure could increase mid-waking time, potentially harming awakening quality. This study presents an effective method (IA) for natural light control and offers interdisciplinary insights into architecture and sleep research in real-world settings.",
+  "keyword": "Q948, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie, Natural light control, Daylight, Sleep problems, Awakening quality, electroencephalogram, Sleep parameters"
  },
  {
   "id": "harvieclark2019assessing",
@@ -31181,6 +31202,7 @@
   "DOI": "10.1080/23748834.2026.2704327",
   "container-title": "Cities & Health",
   "page": "1--10",
+  "abstract": "Higher residential densities are promoted to sustainably meet housing targets; however, the location, built form and spatial arrangements of these developments may increase residents’ exposure to noise. Noise annoyance is linked to a range of health issues and contributes substantially to the health burden from environmental noise. Therefore, managing noise in apartments is increasingly important. Australian state-level apartment design policies provide guidance for the development and siting of buildings, acknowledging that some settings may expose residents to higher levels of noise. This study examined associations between objectively measured apartment and building design features and residents’ noise annoyance from internal and external sources among 1112 apartment dwellers across 110 complexes in three Australian capital cities using mixed-effects linear regression models. Design features included floor level, apartment layout and orientation, proximity to communal open spaces and circulation spaces, façade exposure, separation from neighbouring buildings and the presence of mixed-use functions. Noise annoyance was shaped by the spatial relationship between dwellings and noise sources. Vertical position in the building, proximity to internal circulation spaces, and the degree of façade exposure to the surrounding environment were associated with differences in noise annoyance. These findings highlight the importance of acoustic considerations in apartment design policy.",
   "keyword": "Q952, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31208,6 +31230,7 @@
   "DOI": "10.1080/15502724.2026.2701718",
   "container-title": "Leukos",
   "page": "1--22",
+  "abstract": "The right light signal at the right time is the primary exogenous zeitgeber, entraining circadian rhythms. Daily solar light/dark cycles play a pivotal role in regulating circadian rhythms, sleep, neuroendocrine processes, cognitive performance, mood fluctuations, and physiological homeostasis. With the built environment replacing the unmediated natural environment, and the advent of electric lighting, human daily light environment has changed measurably. This raises concerns about whether current interior light conditions can support a stable and robust circadian photoentrainment. A well-entrained circadian system, vital for health, performance, and homeostasis, depends on a routine and consistent exposure to bright light during the day and almost total darkness at night. This narrative review (1) evaluates the efficacy of interior light environments for a robust photoentrainment, (2) identifies the limitations of current daylighting/lighting regulations, while (3) providing actionable design strategies for optimal photoentrainment in the built environment.",
   "keyword": "Q953, FF2=1, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31270,6 +31293,7 @@
   "container-title": "Energy and Buildings",
   "volume": "149",
   "page": "101--113",
+  "abstract": "Thermal environment in bedrooms is still a largely neglected topic in thermal comfort research, although a thermal comfortable environment is important for sleep maintenance. Studies confirm that human body is sensitive to air temperature during sleep; even moderate heat or cold exposure decrease sleep quality significantly. In the present paper we reviewed air temperatures measured in bedroom and the effects of heat and cold exposure on sleep quality, and then proposed 5 aspects of approaches or technologies that could improve sleeping thermal environment at a low energy consumption. We concluded that there are two important research topics in sleeping thermal environment. One is to develop sleeping-mode control strategy for air conditioner used in bedroom to get slight increase or to avoid decrease in room air temperature when approaching morning. The other is to control bed micro-environment energy efficiently by using of local heating, cooling and/or ventilation system.",
   "keyword": "Q955, FF6=2, Nutzung:adaptieren, Qualitaet:A, Kernbestand"
  },
  {
@@ -31306,6 +31330,7 @@
   "container-title": "Journal of Environmental Psychology",
   "volume": "81",
   "page": "101802",
+  "abstract": "In this paper, a multidisciplinary approach to examining the connection between visual perception, human emotions and architectural space is presented. It details a study in which emotional reactions to architectural space geometry are empirically measured and quantified. Using various sensors, including EEG (Electroencephalography), GSR (Galvanic Skin Response), and eye-tracking (ET), we collected data from 112 individuals experiencing virtual environments (VEs), characterized by a variance of geometric manipulations. Diffusion map algorithms, as well as other statistical methods were used to analyze the data. Findings suggest that criteria of protrusion, curvature, scale and proportion of space influence the user's emotional state. Indices of ET, GSR, electrical brain activity, as well as dwelling duration and self-report liking ranks, show both “negative” and “positive” interest changes.",
   "keyword": "Q956, FF6=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31331,6 +31356,7 @@
   "volume": "50",
   "issue": "7",
   "page": "722--737",
+  "abstract": "Issues of domestic space standards and occupancy levels rarely receive much attention in debates about UK housing and planning policies. This is exemplified by examining the history of space and occupancy standards as applied in England, demonstrating that standards have been under-specified, partial in coverage, and applied inconsistently. The outcomes are seen in the production of relatively small homes, overcrowding and (perversely) extensive under-occupation, residential dissatisfaction and mobility. Evidence for the health and wellbeing impacts of space shortages highlights the consequences for infectious diseases, particularly respiratory illness, mental health and stress, and educational attainment. Moreover, the mediating and moderating roles of domestic space upon the impacts of the Covid-19 pandemic show the crucial importance of space and occupancy standards for health, wellbeing and learning in a future where more time is spent at home. Areas of future research are identified which together could help address a probable underestimate of the current health sector costs of inadequate domestic space, this being an important lever for policy action. Such evidence, including crucially more from the UK itself, has an important role to play if stronger, more effective policies are to be developed and implemented in this area in future.",
   "keyword": "Q957, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31372,6 +31398,7 @@
   "volume": "20",
   "issue": "7",
   "page": "837--863",
+  "abstract": "This paper presents an algorithm for efficiently designing, fabricating, and constructing the mechanical, electrical, and plumbing (MEP) systems for buildings. MEP facility construction presents numerous challenges related to its complexity, space limitations, and interference with other trades working in confined areas. Besides, schedule delays can easily be caused by the uncontrolled delivery schedule of the components. This research provides a rational planning algorithm which packages large and complex MEP systems into several smaller fabricated components using spatial planning algorithms to increase the efficiency of the installation process, create a safer work environment, improve construction quality and productivity, reduce construction cycle time, and minimize cost. Furthermore, the technique is verified and validated by three experts and a case study is presented to demonstrate the effectiveness of this algorithm.",
   "keyword": "Q958, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31405,6 +31432,7 @@
   "volume": "9",
   "issue": "11",
   "page": "e113267",
+  "abstract": "Despite the ubiquity of interior space design, there is virtually no scientific research on the influence of furnishing on the perception of interior space. We conducted two experiments in which observers were asked to estimate the spatial dimensions (size of the room dimensions in meters and centimeters) and to judge subjective spaciousness of various rooms. Experiment 1 used true-to-scale model rooms with a square surface area. Furnishing affected both the perceived height and the spaciousness judgments. The furnished room was perceived as higher but less spacious. In Experiment 2, rooms with different square surface areas and constant physical height were presented in virtual reality. Furnishing affected neither the perceived spatial dimensions nor the perceived spaciousness. Possible reasons for this discrepancy, such as the influence of the presentation medium, are discussed. Moreover, our results suggest a compression of perceived height and depth with decreasing surface area of the room.",
   "keyword": "Q959, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31461,6 +31489,7 @@
   "container-title": "Building and Environment",
   "volume": "225",
   "page": "109630",
+  "abstract": "Indoor Air Quality (IAQ) and sleep quality measurements over a period of two weeks were performed all night in 40 bedrooms in Denmark during the heating season. In the first week, the bedroom conditions were typical of what participants would normally experience during sleep. In the second week, the participants were asked to open the doors or windows if they had been closed or the opposite. A change in the 95th percentile of the measured CO2 concentration by more than 200 ppm in the expected direction on the same weekdays of the two-week measurement period was taken to indicate that an effective intervention had taken place. The measurements in the 29 bedrooms that met this criterion were grouped depending on how the windows or doors had been manipulated. Objectively measured and subjectively rated bedroom IAQ improved when the windows were open except that the NO2 concentration was slightly higher. Sleep was longer under this condition and sleep quality was subjectively assessed to be better. Similar effects were not observed when the doors were open although the 95th percentile of CO2 concentration decreased by as much as when the windows were open. No effects were seen in the 11 bedrooms in which the change to the bedroom conditions made by the participants did not change the CO2 concentration by at least 200 ppm, as would be expected. The present study provides evidence that sufficient dilution and/or removal of pollutants is necessary to ensure good bedroom IAQ and good sleep quality.",
   "keyword": "Q960, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31493,6 +31522,7 @@
   "container-title": "Automation in Construction",
   "volume": "165",
   "page": "105566",
+  "abstract": "The digital transformation of the AEC industry through BIM has improved productivity during detailed design and construction planning phases. Early design choices influence a project's success but have yet to benefit from BIM-based approaches. This paper investigates the feasibility and acceptance of employing Generative Design (GD) to optimize early Mechanical, Electrical, and Plumbing (MEP) designs in residential real estate for space efficiency. Interviews indicate the main issue is acceptance due to the belief that a GD approach needs to be more robust. BIM is integrated with GD, utilizing the architectural layout (IFC) as input to generate design variants tailored to minimize technical space while ensuring installation feasibility. Robustness is assessed via Monte Carlo Simulation, revealing an estimated success rate of 99% (81% with 95% confidence). These results quantify the robustness of the approach, paving the way to broader acceptance of GD in the early phases of AEC projects.",
   "keyword": "Q961, FF2=1, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31526,6 +31556,7 @@
   "volume": "149",
   "issue": "1",
   "page": "05022017",
+  "abstract": "Prefabrication is often considered as a potential solution to address the challenges of building construction in remote communities. However, methods to find the best modularization for mechanical, electrical, and plumbing (MEP) systems are scarce. This prevents a proper assessment of cost reductions and local benefits, two key metrics for decision makers in remote communities. Therefore, in this study a computational framework is proposed for identifying the optimal modularity of piping to be assembled in residential buildings located in an isolated region, namely Nunavik (Quebec). The framework contributes to advancing existing modularity optimization approaches for MEP systems by integrating two objective functions, the impact of module characteristics on modularization, collision constraints during assembly, and the context of remote communities. The algorithm simultaneously minimizes system installation cost and maximizes local job creation, an important socioeconomical outcome of construction in remote areas. Fuzzy logic models and nondominated sorting genetic algorithm (NSGA-II) algorithm were used to evaluate configurations and identify nondominated solutions. Type of work, height of the assembly, direction changes, and stiffness of the modules were considered in estimating assembly time. The dimensions and weight of each module were used to estimate handling time. The optimization framework considers two possible prefabrication sites, outside and inside the remote region. By applying this approach to modularize an MEP system in typical Nunavik housing units, it was possible to demonstrate a reduction in installation cost and an increase in local job creation compared to the current situation (i.e., without MEP prefabrication). In particular, for a case study with 40 components, the proposed framework found a solution that can reduce installation cost by 81.9% and generate 23.4 h of local employment.",
   "keyword": "Q962, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31584,6 +31615,7 @@
   "volume": "48",
   "issue": "8",
   "page": "866--885",
+  "abstract": "ISO/NP TS 19488 constitutes a basis for classifying residential buildings according to their acoustic performance. The new Turkish Regulation defines the minimum requirements for all building types and introduces a similar classification scheme. This paper aims to contribute to the applicability discussions by clarifying and testing the methodology that is to be pursued in order to verify the acoustic performance of a building or a dwelling unit, and to reveal possible questions. In order to test the enforcements, some field studies were conducted. Acoustical measurements were performed in 6 selected residential buildings and 136 occupants’ were interviewed with a questionnaire. The acoustic performance was evaluated based on the noise levels, sound insulation and reverberation time. The occupants’ data were gathered in face-to-face meetings and the responses were analysed to reveal annoyance issues and the overall satisfaction with the acoustical environment. The results showed that the verification processes described in the ISO/NP TS 19488 and the Regulation could be easily applied. However, some issues regarding the applicability and interpretations were discovered and presented in the discussion. The measurement results were consistent with the subjective evaluation in most cases. The overall satisfaction with the acoustical environment depended on more aspects than examined annoyances.",
   "keyword": "Q964, FF6=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31613,6 +31645,7 @@
   "volume": "50",
   "issue": "6",
   "page": "694--708",
+  "abstract": "Based on a dataset of dwelling unit plans (n = 2283) with detailed dimensions derived from open-access plan data using machine learning, this paper analyses the size and usability of dwellings in London. Half of London’s housing stock was built before the Second World War but has been extensively modified. Due to greater pressure on the housing market and problems with dwelling size, London was the first local authority in England to reintroduce space standards for all housing sectors in 2011. Providing a first comprehensive analysis of space standards and dwelling size in London at room level and across all built periods, the data shows that 61% of London homes fail the recommended minimum dwelling sizes of the London Housing Design Guide (2010), 51% a bedroom standard and 88% at least one of the dimensional requirements. The paper quantifies the extent to which homes fail both recent and historical space standards and discusses their effectiveness in relation to dwelling usability and issues of design.",
   "keyword": "Q965, FF2=1, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31650,6 +31683,7 @@
   "volume": "65",
   "issue": "2",
   "page": "162--174",
+  "abstract": "This study focuses on the effects of the independent spatial variables of volumetric visibility, natural light, and the infinity index value on both perceived openness and spaciousness, and on the concept of familiarity, using computer-generated images of sixteen nodes of a university building. Ninety participants in three groups from two universities were selected to examine the effects of familiarity on the dependent variables of openness and spaciousness. These dependent variables of perception were explored through a semantic evaluation test, where the participants experienced the sixteen spatial nodes in a virtual environment derived from fixed vantage points on two floors of the case study campus building. The results revealed that the perceived spaciousness is significantly correlated to the independent physical aspects of space, such as the volumetric visibility, the natural light, and the infinity value, while familiarity with space indicated a higher ratio of perceived openness.",
   "keyword": "Q966, FF6=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -31716,6 +31750,7 @@
   "container-title": "Automation in Construction",
   "volume": "88",
   "page": "1--12",
+  "abstract": "The construction industry is under pressure as to reduce the sizable quantities of construction waste generated during construction operations. Modular coordination (MC) and parametric design both have great potentials in reducing waste at the design stage. And anecdotal evidence suggests that great volumes of waste can be reduced through integration of parametric design into MC. The issue of proposing workflows in this context, however, is under-researched, and practical applications, if any, are at the rhetorical stage. To accomplish this, an integration attempt is made in this study to provide the details of a developed-and-experimented workflow for this purpose; a generative algorithm is developed through the Rhinoceros 3D–Grasshopper platform, subject to MC rules. Two sets of horizontal and vertical modules are obtained from a prototype model, while an evolutionary solver function is applied in reducing the generated construction waste volume. According to a pre-defined standard specification, different modular design variants that fully conform to the design constraints in modules array are developed, providing an operational workflow in construction waste reduction at the design stage. Introducing this workflow, and how the proposed workflow reduces the volume of post-optimization paneling waste by 2% at its minimum are the major findings here. The insights derived from this study, would promote the interest of both the construction practitioners and researchers; the practicality of integrating parametric design into MC is proven.",
   "keyword": "Q968, FF1=1, FF2=2, FF6=1, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -31785,7 +31820,8 @@
   "container-title": "Advances in ICT in Design, Construction and Management in Architecture, Engineering, Construction and Operations (AECO): Proceedings of the 36th CIB W78 2019 Conference",
   "page": "647--660",
   "ISBN": "9781861354877",
-  "keyword": "Q970, FF2=2, Nutzung:Kontext, Qualitaet:B, Kernbestand"
+  "abstract": "The use of Building Information Management (BIM) has become mainstream in many countries. Exchanging data in open standards like the Industry Foundation Classes (IFC) is seen as the only workable solution for collaboration. To define information needs for collaboration, many organizations are now documenting what kind of data they need for their purposes. Currently practitioners define their requirements often a) in a format that cannot be read by a computer; b) by creating their own definitions that are not shared. This paper proposes a bottom up solution for the definition of new building concepts a property. The authors have created a prototype implementation and will elaborate on the capturing of information specifications in the future.",
+  "keyword": "Q970, FF2=2, Nutzung:Kontext, Qualitaet:B, Kernbestand, BIM, MVD, IFC, model checking, information delivery specification"
  },
  {
   "id": "johnsson2007ict",
@@ -31815,7 +31851,8 @@
   },
   "container-title": "Bringing ITC Knowledge to Work: Proceedings of the 24th CIB W78 Conference",
   "page": "407--413",
-  "keyword": "Q971, FF1=2, FF2=2, FF5=1, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
+  "abstract": "The Swedish construction sector is currently undergoing great changes. The large costs for labour have forced the construction companies to rationalise and minimise labour intense work operations. Therefore, the current trend in construction to adopt the principles of lean production and transform it into lean construction, suits the Swedish way of working and the entire Swedish construction sector has caught on. A growing market is the prefabrication of building elements that are transported to site and then erected. The development has been taken so far that modular houses i.e. volumes/rooms are prefabricated. Companies in the prefabrication industry within construction fall between two sectors; the construction industry and the manufacturing industry. In terms of IT support the contradiction between the two sectors become evident. Software developed for the construction sector seldom provide enough detailing to suffice as a basis for industrial production, while software supporting the manufacturing industry are incapable of delivering standard construction documentation. The current study presents a multiple case study where six Swedish industrial manufacturers of timber houses were studied. The process from tender acceptance to module delivery is described. Alongside, a survey of the building system revealed that much still needs to be done in terms of documenting a building system. The results show that the question of IT support is more a question of consequent information strategies than eloquent IT tools. The pressing need for a method for documenting building systems is stressed and different methods are discussed.",
+  "keyword": "Q971, FF1=2, FF2=2, FF5=1, Nutzung:adaptieren, Qualitaet:B, Kernbestand, timber houses, industrial construction, lean construction, timber buildings"
  },
  {
   "id": "malmgren2010customization",
@@ -31836,6 +31873,7 @@
    ]
   },
   "issue": "TVBK-1041",
+  "abstract": "The aim of this project has been to study timber house manufacturers and provide guidance to those who aim to increase efficiency through the adaption of product modeling and eventually configuration. The findings in this report are based on a series of case studies within the abovementioned industry, which serves as a basis for the analysis and recommendations given. The Swedish timber house manufacturing industry has a long tradition of producing houses in factories. In recent years, however, the construction industry has received criticisms for issues with quality and productivity, problems that is also valid for the timber house manufacturers. During the upswing in the past decade, IT investments in the industry have not kept the same pace as other investments. For this reason IT environments are currently growing out of date, which is one reason contributing to today’s problems. In many ways the timber house manufacturers resembles traditional on-site construction, especially in how they use IT and product documentation. Given the different conditions in the industries and the fact that timber house manufacturers can assimilate influences from other manufacturing industries, this presents an interesting opportunity to pursue for the industry. The results from the case studies show that companies have a potential to better integrate processes, use IT and manage product documentation. How timber house manufacturers view themselves also affects how they treat questions regarding abovementioned areas, which ultimately also affects how well they will be able to use configuration. Whether they see themselves as a construction company, an engineering firm or a manufacturing industry will have an effect on many aspects of how to run the business. The findings show that the timber house manufacturing companies has a potential in streamlining and standardizing product documentation to facilitate configuration and improving the product specification process. Companies should address three areas as a part of the change: processes, IT and product documentation. When considering these three areas together, companies have an opportunity to increase their competitiveness through more efficient processes and standardized product families. Clearly there are risks associated with introducing new IT systems and changing processes. Companies need to consider the risks and potential benefits with pursuing this path. Risks that should be included in an evaluation are for example; changes in the market, costs and quantifiable benefits from using configuration. The report provides a number of advices to the timber house manufacturers that might be useful to consider for companies that wishes to go forward with product modeling and configuration. For example, it is recommended that companies investigate how to define the roles and responsibilities of the Chief Information Officer and Chief Technology Officer, explore how the IT-strategy best delivers value to the business and consider to introduce a product development process.",
   "keyword": "Q972, FF2=2, FF5=2, Nutzung:adaptieren, Qualitaet:B, Kernbestand"
  },
  {
@@ -31864,6 +31902,7 @@
   "volume": "249",
   "page": "5928--5935",
   "publisher": "Institute of Noise Control Engineering",
+  "abstract": "In this paper, a new building concept for multi-family lightweight timber frame housing is proposed. This concept combines party walls, floors and façade elements ensuring comfort levels equal or better thand currently encountered in typical Belgian heavy constructions. Low frequency behaviour and prefabrication potential were the key points in the design process of the new wall and floor types. Nevertheless, structural aspects, fire safety issues and thermal capacity have been taken into account as well. Solutions were found by maximally exploiting the mass-spring-mass mechanism. Finally, a holistic approach was followed to develop a building concept in which the walls, floors and façade elements are connected in an optimized way.",
   "keyword": "Q973, FF6=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -32524,6 +32563,7 @@
   "container-title": "Computer Law \\& Security Review",
   "volume": "45",
   "page": "105681",
+  "abstract": "As algorithms become an influential component of government decision-making around the world, policymakers have debated how governments can attain the benefits of algorithms while preventing the harms of algorithms. One mechanism that has become a centerpiece of global efforts to regulate government algorithms is to require human oversight of algorithmic decisions. Despite the widespread turn to human oversight, these policies rest on an uninterrogated assumption: that people are able to effectively oversee algorithmic decision-making. In this article, I survey 41 policies that prescribe human oversight of government algorithms and find that they suffer from two significant flaws. First, evidence suggests that people are unable to perform the desired oversight functions. Second, as a result of the first flaw, human oversight policies legitimize government uses of faulty and controversial algorithms without addressing the fundamental issues with these tools. Thus, rather than protect against the potential harms of algorithmic decision-making in government, human oversight policies provide a false sense of security in adopting algorithms and enable vendors and agencies to shirk accountability for algorithmic harms. In light of these flaws, I propose a shift from human oversight to institutional oversight as the central mechanism for regulating government algorithms. This institutional approach operates in two stages. First, agencies must justify that it is appropriate to incorporate an algorithm into decision-making and that any proposed forms of human oversight are supported by empirical evidence. Second, these justifications must receive democratic review and approval before the agency can adopt the algorithm.",
   "keyword": "Q1004, FF4=3, FF5=2, Nutzung:übernehmen, Qualitaet:B, Kernbestand"
  },
  {
@@ -32549,6 +32589,7 @@
   "volume": "39",
   "issue": "6",
   "page": "2853--2866",
+  "abstract": "Human oversight has become a key mechanism for the governance of artificial intelligence (\"AI\"). Human overseers are supposed to increase the accuracy and safety of AI systems, uphold human values, and build trust in the technology. Empirical research suggests, however, that humans are not reliable in fulfilling their oversight tasks. They may be lacking in competence or be harmfully incentivised. This creates a challenge for human oversight to be effective. In addressing this challenge, this article aims to make three contributions. First, it surveys the emerging laws of oversight, most importantly the European Union's Artificial Intelligence Act (\"AIA\"). It will be shown that while the AIA is concerned with the competence of human overseers, it does not provide much guidance on how to achieve effective oversight and leaves oversight obligations for AI developers underdefined. Second, this article presents a novel taxonomy of human oversight roles, differentiated along whether human intervention is constitutive to, or corrective of a decision made or supported by an AI. The taxonomy allows to propose suggestions for improving effectiveness tailored to the type of oversight in question. Third, drawing on scholarship within democratic theory, this article formulates six normative principles which institutionalise distrust in human oversight of AI. The institutionalisation of distrust has historically been practised in democratic governance. Applied for the first time to AI governance, the principles anticipate the fallibility of human overseers and seek to mitigate them at the level of institutional design. They aim to directly increase the trustworthiness of human oversight and to indirectly inspire well-placed trust in AI governance.",
   "keyword": "Q1005, FF4=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -32574,6 +32615,7 @@
   "volume": "15",
   "issue": "2",
   "page": "508--535",
+  "abstract": "Human oversight has been much stressed and discussed as a safeguarding measure to ensure human centrism in AI deployment. Through its proposal of a new EU Artificial Intelligence Act, the Commission is breaking new ground by promoting the introduction of the first general and sharp worded human oversight requirement over AI systems in European law. This Article discusses the content, limitations and implications of this oversight requirement. It does this by addressing the questions of what the Regulation prescribes on ‘what’ is to be overviewed, ‘when’ the overview is to be exercised and ‘by whom’. The article points to some of the AIA’s unclarities and gaps, and to the implications of vesting too much trust in providers to secure the oversight infrastructure of high-risk AI systems.",
   "keyword": "Q1006, FF4=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -32622,6 +32664,7 @@
   "container-title": "Proceedings of the 2024 ACM Conference on Fairness, Accountability, and Transparency (FAccT '24)",
   "page": "2495--2507",
   "publisher": "ACM",
+  "abstract": "Human oversight is currently discussed as a potential safeguard to counter some of the negative aspects of high-risk AI applications. This prompts a critical examination of the role and conditions necessary for what is prominently termed effective or meaningful human oversight of these systems. This paper investigates effective human oversight by synthesizing insights from psychological, legal, philosophical, and technical domains. Based on the claim that the main objective of human oversight is risk mitigation, we propose a viable understanding of effectiveness in human oversight: for human oversight to be effective, the oversight person has to have (a) sufficient causal power with regard to the system and its effects, (b) suitable epistemic access to relevant aspects of the situation, (c) self-control, and (d) fitting intentions for their role. Furthermore, we argue that this is equivalent to saying that an oversight person is effective if and only if they are morally responsible and have fitting intentions. Against this backdrop, we suggest facilitators and inhibitors of effectiveness in human oversight when striving for practical applicability. We discuss factors in three domains, namely, the technical design of the system, individual factors of oversight persons, and the environmental circumstances in which they operate. Finally, this paper scrutinizes the upcoming AI Act of the European Union – in particular Article 14 on Human Oversight – as an exemplary regulatory framework in which we study the practicality of our understanding of effective human oversight. By analyzing the provisions and implications of the European AI Act proposal, we pinpoint how far that proposal aligns with our analyses regarding effective human oversight as well as how it might get enriched by our conceptual understanding of effectiveness in human oversight.",
   "keyword": "Q1007, FF4=3, FF5=2, Nutzung:übernehmen, Qualitaet:B, Kernbestand"
  },
  {
@@ -32651,6 +32694,7 @@
   "volume": "33",
   "issue": "1",
   "page": "153--169",
+  "abstract": "Artificial intelligence algorithms are increasingly adopted as decisional aides by public bodies, with the promise of overcoming biases of human decision-makers. At the same time, they may introduce new biases in the human–algorithm interaction. Drawing on psychology and public administration literatures, we investigate two key biases: overreliance on algorithmic advice even in the face of “warning signals” from other sources (automation bias), and selective adoption of algorithmic advice when this corresponds to stereotypes (selective adherence). We assess these via three experimental studies conducted in the Netherlands: In study 1 (N = 605), we test automation bias by exploring participants’ adherence to an algorithmic prediction compared to an equivalent human-expert prediction. We do not find evidence for automation bias. In study 2 (N = 904), we replicate these findings, and also test selective adherence. We find a stronger propensity for adherence when the advice is aligned with group stereotypes, with no significant differences between algorithmic and human-expert advice. In study 3 (N = 1,345), we replicate our design with a sample of civil servants. This study was conducted shortly after a major scandal involving public authorities’ reliance on an algorithm with discriminatory outcomes (the “childcare benefits scandal”). The scandal is itself illustrative of our theory and patterns diagnosed empirically in our experiment, yet in our study 3, while supporting our prior findings as to automation bias, we do not find patterns of selective adherence. We suggest this is driven by bureaucrats’ enhanced awareness of discrimination and algorithmic biases in the aftermath of the scandal. We discuss the implications of our findings for public sector decision making in the age of automation. Overall, our study speaks to potential negative effects of automation of the administrative state for already vulnerable and disadvantaged citizens.",
   "keyword": "Q1008, FF4=2, FF5=2, Nutzung:adaptieren, Qualitaet:B, Peripherie"
  },
  {
@@ -33145,6 +33189,7 @@
   "container-title": "Computer Law \\& Security Review",
   "volume": "51",
   "page": "105871",
+  "abstract": "The optimal liability framework for AI systems remains an unsolved problem across the globe. With ChatGPT and other large generative models taking the technology to the next level, solutions are urgently needed. In a much-anticipated move, the European Commission advanced two proposals outlining the European approach to AI liability in September 2022: a novel AI Liability Directive (AILD) and a revision of the Product Liability Directive (PLD). They constitute the final cornerstone of AI regulation in the EU. Crucially, the liability proposals and the proposed EU AI Act are inherently intertwined: the latter does not contain any individual rights of affected persons, and the former lack specific, substantive rules on AI development and deployment. Taken together, these acts may well trigger a “Brussels effect” in AI regulation, with significant consequences for the US and other countries.\nAgainst this background, this paper makes three novel contributions. First, it examines in detail the liability proposals and shows that, while making steps in the right direction, they ultimately represent a half-hearted approach: if enacted as foreseen, AI liability in the EU will primarily rest on disclosure of evidence mechanisms and a set of narrowly defined presumptions concerning fault, defectiveness and causality.\nHence, second, the article suggests amendments to the proposed AI liability framework. They are collected in a concise Annex at the end of the paper. I argue, inter alia, that the dichotomy between the fault-based AILD Proposal and the supposedly strict liability PLD Proposal is fictional and should be abandoned; that an EU framework for AI liability should comprise one fully harmonizing regulation instead of two insufficiently coordinated directives; and that the current proposals unjustifiably collapse fundamental distinctions between social and individual risk by equating high-risk AI systems in the AI Act with those under the liability framework.\nThird, based on an analysis of the key risks AI poses, the final part of the paper maps out a road for the future of AI liability and regulation, in the EU and beyond. More specifically, I make four key proposals. Effective compensation should be ensured by combining truly strict liability for certain high-risk AI systems with general presumptions of defectiveness, fault and causality in cases involving SMEs or non-high-risk AI systems. The paper introduces a novel distinction between illegitimate- and legitimate-harm models to delineate strict liability's scope. Truly strict liability should be reserved for high-risk AI systems that, from a social perspective, should not cause harm (illegitimate-harm models, e.g., autonomous vehicles or medical AI). Models meant to cause some unavoidable harm by ranking and rejecting individuals (legitimate-harm models, e.g., credit scoring or insurance scoring) may merely face rebuttable presumptions of defectiveness and causality. General-purpose AI systems and Foundation Models should only be subjected to high-risk regulation, including liability for high-risk AI systems, in specific high-risk use cases for which they are deployed. Consumers, in turn, ought to be liable based on regular fault, in general.\nFurthermore, innovation and legal certainty should be fostered through a comprehensive regime of safe harbours, defined quantitatively to the best extent possible. Moreover, trustworthy AI remains an important goal for AI regulation. Hence, the liability framework must specifically extend to non-discrimination cases and provide for clear rules concerning explainability (XAI).\nFinally, awareness for the climate effects of AI, and digital technology more broadly, is rapidly growing in computer science. In diametrical opposition to this shift in discourse and understanding, however, EU legislators have long neglected environmental sustainability in both the draft AI Act and the proposed liability regime. To counter this, I propose to jump-start sustainable AI regulation via sustainability impact assessments in the AI Act and sustainable design defects in the liability regime. In this way, the law may help spur not only fair AI and XAI, but also sustainable AI (SAI).",
   "keyword": "Q1031, FF4=2, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -33174,6 +33219,7 @@
   "volume": "12",
   "issue": "3",
   "page": "644--659",
+  "abstract": "This article offers a critical discussion of the “Report on Liability for Artificial Intelligence and Other Emerging Digital Technologies” released by the Expert Group on Liability and New Technologies. In particular, the authors consider: the excessive diversity of applications encompassed through the notion of “artificial intelligence and other emerging technologies”; the distinction between high- and low-risk applications as a potential source of legal uncertainty; the primary reliance on evidentiary rules over substantive ones; the problematic role attributed to safety rules; the unclear relationship between the Product Liability Directive and other ad hoc liability regimes; the radical exclusion of electronic personhood as a way of addressing liability issues; and the limited contextualisation of compulsory insurance and no-compensation funds.",
   "keyword": "Q1032, FF4=1, Nutzung:Kontext, Qualitaet:B, Peripherie"
  },
  {
@@ -33219,6 +33265,7 @@
   "DOI": "10.34669/wi.ws/2",
   "URL": "https://www.weizenbaum-institut.de/media/Publikationen/Weizenbaum_Series/Weizenbaum_Series_2_Zech_210412.pdf",
   "issue": "2",
+  "abstract": "Digitale Systeme stehen im Mittelpunkt aktueller rechtlicher und politischer Diskussionen. Stichworte wie Künstliche Intelligenz oder Autonomie werden dabei nicht immer einheitlich verwendet. Dieser Beitrag möchte die wichtigsten Begriffe klären und einen Überblick über die entscheidenden aktuellen Entwicklungen im Bereich der Informationstechnologie geben. Er ist aus dem Blickwinkel eines Juristen geschrieben, beschäftigt sich aber nur mit den technischen Aspekten.",
   "keyword": "Q1034, FF3=2, FF4=2, Nutzung:adaptieren, Qualitaet:C, Kernbestand"
  },
  {
@@ -33830,6 +33877,7 @@
   "container-title": "Scientific Data",
   "volume": "9",
   "page": "622",
+  "abstract": "Research software is a fundamental and vital part of research, yet significant challenges to discoverability, productivity, quality, reproducibility, and sustainability exist. Improving the practice of scholarship is a common goal of the open science, open source, and FAIR (Findable, Accessible, Interoperable and Reusable) communities and research software is now being understood as a type of digital object to which FAIR should be applied. This emergence reflects a maturation of the research community to better understand the crucial role of FAIR research software in maximising research value. The FAIR for Research Software (FAIR4RS) Working Group has adapted the FAIR Guiding Principles to create the FAIR Principles for Research Software (FAIR4RS Principles). The contents and context of the FAIR4RS Principles are summarised here to provide the basis for discussion of their adoption. Examples of implementation by organisations are provided to share information on how to maximise the value of research outputs, and to encourage others to amplify the importance and impact of this work.",
   "keyword": "Q1055, FF1=1, FF2=1, FF4=1, FF5=1, Nutzung:übernehmen, Qualitaet:B, Peripherie"
  },
  {
@@ -33865,6 +33913,7 @@
   "container-title": "PeerJ Computer Science",
   "volume": "2",
   "page": "e86",
+  "abstract": "Software is a critical part of modern research and yet there is little support across the scholarly ecosystem for its acknowledgement and citation. Inspired by the activities of the FORCE11 working group focused on data citation, this document summarizes the recommendations of the FORCE11 Software Citation Working Group and its activities between June 2015 and April 2016. Based on a review of existing community practices, the goal of the working group was to produce a consolidated set of citation principles that may encourage broad adoption of a consistent policy for software citation across disciplines and venues. Our work is presented here as a set of software citation principles, a discussion of the motivations for developing the principles, reviews of existing community practice, and a discussion of the requirements these principles would place upon different stakeholders. Working examples and possible technical solutions for how these principles can be implemented will be discussed in a separate paper.",
   "keyword": "Q1056, FF4=1, FF5=1, Nutzung:übernehmen, Qualitaet:B, Peripherie"
  },
  {
