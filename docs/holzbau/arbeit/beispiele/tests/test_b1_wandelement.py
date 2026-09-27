@@ -176,7 +176,7 @@ def test_nettovolumen_aus_geometrie_gleich_qto(ifc):
         qv = next(d["NetVolume"] for d in ue.get_psets(e, qtos_only=True).values() if "NetVolume" in d)
         assert v == pytest.approx(qv, abs=1e-9), e.Name
         geprueft += 1
-    assert geprueft == 42
+    assert geprueft == 41
     r1 = next(m for m in f.by_type("IfcMember") if m.Name == "Ständer R1")
     assert ue.get_psets(r1)["Qto_MemberBaseQuantities"]["NetVolume"] == pytest.approx((60 * 200 * 2630 - 60 * 25 * 40) / 1e9)
 

@@ -1,0 +1,307 @@
+{
+  "umgebung": {
+    "python": "3.11.15",
+    "ifcopenshell": "0.8.5"
+  },
+  "b1": {
+    "datei": "wandelement.ifc",
+    "schema": "IFC4X3_ADD2",
+    "groesse_bytes": 135927,
+    "sha256": "5a796ea7b0f1d8c0b92002155819ddee4ca7bf6b0ddd6bfe619fcf38f8bb478b",
+    "entitaeten_gesamt": 2393,
+    "ifcroot": 391,
+    "je_klasse": {
+      "IfcWall": 1,
+      "IfcMember": 18,
+      "IfcPlate": 10,
+      "IfcBuildingElementPart": 13,
+      "IfcCovering": 0,
+      "IfcMechanicalFastener": 176,
+      "IfcVoidingFeature": 1,
+      "IfcOpeningElement": 1,
+      "IfcRelAggregates": 4,
+      "IfcPropertySet": 30,
+      "IfcElementQuantity": 42
+    },
+    "member_stud": 15,
+    "member_plate": 3,
+    "zweiter_lauf_byte_identisch": true,
+    "validate_meldungen": 0
+  },
+  "b3": {
+    "geometrie_hinterlueftet": {
+      "holzanteil": 0.224812,
+      "u_wert": 0.183498,
+      "r_oben": 5.670411,
+      "r_unten": 5.228892,
+      "relativer_fehler": 0.040509
+    },
+    "geometrie_verputzt": {
+      "holzanteil": 0.224812,
+      "u_wert": 0.186799,
+      "r_oben": 5.567784,
+      "r_unten": 5.138892,
+      "relativer_fehler": 0.040058
+    },
+    "raster_hinterlueftet": {
+      "holzanteil": 0.096,
+      "u_wert": 0.160081,
+      "r_oben": 6.402387,
+      "r_unten": 6.091318,
+      "relativer_fehler": 0.024898
+    },
+    "raster_verputzt": {
+      "holzanteil": 0.096,
+      "u_wert": 0.162527,
+      "r_oben": 6.304348,
+      "r_unten": 6.001318,
+      "relativer_fehler": 0.024625
+    }
+  },
+  "b2": {
+    "bestanden": {
+      "ergebnis": true,
+      "spezifikationen": 11
+    },
+    "fehlerhaft": {
+      "ergebnis": false,
+      "fehlgeschlagen": [
+        "HRB-01",
+        "HRB-03",
+        "HRB-05",
+        "HRB-08",
+        "HRB-09",
+        "HRB-11"
+      ]
+    },
+    "eingebaute_fehler": [
+      "F1 Pset_WallCommon.ThermalTransmittance = 0.25",
+      "F2 IfcRelAssociatesClassification der Wand entfernt",
+      "F3 Materialzuordnung von 'Ständer R2' entfernt",
+      "F4 Spanplattenschraube 4,0x50: NominalDiameter gelöscht",
+      "F5 Spanplattenschraube 4,0x50 #1: NominalDiameter = 20 mm",
+      "F6 IfcBuildingElementProxy ergänzt"
+    ]
+  },
+  "b4": [
+    {
+      "szenario": "mittig",
+      "giebel_modus": "drittel",
+      "zulaessig": true,
+      "waende": {
+        "West (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Ost (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Süd (Giebel)": {
+          "T": 3.267,
+          "vorh": 13.0,
+          "ok": true
+        },
+        "Nord (Giebel)": {
+          "T": 3.267,
+          "vorh": 9.0,
+          "ok": true
+        }
+      }
+    },
+    {
+      "szenario": "zu_nah",
+      "giebel_modus": "drittel",
+      "zulaessig": false,
+      "waende": {
+        "West (Traufe)": {
+          "T": 3.267,
+          "vorh": 2.0,
+          "ok": false
+        },
+        "Ost (Traufe)": {
+          "T": 3.267,
+          "vorh": 8.0,
+          "ok": true
+        },
+        "Süd (Giebel)": {
+          "T": 3.267,
+          "vorh": 13.0,
+          "ok": true
+        },
+        "Nord (Giebel)": {
+          "T": 3.267,
+          "vorh": 9.0,
+          "ok": true
+        }
+      }
+    },
+    {
+      "szenario": "an_strasse",
+      "giebel_modus": "drittel",
+      "zulaessig": true,
+      "waende": {
+        "West (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Ost (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Süd (Giebel)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Nord (Giebel)": {
+          "T": 3.267,
+          "vorh": 17.0,
+          "ok": true
+        }
+      }
+    },
+    {
+      "szenario": "mittig",
+      "giebel_modus": "voll",
+      "zulaessig": true,
+      "waende": {
+        "West (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Ost (Traufe)": {
+          "T": 3.267,
+          "vorh": 5.0,
+          "ok": true
+        },
+        "Süd (Giebel)": {
+          "T": 4.6,
+          "vorh": 13.0,
+          "ok": true
+        },
+        "Nord (Giebel)": {
+          "T": 4.6,
+          "vorh": 9.0,
+          "ok": true
+        }
+      }
+    }
+  ],
+  "b5": {
+    "anzahl_loesungen": 68,
+    "beste": {
+      "n_steigungen": 17,
+      "n_auftritte": 16,
+      "s_mm": 170.59,
+      "a_mm": 290,
+      "schrittmass_mm": 631.18,
+      "lauflaenge_mm": 4640,
+      "abw_ziel_mm": 1.18,
+      "abw_bequem_mm": 0.59,
+      "abw_sicher_mm": 0.59,
+      "ziel_stufe_mm": 0.0
+    },
+    "uebersicht_je_n": {
+      "15": {
+        "s_mm": 193.33,
+        "a_min": 230,
+        "a_max": 260,
+        "anzahl": 7
+      },
+      "16": {
+        "s_mm": 181.25,
+        "a_min": 230,
+        "a_max": 285,
+        "anzahl": 12
+      },
+      "17": {
+        "s_mm": 170.59,
+        "a_min": 250,
+        "a_max": 305,
+        "anzahl": 12
+      },
+      "18": {
+        "s_mm": 161.11,
+        "a_min": 270,
+        "a_max": 325,
+        "anzahl": 12
+      },
+      "19": {
+        "s_mm": 152.63,
+        "a_min": 285,
+        "a_max": 340,
+        "anzahl": 12
+      },
+      "20": {
+        "s_mm": 145.0,
+        "a_min": 300,
+        "a_max": 360,
+        "anzahl": 13
+      }
+    }
+  },
+  "b6": [
+    {
+      "aeusserung": "Mach das Bad oben zwei Meter sechzig breit",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "angenommen"
+    },
+    {
+      "aeusserung": "Das Bad oben bitte eins zwanzig breit",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "abgelehnt"
+    },
+    {
+      "aeusserung": "Das Bad soll zwanzig Zentimeter breiter werden",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "rueckfrage"
+    },
+    {
+      "aeusserung": "Mach das Kinderzimmer 2 auf 3,20 m",
+      "intent": "raum_aendern",
+      "p": 0.78,
+      "status": "angenommen"
+    },
+    {
+      "aeusserung": "Das zweite Kinderzimmer soll zwölf Quadratmeter haben",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "angenommen"
+    },
+    {
+      "aeusserung": "Mach das Kinderzimmer 1 einen Meter zwanzig schmaler",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "abgelehnt"
+    },
+    {
+      "aeusserung": "Das Bad oben eins fünf breiter",
+      "intent": "raum_aendern",
+      "p": 0.91,
+      "status": "rueckfrage"
+    },
+    {
+      "aeusserung": "Stell die Dachneigung auf 35 Grad",
+      "intent": "dach_aendern",
+      "p": 0.88,
+      "status": "nicht_umgesetzt"
+    },
+    {
+      "aeusserung": "Kannst du das mal anders machen",
+      "intent": "sonstiges",
+      "p": 0.46,
+      "status": "rueckfrage"
+    }
+  ],
+  "b7": "/home/user/roundtable/docs/holzbau/arbeit/beispiele/ausgabe/wandelement.btlx: 18 Parts, 1 Lap-Bearbeitung(en), 18365 Bytes",
+  "b7_sha256": "fc91a53216a213f93dc56dfb8e106de244f1f86950f7bf78e13031ed765ff24d"
+}

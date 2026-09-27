@@ -150,9 +150,9 @@
   },
   {
     "aeusserung": "Mach das Kinderzimmer 2 auf 3,20 m",
-    "intent": "sonstiges",
-    "p": 0.46,
-    "p_zweiter": 0.31,
+    "intent": "raum_aendern",
+    "p": 0.78,
+    "p_zweiter": 0.12,
     "intent_quelle": "STUB",
     "masse": [
       {
@@ -170,8 +170,46 @@
         "mehrdeutig": false
       }
     ],
-    "status": "rueckfrage",
-    "begruendung": "Intent unsicher (p=0.46, Abstand 0.15)"
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "2M8XdrxW9Sbh60QhD35bC3",
+      "raum_id": "og_kind2",
+      "kandidaten": [
+        {
+          "guid": "2M8XdrxW9Sbh60QhD35bC3",
+          "name": "Kinderzimmer 2",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=kind, Nummer=2"
+    },
+    "aenderung": {
+      "groesse": "breite",
+      "relativ": false,
+      "richtung": 0,
+      "mass": {
+        "wert": 3.2,
+        "dim": "laenge",
+        "quelle": "3,20 m",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    },
+    "status": "angenommen",
+    "aenderungen": [
+      {
+        "guid": "2M8XdrxW9Sbh60QhD35bC3",
+        "raum": "Kinderzimmer 2",
+        "breite_alt": 3.5,
+        "breite_neu": 3.2
+      },
+      {
+        "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+        "raum": "Kinderzimmer 1",
+        "breite_alt": 3.5,
+        "breite_neu": 3.8
+      }
+    ]
   },
   {
     "aeusserung": "Das zweite Kinderzimmer soll zwölf Quadratmeter haben",

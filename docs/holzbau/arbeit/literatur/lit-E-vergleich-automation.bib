@@ -1,0 +1,561 @@
+% =====================================================================
+% Literaturstand Teil E: Vergleichbare Arbeiten -- Design Automation,
+% Compliance-by-Design, KI/NL-Schnittstellen, TGA-Routing, Dach/Detail,
+% Reifegrade, Round-Trip/SSOT, Produktdaten
+% Arbeit: Regelbasierter, sprachgesteuerter Entwurf von Holzrahmenbau-
+% Fertighaeusern mit durchgaengigem IFC-Modell
+% Stand der Verifikation: 2026-09-27
+%
+% VERIFIKATIONSWEG: api.crossref.org, api.openalex.org, doi.org und
+% arxiv.org waren in der Rechercheumgebung per Egress-Proxy gesperrt.
+% Verifiziert wurde daher ueber Verlags-/Repositoriumsseiten (per
+% Exa-Suche/WebSearch aufgerufen). Das note-Feld nennt den Weg:
+%   [V]  = Metadaten + DOI auf Verlags-/Repositoriumsseite gesehen
+%   [V*] = Metadaten geprueft, DOI aus Sekundaerquelle bzw. aus der
+%          Elsevier-Artikelnummer abgeleitet -> vor Abgabe aufloesen
+%   [U]  = wesentliche Angabe offen (Venue/DOI/Seiten)
+% Doppelungen mit lit-A/lit-B werden NICHT erneut aufgefuehrt; die
+% dortigen Keys werden in Recherche 12 wiederverwendet (du2026text2bim,
+% jang2024nadia, chen2025agent, atakan2025kakadoo, lee2024generalized,
+% zheng2023dynamic, weber2022automated, laignel2021floor,
+% merrell2010computer, merrell2011interactive, yu2011make,
+% michalek2002architectural, jensen2012configuration, compastimber,
+% stepien2023openbimrl, haeussler2021code, lai2018interoperability,
+% noardo2022unveiling, tomczak2022review).
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% E1) Compliance-by-Design, Mass Customization, Konfiguration
+% ---------------------------------------------------------------------
+
+@article{sydora2020rulebased,
+  author  = {Sydora, Christoph and Stroulia, Eleni},
+  title   = {Rule-based compliance checking and generative design for building interiors using {BIM}},
+  journal = {Automation in Construction},
+  year    = {2020},
+  volume  = {120},
+  pages   = {103368},
+  doi     = {10.1016/j.autcon.2020.103368},
+  note    = {[V] ScienceDirect-Artikelseite (pii S0926580520309481) und Heftuebersicht Vol. 120; zugehoerige MSc-Arbeit im ERA-Repositorium U Alberta}
+}
+
+@incollection{niemeijer2009checkmate,
+  author    = {Niemeijer, Remco A. and de Vries, Bauke and Beetz, Jakob},
+  title     = {Check-mate: automatic constraint checking of {IFC} models},
+  booktitle = {Managing IT in Construction / Managing Construction for Tomorrow (Proceedings CIB W78 2009)},
+  editor    = {Dikba{\c{s}}, Attila and Ergen, Esin and Giritli, Heyecan},
+  publisher = {CRC Press},
+  year      = {2009},
+  doi       = {10.1201/9781482266665-68},
+  note      = {[V] Volltext TU/e Pure (Metis230272) und Kapitelseite taylorfrancis.com (DOI dort)}
+}
+
+@phdthesis{niemeijer2011constraint,
+  author = {Niemeijer, Remco A.},
+  title  = {Constraint specification in architecture: a user-oriented approach for mass customization},
+  school = {Technische Universiteit Eindhoven},
+  year   = {2011},
+  note   = {[V] TU/e Research Portal (Dissertation); DOI/ISBN nicht geprueft [U]}
+}
+
+@article{sandberg2008knowledge,
+  author  = {Sandberg, Marcus and Johnsson, Helena and Larsson, Tobias},
+  title   = {Knowledge-based engineering in construction: the prefabricated timber housing case},
+  journal = {Journal of Information Technology in Construction (ITcon)},
+  year    = {2008},
+  volume  = {13},
+  pages   = {408--420},
+  url     = {https://www.itcon.org/2008/26},
+  note    = {[V] ITcon-Artikelseite 2008/26}
+}
+
+@article{retik1994automated,
+  author  = {Retik, Arkady and Warszawski, Abraham},
+  title   = {Automated design of prefabricated building},
+  journal = {Building and Environment},
+  year    = {1994},
+  volume  = {29},
+  number  = {4},
+  pages   = {421--436},
+  note    = {[V] Publikationsliste des Autors (UW Bothell) und Exa-Publikationsindex; DOI nicht geprueft [U]}
+}
+
+@article{wang2024cloud,
+  author  = {Wang, Songyue and Chen, Qian},
+  title   = {Development of a Cloud-Based Building Information Modeling Design Configurator to Auto-Link Material Catalogs with Code-Compliant Designs of Residential Buildings},
+  journal = {Buildings},
+  year    = {2024},
+  volume  = {14},
+  number  = {7},
+  pages   = {2084},
+  doi     = {10.3390/buildings14072084},
+  note    = {[V] MDPI-Artikelseite und UBC Open Collections}
+}
+
+@inproceedings{erhan2026dcodeweaver,
+  author    = {Erhan, Halil and Mottaghi, Esmaeil and Gjata, Elton and Tr{\'e}goat, Yann},
+  title     = {{D-CodeWeaver}: Integrating Real-Time Code Compliance Analytics into Modular Timber Housing Design},
+  booktitle = {Proceedings of the AHFE 2026 International Conference (Innovations in Sustainable Industry)},
+  year      = {2026},
+  note      = {[U] Programm AHFE 2026 (Hawaii) und Exa-Publikationsindex; DOI/Seiten offen}
+}
+
+@misc{pang2026natural,
+  author       = {Pang, Bo and Zhang, Jiansong and Lai, Jingyi and Nartey, Bernard},
+  title        = {From Natural Language to Interoperable {BIM}: an Extensible Framework of Compliance-Aware Generative Design},
+  year         = {2026},
+  howpublished = {SSRN preprint 6947980},
+  note         = {[U] Google-Scholar-Profil und Exa-Index; Preprint, Peer-Review-Status offen; Volltext vor Zitat lesen}
+}
+
+% ---------------------------------------------------------------------
+% E2) Holzrahmenbau: Framing, Beplankung, Panelisierung, Fertigung
+% ---------------------------------------------------------------------
+
+@article{alwisy2019bimbased,
+  author  = {Alwisy, Aladdin and Bu Hamdan, Samer and Barkok{\'e}bas, B{\'e}da and Bouferguene, Ahmed and Al-Hussein, Mohamed},
+  title   = {A {BIM}-based automation of design and drafting for manufacturing of wood panels for modular residential buildings},
+  journal = {International Journal of Construction Management},
+  year    = {2019},
+  volume  = {19},
+  number  = {3},
+  pages   = {187--205},
+  doi     = {10.1080/15623599.2017.1411458},
+  note    = {[V] tandfonline-URL mit DOI; Band/Seiten ueber Publikationsliste U Alberta Modular Construction und KipHub}
+}
+
+@article{manrique2015automated,
+  author  = {Manrique, Juan D. and Al-Hussein, Mohamed and Bouferguene, Ahmed and Nasseri, Reza},
+  title   = {Automated generation of shop drawings in residential construction},
+  journal = {Automation in Construction},
+  year    = {2015},
+  volume  = {55},
+  pages   = {15--24},
+  doi     = {10.1016/j.autcon.2015.03.004},
+  note    = {[V*] Metadaten Publikationsliste U Alberta + ScienceDirect-pii S0926580515000382; DOI aus WebSearch-Zusammenfassung}
+}
+
+@article{liu2018boarding,
+  author  = {Liu, Hexu and Singh, Gurjeet and Lu, Ming and Bouferguene, Ahmed and Al-Hussein, Mohamed},
+  title   = {{BIM}-based automated design and planning for boarding of light-frame residential buildings},
+  journal = {Automation in Construction},
+  year    = {2018},
+  volume  = {89},
+  pages   = {235--249},
+  doi     = {10.1016/j.autcon.2018.02.001},
+  note    = {[V*] Metadaten Publikationsliste U Alberta, KipHub, ScienceDirect-pii S0926580518301018; DOI aus WebSearch-Zusammenfassung}
+}
+
+@inproceedings{abushwereb2019knowledge,
+  author    = {Abushwereb, Mahmud and Liu, Hexu and Al-Hussein, Mohamed},
+  title     = {A Knowledge-Based Approach Towards Automated Manufacturing-Centric {BIM}: Wood Frame Design and Modelling for Light-Frame Buildings},
+  booktitle = {Proceedings of the Modular and Offsite Construction (MOC) Summit 2019},
+  year      = {2019},
+  note      = {[V] Volltext journalofindustrializedconstruction.com (MOCS) und ResearchGate-Eintrag; Seitenangabe offen [U]}
+}
+
+@article{liu2021panelization,
+  author  = {Liu, Hexu and Zhang, Yuxuan and Lei, Zhen and Li, Hong Xian and Han, SangHyeok},
+  title   = {Design for Manufacturing and Assembly: A {BIM}-Enabled Generative Framework for Building Panelization Design},
+  journal = {Advances in Civil Engineering},
+  year    = {2021},
+  volume  = {2021},
+  pages   = {5554551},
+  doi     = {10.1155/2021/5554551},
+  note    = {[V] Wiley/Hindawi-Artikelseite}
+}
+
+@incollection{apolinarska2016mastering,
+  author    = {Apolinarska, Aleksandra Anna and B{\"a}rtschi, Ralph and Furrer, Reto and Gramazio, Fabio and Kohler, Matthias},
+  title     = {Mastering the ``Sequential Roof'': Computational Methods for Integrating Design, Structural Analysis, and Robotic Fabrication},
+  booktitle = {Advances in Architectural Geometry 2016},
+  editor    = {Adriaenssens, Sigrid and Gramazio, Fabio and Kohler, Matthias and Menges, Achim and Pauly, Mark},
+  publisher = {vdf Hochschulverlag an der ETH Z{\"u}rich},
+  year      = {2016},
+  doi       = {10.3218/3778-4_17},
+  note      = {[V] Volltext gramaziokohler.com (Publikation 1204), DOI im Impressum}
+}
+
+@mastersthesis{mork2020parametric,
+  author = {Mork, John Haddal},
+  title  = {Parametric Timber Detailing: A parametric toolkit customized for detailing fabrication-ready timber structures},
+  school = {[U] Hochschule nicht geprueft (vermutl. NTNU)},
+  year   = {2020},
+  note   = {[U] nur Exa-Publikationsindex; Toolkit Reindeer (Grasshopper, BTLx-Export), Lizenz offen}
+}
+
+% ---------------------------------------------------------------------
+% E3) Generative Tragwerks-/Modul-/Grundrissgenerierung
+% ---------------------------------------------------------------------
+
+@article{gan2022graph,
+  author  = {Gan, Vincent J. L.},
+  title   = {{BIM}-based graph data model for automatic generative design of modular buildings},
+  journal = {Automation in Construction},
+  year    = {2022},
+  volume  = {134},
+  pages   = {104062},
+  doi     = {10.1016/j.autcon.2021.104062},
+  note    = {[V] DOI in Literaturliste ASCE JCEM 148(10) (Gan 2022) und Exa-Index}
+}
+
+@article{liao2021structgan,
+  author  = {Liao, Wenjie and Lu, Xinzheng and Huang, Yuli and Zheng, Zhe and Lin, Yuanqing},
+  title   = {Automated structural design of shear wall residential buildings using generative adversarial networks},
+  journal = {Automation in Construction},
+  year    = {2021},
+  volume  = {132},
+  pages   = {103931},
+  doi     = {10.1016/j.autcon.2021.103931},
+  note    = {[V*] ScienceDirect-pii S0926580521003824 und Autorenseite luxinzheng.net (Bd./Art.-Nr.); DOI aus Artikelnummer abgeleitet}
+}
+
+@article{upasani2020dimensioned,
+  author  = {Upasani, Nitant and Shekhawat, Krishnendra and Sachdeva, Garv},
+  title   = {Automated generation of dimensioned rectangular floorplans},
+  journal = {Automation in Construction},
+  year    = {2020},
+  volume  = {113},
+  pages   = {103149},
+  doi     = {10.1016/j.autcon.2020.103149},
+  note    = {[V*] ScienceDirect-pii S092658051931180X (Art. 103149, Mai 2020) und arXiv 1910.00081; DOI aus Artikelnummer abgeleitet, Band 113 aus Datum abgeleitet}
+}
+
+@misc{kodnongbua2024zeroshot,
+  author        = {Kodnongbua, Milin and Curtis, Lawrence H. and Schulz, Adriana},
+  title         = {Zero-shot Sequential Neuro-symbolic Reasoning for Automatically Generating Architecture Schematic Designs},
+  year          = {2024},
+  eprint        = {2402.00052},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2402.00052},
+  note          = {[V] arXiv-Abstract- und HTML-Seite (ueber Exa); Preprint}
+}
+
+% ---------------------------------------------------------------------
+% E4) Natuerliche Sprache / LLM / Sprache -> CAD/BIM
+% ---------------------------------------------------------------------
+
+@misc{nithyanantham2025mcp4ifc,
+  author        = {Nithyanantham, Bharathi Kannan and Sesterhenn, Tobias and Nedungadi, Ashwin and Peral Garijo, Sergio and Zenkner, Janis and Bartelt, Christian and L{\"u}dtke, Stefan},
+  title         = {{MCP4IFC}: {IFC}-Based Building Design Using Large Language Models},
+  year          = {2025},
+  eprint        = {2511.05533},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2511.05533},
+  url           = {https://show2instruct.github.io/mcp4ifc/},
+  note          = {[V] arXiv-PDF und Projektseite (BibTeX dort); Open Source, Lizenz nicht geprueft [U]}
+}
+
+@inproceedings{hellin2025natural,
+  author    = {Hellin, Sylvain and Nousias, Stavros and Borrmann, Andr{\'e}},
+  title     = {Natural Language Information Retrieval from {BIM} Models: An {LLM}-Based Multi-Agent System Approach},
+  booktitle = {Proceedings of the 2025 European Conference on Computing in Construction (EC3)},
+  year      = {2025},
+  doi       = {10.35490/EC3.2025.265},
+  note      = {[V] ec-3.org-Publikationsseite, TUM-FIS, HF-Datensatzkarte (DOI); Datensatz IFC-Bench v1 CC0}
+}
+
+@misc{hellin2026bim,
+  author        = {Hellin, Sylvain and Jang, Suhyung and Fuchs, Stefan and Nousias, Stavros and Borrmann, Andr{\'e}},
+  title         = {{BIM} Information Extraction Through {LLM}-based Adaptive Exploration},
+  year          = {2026},
+  eprint        = {2605.01698},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2605.01698},
+  note          = {[V] HF-Datensatzkarte sylvainHellin/ifc-bench und GitHub sylvainHellin/cobbie (Lizenz NOASSERTION); Preprint, eingereicht bei Automation in Construction}
+}
+
+@article{shin2021bimasr,
+  author  = {Shin, Sangyun and Issa, Raja R. A.},
+  title   = {{BIMASR}: Framework for Voice-Based {BIM} Information Retrieval},
+  journal = {Journal of Construction Engineering and Management},
+  year    = {2021},
+  volume  = {147},
+  number  = {10},
+  pages   = {04021124},
+  doi     = {10.1061/(ASCE)CO.1943-7862.0002138},
+  note    = {[V*] ASCE-Library-URL mit DOI in Suchergebnis; Artikelnummer aus WebSearch-Zusammenfassung}
+}
+
+@article{kou2008design,
+  author  = {Kou, X. Y. and Tan, S. T.},
+  title   = {Design by Talking with Computers},
+  journal = {Computer-Aided Design and Applications},
+  year    = {2008},
+  volume  = {5},
+  number  = {1--4},
+  pages   = {266--277},
+  doi     = {10.3722/cadaps.2008.266-277},
+  note    = {[V] Volltext cad-journal.net (DOI im Kopf)}
+}
+
+@article{kou2010knowledge,
+  author  = {Kou, X. Y. and Xue, S. K. and Tan, S. T.},
+  title   = {Knowledge-guided inference for voice-enabled {CAD}},
+  journal = {Computer-Aided Design},
+  year    = {2010},
+  doi     = {10.1016/j.cad.2010.02.002},
+  note    = {[V] ScienceDirect-pii S001044851000028X; DOI ueber Exa-Autorenprofil; Band/Seiten offen [U]}
+}
+
+@inproceedings{saluz2025semio,
+  author    = {Saluz, Ueli and Baimuratov, Ildar and Geyer, Philipp},
+  title     = {semio: Large-language-model-based building-information-model alignment for automatic-compliance-checking -- towards closing the gap between model authoring and model checking for kit-of-parts architecture},
+  booktitle = {EG-ICE 2025: AI-Driven Collaboration for Sustainable and Resilient Built Environments},
+  editor    = {Moreno-Rangel, Alejandro and Kumar, Bimal},
+  publisher = {University of Strathclyde Publishing},
+  year      = {2025},
+  pages     = {272--281},
+  doi       = {10.17868/strath.00093288},
+  note      = {[V] Strathprints-Eintrag und Forschungsportal LU Hannover}
+}
+
+@article{mirhosseini2026ambiguity,
+  author  = {Mirhosseini, Nikoo and Shojaei, Davood and Sabri, Soheil},
+  title   = {From Ambiguity to Execution: An Agentic Neuro-Symbolic Framework for Transforming Building Regulations into Deterministic Constraints},
+  journal = {Buildings},
+  year    = {2026},
+  note    = {[U] Exa-Index und LinkedIn-Mitteilung der Autoren (in Buildings erschienen); Band/Artikelnr./DOI offen}
+}
+
+% ---------------------------------------------------------------------
+% E5) TGA-/MEP-Routing
+% ---------------------------------------------------------------------
+
+@article{medjdoub2018parametric,
+  author  = {Medjdoub, Benachir and Bi, Gang},
+  title   = {Parametric-based distribution duct routing generation using constraint-based design approach},
+  journal = {Automation in Construction},
+  year    = {2018},
+  volume  = {90},
+  pages   = {104--116},
+  doi     = {10.1016/j.autcon.2018.02.006},
+  note    = {[V] NTU-Repositorium (IRep 32722, Worktribe) mit DOI}
+}
+
+@incollection{singh2021automating,
+  author    = {Singh, Jyoti and Cheng, Jack C. P.},
+  title     = {Automating the Generation of {3D} Multiple Pipe Layout Design Using {BIM} and Heuristic Search Methods},
+  booktitle = {Proceedings of the 18th International Conference on Computing in Civil and Building Engineering (ICCCBE 2020)},
+  series    = {Lecture Notes in Civil Engineering},
+  volume    = {98},
+  publisher = {Springer},
+  year      = {2021},
+  pages     = {54--72},
+  doi       = {10.1007/978-3-030-51295-8_6},
+  note      = {[V] HKUST Research Portal (DOI, Seiten) und springerprofessional.de}
+}
+
+@article{choi2022modification,
+  author  = {Choi, Wonjun and others},
+  title   = {The Modification of {A*} Pathfinding Algorithm for Building Mechanical, Electronic and Plumbing ({MEP}) Path},
+  journal = {IEEE Access},
+  year    = {2022},
+  note    = {[U] IEEE-Xplore-Dokument 9798801 (Titel), Semantic Scholar (Choi, Kim, ...); vollstaendige Autorenliste, Band, Seiten, DOI offen}
+}
+
+@article{baradaran2022parametric,
+  author  = {Baradaran-Noveiri, Pouya and Liu, Hexu and Han, SangHyeok and Zaheeruddin, Mohammed},
+  title   = {Parametric-based design optimization of air distribution system in panelized construction},
+  journal = {Journal of Building Engineering},
+  year    = {2022},
+  volume  = {51},
+  pages   = {104254},
+  doi     = {10.1016/j.jobe.2022.104254},
+  note    = {[V] ScienceDirect-Artikelseite (pii S2352710222002674) mit DOI}
+}
+
+@article{korman2003knowledge,
+  author  = {Korman, Thomas M. and Fischer, Martin A. and Tatum, C. B.},
+  title   = {Knowledge and Reasoning for {MEP} Coordination},
+  journal = {Journal of Construction Engineering and Management},
+  year    = {2003},
+  volume  = {129},
+  number  = {6},
+  pages   = {627--634},
+  doi     = {10.1061/(ASCE)0733-9364(2003)129:6(627)},
+  note    = {[V] ASCE-Library-Seite und UNLV-Repositorium}
+}
+
+@article{blokland2023literature,
+  author  = {Blokland, M. and van der Mei, R. D. and Pruyn, J. F. J. and Berkhout, J.},
+  title   = {Literature Survey on Automatic Pipe Routing},
+  journal = {Operations Research Forum},
+  year    = {2023},
+  volume  = {4},
+  pages   = {35},
+  doi     = {10.1007/s43069-023-00208-5},
+  note    = {[V] Springer-Artikelseite und PDF (Open Access)}
+}
+
+% ---------------------------------------------------------------------
+% E6) Dachgenerierung (Straight Skeleton, prozedural)
+% ---------------------------------------------------------------------
+
+@article{aichholzer1995novel,
+  author  = {Aichholzer, Oswin and Aurenhammer, Franz and Alberts, David and G{\"a}rtner, Bernd},
+  title   = {A Novel Type of Skeleton for Polygons},
+  journal = {Journal of Universal Computer Science},
+  year    = {1995},
+  volume  = {1},
+  number  = {12},
+  note    = {[V] jucs.org-Artikelseite und lib.jucs.org (Heft 1(12), 28.12.1995); Seiten nicht geprueft}
+}
+
+@inproceedings{laycock2003automatically,
+  author    = {Laycock, Robert G. and Day, A. M.},
+  title     = {Automatically Generating Roof Models from Building Footprints},
+  booktitle = {Proceedings of the 11th International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision (WSCG 2003)},
+  year      = {2003},
+  url       = {http://wscg.zcu.cz/wscg2003/Papers_2003/G67.pdf},
+  note      = {[V] Volltext WSCG-Server und UEA Research Portal; Band/Seiten (Short/Poster) offen}
+}
+
+@article{kelly2011interactive,
+  author  = {Kelly, Tom and Wonka, Peter},
+  title   = {Interactive architectural modeling with procedural extrusions},
+  journal = {ACM Transactions on Graphics},
+  year    = {2011},
+  volume  = {30},
+  number  = {2},
+  pages   = {14:1--14:15},
+  doi     = {10.1145/1944846.1944854},
+  note    = {[V] ACM-DL-Seite und Projektseite twak.org; Implementierung campskeleton (GitHub twak/campskeleton, Lizenz nicht geprueft)}
+}
+
+@phdthesis{kelly2014unwritten,
+  author = {Kelly, Tom},
+  title  = {Unwritten Procedural Modeling with the Straight Skeleton},
+  school = {University of Glasgow},
+  year   = {2014},
+  note   = {[U] nur GitHub-Repositorium twak/unwritten_tex (LaTeX-Quelle); Jahr und Hochschule nicht an Primaerquelle geprueft}
+}
+
+% ---------------------------------------------------------------------
+% E7) Reifegrade (Multi-LOD), Graph-Rewriting, Regelpruefung TUM
+% ---------------------------------------------------------------------
+
+@article{abualdenien2019metamodel,
+  author  = {Abualdenien, Jimmy and Borrmann, Andr{\'e}},
+  title   = {A meta-model approach for formal specification and consistent management of multi-{LOD} building models},
+  journal = {Advanced Engineering Informatics},
+  year    = {2019},
+  volume  = {40},
+  pages   = {135--153},
+  doi     = {10.1016/j.aei.2019.04.003},
+  note    = {[V] ScienceDirect-Seite und mediaTUM 1483915}
+}
+
+@article{abualdenien2022levels,
+  author  = {Abualdenien, Jimmy and Borrmann, Andr{\'e}},
+  title   = {Levels of detail, development, definition, and information need: a critical literature review},
+  journal = {Journal of Information Technology in Construction (ITcon)},
+  year    = {2022},
+  volume  = {27},
+  pages   = {363--392},
+  doi     = {10.36680/j.itcon.2022.018},
+  note    = {[V] Publikationsliste in Dissertation Abualdenien (mediaTUM 1687886)}
+}
+
+@phdthesis{abualdenien2023consistent,
+  author = {Abualdenien, Jimmy A. G.},
+  title  = {Consistent management and evaluation of building models across design phases},
+  school = {Technische Universit{\"a}t M{\"u}nchen},
+  year   = {2023},
+  url    = {https://nbn-resolving.org/urn:nbn:de:bvb:91-diss-20230203-1687886-1-9},
+  note   = {[V] mediaTUM 1687886 (eingereicht 27.09.2022, Pruefung 03.02.2023, veroeffentlicht 27.03.2023)}
+}
+
+@phdthesis{preidel2020konformitaet,
+  author = {Preidel, Cornelius},
+  title  = {Automatisierte Konformit{\"a}tspr{\"u}fung digitaler Bauwerksmodelle hinsichtlich geltender Normen und Richtlinien mit Hilfe einer visuellen Programmiersprache},
+  school = {Technische Universit{\"a}t M{\"u}nchen},
+  year   = {2020},
+  url    = {https://nbn-resolving.org/urn:nbn:de:bvb:91-diss-20200518-1534486-1-0},
+  note   = {[V] mediaTUM 1534486}
+}
+
+@article{vilgertshofer2017graph,
+  author  = {Vilgertshofer, Simon and Borrmann, Andr{\'e}},
+  title   = {Using graph rewriting methods for the semi-automatic generation of parametric infrastructure models},
+  journal = {Advanced Engineering Informatics},
+  year    = {2017},
+  volume  = {33},
+  pages   = {502--515},
+  doi     = {10.1016/j.aei.2017.07.003},
+  note    = {[V] ACM-DL-Eintrag und mediaTUM-Volltext (CC BY)}
+}
+
+% ---------------------------------------------------------------------
+% E8) Produktdaten / Bemusterung
+% ---------------------------------------------------------------------
+
+@article{wagner2022building,
+  author  = {Wagner, Anna and Sprenger, Wendelin and Maurer, Christoph and Kuhn, Tilmann E. and R{\"u}ppel, Uwe},
+  title   = {Building product ontology: Core ontology for Linked Building Product Data},
+  journal = {Automation in Construction},
+  year    = {2022},
+  volume  = {133},
+  pages   = {103927},
+  doi     = {10.1016/j.autcon.2021.103927},
+  note    = {[V] Fraunhofer Publica (DOI) und Open-CASCADE-Publikationsliste (Bd./Art.-Nr.)}
+}
+
+@article{elsibaii2025open,
+  author  = {El Sibaii, Mohamad and Granja, Jos{\'e} and Azenha, Miguel},
+  title   = {An Open and Standards-Compliant Platform for Product Data Templates in Digital Construction},
+  journal = {Journal of Information Technology in Construction (ITcon)},
+  year    = {2025},
+  volume  = {30},
+  pages   = {679--710},
+  doi     = {10.36680/j.itcon.2025.028},
+  note    = {[V] ITcon-Artikelseite 2025/28 und dblp}
+}
+
+% ---------------------------------------------------------------------
+% E9) Interoperabilitaet / Round-Trip / Digital Twin
+% ---------------------------------------------------------------------
+
+@article{jeong2009benchmark,
+  author  = {Jeong, Yongwook and Eastman, Charles M. and Sacks, Rafael and Kaner, Israel},
+  title   = {Benchmark tests for {BIM} data exchanges of precast concrete},
+  journal = {Automation in Construction},
+  year    = {2009},
+  volume  = {18},
+  number  = {4},
+  pages   = {469--484},
+  doi     = {10.1016/j.autcon.2008.11.001},
+  note    = {[V*] Metadaten Exa-Index/ScienceDirect-pii S0926580508001672; DOI/Seiten aus WebSearch-Zusammenfassung}
+}
+
+@article{pazlar2008interoperability,
+  author  = {Pazlar, Tomaz and Turk, {\v{Z}}iga},
+  title   = {Interoperability in practice: geometric data exchange using the {IFC} standard},
+  journal = {Journal of Information Technology in Construction (ITcon)},
+  year    = {2008},
+  volume  = {13},
+  pages   = {362--380},
+  url     = {https://www.itcon.org/2008/24},
+  note    = {[V*] Volltext-PDF itcon.org (2008_24) gesehen; Band/Seiten aus Literaturliste Lai & Deng 2018 (JCEM)}
+}
+
+@inproceedings{ma2006testing,
+  author    = {Ma, Homan and Ha, Kwan Mei Elsa and Chung, Chun Kit Jackie and Amor, Robert},
+  title     = {Testing semantic interoperability},
+  booktitle = {Proceedings of the Joint International Conference on Computing and Decision Making in Civil and Building Engineering},
+  address   = {Montr{\'e}al, Canada},
+  year      = {2006},
+  pages     = {1216--1225},
+  note      = {[V] Volltext itc.scix.net (w78-2006-tf193); Seiten aus Literaturliste Lai & Deng 2018}
+}
+
+@article{boje2020towards,
+  author  = {Boje, Calin and Guerriero, Annie and Kubicki, Sylvain and Rezgui, Yacine},
+  title   = {Towards a semantic Construction Digital Twin: Directions for future research},
+  journal = {Automation in Construction},
+  year    = {2020},
+  volume  = {114},
+  pages   = {103179},
+  doi     = {10.1016/j.autcon.2020.103179},
+  note    = {[V] ScienceDirect-Seite (Open Access) und ORCA Cardiff}
+}

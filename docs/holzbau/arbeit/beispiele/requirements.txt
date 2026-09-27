@@ -1,0 +1,9 @@
+# Direkte Abhängigkeiten der Beispiele B1–B7 (gepinnt, getestet mit Python 3.11.15)
+ifcopenshell==0.8.5
+ifctester==0.8.5
+shapely==2.1.2
+numpy==2.4.6
+pytest==9.1.1
+# optional für B7 (BTLx-Export); ohne diese Pakete wird B7/test_btlx_export übersprungen
+compas==2.15.1
+compas_timber==2.2.0
