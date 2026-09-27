@@ -25,7 +25,13 @@ Suchraum und Verfahren:
     Constraint-Solver (z. B. OR-Tools) ist hier nicht nötig.
 
 Bewertung der zulässigen Lösungen (lexikografisch, kleiner = besser):
-  1. |2s + a − 63 cm|              (Zielwert Schrittmaß, Vorgabe der Aufgabe)
+  1. |2s + a − 63 cm|              (Zielwert Schrittmaß, Vorgabe der Aufgabe);
+                                   Abweichungen bis zur halben Rasterweite
+                                   (2,5 mm) gelten als "Ziel erreicht" (= 0),
+                                   weil a nur im Raster gewählt werden kann.
+                                   Ohne diese Toleranz entschieden
+                                   Rundungsreste zugunsten einer 20-stufigen
+                                   Treppe mit 6,46 m Lauflänge.
   2. |a − s − 12 cm|               (Bequemlichkeitsregel, Faustregel)
   3. |a + s − 46 cm|               (Sicherheitsregel, Faustregel)
   4. Lauflänge                     (kürzer ist besser)
@@ -66,9 +72,10 @@ class Loesung:
     abw_ziel_mm: float
     abw_bequem_mm: float
     abw_sicher_mm: float
+    ziel_stufe_mm: float  # 0, wenn |2s+a−630| ≤ Toleranz, sonst die Abweichung
 
     def schluessel(self):
-        return (self.abw_ziel_mm, self.abw_bequem_mm, self.abw_sicher_mm, self.lauflaenge_mm, self.n_steigungen)
+        return (self.ziel_stufe_mm, self.abw_bequem_mm, self.abw_sicher_mm, self.lauflaenge_mm, self.n_steigungen)
 
 
 def loese(geschosshoehe_mm: int, laufbreite_mm: int, max_lauflaenge_mm: int | None = None,
@@ -91,12 +98,14 @@ def loese(geschosshoehe_mm: int, laufbreite_mm: int, max_lauflaenge_mm: int | No
             if max_lauflaenge_mm is not None and lauf > max_lauflaenge_mm:
                 continue
             schritt = 2 * s + a
+            abw = abs(float(schritt) - ZIEL_SCHRITTMASS)
             loesungen.append(Loesung(
                 n_steigungen=n, n_auftritte=n - 1, s_mm=round(float(s), 2), a_mm=a,
                 schrittmass_mm=round(float(schritt), 2), lauflaenge_mm=lauf,
                 abw_ziel_mm=round(abs(float(schritt) - ZIEL_SCHRITTMASS), 2),
                 abw_bequem_mm=round(abs(a - float(s) - 120), 2),
-                abw_sicher_mm=round(abs(a + float(s) - 460), 2)))
+                abw_sicher_mm=round(abs(a + float(s) - 460), 2),
+                ziel_stufe_mm=0.0 if abw <= raster_mm / 2 else round(abw, 2)))
     if not loesungen:
         hinweise.append("keine zulässige Kombination im Suchraum")
     return sorted(loesungen, key=Loesung.schluessel), hinweise

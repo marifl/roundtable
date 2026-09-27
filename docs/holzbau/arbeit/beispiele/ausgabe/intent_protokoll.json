@@ -1,0 +1,367 @@
+[
+  {
+    "aeusserung": "Mach das Bad oben zwei Meter sechzig breit",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 2.6,
+        "dim": "laenge",
+        "quelle": "zwei meter sechzig",
+        "muster": "A",
+        "mehrdeutig": false
+      }
+    ],
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "1cRQfmv29HlfHiIPofgLWT",
+      "raum_id": "og_bad",
+      "kandidaten": [
+        {
+          "guid": "1cRQfmv29HlfHiIPofgLWT",
+          "name": "Bad",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=bad, Geschoss=OG („oben“)"
+    },
+    "aenderung": {
+      "groesse": "breite",
+      "relativ": false,
+      "richtung": 0,
+      "mass": {
+        "wert": 2.6,
+        "dim": "laenge",
+        "quelle": "zwei meter sechzig",
+        "muster": "A",
+        "mehrdeutig": false
+      }
+    },
+    "status": "angenommen",
+    "aenderungen": [
+      {
+        "guid": "1cRQfmv29HlfHiIPofgLWT",
+        "raum": "Bad",
+        "breite_alt": 2.4,
+        "breite_neu": 2.6
+      },
+      {
+        "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+        "raum": "Kinderzimmer 1",
+        "breite_alt": 3.5,
+        "breite_neu": 3.3
+      }
+    ]
+  },
+  {
+    "aeusserung": "Das Bad oben bitte eins zwanzig breit",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 1.2,
+        "dim": "laenge",
+        "quelle": "eins zwanzig",
+        "muster": "C",
+        "mehrdeutig": false
+      }
+    ],
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "1cRQfmv29HlfHiIPofgLWT",
+      "raum_id": "og_bad",
+      "kandidaten": [
+        {
+          "guid": "1cRQfmv29HlfHiIPofgLWT",
+          "name": "Bad",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=bad, Geschoss=OG („oben“)"
+    },
+    "aenderung": {
+      "groesse": "breite",
+      "relativ": false,
+      "richtung": 0,
+      "mass": {
+        "wert": 1.2,
+        "dim": "laenge",
+        "quelle": "eins zwanzig",
+        "muster": "C",
+        "mehrdeutig": false
+      }
+    },
+    "status": "abgelehnt",
+    "begruendung": "Bad: Breite 1.20 m < Mindestbreite 1.70 m (Projektregel bad)",
+    "vorschlag_verworfen": [
+      {
+        "guid": "1cRQfmv29HlfHiIPofgLWT",
+        "raum": "Bad",
+        "breite_alt": 2.4,
+        "breite_neu": 1.2
+      },
+      {
+        "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+        "raum": "Kinderzimmer 1",
+        "breite_alt": 3.5,
+        "breite_neu": 4.7
+      }
+    ]
+  },
+  {
+    "aeusserung": "Das Bad soll zwanzig Zentimeter breiter werden",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 0.2,
+        "dim": "laenge",
+        "quelle": "zwanzig zentimeter",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    ],
+    "raumreferenz": {
+      "status": "mehrdeutig",
+      "guid": null,
+      "raum_id": null,
+      "kandidaten": [
+        {
+          "guid": "0OYOsW$T1P3PB52xyolw1J",
+          "name": "Duschbad EG",
+          "geschoss": "EG"
+        },
+        {
+          "guid": "1cRQfmv29HlfHiIPofgLWT",
+          "name": "Bad",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=bad → 2 Räume"
+    },
+    "status": "rueckfrage",
+    "begruendung": "Raumreferenz mehrdeutig: Typ=bad → 2 Räume"
+  },
+  {
+    "aeusserung": "Mach das Kinderzimmer 2 auf 3,20 m",
+    "intent": "sonstiges",
+    "p": 0.46,
+    "p_zweiter": 0.31,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 2.0,
+        "dim": "ohne",
+        "quelle": "2",
+        "muster": "D",
+        "mehrdeutig": false
+      },
+      {
+        "wert": 3.2,
+        "dim": "laenge",
+        "quelle": "3,20 m",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    ],
+    "status": "rueckfrage",
+    "begruendung": "Intent unsicher (p=0.46, Abstand 0.15)"
+  },
+  {
+    "aeusserung": "Das zweite Kinderzimmer soll zwölf Quadratmeter haben",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 12.0,
+        "dim": "flaeche",
+        "quelle": "zwoelf quadratmeter",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    ],
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "2M8XdrxW9Sbh60QhD35bC3",
+      "raum_id": "og_kind2",
+      "kandidaten": [
+        {
+          "guid": "2M8XdrxW9Sbh60QhD35bC3",
+          "name": "Kinderzimmer 2",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=kind, Nummer=2"
+    },
+    "aenderung": {
+      "groesse": "flaeche",
+      "relativ": false,
+      "richtung": 0,
+      "mass": {
+        "wert": 12.0,
+        "dim": "flaeche",
+        "quelle": "zwoelf quadratmeter",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    },
+    "status": "angenommen",
+    "aenderungen": [
+      {
+        "guid": "2M8XdrxW9Sbh60QhD35bC3",
+        "raum": "Kinderzimmer 2",
+        "breite_alt": 3.5,
+        "breite_neu": 3.55
+      },
+      {
+        "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+        "raum": "Kinderzimmer 1",
+        "breite_alt": 3.5,
+        "breite_neu": 3.45
+      }
+    ]
+  },
+  {
+    "aeusserung": "Mach das Kinderzimmer 1 einen Meter zwanzig schmaler",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 1.0,
+        "dim": "ohne",
+        "quelle": "1",
+        "muster": "D",
+        "mehrdeutig": false
+      },
+      {
+        "wert": 1.2,
+        "dim": "laenge",
+        "quelle": "einen meter zwanzig",
+        "muster": "A",
+        "mehrdeutig": false
+      }
+    ],
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+      "raum_id": "og_kind1",
+      "kandidaten": [
+        {
+          "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+          "name": "Kinderzimmer 1",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=kind, Nummer=1"
+    },
+    "aenderung": {
+      "groesse": "breite",
+      "relativ": true,
+      "richtung": -1,
+      "mass": {
+        "wert": 1.2,
+        "dim": "laenge",
+        "quelle": "einen meter zwanzig",
+        "muster": "A",
+        "mehrdeutig": false
+      }
+    },
+    "status": "abgelehnt",
+    "begruendung": "Kinderzimmer 1: Breite 2.30 m < Mindestbreite 2.60 m (Projektregel kind); Kinderzimmer 1: Fläche 7.82 m² < Mindestfläche 10.00 m² (Projektregel kind)",
+    "vorschlag_verworfen": [
+      {
+        "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+        "raum": "Kinderzimmer 1",
+        "breite_alt": 3.5,
+        "breite_neu": 2.3
+      },
+      {
+        "guid": "2M8XdrxW9Sbh60QhD35bC3",
+        "raum": "Kinderzimmer 2",
+        "breite_alt": 3.5,
+        "breite_neu": 4.7
+      }
+    ]
+  },
+  {
+    "aeusserung": "Das Bad oben eins fünf breiter",
+    "intent": "raum_aendern",
+    "p": 0.91,
+    "p_zweiter": 0.03,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 1.05,
+        "dim": "laenge",
+        "quelle": "eins fuenf",
+        "muster": "C",
+        "mehrdeutig": true
+      }
+    ],
+    "raumreferenz": {
+      "status": "eindeutig",
+      "guid": "1cRQfmv29HlfHiIPofgLWT",
+      "raum_id": "og_bad",
+      "kandidaten": [
+        {
+          "guid": "1cRQfmv29HlfHiIPofgLWT",
+          "name": "Bad",
+          "geschoss": "OG"
+        }
+      ],
+      "begruendung": "Typ=bad, Geschoss=OG („oben“)"
+    },
+    "aenderung": {
+      "groesse": "breite",
+      "relativ": true,
+      "richtung": 1,
+      "mass": {
+        "wert": 1.05,
+        "dim": "laenge",
+        "quelle": "eins fuenf",
+        "muster": "C",
+        "mehrdeutig": true
+      }
+    },
+    "status": "rueckfrage",
+    "begruendung": "Maß „eins fuenf“ mehrdeutig (z. B. 1,05 m oder 1,50 m?)"
+  },
+  {
+    "aeusserung": "Stell die Dachneigung auf 35 Grad",
+    "intent": "dach_aendern",
+    "p": 0.88,
+    "p_zweiter": 0.05,
+    "intent_quelle": "STUB",
+    "masse": [
+      {
+        "wert": 35.0,
+        "dim": "winkel",
+        "quelle": "35 grad",
+        "muster": "B",
+        "mehrdeutig": false
+      }
+    ],
+    "status": "nicht_umgesetzt",
+    "begruendung": "Intent „dach_aendern“ erkannt; im PoC nur raum_aendern umgesetzt"
+  },
+  {
+    "aeusserung": "Kannst du das mal anders machen",
+    "intent": "sonstiges",
+    "p": 0.46,
+    "p_zweiter": 0.31,
+    "intent_quelle": "STUB",
+    "masse": [],
+    "status": "rueckfrage",
+    "begruendung": "Intent unsicher (p=0.46, Abstand 0.15)"
+  }
+]

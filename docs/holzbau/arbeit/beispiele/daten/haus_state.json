@@ -1,0 +1,173 @@
+{
+  "_hinweis": "Kompakter Zustand (State-JSON) des Entwurfs für die Sprachpipeline B6. Maße in Metern (lichte Raummaße, vereinfacht als Zeilen von Räumen gleicher Tiefe). GUIDs = IfcSpace-GlobalIds, deterministisch aus uuid5 über '/haus/raeume/<id>' (gleiches Verfahren wie B1).",
+  "gebaeude": {
+    "name": "Beispielhaus Holzrahmenbau",
+    "innenbreite": 9.4
+  },
+  "geschosse": [
+    {
+      "id": "EG",
+      "name": "Erdgeschoss",
+      "ordnung": 0,
+      "guid": "28pLljjP9SiBbmYAvZym3K"
+    },
+    {
+      "id": "OG",
+      "name": "Obergeschoss",
+      "ordnung": 1,
+      "guid": "1F6sgEGyLJtfEFks7lbSf0"
+    }
+  ],
+  "zeilen": {
+    "EG-Nord": [
+      "eg_dusche",
+      "eg_kueche",
+      "eg_hwr",
+      "eg_flur"
+    ],
+    "EG-Süd": [
+      "eg_wohnen"
+    ],
+    "OG-Nord": [
+      "og_bad",
+      "og_kind1",
+      "og_kind2"
+    ],
+    "OG-Süd": [
+      "og_schlafen",
+      "og_ankleide",
+      "og_flur"
+    ]
+  },
+  "raeume": [
+    {
+      "guid": "0OYOsW$T1P3PB52xyolw1J",
+      "id": "eg_dusche",
+      "name": "Duschbad EG",
+      "typ": "bad",
+      "geschoss": "EG",
+      "zeile": "EG-Nord",
+      "breite": 1.8,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "1ou5Ne9CHThhWSXSmO9G87",
+      "id": "eg_kueche",
+      "name": "Küche",
+      "typ": "kueche",
+      "geschoss": "EG",
+      "zeile": "EG-Nord",
+      "breite": 3.2,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "1f4yihPrXOJOKtPJ7hMIOB",
+      "id": "eg_hwr",
+      "name": "Hauswirtschaft",
+      "typ": "hwr",
+      "geschoss": "EG",
+      "zeile": "EG-Nord",
+      "breite": 2.0,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "3VNmzLkorKaPT3n1GT$V3f",
+      "id": "eg_flur",
+      "name": "Diele",
+      "typ": "flur",
+      "geschoss": "EG",
+      "zeile": "EG-Nord",
+      "breite": 2.4,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "0A_Y10aAzIHfi2SVtVTKye",
+      "id": "eg_wohnen",
+      "name": "Wohnen/Essen",
+      "typ": "wohnen",
+      "geschoss": "EG",
+      "zeile": "EG-Süd",
+      "breite": 9.4,
+      "tiefe": 4.6
+    },
+    {
+      "guid": "1cRQfmv29HlfHiIPofgLWT",
+      "id": "og_bad",
+      "name": "Bad",
+      "typ": "bad",
+      "geschoss": "OG",
+      "zeile": "OG-Nord",
+      "breite": 2.4,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "0ITNhZ0prS0unT2eFYJ6EO",
+      "id": "og_kind1",
+      "name": "Kinderzimmer 1",
+      "typ": "kind",
+      "geschoss": "OG",
+      "zeile": "OG-Nord",
+      "breite": 3.5,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "2M8XdrxW9Sbh60QhD35bC3",
+      "id": "og_kind2",
+      "name": "Kinderzimmer 2",
+      "typ": "kind",
+      "geschoss": "OG",
+      "zeile": "OG-Nord",
+      "breite": 3.5,
+      "tiefe": 3.4
+    },
+    {
+      "guid": "23IDWGHmfNoh_q9KkBAPme",
+      "id": "og_schlafen",
+      "name": "Schlafen",
+      "typ": "schlafen",
+      "geschoss": "OG",
+      "zeile": "OG-Süd",
+      "breite": 4.6,
+      "tiefe": 4.6
+    },
+    {
+      "guid": "3dWWEYhl1MYBQRcbMatL$C",
+      "id": "og_ankleide",
+      "name": "Ankleide",
+      "typ": "ankleide",
+      "geschoss": "OG",
+      "zeile": "OG-Süd",
+      "breite": 1.8,
+      "tiefe": 4.6
+    },
+    {
+      "guid": "2kUdx5vbnGSO0UM9dAjFZn",
+      "id": "og_flur",
+      "name": "Flur OG",
+      "typ": "flur",
+      "geschoss": "OG",
+      "zeile": "OG-Süd",
+      "breite": 3.0,
+      "tiefe": 4.6
+    }
+  ],
+  "projektregeln": {
+    "_hinweis": "BEISPIELWERTE des Projekts (keine Norm; DIN 18011 ist zurückgezogen). Mindestbreite und Mindestfläche je Raumtyp.",
+    "mindestbreite": {
+      "bad": 1.7,
+      "kueche": 2.2,
+      "hwr": 1.5,
+      "flur": 1.2,
+      "wohnen": 3.6,
+      "kind": 2.6,
+      "schlafen": 3.0,
+      "ankleide": 1.2
+    },
+    "mindestflaeche": {
+      "kind": 10.0,
+      "schlafen": 12.0,
+      "wohnen": 20.0
+    },
+    "raster": 0.05
+  }
+}
