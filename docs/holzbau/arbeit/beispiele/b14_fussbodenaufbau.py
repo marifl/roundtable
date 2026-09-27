@@ -617,9 +617,15 @@ class IfcSchreiber:
             float(dx), float(dy))
         return self.f.createIfcExtrudedAreaSolid(prof, self.achse3d(), self.richtung(0, 0, 1), float(dz))
 
-    def zylinder(self, r, h, ursprung=(0.0, 0.0, 0.0), z=(0, 0, 1)):
+    def zylinder(self, r, h, ursprung=(0.0, 0.0, 0.0), z=None):
+        """Kreiszylinder; Achse z optional (dann mit senkrechter RefDirection,
+        Regel IfcAxis2Placement3D: Axis und RefDirection nur gemeinsam)."""
         prof = self.f.createIfcCircleProfileDef("AREA", None, None, float(r))
-        return self.f.createIfcExtrudedAreaSolid(prof, self.achse3d(ursprung, z, None), self.richtung(0, 0, 1), float(h))
+        if z is None or tuple(z) == (0, 0, 1):
+            pl = self.achse3d(ursprung)
+        else:
+            pl = self.achse3d(ursprung, z, (1, 0, 0) if z[0] == 0 else (0, 1, 0))
+        return self.f.createIfcExtrudedAreaSolid(prof, pl, self.richtung(0, 0, 1), float(h))
 
     def form(self, kontext, typ, items):
         rep = self.f.createIfcShapeRepresentation(kontext, kontext.ContextIdentifier, typ, items)
@@ -641,8 +647,13 @@ class IfcSchreiber:
     def pset(self, objekte: list, pfad: str, name: str, werte: dict):
         props = [self.f.createIfcPropertySingleValue(k, None, self.wert(v), None) for k, v in werte.items() if v is not None]
         ps = self.root("IfcPropertySet", pfad + "#" + name, Name=name, HasProperties=props)
-        self.root("IfcRelDefinesByProperties", pfad + "#" + name + "#zuordnung",
-                  RelatedObjects=objekte, RelatingPropertyDefinition=ps)
+        typen = [o for o in objekte if o.is_a("IfcTypeObject")]
+        for t in typen:  # Typ-Psets hängen direkt am Typ (Regel: keine IfcRelDefinesByProperties für Typen)
+            t.HasPropertySets = list(t.HasPropertySets or []) + [ps]
+        rest = [o for o in objekte if not o.is_a("IfcTypeObject")]
+        if rest:
+            self.root("IfcRelDefinesByProperties", pfad + "#" + name + "#zuordnung",
+                      RelatedObjects=rest, RelatingPropertyDefinition=ps)
         return ps
 
     def material(self, key: str, name: str, kategorie: str | None = None):

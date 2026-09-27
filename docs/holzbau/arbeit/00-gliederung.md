@@ -181,13 +181,13 @@ Leitbild: eine ernsthafte, an die deutsche Bauwirtschaft angebundene Version des
 4. Lüftung nach DIN 1946-6 mit Kanalnetz
 5. Heizung: Heizlast, Fußbodenheizung, hydraulischer Abgleich
 6. Wärmepumpe (Monoblock oder Split): Schallausbreitung nach DIN ISO 9613-2, Beurteilung nach TA Lärm je Immissionsort mit Tonhaltigkeit und Abschirmung, Aufstellungsoptimierung, R290-Schutzbereich, F-Gase, Kältemittelleitung; Abgrenzung zum BWP-Schallrechner
-6. Lichtplanung: Leuchtendaten (GLDF, EULUMDAT), Tageslicht
-7. IFC-Abbildung: Systeme, Segmente, Ports, Verbindungen, Durchbrüche
-8. Dimensionierung (Nennweiten, Dämmstärken) und Durchdringungen:
+7. Lichtplanung: Leuchtendaten (GLDF, EULUMDAT), Tageslicht
+8. IFC-Abbildung: Systeme, Segmente, Ports, Verbindungen, Durchbrüche
+9. Dimensionierung (Nennweiten, Dämmstärken) und Durchdringungen:
    - Lage und Größe von Bohrungen in Ständern und Balken, Wechsel in Holzbalkendecken
    - Luftdichtheitsmanschetten, Brand- und Schallschutzabschottungen
    - Übergabe als BTLx- bzw. WUP-Bearbeitung
-9. Routing-Algorithmen unter Regeln (Installationszonen, Ständerschwächung, Luftdichtheit, Kollisionsfreiheit)
+10. Routing-Algorithmen unter Regeln (Installationszonen, Ständerschwächung, Luftdichtheit, Kollisionsfreiheit)
 
 ### 14. Dach, Fassade und Einbauteile
 1. Dachformen: Sattel, Walm, Krüppelwalm, Zelt, Pult, Mansarde, Gauben; Geometrie über Straight Skeleton

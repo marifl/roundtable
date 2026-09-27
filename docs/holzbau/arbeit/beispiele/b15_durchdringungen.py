@@ -201,7 +201,7 @@ def plane(daten: dict) -> dict:
             strategie = "Wechsel"
             if x_frei is not None:
                 ergebnis["hinweise"].append(
-                    f"Gemeinsame freie Achse x = {x_frei:g} mm (Gefachmitte) läge {abs(x_frei - L['x']):g} mm entfernt "
+                    f"Nächste in Decke und Wand freie Achse x = {x_frei:g} mm läge {abs(x_frei - L['x']):g} mm entfernt "
                     f"> zulässig {L['verschiebung_max_mm']} mm (WC-Vorwand) → Wechsel/Auswechslung. Planungsempfehlung: "
                     "Fallleitungen in Gefachmitte des 625-mm-Rasters legen (Decke und Wand haben dasselbe Raster).")
     ergebnis["achse_x_mm"] = x_neu

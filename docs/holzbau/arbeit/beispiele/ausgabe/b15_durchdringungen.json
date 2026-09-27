@@ -146,7 +146,7 @@
   "BD-1: hd = 60 mm > 0,15·h = 36 mm → unverstärkt unzulässig (Leitung parallel zu den Balken führen, Wechsel oder Verstärkung mit Nachweis)."
  ],
  "hinweise": [
-  "Gemeinsame freie Achse x = 3270 mm (Gefachmitte) läge 120 mm entfernt > zulässig 100 mm (WC-Vorwand) → Wechsel/Auswechslung. Planungsempfehlung: Fallleitungen in Gefachmitte des 625-mm-Rasters legen (Decke und Wand haben dasselbe Raster).",
+  "Nächste in Decke und Wand freie Achse x = 3270 mm läge 120 mm entfernt > zulässig 100 mm (WC-Vorwand) → Wechsel/Auswechslung. Planungsempfehlung: Fallleitungen in Gefachmitte des 625-mm-Rasters legen (Decke und Wand haben dasselbe Raster).",
   "Dämmung Schmutzwasser-Fallleitung WC OG mit Hauptlueftung ueber Dach: keine Anforderung nach GModG Anlage 8 (nur Wärmeverteilung/Warmwasser); Schallschutz im EFH nur vertraglich (DIN 4109 schützt fremde Räume)."
  ],
  "fertigung": [
