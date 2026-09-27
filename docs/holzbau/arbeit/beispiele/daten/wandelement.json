@@ -1,0 +1,99 @@
+{
+  "_hinweis": "Parametermodell eines Holzrahmen-Wandelements (Beispiel B1/B3). Alle Längen in Millimetern (ganzzahlig oder mit einer Nachkommastelle), damit die Geometrie exakt und deterministisch bleibt. Lambda-Werte sind BEISPIELWERTE (typische Herstellerangaben bzw. Größenordnung nach DIN EN ISO 10456), keine Übernahme der Tabellen aus DIN 4108-4.",
+  "projekt": {
+    "name": "Beispielhaus Holzrahmenbau",
+    "gebaeude": "Einfamilienhaus (fiktiv)",
+    "geschoss": "EG",
+    "autor": "Entwurfsgenerator (Beispiel)",
+    "organisation": "Arbeit Holzrahmenbau",
+    "zeitstempel": "2026-01-01T00:00:00",
+    "georeferenz": {
+      "aktiv": true,
+      "epsg": "EPSG:25832",
+      "_hinweis": "Fiktiver Ursprung im Raum München (ETRS89 / UTM Zone 32N), keine reale Parzelle.",
+      "ostwert_m": 691000.0,
+      "nordwert_m": 5335000.0,
+      "hoehe_m": 520.0,
+      "x_achse_abszisse": 1.0,
+      "x_achse_ordinate": 0.0
+    }
+  },
+  "wand": {
+    "id": "AW-01",
+    "name": "Außenwand Nord, Element 1",
+    "typ": "AW-HRB-01",
+    "laenge": 4800,
+    "hoehe": 2750,
+    "aussenwand": true,
+    "tragend": true,
+    "klassifikation": {
+      "system": "DIN 276",
+      "ausgabe": "2018-12",
+      "code": "331",
+      "bezeichnung": "Tragende Außenwände"
+    },
+    "staender": {
+      "breite": 60,
+      "tiefe": 200,
+      "material": "kvh_c24",
+      "raster": 625
+    },
+    "schwelle": { "hoehe": 60 },
+    "raehm": { "hoehe": 60 },
+    "oeffnungen": [
+      {
+        "id": "F1",
+        "art": "Fenster",
+        "x": 1770,
+        "bruestungshoehe": 900,
+        "breite": 1260,
+        "hoehe": 1385,
+        "sturz_hoehe": 200
+      }
+    ],
+    "kerven": [
+      {
+        "id": "K1",
+        "_zweck": "Kerve für Elektro-Leerrohr (Beispiel), von der Raumseite in den Ständer",
+        "staender_rasterindex": 1,
+        "z": 1050,
+        "hoehe": 40,
+        "tiefe": 25
+      }
+    ],
+    "schichten_innen_nach_aussen": [
+      { "id": "gkf",   "rolle": "beplankung",  "material": "gkf",            "dicke": 12.5, "plattenbreite": 1250 },
+      { "id": "osb",   "rolle": "beplankung",  "material": "osb3",           "dicke": 15,   "plattenbreite": 1250 },
+      { "id": "folie", "rolle": "folie",       "material": "dampfbremse",    "dicke": 0.2 },
+      { "id": "gefach","rolle": "gefach",      "material": "holzfaser_flex", "dicke": 200 },
+      { "id": "hfd",   "rolle": "beplankung",  "material": "holzfaserplatte","dicke": 60,   "plattenbreite": 2400 }
+    ],
+    "folie_als": "IfcBuildingElementPart",
+    "verbindungsmittel": [
+      {
+        "id": "osb_staender",
+        "_zweck": "Befestigung OSB auf Ständer/Schwelle/Rähm (Achsen der vertikalen Hölzer)",
+        "art": "SCREW",
+        "typ_name": "Spanplattenschraube 4,0x50",
+        "durchmesser": 4.0,
+        "laenge": 50,
+        "abstand": 150,
+        "randabstand": 75,
+        "schicht": "osb"
+      }
+    ],
+    "aussenseite": {
+      "fassade": "verputzt",
+      "_hinweis": "verputzt => Rse = 0,04 (Putz direkt auf Holzfaserplatte); hinterlueftet => Rse = Rsi = 0,13 (DIN EN ISO 6946, stark belüftete Luftschicht)"
+    }
+  },
+  "materialien": {
+    "kvh_c24":        { "name": "KVH C24 (Nadelholz)",            "kategorie": "wood",       "lambda": 0.13,  "rho": 420, "festigkeit": "C24", "art": "Fichte/Tanne", "lambda_quelle": "typischer Wert Nadelholz, vgl. DIN EN ISO 10456" },
+    "gkf":            { "name": "Gipsplatte Typ DF (GKF)",         "kategorie": "gypsum",     "lambda": 0.25,  "rho": 800, "lambda_quelle": "typische Herstellerangabe" },
+    "osb3":           { "name": "OSB/3",                           "kategorie": "wood-based", "lambda": 0.13,  "rho": 600, "lambda_quelle": "typische Herstellerangabe / DIN EN 13986" },
+    "dampfbremse":    { "name": "Dampfbremsbahn (feuchtevariabel)", "kategorie": "membrane",  "lambda": null,  "rho": null, "sd_m": 2.0, "lambda_quelle": "thermisch vernachlässigt" },
+    "holzfaser_flex": { "name": "Holzfaser-Dämmmatte (flexibel)",  "kategorie": "insulation", "lambda": 0.038, "rho": 50,  "lambda_quelle": "Beispielwert Herstellerangabe (Bemessungswert)" },
+    "holzfaserplatte":{ "name": "Holzfaserdämmplatte (Putzträger)", "kategorie": "insulation", "lambda": 0.043, "rho": 180, "lambda_quelle": "Beispielwert Herstellerangabe (Bemessungswert)" },
+    "stahl_verzinkt": { "name": "Stahl, verzinkt",                 "kategorie": "steel",      "lambda": 50.0,  "rho": 7850, "lambda_quelle": "typischer Wert" }
+  }
+}
