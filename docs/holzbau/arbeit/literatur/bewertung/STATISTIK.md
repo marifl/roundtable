@@ -1,33 +1,33 @@
 # Statistik der Quellenbewertung
 
-- Quellen in der Masterliste: 462
-- bewertet: 462
+- Quellen in der Masterliste: 530
+- bewertet: 530
 - noch nicht bewertet: 0
-- Kernbestand (P ≥ 5): 165
-- verifiziert V: 458, U: 4
+- Kernbestand (P ≥ 5): 186
+- verifiziert V: 526, U: 4
 
 ## Nutzung
 
-- Kontext: 184
-- adaptieren: 144
-- übernehmen: 92
-- abgrenzen: 38
+- Kontext: 213
+- adaptieren: 165
+- übernehmen: 106
+- abgrenzen: 42
 - verwerfen: 4
 
 ## Relevanz je Forschungsfrage (Anzahl Quellen mit Wert ≥ 2)
 
-- FF1: 74 (davon 3: 17)
-- FF2: 123 (davon 3: 24)
+- FF1: 76 (davon 3: 17)
+- FF2: 125 (davon 3: 24)
 - FF3: 35 (davon 3: 4)
-- FF4: 13 (davon 3: 2)
-- FF5: 42 (davon 3: 10)
+- FF4: 40 (davon 3: 8)
+- FF5: 73 (davon 3: 17)
 - FF6: 89 (davon 3: 21)
 
 ## Qualität
 
-- A: 78
-- B: 283
-- C: 94
+- A: 88
+- B: 338
+- C: 97
 - D: 7
 
 ## Kernbestand, sortiert nach P
@@ -53,6 +53,7 @@
 | Q340 | who2018noise | 2018 | 7 | FF6 | übernehmen | 9b.2; 15.4; 19 |
 | Q388 | miller2019explanation | 2019 | 7 | FF6 | übernehmen | 9b.6; 9.5; 10.4 |
 | Q461 | iso2018usability | 2018 | 7 | FF5 | übernehmen | 2.4; 20.3 |
+| Q481 | bgh2002genehmigungsplanung | 2002 | 7 | FF4 | übernehmen | 4.2; 18.1; 11.3 |
 | Q110 | schoenwitz2017product | 2017 | 6.5 | FF6 | übernehmen | 12.1; 9.1 |
 | Q233 | geier2018analysemodell | 2018 | 6.5 | FF2 | adaptieren | 9.1; 3.2 |
 | Q234 | chateauvieux2023bim | 2023 | 6.5 | FF6 | adaptieren | 15.4 |
@@ -65,6 +66,10 @@
 | Q452 | sonnenberg2012evaluations | 2012 | 6.5 | FF5 | übernehmen | 2.4; 20 |
 | Q453 | mayring2022inhaltsanalyse | 2022 | 6.5 | FF5 | übernehmen | 2.4; 20.3 |
 | Q455 | bogner2014interviews | 2014 | 6.5 | FF5 | übernehmen | 2.4; 20.3 |
+| Q476 | parasuraman2000model | 2000 | 6.5 | FF4 | übernehmen | 7.1; 18.1 |
+| Q478 | wilhelmi2020haftung | 2020 | 6.5 | FF4 | übernehmen | 4.7; 7.1 |
+| Q497 | prat2015taxonomy | 2015 | 6.5 | FF5 | übernehmen | 2.4; 20 |
+| Q499 | faulkner2003beyond | 2003 | 6.5 | FF5 | übernehmen | 20.3 |
 | Q001 | eastman2009automatic | 2009 | 6 | FF2 | übernehmen | 5.2; 9.2 |
 | Q033 | bimbauantrag2020abschluss | 2020 | 6 | FF1 | übernehmen | 8.4; 18.3 |
 | Q041 | bsi2025validation | 2025 | 6 | FF1 | übernehmen | 8.1; 20.1 |
@@ -100,6 +105,11 @@
 | Q393 | guyatt2008grade | 2008 | 6 | FF6 | adaptieren | 9b.6; 2.3 |
 | Q434 | wegener2024funktionswandel | 2024 | 6 | FF6 | übernehmen | 9b.1; 9b.2; 9b.3 |
 | Q462 | iso2020interaction | 2020 | 6 | – | übernehmen | 10.4; 20.3 |
+| Q477 | parasuraman2010complacency | 2010 | 6 | FF4 | übernehmen | 18.1; 20.3 |
+| Q479 | eu2024produkthaftungsrl | 2024 | 6 | – | übernehmen | 4.7 |
+| Q480 | eu2014eidas | 2014 | 6 | – | übernehmen | 18.2; 18.3; 7a.5 |
+| Q482 | bayika2026ki | 2026 | 6 | FF4 | übernehmen | 18.1; 7a.1; 4.7 |
+| Q490 | love2018unpacking | 2018 | 6 | FF5 | übernehmen | 20.3; 1.1 |
 | Q002 | solihin2015classification | 2015 | 5.5 | FF2 | adaptieren | 5.2; 9.1 |
 | Q009 | hjelseth2011capturing | 2011 | 5.5 | FF2 | übernehmen | 9.2 |
 | Q014 | moult2020compliance | 2020 | 5.5 | FF2 | übernehmen | 7.3; 9.2 |
@@ -154,6 +164,14 @@
 | Q456 | glaeser2010experteninterviews | 2010 | 5.5 | – | adaptieren | 20.3 |
 | Q457 | brooke1996sus | 1996 | 5.5 | FF5 | übernehmen | 20.3 |
 | Q459 | hart1988development | 1988 | 5.5 | FF5 | übernehmen | 20.3 |
+| Q466 | hunhevicz2020need | 2020 | 5.5 | – | übernehmen | 7.3; 7.4 |
+| Q472 | cheung2026institutionalizing | 2026 | 5.5 | FF4 | adaptieren | 7a.3; 7a.5; 18.4 |
+| Q485 | haug2011impact | 2011 | 5.5 | FF5 | adaptieren | 20.3; 5.4; 1.1 |
+| Q488 | kristjansdottir2018return | 2018 | 5.5 | FF5 | übernehmen | 20.3; 20.2 |
+| Q493 | sacks2008impact | 2008 | 5.5 | FF5 | adaptieren | 20.3; 6.1; 1.1 |
+| Q498 | tremblay2010focus | 2010 | 5.5 | – | übernehmen | 2.4; 20.3 |
+| Q502 | dellacqua2026navigating | 2026 | 5.5 | FF5 | adaptieren | 20.3; 18.1 |
+| Q525 | nielsen1993mathematical | 1993 | 5.5 | – | übernehmen | 20.3 |
 | Q003 | amor2021promise | 2021 | 5 | – | Kontext | 5.2 |
 | Q028 | noardo2022unveiling | 2022 | 5 | – | Kontext | 5.2; 18.4 |
 | Q034 | mbo2bim2023 | 2023 | 5 | – | adaptieren | 4.2; 9.2 |
@@ -174,7 +192,7 @@
 | Q199 | opengeodataBY | 2026 | 5 | – | übernehmen | 8.4; 14a.4 |
 | Q204 | dataholz | 2026 | 5 | FF6 | adaptieren | 8.5; 15 |
 | Q206 | regnauerBLB2024 | 2024 | 5 | – | übernehmen | 3.5; 12.1 |
-| Q252 | montali2017knowledge | 2017 | 5 | – | adaptieren | 9.1 |
+| Q252 | montali2017knowledge | 2018 | 5 | – | adaptieren | 9.1 |
 | Q259 | timbim2024 | 2024 | 5 | FF1 | adaptieren | 8.3; 8.5 |
 | Q275 | kodnongbua2024zeroshot | 2024 | 5 | FF3 | adaptieren | 5.6; 7.1; 10.2 |
 | Q276 | nithyanantham2025mcp4ifc | 2025 | 5 | – | adaptieren | 5.6; 7.4; 10.3 |
@@ -197,5 +215,8 @@
 | Q400 | kaufmann2018leanwood | 2018 | 5 | – | adaptieren | 3.4; 6.1; 18.1 |
 | Q401 | kaufmann2019holzbim | 2019 | 5 | – | Kontext | 1.1; 5.3 |
 | Q410 | eisfeld2022variowohnen | 2022 | 5 | FF2 | adaptieren | 5.4; 5.7; 9.2 |
-| Q413 | fraunhoferipa0000designchain |  | 5 | – | adaptieren | 5.3; 5.7; 17.4 |
+| Q413 | fraunhoferipa0000designchain | 2023 | 5 | – | adaptieren | 5.3; 5.7; 17.4 |
 | Q418 | np2025haas | 2025 | 5 | – | abgrenzen | 5.4; 5.7; 3.4 |
+| Q468 | jaskula2024common | 2024 | 5 | – | adaptieren | 7.3; 18.1 |
+| Q474 | love2023explainable | 2023 | 5 | – | Kontext | 7.1; 10.4 |
+| Q520 | wuni2019critical | 2019 | 5 | – | adaptieren | 17.3; 18.1 |
