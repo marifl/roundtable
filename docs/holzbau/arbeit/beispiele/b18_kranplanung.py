@@ -573,7 +573,7 @@ def last_radius(e: Element) -> float:
     return 0.5 * max(e.laenge, e.hoehe)
 
 
-def freileitung_ok(kran: dict, c: np.ndarray, el: list[Element], ge: Gelaende) -> tuple[bool, float]:
+def freileitung_ok(kran: dict, c: np.ndarray, el: list[Element], ge: Gelaende, genau: bool = False) -> tuple[bool, float]:
     """2D-Prüfung Schutzabstand: Last (Hakenweg ± Lastradius), Ausleger
     (Drehpunkt → Haken; beim Mobilbaukran die volle feste Auslegerlänge über
     den überstrichenen Drehwinkel) und Heck. Liefert (ok, kleinster Abstand)."""
@@ -582,8 +582,8 @@ def freileitung_ok(kran: dict, c: np.ndarray, el: list[Element], ge: Gelaende) -
     reichweite = kran.get("ausleger_fest_m") or max(
         max(np.linalg.norm(np.asarray(e.schwerpunkt) - c) for e in el),
         float(np.linalg.norm(np.asarray(ge.aufnahmepunkt) - c))) + max(last_radius(e) for e in el)
-    if d_c - reichweite >= d_req:
-        return True, round(d_c - reichweite, 3)                 # schnelle Vorprüfung
+    if not genau and d_c - reichweite >= d_req:
+        return True, round(d_c - reichweite, 3)                 # schnelle Vorprüfung (untere Schranke)
     p = np.asarray(ge.aufnahmepunkt, dtype=float)
     mins = [d_c - kran["heckradius_m"]]
     winkel = []
@@ -741,7 +741,7 @@ def warnungen(d: dict, el: list[Element], lkws: list[dict], ge: Gelaende, best: 
         add("Wind", f"{len(krit)} Hübe mit A_W > 1,2 m²/t: zulässige Böe unter {h['wind_plan_boe_ms']} m/s "
             f"(min. {vmin:.1f} m/s). Hubplanung mit Windrechner des Herstellers, Windmesser am Kran.",
             "EN 13000 (1,2 m²/t); Liebherr „Einfluss des Windes“; FEM 5.016")
-    _, d_min = freileitung_ok(kran, c, el, ge)
+    _, d_min = freileitung_ok(kran, c, el, ge, genau=True)
     if ge.leitung_kv > 1.0:
         add("Freileitung", f"Kleinster Abstand Last/Ausleger zur {ge.leitung_kv:.0f}-kV-Leitung {d_min:.1f} m "
             f"(gefordert {ge.leitung_abstand:.1f} m inkl. Zuschlag); Netzbetreiber informieren."
@@ -850,13 +850,19 @@ def svg_be_plan(d: dict, el: list[Element], ge: Gelaende, best: Kandidat, szenar
         return (x - x0) * m, (y1 - y) * m
 
     c = (best.x, best.y)
-    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" viewBox="0 0 {W:.0f} {H:.0f}" '
-         f'font-family="sans-serif" font-size="11">', '<rect width="100%" height="100%" fill="#ffffff"/>']
+    hp = (y1 - y0) * m
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H + 40:.0f}" viewBox="0 0 {W:.0f} {H + 40:.0f}" '
+         f'font-family="sans-serif" font-size="11">', '<rect width="100%" height="100%" fill="#ffffff"/>',
+         f'<defs><clipPath id="plan"><rect x="0" y="0" width="{W:.0f}" height="{hp:.0f}"/></clipPath></defs>',
+         '<g clip-path="url(#plan)">']
     for nid, poly in ge.nachbarn:
         s.append(_poly_svg(poly, 'fill="#eeeeee" stroke="#999999"', T))
-        cx, cy = T(*poly.representative_point().coords[0])
-        s.append(f'<text x="{cx:.1f}" y="{cy:.1f}" fill="#777777">Nachbar {nid}</text>')
+        sicht = poly.intersection(box(x0, y0, x1, y1))
+        cx, cy = T(*sicht.centroid.coords[0])
+        s.append(f'<text x="{cx:.1f}" y="{cy:.1f}" fill="#777777" text-anchor="middle">Nachbar {nid}</text>')
     s.append(_poly_svg(ge.strasse, 'fill="#d9d9d9" stroke="#888888"', T))
+    sx, sy = T(-12.0, -8.0)
+    s.append(f'<text x="{sx:.1f}" y="{sy:.1f}" fill="#555555">{d["gelaende"]["strasse"]["name"]}</text>')
     s.append(_poly_svg(ge.grundstueck, 'fill="#f4f9ec" stroke="#2e7d32" stroke-width="2"', T))
     for z in ge.sperren:
         s.append(_poly_svg(z, 'fill="#ffe0b2" stroke="#e65100" stroke-dasharray="4 3"', T))
@@ -898,23 +904,24 @@ def svg_be_plan(d: dict, el: list[Element], ge: Gelaende, best: Kandidat, szenar
                  'stroke="#ff6f00" stroke-dasharray="1 3"/>')
     s.append(f'<circle cx="{kx:.1f}" cy="{ky:.1f}" r="4" fill="#000000"/>')
     s.append(f'<text x="{kx + 6:.1f}" y="{ky - 6:.1f}" font-weight="bold">{best.kran}</text>')
+    s.append("</g>")
     # Nordpfeil, Maßstab
     s.append(f'<path d="M {W - 30:.0f} 50 l 8 20 l -8 -6 l -8 6 z" fill="#000"/><text x="{W - 34:.0f}" y="44">N</text>')
-    s.append(f'<line x1="20" y1="{(y1 - y0) * m - 16:.0f}" x2="{20 + 10 * m:.0f}" y2="{(y1 - y0) * m - 16:.0f}" '
-             f'stroke="#000" stroke-width="3"/><text x="20" y="{(y1 - y0) * m - 22:.0f}">10 m</text>')
+    s.append(f'<line x1="20" y1="{hp - 16:.0f}" x2="{20 + 10 * m:.0f}" y2="{hp - 16:.0f}" '
+             f'stroke="#000" stroke-width="3"/><text x="20" y="{hp - 22:.0f}">10 m</text>')
     # Legende
-    ly = (y1 - y0) * m + 18
+    ly = hp + 18
     u_krit = max(best.huebe, key=lambda u: u.auslastung)
     zeilen = [
-        f"BE-Plan B18 (Beispiel, Szenario „{szenario}“): {kran['name']} bei ({best.x:.1f} | {best.y:.1f}), "
-        f"Orientierung {best.ori}°, Unterlegplatten {best.platte_m:.1f} m, p = {best.p_kn_m2:.0f} ≤ {best.p_zul_kn_m2:.0f} kN/m²",
-        f"Max. Auslastung {best.max_auslastung * 100:.1f} % (kritischer Hub {u_krit.element}, r = "
-        f"{max(u_krit.radius_absetzen, u_krit.radius_aufnahme):.1f} m); Kosten {best.kosten_eur:.0f} € (Beispielsätze), "
-        f"{best.einsatztage} Einsatztag(e)",
-        "gelb/orange: Abstützung und Platten · gestrichelt orange: Heckradius · violett: Lastwege und max. Arbeitsradius · "
-        "rot: Lastweg über Nachbar",
-        "blau: Abladezone LKW · rot schraffiert: Schutzstreifen Freileitung · grün: Baum-Wurzelbereich · braun gestrichelt: "
-        "Böschungskante",
+        f"BE-Plan B18 (Beispiel), Szenario „{szenario}“: {kran['name']}",
+        f"Stellplatz ({best.x:.1f} | {best.y:.1f}), Orientierung {best.ori}°, Unterlegplatten {best.platte_m:.1f} × "
+        f"{best.platte_m:.1f} m, p = {best.p_kn_m2:.0f} ≤ {best.p_zul_kn_m2:.0f} kN/m²",
+        f"max. Auslastung {best.max_auslastung * 100:.1f} % (kritischer Hub {u_krit.element}, r = "
+        f"{max(u_krit.radius_absetzen, u_krit.radius_aufnahme):.1f} m), Kosten {best.kosten_eur:.0f} € "
+        f"(Beispielsätze), {best.einsatztage} Einsatztag(e)",
+        "gelb/orange: Abstützung, Platten, Heckradius · violett: Lastwege, max. Arbeitsradius · rot: Last über Nachbar",
+        "blau: Abladezone LKW · rot flächig: Schutzstreifen Freileitung · grün: Baum-Wurzelbereich",
+        "braun gestrichelt: Böschungskante Baugrube · orange gestrichelt: Szenario-Sperrfläche",
     ]
     for i, z in enumerate(zeilen):
         s.append(f'<text x="10" y="{ly + i * 16:.0f}">{z}</text>')

@@ -844,6 +844,14 @@ def exportiere_ifc(erg: dict, eingabe: dict, variante: str, pfad: Path) -> Path:
         if fenster_je_geschoss[n]:
             f.create_entity("IfcRelContainedInSpatialStructure", GlobalId=g(f"/rel/win/{n}"), RelatingStructure=st,
                             RelatedElements=fenster_je_geschoss[n])
+    # fester Header, damit die Datei byte-identisch reproduzierbar ist
+    h = f.header
+    h.file_description.description = ("ViewDefinition [NotAssigned]",)
+    h.file_name.name = pfad.name
+    h.file_name.time_stamp = "2026-09-27T00:00:00"
+    h.file_name.author = ("B19 Beispiel",)
+    h.file_name.organization = ("Dissertation Holzbau (Beispiel)",)
+    h.file_name.authorization = "keine"
     pfad.parent.mkdir(parents=True, exist_ok=True)
     f.write(str(pfad))
     return pfad
