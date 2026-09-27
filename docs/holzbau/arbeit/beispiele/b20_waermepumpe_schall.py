@@ -47,6 +47,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import html
 import json
 import math
 import re
@@ -1038,7 +1039,7 @@ def svg_laermkarte(xs, ys, Z, S, daten, szene, zone, ios, titel):
     _svg_szene(t, R, daten, szene, S, zone, ios)
     lx, ly = R.X(R.x1) + 20, R.ro + 10
     t.append(f'<text x="{lx}" y="{ly}" font-size="12" font-weight="600">L_r,Nacht in dB(A)</text>')
-    namen = ("< 25", "25–30", "30–35", "35–40", "40–45", "45–50", "≥ 50")
+    namen = ("&lt; 25", "25–30", "30–35", "35–40", "40–45", "45–50", "≥ 50")
     for n, nm in enumerate(namen):
         t.append(f'<rect x="{lx}" y="{ly + 10 + 20 * n}" width="18" height="14" fill="var(--k{n})" rx="2"/>'
                  f'<text x="{lx + 26}" y="{ly + 21 + 20 * n}" font-size="12">{nm}</text>')
@@ -1072,11 +1073,11 @@ def svg_standortkarte(kandidaten, opt, daten, szene, ios, titel):
                      f'fill="var(--{farbe})"><title>({x}/{y}): Reserve zu IRW−6 = {r1(ri)} dB, Leitung {r1(k["leitung_m"])} m</title></rect>')
         else:
             t.append(f'<rect x="{R.X(x - st / 2):.1f}" y="{R.Y(y + st / 2):.1f}" width="{st * R.s:.1f}" height="{st * R.s:.1f}" '
-                     f'fill="url(#schraff)"><title>({x}/{y}): {"; ".join(k["gruende"])}</title></rect>')
+                     f'fill="url(#schraff)"><title>({x}/{y}): {html.escape("; ".join(k["gruende"]))}</title></rect>')
     _svg_szene(t, R, daten, szene, opt["xy"], opt.get("zone"), ios)
     lx, ly = R.X(R.x1) + 20, R.ro + 10
     t.append(f'<text x="{lx}" y="{ly}" font-size="12" font-weight="600">Reserve zu IRW − 6 dB</text>')
-    namen = ("< −6 dB", "−6 … −3", "−3 … −1", "−1 … +1", "+1 … +3", "+3 … +6", "≥ +6 dB")
+    namen = ("&lt; −6 dB", "−6 … −3", "−3 … −1", "−1 … +1", "+1 … +3", "+3 … +6", "≥ +6 dB")
     for n, (nm, (_, _, f)) in enumerate(zip(namen, klassen)):
         t.append(f'<rect x="{lx}" y="{ly + 10 + 20 * n}" width="18" height="14" fill="var(--{f})" rx="2"/>'
                  f'<text x="{lx + 26}" y="{ly + 21 + 20 * n}" font-size="12">{nm}</text>')

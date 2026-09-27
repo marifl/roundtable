@@ -8682,7 +8682,7 @@
 <text x="515.0" y="297.0" font-size="12" font-weight="600">IO5 (Baugrenze)</text>
 <rect x="323.2" y="645.2" width="12" height="12" fill="var(--neg2)" stroke="var(--tinte)" stroke-width="1.5"><title>WP-Außengerät (7.3/1.8)</title></rect>
 <text x="684.0" y="60" font-size="12" font-weight="600">L_r,Nacht in dB(A)</text>
-<rect x="684.0" y="70" width="18" height="14" fill="var(--k0)" rx="2"/><text x="710.0" y="81" font-size="12">< 25</text>
+<rect x="684.0" y="70" width="18" height="14" fill="var(--k0)" rx="2"/><text x="710.0" y="81" font-size="12">&lt; 25</text>
 <rect x="684.0" y="90" width="18" height="14" fill="var(--k1)" rx="2"/><text x="710.0" y="101" font-size="12">25–30</text>
 <rect x="684.0" y="110" width="18" height="14" fill="var(--k2)" rx="2"/><text x="710.0" y="121" font-size="12">30–35</text>
 <rect x="684.0" y="130" width="18" height="14" fill="var(--k3)" rx="2"/><text x="710.0" y="141" font-size="12">35–40</text>
