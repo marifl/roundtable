@@ -1,0 +1,907 @@
+# Empfehlungskatalog R5 (Kapitel 9b) mit Kulturprofilen und Ausschlussliste
+# Quelle: arbeit/09b-entwurfsqualitaet-psychologie.md; Keys aus arbeit/literatur/lit-*.bib
+# status: V = Wert aus geprüfter Quelle; U = Designentscheidung oder ungeprüft, vor Produktivbetrieb bestätigen
+# Platzhalter in Meldungstexten: {name} wird von der App aus dem Modell gefüllt.
+
+meta:
+  katalog: empfehlungen
+  version: "0.1.0"
+  stand: "2026-09-27"
+  kapitel: "9b"
+  regelklasse: R5
+
+evidenzgrade:
+  A: {bedeutung: "Systematisches Review, Meta-Analyse mit konsistentem Befund zur Wirkung oder Leitlinie nach GRADE", laientext: "gut belegt"}
+  B: {bedeutung: "Kontrollierte Einzelstudien, konsistente Beobachtungsstudien, Konsens auf Laborbasis oder Meta-Analysen nur zur Präferenz", laientext: "belegt (Studien)"}
+  C: {bedeutung: "Expertenkonsens, Lehrbuch, Norm oder Bewertungssystem ohne direkte Wirkungsstudie", laientext: "bewährte Planungsregel"}
+  D: {bedeutung: "Tradition oder Kulturlehre ohne empirische Prüfung", laientext: "traditionelle Lehre, nicht wissenschaftlich belegt"}
+
+evidenzarten:
+  W: {bedeutung: "Wirkung auf Gesundheit, Wohlbefinden, Leistung, Schlaf"}
+  P: {bedeutung: "Präferenz: was Menschen wählen oder schön finden", max_grad: B}
+  M: {bedeutung: "Markt: Zahlungsbereitschaft"}
+
+gewichte:          # g(e) aus Kap. 9b.1.3; Designentscheidung, per Bewohnerbefragung zu kalibrieren
+  status: U
+  A: 1.0
+  B: 0.7
+  C: 0.4
+  D: 0.0           # D zählt nie im Wohnqualitätsprofil, nur im Teilscore des Kulturprofils (dort Gewicht 1)
+
+dimensionen:
+  - {id: licht, name: "Licht"}
+  - {id: ruhe_privatheit, name: "Ruhe und Privatheit"}
+  - {id: raumklima_luft, name: "Raumklima und Innenraumluft"}
+  - {id: funktion_moeblierung, name: "Funktion und Möblierbarkeit"}
+  - {id: aussenbezug, name: "Außenbezug"}
+  - {id: anpassbarkeit_barrierearmut, name: "Anpassbarkeit und Barrierearmut"}
+  - {id: raumwirkung, name: "Raumwirkung (Vorlieben)"}
+  - {id: kultur, name: "Kulturprofil (getrennter Teilscore)"}
+
+nutzerprofile:
+  - {id: homeoffice, parameter: {arbeitstage_pro_woche: "Ganzzahl 1..7"}}
+  - {id: barrierefrei_vorbereitet}
+  - {id: kinder, parameter: {kinder_ab_schulalter: "Ganzzahl >= 0"}}
+
+textregeln:        # automatisch geprüft (ANF-09b-09): verbotene Wendungen je Evidenzart bzw. -grad
+  P: ["ist gesünder", "schläft besser", "fördert die Gesundheit", "wissenschaftlich erwiesen"]
+  C: ["wissenschaftlich erwiesen", "nachweislich"]
+  D: ["ist gesünder", "fördert die Gesundheit", "wissenschaftlich", "das Chi fließt", "Energie fließt", "nachweislich"]
+  D_ausnahme: "Die Wendung 'nicht wissenschaftlich belegt' ist zulässig."
+
+empfehlungen:
+
+  # ---------------- Ruhe und Privatheit ----------------
+  - id: R5-RUHE-01
+    version: "1.0"
+    titel: "Schlafräume nicht an Fassaden mit hohem Nachtlärm"
+    dimension: ruhe_privatheit
+    evidenzgrad: A
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: lnight_schlafraum
+      einheit: "dB"
+      berechnung: "Lnight des Rasterpunkts der EU-Umgebungslärmkarte (4 m Höhe) vor dem lautesten Fenster des Schlafraums; nur Screening, nicht nachweistauglich (DIN 4109-2 schließt Lärmkarten aus)"
+    schwellen: {strasse_lnight: 45, schiene_lnight: 44, flug_lnight: 40}
+    erfuellung: "1 bei L <= Schwelle; 0 bei L >= Schwelle + 10 dB; linear dazwischen"
+    erfuellung_status: U
+    meldung: "An dieser Fassade liegt der nächtliche Verkehrslärm bei etwa {lnight} dB. Ab {schwelle} dB schadet Verkehrslärm nachts der Gesundheit (gut belegt). Tipp: Legen Sie Schlafräume auf die ruhigere Seite."
+    quellen: [who2018noise, basner2014noise]
+    status: V
+
+  - id: R5-RUHE-02
+    version: "1.0"
+    titel: "Schlafzimmerfenster zur ruhigen Seite"
+    dimension: ruhe_privatheit
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: delta_l_schlafraum
+      einheit: "dB"
+      berechnung: "Lnight(Fassade des leisesten Schlafraumfensters) minus Minimum von Lnight über alle Fassaden des Gebäudes"
+    schwellen: {toleranz_db: 3}
+    erfuellung: "1 wenn delta_l <= Toleranz, sonst 0"
+    erfuellung_status: U
+    meldung: "Ihr Schlafzimmer hat kein Fenster zur ruhigsten Seite des Hauses. Studien zeigen: Wer zur ruhigen Seite schläft, schläft seltener schlecht (Studien). Tipp: Tauschen Sie das Schlafzimmer mit einem Raum auf der {ruhige_seite}-Seite."
+    quellen: [ohrstrom2006quietness, bodin2015quiet, bartels2021impact, roswall2020nighttime]
+    status: V
+
+  - id: R5-RUHE-03
+    version: "1.0"
+    titel: "Privatheitsgradient: Schlafräume tiefer als Wohnbereich"
+    dimension: ruhe_privatheit
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: tiefe_differenz
+      einheit: "Schritte im Raumgraphen"
+      berechnung: "mittlere Tiefe der Schlafräume minus mittlere Tiefe der Wohnräume, Tiefe = kürzester Pfad ab dem Außenraumknoten im Raumgraphen (Knoten IfcSpace, Kanten Türen und Durchgänge)"
+    schwellen: {min_differenz: 0.0}
+    erfuellung: "1 wenn Differenz > 0, sonst 0"
+    meldung: "Ein Schlafraum liegt näher am Eingang als der Wohnbereich. Bewährte Planungsregel: Private Räume liegen tiefer im Haus als die gemeinsamen."
+    quellen: [altman1975environment, hanson1998decoding, alexander1977pattern]
+    status: V
+
+  - id: R5-RUHE-04
+    version: "1.0"
+    titel: "Kein Schlafraum als Durchgangsraum"
+    dimension: ruhe_privatheit
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: durchgang_schlafraum
+      einheit: "boolesch"
+      berechnung: "wahr, wenn ein Schlafraum auf einem kürzesten Pfad zwischen zwei anderen Räumen liegt und es keinen gleich langen Pfad ohne ihn gibt"
+    schwellen: {}
+    erfuellung: "1 wenn falsch, 0 wenn wahr"
+    meldung: "Man muss durch {raum} gehen, um {ziel} zu erreichen. Bewährte Planungsregel: Schlafräume sind keine Durchgangsräume."
+    quellen: [hanson1998decoding, alexander1977pattern]
+    status: V
+
+  - id: R5-RUHE-05
+    version: "1.0"
+    titel: "Rückzug und Beengtheit"
+    dimension: ruhe_privatheit
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: personen_je_raum
+      einheit: "Personen/Raum"
+      berechnung: "Haushaltsgröße geteilt durch Zahl der Aufenthaltsräume ohne Küche; zusätzlich: Zahl abschließbarer Räume minus Zahl der Personen ab Schulalter"
+    schwellen: {personen_je_raum_max: 1.0, fehlende_eigene_raeume_max: 0}
+    erfuellung: "Mittel aus (1 wenn Personen/Raum <= 1) und (1 wenn jede Person ab Schulalter einen eigenen abschließbaren Raum hat)"
+    meldung: "Nicht jede Person ab Schulalter hat einen eigenen Raum mit Tür. Enge Wohnverhältnisse hängen in Studien mit mehr Stress zusammen, vor allem bei Kindern (Studien)."
+    quellen: [evans1998crowding, evans2006child, fornara2022space]
+    status: V
+
+  # ---------------- Licht ----------------
+  - id: R5-LICHT-01
+    version: "1.0"
+    titel: "Tageslicht nach DIN EN 17037, Stufe gering"
+    dimension: licht
+    evidenzgrad: B
+    evidenzgrad_schwelle: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: tageslicht_flaechenanteil
+      einheit: "%"
+      berechnung: "Tageslichtsimulation je Aufenthaltsraum: Flächenanteil mit Zielbeleuchtungsstärke 300 lx und Anteil mit Mindestbeleuchtungsstärke 100 lx, jeweils für mindestens die Hälfte der Tageslichtstunden (Verfahren nach DIN EN 17037)"
+    schwellen: {anteil_300lx_min: 50, anteil_100lx_min: 95}
+    erfuellung: "1 wenn beide Anteile erreicht; sonst Mittel der Erfüllungsquoten (Istanteil / Sollanteil, max. 1)"
+    meldung: "{raum} bekommt eher wenig Tageslicht. Tageslicht tut Schlaf und Stimmung gut (Studien); die Zielwerte sind eine bewährte Planungsregel. Tipp: größeres oder zusätzliches Fenster, zum Beispiel an einer zweiten Wand."
+    quellen: [aries2015daylight, din2019tageslicht, din5034-1]
+    status: V
+
+  - id: R5-LICHT-02
+    version: "1.0"
+    titel: "Besonnung mindestens eines Wohnraums"
+    dimension: licht
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: besonnungsdauer
+      einheit: "h"
+      berechnung: "Sonnenstandssimulation für einen Stichtag zwischen 1.2. und 21.3., Maximum über alle Wohnräume"
+    schwellen: {min_h: 1.5}
+    erfuellung: "1 wenn Dauer >= 1,5 h, sonst Dauer / 1,5 h"
+    meldung: "Kein Wohnraum bekommt im Spätwinter mindestens 1,5 Stunden Sonne. Bewährte Planungsregel: Mindestens ein Wohnraum sollte besonnt sein."
+    quellen: [din2019tageslicht]
+    status: V
+
+  - id: R5-LICHT-03
+    version: "1.0"
+    titel: "Schlafräume vollständig verdunkelbar"
+    dimension: licht
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: verdunkelbar_anteil
+      einheit: "%"
+      berechnung: "Anteil der Fenster in Schlafräumen mit Rollladen, Raffstore oder Verdunkelungsbehang im Modell"
+    schwellen: {min_anteil: 100}
+    erfuellung: "Anteil / 100"
+    meldung: "Nicht alle Fenster in {raum} lassen sich verdunkeln. Dunkelheit in der Nacht unterstützt den Tag-Nacht-Rhythmus (Studien). Tipp: Rollläden oder Raffstores wählen."
+    quellen: [brown2022recommendations, cajochen2022evening, cain2020evening]
+    status: V
+
+  - id: R5-LICHT-04
+    version: "1.0"
+    titel: "Tagesarbeitsplatz in der Fensterzone"
+    dimension: licht
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    nutzerprofil: homeoffice
+    status_n: false
+    kennzahl:
+      name: tageslicht_arbeitsplatz
+      einheit: "lx"
+      berechnung: "simulierte Tageslicht-Beleuchtungsstärke (horizontal, 0,75 m) am Schreibtischplatz, erreicht in mindestens der Hälfte der Tageslichtstunden"
+    schwellen: {min_lx: 300}
+    erfuellung: "1 wenn Wert >= 300 lx, sonst Wert / 300"
+    erfuellung_status: U
+    meldung: "Ihr Schreibtisch steht weit vom Fenster. Viel Tageslicht am Tag unterstützt Wachheit und Tag-Nacht-Rhythmus (Studien). Tipp: Schreibtisch näher ans Fenster."
+    quellen: [brown2022recommendations, brown2020melanopic, din2019tageslicht]
+    status: U
+    hinweis_status: "Schwelle in Analogie zu DIN EN 17037 übertragen; mEDI am Auge ist im Grundrissstadium nicht berechenbar"
+
+  # ---------------- Raumklima und Innenraumluft ----------------
+  - id: R5-KLIMA-01
+    version: "1.0"
+    titel: "Überhitzung von Schlafräumen mit West- und Südwestverglasung"
+    dimension: raumklima_luft
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: westverglasung_ohne_sonnenschutz
+      einheit: "m²"
+      berechnung: "Summe der Glasflächen in Schlafräumen mit Azimut der Fensternormalen 202,5° bis 292,5° (bezogen auf geografisch Nord), die keinen außenliegenden Sonnenschutz haben"
+    schwellen: {max_m2: 0.0}
+    erfuellung: "1 wenn Fläche = 0; sonst 0"
+    meldung: "{raum} hat große Fenster nach {richtung} ohne Sonnenschutz außen. Im Sommer heizt sich der Raum abends auf, und Hitze stört den Schlaf (Studien). Tipp: außenliegende Raffstores oder Rollläden."
+    konflikte: [VA-04]
+    quellen: [emmitt2023bedroom, lan2017thermal, din4108-2]
+    status: V
+    hinweis_status: "Der Nachweis des sommerlichen Wärmeschutzes nach DIN 4108-2 ist eine harte Regel (Regelkatalog), diese Empfehlung ergänzt ihn."
+
+  - id: R5-KLIMA-02
+    version: "1.0"
+    titel: "Schadstoffarme Materialien nach QNG"
+    dimension: raumklima_luft
+    evidenzgrad: A
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: qng_anteil
+      einheit: "%"
+      berechnung: "Anteil der Innenraumprodukte (Bemusterung, Kap. 12) mit Nachweis nach QNG Anhang 313 am Gesamtbestand der Innenraumprodukte"
+    schwellen: {min_anteil: 100}
+    erfuellung: "Anteil / 100"
+    meldung: "{anzahl} gewählte Produkte haben keinen Schadstoffnachweis nach QNG. Schadstoffe wie Formaldehyd belasten die Raumluft (gut belegt). Tipp: geprüfte Alternative wählen."
+    quellen: [qng2023anlage3, air2016formaldehyd]
+    status: V
+
+  - id: R5-KLIMA-03
+    version: "1.0"
+    titel: "Radonvorsorge"
+    dimension: raumklima_luft
+    evidenzgrad: A
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: true
+    kennzahl:
+      name: radonvorsorgegebiet
+      einheit: "boolesch"
+      berechnung: "Grundstück liegt in einem festgelegten Radonvorsorgegebiet (Geodatenabfrage der Landesbehörde); Bodenplatte als radonsicher ausgeführt (Merkmal am Bauteil)"
+    schwellen: {referenzwert_bq_m3: 300}
+    erfuellung: "1 wenn nicht im Gebiet oder Bodenplatte radonsicher, sonst 0"
+    meldung: "Ihr Grundstück liegt in einem Radonvorsorgegebiet. Radon ist ein Gesundheitsrisiko (gut belegt). Wir sehen deshalb eine radonsichere Bodenplatte vor und empfehlen nach dem Einzug eine Messung."
+    quellen: [bfs2025radon]
+    status: V
+
+  # ---------------- Funktion und Möblierbarkeit ----------------
+  - id: R5-FUNKTION-01
+    version: "1.0"
+    titel: "Möblierbarkeit mit Bettmodul (WBS K18)"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: bettstellungen
+      einheit: "Anzahl je Zimmer"
+      berechnung: "Je Zimmer Zahl der Stellungen eines Bettmoduls (Doppelbett ab 12 m², Einzelbett ab 10 m²) mit Kopfende an einer Wand, bei denen kein Tür- oder Fensterflügel bei 90° Öffnung in die Bettfläche ragt; Mittel über alle Zimmer"
+    schwellen: {min_je_zimmer: 1}
+    erfuellung: "Anteil der Zimmer mit mindestens einer gültigen Stellung"
+    meldung: "In {raum} passt kein Bett so, dass Tür und Fenster frei aufgehen. Bewährte Planungsregel. Tipp: Tür versetzen, anderen Flügel wählen oder Raum verbreitern."
+    quellen: [bwo2015wbs]
+    status: V
+
+  - id: R5-FUNKTION-02
+    version: "1.0"
+    titel: "Bettposition mit Blick zur Tür"
+    dimension: funktion_moeblierung
+    evidenzgrad: B
+    evidenzart: P
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: bettposition_praeferenz
+      einheit: "boolesch"
+      berechnung: "Tür liegt im Isovist vom Kopfkissenpunkt ∧ Bettfläche außerhalb des Türschwenks ∧ Abstand Kopfkissen–Tür ist maximal unter den gültigen Stellungen aus R5-FUNKTION-01"
+    schwellen: {}
+    erfuellung: "Anteil der drei Teilbedingungen, die erfüllt sind"
+    aussetzbar_durch_kunde: true
+    meldung: "Die meisten Menschen stellen das Bett so, dass sie die Tür sehen und möglichst weit von ihr entfernt liegen. Das ist eine gut belegte Vorliebe, eine Wirkung auf den Schlaf ist nicht untersucht (Studien zu Vorlieben)."
+    quellen: [spoerrle2010sleeping, bonin2023goodnight]
+    status: V
+
+  - id: R5-FUNKTION-03
+    version: "1.0"
+    titel: "Kochen und Essen nah beieinander (WBS K19)"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: abstand_kochen_essen
+      einheit: "cm"
+      berechnung: "Abstand Mitte Kochbereich zu Mitte Esstisch; zusätzlich lichte Breite des Durchgangs dazwischen"
+    schwellen: {abstand_max_cm: 300, durchgang_min_cm: 120}
+    erfuellung: "Mittel aus (1 wenn Abstand < 300 cm) und (1 wenn Durchgang > 120 cm)"
+    meldung: "Kochbereich und Essplatz liegen {abstand} cm auseinander. Bewährte Planungsregel: unter 300 cm, mit mindestens 120 cm Durchgang."
+    quellen: [bwo2015wbs, faller2002wohngrundriss]
+    status: V
+
+  - id: R5-FUNKTION-04
+    version: "1.0"
+    titel: "Kochbereich an der Fassade mit öffenbarem Fenster (WBS K19)"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: kochbereich_fenster
+      einheit: "boolesch"
+      berechnung: "Der Raum mit dem Kochbereich hat mindestens ein öffenbares Fenster an einer Außenwand"
+    schwellen: {}
+    erfuellung: "1 wenn wahr, sonst 0"
+    meldung: "Die Küche hat kein Fenster, das sich öffnen lässt. Bewährte Planungsregel: Kochbereich an der Außenwand mit öffenbarem Fenster."
+    quellen: [bwo2015wbs]
+    status: V
+
+  - id: R5-FUNKTION-05
+    version: "1.0"
+    titel: "Stauraum mit Schrankmodulen (WBS K21)"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: schrankmodule
+      einheit: "Anzahl"
+      berechnung: "Zahl platzierbarer Schrankmodule 60 × 60 × 180 cm mit 90 cm Bedienfläche davor (im Kochbereich 120 cm), ohne Überlagerung mit Türschwenk und Bewegungsflächen; zusätzlich: Abstellraum vorhanden (boolesch)"
+    schwellen: {module_je_person_min: null}
+    erfuellung: "Anteil erreichter Module an Sollwert; Sollwert aus WBS-Grundausstattung nachtragen"
+    erfuellung_status: U
+    meldung: "Im Haus ist wenig Platz für Schränke. Bewährte Planungsregel: genug Stellfläche für Schränke und ein Abstellraum."
+    quellen: [bwo2015wbs, graham2015psychology]
+    status: U
+    hinweis_status: "Sollwert je Wohnungsgröße aus der WBS-Kriterientabelle 2015 am Original nachlesen"
+
+  - id: R5-FUNKTION-06
+    version: "1.0"
+    titel: "Bewegungsflächen und Flurbreiten (Startheuristik)"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: bewegungsflaeche_min
+      einheit: "cm"
+      berechnung: "kleinster lichter Abstand zwischen Stellfläche und Wand bzw. gegenüberliegender Stellfläche; lichte Breite von Eingangsflur und Nebenflur"
+    schwellen: {stellflaeche_wand_min_cm: 70, eingangsflur_min_cm: 130, nebenflur_min_cm: 90}
+    erfuellung: "Anteil der eingehaltenen Mindestmaße"
+    meldung: "Zwischen {moebel} und Wand bleiben nur {mass} cm. Bewährte Planungsregel: mindestens {soll} cm, damit man bequem vorbeikommt."
+    quellen: [neufert2022bauentwurfslehre]
+    quelle_sonstige: "DIN 18011 (zurückgezogen) als Startheuristik, Recherche 13"
+    status: U
+
+  - id: R5-FUNKTION-07
+    version: "1.0"
+    titel: "Verkehrsflächenanteil im Vergleich"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: verkehrsflaechen_perzentil
+      einheit: "Perzentil"
+      berechnung: "Verkehrsfläche / Nutzungsfläche nach DIN 277, eingeordnet als Perzentil gegen den Referenzsatz (Grundrissatlas, später Herstellerkatalog)"
+    schwellen: {hinweis_ab_perzentil: 90}
+    erfuellung: "1 wenn Perzentil <= 90, sonst 0"
+    erfuellung_status: U
+    meldung: "Flure und Treppen brauchen in Ihrem Entwurf mehr Fläche als in {anteil} % vergleichbarer Häuser. Bewährte Planungsregel: Weniger Flur heißt mehr Wohnfläche."
+    quellen: [heckmann2017grundrissatlas]
+    status: U
+
+  - id: R5-FUNKTION-08
+    version: "1.0"
+    titel: "Orientierung: Sichtachse vom Eingang"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: sichtbar_ab_eingang
+      einheit: "boolesch"
+      berechnung: "Treppenantritt oder Zugang zum Wohnbereich liegt im Isovist vom Punkt 1 m hinter der Haustür"
+    schwellen: {}
+    erfuellung: "1 wenn wahr, sonst 0"
+    konflikte: [FS-04]
+    meldung: "Vom Eingang aus sieht man weder Treppe noch Wohnbereich. Bewährte Planungsregel: Eine Sichtachse vom Eingang erleichtert die Orientierung."
+    quellen: [hillier1984social, turner2001isovists, wiener2007isovist]
+    status: V
+
+  # ---------------- Außenbezug ----------------
+  - id: R5-AUSSEN-01
+    version: "1.0"
+    titel: "Sichtverbindung nach außen vom Nutzungsort"
+    dimension: aussenbezug
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: aussensicht_nutzungsort
+      einheit: "boolesch je Raum"
+      berechnung: "Im Isovist vom Nutzungsort (Sofa, Esstisch, Schreibtisch; Augenhöhe 1,2 m sitzend) liegt mindestens ein Fenster; optional Anteil Grün im Sichtkegel aus dem Grundstücksmodell"
+    schwellen: {}
+    erfuellung: "Anteil der Hauptaufenthaltsräume mit Außensicht vom Nutzungsort"
+    meldung: "Vom {nutzungsort} aus sieht man nicht nach draußen. Ein Blick ins Freie, am besten ins Grüne, hängt in Studien mit besserem Befinden zusammen (Studien)."
+    quellen: [ko2020window, ulrich1984view, ohly2016attention, abdalhamid2023quantifying]
+    status: V
+
+  - id: R5-AUSSEN-02
+    version: "1.0"
+    titel: "Höchstens die Hälfte der Fenster nach Norden (WBS K24)"
+    dimension: aussenbezug
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: nordanteil_fenster
+      einheit: "%"
+      berechnung: "Anteil der Zimmerfenster, deren Außennormale höchstens 60° von geografisch Nord abweicht; nicht bewertbar ohne Nordwinkel im Modell"
+    schwellen: {max_anteil: 50}
+    erfuellung: "1 wenn Anteil <= 50 %, sonst 0"
+    meldung: "{anteil} % Ihrer Fenster zeigen nach Norden. Bewährte Planungsregel: höchstens die Hälfte."
+    quellen: [bwo2015wbs]
+    status: V
+
+  - id: R5-AUSSEN-03
+    version: "1.0"
+    titel: "Schlafräume nach Osten"
+    dimension: licht
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: azimut_schlafraum
+      einheit: "Grad"
+      berechnung: "Azimut der Außennormalen des größten Schlafraumfensters"
+    schwellen: {osten_von: 45, osten_bis: 135}
+    erfuellung: "1 wenn Azimut im Bereich, 0,5 wenn Nord (315° bis 45°), sonst 0"
+    erfuellung_status: U
+    konflikte: [VA-04]
+    meldung: "Ihr Schlafzimmer liegt nach {richtung}. Bewährte Planungsregel: Schlafen nach Osten, weil Morgenlicht den Tag-Nacht-Rhythmus unterstützt (Studien) und Ostzimmer abends kühler bleiben."
+    quellen: [alexander1977pattern, brown2022recommendations, emmitt2023bedroom]
+    status: V
+
+  - id: R5-AUSSEN-04
+    version: "1.0"
+    titel: "Sitzplatz mit Überblick (Prospect)"
+    dimension: raumwirkung
+    evidenzgrad: C
+    evidenzart: P
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: prospect_sitzplatz
+      einheit: "boolesch und m²"
+      berechnung: "Zugang des Raums liegt im Isovist vom Sitzplatz ∧ Wand hinter dem Sitzplatz; Kennzahl zusätzlich Isovistenfläche A(p)"
+    schwellen: {}
+    erfuellung: "Anteil der zwei booleschen Teilbedingungen"
+    aussetzbar_durch_kunde: true
+    meldung: "Viele Menschen sitzen gern mit einer Wand im Rücken und Blick auf Tür und Fenster. Das ist eine Vorliebe, eine Wirkung ist nicht belegt (bewährte Planungsregel)."
+    quellen: [dosen2016prospect, stamps2008some, appleton1975experience]
+    status: V
+
+  # ---------------- Anpassbarkeit und Barrierearmut ----------------
+  - id: R5-ANPASS-01
+    version: "1.0"
+    titel: "Barrierefrei vorbereitet"
+    dimension: anpassbarkeit_barrierearmut
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    nutzerprofil: barrierefrei_vorbereitet
+    status_n: false
+    kennzahl:
+      name: barrierefrei_anteil
+      einheit: "%"
+      berechnung: "Anteil erfüllter Teilprüfungen: Schlafmöglichkeit und Bad im Eingangsgeschoss; Bewegungsflächen 120 × 120 cm vor WC, Waschtisch, in der Dusche; Türen lichte Breite 90 cm; Schwellen ≤ 2 cm (Werte nach DIN 18040-2, Recherche 13)"
+    schwellen: {bewegungsflaeche_cm: 120, bewegungsflaeche_r_cm: 150, tuer_lichte_breite_cm: 90, schwelle_max_cm: 2}
+    erfuellung: "Anteil / 100"
+    meldung: "Für später ohne Stufen wohnen: {offen} Punkte fehlen noch, zum Beispiel {beispiel}. Eine gut nutzbare Wohnung hängt im Alter mit mehr Selbstständigkeit zusammen (Studien)."
+    quellen: [oswald2007housing, kremerpreiss2011wohnenalter]
+    status: V
+
+  - id: R5-ANPASS-02
+    version: "1.0"
+    titel: "Anpassbare Räume"
+    dimension: anpassbarkeit_barrierearmut
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: umnutzbare_zimmer
+      einheit: "Anzahl"
+      berechnung: "Zahl der Zimmer, die sowohl als Schlafraum (R5-FUNKTION-01) als auch als Arbeitsraum möblierbar sind, plus Zahl der Wände zwischen Zimmern ohne tragende Funktion und ohne Installation"
+    schwellen: {min_anzahl: 1}
+    erfuellung: "1 wenn Anzahl >= 1, sonst 0"
+    erfuellung_status: U
+    meldung: "Kein Zimmer lässt sich später leicht anders nutzen. Bewährte Planungsregel: Mindestens ein Zimmer sollte als Kinder-, Gäste- oder Arbeitszimmer taugen."
+    quellen: [herthogs2019saga, femenias2020adaptable, bwo2015wbs]
+    status: U
+
+  # ---------------- Raumwirkung (Vorlieben) ----------------
+  - id: R5-WIRKUNG-01
+    version: "1.0"
+    titel: "Raumhöhe im Wohnbereich"
+    dimension: raumwirkung
+    evidenzgrad: B
+    evidenzart: P
+    profil: evidenzbasiert
+    status_n: false
+    kennzahl:
+      name: lichte_hoehe_wohnen
+      einheit: "m"
+      berechnung: "flächengewichtete lichte Raumhöhe der Wohnräume"
+    schwellen: {min_m: 2.50}
+    erfuellung: "1 wenn >= 2,50 m, sonst 0"
+    erfuellung_status: U
+    aussetzbar_durch_kunde: true
+    meldung: "Ihr Wohnbereich hat {hoehe} m lichte Höhe. Höhere Räume empfinden viele Menschen als schöner. Das ist eine Vorliebe, keine Gesundheitsfrage (Studien zu Vorlieben)."
+    quellen: [vartanian2015ceiling]
+    status: V
+
+  # ---------------- Nutzerprofil Homeoffice ----------------
+  - id: R5-HOME-01
+    version: "1.0"
+    titel: "Arbeitsplatz akustisch getrennt"
+    dimension: ruhe_privatheit
+    evidenzgrad: B
+    evidenzart: W
+    profil: evidenzbasiert
+    nutzerprofil: homeoffice
+    status_n: false
+    kennzahl:
+      name: arbeitsraum_getrennt
+      einheit: "boolesch"
+      berechnung: "Arbeitsplatz liegt in einem Raum mit Tür, der nicht offen zum Wohn- oder Kinderbereich ist und keine gemeinsame Wand mit einem Kinderzimmer hat"
+    schwellen: {}
+    erfuellung: "Anteil der drei Teilbedingungen"
+    meldung: "Ihr Arbeitsplatz liegt offen im Wohnbereich. Ablenkung und fehlende Trennung von Familie und Arbeit hängen in Studien mit schlechterem Befinden im Homeoffice zusammen (Studien). Tipp: Nische mit Schiebetür oder eigenes Arbeitszimmer."
+    quellen: [xiao2021wfh, wegener2024funktionswandel, fornara2022space]
+    status: V
+
+  - id: R5-HOME-02
+    version: "1.0"
+    titel: "Eigener Arbeitsraum mit Mindestgröße"
+    dimension: funktion_moeblierung
+    evidenzgrad: C
+    evidenzart: W
+    profil: evidenzbasiert
+    nutzerprofil: homeoffice
+    status_n: false
+    kennzahl:
+      name: arbeitsraum_flaeche
+      einheit: "m²"
+      berechnung: "Nettogrundfläche des Raums mit dem Arbeitsplatz, wenn dieser Raum ausschließlich als Arbeitsraum ausgewiesen ist"
+    schwellen: {min_m2: 6.0}
+    erfuellung: "1 wenn Fläche >= 6 m², sonst Fläche / 6 m²"
+    erfuellung_status: U
+    meldung: "Für {tage} Tage Homeoffice pro Woche fehlt ein eigener Arbeitsraum. In einer großen deutschen Befragung hielt nur die Hälfte ihre Wohnung fürs Homeoffice geeignet (Studien). Bewährte Planungsregel: etwa 6 m² mit Tür und Fenster."
+    quellen: [wegener2024funktionswandel, neumann2022homeoffice]
+    status: U
+
+  # ---------------- Kulturprofil Feng Shui (Formschule) ----------------
+  - id: FS-01
+    version: "1.0"
+    titel: "Bett in Kommandoposition"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: kommandoposition
+      einheit: "boolesch"
+      berechnung: "Tür im Isovist vom Kopfkissenpunkt ∧ Bettachse nicht in Flucht mit der Türachse (Winkel > Parameter)"
+    schwellen: {winkel_min_grad: 15}
+    schwellen_status: U
+    ueberschneidung: {regel: R5-FUNKTION-02, art: Deckung, grad: B}
+    meldung: "Nach der Feng-Shui-Lehre (Formschule) steht Ihr Bett gut: Sie sehen die Tür und liegen nicht mit den Füßen zu ihr. Traditionelle Lehre, nicht wissenschaftlich belegt. Passt zu Studien: Die meisten Menschen bevorzugen diesen Platz."
+    quellen: [mak2005fengshui, spoerrle2010sleeping, hong2016fengshui]
+    status: U
+
+  - id: FS-02
+    version: "1.0"
+    titel: "Schreibtisch mit Rückendeckung"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: schreibtisch_rueckwand
+      einheit: "cm"
+      berechnung: "Abstand Stuhlrückseite zur nächsten Wand; Tür im Isovist vom Sitzpunkt"
+    schwellen: {rueckwand_max_cm: 150}
+    schwellen_status: U
+    ueberschneidung: {regel: R5-AUSSEN-04, art: Teildeckung, grad: C}
+    meldung: "Nach der Feng-Shui-Lehre sollte hinter dem Schreibtisch eine Wand sein und die Tür im Blick liegen. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [mak2005fengshui, dosen2016prospect]
+    status: U
+
+  - id: FS-03
+    version: "1.0"
+    titel: "Haustür nicht in Flucht mit Hintertür oder großem Fenster"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: flucht_haustuer
+      einheit: "boolesch"
+      berechnung: "Strahl von der Mitte der Haustür senkrecht nach innen trifft ohne Hindernis auf eine Außenöffnung"
+    schwellen: {}
+    ueberschneidung: {regel: null, art: Teildeckung, grad: C, text: "Windfang, Einblick, Privatheit"}
+    meldung: "Nach der Feng-Shui-Lehre soll man von der Haustür nicht direkt durch das Haus nach draußen sehen. Traditionelle Lehre, nicht wissenschaftlich belegt. Ein Windfang hilft auch gegen Zugluft und Einblick."
+    quellen: [mak2005fengshui]
+    status: U
+
+  - id: FS-04
+    version: "1.0"
+    titel: "Treppe nicht direkt gegenüber der Haustür"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: treppe_gegenueber_haustuer
+      einheit: "boolesch"
+      berechnung: "Treppenantritt liegt in der Sichtachse ab Haustür innerhalb des Abstands"
+    schwellen: {abstand_max_m: 4.0}
+    schwellen_status: U
+    konflikte: [R5-FUNKTION-08]
+    meldung: "Nach der Feng-Shui-Lehre gilt eine Treppe gegenüber der Haustür als ungünstig. Traditionelle Lehre, nicht wissenschaftlich belegt. Achtung, Zielkonflikt: Für die Orientierung im Haus ist die sichtbare Treppe günstig (bewährte Planungsregel). Sie entscheiden."
+    quellen: [mak2005fengshui, hillier1984social]
+    status: U
+
+  - id: FS-05
+    version: "1.0"
+    titel: "WC nicht im Zentrum und nicht gegenüber Küche oder Haustür"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: wc_lage
+      einheit: "boolesch"
+      berechnung: "Schwerpunkt der Gebäudehüllfläche liegt nicht im WC ∧ keine direkte Sichtlinie zwischen WC-Tür und Küchen- bzw. Haustür"
+    schwellen: {}
+    ueberschneidung: {regel: null, art: Teildeckung, grad: C, text: "Geruch, Privatheit"}
+    meldung: "Nach der Feng-Shui-Lehre liegt das WC ungünstig. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [mak2005fengshui]
+    status: U
+
+  - id: FS-06
+    version: "1.0"
+    titel: "Bagua-Raster: fehlende Ecken"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Kompassschule
+    status_n: false
+    kennzahl:
+      name: bagua_fehlflaeche
+      einheit: "%"
+      berechnung: "3 × 3-Raster über dem umschreibenden Rechteck des Erdgeschosses, ausgerichtet nach Nord; je Feld Anteil der Fläche außerhalb der Gebäudehülle"
+    schwellen: {fehlend_ab_prozent: 25}
+    schwellen_status: U
+    ueberschneidung: {regel: null, art: keine}
+    meldung: "Nach dem Bagua-Raster fehlt im Feld {feld} etwa {anteil} % der Fläche. Traditionelle Lehre, nicht wissenschaftlich belegt. Die Lehre würde die Ecke zum Beispiel mit Terrasse oder Pergola schließen."
+    quellen: [mak2005fengshui]
+    status: U
+
+  - id: FS-07
+    version: "1.0"
+    titel: "Keine Kanten auf Sitz- oder Schlafplatz"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:feng_shui"
+    schule: Formschule
+    status_n: false
+    kennzahl:
+      name: kante_auf_nutzungsort
+      einheit: "m"
+      berechnung: "Abstand einer vorspringenden Außenecke (Innenwinkel < 180° vom Raum aus gesehen) zu Bett, Sofa oder Schreibtisch, wenn die Winkelhalbierende auf den Platz zeigt"
+    schwellen: {abstand_min_m: 1.5}
+    schwellen_status: U
+    ueberschneidung: {regel: null, art: schwach, grad: B, text: "Vorliebe für Rundungen"}
+    meldung: "Nach der Feng-Shui-Lehre zeigt eine Kante auf Ihren {platz}. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [mak2005fengshui, chuquichambi2022curvature]
+    status: U
+
+  # ---------------- Kulturprofil Vastu ----------------
+  - id: VA-01
+    version: "1.0"
+    titel: "Zentrum (Brahmasthan) frei"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:vastu"
+    status_n: false
+    kennzahl:
+      name: brahmasthan_belegt
+      einheit: "boolesch"
+      berechnung: "Zentrumsfeld eines 9 × 9-Mandalas über dem umschreibenden Rechteck enthält kein WC und keine Treppe"
+    schwellen: {}
+    ueberschneidung: {regel: null, art: keine}
+    meldung: "Nach der Vastu-Lehre soll die Mitte des Hauses frei bleiben. Dort liegt {raum}. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [chakrabarti1998vastu]
+    status: U
+
+  - id: VA-02
+    version: "1.0"
+    titel: "Eingang nach Osten, Norden oder Nordosten"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:vastu"
+    status_n: false
+    kennzahl:
+      name: azimut_haustuer
+      einheit: "Grad"
+      berechnung: "Azimut der Außennormalen der Haustür"
+    schwellen: {bereich_von: 337.5, bereich_bis: 112.5}
+    ueberschneidung: {regel: null, art: keine}
+    meldung: "Nach der Vastu-Lehre liegt der Eingang am besten im Osten, Norden oder Nordosten. Ihrer liegt im {richtung}. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [chakrabarti1998vastu]
+    status: U
+
+  - id: VA-03
+    version: "1.0"
+    titel: "Küche im Südosten, kein WC im Nordosten"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:vastu"
+    status_n: false
+    kennzahl:
+      name: vastu_zuordnung
+      einheit: "boolesch"
+      berechnung: "Schwerpunkt der Küche liegt im Südost-Sektor (112,5° bis 157,5°) des Mandalas ∧ kein WC-Schwerpunkt im Nordost-Sektor (22,5° bis 67,5°)"
+    schwellen: {}
+    ueberschneidung: {regel: null, art: keine}
+    meldung: "Nach der Vastu-Lehre gehört die Küche in den Südosten und kein WC in den Nordosten. Traditionelle Lehre, nicht wissenschaftlich belegt."
+    quellen: [chakrabarti1998vastu]
+    status: U
+
+  - id: VA-04
+    version: "1.0"
+    titel: "Hauptschlafzimmer im Südwesten"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:vastu"
+    status_n: false
+    kennzahl:
+      name: schlafzimmer_suedwest
+      einheit: "boolesch"
+      berechnung: "Schwerpunkt des Hauptschlafzimmers liegt im Südwest-Sektor (202,5° bis 247,5°) des Mandalas"
+    schwellen: {}
+    konflikte: [R5-KLIMA-01, R5-AUSSEN-03]
+    meldung: "Nach der Vastu-Lehre gehört das Hauptschlafzimmer in den Südwesten. Traditionelle Lehre, nicht wissenschaftlich belegt. Achtung, Zielkonflikt: Bei uns bekommt ein Südwestzimmer viel Abendsonne und heizt sich im Sommer auf (Studien). Mit Sonnenschutz außen lässt sich beides verbinden."
+    quellen: [chakrabarti1998vastu, emmitt2023bedroom, din4108-2]
+    status: U
+
+  # ---------------- Kulturprofil Baubiologie ----------------
+  - id: BB-01
+    version: "1.0"
+    titel: "Radon (evidenzbasierter Teil)"
+    dimension: raumklima_luft
+    evidenzgrad: A
+    evidenzart: W
+    profil: "kulturprofil:baubiologie"
+    verweis: R5-KLIMA-03
+    status_n: true
+    kennzahl: {name: siehe_verweis, einheit: "-", berechnung: "wie R5-KLIMA-03"}
+    schwellen: {}
+    meldung: "Radon ist auch in der Baubiologie ein Thema – und hier gut belegt. Wir prüfen es für alle Häuser, nicht nur im Baubiologie-Profil."
+    quellen: [bfs2025radon, ibn2018leitlinien]
+    status: V
+
+  - id: BB-02
+    version: "1.0"
+    titel: "Schadstoffarme Baustoffe (evidenzbasierter Teil)"
+    dimension: raumklima_luft
+    evidenzgrad: A
+    evidenzart: W
+    profil: "kulturprofil:baubiologie"
+    verweis: R5-KLIMA-02
+    status_n: false
+    kennzahl: {name: siehe_verweis, einheit: "-", berechnung: "wie R5-KLIMA-02"}
+    schwellen: {}
+    meldung: "Schadstoffarme Baustoffe sind gut belegt sinnvoll. Wir zeigen Ihnen dafür Produkte mit QNG-Nachweis."
+    quellen: [qng2023anlage3, air2016formaldehyd, ibn2018leitlinien]
+    status: V
+
+  - id: BB-03
+    version: "1.0"
+    titel: "Leitungen nicht am Bett, Netzfreischalter (Komfortoption)"
+    dimension: kultur
+    evidenzgrad: C
+    evidenzart: P
+    profil: "kulturprofil:baubiologie"
+    status_n: false
+    kennzahl:
+      name: leitung_abstand_bett
+      einheit: "m"
+      berechnung: "kleinster Abstand geplanter Elektroleitungen (Kap. 13) zur Bettfläche; Netzfreischalter im Schlafbereich vorhanden (boolesch)"
+    schwellen: {abstand_min_m: 1.0}
+    schwellen_status: U
+    meldung: "Auf Wunsch führen wir Leitungen nicht am Bett entlang und bauen einen Netzfreischalter ein. Das ist eine Komfortoption. Ein Gesundheitsnutzen ist unterhalb der Grenzwerte nicht belegt."
+    quellen: [maes2024sbm, ibn2018leitlinien]
+    status: U
+
+  # ---------------- Stilprofil Hygge ----------------
+  - id: HY-01
+    version: "1.0"
+    titel: "Nischen und Ofenplatz"
+    dimension: kultur
+    evidenzgrad: D
+    evidenzart: P
+    profil: "kulturprofil:hygge"
+    status_n: false
+    kennzahl:
+      name: nischen_anzahl
+      einheit: "Anzahl"
+      berechnung: "Zahl der Sitznischen oder Alkoven (Raumteil mit drei Wandseiten und Sitzmöbel) im Wohnbereich"
+    schwellen: {min_anzahl: 1}
+    ueberschneidung: {regel: R5-AUSSEN-04, art: Teildeckung, grad: C}
+    meldung: "Zum Hygge-Stil passt eine gemütliche Nische, etwa am Fenster oder am Ofen. Das ist ein Stil, kein Gesundheitsversprechen."
+    quellen: [linnet2011hygge]
+    status: U
+
+ausschlussliste:
+  - id: X-01
+    thema: "Wasseradern, Wünschelrute"
+    evidenzgrad: X
+    behandlung: "keine Bewertung, keine Regel; Erklärtext nur auf Nachfrage"
+    ausloeser: ["Wasserader", "Wasseradern", "Wünschelrute", "Rutengänger"]
+    meldung: "Eine Prüfung auf Wasseradern bieten wir nicht an. Eine große, vom Bund finanzierte Versuchsreihe mit rund 500 Rutengängern fand in der unabhängigen Auswertung keinen Nachweis. Grundwasser fließt außerdem meist flächig, nicht in Adern (geprüft, ohne Befund)."
+    quellen: [enright1995dowsing]
+    verweis_belegt: [R5-KLIMA-03, R5-KLIMA-02]
+    status: V
+
+  - id: X-02
+    thema: "Erdstrahlen, Globalgitter, geologische Störzonen (SBM A7)"
+    evidenzgrad: X
+    behandlung: "keine Bewertung, keine Regel, keine Produkte zur Abschirmung; Erklärtext nur auf Nachfrage"
+    ausloeser: ["Erdstrahlen", "Erdstrahlung", "Globalgitter", "Störzone", "Hartmann-Gitter", "Curry-Gitter"]
+    meldung: "Eine Prüfung auf Erdstrahlen bieten wir nicht an. Sie werden meist mit der Wünschelrute gesucht, und diese Methode hat sich in großen Versuchen nicht bewährt (geprüft, ohne Befund). Was nachweislich zählt, prüfen wir: Radon und Schadstoffe in der Raumluft."
+    quellen: [enright1995dowsing, maes2024sbm]
+    verweis_belegt: [R5-KLIMA-03, R5-KLIMA-02]
+    status: V

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/holzbau/spezifikation/regel.schema.json",
+  "title": "Regelkatalog und Regelschema (Kapitel 9.2.3)",
+  "description": "Wurzel: Regelkatalog mit Kopf und Liste von Regeln. Das Schema einer einzelnen Regel ist #/$defs/regel. Ergebnis jeder Prüfung ist einer der fünf Werte in #/$defs/ergebniswert (Kapitel 9.2.1). Normwerte sind Einzelkennwerte mit Fundstelle, keine Tabellenkopien (Kapitel 9.7).",
+  "type": "object",
+  "required": ["katalog", "regeln"],
+  "additionalProperties": false,
+  "properties": {
+    "katalog": {
+      "type": "object",
+      "required": ["name", "version", "stand", "kapitel"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"$ref": "#/$defs/semver"},
+        "stand": {"type": "string", "format": "date"},
+        "kapitel": {"type": "array", "items": {"type": "string"}},
+        "hinweis": {"type": "string"}
+      }
+    },
+    "regeln": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/regel"}
+    }
+  },
+  "$defs": {
+    "semver": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "status": {"enum": ["V", "U"]},
+    "ergebniswert": {"enum": ["erfuellt", "verletzt", "unbestimmt", "nicht_anwendbar", "freigabepflichtig"]},
+    "gebaeudetyp": {"enum": ["alle", "EFH", "EFH_ELW", "ZFH", "DHH", "RH_Ende", "RH_Mitte", "MFH_GK3", "MFH_GK4", "GWB_GK5", "Bungalow", "TinyHouse", "WGH"]},
+    "regel": {
+      "type": "object",
+      "required": ["id", "version", "titel", "klasse", "haerte", "quelle", "profil", "schicht", "geltung", "eingaben", "pruefung", "grenzwerte", "meldung", "alternative", "status", "beispiel", "kapitel"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^(BY|DE|EU|M|Q|K|IDS)\\.[A-Za-z0-9ÄÖÜäöüß_.\\-]+$", "description": "stabile Kennung, unabhängig von der Fassung"},
+        "version": {"$ref": "#/$defs/semver", "description": "Version der Regelimplementierung"},
+        "titel": {"type": "string"},
+        "klasse": {"enum": ["R1", "R2", "R3", "R4"]},
+        "haerte": {"enum": ["hart", "weich", "hinweis"], "description": "hart: verwirft den Entwurf; weich: Strafterm oder Warnung; hinweis: nur Meldung"},
+        "quelle": {
+          "type": "object",
+          "required": ["art", "werk", "fundstelle", "fassung", "status"],
+          "additionalProperties": false,
+          "properties": {
+            "art": {"enum": ["G", "N", "H", "Q", "M", "K"], "description": "Gesetz, Norm, Handwerk, Güte, Hersteller/Firma, Kunde (Tabelle 9.1)"},
+            "werk": {"type": "string"},
+            "fundstelle": {"type": "string"},
+            "fassung": {"type": "string"},
+            "status": {"$ref": "#/$defs/status"},
+            "bib": {"type": "array", "items": {"type": "string"}, "description": "Schlüssel in literatur/lit-*.bib"},
+            "recherche": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "profil": {
+          "type": "object",
+          "required": ["name", "version"],
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": "string"},
+            "version": {"$ref": "#/$defs/semver"}
+          }
+        },
+        "schicht": {"enum": ["S1", "S2", "S3", "S4", "S5", "S6"], "description": "S1 öffentliches Recht, S2 eingeführte TB, S3 aRdT, S4 Güte, S5 Hersteller/Firma, S6 Kunde (Kapitel 9.3.3)"},
+        "geltung": {
+          "type": "object",
+          "required": ["gebaeudetypen", "zeit"],
+          "additionalProperties": false,
+          "properties": {
+            "raum": {"type": "string"},
+            "gebaeudetypen": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/gebaeudetyp"}},
+            "gk": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 5}},
+            "schalter": {"type": "string", "description": "Schalter aus regelprofile.yaml, der die Regel aktiviert"},
+            "zeit": {
+              "type": "object",
+              "required": ["von", "stichtag"],
+              "additionalProperties": false,
+              "properties": {
+                "von": {"type": ["string", "null"]},
+                "bis": {"type": ["string", "null"]},
+                "stichtag": {"enum": ["eingang_bauvorlagen", "datum_bebauungsplan", "einleitung_verfahren", "vertragsschluss", "abnahme", "pruefzeitpunkt"]}
+              }
+            }
+          }
+        },
+        "vorbedingung": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "auswahl": {"type": "string"},
+            "anwendbar_wenn": {"type": "string"},
+            "ausnahmen": {"type": "array", "items": {"type": "string"}},
+            "r2_voraussetzung": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "eingaben": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "einheit"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string"},
+              "einheit": {"type": "string", "description": "SI-Einheit oder '-' für dimensionslos bzw. kategorial"},
+              "quelle": {"type": "string"},
+              "beschreibung": {"type": "string"}
+            }
+          }
+        },
+        "pruefung": {
+          "type": "object",
+          "required": ["typ", "formel"],
+          "additionalProperties": false,
+          "properties": {
+            "typ": {"enum": ["attribut", "rechnung", "geometrie", "topologie", "aufzaehlung", "optimierung", "ableitung", "ids", "freigabe", "vollstaendigkeit"]},
+            "funktion": {"type": "string", "description": "Code-Funktion mit Version, z. B. abstandsflaeche@1.2"},
+            "formel": {"type": "string", "description": "Formel oder Pseudocode"},
+            "parameter": {"type": "object"},
+            "auslegung": {"type": "object", "description": "Auslegungsparameter mit Status [U], festzulegen durch die bauvorlageberechtigte Person"},
+            "ids": {"type": "string", "description": "Verweis auf IDS-Datei und Spezifikation"}
+          }
+        },
+        "grenzwerte": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "wert", "einheit", "richtung"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string"},
+              "wert": {"type": ["number", "string", "array", "boolean"]},
+              "einheit": {"type": "string"},
+              "richtung": {"enum": ["max", "min", "intervall", "menge", "gleich"], "description": "Richtung für die Monotonieprüfung (Satz 9.1)"},
+              "fundstelle": {"type": "string"},
+              "status": {"$ref": "#/$defs/status"}
+            }
+          }
+        },
+        "meldung": {"type": "string", "description": "Textvorlage der Begründung mit Platzhaltern {name}"},
+        "alternative": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["art", "beschreibung"],
+            "additionalProperties": false,
+            "properties": {
+              "art": {"enum": ["A1_grenzwert", "A2_kompensation", "A3_variante", "A4_schichtwechsel", "A5_freigabeweg"]},
+              "beschreibung": {"type": "string"},
+              "frei": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "freigabe_rolle": {"type": "string", "description": "Rolle, die ein freigabepflichtiges Ergebnis auflösen darf"},
+        "status": {"$ref": "#/$defs/status"},
+        "beispiel": {"type": "array", "items": {"type": "string", "pattern": "^(B[0-9]+|keins)$"}},
+        "kapitel": {"type": "string"},
+        "anforderungen": {"type": "array", "items": {"type": "string", "pattern": "^ANF-[0-9]{2}a?-[0-9]{2}$"}},
+        "tests": {"type": "array", "items": {"type": "string"}},
+        "hinweis": {"type": "string"}
+      }
+    }
+  }
+}
