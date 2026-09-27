@@ -1,0 +1,30 @@
+Leitung SW-01: Öffnung Decke/Wand Ø 150 mm, Dach Ø 130 mm, Achse x = 3150 mm, Strategie: Wechsel
+
+D1 senkrecht durch Holzbalkendecke: 
+   Maßnahme: Wechsel: Balken 5 (x = 3125) zwischen y = 1905 und 2295 unterbrechen, 2 Wechsel 100/240 zwischen den Nachbarbalken; Stichbalken und Wechselbalken statisch nachweisen (EC5, Balkenschuhe).
+   Maßnahme: Senkrechter Durchbruch durch den Balken selbst ist ausgeschlossen (Querschnitt durchtrennt).
+   Maßnahme: Schallentkopplung: Dämmschlauch im Durchbruch, keine starre Verbindung Rohr–Holz; Rohrschellen mit Gummieinlage.
+   Brandschutz: MLAR/LAR 4.1.1: nicht erforderlich in GK 1 und 2 bzw. innerhalb von Wohnungen.
+
+D2 waagrecht durch Ständerwand (WC-Anschlussleitung): 
+   Maßnahme: Ständer 5 (x = 3125) trifft die Öffnung Ø 150: Bohrung 150 mm > 25% der Ständertiefe 160 mm (Firmenregel-Platzhalter) → Ständer auswechseln: Ständer kürzen, Riegel ober- und unterhalb, Lastabtrag über Nachbarständer nachweisen (tragende Wand) oder Leitung in der Vorwand führen.
+   Maßnahme: Schallentkopplung: Dämmschlauch, Gefach um die Leitung mit Mineralwolle stopfen (nicht starr).
+   Brandschutz: MLAR/LAR 4.1.1: nicht erforderlich in GK 1 und 2 bzw. innerhalb von Wohnungen.
+
+D3 senkrecht durch luftdichte Ebene und Dach (Hauptlüftung DN 100): 
+   Maßnahme: Öffnung zwischen zwei Sparren.
+   Maßnahme: Luftdichtheit DIN 4108-7: pro clima ROFLEX 100 (Rohr-Manschette) (Ø 100–120 mm), mit Systemklebeband.
+   Maßnahme: Winddichtung/Unterdeckung: Dunstrohrmanschette; Dacheindeckung: Lüfterdurchgang DN 100 nach oben offen.
+   VERSTOSS: Mündung zu nah an DF-01: seitlich 1600 mm, 300 mm über Sturz (DIN 1986-100 6.5: ≥ 1 m über Sturz oder ≥ 2 m seitlich). Mündung auf z >= 7300 mm anheben (+700 mm) oder Abstand zum Fenster >= 2000 mm (fehlen 400 mm).
+   Brandschutz: Dach: keine Abschottung (MLAR 4.1.1, GK 1).
+
+BD-1 Abwasser DN 50 Duschrinne quer zur Balkenlage: Durchbruch (> 50 mm, NA.6.7)
+   VERSTOSS: hd = 60 mm > 0,15·h = 36 mm → unverstärkt unzulässig (Leitung parallel zu den Balken führen, Wechsel oder Verstärkung mit Nachweis).
+   Hinweis: prEN 1995-1-1 (Entwurf): Durchbrüche in Vollholz/KVH verstärken; unverstärkt nur GL/LVL.
+
+BD-2 Elektro-Leerrohr M25 quer zur Balkenlage: Querschnittsschwächung (≤ 50 mm, NA: Nettoquerschnitt nachweisen)
+Hinweis: Nächste in Decke und Wand freie Achse x = 3270 mm läge 120 mm entfernt > zulässig 100 mm (WC-Vorwand) → Wechsel/Auswechslung. Planungsempfehlung: Fallleitungen in Gefachmitte des 625-mm-Rasters legen (Decke und Wand haben dasselbe Raster).
+Hinweis: Dämmung Schmutzwasser-Fallleitung WC OG mit Hauptlueftung ueber Dach: keine Anforderung nach GModG Anlage 8 (nur Wärmeverteilung/Warmwasser); Schallschutz im EFH nur vertraglich (DIN 4109 schützt fremde Räume).
+
+IFC b15_durchdringungen.ifc: 0 Validierungsfehler
+BTLx: b15_bearbeitungen.btlx

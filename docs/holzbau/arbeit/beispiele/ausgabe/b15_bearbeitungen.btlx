@@ -13,7 +13,7 @@
               <UserAttribute Name="Durchdringung">D1</UserAttribute>
               <UserAttribute Name="Anlage">Multifunktionsbrücke: Bohrung mit Fräser (Ø ≥ ca. 70 mm, cadwork/Weinmann-Handbuch)</UserAttribute>
             </UserAttributes>
-            <StartX>3150.000</StartX>
+            <StartX>3200.000</StartX>
             <StartY>2100.000</StartY>
             <Angle>0.000</Angle>
             <Inclination>90.000</Inclination>
@@ -32,7 +32,7 @@
               <UserAttribute Name="Anlage">Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID</UserAttribute>
             </UserAttributes>
             <StartX>3150.000</StartX>
-            <StartY>3242.000</StartY>
+            <StartY>380.000</StartY>
             <Angle>0.000</Angle>
             <Inclination>90.000</Inclination>
             <DepthLimited>no</DepthLimited>
@@ -50,7 +50,7 @@
               <UserAttribute Name="Anlage">Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID</UserAttribute>
             </UserAttributes>
             <StartX>3150.000</StartX>
-            <StartY>3242.000</StartY>
+            <StartY>380.000</StartY>
             <Angle>0.000</Angle>
             <Inclination>90.000</Inclination>
             <DepthLimited>no</DepthLimited>
@@ -86,7 +86,7 @@
               <UserAttribute Name="Anlage">Abbundanlage (BTLx Drilling)</UserAttribute>
             </UserAttributes>
             <StartX>1500.000</StartX>
-            <StartY>1500.000</StartY>
+            <StartY>120.000</StartY>
             <Angle>0.000</Angle>
             <Inclination>90.000</Inclination>
             <DepthLimited>no</DepthLimited>

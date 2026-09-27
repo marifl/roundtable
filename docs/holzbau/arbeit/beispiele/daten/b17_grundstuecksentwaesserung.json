@@ -1,0 +1,154 @@
+{
+  "_hinweis": "B17 – Beispielgrundstück 20 x 30 m (Grundriss wie daten/grundstueck.json, Haus 10 x 12 m an x=5, y=9), aber mit geneigtem Gelände, Mischwasserkanal in der Straße (Süd) und Hindernissen. Koordinaten in m, x nach Osten, y nach Norden, Höhen in m ü. NHN (DHHN2016). ALLE Zahlen sind BEISPIELWERTE; Normwerte stehen im Block 'regeln' mit Quelle und Status [V]/[U] (siehe docs/holzbau/recherche/18-grundstuecksentwaesserung-versickerung.md).",
+  "projekt": {
+    "name": "B17 Grundstücksentwässerung (Beispiel)",
+    "gebaeude": "EFH Holzrahmenbau (Beispiel)",
+    "zeitstempel": "2026-09-27T12:00:00",
+    "autor": "Prototyp B17",
+    "organisation": "Doktorarbeit Holzbau (Beispiel)"
+  },
+  "grundstueck": {
+    "polygon": [[0, 0], [20, 0], [20, 30], [0, 30]],
+    "wasserschutzgebiet": false,
+    "altlastverdacht": false,
+    "gebietsabflussbeiwert": 0.35,
+    "_hinweis": "Gebietsabflussbeiwert 0,35 = Einzelhausbebauung (EAS § 8 Abs. 3). Wasserschutzgebiet/Altlast gibt die MSE im Technischen Formblatt an."
+  },
+  "gelaende": {
+    "z0": 520.00, "gx": -0.005, "gy": 0.02,
+    "_hinweis": "Ebene z = z0 + gx*x + gy*y (Beispiel). Im Werkzeug durch das DGM1 Bayern (1-m-Raster, CC BY 4.0) ersetzen."
+  },
+  "strasse": {
+    "seite": "sued", "breite": 8.0,
+    "rueckstauebene": 519.95,
+    "_hinweis": "Rückstauebene = Straßenoberkante an der Anschlussstelle (MSE-Leitfaden 2.2). Wert ist ein Beispiel; real über Höhenfestpunkte nivellieren."
+  },
+  "kanal": {
+    "system": "Mischwasser", "achse_y": -4.0, "dn": 600, "sohle": 516.20,
+    "einlass": {"x": 8.0, "y": -3.6, "sohle": 516.80},
+    "dn_anschlusskanal": 150,
+    "_hinweis": "Anschlusspunkt (Einlassstück), Nennweite und Führung des Anschlusskanals bestimmt die MSE (EWS § 9 Abs. 2). Höhen im Kanalkataster noch DHHN12 (2-5 cm höher als DHHN2016)."
+  },
+  "gebaeude": {
+    "polygon": [[5, 9], [15, 9], [15, 21], [5, 21]],
+    "ffb_eg": 520.55,
+    "keller": false,
+    "ffb_ug": 517.75,
+    "gruendungstiefe": 0.80,
+    "kellersohle_uk": 517.35,
+    "arbeitsraum": 0.60,
+    "sohle_unter_ffb_bodenplatte": 0.80,
+    "sohle_unter_ffb_keller": 0.60,
+    "fallleitungen": [
+      {"id": "FL1", "x": 7.0, "y": 12.0, "beschreibung": "Bad OG + Gäste-WC EG",
+       "du": {"WC 6 l": 2.0, "Dusche ohne Stöpsel": 0.6, "Waschtisch OG": 0.5, "Badewanne": 0.8, "WC 6 l EG": 2.0, "Waschtisch EG": 0.5}},
+      {"id": "FL2", "x": 13.0, "y": 18.5, "beschreibung": "Küche + HWR EG",
+       "du": {"Küchenspüle": 0.8, "Geschirrspüler": 0.8, "Waschmaschine bis 6 kg": 0.8, "Waschtisch HWR": 0.5}}
+    ],
+    "ablaufstellen_ug": [
+      {"id": "UG-Dusche", "du": 0.6, "faekalienhaltig": false},
+      {"id": "UG-Waschmaschine", "du": 0.8, "faekalienhaltig": false},
+      {"id": "UG-Bodenablauf DN 70", "du": 1.5, "faekalienhaltig": false}
+    ],
+    "regenfallrohre": [
+      {"id": "RF1", "x": 4.6, "y": 9.4, "dachflaeche": 35.75},
+      {"id": "RF2", "x": 4.6, "y": 20.6, "dachflaeche": 35.75},
+      {"id": "RF3", "x": 15.4, "y": 9.4, "dachflaeche": 35.75},
+      {"id": "RF4", "x": 15.4, "y": 20.6, "dachflaeche": 35.75}
+    ],
+    "_hinweis": "Satteldach 45°, First in y-Richtung, Traufen an Ost- und Westseite, 0,5 m Überstand: projizierte Dachfläche 11 x 13 = 143 m², vier Fallrohre. Anschlusswerte DU nach DIN 1986-100 (Recherche 08)."
+  },
+  "flaechen": [
+    {"id": "Dach", "art": "schraegdach_ziegel", "flaeche": 143.0, "angeschlossen": "rigole", "material_metall_unbeschichtet": false},
+    {"id": "Terrasse", "art": "betonpflaster_sand", "flaeche": 24.0, "angeschlossen": "rigole",
+     "polygon": [[6, 21], [14, 21], [14, 24], [6, 24]], "ablauf": {"id": "HA1", "x": 10.0, "y": 24.3}},
+    {"id": "Zufahrt", "art": "rasengitter", "flaeche": 32.0, "angeschlossen": "vor_ort",
+     "polygon": [[16, 0], [20, 0], [20, 8], [16, 8]]}
+  ],
+  "abflussbeiwerte": {
+    "schraegdach_ziegel": {"cs": 1.0, "cm": 0.8, "status": "[U] Beispiel nach DIN 1986-100 Tab. 9 / DWA-A 138-1 Tab. 9 – gegen Normtext prüfen"},
+    "betonpflaster_sand": {"cs": 0.9, "cm": 0.7, "status": "[U] Beispiel – gegen Normtext prüfen"},
+    "rasengitter": {"cs": 0.4, "cm": 0.2, "status": "cm [V] (SBZ 07/2025, Beispiel 1), cs [U]"}
+  },
+  "hindernisse": {
+    "baeume": [
+      {"id": "B1", "x": 3.0, "y": 5.0, "kronenradius": 2.5, "geschuetzt": true}
+    ],
+    "sparten": [
+      {"id": "HA Wasser/Strom/Telekom", "linie": [[13.0, 0.0], [13.0, 9.0]], "abstand": 1.0,
+       "_status": "[U] Abstand zu Abwasserleitungen nach DVGW W 400-1 / Netzbetreiber prüfen"}
+    ]
+  },
+  "regen": {
+    "quelle": "KOSTRA-DWD-2020, T = 5 a (n = 0,2), Rasterfeld Unterschleißheim (Lkr. München), zitiert aus 'Entwurf Entwässerungskonzept B 166 Unterschleißheim', Anhang 1.3 (Sekundärquelle). BEISPIELREIHE – für ein reales Grundstück das eigene Rasterfeld (INDEX_RC) aus opendata.dwd.de verwenden.",
+    "t5": {"5": 370.0, "10": 248.3, "15": 193.3, "20": 160.0, "30": 121.7, "45": 92.2, "60": 75.6, "90": 56.9,
+           "120": 46.4, "180": 34.7, "240": 28.3, "360": 21.2, "540": 15.8, "720": 12.9, "1080": 9.6,
+           "1440": 7.8, "2880": 4.8, "4320": 3.6},
+    "r_5_2": 290.0, "r_5_5": 363.3, "r_5_100": 656.7,
+    "quelle_r5": "KOSTRA-DWD-2020 für Kirchheim-Heimstetten (Lkr. München), Erläuterungsbericht B-Plan 104/H (Sekundärquelle), Beispielwerte"
+  },
+  "boden": {
+    "kf": 1.0e-5, "f_ort": 0.9, "f_methode": 0.8, "mhgw": 515.00,
+    "_hinweis": "kf aus Sickerversuch/Bodengutachten; f_Ort und f_Methode nach DWA-A 138-1 Tab. 10/11 (hier Beispiel: Open-End-Test 0,8). MHGW (Mittel der Jahreshöchststände, >= 10 Jahre) beim RKU München anfragen."
+  },
+  "rigole": {
+    "element_b": 0.8, "element_h": 0.66, "element_l": 0.8, "s_r": 0.95,
+    "f_z": 1.2, "max_reihen": 3,
+    "zulauf_absturz": 0.05,
+    "ueberlauf_kanal": false,
+    "_hinweis": "Kunststoff-Füllkörper (Blockrigole), Speicherkoeffizient 0,95 nach Herstellerangaben (Größenordnung 0,93-0,96). f_Z nach DWA-A 117 (1,1-1,2)."
+  },
+  "regeln": {
+    "frosttiefe_sw": {"wert": 1.20, "quelle": "MSE-Leitfaden 2.7 (GOK bis Rohrsohle)", "status": "V"},
+    "frosttiefe_nw": {"wert": 0.80, "quelle": "MSE-Leitfaden 2.7 / DIN 1986-100 5.6 (NW-Leitungen zur Versickerung)", "status": "V"},
+    "gefaelle_min_innen": {"wert": 0.005, "quelle": "DIN 1986-100 (Grundleitungen im Gebäude 0,5 %)", "status": "V (Sekundärquelle)"},
+    "gefaelle_min_aussen": {"wert": "1/DN", "quelle": "DIN 1986-100 (außerhalb Gebäude 1:DN)", "status": "V (Sekundärquelle)"},
+    "gefaelle_max": {"wert": 0.05, "quelle": "Kommunale Merkblätter (Sturzgefälle > 1:20 unzulässig)", "status": "U"},
+    "gefaelle_max_anschlusskanal": {"wert": 1.0, "quelle": "MSE-Leitfaden 2.6 (Steilgefälle bis 1:1)", "status": "V"},
+    "dn_min_innen": {"wert": 100, "quelle": "DIN 1986-100 (Grundleitung mind. DN 100)", "status": "V (Sekundärquelle)"},
+    "dn_min_aussen_sw": {"wert": 150, "quelle": "Planungsannahme; MSE bestimmt DN des Anschlusskanals (EWS § 9 Abs. 2)", "status": "U"},
+    "dn_min_nw": {"wert": 100, "quelle": "DIN 1986-100 (Grundleitung mind. DN 100)", "status": "V (Sekundärquelle)"},
+    "fuellgrad_innen": {"wert": 0.5, "quelle": "DIN 1986-100 14.1.5 (h/di = 0,5 im Gebäude)", "status": "V (Sekundärquelle)"},
+    "fuellgrad_aussen": {"wert": 0.7, "quelle": "DIN 1986-100 14.1.5 (h/di = 0,7 außerhalb)", "status": "V (Sekundärquelle)"},
+    "abflusskennzahl_k": {"wert": 0.5, "quelle": "DIN 1986-100 Tab. 5 (Wohnhaus)", "status": "V"},
+    "rauheit_kb_mm": {"wert": 1.0, "quelle": "Prandtl-Colebrook, betriebliche Rauheit", "status": "U"},
+    "ro_abstand_max_klein": {"wert": 20.0, "quelle": "DIN 1986-100 6.6 (< DN 150)", "status": "U (Merkblatt-Zitat)"},
+    "ro_abstand_max_gross": {"wert": 40.0, "quelle": "DIN 1986-100 6.6 (>= DN 150, geradlinig)", "status": "U (Merkblatt-Zitat)"},
+    "richtungswechsel_schacht_grad": {"wert": 45.0, "quelle": "DIN 1986-100 6.6 (Richtungsänderung > 45°)", "status": "U (Merkblatt-Zitat)"},
+    "abstand_fundament": {"wert": 1.0, "quelle": "Planungsannahme (Lastausbreitung Fundament)", "status": "U"},
+    "rs_abstand_grenze": {"wert": 1.0, "quelle": "Planungsannahme ('nahe der Grundstücksgrenze')", "status": "U"},
+    "rs_min_platz_gebaeude": {"wert": 5.0, "quelle": "MSE-Leitfaden 2.6 (außenliegender RS, wenn >= 5 m zwischen Grenze und Gebäudekante)", "status": "V"},
+    "baum_wurzelzuschlag": {"wert": 1.5, "quelle": "DIN 18920 Wurzelbereich = Kronentraufe + 1,5 m", "status": "U"},
+    "baum_meldeabstand": {"wert": 5.0, "quelle": "MSE Genehmigungsantrag Ziff. 3 (geschützte Gehölze <= 5 m zur Leitungsachse darstellen)", "status": "V"},
+    "sickerraum_min": {"wert": 1.0, "quelle": "TRENGW Nr. 6 (erlaubnisfrei) / DWA-A 138-1", "status": "V"},
+    "sickerraum_absolut_min": {"wert": 0.5, "quelle": "MSE-Leitfaden 3.2 / DWA-A 138-1 (Ausnahme)", "status": "V"},
+    "sohle_max_tiefe": {"wert": 5.0, "quelle": "TRENGW Nr. 6", "status": "V"},
+    "kf_min": {"wert": 1.0e-6, "quelle": "DWA-A 138-1 (Regelbereich)", "status": "V (Sekundärquelle)"},
+    "kf_max": {"wert": 1.0e-3, "quelle": "DWA-A 138-1; MSE/WWA: kf >= 1e-3 -> 1 m Bodenaustausch", "status": "V"},
+    "flaeche_max_erlaubnisfrei": {"wert": 1000.0, "quelle": "NWFreiV § 3 Abs. 1", "status": "V"},
+    "mulde_flaechenanteil": {"wert": 0.0666667, "quelle": "TRENGW Tab. 1 (>= 1/15 der angeschlossenen Fläche)", "status": "V"},
+    "mulde_einstau_max": {"wert": 0.30, "quelle": "übliche Planungsgrenze (DWA-Versickerungs-Expert-Handbuch)", "status": "U"},
+    "abstand_gebaeude_faktor": {"wert": 1.5, "quelle": "DWA-A 138-1 5.3.2 (1,5 x Baugrubentiefe, Gebäude ohne wasserdruckhaltende Abdichtung)", "status": "V (Sekundärquelle)"},
+    "abstand_grenze_versickerung": {"wert": 2.0, "quelle": "kommunale Leitfäden (DWA-A 138-1 nennt keinen festen Wert)", "status": "U"},
+    "ueberflutung_ac_grenze": {"wert": 800.0, "quelle": "DIN 1986-100 14.9 / DWA-A 138-1 5.3.4", "status": "V"},
+    "metalldach_grenze": {"wert": 50.0, "quelle": "NWFreiV § 3 Abs. 2 (Cu/Zn/Pb > 50 m²)", "status": "V"},
+    "gebuehr_nw_satz": {"wert": 1.77, "quelle": "EAS München § 9 b (EUR/m² und Jahr)", "status": "V"},
+    "gebuehr_sw_satz": {"wert": 2.02, "quelle": "EAS München § 9 a (EUR/m³), Kalkulationszeitraum bis 31.12.2026", "status": "V"},
+    "kosten_innen_faktor": {"wert": 3.0, "quelle": "Kostenmodell (DIN 1986-100 6.1.1: Grundleitungen im Gebäude vermeiden)", "status": "eigene Annahme"},
+    "kosten_innen_faktor_keller": {"wert": 1.5, "quelle": "Kostenmodell (Sammelleitung im Keller zugänglich)", "status": "eigene Annahme"},
+    "kosten_fundament_faktor": {"wert": 2.0, "quelle": "Kostenmodell (Streifen 0-1 m am Gebäude)", "status": "eigene Annahme"},
+    "kosten_kreuzung": {"wert": 5.0, "quelle": "Kostenmodell (Strafe je Kreuzung in m Äquivalent)", "status": "eigene Annahme"},
+    "kosten_knick": {"wert": 0.5, "quelle": "Kostenmodell (Strafe je Formstück in m Äquivalent)", "status": "eigene Annahme"}
+  },
+  "schachtgroessen": {
+    "_quelle": "Kommunales Merkblatt Grundstücksentwässerung (Schächte 2023/01), Tabelle Einbautiefe -> Schacht (PE-HD nach DIN 19537-3); Status [U] als DIN-Ersatz",
+    "stufen": [[1.2, 400, "Inspektionsöffnung"], [1.6, 600, "Inspektionsöffnung"], [1.8, 800, "Kontrollschacht"], [2.2, 1000, "Kontrollschacht"], [99.0, 1000, "Einsteigschacht Beton"]],
+    "revisionsschacht_dn_min": 1000
+  },
+  "szenarien": [
+    {"id": "bodenplatte", "beschreibung": "EFH auf Bodenplatte (Regnauer-Standardfall angenommen), Gelände 2 % zur Straße", "aenderungen": {}},
+    {"id": "keller", "beschreibung": "EFH mit Keller (UG-FFB 517,75 unter Rückstauebene)", "aenderungen": {"gebaeude.keller": true}},
+    {"id": "kanal_hoch", "beschreibung": "flacher Straßenkanal (Einlass-Sohle 518,90)", "aenderungen": {"kanal.einlass.sohle": 518.90, "kanal.sohle": 518.50}},
+    {"id": "grundwasser_hoch", "beschreibung": "hoher Grundwasserstand (MHGW 518,40)", "aenderungen": {"boden.mhgw": 518.40}}
+  ]
+}

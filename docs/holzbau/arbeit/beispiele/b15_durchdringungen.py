@@ -233,6 +233,7 @@ def plane(daten: dict) -> dict:
     ergebnis["durchdringungen"].append(d1)
     ergebnis["fertigung"].append({"durchdringung": "D1", "bauteil": de["beplankung"]["name"] + " (Deckenelement)",
                                   "bearbeitung": "Drilling", "d_mm": d_oe, "x": x_neu, "y": L["y"],
+                                  "start_x": x_neu - (de["erste_achse_x"] - de["balken_b"] / 2), "start_y": L["y"] - de["y0"],
                                   "anlage": "Multifunktionsbrücke: Bohrung mit Fräser (Ø ≥ ca. 70 mm, cadwork/Weinmann-Handbuch)"})
 
     # --- D2: Ständerwand (waagrechter WC-Anschluss) ----------------------
@@ -267,6 +268,7 @@ def plane(daten: dict) -> dict:
     for p in wa["beplankung"]:
         ergebnis["fertigung"].append({"durchdringung": "D2", "bauteil": f"{p['name']} ({p['seite']}, Wandtafel {wa['id']})",
                                       "bearbeitung": "Drilling", "d_mm": d_oe, "x": x_neu, "z": z_a,
+                                      "start_x": x_neu, "start_y": z_a - wa["z_uk"],
                                       "anlage": "Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID"})
 
     # --- D3: luftdichte Dachebene + Mündung -------------------------------
@@ -297,7 +299,8 @@ def plane(daten: dict) -> dict:
     d3["brandschutz"] = {"abschottung": False, "grund": "Dach: keine Abschottung (MLAR 4.1.1, GK 1)."}
     ergebnis["durchdringungen"].append(d3)
     ergebnis["fertigung"].append({"durchdringung": "D3", "bauteil": da["beplankung"]["name"], "bearbeitung": "Drilling",
-                                  "d_mm": d_dach, "x": x_neu, "y": L["y"], "anlage": "Dachelement (Werk) oder Baustelle"})
+                                  "d_mm": d_dach, "x": x_neu, "y": L["y"], "start_x": x_neu - da["x0"], "start_y": L["y"],
+                                  "anlage": "Dachelement (Werk) oder Baustelle"})
 
     # --- Querbohrungen in Balken ------------------------------------------
     for bd in daten["balkendurchbrueche"]:
@@ -308,6 +311,7 @@ def plane(daten: dict) -> dict:
         if not pr["verstoesse"]:
             ergebnis["fertigung"].append({"durchdringung": bd["id"], "bauteil": f"Deckenbalken {bd['balken_index']}",
                                           "bearbeitung": "Drilling", "d_mm": d, "y": bd["y"], "z": bd["z_achse"],
+                                          "start_x": bd["y"] - de["y0"], "start_y": bd["z_achse"] - de["z_uk_balken"],
                                           "anlage": "Abbundanlage (BTLx Drilling)"})
     mind, grund = b14.gmodg_mindestdaemmung({"medium": "abwasser"})
     ergebnis["hinweise"].append(f"Dämmung {L['bezeichnung']}: {grund}; Schallschutz im EFH nur vertraglich (DIN 4109 schützt fremde Räume).")
@@ -515,7 +519,7 @@ def schreibe_btlx(daten: dict, erg: dict, pfad: Path, leitungs_guid: str) -> Pat
         ua = ET.SubElement(dr, q("UserAttributes"))
         for k, v in (("LeitungGUID", leitungs_guid), ("Durchdringung", fa["durchdringung"]), ("Anlage", fa["anlage"])):
             ET.SubElement(ua, q("UserAttribute"), {"Name": k}).text = v
-        for k, v in (("StartX", fa.get("x", fa.get("y", 0.0))), ("StartY", fa.get("y", fa.get("z", 0.0))), ("Angle", 0.0),
+        for k, v in (("StartX", fa["start_x"]), ("StartY", fa["start_y"]), ("Angle", 0.0),
                      ("Inclination", 90.0), ("DepthLimited", "no"), ("Depth", 0.0), ("Diameter", fa["d_mm"])):
             ET.SubElement(dr, q(k)).text = v if isinstance(v, str) else f"{float(v):.3f}"
     ET.indent(root)

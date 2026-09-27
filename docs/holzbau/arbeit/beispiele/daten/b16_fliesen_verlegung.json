@@ -1,0 +1,84 @@
+{
+  "_hinweis": "ALLE Zahlen sind BEISPIELWERTE fuer den Prototyp B16, keine Norm- oder Herstellerwerte. Normbezug nur als Verweis (siehe Recherche 17). Artikel-GTINs sind Platzhalter.",
+  "projekt": {
+    "name": "B16 Duschraum achteckig (Beispiel)",
+    "gebaeude": "Fertighaus Beispiel",
+    "geschoss": "EG",
+    "raum": "EG-Dusche-achteckig",
+    "autor": "Entwurfsgenerator (Beispiel)",
+    "organisation": "Arbeit Holzrahmenbau",
+    "zeitstempel": "2026-01-01T00:00:00"
+  },
+  "raum": {
+    "form": "achteck_regelmaessig",
+    "innenkreis_durchmesser_mm": 2400,
+    "randfuge_mm": 3,
+    "_randfuge": "Abstand Belag-Wand (spaeter elastische Anschlussfuge), Beispielwert"
+  },
+  "gefaelle_prozent": 1.5,
+  "_gefaelle": "1,5 % liegt im ueblichen Bereich 1-2 % (Hersteller, z. B. TECE TI Entwaesserung); DIN 18534 nennt keinen Zahlenwert",
+  "fuge_mm": 3,
+  "schnittfuge_mm": 1.5,
+  "_schnittfuge": "Materialverlust je Saegeschnitt (Nassschneider), Beispielwert",
+  "entwaesserungen": {
+    "punkt": {
+      "art": "punkt",
+      "rost_mm": 150,
+      "anschlussfuge_mm": 3,
+      "_text": "Punktablauf mittig, quadratischer Rost 150 mm; Gefaelle von allen 8 Waenden zur Mitte (8 Dreiecksflaechen, 8 Kehllinien)"
+    },
+    "zwei_rinnen": {
+      "art": "zwei_rinnen",
+      "rinne_breite_mm": 70,
+      "anschlussfuge_mm": 3,
+      "_text": "zwei wandbuendige Rinnen an den gegenueberliegenden Achteckseiten (Ost/West), auf Wandlaenge gekuerzt; Grat in der Mitte, Rinnenzonen eben"
+    }
+  },
+  "fliesen": {
+    "F60x60": {
+      "laenge_mm": 600, "breite_mm": 600, "dicke_mm": 10,
+      "paket_stueck": 3, "preis_eur_stueck": 18.0,
+      "gtin": "BEISPIEL-GTIN-F6060", "charge": "BEISPIEL-CHARGE-A1", "kaliber": "W1"
+    },
+    "S60x10": {
+      "laenge_mm": 600, "breite_mm": 100, "dicke_mm": 9,
+      "paket_stueck": 24, "preis_eur_stueck": 4.5,
+      "gtin": "BEISPIEL-GTIN-S6010", "charge": "BEISPIEL-CHARGE-B7", "kaliber": "W2"
+    },
+    "C60x10_formteil": {
+      "_text": "werkseitig auf Gehrung geschnittenes Chevron-Formteil (Parallelogramm, gleiche Sollform wie aus S60x10), je Paket L und R getrennt",
+      "laenge_mm": 600, "breite_mm": 100, "dicke_mm": 9,
+      "paket_stueck": 24, "preis_eur_stueck": 5.4,
+      "gtin": "BEISPIEL-GTIN-C6010", "charge": "BEISPIEL-CHARGE-C3", "kaliber": "W2"
+    }
+  },
+  "muster": {
+    "gerade_60x60": {"typ": "gerade", "fliese": "F60x60", "versatz_anteil": 0.0},
+    "gerade_60x10": {"typ": "gerade", "fliese": "S60x10", "versatz_anteil": 0.3333333333},
+    "fischgraet_60x10": {"typ": "fischgraet", "fliese": "S60x10"},
+    "chevron_60x10": {"typ": "chevron", "fliese": "S60x10", "gehrungswinkel_grad": 45, "rohling": "rechteck"},
+    "chevron_60x10_formteil": {"typ": "chevron", "fliese": "C60x10_formteil", "gehrungswinkel_grad": 45, "rohling": "parallelogramm"}
+  },
+  "regeln": {
+    "min_flaechenanteil": 0.3333333333,
+    "_min_flaechenanteil": "Handwerksregel 'kein Randstueck unter 1/3 (bzw. 1/2) Fliese' in Sichtflaechen; keine Norm",
+    "min_breite_mm": 20,
+    "_min_breite": "kleinster Inkreisdurchmesser, unter dem ein Stueck schwer schneid- und klebbar ist (Beispielwert)",
+    "verlegbar_min_breite_mm": 6,
+    "_verlegbar": "Stuecke schmaler als 2 Fugenbreiten werden nicht verlegt, sondern verfugt (Beispielregel)",
+    "rest_min_flaeche_mm2": 1000,
+    "_rest": "kleinere Reststuecke gelten als Abfall"
+  },
+  "kalkulation": {
+    "zeit_min_je_schnitt": {"gerade": 1.0, "schraeg": 2.0, "gehrung": 1.5, "gratschnitt": 2.5, "ablauf": 4.0, "sonstig": 2.0},
+    "_zeit": "Minuten je Schnitt (Anzeichnen + Schneiden + Kante nacharbeiten), BEISPIELWERTE, nicht ARH",
+    "stundensatz_eur": 56.35,
+    "_stundensatz": "Beispiel: Mittellohn Fliesenarbeiten laut sirAdos-Leseprobe 2026 (ohne Zuschlaege)",
+    "strafe_kleinstueck_eur": 5.0,
+    "_strafe": "Gestaltungsmalus je Kleinstueck fuer die Rasteroptimierung, Beispielwert"
+  },
+  "optimierung": {
+    "raster_schritte": 6,
+    "_raster": "Rasterursprung u, v in Schritten 1/n der beiden Gittervektoren (n x n Kandidaten)"
+  }
+}

@@ -1,0 +1,141 @@
+EG auf Stahlbeton-Bodenplatte, Heizestrich nass (Bauart A) – Ziel-Aufbauhöhe 210 mm, Nachweis gleiche OKFF: erfüllt
+
+Wohnen (parkett_14_geklebt, Estrich CAF_F4): OKFF 210.0 mm ± 0.6 mm
+      210     14 mm  Mehrschichtparkett Eiche
+      196      1 mm  Parkettklebstoff (schubfest)
+      195     67 mm  Calciumsulfat-Fliessestrich CAF-F4
+      128     28 mm  EPS-T Tackerplatte 30-2 fuer Fussbodenheizung
+      100     60 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+       40     35 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+        5      5 mm  Bitumen-Schweissbahn (Abdichtung nach DIN 18533)
+   Masse 152.42 kg/m², R_λ,B 0.1127, R_ins 3.444, U 0.257, CM max 0.3
+
+Kueche (feinsteinzeug_10, Estrich CAF_F4): OKFF 210.0 mm ± 1.0 mm
+      210     10 mm  Feinsteinzeug
+      200      4 mm  Duennbettmoertel C2 (DIN EN 12004)
+      196     68 mm  Calciumsulfat-Fliessestrich CAF-F4
+      128     28 mm  EPS-T Tackerplatte 30-2 fuer Fussbodenheizung
+      100     60 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+       40     35 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+        5      5 mm  Bitumen-Schweissbahn (Abdichtung nach DIN 18533)
+   Masse 173.22 kg/m², R_λ,B 0.0127, R_ins 3.444, U 0.264, CM max 0.3
+   Hinweis: PWH 16x2 Stichleitung (1,2 l, ohne Zirkulation): Anl. 8 Nr. 1 c: Stichleitung <= 3 l ohne Zirkulation/Begleitheizung in beheizten Räumen – ausgenommen.
+
+Bad (naturstein_20_mittelbett, Estrich CT_F4): OKFF 210.0 mm ± 0.5 mm
+      210     20 mm  Naturstein (z. B. Kalkstein), kalibriert
+      190     10 mm  Mittelbettmoertel
+      180      2 mm  Verbundabdichtung AIV-F, mineralisch (W2-I)
+      178     90 mm  Zementestrich CT-F4
+       88     28 mm  EPS-T Tackerplatte 30-2 fuer Fussbodenheizung
+       60     60 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+        0     25 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+      -25      5 mm  Bitumen-Schweissbahn (Abdichtung nach DIN 18533)
+   Masse 262.62 kg/m², R_λ,B 0.0187, R_ins 3.158, U 0.284, CM max 2.0
+   Hinweis: Estrich im Bad Calciumsulfat-Fliess-Heizestrich CAF-F4 schwimmend → Zement-Heizestrich CT-F4 schwimmend: Gefälleflächen mit feuchteunempfindlichem Estrich (IGG-Merkblatt 5 Holz-/Trockenbau; DIN 18534-1 W2-I). Estrichwechsel an der Badtür = Bewegungsfuge (DIN 18560-2 6.3.3).
+   Hinweis: Duschbereich W2-I (DIN 18534-1): Verbundabdichtung, am Boden keine Dispersionsabdichtung (DIN 18534-3); Rückstau nur 5–10 l aufnehmbar → keine Schwelle (DIN 18040-2 ≤ 2 cm), Gefälle weg von der Tür.
+   Hinweis: Abwasser DN 50 Duschrinne: Anschlussleitung der Rinne senkrecht durch Bodenplatten-Aussparung zur Grundleitung (Rohbau).
+
+Flur (beton_cire_3, Estrich CAF_F4): OKFF 210.0 mm ± 0.8 mm
+      210      3 mm  Mikrozement / Beton Cire (2 Lagen + Versiegelung)
+      207      1 mm  Grundierung und Armierungsschicht Mikrozement
+      206     57 mm  Calciumsulfat-Fliessestrich CAF-F4
+      149     28 mm  EPS-T Tackerplatte 30-2 fuer Fussbodenheizung
+      121     50 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+       71     20 mm  EPS 035 DEO (druckbelastbar, >= 100 kPa)
+       51     46 mm  Gebundene Schuettung (EPS-Zement)
+        5      5 mm  Bitumen-Schweissbahn (Abdichtung nach DIN 18533)
+   Masse 144.62 kg/m², R_λ,B 0.0043, R_ins 3.387, U 0.269, CM max 0.3
+
+Übergang Wohnen – Kueche (offener Uebergang): ΔOKFF 0.0 mm, Kante worst case 1.6 mm
+   Hinweis: Belagwechsel ohne Estrichfuge: höhengleiche Trennschiene/elastische Fuge (Parkett-Randfuge).
+
+Übergang Flur – Wohnen (Tuer T01): ΔOKFF 0.0 mm, Kante worst case 1.4 mm
+   Hinweis: Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).
+   Hinweis: Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+
+Übergang Flur – Bad (Tuer T02 (Bad)): ΔOKFF 0.0 mm, Kante worst case 1.3 mm
+   Hinweis: Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).
+   Hinweis: Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Naturstein 20 mm im Mittelbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Badtür: schwellenlos (DIN 18040-2 ≤ 2 cm); Abdichtung W2-I in die Türleibung und Gefälle weg von der Tür.
+
+IFC b14_A_bodenplatte_nass.ifc: 0 Validierungsfehler
+
+==============================================================================
+
+OG auf Holzbalkendecke, Trockenaufbau mit Beschwerung und FBH-Trockensystem – Ziel-Aufbauhöhe 160 mm, Nachweis gleiche OKFF: erfüllt
+
+Wohnen (parkett_14_geklebt, Estrich TE_GF_25): OKFF 160.0 mm ± 0.6 mm
+      160     14 mm  Mehrschichtparkett Eiche
+      146      1 mm  Parkettklebstoff (schubfest)
+      145      2 mm  Spachtel-/Nivelliermasse
+      143     25 mm  Trockenestrich Gipsfaser 2 x 12,5 mm
+      118     25 mm  FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)
+       93     39 mm  Holzfaser-Trittschalldaemmplatte
+       54     24 mm  Ausgleichsschuettung (mechanisch gebunden)
+       30     30 mm  Estrich-Wabe mit Wabenschuettung (Beschwerung)
+   Masse 109.1 kg/m², R_λ,B 0.1127, R_ins 1.89, U None, CM max None
+   Hinweis: Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe.
+
+Kueche (feinsteinzeug_10, Estrich TE_GF_25): OKFF 160.0 mm ± 1.0 mm
+      160     10 mm  Feinsteinzeug
+      150      4 mm  Duennbettmoertel C2 (DIN EN 12004)
+      146      2 mm  Spachtel-/Nivelliermasse
+      144     25 mm  Trockenestrich Gipsfaser 2 x 12,5 mm
+      119     25 mm  FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)
+       94     19 mm  Holzfaser-Trittschalldaemmplatte
+       75     15 mm  Ausgleichsschuettung (mechanisch gebunden)
+       60     60 mm  Estrich-Wabe mit Wabenschuettung (Beschwerung)
+   Masse 164.85 kg/m², R_λ,B 0.0127, R_ins 1.389, U None, CM max None
+   Hinweis: Feinsteinzeug 10 mm im Duennbett auf Trockenestrich Gipsfaser 25 mm: nur mit Herstellerfreigabe (System, Format, Armierung).
+   Hinweis: PWH 16x2 Stichleitung (1,2 l, ohne Zirkulation): Anl. 8 Nr. 1 c: Stichleitung <= 3 l ohne Zirkulation/Begleitheizung in beheizten Räumen – ausgenommen.
+   Hinweis: Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe.
+
+Bad (naturstein_20_mittelbett, Estrich TE_ZEM_25): OKFF 160.0 mm ± 0.5 mm
+      160     20 mm  Naturstein (z. B. Kalkstein), kalibriert
+      140     10 mm  Mittelbettmoertel
+      130      2 mm  Verbundabdichtung AIV-F, mineralisch (W2-I)
+      128     25 mm  Trockenestrich zementgebunden 2 x 12,5 mm (Nassraum)
+      103     25 mm  FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)
+       78     29 mm  Holzfaser-Trittschalldaemmplatte
+       49     19 mm  Ausgleichsschuettung (mechanisch gebunden)
+       30     30 mm  Estrich-Wabe mit Wabenschuettung (Beschwerung)
+   Masse 160.85 kg/m², R_λ,B 0.0187, R_ins 1.613, U None, CM max None
+   Hinweis: Estrich im Bad Trockenestrich Gipsfaser 25 mm → Trockenestrich zementgebunden 25 mm: Gefälleflächen mit feuchteunempfindlichem Estrich (IGG-Merkblatt 5 Holz-/Trockenbau; DIN 18534-1 W2-I). Estrichwechsel an der Badtür = Bewegungsfuge (DIN 18560-2 6.3.3).
+   Hinweis: Duschbereich W2-I (DIN 18534-1): Verbundabdichtung, am Boden keine Dispersionsabdichtung (DIN 18534-3); Rückstau nur 5–10 l aufnehmbar → keine Schwelle (DIN 18040-2 ≤ 2 cm), Gefälle weg von der Tür.
+   Hinweis: Gefälle im Trockenbau über Herstellersystem (vorgefertigtes Gefälle-Element); Einbauhöhe laut Hersteller prüfen.
+   Hinweis: Abwasser DN 50 Duschrinne: Anschlussleitung der Rinne in der Balkenlage (parallel zu den Balken) - Durchbruchspruefung siehe B15.
+   Hinweis: Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe.
+
+Flur (beton_cire_3, Estrich TE_GF_25): OKFF 160.0 mm ± 0.8 mm
+      160      3 mm  Mikrozement / Beton Cire (2 Lagen + Versiegelung)
+      157      1 mm  Grundierung und Armierungsschicht Mikrozement
+      156      2 mm  Spachtel-/Nivelliermasse
+      154     25 mm  Trockenestrich Gipsfaser 2 x 12,5 mm
+      129     25 mm  FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)
+      104     29 mm  Holzfaser-Trittschalldaemmplatte
+       75     30 mm  Estrich-Wabe mit Wabenschuettung (Beschwerung)
+       45     45 mm  Gebundene Schuettung (EPS-Zement)
+   Masse 108.65 kg/m², R_λ,B 0.0043, R_ins 2.044, U None, CM max None
+   Hinweis: Beton Cire / Mikrozement 3 mm auf Trockenestrich Gipsfaser 25 mm: nur mit Herstellerfreigabe (System, Format, Armierung).
+   Hinweis: Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe.
+
+Übergang Wohnen – Kueche (offener Uebergang): ΔOKFF 0.0 mm, Kante worst case 1.6 mm
+   Hinweis: Belagwechsel ohne Estrichfuge: höhengleiche Trennschiene/elastische Fuge (Parkett-Randfuge).
+
+Übergang Flur – Wohnen (Tuer T01): ΔOKFF 0.0 mm, Kante worst case 1.4 mm
+   Hinweis: Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).
+   Hinweis: Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+
+Übergang Flur – Bad (Tuer T02 (Bad)): ΔOKFF 0.0 mm, Kante worst case 1.3 mm
+   Hinweis: Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).
+   Hinweis: Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Naturstein 20 mm im Mittelbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil.
+   Hinweis: Badtür: schwellenlos (DIN 18040-2 ≤ 2 cm); Abdichtung W2-I in die Türleibung und Gefälle weg von der Tür.
+
+IFC b14_B_holzbalkendecke_trocken.ifc: 0 Validierungsfehler
+
+==============================================================================
+

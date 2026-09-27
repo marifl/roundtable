@@ -157,6 +157,8 @@
    "d_mm": 150,
    "x": 3150,
    "y": 2100,
+   "start_x": 3200.0,
+   "start_y": 2100,
    "anlage": "Multifunktionsbrücke: Bohrung mit Fräser (Ø ≥ ca. 70 mm, cadwork/Weinmann-Handbuch)"
   },
   {
@@ -166,6 +168,8 @@
    "d_mm": 150,
    "x": 3150,
    "z": 3242,
+   "start_x": 3150,
+   "start_y": 380,
    "anlage": "Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID"
   },
   {
@@ -175,6 +179,8 @@
    "d_mm": 150,
    "x": 3150,
    "z": 3242,
+   "start_x": 3150,
+   "start_y": 380,
    "anlage": "Multifunktionsbrücke (WUP/BTLx), Rückverfolgung über Leitungs-GUID"
   },
   {
@@ -184,6 +190,8 @@
    "d_mm": 130,
    "x": 3150,
    "y": 2100,
+   "start_x": 3150,
+   "start_y": 2100,
    "anlage": "Dachelement (Werk) oder Baustelle"
   },
   {
@@ -193,6 +201,8 @@
    "d_mm": 31,
    "y": 1500,
    "z": 2720,
+   "start_x": 1500,
+   "start_y": 120,
    "anlage": "Abbundanlage (BTLx Drilling)"
   }
  ],
