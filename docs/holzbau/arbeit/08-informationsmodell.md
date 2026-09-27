@@ -16,7 +16,7 @@ Kapitel 5 hat gezeigt, dass die Gegenbefunde zu einem durchgängigen IFC vor all
 
 **Einschränkung [V].** Der buildingSMART Validation Service war aus der Arbeitsumgebung nicht erreichbar (Proxy 403). Geprüft wurde deshalb nur lokal gegen Schema und EXPRESS-Where-Rules, nicht gegen die Gherkin-Regeln des Service (`beispiele/ergebnisse.md`). Aussagen „validiert“ meinen in diesem Kapitel diese lokale Prüfung.
 
-**Form der Entscheidungen.** Designentscheidungen sind als E8.1 bis E8.28 nummeriert. Jede nennt die Entscheidung, die Begründung und den Beleg. Kapitel 9 (Regelraum), 11 (Reifegrade) und 20 (Evaluation) verweisen auf diese Nummern.
+**Form der Entscheidungen.** Designentscheidungen sind als E8.1 bis E8.28 nummeriert. Jede nennt die Entscheidung, die Begründung und den Beleg. Kapitel 9 (Regelraum), 11 (Reifegrade) und 20 (Evaluation) verweisen auf diese Nummern. Abschnitt 8.8 übersetzt die Entscheidungen in Umsetzungsvorgaben für die App: Anforderungen ANF-08-01 bis ANF-08-31 mit prüfbarem Abnahmekriterium, die vollständige Mapping-Tabelle (zugleich `spezifikation/ifc-mapping.csv`) und die GUID-Regel.
 
 ## 8.1 Schemawahl: IFC4X3_ADD2 und IFC4 als abgeleiteter Export
 
@@ -160,7 +160,7 @@ Tabelle 8.2 zeigt, dass die Holzrahmenwand ohne Schemaerweiterung und ohne Proxy
 
 Das österreichische Projekt TIMBIM stellt die Schichtaufbauten von dataholz.eu als IFC und als Datenvorlagen nach ISO 23387 im bSDD bereit [@timbim2024; @iso23387]. Geplant war, jede Schicht als eigene Komponente über eine Aggregation in `IfcWall` abzubilden. Diese Variante wurde **verworfen**, weil die Autorensoftware sie nicht umsetzte; laut Recherche 11 war die Design Transfer View in der Autorensoftware nicht implementiert. Die Schichten werden seither nur alphanumerisch transportiert (graue Literatur) [V].
 
-Der Befund ist für die Arbeit ein Warnsignal und kein Gegenbeweis. Er zeigt, dass ein Modell *nur* mit Aggregation für viele Programme leer oder unvollständig ist. Er zeigt nicht, dass die Aggregation falsch ist. Im Gegenteil: Die Fertigung braucht die Einzelteile, weil Maschinendaten, Stücklisten und Mengen je Holz erzeugt werden [@alwisy2019bim; @liu2016ontology; @darwish2022automated].
+Der Befund ist ein Warnsignal, kein Gegenbeweis. Ein Modell *nur* mit Aggregation ist für viele Programme unvollständig. Die Fertigung braucht aber die Einzelteile, weil Maschinendaten, Stücklisten und Mengen je Holz erzeugt werden [@alwisy2019bim; @liu2016ontology; @darwish2022automated].
 
 ### 8.3.2 Zwei Sichten auf dasselbe Bauteil
 
@@ -267,7 +267,7 @@ R = Recherche. Alle genannten Beispiele (B1, B14 bis B19) bestehen `ifcopenshell
 
 Keine dieser Grenzen erzwingt eine Schemaerweiterung. Die Stellen 3 und 4 sind mit USERDEFINED und eigenen Psets lösbar (E8.15, E8.21), die Stellen 1 und 2 mit standardisierten Nachbarformaten (8.6).
 
-**Befund 3: Die Fallen liegen in der Schemaversion [V].** Drei Klassen und Beziehungen, die in IFC4 üblich waren, sind in 4.3 deprecated: `IfcElectricDistributionBoard`, `IfcRelConnectsPortToElement` und das Proxy mit PROVISIONFORVOID (Recherche 08). Zwei Regeln der EXPRESS-Prüfung fielen erst in den Beispielen auf: Typ-Psets müssen über `HasPropertySets` am Typ hängen, nicht über `IfcRelDefinesByProperties`, und jede Achse mit Axis braucht eine RefDirection (B15). Rohrsegmente brauchen immer eine Platzierung (Recherche 08). Solche Fehler fängt nur eine Validierung jeder Revision (E8.2).
+**Befund 3: Die Fallen liegen in der Schemaversion [V].** `IfcElectricDistributionBoard`, `IfcRelConnectsPortToElement` und das Proxy mit PROVISIONFORVOID sind in 4.3 deprecated (Recherche 08). Erst in den Beispielen fielen zwei EXPRESS-Regeln auf: Typ-Psets hängen über `HasPropertySets` am Typ, nicht über `IfcRelDefinesByProperties`, und jede Achse mit Axis braucht eine RefDirection (B15). Solche Fehler fängt nur eine Validierung jeder Revision (E8.2).
 
 **Befund 4: Die Phasenkette ist im Prototyp nur in Teilmodellen belegt.** B1 bis B19 sind getrennte Dateien. Ein Gesamtmodell eines Hauses, das alle Zeilen der Tabelle 8.3 zugleich enthält, existiert noch nicht. B20 (Wärmepumpe) schreibt bisher kein IFC, sondern JSON, Markdown und SVG. Die Aussage „IFC 4.3 trägt die Kette“ ist damit für jede Phase einzeln, aber nicht für das Zusammenspiel belegt. Das Zusammenspiel prüft Kapitel 20.
 
@@ -327,7 +327,7 @@ Tomczak et al. zeigen, dass bSDD mit ISO 12006, Property Templates, Product Data
 
 In IFC 4.3 heißt das Feld für die Quelle an `IfcClassification` **Specification**, nicht mehr Location; es trägt die bSDD-URI des Dictionaries, `IfcClassificationReference.Location` die URI der Klasse (Recherche 10) [V]. *Begründung.* Die Systeme beantworten verschiedene Fragen und haben verschiedene Lizenzen. ETIM ist frei (ODC-By 1.0) und im bSDD mit IFC 4.3 verknüpft, 97 Gruppen und 491 Klassen [V]. ECLASS ist lizenzpflichtig und wird nur auf Kundenwunsch geführt. *Beleg.* Recherche 10 und 13. **Warnung [V]:** ETIM-Klassennummern für Fliese, Parkett und Wandfarbe sind nicht verifiziert, weil das ETIM-Portal nicht erreichbar war. Sie werden erst eingetragen, wenn sie geprüft sind.
 
-Für die Holzbranche beschreibt die Schweizer Plattform Wald & Holz 4.0 Produkt- und Materialdaten nach ETIM und BMEcat für CAD und ERP [@standtke2024etim] (graue Literatur, Jahr erschlossen [U]). Das stützt die Wahl von ETIM als Produktklassifikation auch für Holzwerkstoffe, ohne sie zu belegen.
+Die Schweizer Plattform Wald & Holz 4.0 beschreibt Produktdaten nach ETIM und BMEcat auch für die Holzbranche [@standtke2024etim] (graue Literatur, Jahr erschlossen [U]); das stützt die Wahl von ETIM, ohne sie zu belegen.
 
 ### 8.5.3 Merkmale
 
@@ -460,22 +460,316 @@ Das Kapitel beantwortet FF1 für das Informationsmodell mit drei Aussagen.
 
 These 3 der Arbeit („IFC 4.3 trägt die Kette bis zur Werkplanung vollständig“) wird damit präzisiert: Das Schema trägt die Kette. Maschinendaten, Versionen, Signaturen und Prüfergebnisse liegen nachweislich außerhalb und sind über GlobalIds angebunden.
 
-**Offen und für Kapitel 20 vorzumerken:**
+**Offen und für Kapitel 20 vorzumerken** sind vor allem die Prüfung mit dem Validation Service (K2), der Round-Trip in Fremdsoftware, der IFC4-Export, ein zusammenhängendes Hausmodell über alle Zeilen der Tabelle 8.3, die Vereinheitlichung von Pset-Präfixen und ObjectType-Vokabular, die GlobalId in jedem Export, der Projektnamensraum, der Sturz als `IfcBeam` LINTEL, `GrossWeight` je Element und eine IFC-Ausgabe für B20. Abschnitt 8.8 macht daraus und aus E8.1 bis E8.28 prüfbare Anforderungen an die Implementierung.
 
-- Prüfung aller Beispiele mit dem buildingSMART Validation Service (K2), insbesondere der Aggregation von Coverings und von Elementen ohne Geometrie,
-- Round-Trip in Fremdsoftware (hsbcad, cadwork, ein Viewer) für Layer-Set und Aggregation,
-- IFC4-Export mit Verlustprotokoll (E8.3),
-- ein zusammenhängendes Hausmodell, das alle Zeilen der Tabelle 8.3 zugleich enthält,
-- Vereinheitlichung der Pset-Präfixe und des ObjectType-Vokabulars (E8.15, E8.21) sowie deren Veröffentlichung im bSDD,
-- GlobalId in jedem Export (E8.26) und Projektnamensraum (E8.27),
-- Sturz als `IfcBeam` LINTEL (E8.6) und `GrossWeight` je Element (E8.11),
-- IFC-Ausgabe für B20.
+## 8.8 Umsetzungsvorgaben für die App
+
+Die Arbeit ist die fachliche Grundlage einer App, die am Ende voll funktionieren soll. Dieser Abschnitt übersetzt die Entscheidungen E8.1 bis E8.28 deshalb in Vorgaben, nach denen ein Entwickler den IFC-Generator und seine Prüfschicht direkt implementieren kann. Er besteht aus vier Teilen: den Anforderungen mit Abnahmekriterium (8.8.1), der vollständigen Mapping-Tabelle (8.8.2), der GUID-Regel (8.8.3) und dem ObjectType-Vokabular (8.8.4).
+
+**Verbindlichkeit.**
+
+- **Muss** heißt: freigabeblockierend. Ein Build, der das Abnahmekriterium verfehlt, darf kein Modell an Kunden, Behörde oder Werk ausliefern.
+- **Soll** heißt: umzusetzen. Eine Abweichung ist nur mit schriftlicher Begründung im Änderungsprotokoll zulässig.
+
+**Form der Abnahmekriterien.** Jedes Kriterium ist als automatisierbarer Testfall formuliert. Referenzdaten sind die Beispiele B1, B2 und B14 bis B19 in `beispiele/`. Die Anforderungen sind zur Übernahme in `spezifikation/anforderungen.csv` bestimmt; die Mapping-Tabelle liegt maschinenlesbar in `spezifikation/ifc-mapping.csv`.
+
+### 8.8.1 Anforderungen
+
+| ID | Prio | Anforderung | Beleg | Abnahmekriterium (Testfall) |
+|---|---|---|---|---|
+| ANF-08-01 | Muss | Jede erzeugte Datei schreibt `FILE_SCHEMA(('IFC4X3_ADD2'))` und `FILE_DESCRIPTION(('ViewDefinition [NotAssigned]'),'2;1')`. | E8.1, E8.2 | Für jede Ausgabe gilt `ifcopenshell.open(p).schema_identifier == "IFC4X3_ADD2"`, und die Header-Beschreibung ist genau `('ViewDefinition [NotAssigned]',)`. |
+| ANF-08-02 | Muss | Jede Revision wird gegen Schema und EXPRESS-Regeln geprüft (Stufe K1). | E8.2; B1 | `ifcopenshell.validate.validate(f, json_logger(), express_rules=True)` ergibt 0 Meldungen. |
+| ANF-08-03 | Muss | Vor jeder Freigabe wird mit dem buildingSMART Validation Service geprüft (K2), als Dienst oder lokal aus dem Open-Source-Code betrieben. | E8.2; [@bsi2025validation] | Der Bericht meldet 0 Fehler in Syntax, Schema und normativen Regeln. Warnungen (Industry Practices) stehen einzeln im Freigabeprotokoll. |
+| ANF-08-04 | Muss | Je Freigabe-Gate und Reifegrad wird eine IDS geprüft (K3). `beispiele/holzrahmenbau.ids` ist das Basisprofil. | E8.2; B2 | ifctester meldet für alle Spezifikationen des Gates „bestanden“. Negativtest: `ausgabe/wandelement_fehlerhaft.ifc` verfehlt genau HRB-01, 03, 05, 08, 09 und 11. |
+| ANF-08-05 | Muss | Kein `IfcBuildingElementProxy`. Hat eine Klasse das Attribut PredefinedType, ist es gesetzt und nicht NOTDEFINED. USERDEFINED ist nur mit einem ObjectType aus dem Vokabular 8.8.4 zulässig. | E8.6, E8.15 | Anzahl `IfcBuildingElementProxy` = 0. Für jedes `IfcElement` und `IfcElementType` mit PredefinedType gilt: Wert ∉ {leer, NOTDEFINED}; bei USERDEFINED ist ObjectType bzw. ElementType ∈ Vokabular. |
+| ANF-08-06 | Muss | In IFC 4.3 deprecated Konstrukte werden nicht geschrieben: `IfcElectricDistributionBoard`, `IfcRelConnectsPortToElement`, Proxy mit PROVISIONFORVOID, die Zahlenattribute von `IfcStairFlight`, `IfcSurfaceTexture.Parameter`. | R08, R10, R13 | Anzahl der genannten Klassen = 0; die genannten Attribute sind leer; Treppenwerte stehen in `Pset_StairFlightCommon`. |
+| ANF-08-07 | Muss | Jedes vorgefertigte Element ist `IfcWall` ELEMENTEDWALL, `IfcSlab` oder `IfcRoof` mit genau einer `IfcRelAggregates` zu seinen Teilen. Wand- und Deckenelemente tragen zusätzlich `IfcMaterialLayerSetUsage`. Das Wandelement hat nur eine Axis-Repräsentation. | E8.5, E8.10 | Je Element `len(IsDecomposedBy) == 1`; Materialzuordnung ist `IfcMaterialLayerSetUsage`; \|Σ LayerThickness − `Qto_WallBaseQuantities.Width`\| ≤ 0,01 mm. |
+| ANF-08-08 | Muss | Jedes Teil eines Elements (`IfcMember`, `IfcBeam`, `IfcPlate`, `IfcBuildingElementPart`, `IfcMechanicalFastener`) hängt an genau einem Element. | E8.5 | IDS HRB-07 besteht; kein Teil hat 0 oder mehr als 1 `Decomposes`. |
+| ANF-08-09 | Muss | Das tesselierte Volumen jedes Teils ist gleich seinem Qto NetVolume. | E8.8, E8.10 | Abweichung < 10⁻⁹ m³ für alle Teile, wie im Test von B1. |
+| ANF-08-10 | Muss | Stabbearbeitungen sind `IfcVoidingFeature` mit `IfcRelVoidsElement`. Der Abzugskörper steht an freien Seiten 1 mm über. | E8.8 | NetVolume des Stabs = Bruttovolumen − Bearbeitungsvolumen; das tesselierte Volumen nach Boolescher Auswertung stimmt damit überein (Regressionswert Ständer R1: 0,03150 m³). |
+| ANF-08-11 | Muss | Verbindungsmittel haben einen Typ. NominalDiameter und NominalLength stehen an Typ und Exemplar. Die Körpergeometrie ist ein `IfcMappedItem`, dessen MappingSource in den `RepresentationMaps` des Typs liegt. | E8.9 | IDS HRB-08 und HRB-09 bestehen; für jedes `IfcMechanicalFastener` gilt MappingSource ∈ Typ.RepresentationMaps. |
+| ANF-08-12 | Muss | U-Wert, Masse und Mengen werden aus der Einzelteilgeometrie berechnet und in `Pset_WallCommon.ThermalTransmittance` bzw. `Qto_*BaseQuantities` geschrieben. Ab Reifegrad A trägt jedes Element `GrossWeight`. | E8.11; B3; R19 | U-Wert = Rechenkern B3 (Variante Geometrie) ± 0,001 W/(m²K); `GrossWeight` = Σ MassDensity · NetVolume der Teile ± 0,1 %. |
+| ANF-08-13 | Muss | Eigene Psets tragen nur das Präfix `HRB_`. Namen mit `Pset_` oder `Qto_` sind nur zulässig, wenn sie im Template IFC4X3 existieren; in Standard-Psets stehen nur Template-Properties. | E8.21 | Jeder Name von `IfcPropertySet` und `IfcElementQuantity` passt auf `^(Pset_\|Qto_\|HRB_)`; jeder `Pset_`-/`Qto_`-Name wird von `ifcopenshell.util.pset.PsetQto("IFC4X3").get_by_name()` gefunden. |
+| ANF-08-14 | Muss | Typ-Psets hängen über `HasPropertySets` am Typ, nie über `IfcRelDefinesByProperties`. | R16; B15 | Keine `IfcRelDefinesByProperties` enthält ein `IfcTypeObject` in RelatedObjects. |
+| ANF-08-15 | Soll | Jede `HRB_`-Property hat eine bSDD-URI und ist über `IfcExternalReferenceRelationship` mit ihr verknüpft. | E8.21 | 100 % der `HRB_`-Properties haben einen Verweis; im Freigabelauf ist jede URI auflösbar. |
+| ANF-08-16 | Muss | Ab Reifegrad R trägt jedes Bauteil eine DIN-276-Klassifikation mit gesetzter Edition. Produkte der Bemusterung tragen ETIM mit `IfcClassification.Specification` = bSDD-URI. Ungeprüfte Klassennummern werden nicht geschrieben. | E8.19 | IDS: jedes `IfcBuiltElement` hat eine Referenz auf DIN 276; jede ETIM-Referenz hat eine Location in der bSDD-Domäne und steht in der geprüften Nummernliste. |
+| ANF-08-17 | Muss | Bemusterungsoptionen sind Typen einer `IfcProjectLibrary` (`IfcRelDeclares`). Die Wahl ist nur ein `IfcRelDefinesByType`. In Reifegrad A tragen gewählte Typen GTIN, Hersteller und Artikelnummer. | E8.14, E8.22 | Jeder Typ eines gewählten Produkts ist von genau einer Bibliothek deklariert; die GTIN hat 8, 12, 13 oder 14 Stellen mit gültiger Prüfziffer (Modulo 10). |
+| ANF-08-18 | Muss | Genau ein `IfcProject` je Datei. Varianten stehen nicht als Gruppen im Modell. Jede Revision liegt unveränderlich mit SHA-256 in der CDE. | E8.13, E8.23 | Anzahl `IfcProject` = 1; SHA-256 der Datei = CDE-Eintrag; ein zweiter Schreibversuch auf dieselbe Revision wird abgewiesen. |
+| ANF-08-19 | Muss | Dokumente sind `IfcDocumentReference` mit `HRB_Dokument.SHA256`. Freigaben sind `IfcApproval` mit Datum und Akteur. | E8.24 | Für jeden Verweis existiert die Datei, und ihr SHA-256 stimmt; jedes durchlaufene Freigabe-Gate hat ein `IfcApproval`. |
+| ANF-08-20 | Soll | Prüfergebnisse aus IDS, Regelmaschine und Aussparungskoordination werden als BCF-Themen mit den GlobalIds der betroffenen Komponenten ausgegeben. | E8.25, E8.16 | Für jede Verletzung im Prüfbericht existiert ein BCF-Thema; jede GlobalId darin wird von `f.by_guid()` gefunden. |
+| ANF-08-21 | Muss | Durchdringungen: Der Vorschlag ist `IfcVirtualElement` PROVISIONFORVOID ohne Material. Nach Annahme entstehen je durchdrungenem Teil ein `IfcOpeningElement` mit `IfcRelVoidsElement` und eine `IfcRelInterferesElements` (ImpliedOrder TRUE). | E8.16; B15 | Kein `IfcVirtualElement` hat eine Materialzuordnung; Anzahl Öffnungen = Anzahl durchdrungener Teile; Regressionswerte B15: 4 Vorschläge, 4 Öffnungen, 4 Voids, 4 Interferes, 1 Fills. |
+| ANF-08-22 | Muss | Jeder Export trägt je Objekt die IFC-GlobalId. BTLx: `UserAttribute Name="IfcGlobalId"` an jedem `Part` und jeder Bearbeitung, `Transformation GUID` = UUID des IFC-Objekts (Regel G7). Formate ohne Freitextfeld (WUP) erhalten eine Zuordnungsdatei `export_guid.csv`. | E8.26 | Für jeden BTLx-Part existiert das Attribut, und `f.by_guid()` findet das Objekt; `uuid.UUID(transformation_guid).hex == ifcopenshell.guid.expand(global_id)`. |
+| ANF-08-23 | Muss | GlobalIds werden nach der Regel 8.8.3 gebildet. | E8.27 | Die Regressionsvektoren in 8.8.3 stimmen; kein Pfad kommt doppelt vor; alle GlobalIds außerhalb des geänderten Teilbaums bleiben gleich, wenn ein Parameter geändert wird (Testfall: Brüstungshöhe 900 → 850 mm). |
+| ANF-08-24 | Muss | Gleiche Eingabe und gleiche Umgebung ergeben eine byte-identische Datei. Der Zeitstempel kommt aus dem Parametermodell oder aus `SOURCE_DATE_EPOCH`, nie aus der Uhr. Beziehungen werden mit fester Listenreihenfolge angelegt, nicht über `ifcopenshell.api`-Funktionen, die über Mengen iterieren. | E8.28 | Zwei Läufe in getrennten Prozessen mit `PYTHONHASHSEED` 1 und 4711 ergeben denselben SHA-256; `header.file_name.time_stamp` = Eingabewert. |
+| ANF-08-25 | Muss | Die Granularität folgt dem Reifegrad nach den Spalten P, R und A der Mapping-Tabelle. Teile, Verbindungsmittel, Bearbeitungen und Belagstücke entstehen erst in Reifegrad A. | E8.12 | IDS je Reifegrad besteht; in P und R existiert kein `IfcMechanicalFastener` und kein `IfcVoidingFeature`. |
+| ANF-08-26 | Muss | Georeferenz über `IfcMapConversion` und `IfcProjectedCRS` mit Name `EPSG:25832`; Scale passt zur Längeneinheit. | B1 | Name = `EPSG:25832`; Scale = 0,001 bei mm; der Ursprung des Modells wird auf die Rechts- und Hochwerte des Parametermodells abgebildet. |
+| ANF-08-27 | Muss | Einheiten: Länge mm, Fläche m², Volumen m³, Winkel rad, Masse kg, Temperatur K, in dieser Reihenfolge in `IfcUnitAssignment`. | B1 | `IfcUnitAssignment` enthält genau diese sechs Einheiten in dieser Reihenfolge. |
+| ANF-08-28 | Muss | Das `IfcProject` trägt `HRB_Generator` mit GeneratorVersion, PfadschemaVersion, Namensraum (UUID), ParameterHash (SHA-256 des kanonischen Parameter-JSON) und den Regelwerk-Profilen mit Version. | E8.27; Kap. 7a | Das Pset ist vorhanden; ParameterHash = SHA-256 der kanonisierten Eingabe; Namensraum = `NS_PROJEKT` nach G1. |
+| ANF-08-29 | Soll | Ein IFC4-Export wird aus dem Parametermodell erzeugt und protokolliert seine Verluste. | E8.3 | Die IFC4-Datei besteht K1 mit 0 Meldungen; das Protokoll listet jedes Objekt, dessen Klasse oder Enum-Wert in IFC4 fehlt (Tabelle 8.1.1). |
+| ANF-08-30 | Soll | Der glTF-Export überträgt Texturen und UV-Koordinaten in einem eigenen Schritt. | R09, R10 | Die GLB enthält `images`, `textures` und `TEXCOORD_0` für jedes Material mit `IfcImageTexture`. |
+| ANF-08-31 | Muss | Das Klassenmapping ist Konfiguration, nicht Code: Der Generator liest `spezifikation/ifc-mapping.csv`. Die CSV wird in der CI gegen das Schema geprüft. | E8.3 | Das Prüfskript meldet 0 Fehler: Jede Klasse, jeder PredefinedType und jedes Standard-Pset der CSV existiert in IFC4X3_ADD2; jedes eigene Pset beginnt mit `HRB_`. |
+
+### 8.8.2 Mapping-Tabelle
+
+Die Tabelle 8.4 ist die verbindliche Zuordnung von Bauteil zu IFC-Klasse, PredefinedType, ObjectType, Beziehungen und Psets. Sie ist identisch mit `spezifikation/ifc-mapping.csv` und wurde aus ihr erzeugt.
+
+**Spalten und Codes.**
+
+- `predefined_type`, `object_type`: Mehrere zulässige Werte sind durch `|` getrennt. Leer heißt: Die Klasse hat kein PredefinedType, oder der Wert ist frei.
+- `psets`: durch `|` getrennt. Ein Suffix `@R` oder `@A` heißt „Pflicht ab Reifegrad R bzw. A“. Ohne Suffix ist das Pset Pflicht ab dem ersten Reifegrad, in dem das Objekt Pflicht ist.
+- `pflicht_reifegrad_P/R/A`: **M** = das Objekt muss mit den Psets erzeugt werden; **O** = optional; **-** = wird in diesem Reifegrad nicht erzeugt. Die Zuordnung zu den Reifegraden ist ein Vorschlag nach E8.12 und Recherche 10. Verbindlich wird sie mit Kapitel 11.
+- `status`: **V** = am Schema oder in einem Beispiel geprüft; **U** = Konvention oder Vorschlag; **V/U** = Klasse geprüft, Konvention offen.
+- `quelle`: R = Recherche, B = Beispiel, E = Entscheidung dieses Kapitels.
+
+**Prüfung [V].** Ein Skript hat alle 116 Zeilen am 27.09.2026 gegen IfcOpenShell 0.8.5 geprüft: Jede Klasse existiert in IFC4X3_ADD2, jeder PredefinedType ist ein Wert des zugehörigen Enums, jedes `Pset_`- und `Qto_`-Set existiert im Template IFC4X3, und jedes eigene Pset trägt das Präfix `HRB_`. Ergebnis: 0 Fehler. Nicht geprüft ist, ob jede genannte Beziehung für die Klasse zulässig ist. Das deckt ANF-08-02 bei jeder erzeugten Datei ab.
+
+**Umbenennung der Prototyp-Psets (E8.21).** Die Beispiele sind bei der nächsten Überarbeitung umzustellen:
+
+| bisher | neu | Beispiel |
+|---|---|---|
+| `B14_Fussbodenaufbau`, `B14_Rinne` | `HRB_Fussbodenaufbau`, `HRB_Rinne` | B14 |
+| `B15_Durchdringung`, `B15_Manschette` | `HRB_Durchdringung`, `HRB_Manschette` | B15 |
+| `HP_Verlegung`, `HP_Fliesenstueck`, `HP_Fliese`, `HP_Verziehung` | `HRB_Verlegung`, `HRB_Fliesenstueck`, `HRB_Fliese`, `HRB_Verziehung` | B16, R13 |
+| `B17_Entwaesserung`, `B17_Versickerung` | `HRB_Entwaesserung`, `HRB_Versickerung` | B17 |
+| `HB_Schallschutz_Bauteil`, `HB_Aussenlaerm_Raum`, `HB_Fassadenpegel` | `HRB_Schallschutz_Bauteil`, `HRB_Aussenlaerm_Raum`, `HRB_Fassadenpegel` | B19 |
+| `Pset_Holzbau_WPSchall` (Vorschlag) | `HRB_WPSchall` | R22 |
+
+`HRB_Feuchteschutz`, `HRB_Kranhub`, `HRB_Kranaufstellung` und `HRB_Montage` bleiben unverändert.
+
+**Tabelle 8.4: Vollständiges Klassen- und Pset-Mapping (= `spezifikation/ifc-mapping.csv`)**
+
+| bauteil | ifc_klasse | predefined_type | object_type | beziehung | psets | pflicht_reifegrad_P | pflicht_reifegrad_R | pflicht_reifegrad_A | status | quelle |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Projekt | IfcProject |  |  | IfcRelAggregates -> IfcSite; IfcRelDeclares -> Typen; IfcUnitAssignment mm/m2/m3/rad/kg/K | HRB_Generator | M | M | M | V/U | Kap. 8.8.3; B1 |
+| Georeferenz | IfcMapConversion |  | EPSG:25832 | IfcProjectedCRS; SourceCRS = Modellkontext; Scale = 0.001 bei mm |  | M | M | M | V | B1; jaud2020georeferencing |
+| Grundstück | IfcSite |  |  | IfcRelAggregates <- IfcProject; IfcRelAggregates -> IfcBuilding | Pset_SiteCommon\|HRB_Grundstueck@R | M | M | M | V/U | R06; R14; B1 |
+| Flurstück | IfcSite |  | Flurstueck | IfcRelAggregates <- IfcSite (Grundstück) | HRB_Flurstueck | O | M | M | U | R06; R14 |
+| Gebäude (je DHH-/RH-Einheit) | IfcBuilding |  | Gebaeudetyp aus Vokabular | IfcRelAggregates -> IfcBuildingStorey | Pset_BuildingCommon\|HRB_Gebaeude@R | M | M | M | V | R14; E8.17 |
+| Geschoss | IfcBuildingStorey |  |  | IfcRelContainedInSpatialStructure -> Bauteile | Pset_BuildingStoreyCommon | M | M | M | V | B1 |
+| Raum | IfcSpace | SPACE\|PARKING\|EXTERNAL |  | IfcRelAggregates <- IfcBuildingStorey | Pset_SpaceCommon\|Pset_SpaceOccupancyRequirements\|Qto_SpaceBaseQuantities\|HRB_Wohnflaeche@R\|HRB_Aussenlaerm_Raum@R | M | M | M | V/U | R14; R20; B19 |
+| Nutzungseinheit | IfcZone |  | Wohnung\|Gewerbe | IfcRelAssignsToGroup <- IfcSpace; IfcRelReferencedInSpatialStructure -> Geschoss | Pset_ZoneCommon | O | M | M | V | R14; E8.17 |
+| Brand-/Rauchabschnitt | IfcSpatialZone | FIRESAFETY |  | IfcRelReferencedInSpatialStructure | Pset_SpatialZoneCommon\|HRB_Brandabschnitt | - | M | M | V/U | R14 |
+| Raumbegrenzung 2. Ebene | IfcRelSpaceBoundary2ndLevel |  |  | IfcSpace <-> IfcWall/IfcSlab |  | - | O | O | V | R06; bazjanac2010space |
+| Wandelement | IfcWall | ELEMENTEDWALL |  | IfcRelAggregates -> Teile (genau 1); IfcRelContainedInSpatialStructure -> Geschoss; IfcRelAssociatesMaterial -> IfcMaterialLayerSetUsage | Pset_WallCommon\|Qto_WallBaseQuantities\|HRB_Schallschutz_Bauteil@R\|HRB_Montage@A | M | M | M | V | B1; B18; E8.5 |
+| Wandtyp | IfcWallType | ELEMENTEDWALL |  | IfcRelDefinesByType -> IfcWall; IfcRelAssociatesMaterial -> IfcMaterialLayerSet; IfcRelDeclares <- IfcProject |  | M | M | M | V | B1 |
+| Baustoff | IfcMaterial |  |  | in IfcMaterialLayer und IfcRelAssociatesMaterial je Teil | Pset_MaterialCommon\|Pset_MaterialThermal\|Pset_MaterialWood | M | M | M | V | B1 |
+| Ständer (Rand-, Raster-, Königs-, Sturzauflager-, Füllständer) | IfcMember | STUD | Randstaender\|Staender\|Koenigsstaender\|Sturzauflagerstaender\|Fuellstaender | IfcRelAggregates <- IfcWall | Pset_MemberCommon\|Qto_MemberBaseQuantities | - | O | M | V | B1; E8.6 |
+| Schwelle, Rähm, Brüstungsriegel | IfcMember | PLATE | Schwelle\|Raehm\|Bruestungsriegel | IfcRelAggregates <- IfcWall | Pset_MemberCommon\|Qto_MemberBaseQuantities | - | O | M | V | B1 |
+| Sturz | IfcBeam | LINTEL | Sturz | IfcRelAggregates <- IfcWall | Pset_BeamCommon\|Qto_BeamBaseQuantities | - | O | M | U | E8.6 (B1 noch IfcMember STUD) |
+| Beplankung (GKF, OSB, Holzfaser) | IfcPlate | SHEET | Beplankung | IfcRelAggregates <- IfcWall; Ausschnitt im Profil (IfcArbitraryProfileDefWithVoids) | Pset_PlateCommon\|Qto_PlateBaseQuantities | - | O | M | V | B1; E8.8 |
+| Gefachdämmung | IfcBuildingElementPart | INSULATION |  | IfcRelAggregates <- IfcWall; je Gefach ein Teil | Qto_BodyGeometryValidation | - | O | M | V | B1 |
+| Dampfbremse, Folie | IfcBuildingElementPart | USERDEFINED | MEMBRANE | IfcRelAggregates <- IfcWall | HRB_Feuchteschutz\|Qto_BodyGeometryValidation | - | O | M | U | B1; E8.7 |
+| Kerve, Bohrung, Fase, Gehrung | IfcVoidingFeature | NOTCH\|HOLE\|CHAMFER\|MITER\|CUTOUT\|EDGE |  | IfcRelVoidsElement -> IfcMember/IfcBeam; 1 mm Überstand |  | - | - | M | V | B1; E8.8 |
+| Öffnung in Bauteil | IfcOpeningElement | OPENING\|RECESS |  | IfcRelVoidsElement -> IfcWall/IfcSlab; IfcRelFillsElement <- IfcWindow/IfcDoor |  | M | M | M | V | B1 |
+| Fenster | IfcWindow | WINDOW |  | IfcRelFillsElement -> IfcOpeningElement; Typ in IfcProjectLibrary | Pset_WindowCommon\|HRB_Schallschutz_Bauteil@R\|Pset_ManufacturerTypeInformation@A | M | M | M | V | R10; R20; B19 |
+| Tür | IfcDoor | DOOR |  | IfcRelFillsElement -> IfcOpeningElement; Typ in IfcProjectLibrary | Pset_DoorCommon\|Pset_ManufacturerTypeInformation@A | M | M | M | V | R13; R14 |
+| Verbindungsmittel (Schraube, Nagel, Klammer) | IfcMechanicalFastener | SCREW\|NAIL\|STAPLE |  | IfcRelAggregates <- IfcWall; IfcRelDefinesByType <- Typ; Body = IfcMappedItem auf Typ-RepresentationMap; NominalDiameter/NominalLength redundant am Exemplar |  | - | - | M | V | B1; E8.9 |
+| Verbindungsmitteltyp | IfcMechanicalFastenerType | SCREW\|NAIL\|STAPLE |  | IfcRelDeclares <- IfcProject; RepresentationMaps (1); NominalDiameter/NominalLength | Pset_ManufacturerTypeInformation\|HRB_Verbindungsmittel | - | - | M | V/U | B1; R01 |
+| Deckenelement | IfcSlab | FLOOR |  | IfcRelAggregates -> Teile; IfcRelAssociatesMaterial -> IfcMaterialLayerSetUsage | Pset_SlabCommon\|Qto_SlabBaseQuantities\|HRB_Schallschutz_Bauteil@R\|HRB_Montage@A | M | M | M | V | R06; R14; B15; B18 |
+| Deckenbalken | IfcBeam | JOIST |  | IfcRelAggregates <- IfcSlab | Pset_BeamCommon\|Qto_BeamBaseQuantities | - | O | M | V | R16; B15 |
+| Wechsel, Stichbalken | IfcBeam | USERDEFINED | Wechsel\|Stichbalken | IfcRelAggregates <- IfcSlab | Pset_BeamCommon\|Qto_BeamBaseQuantities | - | O | M | V | R16; B15 |
+| Dach | IfcRoof | GABLE_ROOF\|HIP_ROOF\|HIPPED_GABLE_ROOF\|PAVILION_ROOF\|SHED_ROOF\|MANSARD_ROOF\|GAMBREL_ROOF\|BUTTERFLY_ROOF\|FLAT_ROOF |  | IfcRelAggregates -> IfcSlab ROOF, IfcMember; IfcRelContainedInSpatialStructure -> Geschoss | Pset_RoofCommon | M | M | M | V | R09 |
+| Dachfläche, Dachelement | IfcSlab | ROOF |  | IfcRelAggregates <- IfcRoof | Pset_SlabCommon\|Qto_SlabBaseQuantities\|HRB_Montage@A | M | M | M | V | R09; R19 |
+| Sparren, Pfette, Kehlbalken, Stiel, Strebe | IfcMember | RAFTER\|PURLIN\|COLLAR\|POST\|STRUT |  | IfcRelAggregates <- IfcRoof bzw. IfcSlab ROOF | Pset_MemberCommon\|Qto_MemberBaseQuantities | - | O | M | V | R09 |
+| Dachdeckung | IfcCovering | ROOFING |  | IfcRelCoversBldgElements <- IfcSlab ROOF; IfcMaterialLayerSet (Ziegel, Latte, Konterlatte) | Pset_CoveringCommon | M | M | M | V | R09; zvdh2024 |
+| Unterdeckbahn | IfcCovering | MEMBRANE |  | IfcRelCoversBldgElements <- IfcSlab ROOF | Pset_CoveringCommon | - | O | M | V | R09 |
+| First, Grat, Ortgang, Kehlblech, Eindeckrahmen | IfcDiscreteAccessory | FLASHING\|USERDEFINED | RIDGE\|HIP\|VERGE | IfcRelAggregates bzw. IfcRelNests an IfcCovering ROOFING |  | O | O | M | V/U | R09; E8.15 |
+| Schneefang, Dachtritt, Sicherheitshaken | IfcDiscreteAccessory | USERDEFINED | SNOWGUARD\|ROOFSTEP\|SAFETYHOOK | IfcRelAggregates an IfcCovering ROOFING |  | - | O | M | U | R09; E8.15 |
+| Dachfenster | IfcWindow | SKYLIGHT |  | IfcRelFillsElement -> IfcOpeningElement in IfcSlab ROOF | Pset_WindowCommon\|Pset_ManufacturerTypeInformation@A | M | M | M | V | R09 |
+| Gaube | IfcElementAssembly | USERDEFINED | DORMER | IfcRelAggregates -> IfcRoof, IfcWall, IfcWindow |  | M | M | M | U | R09 |
+| PV-Modul | IfcSolarDevice | SOLARPANEL |  | IfcRelAssignsToGroup -> IfcDistributionSystem POWERGENERATION | Pset_ManufacturerTypeInformation@A | M | M | M | V | R08; R09 |
+| Wechselrichter | IfcTransformer | INVERTER |  | IfcRelAssignsToGroup -> IfcDistributionSystem | Pset_ManufacturerTypeInformation | - | O | M | V | R08; R09 |
+| Batteriespeicher | IfcElectricFlowStorageDevice | BATTERY |  | IfcRelAssignsToGroup -> IfcDistributionSystem | Pset_ManufacturerTypeInformation | - | O | M | V | R08 |
+| Dachrinne | IfcPipeSegment | GUTTER |  | IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER; Ports über IfcRelNests | Pset_PipeSegmentTypeGutter | O | M | M | V | R09 |
+| Fallrohr | IfcPipeSegment | RIGIDSEGMENT |  | IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER | Pset_PipeSegmentTypeCommon | O | M | M | V | R09 |
+| Rinnenkessel | IfcStackTerminal | RAINWATERHOPPER |  | IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER |  | - | O | M | V | R09 |
+| Sanitärlüfter-Mündung | IfcStackTerminal | COWL |  | auf IfcPipeSegment VENT; IfcOpeningElement in IfcSlab ROOF |  | - | O | M | V | R08; R09 |
+| TGA-System | IfcDistributionSystem | DOMESTICCOLDWATER\|DOMESTICHOTWATER\|SEWAGE\|WASTEWATER\|RAINWATER\|STORMWATER\|VENT\|VENTILATION\|HEATING\|ELECTRICAL\|LIGHTING\|DATA\|POWERGENERATION |  | IfcRelAssignsToGroup -> Elemente; IfcRelServicesBuildings -> IfcBuilding |  | - | M | M | V | R08; R18; B15; B17 |
+| Stromkreis | IfcDistributionCircuit | ELECTRICAL |  | Untersystem von IfcDistributionSystem ELECTRICAL |  | - | M | M | V | R08 |
+| Rohrleitung | IfcPipeSegment | RIGIDSEGMENT\|FLEXIBLESEGMENT |  | Ports über IfcRelNests; Typ-Pset über HasPropertySets | Pset_PipeSegmentTypeCommon\|Pset_PipeSegmentOccurrence | - | M | M | V | R08; R16; B15 |
+| Luftkanal | IfcDuctSegment | RIGIDSEGMENT\|FLEXIBLESEGMENT |  | Ports über IfcRelNests | Pset_DuctSegmentTypeCommon | - | M | M | V | R08; R16 |
+| Formteil Rohr | IfcPipeFitting | BEND\|JUNCTION\|TRANSITION\|CONNECTOR |  | Ports über IfcRelNests; IfcRelConnectsPorts |  | - | M | M | V | R08; B15; B17 |
+| Anschlusspunkt | IfcDistributionPort | PIPE\|DUCT\|CABLE\|CABLECARRIER |  | IfcRelNests <- Element; IfcRelConnectsPorts <-> Port; FlowDirection SOURCE\|SINK | Pset_DistributionPortTypePipe | - | M | M | V | R08; R16; B15 |
+| Leerrohr | IfcCableCarrierSegment | CONDUITSEGMENT |  | Ports über IfcRelNests | Pset_CableCarrierSegmentTypeConduitSegment | - | M | M | V | R08; R16 |
+| Kabel | IfcCableSegment | CABLESEGMENT |  | IfcRelAssignsToGroup -> IfcDistributionCircuit |  | - | O | M | V | R08 |
+| Installationsdose | IfcJunctionBox | POWER\|DATA |  | IfcRelContainedInSpatialStructure; Bearbeitung in Beplankung als IfcOpeningElement |  | - | M | M | V | R08 |
+| Steckdose, Datendose | IfcOutlet | POWEROUTLET\|DATAOUTLET |  | IfcRelAssignsToGroup -> IfcDistributionCircuit | Pset_ManufacturerTypeInformation@A | M | M | M | V | R08 |
+| Schalter | IfcSwitchingDevice | TOGGLESWITCH\|DIMMERSWITCH\|MOMENTARYSWITCH |  | IfcRelAssignsToGroup -> IfcDistributionCircuit | Pset_ManufacturerTypeInformation | M | M | M | V | R08 |
+| Schutzgerät | IfcProtectiveDevice | CIRCUITBREAKER\|RESIDUALCURRENTCIRCUITBREAKER |  | IfcRelAggregates <- IfcDistributionBoard |  | - | O | M | V | R08 |
+| Verteiler | IfcDistributionBoard | CONSUMERUNIT\|DISTRIBUTIONBOARD |  | Ports über IfcRelNests |  | - | M | M | V | R08 |
+| Zähler | IfcFlowMeter | ENERGYMETER\|WATERMETER |  | IfcRelAssignsToGroup -> System |  | - | O | M | V | R08 |
+| Leuchte | IfcLightFixture | POINTSOURCE\|DIRECTIONSOURCE |  | IfcRelAssignsToGroup -> IfcDistributionSystem LIGHTING | Pset_ManufacturerTypeInformation | M | M | M | V | R08 |
+| Lüftungsgerät mit Wärmerückgewinnung | IfcAirToAirHeatRecovery | FIXEDPLATECOUNTERFLOWEXCHANGER |  | IfcRelAssignsToGroup -> IfcDistributionSystem VENTILATION | Pset_ManufacturerTypeInformation | - | M | M | V | R08 |
+| Luftdurchlass, Außenluftdurchlass | IfcAirTerminal | DIFFUSER\|GRILLE\|LOUVRE |  | IfcRelAssignsToGroup -> IfcDistributionSystem VENTILATION | Pset_AirTerminalTypeCommon\|HRB_Schallschutz_Bauteil | O | M | M | V | R08; R20 |
+| Heizkörper | IfcSpaceHeater | RADIATOR\|CONVECTOR |  | IfcRelAssignsToGroup -> IfcDistributionSystem HEATING | Pset_ManufacturerTypeInformation | M | M | M | V | R08 |
+| Speicher | IfcTank | STORAGE |  | IfcRelAssignsToGroup -> System | Pset_TankTypeCommon | - | M | M | V | R08; R18 |
+| Pumpe | IfcPump | CIRCULATOR\|SUMPPUMP\|SUBMERSIBLEPUMP |  | IfcRelAssignsToGroup -> System |  | - | O | M | V | R08; R18 |
+| Armatur, Ventil | IfcValve | ISOLATING\|CHECK\|REGULATING\|MIXING |  | IfcRelAssignsToGroup -> System |  | - | O | M | V | R08; R18 |
+| Wärmepumpe Monoblock | IfcUnitaryEquipment | USERDEFINED | AirToWaterHeatPump_Monoblock | IfcRelAssignsToGroup -> IfcDistributionSystem HEATING | Pset_UnitaryEquipmentTypeCommon\|Pset_SoundGeneration@R\|HRB_WPSchall@R\|HRB_Kaeltemittel@R | M | M | M | V/U | R22; E8.15 |
+| Wärmepumpe Split-Außeneinheit | IfcUnitaryEquipment | SPLITSYSTEM |  | IfcRelAssignsToGroup -> IfcDistributionSystem HEATING | Pset_UnitaryEquipmentTypeCommon\|Pset_SoundGeneration@R\|HRB_WPSchall@R\|HRB_Kaeltemittel@R | M | M | M | V/U | R22 |
+| R290-Schutzbereich | IfcSpatialZone | USERDEFINED | R290_Schutzbereich | IfcRelAssignsToProduct -> IfcUnitaryEquipment |  | - | M | M | U | R22; E8.15 |
+| Wartungs- und Luftführungsbereich | IfcSpatialZone | RESERVATION |  | IfcRelAssignsToProduct -> IfcUnitaryEquipment |  | - | M | M | V/U | R22 |
+| Sanitärobjekt | IfcSanitaryTerminal | TOILETPAN\|WASHHANDBASIN\|SHOWER\|BATH |  | IfcRelDefinesByType <- Typ aus IfcProjectLibrary; Ports über IfcRelNests am Typ | Pset_ManufacturerTypeInformation@A | M | M | M | V | R10; E8.14 |
+| Bodenablauf, Duschrinne | IfcWasteTerminal | FLOORTRAP\|USERDEFINED | Duschrinne | IfcRelAssignsToGroup -> IfcDistributionSystem WASTEWATER | HRB_Rinne | M | M | M | V/U | R13; B14 |
+| Aussparungsvorschlag | IfcVirtualElement | PROVISIONFORVOID |  | ohne Material; Tiefe >= Bauteildicke | Pset_ProvisionForVoid | - | M | O | V | R08; R16; B15; E8.16 |
+| Freigegebene Durchdringung | IfcOpeningElement | OPENING |  | je durchdrungenem Teil IfcRelVoidsElement; IfcRelInterferesElements Leitung <-> Bauteil (ImpliedOrder TRUE) | HRB_Durchdringung | - | O | M | V | R16; B15; E8.16 |
+| Manschette, Abschottung | IfcDiscreteAccessory | USERDEFINED | Brandschutzmanschette\|Luftdichtheitsmanschette | IfcRelFillsElement -> IfcOpeningElement | HRB_Manschette | - | O | M | V/U | R16; B15 |
+| Dämmschlauch, Schutzrohr | IfcCovering | WRAPPING\|SLEEVING |  | IfcRelCoversBldgElements <- IfcPipeSegment | Pset_CoveringCommon | - | O | M | V | R16; B15 |
+| Fußbodenaufbau je Raum | IfcCovering | FLOORING |  | IfcRelCoversSpaces -> IfcSpace; IfcMaterialLayerSet (Belag, Estrich, Dämmung) | Pset_CoveringCommon\|HRB_Fussbodenaufbau | M | M | M | V/U | R16; B14 |
+| Rohdecke, Bodenplatte | IfcSlab | FLOOR\|BASESLAB |  | IfcRelContainedInSpatialStructure -> Geschoss | Pset_SlabCommon\|Qto_SlabBaseQuantities | M | M | M | V | B14 |
+| Fliesen- oder Parkettbelag | IfcCovering | FLOORING\|CLADDING |  | IfcRelCoversSpaces -> IfcSpace; IfcRelContainedInSpatialStructure -> IfcSpace; IfcRelDefinesByType <- IfcCoveringType mit RepresentationMaps | Pset_CoveringCommon\|Pset_CoveringFlooring\|Qto_CoveringBaseQuantities\|HRB_Verlegung\|Pset_ManufacturerOccurrence@A | M | M | M | V | R13; R17; B16 |
+| Fliesen- oder Parketttyp | IfcCoveringType | FLOORING\|CLADDING |  | IfcRelDeclares <- IfcProjectLibrary; RepresentationMaps je Sollform | HRB_Fliese\|Pset_ManufacturerTypeInformation@A | M | M | M | V/U | R13; R17; B16 |
+| Fliesen- oder Parkettstück | IfcCovering | FLOORING |  | IfcRelAggregates <- Belag; ganze Stücke als IfcMappedItem, Schnittstücke als IfcPolygonalFaceSet | HRB_Fliesenstueck\|Pset_ManufacturerOccurrence | - | - | M | U | R17; B16; E8.12 |
+| Sockelleiste | IfcCovering | SKIRTINGBOARD |  | IfcMaterialProfileSet; IfcRelCoversSpaces | Pset_CoveringCommon | - | O | M | V | R13 |
+| Übergangsprofil | IfcCovering | USERDEFINED | Uebergangsprofil | IfcRelCoversSpaces | Pset_CoveringCommon | - | O | M | U | R13; E8.15 |
+| Treppe | IfcStair | STRAIGHT_RUN_STAIR\|QUARTER_WINDING_STAIR\|HALF_WINDING_STAIR\|QUARTER_TURN_STAIR\|HALF_TURN_STAIR |  | IfcRelAggregates -> IfcStairFlight, IfcRailing, IfcMember STRINGER | Pset_StairCommon\|HRB_Verziehung@R | M | M | M | V/U | R13 |
+| Treppenlauf | IfcStairFlight | STRAIGHT\|WINDER |  | IfcRelAggregates <- IfcStair | Pset_StairFlightCommon | M | M | M | V | R13 |
+| Treppenwange | IfcMember | STRINGER |  | IfcRelAggregates <- IfcStair | Pset_MemberCommon | - | O | M | V | R13 |
+| Geländer, Handlauf | IfcRailing | HANDRAIL\|BALUSTRADE\|GUARDRAIL |  | IfcRelAggregates <- IfcStair oder frei | Pset_RailingCommon | M | M | M | V | R13; R09 |
+| Grund- und Anschlussleitung | IfcPipeSegment | RIGIDSEGMENT |  | IfcRelAssignsToGroup -> IfcDistributionSystem SEWAGE\|RAINWATER\|STORMWATER; Ports über IfcRelNests | Pset_PipeSegmentTypeCommon\|Pset_PipeSegmentOccurrence\|HRB_Entwaesserung | - | M | M | V | R18; B17 |
+| Revisions-, Kontrollschacht | IfcDistributionChamberElement | MANHOLE\|INSPECTIONCHAMBER |  | Ports über IfcRelNests | Pset_DistributionChamberElementTypeManhole\|Pset_DistributionChamberElementTypeInspectionChamber | - | M | M | V | R18; B17 |
+| Pumpenschacht | IfcDistributionChamberElement | SUMP |  | mit IfcPump SUMPPUMP und IfcValve CHECK |  | - | O | M | V | R18 |
+| Versickerungsrigole, Sickerschacht | IfcDistributionChamberElement | USERDEFINED | Versickerungsrigole\|Sickerschacht | Ports über IfcRelNests | HRB_Versickerung | - | M | M | V/U | R18; B17; E8.15 |
+| Abscheider | IfcInterceptor | GREASE\|OIL\|PETROL |  | Ports über IfcRelNests | Pset_InterceptorTypeCommon | - | O | M | V | R18; B17 |
+| Zisterne | IfcTank | STORAGE |  | IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER | Pset_TankTypeCommon\|HRB_Versickerung | - | M | M | V | R18 |
+| Gelände | IfcGeographicElement | TERRAIN |  | IfcRelContainedInSpatialStructure -> IfcSite; IfcTriangulatedFaceSet |  | M | M | M | V | R18; B17 |
+| Versickerungsmulde | IfcGeographicElement | USERDEFINED | Versickerungsmulde | IfcRelContainedInSpatialStructure -> IfcSite | HRB_Versickerung | - | O | M | U | R18 |
+| Grundwasser | IfcGeotechnicalStratum | WATER |  | IfcRelContainedInSpatialStructure -> IfcSite | Pset_GeotechnicalStratumCommon | - | O | O | V | R18 |
+| Immissionsort, Fassadenpegel | IfcAnnotation | USERDEFINED | Immissionsort | IfcRelContainedInSpatialStructure -> IfcSite | HRB_Fassadenpegel | - | M | M | V/U | R20; R22; B19 |
+| Isolinie Lärmkarte | IfcAnnotation | CONTOURLINE |  | IfcRelContainedInSpatialStructure -> IfcSite | HRB_Fassadenpegel | - | O | O | V | R22 |
+| Lärmschutzwand | IfcWall | USERDEFINED | Laermschutzwand | IfcRelContainedInSpatialStructure -> IfcSite | Pset_WallCommon\|HRB_Schallschutz_Bauteil | O | M | M | V/U | R20 |
+| Rollladen | IfcShadingDevice | SHUTTER\|JALOUSIE |  | IfcRelAggregates bzw. Nachbarschaft zu IfcWindow | HRB_Schallschutz_Bauteil | M | M | M | V/U | R20 |
+| Montageplan | IfcWorkSchedule | PLANNED |  | IfcRelAssignsToControl -> IfcTask (Sammelvorgang) |  | - | - | M | V | R19; B18 |
+| Montagevorgang | IfcTask | INSTALLATION |  | IfcRelNests <- Sammelvorgang; IfcRelAssignsToProduct -> Element; IfcRelSequence FINISH_START; IfcTaskTime | HRB_Kranhub | - | - | M | V/U | R19; B18 |
+| Anlieferung | IfcTask | MOVE |  | IfcRelAssignsToProcess <- IfcConstructionEquipmentResource TRANSPORTING | Pset_PackingInstructions | - | - | M | V | R19; B18 |
+| Kraneinsatz | IfcConstructionEquipmentResource | ERECTING |  | IfcRelAssignsToProcess -> IfcTask; IfcRelAssignsToResource <- IfcTransportElement |  | - | - | M | V | R19; B18; E8.18 |
+| Transporteinsatz | IfcConstructionEquipmentResource | TRANSPORTING |  | IfcRelAssignsToProcess -> IfcTask MOVE; IfcRelAssignsToResource <- IfcVehicle |  | - | - | M | V | R19; B18 |
+| Kran | IfcTransportElement | LIFTINGGEAR |  | IfcRelContainedInSpatialStructure -> IfcSite | Pset_TransportElementCommon\|HRB_Kranaufstellung | - | - | M | V/U | R19; B18 |
+| LKW | IfcVehicle | VEHICLEWHEELED |  | IfcRelAssignsToResource -> Transporteinsatz | Qto_VehicleBaseQuantities | - | - | M | V | R19; B18 |
+| Stellfläche, Abladezone, Schwenkbereich | IfcSpatialZone | CONSTRUCTION\|TRANSPORT\|RESERVATION |  | IfcRelReferencedInSpatialStructure -> IfcSite | Qto_SpatialZoneBaseQuantities | - | - | M | V/U | R19; B18 |
+| Kostenplan | IfcCostSchedule | ESTIMATE\|TENDER\|PRICEDBILLOFQUANTITIES |  | IfcRelAssignsToControl -> Elemente; IfcRelNests -> IfcCostItem |  | O | M | M | V | R06; R10 |
+| Kostenposition, Mehr-/Minderpreis | IfcCostItem |  |  | IfcCostValue mit Category, ApplicableDate, FixedUntilDate |  | O | M | M | V | R06; R10; E8.14 |
+| Bemusterungskatalog | IfcProjectLibrary |  |  | IfcRelDeclares -> Options-Typen; IfcRelDeclares <- IfcProject |  | M | M | M | V | R10; E8.14 |
+| Freigabe | IfcApproval |  |  | IfcRelAssociatesApproval -> Objekt; GivingApproval = IfcActor |  | - | M | M | V | R06; R10 |
+| Dokument (Vertrag, Nachweisheft, Datenblatt) | IfcDocumentReference |  |  | IfcRelAssociatesDocument -> Objekt; IfcDocumentInformation (Revision, ValidFrom, ValidUntil) | HRB_Dokument | O | M | M | V/U | R06; E8.24 |
+| Genehmigung | IfcPermit | BUILDING |  | IfcRelAssignsToControl -> IfcBuilding |  | - | M | M | V | R06 |
+| Beteiligter (Entwurfsverfasser) | IfcActor |  | Entwurfsverfasser | IfcActorRole Role = USERDEFINED, UserDefinedRole = Entwurfsverfasser |  | - | M | M | V | R06 |
+| Klassifikation DIN 276 | IfcClassificationReference |  |  | IfcRelAssociatesClassification; ReferencedSource = IfcClassification DIN 276, Edition 2018-12 |  | - | M | M | V | B1; E8.19 |
+| Klassifikation ETIM | IfcClassificationReference |  |  | IfcRelAssociatesClassification; IfcClassification.Specification = bSDD-URI; Location = Klassen-URI |  | - | M | M | V/U | R10; E8.19 |
+
+### 8.8.3 GUID-Regel
+
+Die folgende Regel ist normativ. Sie erweitert das Schema aus B1 um den Projektnamensraum (E8.27) und die Übernahme in Exporte (E8.26).
+
+**G1 – Namensräume.**
+
+- `NS_FIRMA` ist eine UUID, die einmal zufällig erzeugt, in der Konfiguration der App fest hinterlegt und nie geändert wird.
+- `NS_PROJEKT = uuid5(NS_FIRMA, "projekt:" + projekt_id)`. Dabei ist `projekt_id` die unveränderliche Projektkennung der CDE als Unicode-Zeichenkette in Normalform NFC.
+- Kompatibilität: Die Beispiele B1 bis B19 verwenden unmittelbar `NS_PROJEKT = 6f1c3b0e-8a52-5d7e-9c4b-2a1d0e7f4b10`.
+
+**G2 – Pfadgrammatik.**
+
+```text
+pfad       = "/" segment { "/" segment } ;
+segment    = zeichen { zeichen } ;
+zeichen    = "A".."Z" | "a".."z" | "0".."9" | "_" | "-" | "." ;
+abgeleitet = ( pfad | abgeleitet ) "#" rolle ;
+rolle      = "aggregiert" | "enthaelt" | "typisiert" | "schneidet" | "fuellt"
+           | "deklariert" | "material" | "zuordnung" | "ports" | "verbunden"
+           | psetname ;
+```
+
+Pfade unterscheiden Groß- und Kleinschreibung und enden nie auf `/`. Umlaute und Leerzeichen sind in Segmenten nicht zulässig.
+
+**G3 – Wer welchen Pfad bekommt.** Jedes Objekt, das der Generator aus dem Parametermodell erzeugt, erhält einen expliziten Pfad, der seine Lage im Parametermodell beschreibt, etwa `/wand/oeffnungen/F1/sturz`. Beziehungen, Psets und Mengen erhalten einen abgeleiteten Pfad:
+
+| IfcRoot-Instanz | Pfad | Beispiel aus B1 |
+|---|---|---|
+| `IfcRelAggregates` | Pfad(RelatingObject) + `#aggregiert` | `/wand#aggregiert` |
+| `IfcRelContainedInSpatialStructure` | Pfad(RelatingStructure) + `#enthaelt` | `/projekt/gebaeude/EG#enthaelt` |
+| `IfcRelDefinesByType` | Pfad(RelatingType) + `#typisiert` | `/typen/wand/AW-HRB-01#typisiert` |
+| `IfcRelVoidsElement` | Pfad(RelatedOpeningElement) + `#schneidet` | `/wand/kerven/K1#schneidet` |
+| `IfcRelFillsElement` | Pfad(RelatedBuildingElement) + `#fuellt` | neu |
+| `IfcRelDeclares` | Pfad(RelatingContext) + `#deklariert` | `/projekt#deklariert` |
+| `IfcRelAssociatesMaterial` am Einzelobjekt | Pfad(Objekt) + `#material` | `/wand#material` |
+| `IfcRelAssociatesMaterial` für viele Objekte | `/materialien/<schluessel>#zuordnung` | `/materialien/kvh_c24#zuordnung` |
+| `IfcPropertySet`, `IfcElementQuantity` | Pfad(Objekt) + `#` + Name | `/wand#Pset_WallCommon` |
+| `IfcRelDefinesByProperties` | Pfad(Pset) + `#zuordnung` | `/wand#Pset_WallCommon#zuordnung` |
+| `IfcDistributionPort` | Pfad(Element) + `/port/<name>` | neu |
+| `IfcRelNests` (Ports) | Pfad(RelatingObject) + `#ports` | neu |
+| `IfcRelConnectsPorts` | Pfad(RelatingPort) + `#verbunden` | neu |
+
+**G4 – Berechnung.**
+
+```python
+import uuid, ifcopenshell.guid
+def global_id(ns_projekt: uuid.UUID, pfad: str) -> str:
+    return ifcopenshell.guid.compress(uuid.uuid5(ns_projekt, pfad).hex)   # 22 Zeichen
+```
+
+`uuid.uuid5` kodiert den Pfad intern als UTF-8. Die GlobalId wird erst nach dem vollständigen Aufbau des Modells gesetzt, in einem Durchlauf über alle `IfcRoot`-Instanzen.
+
+**G5 – Eindeutigkeit.** Die Abbildung Objekt → Pfad ist je Datei injektiv. Kommt ein Pfad doppelt vor, bricht der Generator mit einem Fehler ab. Er hängt keinen Zähler an.
+
+**G6 – Stabilität.**
+
+- Segmente verwenden stabile Kennungen des Parametermodells (`F1`, `K1`, `osb_staender`).
+- Indizes sind nur für Objekte zulässig, deren Identität ihre Position ist: Rasterständer k (Achse k · e), Platte j (j-te Platte ab x = 0), Teilstück i, wenn eine Platte durch Öffnungen zerfällt, Gefach nach Lage (`/wand/gefach/x1280_z60`).
+- Indizes aus der Iterationsreihenfolge von Mengen oder Dictionaries sind verboten.
+- Jede Änderung der Pfadstruktur erhöht `HRB_Generator.PfadschemaVersion` und legt eine Migrationstabelle `pfad_alt, pfad_neu, guid_alt, guid_neu` in der CDE ab.
+
+**G7 – Exporte.** In BTLx ist `Transformation GUID = "{" + str(uuid5(NS_PROJEKT, pfad)) + "}"`, also dieselbe UUID wie im IFC. Zusätzlich trägt jeder `Part` `UserAttribute Name="IfcGlobalId"` mit der komprimierten GlobalId. Das ersetzt das bisherige Schema von B7 (`uuid5(Namensraum, "btlx:" + Pfad)`).
+
+**G8 – Regressionsvektoren.** Mit dem Namensraum der Beispiele müssen die folgenden Werte entstehen. Sie sind gegen `ausgabe/wandelement.ifc` geprüft [V]:
+
+| Pfad | GlobalId |
+|---|---|
+| `/projekt` | `3n9mhceD9U_ez8SJ26bpTm` |
+| `/wand` | `0gsiGQj_bG3wx8M0qwRA0U` |
+| `/wand/schwelle` | `3N9BxbmVjJqfMasIm6VCTu` |
+| `/wand/staender/rand/links` | `0ruebnGhrPUPaN5fsim6Vf` |
+| `/wand/kerven/K1` | `2wzspq7qPLDQOqcQt$qavq` |
+| `/wand/kerven/K1#schneidet` | `26reED$iDQSQquU8q9MZLr` |
+| `/wand#aggregiert` | `3H$X1wKCnSyfz6MaSj_7C9` |
+| `/typen/verbindungsmittel/osb_staender` | `10kcZK2DzMauPxIfg5Yrjt` |
+
+Ein zusätzlicher Test muss zeigen, dass zwei verschiedene `projekt_id` für denselben Pfad verschiedene GlobalIds ergeben.
+
+### 8.8.4 ObjectType-Vokabular
+
+Das Vokabular für USERDEFINED und für Rollen im ObjectType ist die Vereinigung der Spalte `object_type` in `spezifikation/ifc-mapping.csv`. Es ist geschlossen: Ein Wert, der dort nicht steht, ist ein Fehler nach ANF-08-05. Für die Werte gilt:
+
+1. Sie sind ASCII, ohne Umlaute und Leerzeichen (`Laermschutzwand`, `Uebergangsprofil`, `Fuellstaender`).
+2. Werte, die einen englischen Enum-Wert ergänzen, sind in Großbuchstaben geschrieben (`MEMBRANE`, `RIDGE`, `SNOWGUARD`, `DORMER`). Fachliche Rollen und deutsche Fachbegriffe stehen in Binnenmajuskel (`Koenigsstaender`, `Versickerungsrigole`).
+3. Ein neuer Wert braucht einen Eintrag in der CSV mit Quelle und später eine bSDD-Klasse (ANF-08-15).
+
+**Abweichung der Prototypen.** B1 schreibt Rollen derzeit mit Umlaut und Leerzeichen (etwa „Randständer“ im Listing 8.1). Das verstößt gegen Punkt 1 und ist mit der Umbenennung der Psets zu bereinigen. Die Klartextbezeichnung bleibt im Attribut `Name` erhalten.
 
 ## Verwendete Schlüssel
 
-Das Kapitel zitiert 51 Schlüssel. Alle stammen aus `literatur/lit-*.bib`. Für die bekannten Dubletten sind die führenden Schlüssel verwendet (`iso2024ifc` statt `iso16739-2024`, `bsi2024ids` statt `ids2024`, siehe `literatur/KORREKTUREN.md`).
+Das Kapitel enthält 92 Zitatstellen zu 64 Schlüsseln. Alle stammen aus `literatur/lit-*.bib`. Für die bekannten Dubletten sind die führenden Schlüssel verwendet (`iso2024ifc` statt `iso16739-2024`, `bsi2024ids` statt `ids2024`, siehe `literatur/KORREKTUREN.md`). Zugeordnet ist jeweils die erste Datei, in der ein Schlüssel steht.
 
-`abualdenien2019metamodel`, `abualdenien2022levels`, `akbas2025holistic`, `alfaro2025chek`, `alwisy2019bim`, `barker2022fair4rs`, `bazjanac2010space`, `bimbauantrag2020`, `bimbauantrag2020abschluss`, `bimportal`, `bsi2024ids`, `bsi2025validation`, `bsiMvd43`, `bsiValidation`, `btlx23`, `chateauvieux2023bim`, `chateauvieuxhellwig2022timber`, `chateauvieuxhellwig2025schallschutz`, `chek2024d22`, `compastimber`, `darwish2022automated`, `dataholz`, `din18290-2`, `dineniso7817-1`, `eastman2010exchange`, `elsibaii2025open`, `esser2022graphbased`, `fakour2025exploring`, `fischer2024extending`, `fonsati2026leveraging`, `geier2022bimwood`, `hagedorn2023semantic`, `iso19650`, `iso2024ifc`, `iso23387`, `iso6946_2017`, `jaskula2024common`, `jaud2020georeferencing`, `jaud2022georeferencing`, `krijnen2020efficient`, `laakso2012ifc`, `lai2018interoperability`, `liu2016ontology`, `liu2023definition`, `ma2006testing`, `mattern2018bimbased`, `moult2020compliance`, `nrw2026bimbauantrag`, `oekobaudat`, `orozco2023codesign`, `pazlar2008interoperability`, `ramaji2016product`, `ramaji2017extending`, `ramaji2017product`, `shi2018ifcdiff`, `smith2016softwarecitation`, `standtke2024etim`, `timbim2024`, `tomczak2022review`, `tugraz2025syswood`, `vanberlo2021future`, `venugopal2012semantics`, `zhang2015interoperable`, `zvdh2024`
+**lit-A-acc-bim.bib** (14): `bazjanac2010space`, `bimbauantrag2020abschluss`, `bsi2024ids`, `bsi2025validation`, `chek2024d22`, `iso2024ifc`, `jaud2020georeferencing`, `jaud2022georeferencing`, `krijnen2020efficient`, `lai2018interoperability`, `moult2020compliance`, `tomczak2022review`, `vanberlo2021future`, `zhang2015interoperable`
+
+**lit-B-vorfertigung-ki.bib** (2): `compastimber`, `geier2022bimwood`
+
+**lit-C-recht-normen.bib** (11): `bimbauantrag2020`, `bimportal`, `bsiMvd43`, `bsiValidation`, `btlx23`, `dataholz`, `din18290-2`, `iso19650`, `nrw2026bimbauantrag`, `oekobaudat`, `zvdh2024`
+
+**lit-D-vergleich-vorfertigung.bib** (5): `alwisy2019bim`, `chateauvieux2023bim`, `orozco2023codesign`, `ramaji2017product`, `timbim2024`
+
+**lit-E-vergleich-automation.bib** (5): `abualdenien2019metamodel`, `abualdenien2022levels`, `elsibaii2025open`, `ma2006testing`, `pazlar2008interoperability`
+
+**lit-G-luecken.bib** (2): `standtke2024etim`, `tugraz2025syswood`
+
+**lit-H-ff4-ff5.bib** (3): `alfaro2025chek`, `fakour2025exploring`, `jaskula2024common`
+
+**lit-I-schneeball-a.bib** (12): `darwish2022automated`, `eastman2010exchange`, `fischer2024extending`, `fonsati2026leveraging`, `hagedorn2023semantic`, `laakso2012ifc`, `liu2016ontology`, `liu2023definition`, `ramaji2016product`, `ramaji2017extending`, `shi2018ifcdiff`, `venugopal2012semantics`
+
+**lit-I-schneeball-b.bib** (4): `chateauvieuxhellwig2022timber`, `chateauvieuxhellwig2025schallschutz`, `dineniso7817-1`, `iso23387`
+
+**lit-J-schneeball-runde2.bib** (3): `akbas2025holistic`, `esser2022graphbased`, `mattern2018bimbased`
+
+**lit-M-nachweis.bib** (3): `barker2022fair4rs`, `iso6946_2017`, `smith2016softwarecitation`
 
 ### Python-Key-Check
 
@@ -483,11 +777,11 @@ Das Kapitel zitiert 51 Schlüssel. Alle stammen aus `literatur/lit-*.bib`. Für 
 import re, glob, pathlib
 text = pathlib.Path("08-informationsmodell.md").read_text(encoding="utf-8")
 body = text.split("## Verwendete Schlüssel")[0]
-cited = set(re.findall(r"@([A-Za-z0-9_\-:]+)", body))
+cited = {k.strip().lstrip("@") for grp in re.findall(r"\[(@[^\]]+)\]", body) for k in grp.split(";")}
 bib = set()
 for f in glob.glob("literatur/lit-*.bib"):
     bib |= set(re.findall(r"^@\w+\{([^,\s]+),", open(f, encoding="utf-8").read(), re.M))
 print(len(cited), "zitiert;", "fehlend:", sorted(cited - bib) or "keine")
 ```
 
-Ergebnis (27.09.2026, aus `arbeit/` ausgeführt): siehe unten.
+Ergebnis (27.09.2026, aus `arbeit/` ausgeführt): `64 zitiert; fehlend: keine`.
