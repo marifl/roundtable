@@ -1,33 +1,33 @@
 # Statistik der Quellenbewertung
 
-- Quellen in der Masterliste: 811
-- bewertet: 811
+- Quellen in der Masterliste: 1046
+- bewertet: 1046
 - noch nicht bewertet: 0
-- Kernbestand (P ≥ 5): 235
-- verifiziert V: 806, U: 5
+- Kernbestand (P ≥ 5): 317
+- verifiziert V: 1038, U: 8
 
 ## Nutzung
 
-- Kontext: 332
-- adaptieren: 298
-- übernehmen: 126
-- abgrenzen: 51
+- Kontext: 429
+- adaptieren: 396
+- übernehmen: 162
+- abgrenzen: 55
 - verwerfen: 4
 
 ## Relevanz je Forschungsfrage (Anzahl Quellen mit Wert ≥ 2)
 
-- FF1: 108 (davon 3: 17)
-- FF2: 192 (davon 3: 32)
-- FF3: 57 (davon 3: 6)
-- FF4: 47 (davon 3: 8)
-- FF5: 121 (davon 3: 19)
-- FF6: 155 (davon 3: 28)
+- FF1: 131 (davon 3: 17)
+- FF2: 232 (davon 3: 33)
+- FF3: 72 (davon 3: 7)
+- FF4: 113 (davon 3: 28)
+- FF5: 154 (davon 3: 19)
+- FF6: 199 (davon 3: 30)
 
 ## Qualität
 
-- A: 109
-- B: 595
-- C: 100
+- A: 157
+- B: 758
+- C: 124
 - D: 7
 
 ## Kernbestand, sortiert nach P
@@ -36,6 +36,11 @@
 |---|---|---|---|---|---|---|
 | Q039 | iso2024ifc | 2024 | 7 | FF1 | übernehmen | 8.1 |
 | Q040 | bsi2024ids | 2024 | 7 | FF2 | übernehmen | 9.2; 11.5 |
+| Q1009 | zpo371a | 2026 | 7 | FF4 | übernehmen | 18.2; 7a.5 |
+| Q1012 | bsi2022tresor | 2022 | 7 | FF4 | übernehmen | 7a.5; 7.3 |
+| Q1018 | landtagby2020baybonovelle | 2020 | 7 | FF4 | übernehmen | 9a.5; 18.4; 9.3 |
+| Q1019 | landtagby2024modernisierung | 2024 | 7 | FF4 | übernehmen | 9a.5; 9.3 |
+| Q1038 | eu2026omnibus | 2026 | 7 | FF4 | übernehmen | 4.7; 10.4 |
 | Q160 | baybo2026 | 2026 | 7 | FF2,FF4 | übernehmen | 4.2; 9.4; 18 |
 | Q161 | bauvorlv | 2026 | 7 | FF1 | übernehmen | 18.3 |
 | Q164 | baytb2025 | 2025 | 7 | FF2 | übernehmen | 4.3; 9.3 |
@@ -55,6 +60,11 @@
 | Q461 | iso2018usability | 2018 | 7 | FF5 | übernehmen | 2.4; 20.3 |
 | Q481 | bgh2002genehmigungsplanung | 2002 | 7 | FF4 | übernehmen | 4.2; 18.1; 11.3 |
 | Q759 | dineniso7817-1 | 2024 | 7 | FF6 | übernehmen | 11.1; 11.5 |
+| Q974 | bgh2026viizr11924 | 2026 | 7 | FF4 | übernehmen | 18.1; 4.5; 9.5 |
+| Q975 | bgh2011viizr810 | 2011 | 7 | FF4 | übernehmen | 18.1; 9.5 |
+| Q982 | bgh2001viizr39199 | 2001 | 7 | FF4 | übernehmen | 18.1; 4.2 |
+| Q993 | bundestag2016bauvertrag | 2016 | 7 | FF4 | übernehmen | 4.5; 18.1 |
+| Q995 | landtagby2007baybo | 2007 | 7 | FF4 | übernehmen | 4.2; 18.1; 9a.2 |
 | Q110 | schoenwitz2017product | 2017 | 6.5 | FF6 | übernehmen | 12.1; 9.1 |
 | Q233 | geier2018analysemodell | 2018 | 6.5 | FF2 | adaptieren | 9.1; 3.2 |
 | Q234 | chateauvieux2023bim | 2023 | 6.5 | FF6 | adaptieren | 15.4 |
@@ -75,10 +85,25 @@
 | Q765 | eder2021exact | 2021 | 6.5 | FF6 | übernehmen | 14.1; 19; 7.4 |
 | Q772 | held2017roofs | 2017 | 6.5 | FF6 | übernehmen | 14.1; 19 |
 | Q791 | ohrstrom2006quietness | 2006 | 6.5 | FF6 | übernehmen | 15.4; 9b.2; 19 |
+| Q954 | benedikt1979take | 1979 | 6.5 | FF6 | übernehmen | 9b.2; 9b.3; 19 |
+| Q980 | olgkoeln2021u2320 | 2021 | 6.5 | FF4 | übernehmen | 18.1; 4.5 |
+| Q981 | olgnuernberg2011u136910 | 2011 | 6.5 | FF4 | übernehmen | 18.1; 3.4; 16 |
+| Q984 | olgkoeln2017u9816 | 2017 | 6.5 | FF4 | übernehmen | 18.1; 20.3; 7a.1 |
 | Q001 | eastman2009automatic | 2009 | 6 | FF2 | übernehmen | 5.2; 9.2 |
 | Q033 | bimbauantrag2020abschluss | 2020 | 6 | FF1 | übernehmen | 8.4; 18.3 |
 | Q041 | bsi2025validation | 2025 | 6 | FF1 | übernehmen | 8.1; 20.1 |
 | Q091 | tum2023bimwood | 2023 | 6 | FF1 | adaptieren | 5.3; 5.7; 8.3 |
+| Q1010 | vdg2017 | 2017 | 6 | – | übernehmen | 7a.5; 18.2 |
+| Q1013 | bgh1993vizr24392 | 1993 | 6 | – | adaptieren | 7a.1; 18.1 |
+| Q1015 | vwvfg35a | 2026 | 6 | – | abgrenzen | 18.4; 4.7 |
+| Q1030 | eu2025withdrawal | 2025 | 6 | – | übernehmen | 4.7 |
+| Q1037 | eu2025aidefinition | 2025 | 6 | FF4 | übernehmen | 4.7; 7.1; 10.4 |
+| Q1039 | kimig2026 | 2026 | 6 | – | übernehmen | 4.7 |
+| Q1041 | dsk2024ki | 2024 | 6 | FF4 | übernehmen | 4.7; 10.4; 18.1 |
+| Q1043 | edpb2021vva | 2021 | 6 | FF4 | übernehmen | 10.4; 4.7 |
+| Q1044 | eugh2023schufa | 2023 | 6 | – | übernehmen | 9.5; 4.7; 18.1 |
+| Q1045 | tdddg25 | 2026 | 6 | – | übernehmen | 10.1; 4.7 |
+| Q1046 | stgb201 | 2026 | 6 | – | übernehmen | 10.4; 4.7 |
 | Q150 | eu2024aiact | 2024 | 6 | – | verwerfen | 4.7; 10.4 |
 | Q162 | dbauv2026 | 2026 | 6 | – | übernehmen | 18.3 |
 | Q165 | holzbaurl2024 | 2024 | 6 | – | übernehmen | 9a.4; 15.3 |
@@ -119,7 +144,15 @@
 | Q749 | brown2020melanopic | 2020 | 6 | – | übernehmen | 13.7; 9b.2 |
 | Q751 | cajochen2022evening | 2022 | 6 | – | adaptieren | 13.7; 9b.6 |
 | Q753 | chateauvieuxhellwig2025schallschutz | 2025 | 6 | FF6 | adaptieren | 15.4; 8.6 |
-| Q777 | iso23387 | 2020 | 6 | – | übernehmen | 12.6 |
+| Q777 | iso23387 | 2025 | 6 | – | übernehmen | 12.6 |
+| Q935 | caniato2017acoustic | 2017 | 6 | – | adaptieren | 15.4 |
+| Q950 | cie2018s026 | 2018 | 6 | – | übernehmen | 13.7 |
+| Q976 | bgh2007viizr18305 | 2007 | 6 | – | übernehmen | 18.1; 4.5 |
+| Q977 | bgh2008viizr20606 | 2008 | 6 | – | adaptieren | 18.1 |
+| Q978 | bgh2013viizr25711 | 2013 | 6 | – | übernehmen | 7a.3; 18.1 |
+| Q986 | bverfg1970bvr11765 | 1970 | 6 | – | adaptieren | 4.2; 18.1 |
+| Q989 | bgh1983viizr30282 | 1983 | 6 | – | übernehmen | 4.5 |
+| Q998 | byak2020berufsordnung | 2020 | 6 | – | übernehmen | 18.1; 4.2 |
 | Q002 | solihin2015classification | 2015 | 5.5 | FF2 | adaptieren | 5.2; 9.1 |
 | Q009 | hjelseth2011capturing | 2011 | 5.5 | FF2 | übernehmen | 9.2 |
 | Q014 | moult2020compliance | 2020 | 5.5 | FF2 | übernehmen | 7.3; 9.2 |
@@ -130,6 +163,8 @@
 | Q037 | borrmann2021bim | 2021 | 5.5 | – | Kontext | 5.1 |
 | Q046 | jaud2020georeferencing | 2020 | 5.5 | – | adaptieren | 8.4; 18.3 |
 | Q064 | kaufmann2018manual | 2018 | 5.5 | – | Kontext | 3.1; 9a.4 |
+| Q1004 | green2022flaws | 2022 | 5.5 | FF4 | übernehmen | 18.1; 20.3 |
+| Q1007 | sterz2024quest | 2024 | 5.5 | FF4 | übernehmen | 18.1; 20.3 |
 | Q103 | trentin2013sales | 2013 | 5.5 | FF5 | übernehmen | 20.3; 10 |
 | Q109 | schoenwitz2012nature | 2012 | 5.5 | – | adaptieren | 12.1; 3.4 |
 | Q118 | randall2007user | 2007 | 5.5 | FF3 | adaptieren | 10.2; 5.4 |
@@ -210,6 +245,23 @@
 | Q783 | locher2018windows | 2018 | 5.5 | – | übernehmen | 15.4; 19 |
 | Q800 | spitschan2021luox | 2021 | 5.5 | – | adaptieren | 13.7; 7.4 |
 | Q808 | wiener2007isovist | 2007 | 5.5 | FF6 | übernehmen | 9b.2; 9b.3; 19 |
+| Q814 | fauth2022conceptual | 2022 | 5.5 | – | adaptieren | 18.1; 18.4; 4.2 |
+| Q828 | mellenthinfilardo2023automated | 2023 | 5.5 | – | adaptieren | 15.5; 8.4 |
+| Q848 | akbas2025holistic | 2025 | 5.5 | – | adaptieren | 11.1; 11.5; 9.2 |
+| Q849 | fauth2025baugenehmigungsv | 2025 | 5.5 | – | übernehmen | 1.1; 18.4; 4.2 |
+| Q854 | hartmann2026status | 2026 | 5.5 | – | übernehmen | 18.4; 1.1 |
+| Q867 | wei2025texttostructure | 2025 | 5.5 | FF3 | adaptieren | 10.2; 10.3; 5.6 |
+| Q882 | an2020bimbased | 2020 | 5.5 | FF2 | adaptieren | 9.2; 17.3; 5.3 |
+| Q883 | zhang2022bimbased | 2022 | 5.5 | FF6 | adaptieren | 13.3; 13.10; 17.2 |
+| Q900 | nielsen1990heuristic | 1990 | 5.5 | – | übernehmen | 20.3 |
+| Q902 | rosemann2008improving | 2008 | 5.5 | – | übernehmen | 2.4; 20.3 |
+| Q912 | vonhippel1994sticky | 1994 | 5.5 | – | adaptieren | 1.2; 21.1 |
+| Q925 | brkan2020legal | 2020 | 5.5 | – | Kontext | 4.7; 10.4 |
+| Q970 | vanberlo2019creating | 2019 | 5.5 | – | Kontext | 5.1; 9.2 |
+| Q971 | johnsson2007ict | 2007 | 5.5 | – | adaptieren | 3.4; 5.3; 5.4 |
+| Q972 | malmgren2010customization | 2010 | 5.5 | – | adaptieren | 5.4; 12.7; 3.4 |
+| Q983 | bgh2023viizr21622 | 2023 | 5.5 | – | adaptieren | 18.1; 9.5 |
+| Q985 | olgoldenburg2017u6816 | 2017 | 5.5 | – | adaptieren | 18.1 |
 | Q003 | amor2021promise | 2021 | 5 | – | Kontext | 5.2 |
 | Q028 | noardo2022unveiling | 2022 | 5 | – | Kontext | 5.2; 18.4 |
 | Q034 | mbo2bim2023 | 2023 | 5 | – | adaptieren | 4.2; 9.2 |
@@ -217,6 +269,19 @@
 | Q062 | idis2021szenarien | 2021 | 5 | – | Kontext | 9.6 |
 | Q084 | abanda2017bim | 2017 | 5 | – | Kontext | 1.1; 20.3 |
 | Q093 | compastimber | 2020 | 5 | FF1 | übernehmen | 7.4; 17.1 |
+| Q1000 | byak2021montageplaene | 2021 | 5 | – | adaptieren | 18.2; 17 |
+| Q1001 | bak2024kihaftung | 2024 | 5 | – | Kontext | 4.7; 18.1 |
+| Q1003 | wd2025kihaftung | 2025 | 5 | – | Kontext | 4.7 |
+| Q1011 | bundestag2017eidasdg | 2017 | 5 | – | Kontext | 7a.5 |
+| Q1020 | stmb2025typengenehmigung | 2025 | 5 | – | Kontext | 9a.5; 3.3 |
+| Q1024 | bgh2010iiizr7909 | 2010 | 5 | – | Kontext | 4.7 |
+| Q1025 | bgh2006xiizr12004 | 2006 | 5 | – | Kontext | 7.4; 4.7 |
+| Q1027 | expertgroup2019liability | 2019 | 5 | FF4 | adaptieren | 7.3; 7a.5; 4.7 |
+| Q1033 | wendehorst2026stellungnahme | 2026 | 5 | – | Kontext | 4.7 |
+| Q1034 | zech2020risiken | 2020 | 5 | – | adaptieren | 7.1; 4.7 |
+| Q1035 | dek2019gutachten | 2019 | 5 | – | adaptieren | 18.1; 7.1 |
+| Q1040 | bundestag2026kimigbe | 2026 | 5 | – | Kontext | 4.7 |
+| Q1042 | dsk2025kitom | 2025 | 5 | – | adaptieren | 10.4; 6.3 |
 | Q121 | scheibehenne2010choice | 2010 | 5 | – | Kontext | 10.2; 12.7 |
 | Q122 | chernev2015choice | 2015 | 5 | – | adaptieren | 10.2; 12.7 |
 | Q123 | lee2024generalized | 2024 | 5 | FF3 | adaptieren | 5.6; 10 |
@@ -255,9 +320,9 @@
 | Q410 | eisfeld2022variowohnen | 2022 | 5 | FF2 | adaptieren | 5.4; 5.7; 9.2 |
 | Q413 | fraunhoferipa0000designchain | 2023 | 5 | – | adaptieren | 5.3; 5.7; 17.4 |
 | Q418 | np2025haas | 2025 | 5 | – | abgrenzen | 5.4; 5.7; 3.4 |
-| Q468 | jaskula2024common | 2024 | 5 | – | adaptieren | 7.3; 18.1 |
+| Q468 | jaskula2024common | 2025 | 5 | – | adaptieren | 7.3; 18.1 |
 | Q474 | love2023explainable | 2023 | 5 | – | Kontext | 7.1; 10.4 |
-| Q520 | wuni2019critical | 2019 | 5 | – | adaptieren | 17.3; 18.1 |
+| Q520 | wuni2019critical | 2022 | 5 | – | adaptieren | 17.3; 18.1 |
 | Q537 | bloch2023unbalanced | 2023 | 5 | – | Kontext | 5.2; 18.4 |
 | Q576 | lee2026automated | 2026 | 5 | – | Kontext | 5.2 |
 | Q611 | senousy2026automated | 2026 | 5 | – | Kontext | 5.2; 5.6 |
@@ -269,3 +334,20 @@
 | Q766 | emmitt2023bedroom | 2023 | 5 | – | adaptieren | 9b.2; 15.1 |
 | Q797 | potter2025sleep | 2025 | 5 | – | Kontext | 9b.2 |
 | Q811 | zhao2025mep | 2025 | 5 | – | adaptieren | 13.8; 17.2 |
+| Q816 | ilal2022integrating | 2022 | 5 | – | Kontext | 5.2; 4.1; 9.4 |
+| Q829 | lewis2018system | 2018 | 5 | – | übernehmen | 20.3 |
+| Q830 | barr2015oracle | 2015 | 5 | – | adaptieren | 20.1; 19 |
+| Q831 | segura2016survey | 2016 | 5 | – | adaptieren | 20.1; 19 |
+| Q887 | campagna2025usercentered | 2025 | 5 | – | Kontext | 9b.2; 15.4; 3.1 |
+| Q895 | larsen2019mass | 2019 | 5 | – | Kontext | 5.4; 5.8 |
+| Q913 | mohseni2021multidisciplinar | 2021 | 5 | – | adaptieren | 10.4; 20.3 |
+| Q932 | caddick2018review | 2018 | 5 | – | adaptieren | 9b.2; 13.4 |
+| Q933 | abdalhamid2023quantifying | 2023 | 5 | – | adaptieren | 9b.2; 16.4 |
+| Q945 | gkaintatzimasouti2022simulations | 2022 | 5 | – | Kontext | 13.7; 16.4 |
+| Q955 | lan2017thermal | 2017 | 5 | – | adaptieren | 9b.2; 13.5; 15.1 |
+| Q969 | kazeem2024integration | 2024 | 5 | – | Kontext | 13.8; 17.2 |
+| Q987 | bayverfgh1999vf4vii97 | 1999 | 5 | – | Kontext | 4.2 |
+| Q990 | bgh2005viizr18304 | 2005 | 5 | – | Kontext | 4.5 |
+| Q991 | bgh2006viizr17505 | 2006 | 5 | – | Kontext | 4.5; 18.1 |
+| Q994 | bundestag2017bauvertragbe | 2017 | 5 | – | Kontext | 4.5 |
+| Q996 | ikbaunrw2024unterzeichnung | 2024 | 5 | FF4 | adaptieren | 18.1; 4.2 |
