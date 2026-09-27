@@ -6,7 +6,7 @@ Stand: 27.09.2026. BibTeX: `arbeit/literatur/lit-E-vergleich-automation.bib`.
 - **[V]**: Autor, Jahr, Titel und Venue an einer Primärquelle geprüft (Verlagsseite, Repositorium, mediaTUM, ITcon, arXiv-Abstract, GitHub/HF). Die DOI stand dort.
 - **[V\*]**: Metadaten an der Primärquelle geprüft. Die DOI stammt aber aus einer Sekundärquelle (Suchzusammenfassung, Literaturliste) oder ist aus der Elsevier-Artikelnummer abgeleitet. Vor der Abgabe noch einmal auflösen.
 - **[U]**: unsicher. Etwas Wesentliches ist offen: Venue, DOI, Seiten oder Lizenz.
-- **(lit-A)/(lit-B)**: Die Arbeit ist dort schon mit diesem Key erfasst. Der Key wird wiederverwendet und steht nicht noch einmal in lit-E.
+- **(lit-A)/(lit-B)/(lit-D)**: Die Arbeit ist dort schon mit diesem Key erfasst (lit-D = parallele Recherche 11, Vorfertigung). Der Key wird wiederverwendet und steht nicht noch einmal in lit-E.
 
 **Einschränkung bei der Verifikation:** In dieser Umgebung sind `api.crossref.org`, `api.openalex.org`, `doi.org` und `arxiv.org` (direkt) per Egress-Proxy gesperrt. Crossref- und OpenAlex-Abfragen waren deshalb nicht möglich. Geprüft wurde über Verlags- und Repositoriumsseiten, die per Exa-Suche und WebSearch gefunden wurden. Bei jedem Eintrag steht der Weg im `note`-Feld der .bib. Vor der Einreichung sollte einmal ein Crossref-Batch-Abgleich laufen, vor allem für alle [V\*].
 
@@ -62,11 +62,11 @@ Spalten: Regeln bei Erzeugung? = Regeln wirken *während* der Generierung (nicht
 | 2 | Niemeijer, de Vries, Beetz (`niemeijer2009checkmate`) [V] | 2009 | Konferenz (CIB W78) | Constraint-Checking auf IFC für Mass Customization im Wohnungsbau, „Puzzle“-DSL | nein (prüft Kundenänderung) | ja (ifcXML) | teilweise (kontrollierte Sprache) | – | Prototyp, Testwohnung | – |
 | 3 | Niemeijer (`niemeijer2011constraint`) [V] | 2011 | Dissertation TU/e | NL-Parsing von Architekten-/Baurechts-Constraints (Dachgauben Rotterdam) | nein (explizit nur Checking) | ja | **ja** (NL-Constraint-Eingabe) | D (Gauben) | Usability-Test mit Architekten, Parse-Erfolgsquote | – |
 | 4 | Abushwereb, Liu, Al-Hussein (`abushwereb2019knowledge`) [V] | 2019 | Konferenz (MOC Summit) | FrameX: regelbasiertes Wood-Framing als Revit-Add-on (Code, Transport, Best Practice) | **ja** | nein (Revit) | nein | Det (Framing) | Zeitvergleich 60-ft-Wand: −80 % | proprietär |
-| 5 | Alwisy et al. (`alwisy2019bimbased`) [V] | 2019 | Journal (IJCM) | MCMPro: 2D-CAD → BIM → Werkstattpläne Holzrahmenpanel | ja (Platform Framing) | nein | nein | Det | Fallbeispiel | proprietär (VBA) |
+| 5 | Alwisy et al. (`alwisy2019bim`) **(lit-D)** [V] | 2019 | Journal (IJCM) | MCMPro: 2D-CAD → BIM → Werkstattpläne Holzrahmenpanel | ja (Platform Framing) | nein | nein | Det | Fallbeispiel | proprietär (VBA) |
 | 6 | Manrique et al. (`manrique2015automated`) [V\*] | 2015 | Journal (AutCon) | parametrische Werkstattpläne Wood-Framing | ja | nein | nein | Det | Industriepartner | – |
-| 7 | Liu, Singh, Lu, Bouferguène, Al-Hussein (`liu2018boarding`) [V\*] | 2018 | Journal (AutCon) | regelbasierte Beplankungs-Layouts und Plattenzuschnitt | **ja** | nein (Revit-API) | nein | Det (Beplankung) | Verschnitt gegen Praxis | – |
+| 7 | Liu, Singh, Lu, Bouferguène, Al-Hussein (`liu2018bim`) **(lit-D)** [V\*] | 2018 | Journal (AutCon) | regelbasierte Beplankungs-Layouts und Plattenzuschnitt | **ja** | nein (Revit-API) | nein | Det (Beplankung) | Verschnitt gegen Praxis | – |
 | 8 | Liu, Zhang, Lei, Li, Han (`liu2021panelization`) [V] | 2021 | Journal (ACE) | generative Wandpanelisierung plus DES-Produktivitätsbewertung | **ja** (Struktur-, Produktions-, Logistikregeln) | nein | nein | Det | Fallstudie Wohnhaus | – |
-| 9 | Sandberg, Johnsson, Larsson (`sandberg2008knowledge`) [V] | 2008 | Journal (ITcon) | KBE im Vertrieb eines Holz-Volumenelement-Herstellers (Treppentool) | ja | nein | nein | Det (Treppe) | Fallstudie Hersteller | – |
+| 9 | Sandberg, Johnsson, Larsson (`sandberg2008knowledge`) **(lit-D)** [V] | 2008 | Journal (ITcon) | KBE im Vertrieb eines Holz-Volumenelement-Herstellers (Treppentool) | ja | nein | nein | Det (Treppe) | Fallstudie Hersteller | – |
 | 10 | Jensen, Olofsson, Johnsson (`jensen2012configuration`) **(lit-B)** | 2012 | Journal (AutCon) | Parametrische Konfiguration von Bauteilen (Holzdecke) | ja | nein | nein | Det | Fallstudie | – |
 | 11 | Retik & Warszawski (`retik1994automated`) [V] | 1994 | Journal (B&E) | frühes wissensbasiertes Auto-Design Fertigteilbau | ja | nein | nein | Det | Prototyp | – |
 | 12 | Gan (`gan2022graph`) [V] | 2022 | Journal (AutCon) | Graph-Datenmodell plus generative Modulbau-Varianten | ja (Topologie-Constraints) | ja (BIM) | nein | – | Varianten/CO₂/Kosten | – |
@@ -119,7 +119,7 @@ Spalten: Regeln bei Erzeugung? = Regeln wirken *während* der Generierung (nicht
 | 59 | Tomczak et al. (`tomczak2022review`) **(lit-A)** | 2022 | Review | Informationsanforderungen, IDS | – | ja | – | – | – | – |
 | 60 | OpenBIMRL (`stepien2023openbimrl`), Häußler (`haeussler2021code`) **(lit-A)** | 2021/23 | Konferenz/Journal | Regelformat, BPMN/DMN | nein | ja | nein | – | – | – |
 
-**Zählung:** 48 neue Einträge in lit-E, dazu 12 Querverweise auf lit-A/B.
+**Zählung:** 45 neue Einträge in lit-E, dazu 15 Querverweise auf lit-A/B/D.
 
 ---
 
@@ -480,6 +480,6 @@ Bei uns noch strenger: Das LLM bzw. Intent-Modell liefert nur `{intent, slots}`.
 - **CAADRIA 2025, Beitrag 348:** RKG plus IfcOpenShell-Codegenerator (GPT-2), pass@k. Autoren nicht geprüft.
 - **MDPI Buildings 15(12):2093 (2025), Review zu Pfadoptimierung bei MEP** (ACO + A\*). Autoren nicht geprüft. Die Zahlen darin (−25–35 % Entwurfszeit) sind nicht belastbar.
 - **„Text-to-Code Generation for Modular Building Layouts in BIM“** (arXiv 2509.23713) und **„Toward Platform-based Building Design“** (arXiv 2305.10949): nur als Suchtreffer gesehen, noch lesen.
-- **Malmgren, Jensen, Olofsson, „Product modeling of configurable building systems – a case study“** (ITcon, 2010 oder 2011, Jahr widersprüchlich). Schwedischer Hausbauer, Produktstruktur.
+- **Malmgren, Jensen, Olofsson, „Product modeling of configurable building systems – a case study“**: bereits in lit-D als `malmgren2010product` erfasst (dort prüfen, weil ITcon 2010 und 2011 widersprüchlich auftauchen).
 - **Müller et al. (2006), „Procedural modeling of buildings“** (ACM TOG), wird von Kelly zitiert. Nicht selbst geprüft.
 - **Zeitschriftenversion von Niemeijer et al., „Designing with constraints – towards mass customization in the housing industry“** (TU/e-Repositorium): Venue offen.

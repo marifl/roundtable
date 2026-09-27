@@ -353,7 +353,7 @@ Die Grenze zeigt, dass „alles ist schon da“ nicht mit „alles ist frei verf
 
 Der Rechtsrahmen bestätigt das Zielbild in seinem Kern und präzisiert es in drei Punkten:
 
-1. **Der Kunde kann entwerfen, aber nicht verantworten.** Die Verantwortung liegt bei der Firma als Entwurfsverfasserin unter Leitung einer bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Für Gebäudeklasse 1 bis 3 kann das auch ein Zimmerermeister sein. Das System muss diese Freigabe als R3-Gate abbilden.
+1. **Der Kunde kann entwerfen, aber nicht verantworten.** Die Verantwortung liegt bei der Firma als Entwurfsverfasserin unter Leitung einer bauvorlageberechtigten Person (Art. 61 Abs. 6 BayBO). Für freistehende oder einseitig angebaute Wohngebäude der Gebäudeklassen 1 bis 3 mit höchstens drei Wohnungen kann das auch ein Zimmerermeister sein; für Reihenmittelhäuser und größere Mehrfamilienhäuser nicht. Das System muss diese Freigabe als R3-Gate abbilden.
 2. **Das Modell ist nicht die Bauvorlage, aber ihr Garant.** Bayern verlangt PDF-Bauvorlagen. Die Konsistenzforderung des § 13 BauVorlV erfüllt ein System mit einer einzigen Quelle konstruktionsbedingt.
 3. **Regeln sind zeitabhängig und geschichtet.** Vollgeschoss nach der Fassung von 2007, GEG → GModG und EC 5 in zwei Generationen: Das Regelwerk braucht Profile mit Version und Geltungszeitraum. Außerdem braucht es eine Schichtung vom öffentlichen Recht bis zur Herstellerregel, in der höhere Schichten nur verschärfen dürfen.
 

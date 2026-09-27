@@ -4,7 +4,7 @@ Stand: 27.09.2026. Recherchebefund, keine Rechtsberatung. **[V]** = Wortlaut an 
 
 ## Ergebnis in 5 Punkten
 
-1. **Der Kunde kann nicht Entwurfsverfasser sein.** Die Firma kann es aber sein, wenn eine namentlich benannte bauvorlageberechtigte Person die Arbeit leitet (Art. 61 Abs. 6 BayBO). Für Wohngebäude GK 1–3 mit höchstens 3 Wohnungen reicht auch ein **Zimmerermeister** (Abs. 3).
+1. **Der Kunde kann nicht Entwurfsverfasser sein.** Die Firma kann es aber sein, wenn eine namentlich benannte bauvorlageberechtigte Person die Arbeit leitet (Art. 61 Abs. 6 BayBO). Für freistehende oder einseitig angebaute Wohngebäude GK 1–3 mit höchstens 3 Wohnungen reicht auch ein **Zimmerermeister** (Abs. 3). Reihenmittelhaus und MFH ab 4 Wohnungen sind ausgeschlossen (Recherche 14).
 2. **Die Bauvorlagen sind in Bayern heute PDF-Dateien, kein IFC.** IFC ist nur als Anlage möglich. Das IFC bleibt die Quelle, aus der PDF-Pläne nach BauVorlV und die Formulardaten abgeleitet werden.
 3. **Die Baubeschreibung nach Art. 249 EGBGB muss vor der Vertragsunterschrift vorliegen.** Sie lässt sich aus dem Modell erzeugen und auf Vollständigkeit prüfen.
 4. **Typengenehmigung nach Art. 73a BayBO** für ein „System aus Bauteilen“ mit festgelegter Veränderbarkeit. Das ist eine strategische Option, die genau zum Regelraum der Firma passt.
