@@ -111,7 +111,7 @@ def inkreis_durchmesser(p: Polygon) -> float:
     """Durchmesser des größten einbeschriebenen Kreises (Maß für 'Breite')."""
     if p.is_empty or p.area <= 0:
         return 0.0
-    return 2.0 * shapely.maximum_inscribed_circle(p, 0.05).length
+    return 2.0 * shapely.maximum_inscribed_circle(p, 0.5).length
 
 
 # ---------------------------------------------------------------------------
@@ -342,6 +342,7 @@ class Stueck:
     m_global: np.ndarray            # Rohling-lokal → global
     ganz: bool                      # Rohling unverändert (kein Schnitt)
     soll_ganz: bool                 # Sollform unverändert (nur Formschnitte)
+    breite: float                   # Inkreisdurchmesser (mm)
     schnitte: list[tuple[str, float]] = field(default_factory=list)   # (Art, Länge mm)
 
     @property
@@ -410,9 +411,12 @@ def verlege(raum: Raum, muster: Muster, u: float, v: float, regeln: dict) -> dic
         imin, jmin = np.floor(ij.min(axis=0) - rand).astype(int)
         imax, jmax = np.ceil(ij.max(axis=0) + rand).astype(int)
         achswinkel = math.degrees(math.atan2(mot.m[1, 0], mot.m[0, 0]))
+        bx0, by0, bx1, by1 = soll_m.bounds
         for i in range(imin, imax + 1):
             for j in range(jmin, jmax + 1):
                 d = o + i * muster.t1 + j * muster.t2
+                if bx0 + d[0] > xmax or bx1 + d[0] < xmin or by0 + d[1] > ymax or by1 + d[1] < ymin:
+                    continue
                 mg = m_mul(m_trans(d[0], d[1]), mot.m)
                 soll_g = anwenden(mot.soll, mg)
                 if not soll_g.intersects(raum.raum):
@@ -430,14 +434,15 @@ def verlege(raum: Raum, muster: Muster, u: float, v: float, regeln: dict) -> dic
                     for teil in teile:
                         if teil.area < 1.0:
                             continue
-                        if inkreis_durchmesser(teil) < regeln["verlegbar_min_breite_mm"]:
+                        breite = inkreis_durchmesser(teil)
+                        if breite < regeln["verlegbar_min_breite_mm"]:
                             verworfen.append(teil)
                             continue
                         soll_ganz = abs(teil.area - soll_g.area) < 1e-6 * soll_g.area + 1e-6
                         ganz = soll_ganz and abs(soll_g.area - roh_g.area) < 1e-6 * roh_g.area
                         schn = [] if ganz else klassifiziere_schnitte(teil, roh_g, soll_g, raum, achswinkel)
                         stuecke.append(Stueck(rid, mot.name, mot.artikel, k, teil, anwenden(teil, inv), mg,
-                                              ganz, soll_ganz, schn))
+                                              ganz, soll_ganz, breite, schn))
                         positionen.add((rid, mot.artikel))
     stuecke.sort(key=lambda s: (s.rohling_id, s.facette, round(s.poly.centroid.x, 3), round(s.poly.centroid.y, 3)))
     return {"stuecke": stuecke, "verworfen": verworfen, "positionen": sorted(positionen),
@@ -547,7 +552,7 @@ def auswerten(raum: Raum, erg: dict, daten: dict, mit_greedy: bool = True) -> di
     zeit_min = sum(schnitt_n[a] * kalk["zeit_min_je_schnitt"][a] for a in SCHNITTARTEN)
 
     klein_flaeche = [s for s in stuecke if not s.soll_ganz and s.poly.area < regeln["min_flaechenanteil"] * soll_fl[s.motiv]]
-    klein_breite = [s for s in stuecke if not s.soll_ganz and inkreis_durchmesser(s.poly) < regeln["min_breite_mm"]]
+    klein_breite = [s for s in stuecke if not s.soll_ganz and s.breite < regeln["min_breite_mm"]]
 
     # (a) je Rasterposition ein Rohling
     n_pos = {a: 0 for a in rohlinge}
@@ -655,8 +660,7 @@ def svg(raum: Raum, erg: dict, kz: dict, pfad: Path, regeln: dict):
              f'viewBox="0 0 {w:.0f} {h + 60:.0f}" font-family="sans-serif" font-size="11">',
              '<rect width="100%" height="100%" fill="#ffffff"/>',
              f'<polygon points="{pts(raum.raum.exterior)}" fill="#e5e5e5" stroke="#333" stroke-width="2"/>']
-    klein = {id(s) for s in erg["stuecke"]
-             if not s.soll_ganz and inkreis_durchmesser(s.poly) < regeln["min_breite_mm"]}
+    klein = {id(s) for s in erg["stuecke"] if not s.soll_ganz and s.breite < regeln["min_breite_mm"]}
     for s in erg["stuecke"]:
         rand = "#d7301f" if id(s) in klein else "#555"
         teile.append(f'<polygon points="{pts(s.poly.exterior)}" fill="{FARBE[s.kategorie]}" '
