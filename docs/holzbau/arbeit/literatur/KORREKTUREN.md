@@ -265,3 +265,96 @@ Q021 (Crossref: 14 Autoren, „Gonçal Costa“ korrekt), Q036, Q037, Q100, Q140
 | Q404 | standtke2024etim | Jahr 2024 nur aus dem Text erschlossen, wh40.ch-Seite undatiert; unverändert (bereits [U]). |
 | Q417 | kuhl2023robotik | Kein Repositorium ermittelt, nur Exa-Bibliothekseintrag; unverändert (bereits [U]). Typ @thesis mit type={Bachelorarbeit} ist biblatex-konform und wurde belassen. |
 | Q034/Q196 | mbo2bim2023 | Derselbe Key steht in lit-A-acc-bim.bib (@misc, Projektseite) und lit-C-recht-normen.bib (@techreport, Abschlussbericht). Keys dürfen nicht geändert werden; der C-Eintrag ist als Dublette markiert. bibmerge.py meldet weiterhin „Key-Kollisionen [mbo2bim2023]“; beim Einbinden nur eine Datei-Fassung verwenden. |
+
+
+## Runde 2: Q463–Q811
+
+Grundlage: `quellen-bewertung.csv` (Spalte `begruendung`, Q463–Q811). Bearbeitet: `lit-H-ff4-ff5.bib`, `lit-I-schneeball-a.bib`, `lit-I-schneeball-b.bib`; lit-A…G und lit-J-*.bib nicht angefasst. Keine Einträge hinzugefügt oder gelöscht, keine Keys geändert (Keys mit altem Jahr bleiben stehen). Jede korrigierte Quelle trägt im `note` den Zusatz „korrigiert 2026-09-27: …“. Konventionen wie Runde 1: Artikelnummern im Feld `pages`, `year` = Jahr des Heftes (published-print), erledigte Vorbehalte im note entfernt.
+
+Prüfweg: Crossref-API (`api.crossref.org/works?filter=doi:…&select=…`, über Exa-Fetch, da direkt gesperrt), Verlags- und Repositoriumsseiten (itcon.org, AIS eLibrary, PMLR), EUR-Lex, iso.org, DIN Media.
+
+In `lit-I-schneeball-a.bib` war nach Prüfung keine Korrektur nötig (die dort genannten Online-/Heftjahr-Hinweise Q549, Q559, Q562, Q571, Q584, Q596 sind bereits mit dem Heftjahr eingetragen).
+
+### Stabilitätsprüfung
+
+- Sicherung vor der Korrektur: `quellen-master.csv` und die drei .bib-Dateien im Scratchpad.
+- `bibmerge.py` auf einer Kopie des Ordners (lit-A…I; eine lit-J-*.bib lag nicht vor): 814 Einträge, **811 eindeutig**, 3 Duplikate wie vorher (du2026text2bim, iso16739-2024→iso2024ifc, ids2024→bsi2024ids); Key-Kollision mbo2bim2023 unverändert (s. Runde 1).
+- Reihenfolge von id/key/alias identisch zur Sicherung (811/811). `quellen-master.csv` im Originalordner nicht überschrieben (byte-identisch zur Sicherung).
+- Brace-Balance der drei .bib-Dateien: Endtiefe 0, keine negativen Tiefen; keine doppelten Feldnamen innerhalb eines Eintrags.
+
+### Änderungen (23 Quellen, 30 Feldkorrekturen zuzüglich note)
+
+| id | key | Feld | alt | neu | Prüfweg |
+|---|---|---|---|---|---|
+| Q464 | naser2026engineers | pages | (leer) | 04526016 | Crossref 10.1061/JLADAH.LADR-1499 (18(3), article-number 04526016) |
+| Q464 | naser2026engineers | note | entfernt: „Seitenzahl/Artikelnummer in Crossref nicht angegeben.“ | korrigiert 2026-09-27: Artikelnummer 04526016 ergänzt (Crossref article-number) | s. o. |
+| Q465 | ng2023liability | pages | (leer) | 04522043 | Crossref 10.1061/(ASCE)LA.1943-4170.0000578 (15(1), article-number 04522043) |
+| Q465 | ng2023liability | note | – | korrigiert 2026-09-27: Artikelnummer 04522043 ergänzt (Crossref article-number) | s. o. |
+| Q470 | zou2023lessons | pages | (leer) | 04023019 | Crossref 10.1061/JMENEA.MEENG-5051 (39(4), article-number 04023019) |
+| Q470 | zou2023lessons | note | – | korrigiert 2026-09-27: Artikelnummer 04023019 ergänzt (Crossref article-number) | s. o. |
+| Q471 | zou2022investigating | pages | (leer) | 05022013 | Crossref 10.1061/(ASCE)CO.1943-7862.0002384 (148(12), article-number 05022013) |
+| Q471 | zou2022investigating | note | – | korrigiert 2026-09-27: Artikelnummer 05022013 ergänzt (Crossref article-number) | s. o. |
+| Q495 | darocha2016managing | pages | (leer) | 05016005 | Crossref 10.1061/(ASCE)CO.1943-7862.0001119 (142(8), article-number 05016005) |
+| Q495 | darocha2016managing | note | – | korrigiert 2026-09-27: Artikelnummer 05016005 ergänzt (Crossref article-number) | s. o. |
+| Q503 | ittmann2018standard | pages | (leer) | 06518001 | Crossref 10.1061/(ASCE)LA.1943-4170.0000265 (10(3), article-number 06518001) |
+| Q503 | ittmann2018standard | note | – | korrigiert 2026-09-27: Artikelnummer 06518001 ergänzt (Crossref article-number) | s. o. |
+| Q506 | alwash2017impact | pages | (leer) | 04517005 | Crossref 10.1061/(ASCE)LA.1943-4170.0000219 (9(3), article-number 04517005) |
+| Q506 | alwash2017impact | note | – | korrigiert 2026-09-27: Artikelnummer 04517005 ergänzt (Crossref article-number) | s. o. |
+| Q521 | abdulnabi2022proactive | pages | (leer) | 04022052 | Crossref 10.1061/(ASCE)CO.1943-7862.0002311 (148(7), article-number 04022052) |
+| Q521 | abdulnabi2022proactive | note | – | korrigiert 2026-09-27: Artikelnummer 04022052 ergänzt (Crossref article-number) | s. o. |
+| Q468 | jaskula2024common | year | 2024 | 2025 | Crossref 10.1108/CI-04-2023-0088 (published-print 2025-11-17, online 2024-01-29) |
+| Q468 | jaskula2024common | note | – | korrigiert 2026-09-27: Jahr 2024 (online) -> 2025 (Heft 25(5), published-print 17.11.2025); Key unverändert | s. o. |
+| Q498 | tremblay2010focus | pages | (leer) | 27 | AIS eLibrary aisel.aisnet.org/cais/vol26/iss1/27; Crossref 10.17705/1CAIS.02627 (ohne page) |
+| Q498 | tremblay2010focus | note | – | korrigiert 2026-09-27: Artikelnummer 27 aus note ins Feld pages übernommen (AIS eLibrary cais/vol26/iss1/27, DOI-Suffix 02627) | s. o. |
+| Q502 | dellacqua2026navigating | volume | (leer) | 37 | Crossref 10.1287/orsc.2025.21838 (37(2), 403-423, published-print 2026-03) |
+| Q502 | dellacqua2026navigating | number | (leer) | 2 | Crossref 10.1287/orsc.2025.21838 (37(2), 403-423, published-print 2026-03) |
+| Q502 | dellacqua2026navigating | pages | (leer) | 403--423 | Crossref 10.1287/orsc.2025.21838 (37(2), 403-423, published-print 2026-03) |
+| Q502 | dellacqua2026navigating | note | entfernt: „Band/Heft in Crossref noch nicht angegeben.“ | korrigiert 2026-09-27: Band 37, Heft 2, S. 403--423 ergänzt (Crossref, published-print 03/2026) | s. o. |
+| Q520 | wuni2019critical | year | 2019 | 2022 | Crossref 10.1080/15623599.2019.1613212 (published-print 2022-01-25, online 2019-05-13) |
+| Q520 | wuni2019critical | note | – | korrigiert 2026-09-27: Jahr 2019 (online) -> 2022 (Heft 22(2), published-print 25.01.2022); Key unverändert | s. o. |
+| Q480 | eu2014eidas | howpublished | ABl. L 257 vom 28.08.2014, S. 73; Änderung ABl. L, 2024/1183, 30.04.2024 | ABl. L 257 vom 28.08.2014, S. 73--114; Änderung ABl. L, 2024/1183, 30.04.2024 | EUR-Lex CELEX 32014R0910 (ABl. L 257 vom 28.8.2014, S. 73-114) |
+| Q480 | eu2014eidas | url | http://data.europa.eu/eli/reg/2024/1183/oj | http://data.europa.eu/eli/reg/2014/910/oj | EUR-Lex CELEX 32014R0910 (ABl. L 257 vom 28.8.2014, S. 73-114) |
+| Q480 | eu2014eidas | note | entfernt: „Seitenzahl vor Zitation gegenprüfen.“ | korrigiert 2026-09-27: URL auf ELI der Grundverordnung 910/2014 statt Änderungs-VO 2024/1183; Seiten 73--114 an EUR-Lex bestätigt | s. o. |
+| Q643 | gao2023pal | doi | 10.48550/arxiv.2211.10435 | (entfernt) | PMLR proceedings.mlr.press/v202/gao23f (BibTeX der Seite ohne DOI); 10.48550 = arXiv-DOI |
+| Q643 | gao2023pal | note | – | korrigiert 2026-09-27: DOI 10.48550/arxiv.2211.10435 (arXiv-Preprint) entfernt; zitiert wird die PMLR-Fassung (Bd. 202, ohne DOI), Preprint über eprint | s. o. |
+| Q666 | bakhshi2021dfma | year | 2021 | 2022 | Crossref 10.1016/j.autcon.2021.104015 (Bd. 133, published-print 2022-01) |
+| Q666 | bakhshi2021dfma | note | – | korrigiert 2026-09-27: Jahr 2021 (online) -> 2022 (AutCon 133, published-print 01/2022); Key unverändert | s. o. |
+| Q685 | haug2018costs | year | 2018 | 2019 | Crossref 10.1016/j.compind.2018.11.005 (Bd. 105, published-print 2019-02) |
+| Q685 | haug2018costs | note | – | korrigiert 2026-09-27: Jahr 2018 (online) -> 2019 (CompInd 105, published-print 02/2019); Key unverändert | s. o. |
+| Q687 | hentschke2019conjoint | year | 2019 | 2020 | Crossref 10.1590/s1678-86212020000100372 (20(1), 2020-03) |
+| Q687 | hentschke2019conjoint | note | – | korrigiert 2026-09-27: Jahr 2019 -> 2020 (Ambiente Construído 20(1), Crossref 03/2020); Key unverändert | s. o. |
+| Q742 | asare2026dimensionality | pages | (leer) | 04025112 | Crossref 10.1061/jccee5.cpeng-6479 (40(1), article-number 04025112) |
+| Q742 | asare2026dimensionality | note | – | korrigiert 2026-09-27: Artikelnummer 04025112 ergänzt (Crossref article-number) | s. o. |
+| Q753 | chateauvieuxhellwig2025schallschutz | editor | (leer) | Fouad, Nabil A. | Crossref 10.1002/9783433612095 (edited-book, editor Nabil Fouad); Verlagsangabe laut Bewertung |
+| Q753 | chateauvieuxhellwig2025schallschutz | note | entfernt: „[U] … Unsicher: Herausgeber im Crossref-Record nicht angegeben ([U]->[V])“ | korrigiert 2026-09-27: Herausgeber Fouad, Nabil A. ergänzt (Crossref edited-book 10.1002/9783433612095; Verlagsangabe) | s. o. |
+| Q762 | dosen2017lived | title | Lived spaceandgeometric space: comparing people’s perceptions of spatial enclosure and exposure with metric room properties and isovist measures | Lived space and geometric space: comparing people’s perceptions of spatial enclosure and exposure with metric room properties and isovist measures | Crossref 10.1080/00038628.2016.1235545 (Titel mit Kursivauszeichnung, Leerzeichen fehlen dort) |
+| Q762 | dosen2017lived | note | – | korrigiert 2026-09-27: fehlende Leerzeichen im Titel ergänzt ("Lived space and geometric space"; Crossref-Titel mit Kursivauszeichnung ohne Leerzeichen) | s. o. |
+| Q777 | iso23387 | title | ISO 23387:2020 Building information modelling ({BIM}) -- Data templates for construction objects used in the life cycle of built assets -- Concepts and principles | ISO 23387:2025 Building information modelling ({BIM}) -- Data templates for objects used in the life cycle of assets | iso.org/standard/85391.html (ISO 23387:2025, 2. Ausgabe); DIN Media (DIN EN ISO 23387:2026-01 ersetzt 2020-12); CEN: EN ISO 23387:2025 ersetzt EN ISO 23387:2020 |
+| Q777 | iso23387 | year | 2020 | 2025 | iso.org/standard/85391.html (ISO 23387:2025, 2. Ausgabe); DIN Media (DIN EN ISO 23387:2026-01 ersetzt 2020-12); CEN: EN ISO 23387:2025 ersetzt EN ISO 23387:2020 |
+| Q777 | iso23387 | doi | 10.3403/30376819 | (entfernt) | iso.org/standard/85391.html (ISO 23387:2025, 2. Ausgabe); DIN Media (DIN EN ISO 23387:2026-01 ersetzt 2020-12); CEN: EN ISO 23387:2025 ersetzt EN ISO 23387:2020 |
+| Q777 | iso23387 | url | (leer) | https://www.iso.org/standard/85391.html | iso.org/standard/85391.html (ISO 23387:2025, 2. Ausgabe); DIN Media (DIN EN ISO 23387:2026-01 ersetzt 2020-12); CEN: EN ISO 23387:2025 ersetzt EN ISO 23387:2020 |
+| Q777 | iso23387 | note | entfernt: „[U] OpenAlex-Record zur BSI-Ausgabe … Unsicher: DIN-Ausgabe (DIN EN ISO 23387) nicht separat geprüft. ([U]->[V], Prüfweg neu)“ | korrigiert 2026-09-27: Normausgabe aktualisiert: ISO 23387:2020 durch ISO 23387:2025 (2. Ausgabe, 2025-09) ersetzt, Titel angepasst; DOI 10.3403/30376819 (BSI-Ausgabe BS EN ISO 23387:2020) entfernt, URL iso.org ergänzt; deutsche Ausgabe DIN EN ISO 23387:2026-01 ersetzt DIN EN ISO 23387:2020-12 (DIN Media) | s. o. |
+| Q786 | mellenthinfilardo2026requirements | volume | (leer) | 31 | Verlagsseite itcon.org/2026/10 (Zitierangabe ITcon 31, 225-245); Crossref ohne volume |
+| Q786 | mellenthinfilardo2026requirements | pages | 225 | 225--245 | Verlagsseite itcon.org/2026/10 (Zitierangabe ITcon 31, 225-245); Crossref ohne volume |
+| Q786 | mellenthinfilardo2026requirements | note | entfernt: „[U] … Unsicher: Band/Heft im Record noch nicht vergeben (Online-First). ([U]->[V])“ | korrigiert 2026-09-27: Band 31 und Seiten 225--245 ergänzt (Verlagsseite itcon.org/2026/10, Zitierangabe) | s. o. |
+| Q804 | ulusoy2024preferences | number | (leer) | 4 | Crossref 10.3390/architecture4040045 (4(4), 854-876) |
+| Q804 | ulusoy2024preferences | note | – | korrigiert 2026-09-27: Heft 4 ergänzt (Crossref: Architecture 4(4), 854-876) | s. o. |
+
+### Weitere Hinweise zu Entscheidungen
+
+- **Q468, Q520, Q666, Q685, Q687**: Jahr auf das Heftjahr gesetzt (Konvention wie Q252/Q373); Keys (jaskula2024common, wuni2019critical, bakhshi2021dfma, haug2018costs, hentschke2019conjoint) unverändert.
+- **Q498**: CAIS vergibt Artikelnummern statt Seiten; Nummer 27 wie die übrigen Artikelnummern in `pages` gesetzt.
+- **Q643**: Das arXiv-Preprint bleibt über `eprint`/`archiveprefix` auffindbar; die PMLR-Fassung hat keine DOI.
+- **Q777**: Keine rechtliche oder inhaltliche Bindung an die Ausgabe 2020 erkennbar (anders als bei den GModG-Normen in Runde 1), daher auf die geltende Ausgabe ISO 23387:2025 umgestellt; Organisation ISO belassen, die deutsche Ausgabe DIN EN ISO 23387:2026-01 steht im note.
+- **Q753**: Crossref führt den Herausgeber nur als „Nabil Fouad“; die Initiale „A.“ folgt der Verlagsangabe aus der Bewertung.
+- **Q480**: Die Änderungs-VO 2024/1183 bleibt in Titel und howpublished genannt; die URL zeigt jetzt auf die Grundverordnung.
+
+### Geprüft, keine Änderung nötig
+
+Q472 cheung2026institutionalizing, Q669 campogay2026quality, Q729 wyke2025productivity (Crossref am 27.09.2026 weiterhin ohne Band/Heft, Online-First; Q669/Q729 bleiben [U]), Q710 piroozfar2013mass (editor bereits im BibTeX; der Master zeigt Herausgeber nicht, weil bibmerge.py nur author/organization/institution liest), Q474, Q636, Q656, Q663 (Abstract aus arXiv-Vorfassung gelesen, DOI im Eintrag ist die Journalfassung), Q500 (QJE-Fassung bereits zitiert), Q490 (Crossref 35(1–4), 2018 wie eingetragen), Q549, Q559, Q562, Q571, Q584, Q596, Q639, Q659, Q670, Q677, Q683, Q689, Q701, Q708, Q719, Q721, Q728, Q731, Q744, Q792 (Heftjahr bereits eingetragen), Q759 (Ausgabe 2024-11 aktuell), Q473, Q475 (Autorennamen im BibTeX korrekt, Crossref fehlerhaft).
+
+### nicht klärbar
+
+| id | key | Problem |
+|---|---|---|
+| Q478 | wilhelmi2020haftung | Kapitel-DOI bei Crossref nicht registriert (Suche Präfix 10.3790, Typ book-chapter, Autor Wilhelmi ohne Treffer); Band-DOI 10.3790/978-3-428-55963-3 unverändert, note um „[U] …“ ergänzt. |
