@@ -1,0 +1,371 @@
+{
+ "variante": "A_bodenplatte_nass",
+ "name": "EG auf Stahlbeton-Bodenplatte, Heizestrich nass (Bauart A)",
+ "geschoss": "EG",
+ "rohdecke": "Stahlbeton-Bodenplatte 250 mm",
+ "ziel_aufbauhoehe_mm": 210.0,
+ "okff_toleranz_mm": 2.0,
+ "nachweis_gleiche_okff": false,
+ "raeume": [
+  {
+   "id": "R01",
+   "name": "Wohnen",
+   "belag": "parkett_14_geklebt",
+   "estrich": "CAF_F4",
+   "zulaessig": true,
+   "okff_mm": 210.0,
+   "okff_toleranz_mm": 0.6,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "abdichtung",
+     "material": "bitumen_abdichtung",
+     "name": "Bitumen-Schweissbahn (Abdichtung nach DIN 18533)",
+     "dicke_mm": 5.0,
+     "uk_mm": 0.0,
+     "ok_mm": 5.0
+    },
+    {
+     "rolle": "installationsebene",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 35.0,
+     "uk_mm": 5.0,
+     "ok_mm": 40.0
+    },
+    {
+     "rolle": "waermedaemmung",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 60.0,
+     "uk_mm": 40.0,
+     "ok_mm": 100.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "eps_t_tacker",
+     "name": "EPS-T Tackerplatte 30-2 fuer Fussbodenheizung",
+     "dicke_mm": 28.0,
+     "uk_mm": 100.0,
+     "ok_mm": 128.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "caf",
+     "name": "Calciumsulfat-Fliessestrich CAF-F4",
+     "dicke_mm": 67.0,
+     "uk_mm": 128.0,
+     "ok_mm": 195.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "parkettklebstoff",
+     "name": "Parkettklebstoff (schubfest)",
+     "dicke_mm": 1.0,
+     "uk_mm": 195.0,
+     "ok_mm": 196.0
+    },
+    {
+     "rolle": "belag",
+     "material": "parkett_eiche",
+     "name": "Mehrschichtparkett Eiche",
+     "dicke_mm": 14.0,
+     "uk_mm": 196.0,
+     "ok_mm": 210.0
+    }
+   ],
+   "kennwerte": {
+    "estrich_nenndicke_min_mm": 57.0,
+    "aufbauhoehe_mm": 210.0,
+    "flaechenmasse_kg_m2": 152.42,
+    "kosten_eur_m2_beispiel": 126.85,
+    "lagen": 7,
+    "R_lambda_B": 0.1127,
+    "R_ins": 3.444,
+    "U_W_m2K": 0.257,
+    "toleranz_ueber_nivellierhorizont_mm": 0.6,
+    "nivellierhorizont": "estrich",
+    "estrich_tiefpunkt_mm": 67.0,
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 0.0,
+    "zielwert": 279.97,
+    "kandidaten_verworfen": {
+     "hoehe_zu_gross": 318,
+     "hoehe_zu_klein": 27,
+     "u_wert": 16
+    },
+    "belegreife_cm_max": 0.3
+   },
+   "verstoesse": [],
+   "hinweise": [],
+   "diagnose": {}
+  },
+  {
+   "id": "R02",
+   "name": "Kueche",
+   "belag": "feinsteinzeug_10",
+   "estrich": "CAF_F4",
+   "zulaessig": true,
+   "okff_mm": 210.0,
+   "okff_toleranz_mm": 1.0,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "abdichtung",
+     "material": "bitumen_abdichtung",
+     "name": "Bitumen-Schweissbahn (Abdichtung nach DIN 18533)",
+     "dicke_mm": 5.0,
+     "uk_mm": 0.0,
+     "ok_mm": 5.0
+    },
+    {
+     "rolle": "installationsebene",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 35.0,
+     "uk_mm": 5.0,
+     "ok_mm": 40.0
+    },
+    {
+     "rolle": "waermedaemmung",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 60.0,
+     "uk_mm": 40.0,
+     "ok_mm": 100.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "eps_t_tacker",
+     "name": "EPS-T Tackerplatte 30-2 fuer Fussbodenheizung",
+     "dicke_mm": 28.0,
+     "uk_mm": 100.0,
+     "ok_mm": 128.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "caf",
+     "name": "Calciumsulfat-Fliessestrich CAF-F4",
+     "dicke_mm": 68.0,
+     "uk_mm": 128.0,
+     "ok_mm": 196.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "duennbettmoertel",
+     "name": "Duennbettmoertel C2 (DIN EN 12004)",
+     "dicke_mm": 4.0,
+     "uk_mm": 196.0,
+     "ok_mm": 200.0
+    },
+    {
+     "rolle": "belag",
+     "material": "feinsteinzeug",
+     "name": "Feinsteinzeug",
+     "dicke_mm": 10.0,
+     "uk_mm": 200.0,
+     "ok_mm": 210.0
+    }
+   ],
+   "kennwerte": {
+    "estrich_nenndicke_min_mm": 57.0,
+    "aufbauhoehe_mm": 210.0,
+    "flaechenmasse_kg_m2": 173.22,
+    "kosten_eur_m2_beispiel": 115.0,
+    "lagen": 7,
+    "R_lambda_B": 0.0127,
+    "R_ins": 3.444,
+    "U_W_m2K": 0.264,
+    "toleranz_ueber_nivellierhorizont_mm": 1.0,
+    "nivellierhorizont": "estrich",
+    "estrich_tiefpunkt_mm": 68.0,
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 34.0,
+    "zielwert": 288.92,
+    "kandidaten_verworfen": {
+     "daemmplatte_nicht_buendig": 270,
+     "hoehe_zu_gross": 73,
+     "hoehe_zu_klein": 2,
+     "leitungen_ohne_installationsebene": 45,
+     "u_wert": 10
+    },
+    "belegreife_cm_max": 0.3
+   },
+   "verstoesse": [],
+   "hinweise": [
+    "PWH 16x2 Stichleitung (1,2 l, ohne Zirkulation): Anl. 8 Nr. 1 c: Stichleitung <= 3 l ohne Zirkulation/Begleitheizung in beheizten Räumen – ausgenommen."
+   ],
+   "diagnose": {}
+  },
+  {
+   "id": "R03",
+   "name": "Bad",
+   "belag": "naturstein_20_mittelbett",
+   "estrich": "CT_F4",
+   "zulaessig": false,
+   "okff_mm": null,
+   "okff_toleranz_mm": null,
+   "nachweis_okff": false,
+   "schichten": [],
+   "kennwerte": {},
+   "verstoesse": [
+    "Kein zulässiger Aufbau für H = 210 mm. Mindestens erreichbar: 240 mm (fehlen 30 mm). Häufigste Ausschlussgründe: hoehe_zu_gross (384×), u_wert (20×), hoehe_zu_klein (1×)"
+   ],
+   "hinweise": [
+    "Estrich im Bad Calciumsulfat-Fliess-Heizestrich CAF-F4 schwimmend → Zement-Heizestrich CT-F4 schwimmend: Gefälleflächen mit feuchteunempfindlichem Estrich (IGG-Merkblatt 5 Holz-/Trockenbau; DIN 18534-1 W2-I). Estrichwechsel an der Badtür = Bewegungsfuge (DIN 18560-2 6.3.3)."
+   ],
+   "diagnose": {
+    "h_erreichbar_mm": [
+     240.0,
+     557.0
+    ],
+    "gruende": {
+     "hoehe_zu_klein": 1,
+     "u_wert": 20,
+     "hoehe_zu_gross": 384
+    }
+   }
+  },
+  {
+   "id": "R04",
+   "name": "Flur",
+   "belag": "beton_cire_3",
+   "estrich": "CAF_F4",
+   "zulaessig": true,
+   "okff_mm": 210.0,
+   "okff_toleranz_mm": 0.8,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "abdichtung",
+     "material": "bitumen_abdichtung",
+     "name": "Bitumen-Schweissbahn (Abdichtung nach DIN 18533)",
+     "dicke_mm": 5.0,
+     "uk_mm": 0.0,
+     "ok_mm": 5.0
+    },
+    {
+     "rolle": "installationsebene",
+     "material": "gebundene_schuettung",
+     "name": "Gebundene Schuettung (EPS-Zement)",
+     "dicke_mm": 46.0,
+     "uk_mm": 5.0,
+     "ok_mm": 51.0
+    },
+    {
+     "rolle": "waermedaemmung",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 20.0,
+     "uk_mm": 51.0,
+     "ok_mm": 71.0
+    },
+    {
+     "rolle": "waermedaemmung",
+     "material": "eps_deo_035",
+     "name": "EPS 035 DEO (druckbelastbar, >= 100 kPa)",
+     "dicke_mm": 50.0,
+     "uk_mm": 71.0,
+     "ok_mm": 121.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "eps_t_tacker",
+     "name": "EPS-T Tackerplatte 30-2 fuer Fussbodenheizung",
+     "dicke_mm": 28.0,
+     "uk_mm": 121.0,
+     "ok_mm": 149.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "caf",
+     "name": "Calciumsulfat-Fliessestrich CAF-F4",
+     "dicke_mm": 57.0,
+     "uk_mm": 149.0,
+     "ok_mm": 206.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "mikrozement_grund",
+     "name": "Grundierung und Armierungsschicht Mikrozement",
+     "dicke_mm": 1.0,
+     "uk_mm": 206.0,
+     "ok_mm": 207.0
+    },
+    {
+     "rolle": "belag",
+     "material": "mikrozement",
+     "name": "Mikrozement / Beton Cire (2 Lagen + Versiegelung)",
+     "dicke_mm": 3.0,
+     "uk_mm": 207.0,
+     "ok_mm": 210.0
+    }
+   ],
+   "kennwerte": {
+    "estrich_nenndicke_min_mm": 57.0,
+    "aufbauhoehe_mm": 210.0,
+    "flaechenmasse_kg_m2": 144.62,
+    "kosten_eur_m2_beispiel": 176.15,
+    "lagen": 8,
+    "R_lambda_B": 0.0043,
+    "R_ins": 3.387,
+    "U_W_m2K": 0.269,
+    "toleranz_ueber_nivellierhorizont_mm": 0.8,
+    "nivellierhorizont": "estrich",
+    "estrich_tiefpunkt_mm": 57.0,
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 25.0,
+    "zielwert": 321.57,
+    "kandidaten_verworfen": {
+     "daemmplatte_nicht_buendig": 225,
+     "hoehe_zu_gross": 95,
+     "hoehe_zu_klein": 12,
+     "leitungen_ohne_installationsebene": 45,
+     "u_wert": 5
+    },
+    "belegreife_cm_max": 0.3
+   },
+   "verstoesse": [],
+   "hinweise": [],
+   "diagnose": {}
+  }
+ ],
+ "uebergaenge": [
+  {
+   "a": "Wohnen",
+   "b": "Kueche",
+   "art": "offen (ohne Tuer)",
+   "hinweise": [
+    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
+    "Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Feinsteinzeug 10 mm im Duennbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil."
+   ],
+   "verstoesse": [],
+   "delta_okff_mm": 0.0,
+   "kante_worst_case_mm": 1.6
+  },
+  {
+   "a": "Flur",
+   "b": "Wohnen",
+   "art": "Tuer T01",
+   "hinweise": [
+    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
+    "Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil."
+   ],
+   "verstoesse": [],
+   "delta_okff_mm": 0.0,
+   "kante_worst_case_mm": 1.4
+  },
+  {
+   "a": "Flur",
+   "b": "Bad",
+   "art": "Tuer T02 (Bad)",
+   "hinweise": [],
+   "verstoesse": [
+    "Übergang nicht bewertbar (Raum ohne zulässigen Aufbau)."
+   ]
+  }
+ ],
+ "hinweis": "Alle Kennwerte Beispielwerte; Normwerte nur als Kennwerte mit Verweis (siehe Eingabe-JSON)."
+}

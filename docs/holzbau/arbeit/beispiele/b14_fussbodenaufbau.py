@@ -304,8 +304,6 @@ def bewerte(raum: dict, var: dict, daten: dict, wahl: tuple, estrich_key: str,
         est_s.hi = e_min + float(e["mehrdicke_max_mm"]) + dh
         res.kennwerte["estrich_nenndicke_min_mm"] = e_min
     # --- Toleranzausgleich der Rohdecke ----------------------------------
-    niv = [x for x in s if x.stetig and mat[x.material]["nivellierend"]] + \
-          [x for x in s if not x.stetig and mat[x.material]["nivellierend"]]
     niv_unten = [x for x in s if mat[x.material]["nivellierend"]]
     if not niv_unten:
         raise Verworfen("kein_toleranzausgleich")
@@ -314,7 +312,8 @@ def bewerte(raum: dict, var: dict, daten: dict, wahl: tuple, estrich_key: str,
         pass
     elif tiefste.stetig:
         tiefste.lo += t_rd
-        tiefste.hi = max(tiefste.hi, tiefste.lo)
+        if tiefste.lo > tiefste.hi:
+            raise Verworfen("toleranzausgleich_zu_duenn")
     # Trockenestrich: vollflächige Auflage – nivellierende Schicht unterhalb nötig
     if e["art"] == "trocken":
         idx_e = s.index(est_s)
@@ -727,9 +726,9 @@ def erzeuge_ifc(daten: dict, ergebnis: dict):
         k = rj["kennwerte"]
         w.pset([cov], pfad + "/fussbodenaufbau", "Pset_CoveringCommon",
                {"Reference": f"{ergebnis['variante']}/{rr['id']}", "Finish": daten["belaege"][rr["belag"]]["name"]})
-        w.pset([cov], pfad + "/fussbodenaufbau", "Pset_B14_Fussbodenaufbau", {
+        w.pset([cov], pfad + "/fussbodenaufbau", "B14_Fussbodenaufbau", {
             "OKFF": ("IfcLengthMeasure", float(h)), "Estrich": rj["estrich"],
-            "Flaechenmasse": ("IfcMassPerLengthMeasure", float(k["flaechenmasse_kg_m2"])) if False else float(k["flaechenmasse_kg_m2"]),
+            "Flaechenmasse_kg_m2": float(k["flaechenmasse_kg_m2"]),
             "R_lambda_B": ("IfcThermalResistanceMeasure", float(k["R_lambda_B"])),
             "NachweisOKFF": bool(rj["nachweis_okff"]), "BelegreifeCMmax": k.get("belegreife_cm_max"),
             "Gefaelle": ("IfcLengthMeasure", float(k["gefaelle_mm"])) if k["gefaelle_mm"] else None})
@@ -744,7 +743,7 @@ def erzeuge_ifc(daten: dict, ergebnis: dict):
             wt = w.root("IfcWasteTerminal", pfad + "/rinne", Name=rinne["name"][:60], PredefinedType="FLOORTRAP",
                         ObjectPlacement=w.platzierung(storey.ObjectPlacement, (d["x"], d["y"], h - k["gefaelle_mm"] - 90.0)),
                         Representation=w.form(w.body, "SweptSolid", [w.quader(800.0, 70.0, 90.0)]))
-            w.pset([wt], pfad + "/rinne", "Pset_B14_Rinne", {"NennweiteDN": int(rinne["dn"]),
+            w.pset([wt], pfad + "/rinne", "B14_Rinne", {"NennweiteDN": int(rinne["dn"]),
                                                               "Ablaufleistung_l_s": float(rinne["ablaufleistung_l_s"])})
             enthalten.append(wt)
     w.root("IfcRelAggregates", f"/projekt/gebaeude/{var['geschoss']}#raeume", RelatingObject=storey, RelatedObjects=raeume_ifc)

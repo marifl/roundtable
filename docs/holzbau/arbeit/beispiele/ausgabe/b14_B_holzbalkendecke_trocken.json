@@ -1,0 +1,476 @@
+{
+ "variante": "B_holzbalkendecke_trocken",
+ "name": "OG auf Holzbalkendecke, Trockenaufbau mit Beschwerung und FBH-Trockensystem",
+ "geschoss": "OG",
+ "rohdecke": "Holzbalkendecke, OSB 22 mm auf KVH 100/240 (e = 625 mm)",
+ "ziel_aufbauhoehe_mm": 160.0,
+ "okff_toleranz_mm": 2.0,
+ "nachweis_gleiche_okff": true,
+ "raeume": [
+  {
+   "id": "R01",
+   "name": "Wohnen",
+   "belag": "parkett_14_geklebt",
+   "estrich": "TE_GF_25",
+   "zulaessig": true,
+   "okff_mm": 160.0,
+   "okff_toleranz_mm": 0.6,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "installationsebene",
+     "material": "gebundene_schuettung",
+     "name": "Gebundene Schuettung (EPS-Zement)",
+     "dicke_mm": 34.0,
+     "uk_mm": 0.0,
+     "ok_mm": 34.0
+    },
+    {
+     "rolle": "beschwerung",
+     "material": "wabe_schuettung",
+     "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
+     "dicke_mm": 30.0,
+     "uk_mm": 34.0,
+     "ok_mm": 64.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "holzfaser_tsd",
+     "name": "Holzfaser-Trittschalldaemmplatte",
+     "dicke_mm": 29.0,
+     "uk_mm": 64.0,
+     "ok_mm": 93.0
+    },
+    {
+     "rolle": "fbh",
+     "material": "fbh_systemplatte_trocken",
+     "name": "FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)",
+     "dicke_mm": 25.0,
+     "uk_mm": 93.0,
+     "ok_mm": 118.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "te_gipsfaser",
+     "name": "Trockenestrich Gipsfaser 2 x 12,5 mm",
+     "dicke_mm": 25.0,
+     "uk_mm": 118.0,
+     "ok_mm": 143.0
+    },
+    {
+     "rolle": "spachtelung",
+     "material": "spachtelmasse",
+     "name": "Spachtel-/Nivelliermasse",
+     "dicke_mm": 2.0,
+     "uk_mm": 143.0,
+     "ok_mm": 145.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "parkettklebstoff",
+     "name": "Parkettklebstoff (schubfest)",
+     "dicke_mm": 1.0,
+     "uk_mm": 145.0,
+     "ok_mm": 146.0
+    },
+    {
+     "rolle": "belag",
+     "material": "parkett_eiche",
+     "name": "Mehrschichtparkett Eiche",
+     "dicke_mm": 14.0,
+     "uk_mm": 146.0,
+     "ok_mm": 160.0
+    }
+   ],
+   "kennwerte": {
+    "aufbauhoehe_mm": 160.0,
+    "flaechenmasse_kg_m2": 108.2,
+    "kosten_eur_m2_beispiel": 176.35,
+    "lagen": 8,
+    "R_lambda_B": 0.1127,
+    "R_ins": 1.887,
+    "beschwerung_kg_m2": 56.9,
+    "toleranz_ueber_nivellierhorizont_mm": 0.6,
+    "nivellierhorizont": "spachtelung",
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 0.0,
+    "zielwert": 285.35,
+    "kandidaten_verworfen": {
+     "beschwerung": 15,
+     "hoehe_zu_gross": 22,
+     "hoehe_zu_klein": 3,
+     "kein_toleranzausgleich": 9,
+     "toleranzausgleich_zu_duenn": 9,
+     "toleranzkette": 7
+    },
+    "belegreife_cm_max": null
+   },
+   "verstoesse": [],
+   "hinweise": [
+    "Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe."
+   ],
+   "diagnose": {}
+  },
+  {
+   "id": "R02",
+   "name": "Kueche",
+   "belag": "feinsteinzeug_10",
+   "estrich": "TE_GF_25",
+   "zulaessig": true,
+   "okff_mm": 160.0,
+   "okff_toleranz_mm": 1.0,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "beschwerung",
+     "material": "wabe_schuettung",
+     "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
+     "dicke_mm": 60.0,
+     "uk_mm": 0.0,
+     "ok_mm": 60.0
+    },
+    {
+     "rolle": "ausgleich",
+     "material": "ausgleichsschuettung",
+     "name": "Ausgleichsschuettung (mechanisch gebunden)",
+     "dicke_mm": 15.0,
+     "uk_mm": 60.0,
+     "ok_mm": 75.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "holzfaser_tsd",
+     "name": "Holzfaser-Trittschalldaemmplatte",
+     "dicke_mm": 19.0,
+     "uk_mm": 75.0,
+     "ok_mm": 94.0
+    },
+    {
+     "rolle": "fbh",
+     "material": "fbh_systemplatte_trocken",
+     "name": "FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)",
+     "dicke_mm": 25.0,
+     "uk_mm": 94.0,
+     "ok_mm": 119.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "te_gipsfaser",
+     "name": "Trockenestrich Gipsfaser 2 x 12,5 mm",
+     "dicke_mm": 25.0,
+     "uk_mm": 119.0,
+     "ok_mm": 144.0
+    },
+    {
+     "rolle": "spachtelung",
+     "material": "spachtelmasse",
+     "name": "Spachtel-/Nivelliermasse",
+     "dicke_mm": 2.0,
+     "uk_mm": 144.0,
+     "ok_mm": 146.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "duennbettmoertel",
+     "name": "Duennbettmoertel C2 (DIN EN 12004)",
+     "dicke_mm": 4.0,
+     "uk_mm": 146.0,
+     "ok_mm": 150.0
+    },
+    {
+     "rolle": "belag",
+     "material": "feinsteinzeug",
+     "name": "Feinsteinzeug",
+     "dicke_mm": 10.0,
+     "uk_mm": 150.0,
+     "ok_mm": 160.0
+    }
+   ],
+   "kennwerte": {
+    "aufbauhoehe_mm": 160.0,
+    "flaechenmasse_kg_m2": 164.85,
+    "kosten_eur_m2_beispiel": 172.2,
+    "lagen": 8,
+    "R_lambda_B": 0.0127,
+    "R_ins": 1.389,
+    "beschwerung_kg_m2": 96.75,
+    "toleranz_ueber_nivellierhorizont_mm": 1.0,
+    "nivellierhorizont": "spachtelung",
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 34.0,
+    "zielwert": 337.85,
+    "kandidaten_verworfen": {
+     "beschwerung": 10,
+     "hoehe_zu_gross": 30,
+     "kein_toleranzausgleich": 3,
+     "leitungen_ohne_installationsebene": 24,
+     "toleranzausgleich_zu_duenn": 3,
+     "toleranzkette": 1
+    },
+    "belegreife_cm_max": null
+   },
+   "verstoesse": [],
+   "hinweise": [
+    "Feinsteinzeug 10 mm im Duennbett auf Trockenestrich Gipsfaser 25 mm: nur mit Herstellerfreigabe (System, Format, Armierung).",
+    "PWH 16x2 Stichleitung (1,2 l, ohne Zirkulation): Anl. 8 Nr. 1 c: Stichleitung <= 3 l ohne Zirkulation/Begleitheizung in beheizten Räumen – ausgenommen.",
+    "Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe."
+   ],
+   "diagnose": {}
+  },
+  {
+   "id": "R03",
+   "name": "Bad",
+   "belag": "naturstein_20_mittelbett",
+   "estrich": "TE_ZEM_25",
+   "zulaessig": true,
+   "okff_mm": 160.0,
+   "okff_toleranz_mm": 0.5,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "beschwerung",
+     "material": "wabe_schuettung",
+     "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
+     "dicke_mm": 30.0,
+     "uk_mm": 0.0,
+     "ok_mm": 30.0
+    },
+    {
+     "rolle": "ausgleich",
+     "material": "ausgleichsschuettung",
+     "name": "Ausgleichsschuettung (mechanisch gebunden)",
+     "dicke_mm": 19.0,
+     "uk_mm": 30.0,
+     "ok_mm": 49.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "holzfaser_tsd",
+     "name": "Holzfaser-Trittschalldaemmplatte",
+     "dicke_mm": 29.0,
+     "uk_mm": 49.0,
+     "ok_mm": 78.0
+    },
+    {
+     "rolle": "fbh",
+     "material": "fbh_systemplatte_trocken",
+     "name": "FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)",
+     "dicke_mm": 25.0,
+     "uk_mm": 78.0,
+     "ok_mm": 103.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "te_zement",
+     "name": "Trockenestrich zementgebunden 2 x 12,5 mm (Nassraum)",
+     "dicke_mm": 25.0,
+     "uk_mm": 103.0,
+     "ok_mm": 128.0
+    },
+    {
+     "rolle": "abdichtung_aiv",
+     "material": "aiv_mineralisch",
+     "name": "Verbundabdichtung AIV-F, mineralisch (W2-I)",
+     "dicke_mm": 2.0,
+     "uk_mm": 128.0,
+     "ok_mm": 130.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "mittelbettmoertel",
+     "name": "Mittelbettmoertel",
+     "dicke_mm": 10.0,
+     "uk_mm": 130.0,
+     "ok_mm": 140.0
+    },
+    {
+     "rolle": "belag",
+     "material": "naturstein",
+     "name": "Naturstein (z. B. Kalkstein), kalibriert",
+     "dicke_mm": 20.0,
+     "uk_mm": 140.0,
+     "ok_mm": 160.0
+    }
+   ],
+   "kennwerte": {
+    "aufbauhoehe_mm": 160.0,
+    "flaechenmasse_kg_m2": 160.85,
+    "kosten_eur_m2_beispiel": 258.9,
+    "lagen": 8,
+    "R_lambda_B": 0.0187,
+    "R_ins": 1.613,
+    "beschwerung_kg_m2": 53.55,
+    "toleranz_ueber_nivellierhorizont_mm": 0.5,
+    "nivellierhorizont": "verlegewerkstoff",
+    "gefaelle_mm": 20.0,
+    "leitungshoehe_mm": 0.0,
+    "zielwert": 420.55,
+    "kandidaten_verworfen": {
+     "beschwerung": 16,
+     "hoehe_zu_gross": 34,
+     "toleranzausgleich_zu_duenn": 9,
+     "trockenestrich_ohne_ausgleich": 9
+    },
+    "estrichhoehe_am_einlauf_mm": 108.0,
+    "belegreife_cm_max": null
+   },
+   "verstoesse": [],
+   "hinweise": [
+    "Estrich im Bad Trockenestrich Gipsfaser 25 mm → Trockenestrich zementgebunden 25 mm: Gefälleflächen mit feuchteunempfindlichem Estrich (IGG-Merkblatt 5 Holz-/Trockenbau; DIN 18534-1 W2-I). Estrichwechsel an der Badtür = Bewegungsfuge (DIN 18560-2 6.3.3).",
+    "Duschbereich W2-I (DIN 18534-1): Verbundabdichtung, am Boden keine Dispersionsabdichtung (DIN 18534-3); Rückstau nur 5–10 l aufnehmbar → keine Schwelle (DIN 18040-2 ≤ 2 cm), Gefälle weg von der Tür.",
+    "Gefälle im Trockenbau über Herstellersystem (vorgefertigtes Gefälle-Element); Einbauhöhe laut Hersteller prüfen.",
+    "Abwasser DN 50 Duschrinne: Anschlussleitung der Rinne in der Balkenlage (parallel zu den Balken) - Durchbruchspruefung siehe B15.",
+    "Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe."
+   ],
+   "diagnose": {}
+  },
+  {
+   "id": "R04",
+   "name": "Flur",
+   "belag": "beton_cire_3",
+   "estrich": "TE_GF_25",
+   "zulaessig": true,
+   "okff_mm": 160.0,
+   "okff_toleranz_mm": 0.8,
+   "nachweis_okff": true,
+   "schichten": [
+    {
+     "rolle": "installationsebene",
+     "material": "gebundene_schuettung",
+     "name": "Gebundene Schuettung (EPS-Zement)",
+     "dicke_mm": 45.0,
+     "uk_mm": 0.0,
+     "ok_mm": 45.0
+    },
+    {
+     "rolle": "beschwerung",
+     "material": "wabe_schuettung",
+     "name": "Estrich-Wabe mit Wabenschuettung (Beschwerung)",
+     "dicke_mm": 30.0,
+     "uk_mm": 45.0,
+     "ok_mm": 75.0
+    },
+    {
+     "rolle": "trittschall",
+     "material": "holzfaser_tsd",
+     "name": "Holzfaser-Trittschalldaemmplatte",
+     "dicke_mm": 29.0,
+     "uk_mm": 75.0,
+     "ok_mm": 104.0
+    },
+    {
+     "rolle": "fbh",
+     "material": "fbh_systemplatte_trocken",
+     "name": "FBH-Trockensystemplatte EPS 25 mm mit Waermeleitblechen (Rohr 16 mm)",
+     "dicke_mm": 25.0,
+     "uk_mm": 104.0,
+     "ok_mm": 129.0
+    },
+    {
+     "rolle": "estrich",
+     "material": "te_gipsfaser",
+     "name": "Trockenestrich Gipsfaser 2 x 12,5 mm",
+     "dicke_mm": 25.0,
+     "uk_mm": 129.0,
+     "ok_mm": 154.0
+    },
+    {
+     "rolle": "spachtelung",
+     "material": "spachtelmasse",
+     "name": "Spachtel-/Nivelliermasse",
+     "dicke_mm": 2.0,
+     "uk_mm": 154.0,
+     "ok_mm": 156.0
+    },
+    {
+     "rolle": "verlegewerkstoff",
+     "material": "mikrozement_grund",
+     "name": "Grundierung und Armierungsschicht Mikrozement",
+     "dicke_mm": 1.0,
+     "uk_mm": 156.0,
+     "ok_mm": 157.0
+    },
+    {
+     "rolle": "belag",
+     "material": "mikrozement",
+     "name": "Mikrozement / Beton Cire (2 Lagen + Versiegelung)",
+     "dicke_mm": 3.0,
+     "uk_mm": 157.0,
+     "ok_mm": 160.0
+    }
+   ],
+   "kennwerte": {
+    "aufbauhoehe_mm": 160.0,
+    "flaechenmasse_kg_m2": 108.65,
+    "kosten_eur_m2_beispiel": 221.65,
+    "lagen": 8,
+    "R_lambda_B": 0.0043,
+    "R_ins": 2.044,
+    "beschwerung_kg_m2": 60.75,
+    "toleranz_ueber_nivellierhorizont_mm": 0.8,
+    "nivellierhorizont": "spachtelung",
+    "gefaelle_mm": 0.0,
+    "leitungshoehe_mm": 25.0,
+    "zielwert": 331.1,
+    "kandidaten_verworfen": {
+     "beschwerung": 12,
+     "hoehe_zu_gross": 20,
+     "kein_toleranzausgleich": 6,
+     "leitungen_ohne_installationsebene": 12,
+     "toleranzausgleich_zu_duenn": 6,
+     "toleranzkette": 8
+    },
+    "belegreife_cm_max": null
+   },
+   "verstoesse": [],
+   "hinweise": [
+    "Beton Cire / Mikrozement 3 mm auf Trockenestrich Gipsfaser 25 mm: nur mit Herstellerfreigabe (System, Format, Armierung).",
+    "Trockenestrich: keine CM-Belegreife; Materialfeuchte nach Herstellerangabe."
+   ],
+   "diagnose": {}
+  }
+ ],
+ "uebergaenge": [
+  {
+   "a": "Wohnen",
+   "b": "Kueche",
+   "art": "offen (ohne Tuer)",
+   "hinweise": [
+    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
+    "Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Feinsteinzeug 10 mm im Duennbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil."
+   ],
+   "verstoesse": [],
+   "delta_okff_mm": 0.0,
+   "kante_worst_case_mm": 1.6
+  },
+  {
+   "a": "Flur",
+   "b": "Wohnen",
+   "art": "Tuer T01",
+   "hinweise": [
+    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
+    "Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Mehrschichtparkett 14 mm, vollflaechig geklebt: Fuge im Belag übernehmen → höhengleiches Fugenprofil."
+   ],
+   "verstoesse": [],
+   "delta_okff_mm": 0.0,
+   "kante_worst_case_mm": 1.4
+  },
+  {
+   "a": "Flur",
+   "b": "Bad",
+   "art": "Tuer T02 (Bad)",
+   "hinweise": [
+    "Estrichfeldgrenze → Bewegungsfuge durch Estrich und Belag (DIN 18560-2 6.3.3).",
+    "Beton Cire / Mikrozement 3 mm: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Naturstein 20 mm im Mittelbett: Fuge im Belag übernehmen → höhengleiches Fugenprofil.",
+    "Badtür: schwellenlos (DIN 18040-2 ≤ 2 cm); Abdichtung W2-I in die Türleibung und Gefälle weg von der Tür."
+   ],
+   "verstoesse": [],
+   "delta_okff_mm": 0.0,
+   "kante_worst_case_mm": 1.3
+  }
+ ],
+ "hinweis": "Alle Kennwerte Beispielwerte; Normwerte nur als Kennwerte mit Verweis (siehe Eingabe-JSON)."
+}
