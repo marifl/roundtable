@@ -1,0 +1,117 @@
+bauteil,ifc_klasse,predefined_type,object_type,beziehung,psets,pflicht_reifegrad_P,pflicht_reifegrad_R,pflicht_reifegrad_A,status,quelle
+Projekt,IfcProject,,,IfcRelAggregates -> IfcSite; IfcRelDeclares -> Typen; IfcUnitAssignment mm/m2/m3/rad/kg/K,HRB_Generator,M,M,M,V/U,Kap. 8.8.3; B1
+Georeferenz,IfcMapConversion,,EPSG:25832,IfcProjectedCRS; SourceCRS = Modellkontext; Scale = 0.001 bei mm,,M,M,M,V,B1; jaud2020georeferencing
+Grundstück,IfcSite,,,IfcRelAggregates <- IfcProject; IfcRelAggregates -> IfcBuilding,Pset_SiteCommon|HRB_Grundstueck@R,M,M,M,V/U,R06; R14; B1
+Flurstück,IfcSite,,Flurstueck,IfcRelAggregates <- IfcSite (Grundstück),HRB_Flurstueck,O,M,M,U,R06; R14
+Gebäude (je DHH-/RH-Einheit),IfcBuilding,,Gebaeudetyp aus Vokabular,IfcRelAggregates -> IfcBuildingStorey,Pset_BuildingCommon|HRB_Gebaeude@R,M,M,M,V,R14; E8.17
+Geschoss,IfcBuildingStorey,,,IfcRelContainedInSpatialStructure -> Bauteile,Pset_BuildingStoreyCommon,M,M,M,V,B1
+Raum,IfcSpace,SPACE|PARKING|EXTERNAL,,IfcRelAggregates <- IfcBuildingStorey,Pset_SpaceCommon|Pset_SpaceOccupancyRequirements|Qto_SpaceBaseQuantities|HRB_Wohnflaeche@R|HRB_Aussenlaerm_Raum@R,M,M,M,V/U,R14; R20; B19
+Nutzungseinheit,IfcZone,,Wohnung|Gewerbe,IfcRelAssignsToGroup <- IfcSpace; IfcRelReferencedInSpatialStructure -> Geschoss,Pset_ZoneCommon,O,M,M,V,R14; E8.17
+Brand-/Rauchabschnitt,IfcSpatialZone,FIRESAFETY,,IfcRelReferencedInSpatialStructure,Pset_SpatialZoneCommon|HRB_Brandabschnitt,-,M,M,V/U,R14
+Raumbegrenzung 2. Ebene,IfcRelSpaceBoundary2ndLevel,,,IfcSpace <-> IfcWall/IfcSlab,,-,O,O,V,R06; bazjanac2010space
+Wandelement,IfcWall,ELEMENTEDWALL,,IfcRelAggregates -> Teile (genau 1); IfcRelContainedInSpatialStructure -> Geschoss; IfcRelAssociatesMaterial -> IfcMaterialLayerSetUsage,Pset_WallCommon|Qto_WallBaseQuantities|HRB_Schallschutz_Bauteil@R|HRB_Montage@A,M,M,M,V,B1; B18; E8.5
+Wandtyp,IfcWallType,ELEMENTEDWALL,,IfcRelDefinesByType -> IfcWall; IfcRelAssociatesMaterial -> IfcMaterialLayerSet; IfcRelDeclares <- IfcProject,,M,M,M,V,B1
+Baustoff,IfcMaterial,,,in IfcMaterialLayer und IfcRelAssociatesMaterial je Teil,Pset_MaterialCommon|Pset_MaterialThermal|Pset_MaterialWood,M,M,M,V,B1
+"Ständer (Rand-, Raster-, Königs-, Sturzauflager-, Füllständer)",IfcMember,STUD,Randstaender|Staender|Koenigsstaender|Sturzauflagerstaender|Fuellstaender,IfcRelAggregates <- IfcWall,Pset_MemberCommon|Qto_MemberBaseQuantities,-,O,M,V,B1; E8.6
+"Schwelle, Rähm, Brüstungsriegel",IfcMember,PLATE,Schwelle|Raehm|Bruestungsriegel,IfcRelAggregates <- IfcWall,Pset_MemberCommon|Qto_MemberBaseQuantities,-,O,M,V,B1
+Sturz,IfcBeam,LINTEL,Sturz,IfcRelAggregates <- IfcWall,Pset_BeamCommon|Qto_BeamBaseQuantities,-,O,M,U,E8.6 (B1 noch IfcMember STUD)
+"Beplankung (GKF, OSB, Holzfaser)",IfcPlate,SHEET,Beplankung,IfcRelAggregates <- IfcWall; Ausschnitt im Profil (IfcArbitraryProfileDefWithVoids),Pset_PlateCommon|Qto_PlateBaseQuantities,-,O,M,V,B1; E8.8
+Gefachdämmung,IfcBuildingElementPart,INSULATION,,IfcRelAggregates <- IfcWall; je Gefach ein Teil,Qto_BodyGeometryValidation,-,O,M,V,B1
+"Dampfbremse, Folie",IfcBuildingElementPart,USERDEFINED,MEMBRANE,IfcRelAggregates <- IfcWall,HRB_Feuchteschutz|Qto_BodyGeometryValidation,-,O,M,U,B1; E8.7
+"Kerve, Bohrung, Fase, Gehrung",IfcVoidingFeature,NOTCH|HOLE|CHAMFER|MITER|CUTOUT|EDGE,,IfcRelVoidsElement -> IfcMember/IfcBeam; 1 mm Überstand,,-,-,M,V,B1; E8.8
+Öffnung in Bauteil,IfcOpeningElement,OPENING|RECESS,,IfcRelVoidsElement -> IfcWall/IfcSlab; IfcRelFillsElement <- IfcWindow/IfcDoor,,M,M,M,V,B1
+Fenster,IfcWindow,WINDOW,,IfcRelFillsElement -> IfcOpeningElement; Typ in IfcProjectLibrary,Pset_WindowCommon|HRB_Schallschutz_Bauteil@R|Pset_ManufacturerTypeInformation@A,M,M,M,V,R10; R20; B19
+Tür,IfcDoor,DOOR,,IfcRelFillsElement -> IfcOpeningElement; Typ in IfcProjectLibrary,Pset_DoorCommon|Pset_ManufacturerTypeInformation@A,M,M,M,V,R13; R14
+"Verbindungsmittel (Schraube, Nagel, Klammer)",IfcMechanicalFastener,SCREW|NAIL|STAPLE,,IfcRelAggregates <- IfcWall; IfcRelDefinesByType <- Typ; Body = IfcMappedItem auf Typ-RepresentationMap; NominalDiameter/NominalLength redundant am Exemplar,,-,-,M,V,B1; E8.9
+Verbindungsmitteltyp,IfcMechanicalFastenerType,SCREW|NAIL|STAPLE,,IfcRelDeclares <- IfcProject; RepresentationMaps (1); NominalDiameter/NominalLength,Pset_ManufacturerTypeInformation|HRB_Verbindungsmittel,-,-,M,V/U,B1; R01
+Deckenelement,IfcSlab,FLOOR,,IfcRelAggregates -> Teile; IfcRelAssociatesMaterial -> IfcMaterialLayerSetUsage,Pset_SlabCommon|Qto_SlabBaseQuantities|HRB_Schallschutz_Bauteil@R|HRB_Montage@A,M,M,M,V,R06; R14; B15; B18
+Deckenbalken,IfcBeam,JOIST,,IfcRelAggregates <- IfcSlab,Pset_BeamCommon|Qto_BeamBaseQuantities,-,O,M,V,R16; B15
+"Wechsel, Stichbalken",IfcBeam,USERDEFINED,Wechsel|Stichbalken,IfcRelAggregates <- IfcSlab,Pset_BeamCommon|Qto_BeamBaseQuantities,-,O,M,V,R16; B15
+Dach,IfcRoof,GABLE_ROOF|HIP_ROOF|HIPPED_GABLE_ROOF|PAVILION_ROOF|SHED_ROOF|MANSARD_ROOF|GAMBREL_ROOF|BUTTERFLY_ROOF|FLAT_ROOF,,"IfcRelAggregates -> IfcSlab ROOF, IfcMember; IfcRelContainedInSpatialStructure -> Geschoss",Pset_RoofCommon,M,M,M,V,R09
+"Dachfläche, Dachelement",IfcSlab,ROOF,,IfcRelAggregates <- IfcRoof,Pset_SlabCommon|Qto_SlabBaseQuantities|HRB_Montage@A,M,M,M,V,R09; R19
+"Sparren, Pfette, Kehlbalken, Stiel, Strebe",IfcMember,RAFTER|PURLIN|COLLAR|POST|STRUT,,IfcRelAggregates <- IfcRoof bzw. IfcSlab ROOF,Pset_MemberCommon|Qto_MemberBaseQuantities,-,O,M,V,R09
+Dachdeckung,IfcCovering,ROOFING,,"IfcRelCoversBldgElements <- IfcSlab ROOF; IfcMaterialLayerSet (Ziegel, Latte, Konterlatte)",Pset_CoveringCommon,M,M,M,V,R09; zvdh2024
+Unterdeckbahn,IfcCovering,MEMBRANE,,IfcRelCoversBldgElements <- IfcSlab ROOF,Pset_CoveringCommon,-,O,M,V,R09
+"First, Grat, Ortgang, Kehlblech, Eindeckrahmen",IfcDiscreteAccessory,FLASHING|USERDEFINED,RIDGE|HIP|VERGE,IfcRelAggregates bzw. IfcRelNests an IfcCovering ROOFING,,O,O,M,V/U,R09; E8.15
+"Schneefang, Dachtritt, Sicherheitshaken",IfcDiscreteAccessory,USERDEFINED,SNOWGUARD|ROOFSTEP|SAFETYHOOK,IfcRelAggregates an IfcCovering ROOFING,,-,O,M,U,R09; E8.15
+Dachfenster,IfcWindow,SKYLIGHT,,IfcRelFillsElement -> IfcOpeningElement in IfcSlab ROOF,Pset_WindowCommon|Pset_ManufacturerTypeInformation@A,M,M,M,V,R09
+Gaube,IfcElementAssembly,USERDEFINED,DORMER,"IfcRelAggregates -> IfcRoof, IfcWall, IfcWindow",,M,M,M,U,R09
+PV-Modul,IfcSolarDevice,SOLARPANEL,,IfcRelAssignsToGroup -> IfcDistributionSystem POWERGENERATION,Pset_ManufacturerTypeInformation@A,M,M,M,V,R08; R09
+Wechselrichter,IfcTransformer,INVERTER,,IfcRelAssignsToGroup -> IfcDistributionSystem,Pset_ManufacturerTypeInformation,-,O,M,V,R08; R09
+Batteriespeicher,IfcElectricFlowStorageDevice,BATTERY,,IfcRelAssignsToGroup -> IfcDistributionSystem,Pset_ManufacturerTypeInformation,-,O,M,V,R08
+Dachrinne,IfcPipeSegment,GUTTER,,IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER; Ports über IfcRelNests,Pset_PipeSegmentTypeGutter,O,M,M,V,R09
+Fallrohr,IfcPipeSegment,RIGIDSEGMENT,,IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER,Pset_PipeSegmentTypeCommon,O,M,M,V,R09
+Rinnenkessel,IfcStackTerminal,RAINWATERHOPPER,,IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER,,-,O,M,V,R09
+Sanitärlüfter-Mündung,IfcStackTerminal,COWL,,auf IfcPipeSegment VENT; IfcOpeningElement in IfcSlab ROOF,,-,O,M,V,R08; R09
+TGA-System,IfcDistributionSystem,DOMESTICCOLDWATER|DOMESTICHOTWATER|SEWAGE|WASTEWATER|RAINWATER|STORMWATER|VENT|VENTILATION|HEATING|ELECTRICAL|LIGHTING|DATA|POWERGENERATION,,IfcRelAssignsToGroup -> Elemente; IfcRelServicesBuildings -> IfcBuilding,,-,M,M,V,R08; R18; B15; B17
+Stromkreis,IfcDistributionCircuit,ELECTRICAL,,Untersystem von IfcDistributionSystem ELECTRICAL,,-,M,M,V,R08
+Rohrleitung,IfcPipeSegment,RIGIDSEGMENT|FLEXIBLESEGMENT,,Ports über IfcRelNests; Typ-Pset über HasPropertySets,Pset_PipeSegmentTypeCommon|Pset_PipeSegmentOccurrence,-,M,M,V,R08; R16; B15
+Luftkanal,IfcDuctSegment,RIGIDSEGMENT|FLEXIBLESEGMENT,,Ports über IfcRelNests,Pset_DuctSegmentTypeCommon,-,M,M,V,R08; R16
+Formteil Rohr,IfcPipeFitting,BEND|JUNCTION|TRANSITION|CONNECTOR,,Ports über IfcRelNests; IfcRelConnectsPorts,,-,M,M,V,R08; B15; B17
+Anschlusspunkt,IfcDistributionPort,PIPE|DUCT|CABLE|CABLECARRIER,,IfcRelNests <- Element; IfcRelConnectsPorts <-> Port; FlowDirection SOURCE|SINK,Pset_DistributionPortTypePipe,-,M,M,V,R08; R16; B15
+Leerrohr,IfcCableCarrierSegment,CONDUITSEGMENT,,Ports über IfcRelNests,Pset_CableCarrierSegmentTypeConduitSegment,-,M,M,V,R08; R16
+Kabel,IfcCableSegment,CABLESEGMENT,,IfcRelAssignsToGroup -> IfcDistributionCircuit,,-,O,M,V,R08
+Installationsdose,IfcJunctionBox,POWER|DATA,,IfcRelContainedInSpatialStructure; Bearbeitung in Beplankung als IfcOpeningElement,,-,M,M,V,R08
+"Steckdose, Datendose",IfcOutlet,POWEROUTLET|DATAOUTLET,,IfcRelAssignsToGroup -> IfcDistributionCircuit,Pset_ManufacturerTypeInformation@A,M,M,M,V,R08
+Schalter,IfcSwitchingDevice,TOGGLESWITCH|DIMMERSWITCH|MOMENTARYSWITCH,,IfcRelAssignsToGroup -> IfcDistributionCircuit,Pset_ManufacturerTypeInformation,M,M,M,V,R08
+Schutzgerät,IfcProtectiveDevice,CIRCUITBREAKER|RESIDUALCURRENTCIRCUITBREAKER,,IfcRelAggregates <- IfcDistributionBoard,,-,O,M,V,R08
+Verteiler,IfcDistributionBoard,CONSUMERUNIT|DISTRIBUTIONBOARD,,Ports über IfcRelNests,,-,M,M,V,R08
+Zähler,IfcFlowMeter,ENERGYMETER|WATERMETER,,IfcRelAssignsToGroup -> System,,-,O,M,V,R08
+Leuchte,IfcLightFixture,POINTSOURCE|DIRECTIONSOURCE,,IfcRelAssignsToGroup -> IfcDistributionSystem LIGHTING,Pset_ManufacturerTypeInformation,M,M,M,V,R08
+Lüftungsgerät mit Wärmerückgewinnung,IfcAirToAirHeatRecovery,FIXEDPLATECOUNTERFLOWEXCHANGER,,IfcRelAssignsToGroup -> IfcDistributionSystem VENTILATION,Pset_ManufacturerTypeInformation,-,M,M,V,R08
+"Luftdurchlass, Außenluftdurchlass",IfcAirTerminal,DIFFUSER|GRILLE|LOUVRE,,IfcRelAssignsToGroup -> IfcDistributionSystem VENTILATION,Pset_AirTerminalTypeCommon|HRB_Schallschutz_Bauteil,O,M,M,V,R08; R20
+Heizkörper,IfcSpaceHeater,RADIATOR|CONVECTOR,,IfcRelAssignsToGroup -> IfcDistributionSystem HEATING,Pset_ManufacturerTypeInformation,M,M,M,V,R08
+Speicher,IfcTank,STORAGE,,IfcRelAssignsToGroup -> System,Pset_TankTypeCommon,-,M,M,V,R08; R18
+Pumpe,IfcPump,CIRCULATOR|SUMPPUMP|SUBMERSIBLEPUMP,,IfcRelAssignsToGroup -> System,,-,O,M,V,R08; R18
+"Armatur, Ventil",IfcValve,ISOLATING|CHECK|REGULATING|MIXING,,IfcRelAssignsToGroup -> System,,-,O,M,V,R08; R18
+Wärmepumpe Monoblock,IfcUnitaryEquipment,USERDEFINED,AirToWaterHeatPump_Monoblock,IfcRelAssignsToGroup -> IfcDistributionSystem HEATING,Pset_UnitaryEquipmentTypeCommon|Pset_SoundGeneration@R|HRB_WPSchall@R|HRB_Kaeltemittel@R,M,M,M,V/U,R22; E8.15
+Wärmepumpe Split-Außeneinheit,IfcUnitaryEquipment,SPLITSYSTEM,,IfcRelAssignsToGroup -> IfcDistributionSystem HEATING,Pset_UnitaryEquipmentTypeCommon|Pset_SoundGeneration@R|HRB_WPSchall@R|HRB_Kaeltemittel@R,M,M,M,V/U,R22
+R290-Schutzbereich,IfcSpatialZone,USERDEFINED,R290_Schutzbereich,IfcRelAssignsToProduct -> IfcUnitaryEquipment,,-,M,M,U,R22; E8.15
+Wartungs- und Luftführungsbereich,IfcSpatialZone,RESERVATION,,IfcRelAssignsToProduct -> IfcUnitaryEquipment,,-,M,M,V/U,R22
+Sanitärobjekt,IfcSanitaryTerminal,TOILETPAN|WASHHANDBASIN|SHOWER|BATH,,IfcRelDefinesByType <- Typ aus IfcProjectLibrary; Ports über IfcRelNests am Typ,Pset_ManufacturerTypeInformation@A,M,M,M,V,R10; E8.14
+"Bodenablauf, Duschrinne",IfcWasteTerminal,FLOORTRAP|USERDEFINED,Duschrinne,IfcRelAssignsToGroup -> IfcDistributionSystem WASTEWATER,HRB_Rinne,M,M,M,V/U,R13; B14
+Aussparungsvorschlag,IfcVirtualElement,PROVISIONFORVOID,,ohne Material; Tiefe >= Bauteildicke,Pset_ProvisionForVoid,-,M,O,V,R08; R16; B15; E8.16
+Freigegebene Durchdringung,IfcOpeningElement,OPENING,,je durchdrungenem Teil IfcRelVoidsElement; IfcRelInterferesElements Leitung <-> Bauteil (ImpliedOrder TRUE),HRB_Durchdringung,-,O,M,V,R16; B15; E8.16
+"Manschette, Abschottung",IfcDiscreteAccessory,USERDEFINED,Brandschutzmanschette|Luftdichtheitsmanschette,IfcRelFillsElement -> IfcOpeningElement,HRB_Manschette,-,O,M,V/U,R16; B15
+"Dämmschlauch, Schutzrohr",IfcCovering,WRAPPING|SLEEVING,,IfcRelCoversBldgElements <- IfcPipeSegment,Pset_CoveringCommon,-,O,M,V,R16; B15
+Fußbodenaufbau je Raum,IfcCovering,FLOORING,,"IfcRelCoversSpaces -> IfcSpace; IfcMaterialLayerSet (Belag, Estrich, Dämmung)",Pset_CoveringCommon|HRB_Fussbodenaufbau,M,M,M,V/U,R16; B14
+"Rohdecke, Bodenplatte",IfcSlab,FLOOR|BASESLAB,,IfcRelContainedInSpatialStructure -> Geschoss,Pset_SlabCommon|Qto_SlabBaseQuantities,M,M,M,V,B14
+Fliesen- oder Parkettbelag,IfcCovering,FLOORING|CLADDING,,IfcRelCoversSpaces -> IfcSpace; IfcRelContainedInSpatialStructure -> IfcSpace; IfcRelDefinesByType <- IfcCoveringType mit RepresentationMaps,Pset_CoveringCommon|Pset_CoveringFlooring|Qto_CoveringBaseQuantities|HRB_Verlegung|Pset_ManufacturerOccurrence@A,M,M,M,V,R13; R17; B16
+Fliesen- oder Parketttyp,IfcCoveringType,FLOORING|CLADDING,,IfcRelDeclares <- IfcProjectLibrary; RepresentationMaps je Sollform,HRB_Fliese|Pset_ManufacturerTypeInformation@A,M,M,M,V/U,R13; R17; B16
+Fliesen- oder Parkettstück,IfcCovering,FLOORING,,"IfcRelAggregates <- Belag; ganze Stücke als IfcMappedItem, Schnittstücke als IfcPolygonalFaceSet",HRB_Fliesenstueck|Pset_ManufacturerOccurrence,-,-,M,U,R17; B16; E8.12
+Sockelleiste,IfcCovering,SKIRTINGBOARD,,IfcMaterialProfileSet; IfcRelCoversSpaces,Pset_CoveringCommon,-,O,M,V,R13
+Übergangsprofil,IfcCovering,USERDEFINED,Uebergangsprofil,IfcRelCoversSpaces,Pset_CoveringCommon,-,O,M,U,R13; E8.15
+Treppe,IfcStair,STRAIGHT_RUN_STAIR|QUARTER_WINDING_STAIR|HALF_WINDING_STAIR|QUARTER_TURN_STAIR|HALF_TURN_STAIR,,"IfcRelAggregates -> IfcStairFlight, IfcRailing, IfcMember STRINGER",Pset_StairCommon|HRB_Verziehung@R,M,M,M,V/U,R13
+Treppenlauf,IfcStairFlight,STRAIGHT|WINDER,,IfcRelAggregates <- IfcStair,Pset_StairFlightCommon,M,M,M,V,R13
+Treppenwange,IfcMember,STRINGER,,IfcRelAggregates <- IfcStair,Pset_MemberCommon,-,O,M,V,R13
+"Geländer, Handlauf",IfcRailing,HANDRAIL|BALUSTRADE|GUARDRAIL,,IfcRelAggregates <- IfcStair oder frei,Pset_RailingCommon,M,M,M,V,R13; R09
+Grund- und Anschlussleitung,IfcPipeSegment,RIGIDSEGMENT,,IfcRelAssignsToGroup -> IfcDistributionSystem SEWAGE|RAINWATER|STORMWATER; Ports über IfcRelNests,Pset_PipeSegmentTypeCommon|Pset_PipeSegmentOccurrence|HRB_Entwaesserung,-,M,M,V,R18; B17
+"Revisions-, Kontrollschacht",IfcDistributionChamberElement,MANHOLE|INSPECTIONCHAMBER,,Ports über IfcRelNests,Pset_DistributionChamberElementTypeManhole|Pset_DistributionChamberElementTypeInspectionChamber,-,M,M,V,R18; B17
+Pumpenschacht,IfcDistributionChamberElement,SUMP,,mit IfcPump SUMPPUMP und IfcValve CHECK,,-,O,M,V,R18
+"Versickerungsrigole, Sickerschacht",IfcDistributionChamberElement,USERDEFINED,Versickerungsrigole|Sickerschacht,Ports über IfcRelNests,HRB_Versickerung,-,M,M,V/U,R18; B17; E8.15
+Abscheider,IfcInterceptor,GREASE|OIL|PETROL,,Ports über IfcRelNests,Pset_InterceptorTypeCommon,-,O,M,V,R18; B17
+Zisterne,IfcTank,STORAGE,,IfcRelAssignsToGroup -> IfcDistributionSystem RAINWATER,Pset_TankTypeCommon|HRB_Versickerung,-,M,M,V,R18
+Gelände,IfcGeographicElement,TERRAIN,,IfcRelContainedInSpatialStructure -> IfcSite; IfcTriangulatedFaceSet,,M,M,M,V,R18; B17
+Versickerungsmulde,IfcGeographicElement,USERDEFINED,Versickerungsmulde,IfcRelContainedInSpatialStructure -> IfcSite,HRB_Versickerung,-,O,M,U,R18
+Grundwasser,IfcGeotechnicalStratum,WATER,,IfcRelContainedInSpatialStructure -> IfcSite,Pset_GeotechnicalStratumCommon,-,O,O,V,R18
+"Immissionsort, Fassadenpegel",IfcAnnotation,USERDEFINED,Immissionsort,IfcRelContainedInSpatialStructure -> IfcSite,HRB_Fassadenpegel,-,M,M,V/U,R20; R22; B19
+Isolinie Lärmkarte,IfcAnnotation,CONTOURLINE,,IfcRelContainedInSpatialStructure -> IfcSite,HRB_Fassadenpegel,-,O,O,V,R22
+Lärmschutzwand,IfcWall,USERDEFINED,Laermschutzwand,IfcRelContainedInSpatialStructure -> IfcSite,Pset_WallCommon|HRB_Schallschutz_Bauteil,O,M,M,V/U,R20
+Rollladen,IfcShadingDevice,SHUTTER|JALOUSIE,,IfcRelAggregates bzw. Nachbarschaft zu IfcWindow,HRB_Schallschutz_Bauteil,M,M,M,V/U,R20
+Montageplan,IfcWorkSchedule,PLANNED,,IfcRelAssignsToControl -> IfcTask (Sammelvorgang),,-,-,M,V,R19; B18
+Montagevorgang,IfcTask,INSTALLATION,,IfcRelNests <- Sammelvorgang; IfcRelAssignsToProduct -> Element; IfcRelSequence FINISH_START; IfcTaskTime,HRB_Kranhub,-,-,M,V/U,R19; B18
+Anlieferung,IfcTask,MOVE,,IfcRelAssignsToProcess <- IfcConstructionEquipmentResource TRANSPORTING,Pset_PackingInstructions,-,-,M,V,R19; B18
+Kraneinsatz,IfcConstructionEquipmentResource,ERECTING,,IfcRelAssignsToProcess -> IfcTask; IfcRelAssignsToResource <- IfcTransportElement,,-,-,M,V,R19; B18; E8.18
+Transporteinsatz,IfcConstructionEquipmentResource,TRANSPORTING,,IfcRelAssignsToProcess -> IfcTask MOVE; IfcRelAssignsToResource <- IfcVehicle,,-,-,M,V,R19; B18
+Kran,IfcTransportElement,LIFTINGGEAR,,IfcRelContainedInSpatialStructure -> IfcSite,Pset_TransportElementCommon|HRB_Kranaufstellung,-,-,M,V/U,R19; B18
+LKW,IfcVehicle,VEHICLEWHEELED,,IfcRelAssignsToResource -> Transporteinsatz,Qto_VehicleBaseQuantities,-,-,M,V,R19; B18
+"Stellfläche, Abladezone, Schwenkbereich",IfcSpatialZone,CONSTRUCTION|TRANSPORT|RESERVATION,,IfcRelReferencedInSpatialStructure -> IfcSite,Qto_SpatialZoneBaseQuantities,-,-,M,V/U,R19; B18
+Kostenplan,IfcCostSchedule,ESTIMATE|TENDER|PRICEDBILLOFQUANTITIES,,IfcRelAssignsToControl -> Elemente; IfcRelNests -> IfcCostItem,,O,M,M,V,R06; R10
+"Kostenposition, Mehr-/Minderpreis",IfcCostItem,,,"IfcCostValue mit Category, ApplicableDate, FixedUntilDate",,O,M,M,V,R06; R10; E8.14
+Bemusterungskatalog,IfcProjectLibrary,,,IfcRelDeclares -> Options-Typen; IfcRelDeclares <- IfcProject,,M,M,M,V,R10; E8.14
+Freigabe,IfcApproval,,,IfcRelAssociatesApproval -> Objekt; GivingApproval = IfcActor,,-,M,M,V,R06; R10
+"Dokument (Vertrag, Nachweisheft, Datenblatt)",IfcDocumentReference,,,"IfcRelAssociatesDocument -> Objekt; IfcDocumentInformation (Revision, ValidFrom, ValidUntil)",HRB_Dokument,O,M,M,V/U,R06; E8.24
+Genehmigung,IfcPermit,BUILDING,,IfcRelAssignsToControl -> IfcBuilding,,-,M,M,V,R06
+Beteiligter (Entwurfsverfasser),IfcActor,,Entwurfsverfasser,"IfcActorRole Role = USERDEFINED, UserDefinedRole = Entwurfsverfasser",,-,M,M,V,R06
+Klassifikation DIN 276,IfcClassificationReference,,,"IfcRelAssociatesClassification; ReferencedSource = IfcClassification DIN 276, Edition 2018-12",,-,M,M,V,B1; E8.19
+Klassifikation ETIM,IfcClassificationReference,,,IfcRelAssociatesClassification; IfcClassification.Specification = bSDD-URI; Location = Klassen-URI,,-,M,M,V/U,R10; E8.19
