@@ -31,22 +31,27 @@ def fld(body,n):
     elif s.startswith('"'): v=s[1:s.find('"',1)]
     else: v=re.match(r'[^,\n]*',s).group(0)
     return re.sub(r'[{}]','',re.sub(r'\s+',' ',v)).strip()
-entries=[]
-for f in sorted(glob.glob('lit-*.bib')):
-    for typ,key,body in parse(open(f,encoding='utf-8').read()):
-        if typ.lower() in('comment','preamble','string'): continue
-        entries.append(dict(key=key,typ=typ,datei=f,autor=(fld(body,'author') or fld(body,'organization') or fld(body,'institution'))[:150],jahr=fld(body,'year'),titel=fld(body,'title'),doi=fld(body,'doi').lower(),url=fld(body,'url'),note=fld(body,'note')[:250]))
-print('Einträge',len(entries))
-seen={};master=[];dups=[]
-for e in entries:
-    ids=([('doi',e['doi'])] if e['doi'] else [])+[('t',norm(e['titel']))]
-    hit=next((seen[i] for i in ids if i in seen and i[1]),None)
-    if hit is not None: dups.append((e['key'],master[hit]['key'])); master[hit]['dateien']+=';'+e['datei']; master[hit].setdefault('alias',[]).append(e['key']); continue
-    e['dateien']=e['datei']; idx=len(master); master.append(e)
-    for i in ids:
-        if i[1]: seen[i]=idx
-print('eindeutig',len(master),'Duplikate',len(dups)); [print(' dup',d) for d in dups]
-kc=collections.Counter(e['key'] for e in master); print('Key-Kollisionen',[k for k,c in kc.items() if c>1])
-with open('quellen-master.csv','w',newline='',encoding='utf-8') as fh:
-    w=csv.DictWriter(fh,fieldnames=['id','key','alias','typ','autor','jahr','titel','doi','url','dateien','note'],extrasaction='ignore'); w.writeheader()
-    for i,e in enumerate(master,1): e['id']=f'Q{i:03d}'; e['alias']=';'.join(e.get('alias',[])); w.writerow(e)
+def main():
+    entries=[]
+    for f in sorted(glob.glob('lit-*.bib')):
+        for typ,key,body in parse(open(f,encoding='utf-8').read()):
+            if typ.lower() in('comment','preamble','string'): continue
+            entries.append(dict(key=key,typ=typ,datei=f,autor=(fld(body,'author') or fld(body,'organization') or fld(body,'institution'))[:150],jahr=fld(body,'year'),titel=fld(body,'title'),doi=fld(body,'doi').lower(),url=fld(body,'url'),note=fld(body,'note')[:250]))
+    print('Einträge',len(entries))
+    seen={};master=[];dups=[]
+    for e in entries:
+        ids=([('doi',e['doi'])] if e['doi'] else [])+[('t',norm(e['titel']))]
+        hit=next((seen[i] for i in ids if i in seen and i[1]),None)
+        if hit is not None: dups.append((e['key'],master[hit]['key'])); master[hit]['dateien']+=';'+e['datei']; master[hit].setdefault('alias',[]).append(e['key']); continue
+        e['dateien']=e['datei']; idx=len(master); master.append(e)
+        for i in ids:
+            if i[1]: seen[i]=idx
+    print('eindeutig',len(master),'Duplikate',len(dups)); [print(' dup',d) for d in dups]
+    kc=collections.Counter(e['key'] for e in master); print('Key-Kollisionen',[k for k,c in kc.items() if c>1])
+    with open('quellen-master.csv','w',newline='',encoding='utf-8') as fh:
+        w=csv.DictWriter(fh,fieldnames=['id','key','alias','typ','autor','jahr','titel','doi','url','dateien','note'],extrasaction='ignore'); w.writeheader()
+        for i,e in enumerate(master,1): e['id']=f'Q{i:03d}'; e['alias']=';'.join(e.get('alias',[])); w.writerow(e)
+
+
+if __name__ == '__main__':
+    main()
