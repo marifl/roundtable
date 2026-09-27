@@ -1,0 +1,266 @@
+{
+  "geometrie_hinterlueftet": {
+    "fassade": "hinterlueftet",
+    "holzanteil": 0.224812,
+    "r_oben": 5.670411,
+    "r_t": 5.449651,
+    "r_t_gefach": 7.083891,
+    "r_t_holz": 3.359195,
+    "r_unten": 5.228892,
+    "relativer_fehler": 0.040509,
+    "rse": 0.13,
+    "rsi": 0.13,
+    "schichten": [
+      {
+        "dicke_m": 0.0125,
+        "id": "gkf",
+        "lambda_daemmung": 0.25,
+        "lambda_holz": 0.25,
+        "material": "gkf",
+        "r_daemmung": 0.05,
+        "r_holz": 0.05,
+        "r_unten": 0.05
+      },
+      {
+        "dicke_m": 0.015,
+        "id": "osb",
+        "lambda_daemmung": 0.13,
+        "lambda_holz": 0.13,
+        "material": "osb3",
+        "r_daemmung": 0.11538461538461538,
+        "r_holz": 0.11538461538461538,
+        "r_unten": 0.11538461538461538
+      },
+      {
+        "dicke_m": 0.0002,
+        "id": "folie",
+        "lambda_daemmung": null,
+        "lambda_holz": null,
+        "material": "dampfbremse",
+        "r_daemmung": 0.0,
+        "r_holz": 0.0,
+        "r_unten": 0.0
+      },
+      {
+        "dicke_m": 0.2,
+        "id": "gefach",
+        "lambda_daemmung": 0.038,
+        "lambda_holz": 0.13,
+        "material": "holzfaser_flex",
+        "r_daemmung": 5.2631578947368425,
+        "r_holz": 1.5384615384615385,
+        "r_unten": 3.4081587659471535
+      },
+      {
+        "dicke_m": 0.06,
+        "id": "hfd",
+        "lambda_daemmung": 0.043,
+        "lambda_holz": 0.043,
+        "material": "holzfaserplatte",
+        "r_daemmung": 1.3953488372093024,
+        "r_holz": 1.3953488372093024,
+        "r_unten": 1.3953488372093024
+      }
+    ],
+    "u_wert": 0.183498,
+    "u_wert_gerundet": 0.183
+  },
+  "geometrie_verputzt": {
+    "fassade": "verputzt",
+    "holzanteil": 0.224812,
+    "r_oben": 5.567784,
+    "r_t": 5.353338,
+    "r_t_gefach": 6.993891,
+    "r_t_holz": 3.269195,
+    "r_unten": 5.138892,
+    "relativer_fehler": 0.040058,
+    "rse": 0.04,
+    "rsi": 0.13,
+    "schichten": [
+      {
+        "dicke_m": 0.0125,
+        "id": "gkf",
+        "lambda_daemmung": 0.25,
+        "lambda_holz": 0.25,
+        "material": "gkf",
+        "r_daemmung": 0.05,
+        "r_holz": 0.05,
+        "r_unten": 0.05
+      },
+      {
+        "dicke_m": 0.015,
+        "id": "osb",
+        "lambda_daemmung": 0.13,
+        "lambda_holz": 0.13,
+        "material": "osb3",
+        "r_daemmung": 0.11538461538461538,
+        "r_holz": 0.11538461538461538,
+        "r_unten": 0.11538461538461538
+      },
+      {
+        "dicke_m": 0.0002,
+        "id": "folie",
+        "lambda_daemmung": null,
+        "lambda_holz": null,
+        "material": "dampfbremse",
+        "r_daemmung": 0.0,
+        "r_holz": 0.0,
+        "r_unten": 0.0
+      },
+      {
+        "dicke_m": 0.2,
+        "id": "gefach",
+        "lambda_daemmung": 0.038,
+        "lambda_holz": 0.13,
+        "material": "holzfaser_flex",
+        "r_daemmung": 5.2631578947368425,
+        "r_holz": 1.5384615384615385,
+        "r_unten": 3.4081587659471535
+      },
+      {
+        "dicke_m": 0.06,
+        "id": "hfd",
+        "lambda_daemmung": 0.043,
+        "lambda_holz": 0.043,
+        "material": "holzfaserplatte",
+        "r_daemmung": 1.3953488372093024,
+        "r_holz": 1.3953488372093024,
+        "r_unten": 1.3953488372093024
+      }
+    ],
+    "u_wert": 0.186799,
+    "u_wert_gerundet": 0.187
+  },
+  "raster_hinterlueftet": {
+    "fassade": "hinterlueftet",
+    "holzanteil": 0.096,
+    "r_oben": 6.402387,
+    "r_t": 6.246852,
+    "r_t_gefach": 7.083891,
+    "r_t_holz": 3.359195,
+    "r_unten": 6.091318,
+    "relativer_fehler": 0.024898,
+    "rse": 0.13,
+    "rsi": 0.13,
+    "schichten": [
+      {
+        "dicke_m": 0.0125,
+        "id": "gkf",
+        "lambda_daemmung": 0.25,
+        "lambda_holz": 0.25,
+        "material": "gkf",
+        "r_daemmung": 0.05,
+        "r_holz": 0.05,
+        "r_unten": 0.05
+      },
+      {
+        "dicke_m": 0.015,
+        "id": "osb",
+        "lambda_daemmung": 0.13,
+        "lambda_holz": 0.13,
+        "material": "osb3",
+        "r_daemmung": 0.11538461538461538,
+        "r_holz": 0.11538461538461538,
+        "r_unten": 0.11538461538461538
+      },
+      {
+        "dicke_m": 0.0002,
+        "id": "folie",
+        "lambda_daemmung": null,
+        "lambda_holz": null,
+        "material": "dampfbremse",
+        "r_daemmung": 0.0,
+        "r_holz": 0.0,
+        "r_unten": 0.0
+      },
+      {
+        "dicke_m": 0.2,
+        "id": "gefach",
+        "lambda_daemmung": 0.038,
+        "lambda_holz": 0.13,
+        "material": "holzfaser_flex",
+        "r_daemmung": 5.2631578947368425,
+        "r_holz": 1.5384615384615385,
+        "r_unten": 4.270584215920739
+      },
+      {
+        "dicke_m": 0.06,
+        "id": "hfd",
+        "lambda_daemmung": 0.043,
+        "lambda_holz": 0.043,
+        "material": "holzfaserplatte",
+        "r_daemmung": 1.3953488372093024,
+        "r_holz": 1.3953488372093024,
+        "r_unten": 1.3953488372093024
+      }
+    ],
+    "u_wert": 0.160081,
+    "u_wert_gerundet": 0.16
+  },
+  "raster_verputzt": {
+    "fassade": "verputzt",
+    "holzanteil": 0.096,
+    "r_oben": 6.304348,
+    "r_t": 6.152833,
+    "r_t_gefach": 6.993891,
+    "r_t_holz": 3.269195,
+    "r_unten": 6.001318,
+    "relativer_fehler": 0.024625,
+    "rse": 0.04,
+    "rsi": 0.13,
+    "schichten": [
+      {
+        "dicke_m": 0.0125,
+        "id": "gkf",
+        "lambda_daemmung": 0.25,
+        "lambda_holz": 0.25,
+        "material": "gkf",
+        "r_daemmung": 0.05,
+        "r_holz": 0.05,
+        "r_unten": 0.05
+      },
+      {
+        "dicke_m": 0.015,
+        "id": "osb",
+        "lambda_daemmung": 0.13,
+        "lambda_holz": 0.13,
+        "material": "osb3",
+        "r_daemmung": 0.11538461538461538,
+        "r_holz": 0.11538461538461538,
+        "r_unten": 0.11538461538461538
+      },
+      {
+        "dicke_m": 0.0002,
+        "id": "folie",
+        "lambda_daemmung": null,
+        "lambda_holz": null,
+        "material": "dampfbremse",
+        "r_daemmung": 0.0,
+        "r_holz": 0.0,
+        "r_unten": 0.0
+      },
+      {
+        "dicke_m": 0.2,
+        "id": "gefach",
+        "lambda_daemmung": 0.038,
+        "lambda_holz": 0.13,
+        "material": "holzfaser_flex",
+        "r_daemmung": 5.2631578947368425,
+        "r_holz": 1.5384615384615385,
+        "r_unten": 4.270584215920739
+      },
+      {
+        "dicke_m": 0.06,
+        "id": "hfd",
+        "lambda_daemmung": 0.043,
+        "lambda_holz": 0.043,
+        "material": "holzfaserplatte",
+        "r_daemmung": 1.3953488372093024,
+        "r_holz": 1.3953488372093024,
+        "r_unten": 1.3953488372093024
+      }
+    ],
+    "u_wert": 0.162527,
+    "u_wert_gerundet": 0.163
+  }
+}
