@@ -1,4 +1,4 @@
-import re,glob,csv,unicodedata,collections
+import os,re,glob,csv,unicodedata,collections
 def norm(t):
     t=unicodedata.normalize('NFKD',t.lower()); return re.sub(r'[^a-z0-9]','',t)[:80]
 def parse(txt):
@@ -48,9 +48,25 @@ def main():
             if i[1]: seen[i]=idx
     print('eindeutig',len(master),'Duplikate',len(dups)); [print(' dup',d) for d in dups]
     kc=collections.Counter(e['key'] for e in master); print('Key-Kollisionen',[k for k,c in kc.items() if c>1])
+    # Stabile IDs: bereits vergebene IDs aus der bisherigen Masterliste behalten, neue Keys hinten anhängen
+    alt={}; altkeys=collections.Counter()
+    if os.path.exists('quellen-master.csv'):
+        rows=list(csv.DictReader(open('quellen-master.csv',encoding='utf-8')))
+        altkeys=collections.Counter(r['key'] for r in rows)
+        for r in rows: alt[(r['key'],norm(r['titel'])) if altkeys[r['key']]>1 else (r['key'],'')]=r['id']
+    # eindeutige Keys über den Key zuordnen (robust gegen Titelkorrekturen), doppelte Keys zusätzlich über den Titel
+    sk=lambda e:(e['key'],norm(e['titel'])) if altkeys.get(e['key'],0)>1 else (e['key'],'')
+    bekannt=[e for e in master if sk(e) in alt]; neu=[e for e in master if sk(e) not in alt]
+    bekannt.sort(key=lambda e:alt[sk(e)])
+    fehlend=set(alt)-{sk(e) for e in master}
+    if fehlend: print('WARNUNG: Einträge aus bisheriger Masterliste fehlen:',sorted(fehlend))
+    nxt=max([int(v[1:]) for v in alt.values()] or [0])+1
+    for e in bekannt: e['id']=alt[sk(e)]
+    for e in neu: e['id']=f'Q{nxt:03d}'; nxt+=1
+    master=bekannt+neu
     with open('quellen-master.csv','w',newline='',encoding='utf-8') as fh:
         w=csv.DictWriter(fh,fieldnames=['id','key','alias','typ','autor','jahr','titel','doi','url','dateien','note'],extrasaction='ignore'); w.writeheader()
-        for i,e in enumerate(master,1): e['id']=f'Q{i:03d}'; e['alias']=';'.join(e.get('alias',[])); w.writerow(e)
+        for e in master: e['alias']=';'.join(e.get('alias',[])); w.writerow(e)
 
 
 if __name__ == '__main__':
