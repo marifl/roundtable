@@ -4,19 +4,19 @@ Status: Entwurf v0.1 (27.09.2026). Zitate beziehen sich auf `literatur/lit-*.bib
 
 ## 10.0 Einordnung und Vorgehen
 
-Das Zielbild beschreibt den Entwurf als Gespräch: Familie H. sagt „Das Bad oben einen Meter größer, Richtung Süden“, und das Modell ändert sich, Kosten und Nachweise folgen, Unzulässiges wird mit Grund und Alternative abgelehnt (`../00-zielbild.md`, Abschnitt 3.1). Kapitel 5 hat gezeigt, dass die Sprach-BIM-Forschung diesen Schritt bisher fast immer dem Sprachmodell überlässt. Das Modell schreibt Code, Daten oder Constraints, die anschließend geprüft werden (Abschnitt 5.6.4). Eine strengere Aufgabenteilung ist nicht dokumentiert (Lücke L6), und für deutschsprachige Intent-Erkennung im Hausentwurf gibt es weder Korpus noch Evaluation (Lücke L7). Dieses Kapitel beantwortet deshalb die Forschungsfrage FF3:
+Im Zielbild sagt Familie H. „Das Bad oben einen Meter größer, Richtung Süden“, und das Modell ändert sich; Unzulässiges wird mit Grund und Alternative abgelehnt (`../00-zielbild.md`, Abschnitt 3.1). Kapitel 5 hat gezeigt, dass die Sprach-BIM-Forschung diesen Schritt fast immer dem Sprachmodell überlässt, das Code, Daten oder Constraints erzeugt (Abschnitt 5.6.4). Eine strengere Aufgabenteilung ist nicht dokumentiert (Lücke L6), und für deutschsprachige Intent-Erkennung im Hausentwurf fehlen Korpus und Evaluation (Lücke L7). Das Kapitel beantwortet deshalb FF3:
 
 > Wie wird gesprochene deutsche Sprache zuverlässig in deterministische Modelländerungen übersetzt? Welche Aufgaben übernimmt das Sprachmodell, welche der Code?
 
 Die Antwort folgt der Verarbeitungskette einer Äußerung:
 
-1. **Spracherkennung** (10.1): Audio wird lokal und im Strom in Text übersetzt. Fachbegriffe werden begünstigt, und ein Latenzbudget begrenzt die Antwortzeit.
-2. **Intent-Erkennung** (10.2): Ein Entscheidungsmodell beantwortet typisierte Fragen aus einem hierarchischen Katalog. Es liefert kalibrierte Wahrscheinlichkeiten, aber keine Werte.
-3. **Werteparser und Referenzauflösung** (10.3): Deterministischer Code liest Zahlen, Einheiten und Richtungen und löst „das Bad oben“ gegen den Modellzustand in eine IFC-GlobalId auf.
-4. **Dialogsteuerung** (10.4): Schwellwerte je Risikoklasse entscheiden über Ausführen, Vorschau, Rückfrage oder Ablehnung. Transparenz nach Art. 50 KI-VO und Datenschutz sind Teil dieser Steuerung.
-5. **Evaluation** (10.5): Ein deutsches Testset mit Fachbegriffen und ein Messplan für WER, Intent-Accuracy, Slot-F1, Kalibrierungsfehler und End-to-End-Erfolg, dazu ein Plan für das Fine-Tuning des Intent-Modells.
+1. **Spracherkennung** (10.1): lokal, im Strom, mit Fachbegriff-Boosting und Latenzbudget.
+2. **Intent-Erkennung** (10.2): Ein Entscheidungsmodell beantwortet typisierte Fragen aus einem hierarchischen Katalog und liefert kalibrierte Wahrscheinlichkeiten, aber keine Werte.
+3. **Werteparser und Referenzauflösung** (10.3): Code liest Zahlen, Einheiten und Richtungen und löst „das Bad oben“ in eine IFC-GlobalId auf.
+4. **Dialogsteuerung** (10.4): Schwellen je Risikoklasse entscheiden über Ausführen, Vorschau, Rückfrage oder Ablehnung; dazu Transparenz und Datenschutz.
+5. **Evaluation** (10.5): Testset, Messgrößen und Fine-Tuning-Plan.
 
-Der Prototyp B6 implementiert den deterministischen Teil der Kette: Werteparser, Raumreferenz, Anwendung eines Intents mit Regelprüfung. Das Intent-Modell ist darin ein Stub. Der Stub hat dieselbe Schnittstelle wie Laya bzw. Jev, liefert aber feste Wahrscheinlichkeiten aus einer Schlüsselworttabelle. Neu in diesem Kapitel sind drei maschinenlesbare Dateien: der vollständige Intent-Katalog `spezifikation/intents.yaml`, die Grammatik des Werteparsers `spezifikation/werteparser-grammatik.md` und das Testset `spezifikation/sprach-testset.jsonl`. B6 wurde gegen dieses Testset gemessen. Die Messung zeigt, was der Prototyp heute kann und wo die Grammatik über ihn hinausgeht.
+Der Prototyp B6 implementiert den deterministischen Teil: Werteparser, Raumreferenz, Anwendung eines Intents mit Regelprüfung. Das Intent-Modell ist darin ein Stub mit derselben Schnittstelle wie Laya bzw. Jev. Neu sind drei Dateien: der Intent-Katalog `spezifikation/intents.yaml`, die Grammatik `spezifikation/werteparser-grammatik.md` und das Testset `spezifikation/sprach-testset.jsonl`, gegen das B6 gemessen wurde.
 
 ## 10.1 Spracherkennung für Deutsch
 
@@ -24,12 +24,12 @@ Der Prototyp B6 implementiert den deterministischen Teil der Kette: Werteparser,
 
 Die Spracherkennung (ASR) eines Entwurfswerkzeugs unterscheidet sich von Diktat und Sprachassistent in vier Punkten:
 
-- **Zahlen tragen die Bedeutung.** „Eins zwanzig“ und „eins fünfzig“ unterscheiden sich um 30 cm Raumbreite. Ein Erkennungsfehler an einer Zahl ist folgenreicher als an einem Füllwort. Die Wortfehlerrate (WER) allein misst das nicht.
+- **Zahlen tragen die Bedeutung.** „Eins zwanzig“ und „eins fünfzig“ trennen 30 cm Raumbreite. Die Wortfehlerrate (WER) gewichtet diesen Fehler wie den an einem Füllwort.
 - **Fachbegriffe sind selten.** „Kniestock“, „Ortgang“, „Rigole“ oder „Zwerchgiebel“ kommen in allgemeinen Trainingsdaten kaum vor. Deutsche Sprachdatensätze aus dem Bauwesen wurden nicht gefunden (Recherche 03) [V].
-- **Die Äußerungen sind kurz, der Kontext ist bekannt.** Eine Äußerung umfasst typischerweise fünf bis fünfzehn Wörter. Das System kennt aber den Modellzustand, die Auswahl und die zuletzt gestellte Rückfrage. Diesen Kontext kann die Erkennung nutzen.
-- **Die Antwort muss schnell kommen.** Eine Sprachschnittstelle, die langsamer ist als ein Klick, wird für einfache Änderungen nicht genutzt. Chen et al. berichten laut Einzelbewertung, dass Nutzer bei Änderungen eines einzelnen Parameters den Schieberegler bevorzugen [@chen2025agent]. Sprache muss sich daher bei zusammengesetzten Änderungen lohnen und darf bei einfachen nicht bremsen.
+- **Die Äußerungen sind kurz, der Kontext ist bekannt.** Modellzustand, Auswahl und letzte Rückfrage kann die Erkennung nutzen.
+- **Die Antwort muss schnell kommen.** Bei Änderungen eines einzelnen Parameters bevorzugen Nutzer laut Einzelbewertung den Schieberegler [@chen2025agent]. Sprache muss sich bei zusammengesetzten Änderungen lohnen und darf bei einfachen nicht bremsen.
 
-Große, schwach überwachte Modelle wie Whisper erreichen eine hohe Robustheit ohne Feinabstimmung [@radford2023whisper]. Für seltenes Vokabular ist Contextual Biasing das Standardverfahren: Eine Liste von Kontextphrasen wird zur Laufzeit begünstigt. Das End-to-End-Verfahren CLAS senkte die relative WER gegenüber einer nachgeschalteten Fusion um bis zu 68 % [@pundak2018deep]. Die Arbeit übernimmt nur das Prinzip über die Boosting-Funktionen verfügbarer Modelle, nicht das Google-interne System.
+Große, schwach überwachte Modelle wie Whisper erreichen eine hohe Robustheit ohne Feinabstimmung [@radford2023whisper]. Für seltenes Vokabular ist Contextual Biasing das Standardverfahren: Eine Liste von Kontextphrasen wird zur Laufzeit begünstigt. CLAS senkte die relative WER gegenüber nachgeschalteter Fusion um bis zu 68 % [@pundak2018deep]; übernommen wird nur das Prinzip über die Boosting-Funktionen verfügbarer Modelle.
 
 ### 10.1.2 Modellvergleich
 
@@ -46,25 +46,25 @@ Recherche 03 hat die für Deutsch verfügbaren offenen Modelle gesichtet. Tabell
 | Whisper large-v3-turbo (auch primeline German) | MIT | nur in Stücken | `hotwords`, `initial_prompt` | [V] | Rückfallebene |
 | Kyutai STT, Moonshine | – | – | – | kein Deutsch | ungeeignet |
 
-Zwei Befunde prägen die Wahl. Erstens gibt es für den Favoriten keine Angabe zum Fachvokabular, für Parakeet dagegen eine dokumentierte Boosting-Funktion. Zweitens stammt die einzige deutsche Fehlerrate aus der Modellangabe selbst und nicht aus einem Test mit Bauvokabular. Ob Voxtral oder Parakeet für diesen Anwendungsfall besser ist, lässt sich deshalb nur am eigenen Testset entscheiden (Abschnitt 10.5).
+Für den Favoriten fehlt eine Angabe zum Fachvokabular, für Parakeet ist Boosting dokumentiert. Die einzige deutsche Fehlerrate ist eine Modellangabe ohne Bauvokabular. Welches Modell besser passt, entscheidet deshalb nur das eigene Testset (10.5).
 
 > **E10.1 (Spracherkennung).** Die Spracherkennung läuft lokal hinter einer austauschbaren Schnittstelle. Diese liefert n-beste Hypothesen mit Konfidenz und Wortzeiten. Voxtral Realtime ist das Primärmodell, Parakeet v3 mit Boosting wird parallel gemessen, Whisper ist die Rückfallebene. Die endgültige Wahl trifft die Messung von WER, Fachbegriff-Fehlerrate und Zahlfehlerrate am Audio-Testset (10.5.2), nicht die Modellangabe.
 
-Die n-besten Hypothesen sind kein Selbstzweck. Kou und Tan steuerten CAD per Sprache und stellten fest, dass eine CAD-spezifische Grammatik deutlich besser erkennt als freies Diktat [@kou2008design]. Die Folgearbeit filtert Kandidaten nach dem Modellkontext und fragt bei Mehrdeutigkeit nach [@kou2010knowledge]. Übertragen heißt das: Ist die beste Hypothese im aktuellen Kontext unzulässig, etwa weil sie einen Raum nennt, den es nicht gibt, prüft das System die zweite und dritte, bevor es zurückfragt.
+Die n-besten Hypothesen haben einen Zweck. Bei Kou und Tan erkannte eine CAD-spezifische Grammatik deutlich besser als freies Diktat [@kou2008design]; die Folgearbeit filtert Kandidaten nach dem Modellkontext und fragt bei Mehrdeutigkeit nach [@kou2010knowledge]. Nennt die beste Hypothese etwa einen Raum, den es nicht gibt, prüft das System die zweite und dritte, bevor es zurückfragt.
 
 ### 10.1.3 Fachbegriffe: Boosting und Nachkorrektur
 
 Die Fachbegriffe werden an zwei Stellen behandelt.
 
-**Vor der Erkennung (Boosting).** Die Liste `fachbegriffe` in `intents.yaml` enthält 60 Begriffe mit Varianten. Ihr Kern ist die Startliste aus Recherche 03 (Kniestock, Gaube, Pfette, Sparren, OSB, Schwelle). Erweitert wird sie um alle Slot-Werte des Katalogs, die ein Laie aussprechen könnte, etwa „Krüppelwalmdach“, „Hebeschiebetür“, „Frischwasserstation“ und „Rigole“. Die Liste wird dem Modell als Boosting- bzw. Hotword-Liste übergeben, soweit es das unterstützt (Tabelle 10.1).
+**Vor der Erkennung (Boosting).** Die Liste `fachbegriffe` in `intents.yaml` enthält 60 Begriffe mit Varianten: die Startliste aus Recherche 03 (Kniestock, Gaube, Pfette, Sparren, OSB, Schwelle) und Slot-Werte des Katalogs wie „Krüppelwalmdach“, „Hebeschiebetür“ oder „Rigole“. Sie geht als Boosting- bzw. Hotword-Liste an das Modell (Tabelle 10.1).
 
-**Nach der Erkennung (Nachkorrektur).** Die Varianten der Liste bilden typische Fehltranskripte auf den Begriff ab: „Knie Stock“ wird zu „Kniestock“, „H T Strich“ zu H′T. Varianten, die nur phonetisch ähnlich sind, werden unscharf gegen die Liste abgeglichen (Recherche 03). Die Nachkorrektur ist deterministisch und wird im Protokoll ausgewiesen, damit sich eine falsche Korrektur zurückverfolgen lässt.
+**Nach der Erkennung (Nachkorrektur).** Die Varianten bilden typische Fehltranskripte auf den Begriff ab („Knie Stock“ → „Kniestock“, „H T Strich“ → H′T); nur phonetisch ähnliche Formen werden unscharf abgeglichen (Recherche 03). Die Korrektur ist deterministisch und steht im Protokoll.
 
-Das Testset enthält 40 Sätze mit Fachbegriffen und drei Sätze mit typischen Erkennungsartefakten wie „Den Knie Stock auf eins zwanzig“ und „Eine Schlepp Gaube übers Bad oben“. Herstellerbegriffe wie Wand- und Deckenbezeichnungen fehlen in der Liste noch. Sie sind als Datenlieferung DAT-10-01 geführt.
+Das Testset enthält 40 Sätze mit Fachbegriffen und drei mit Erkennungsartefakten. Herstellerbegriffe fehlen noch (DAT-10-01).
 
 ### 10.1.4 Latenzbudget
 
-Tabelle 10.2 verteilt das Zeitbudget vom Ende der Äußerung bis zur sichtbaren Modelländerung. Das Gesamtziel von 1,5 s ist eine Designentscheidung [U]. Sie ist in der Nutzerstudie zu prüfen (Kapitel 20). Die Zeilen mit „Messung“ sind am 27.09.2026 in der Arbeitsumgebung dieses Kapitels gemessen (Python 3.11.15, Linux-Container), nicht auf der Zielhardware.
+Tabelle 10.2 verteilt das Zeitbudget vom Ende der Äußerung bis zur sichtbaren Änderung. Das Ziel von 1,5 s ist eine Designentscheidung [U], die die Nutzerstudie prüft (Kapitel 20). „Messung“ heißt: am 27.09.2026 in der Arbeitsumgebung gemessen (Python 3.11.15, Linux-Container), nicht auf Zielhardware.
 
 **Tabelle 10.2: Latenzbudget einer Äußerung**
 
@@ -78,14 +78,9 @@ Tabelle 10.2 verteilt das Zeitbudget vom Ende der Äußerung bis zur sichtbaren 
 | Neuaufbau von IFC-Ausschnitt und Ansicht | Designwert | Messung ausstehend | ≤ 300 ms [U] |
 | **Summe** | | | **≈ 1,33 s ≤ 1,5 s** |
 
-Zwei Folgerungen ergeben sich aus der Tabelle:
+Der deterministische Teil ist nicht der Engpass: Parser, Referenz und Regelprüfung liegen zwei bis drei Größenordnungen unter der Spracherkennung. Das Budget hängt an der Streaming-Verzögerung und ist mit Whisper, das nur in Stücken arbeitet, nicht einzuhalten (E10.1). Während des Sprechens zeigt die Oberfläche das Teiltranskript, nach der Intent-Erkennung sofort die Interpretation („Verstanden: Bad OG · Breite · 2,60 m“), noch vor dem Neuaufbau des Modells (10.4.3).
 
-1. **Der deterministische Teil ist nicht der Engpass.** Parser, Referenzauflösung und Regelprüfung zusammen liegen zwei bis drei Größenordnungen unter der Spracherkennung. Die Anforderung, nur die von einer Änderung betroffenen Regeln neu auszuwerten (ANF-09-19), dient deshalb weniger der Rechenzeit als der Nachvollziehbarkeit.
-2. **Das Budget hängt an der Streaming-Verzögerung.** Mit Whisper, das nur in Stücken arbeitet, ist es nicht einzuhalten. Deshalb ist Whisper nur Rückfallebene (E10.1).
-
-Damit das Warten nicht leer bleibt, zeigt die Oberfläche während des Sprechens das Teiltranskript und nach der Intent-Erkennung sofort die Interpretation („Verstanden: Bad OG · Breite · 2,60 m“), noch bevor das Modell neu aufgebaut ist (10.4.3).
-
-> **E10.2 (Aktivierung).** Das Mikrofon ist nur aktiv, solange der Nutzer eine Taste hält oder nach einem Tippen bis zur Sprechpause (Push-to-talk). Es gibt kein Dauerlauschen und kein Aktivierungswort. Begründung: Unbeabsichtigte Aufnahmen werden vermieden, statt sie nachträglich löschen zu müssen [@edpb2021vva]. Zugleich ist der Beginn einer Äußerung eindeutig, was die Endpunkterkennung vereinfacht.
+> **E10.2 (Aktivierung).** Das Mikrofon ist nur nach Tastendruck oder Tippen bis zur Sprechpause aktiv (Push-to-talk), ohne Dauerlauschen und Aktivierungswort. So entstehen keine versehentlichen Aufnahmen, die zu löschen wären [@edpb2021vva], und der Beginn einer Äußerung ist eindeutig.
 
 ## 10.2 Intent-Erkennung mit typisierten Fragen
 
