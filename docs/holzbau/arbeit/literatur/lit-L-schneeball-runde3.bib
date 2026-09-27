@@ -1,0 +1,99 @@
+% lit-L-schneeball-runde3.bib -- Schneeballverfahren Runde 3 (gezielt), Stand 27.09.2026
+% Begleitdokument: ../../recherche/28-schneeball-runde-3.md
+% STATUS: TEILERGEBNIS. Bearbeitet sind nur die drei Relevanz-3-Startquellen aus Runde 2
+%   (wei2025texttostructure, an2020bimbased, zhang2022bimbased), jeweils rückwärts und vorwärts.
+%   Die übrigen 50 Startquellen (Cluster FF3 und FF2/FF4) sind NICHT bearbeitet, weil nach den ersten
+%   Abfragen das Exa-Kontingent erschöpft war (HTTP 402) und OpenAlex, Semantic Scholar, Crossref,
+%   doi.org sowie alle Verlagsseiten per Egress-Proxy gesperrt sind (403, geprüft 27.09.2026).
+% Prüfweg Kanten: OpenAlex (api.openalex.org, Filter cited_by:/cites:) über Exa-Fetch, vor Erschöpfung
+%   des Kontingents vollständig für die drei Startquellen abgerufen.
+% Prüfweg Verifikation: Crossref war nicht erreichbar. Existenz und bibliografische Angaben sind über
+%   die Websuche (WebSearch) gegen Verlags- bzw. Repositoriumsseiten geprüft (ScienceDirect, ACM DL,
+%   PLOS/PubMed, nature.com, TU-Delft-/ETH-Repositorium, Universitätsportale). Felder, die dort nicht
+%   belegt waren, sind weggelassen, nicht ergänzt. Crossref-Abgleich vor Abgabe nachholen (2a.7).
+% Dubletten zu quellen-master.csv (1 046 Zeilen, enthält lit-J) und allen lit-*.bib sowie zu den
+%   ausgeschlossenen Kandidaten aus Runde 1 (Recherche 25, Anhang G) und Runde 2 (Recherche 26,
+%   Anhang A) sind NICHT enthalten (DOI exakt, Titel normalisiert auf 60 Zeichen).
+%   Keine Key-Kollision mit vorhandenen lit-*.bib und quellen-master.csv (geprüft beim Erzeugen).
+% Relevanzwerte im note-Feld sind vorläufig (Einzelbewertung nach Titel und Abstract bzw.
+%   Kurzfassung aus der Websuche); Einpflegen in quellen-bewertung.csv mit qualitaet,
+%   uebertragbarkeit und P steht aus.
+% [V] = Existenz und Kernangaben über Verlags-/Repositoriumsseite bestätigt (hier: über Websuche,
+%   nicht über Crossref). Zeichen: UTF-8.
+
+@article{cao2022ontologybased,
+  author       = {Cao, Jianpeng and Vakaj, Edlira and Soman, Ranjith K. and Hall, Daniel M.},
+  title        = {Ontology-based manufacturability analysis automation for industrialized construction},
+  journal      = {Automation in Construction},
+  volume       = {139},
+  pages        = {104277},
+  year         = {2022},
+  doi          = {10.1016/j.autcon.2022.104277},
+  note         = {[V] Websuche: ScienceDirect (S0926580522001509), TU-Delft-Repositorium, ETH Research Collection, BCU Open Access (Autoren, Band 139, Artikel 104277); Crossref/OpenAlex direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend. Kurzfassung gelesen (Websuche): Ontologie verknüpft Bauteilmerkmale, Produktionsfähigkeiten und Fertigungsregeln; semantisches Reasoning liefert Echtzeit-Rückmeldung an Planer; getestet an einem Holztafelbau-Projekt (ETH Zürich). Schneeball R3 von an2020bimbased (vorwärts). Relevanz vorläufig ff1=2, ff2=3.}
+}
+
+@article{kim2022bim,
+  author       = {Kim, Y. and Chin, S. and Choo, S.},
+  title        = {{BIM} data requirements for {2D} deliverables in construction documentation},
+  journal      = {Automation in Construction},
+  volume       = {140},
+  pages        = {104340},
+  year         = {2022},
+  doi          = {10.1016/j.autcon.2022.104340},
+  note         = {[V] Websuche: ScienceDirect (S0926580522002138), Sungkyunkwan University Pure, J-GLOBAL (Autoren mit Initialen, August 2022, Artikel 104340); Band aus Heftmonat abgeleitet; Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend (u. a. volle Vornamen). Kurzfassung gelesen (Websuche): Delphi-basierte Informationsanforderungen für Planableitung aus BIM; Zusatzaufwand beim Ableiten von Zeichnungen sinkt von 41 % auf 7,1 %. Schneeball R3 von an2020bimbased (vorwärts). Relevanz vorläufig ff1=2, ff5=1.}
+}
+
+@article{wang2016building,
+  author       = {Wang, J. and Wang, X. and Shou, W. and Chong, H.-Y. and Guo, J.},
+  title        = {Building information modeling-based integration of {MEP} layout designs and constructability},
+  journal      = {Automation in Construction},
+  volume       = {61},
+  pages        = {134--146},
+  year         = {2016},
+  doi          = {10.1016/j.autcon.2015.10.003},
+  note         = {[V] Websuche: ScienceDirect (S0926580515002083), Curtin espace, Western Sydney University, Deakin (Autoren mit Initialen, Band 61, S. 134--146); Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend (u. a. volle Vornamen). Kurzfassung gelesen (Websuche): TGA-Modell in fünf Detaillierungsstufen vom Vorentwurf bis zum Vorfertigungsmodell mit vier Koordinationsschritten. Schneeball R3 von zhang2022bimbased (rückwärts). Relevanz vorläufig ff1=1, ff6=2.}
+}
+
+@article{fisher2024paad,
+  author       = {Fisher, Andrew and Tan, Xing and Billah, Muntasir and Lingras, Pawan and Huang, Jimmy and Mago, Vijay},
+  title        = {{PAAD}: Panelization algorithm for architectural designs},
+  journal      = {PLOS ONE},
+  volume       = {19},
+  number       = {6},
+  pages        = {e0303646},
+  year         = {2024},
+  doi          = {10.1371/journal.pone.0303646},
+  note         = {[V] Websuche: PLOS ONE, PubMed 38861492, PMC11166312 (Autoren, 11.06.2024, DOI); Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend. Kurzfassung gelesen (Websuche): genetischer Algorithmus auf Basis 2D-Bin-Packing teilt Wände in Tafeln unter Fertigungsrestriktionen auf, auch bei Schrägwänden und Öffnungen; Vergleich mit Industrie- und Expertenlösungen. Schneeball R3 von zhang2022bimbased (vorwärts). Relevanz vorläufig ff1=2, ff2=1.}
+}
+
+@article{cortezlara2026bimsimulated,
+  author       = {Cortez-Lara, Pedro and Sanchez, Benjamin and Barrios-Pi{\~n}a, Hector A.},
+  title        = {A {BIM}-simulated annealing approach to optimize cost, size, and environmental impact of building water networks},
+  journal      = {Scientific Reports},
+  year         = {2026},
+  doi          = {10.1038/s41598-026-41841-4},
+  note         = {[V] Websuche: nature.com, PubMed 41764314, PMC13049140 (Autoren, 28.02.2026, DOI); Band und Artikelnummer nicht belegt und daher weggelassen; Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend. Kurzfassung gelesen (Websuche): Revit/Python-Optimierung der Rohrdimensionierung von Gebäudewassernetzen nach Kosten und Umweltwirkung; Code und Datensatz auf Zenodo. Schneeball R3 von zhang2022bimbased (vorwärts). Relevanz vorläufig ff6=2.}
+}
+
+@article{saka2023conversational,
+  author       = {Saka, Abdullahi B. and Oyedele, Lukumon O. and Akanbi, Lukman A. and Ganiyu, Sikiru A. and Chan, Daniel W. M. and Bello, Sururah A.},
+  title        = {Conversational artificial intelligence in the {AEC} industry: A review of present status, challenges and opportunities},
+  journal      = {Advanced Engineering Informatics},
+  volume       = {55},
+  pages        = {101869},
+  year         = {2023},
+  doi          = {10.1016/j.aei.2022.101869},
+  note         = {[V] Websuche: ScienceDirect (S1474034622003275), ACM DL, Leeds-Beckett-, BCU- und UWE-Repositorium (Autoren, Band 55, Artikel 101869); Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend. Kurzfassung gelesen (Websuche): Übersicht Konversations-KI (Sprache und Text) im Bauwesen, Stand, Hürden, Forschungsbedarf. Schneeball R3 von wei2025texttostructure (rückwärts). Relevanz vorläufig ff3=2.}
+}
+
+@article{weld2022survey,
+  author       = {Weld, Henry and Huang, Xiaoqi and Long, Siqu and Poon, Josiah and Han, Soyeon Caren},
+  title        = {A Survey of Joint Intent Detection and Slot Filling Models in Natural Language Understanding},
+  journal      = {ACM Computing Surveys},
+  volume       = {55},
+  number       = {8},
+  pages        = {156},
+  year         = {2022},
+  doi          = {10.1145/3547138},
+  note         = {[V] Websuche: ACM Digital Library (Band 55, Heft 8, Artikel 156), UWA-Repositorium, arXiv 2101.08091 (Vorfassung); Crossref direkt gesperrt, Exa-Kontingent erschöpft; Crossref-Abgleich ausstehend (Heftjahr ggf. 2023). Kurzfassung gelesen (Websuche): Übersicht gemeinsamer Modelle für Intent-Erkennung und Slot-Filling. Methodische Grundlage der Intent/Slot-Zerlegung in wei2025texttostructure. Schneeball R3 von wei2025texttostructure (rückwärts). Relevanz vorläufig ff3=2.}
+}
