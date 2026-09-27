@@ -358,3 +358,55 @@ Q472 cheung2026institutionalizing, Q669 campogay2026quality, Q729 wyke2025produc
 | id | key | Problem |
 |---|---|---|
 | Q478 | wilhelmi2020haftung | Kapitel-DOI bei Crossref nicht registriert (Suche Präfix 10.3790, Typ book-chapter, Autor Wilhelmi ohne Treffer); Band-DOI 10.3790/978-3-428-55963-3 unverändert, note um „[U] …“ ergänzt. |
+
+## Runde 3: lit-M
+
+Grundlage: `lit-M-nachweis.bib` (Q1055–Q1067, angelegt ohne Netzzugriff, note „offen: Online-Abgleich“). Online-Abgleich am 27.09.2026: Crossref- und OpenAlex-API über Exa-Fetch, BIPM-Publikationsseite, iso.org, DIN Media, Verzeichnis der Mustervorschriften der Bauministerkonferenz (bauministerkonferenz.de, Nachfolger von is-argebau.de). Keine Einträge gelöscht, keine Keys geändert. Jeder Eintrag trägt im `note` jetzt „verifiziert via …“ statt „offen/unsicher: …“. In `bewertung/teil-11.csv` alle 13 Zeilen `verifiziert` U → V und `pruefweg` nur-titel → Prüfweg; `begruendung` nur bei Q1062 und Q1065 geändert (sachlicher Fehler), übrige Bewertungsfelder unverändert.
+
+### Stabilitätsprüfung
+
+- Sicherung von `lit-M-nachweis.bib` und `teil-11.csv` vor der Änderung im Scratchpad.
+- `bibmerge.py` auf einer Kopie des Ordners: 1 067 eindeutige Einträge, 3 Duplikate und Key-Kollision mbo2bim2023 wie vorher; id/key-Zuordnung identisch zur geltenden `quellen-master.csv` (1 067/1 067). `quellen-master.csv` und `quellen-bewertung.csv` im Originalordner nicht neu erzeugt.
+- Brace-Balance `lit-M-nachweis.bib`: Endtiefe 0, keine negative Tiefe, 13 Einträge.
+
+### Änderungen (11 Quellen, zuzüglich note bei allen 13)
+
+| id | key | Feld | alt | neu | Prüfweg |
+|---|---|---|---|---|---|
+| Q1057 | jcgm100 | doi | (leer) | 10.59161/JCGM100-2008E | BIPM, JCGM-Publikationen |
+| Q1058 | jcgm101 | title | … Supplement 1 to the GUM -- Propagation … | … Supplement 1 to the ``Guide to the expression of uncertainty in measurement'' -- Propagation … | BIPM (amtlicher Titel) |
+| Q1058 | jcgm101 | doi | (leer) | 10.59161/JCGM101-2008 | BIPM |
+| Q1059 | iso80000-1 | url | (leer) | https://www.iso.org/standard/76921.html | iso.org (2. Ausgabe 2022-12) |
+| Q1060 | din1333 | doi, url | (leer) | 10.31030/2426986; dinmedia.de/de/norm/din-1333/1819868 | DIN Media (1992-02 gültig) |
+| Q1061 | din1313 | doi, url | (leer) | 10.31030/7560947; dinmedia.de/de/norm/din-1313/8800804 | DIN Media (1998-12, Status aktuell) |
+| Q1062 | din1356-1 | title | DIN 1356-1:1995-02 Bauzeichnungen -- Teil 1: Arten, Inhalte und Grundregeln der Darstellung | DIN EN ISO 7519:2025-01 Technische Produktdokumentation (TPD) -- Baukonstruktionszeichnungen -- Allgemeine Grundlagen für Übersichts-Anordnungszeichnungen und Zusammenbauzeichnungen (ISO 7519:2024); Deutsche Fassung EN ISO 7519:2024 | DIN Media: 1995-02 zurückgezogen, ersetzt durch DIN 1356-1:2024-04, diese ersetzt durch DIN EN ISO 7519:2025-01 |
+| Q1062 | din1356-1 | year | 1995 | 2025 | s. o. |
+| Q1062 | din1356-1 | doi, url | (leer) | 10.31030/3537566; dinmedia.de/de/norm/din-en-iso-7519/379472829 | s. o. |
+| Q1063 | iso128-1 | title | ISO 128-1 Technical product documentation … | ISO 128-1:2020 Technical product documentation … | iso.org/standard/65296.html (2. Ausgabe 2020-05, 2026 bestätigt) |
+| Q1063 | iso128-1 | url | (leer) | https://www.iso.org/standard/65296.html | s. o. |
+| Q1064 | iso6946_2017 | title | … Berechnungsverfahren (ISO 6946:2017) | … Berechnungsverfahren (ISO 6946:2017); Deutsche Fassung EN ISO 6946:2017 | DIN Media (Ausgabe 2018-03, Berichtigung 1:2023-04) |
+| Q1064 | iso6946_2017 | doi, url | (leer) | 10.31030/2518301; dinmedia.de/de/norm/din-en-iso-6946/255315365 | s. o. |
+| Q1065 | mbauvorlv1996 | title | Muster einer Verordnung über Bauvorlagen und bauaufsichtliche Anzeigen (Musterbauvorlagenverordnung -- MBauVorlV), Fassung Februar 1996 | Muster einer Verordnung über Bauvorlagen im bauaufsichtlichen Verfahren (Musterbauvorlagenverordnung -- MBauVorlVO), Fassung Januar 1974 | bauministerkonferenz.de/Dokumente/4239297.pdf (§ 5 Abs. 1 am Text geprüft) |
+| Q1065 | mbauvorlv1996 | year | 1996 | 1974 | s. o. |
+| Q1065 | mbauvorlv1996 | url | https://www.is-argebau.de | https://bauministerkonferenz.de/Dokumente/4239297.pdf | s. o. |
+| Q1066 | mbauvorlv2020 | title | Musterbauvorlagenverordnung (MBauVorlV), zuletzt geänderte Fassung | Muster einer Verordnung über Bauvorlagen und bauaufsichtliche Anzeigen (Musterbauvorlagenverordnung -- MBauVorlV), Fassung Februar 2007, zuletzt geändert durch Beschluss der Bauministerkonferenz vom 25.09.2020 | Bauministerkonferenz, Verzeichnis Mustervorschriften; umwelt-online |
+| Q1066 | mbauvorlv2020 | url | https://www.is-argebau.de | https://www.bauministerkonferenz.de/verzeichnis.aspx?id=991&o=991 | s. o. |
+| Q1067 | mppvo2012 | title | Muster-Verordnung über die Prüfingenieure und Prüfsachverständigen (M-PPVO) | Muster-Verordnung über die Prüfingenieure und Prüfsachverständigen nach § 85 Abs. 2 MBO (M-PPVO), Fassung Dezember 2012 | Bauministerkonferenz (M-PPVO Fassung Dezember 2012), DIBt, BVPI-Volltext |
+| Q1067 | mppvo2012 | url | https://www.is-argebau.de | https://www.bauministerkonferenz.de/verzeichnis.aspx?id=991&o=991 | s. o. |
+
+### Weitere Hinweise zu Entscheidungen
+
+- **Q1062**: Wie bei Q777 auf die geltende Ausgabe umgestellt; laut DIN Media deckt DIN EN ISO 7519:2025-01 die Inhalte von DIN 1356-1 ab. Key `din1356-1` bleibt. Kap. 7a (Literaturliste Zeile „`@din1356-1`: DIN 1356-1:1995-02 …“ und Abschnitt 4) sowie Gliederung 7a.4 sind textlich nachzuziehen.
+- **Q1065**: Kap. 7a zitiert `mbauvorlv1996` mit dem Titel „… im bauaufsichtlichen Verfahren (ältere Fassung)“ und § 5 Abs. 1 „Berechnungen und Zeichnungen müssen übereinstimmen“. Genau diese Stelle steht in der MBauVorlVO Fassung Januar 1974; eine Muster-Fassung 1996 ist nicht belegbar (1996 gab es nur Landesverordnungen, z. B. Bremen, Saarland). Daher auf 1974 korrigiert statt auf die Urfassung 2007.
+- **Q1057**: Neu erschienen ist JCGM 100:2008/Amd.1:2026 „Nonlinearity in measurement models“ (DOI 10.59161/PPDI3267). Das betrifft die lineare Fortpflanzung im Nachweis-Framework (Kap. 7a, Gl. 10). Nur im note vermerkt, Bewertung unverändert.
+- **Q1059**: Anhang B „Rounding of numbers“ (normativ) ist in ISO 80000-1:2022 enthalten; die Begründung in teil-11 stimmt. Deutsche Ausgabe DIN EN ISO 80000-1:2023-08 im note.
+- **Q1063**: Ausgabejahr 2020 bestätigt; deutsche Ausgabe DIN EN ISO 128-1:2022-02 im note.
+- **Q1055**: `quellen-master.csv` zeigt nur 7 Autoren, weil `bibmerge.py` das Autorenfeld auf 150 Zeichen kürzt; das BibTeX mit 11 Autoren stimmt mit Crossref überein.
+
+### Geprüft, keine Änderung nötig
+
+Q1055 barker2022fair4rs (Crossref, 11 Autoren, Sci Data 9, 622), Q1056 smith2016softwarecitation (Crossref, PeerJ CS 2, e86), Q1060 din1333 und Q1061 din1313 inhaltlich (Ausgaben gültig, nur DOI/URL ergänzt), Q1064 Ausgabe 2018-03 weiterhin gültig (Hinweis auf GModG-Datierung 2008-04 bleibt).
+
+### nicht klärbar
+
+Keine.

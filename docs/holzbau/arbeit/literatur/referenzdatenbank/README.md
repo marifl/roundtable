@@ -7,12 +7,12 @@ Automatisch erzeugt von `../referenzdatenbank.py`. Nicht von Hand bearbeiten; Ä
 | Inhalt | Anzahl |
 |---|---|
 | Quellen | 1067 |
-| einzeln bewertet | 1059 |
+| einzeln bewertet | 1067 |
 | zweitbewertet (blind) | 80 |
-| Abstract-Datensätze | 1046 |
-| davon mit Originalabstract | 712 |
+| Abstract-Datensätze | 1054 |
+| davon mit Originalabstract | 745 |
 
-Open-Access-Status: closed: 405, gold: 134, hybrid: 131, green: 130, frei (amtlich): 90, unbekannt: 74, bronze: 72, diamond: 10
+Open-Access-Status: closed: 406, gold: 136, hybrid: 134, green: 132, frei (amtlich): 91, unbekannt: 73, bronze: 72, diamond: 10
 
 ## Dateien
 

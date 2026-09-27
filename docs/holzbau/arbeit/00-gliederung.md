@@ -95,7 +95,7 @@ Status: Gliederung v0.4 (27.09.2026): zusätzlich Fliesen als 3D-Einzelobjekte, 
 1. Anforderungen an prüffähige Nachweise
 2. Größen, Einheiten, Rundung (DIN 1333, ISO 80000), Unsicherheit (GUM)
 3. Datenmodell des Nachweises: Regel und Fassung, Eingaben mit Quelle, Schritte mit Formel, Ergebnis, Grenzwert, Ausnutzung
-4. Grafische Nachweise: Lageplan, Schnitt, Diagramm, Rasterkarte (DIN ISO 128, DIN 1356-1)
+4. Grafische Nachweise: Lageplan, Schnitt, Diagramm, Rasterkarte (ISO 128, DIN EN ISO 7519:2025-01 als Nachfolge der zurückgezogenen DIN 1356-1)
 5. Nachweisheft, Hash und Rückverfolgbarkeit zu IFC-GUID und Regelwerk-Version
 
 ### 8. Informationsmodell

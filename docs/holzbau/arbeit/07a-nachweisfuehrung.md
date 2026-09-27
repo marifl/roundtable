@@ -116,7 +116,7 @@ Zwei Entwurfsentscheidungen verdienen eine Begründung.
 
 ## 7a.4 Grafische Nachweise
 
-Grafiken erfüllen im Nachweis zwei Aufgaben: Sie zeigen den geometrischen Sachverhalt, etwa Lageplan, Schnitt oder Ansicht, und sie zeigen das Prüfergebnis, etwa Ist gegen Grenzwert. Für die Bauzeichnung gelten DIN 1356-1 (Bauzeichnungen) und die Normenreihe ISO 128 (technische Produktdokumentation, allgemeine Darstellungsregeln). Hinzu kommen die Regeln zur Maßeintragung (DIN 406) [@din1356-1; @iso128-1] [U, Normtexte nicht eingesehen]. Das Framework übernimmt davon, was sich ohne Normtext belastbar begründen lässt:
+Grafiken erfüllen im Nachweis zwei Aufgaben: Sie zeigen den geometrischen Sachverhalt, etwa Lageplan, Schnitt oder Ansicht, und sie zeigen das Prüfergebnis, etwa Ist gegen Grenzwert. Für die Bauzeichnung galt bisher DIN 1356-1 (Bauzeichnungen); sie ist zurückgezogen, maßgeblich ist nun DIN EN ISO 7519:2025-01 (Baukonstruktionszeichnungen). Hinzu kommt die Normenreihe ISO 128 (technische Produktdokumentation, allgemeine Darstellungsregeln). Hinzu kommen die Regeln zur Maßeintragung (DIN 406) [@din1356-1; @iso128-1] [U, Normtexte nicht eingesehen]. Das Framework übernimmt davon, was sich ohne Normtext belastbar begründen lässt:
 
 - **Maßstäblichkeit.** Technische Zeichnungen werden als reines SVG erzeugt. Breite und Höhe sind in Millimetern angegeben, Modellkoordinaten werden über den Maßstab auf Papier-Millimeter abgebildet. Beim Druck in 100 % ist die Zeichnung maßhaltig. Der Lageplan in B4 hat den Maßstab 1 : 200 und liegt damit innerhalb der Grenze des § 7 Abs. 2 BauVorlV.
 - **Pflichtinhalte.** Der Lageplan enthält Maßstabsleiste, Nordpfeil, Legende und Schriftfeld, dazu Grenzabstände und Abstandsflächentiefen. Zulässige Abstandsflächen erscheinen grün, unzulässige rot. Die Unterscheidung hängt nie nur an der Farbe, denn Legende und Tabelle tragen denselben Befund.
@@ -176,7 +176,7 @@ Drei Beobachtungen gehen über die Einzelergebnisse hinaus.
 
 Die Grenzen sind benannt:
 
-- Die Primärtexte von BayPrüfVBau, DIN 1333, DIN 1313, DIN 1356-1, ISO 128 und JCGM 106 wurden nicht eingesehen [U].
+- Die Primärtexte von BayPrüfVBau, DIN 1333, DIN 1313, DIN EN ISO 7519, ISO 128 und JCGM 106 wurden nicht eingesehen; bibliografisch sind sie geprüft (siehe `literatur/KORREKTUREN.md`, Runde 3) [U für Inhalte].
 - Die Zeichnungen folgen den Zeichenregeln sinngemäß. Nicht umgesetzt sind die Planzeichen nach Anlage 1 BauVorlV bzw. PlanZV sowie Katastergrundlage und Höhenbezug.
 - Ein PDF entsteht nur über die Druckfunktion des Browsers. Eine PDF-Erzeugung ohne Systemabhängigkeiten hätte einen eigenen Formelsatz erfordert.
 - Die Unsicherheitsfortpflanzung ist linear und nimmt unkorrelierte Eingänge an; Korrelationen entstehen nur über die Rechenkette.
@@ -195,7 +195,7 @@ Schlüssel ohne Eintrag in `literatur/*.bib` sind zur Übernahme vorgesehen. [V]
 - `@mppvo2012`: Bauministerkonferenz (ARGEBAU), Muster-Verordnung über die Prüfingenieure und Prüfsachverständigen nach § 85 Abs. 2 MBO (M-PPVO), Fassung Dezember 2012 mit Begründung; Fassungen März 2006 und August 2008. Wortlaut zu „Vollständigkeit und Richtigkeit“ geprüft über bvpi.de und is-argebau.de [V]. Absatzzählung je Fassung [U]. Bayerische Umsetzung BayPrüfVBau [U].
 - `@bauvorlv`: Freistaat Bayern, Bauvorlagenverordnung (BauVorlV) vom 10.11.2007, §§ 7, 10, 13; gesetze-bayern.de, Text über Suchdienst-Cache abgerufen [V].
 - `@mbauvorlv2020`: Bauministerkonferenz, Musterbauvorlagenverordnung (MBauVorlV), Fassung 2007, Begründung 2020, § 10 [V].
-- `@mbauvorlv1996`: Bauministerkonferenz, Muster einer Verordnung über Bauvorlagen im bauaufsichtlichen Verfahren (ältere Fassung), § 5 Abs. 1 „Berechnungen und Zeichnungen müssen übereinstimmen“ [V, Jahr der Fassung U].
+- `@mbauvorlv1996`: Bauministerkonferenz, Musterbauvorlagenverordnung (MBauVorlVO), Fassung Januar 1974, § 5 Abs. 1 „Berechnungen und Zeichnungen müssen übereinstimmen“ [V; der Key trägt aus historischen Gründen die Jahreszahl 1996, eine Fassung 1996 existiert nicht].
 - `@jcgm100`: JCGM 100:2008, *Evaluation of measurement data – Guide to the expression of uncertainty in measurement* (GUM 1995 with minor corrections), BIPM; Abschnitte 5.1.2, 5.1.3, 6.2.1, 6.3.3, 7.1.4, 7.2.6, 7.2.7 [V].
 - `@jcgm101`: JCGM 101:2008, *Supplement 1 to the GUM – Propagation of distributions using a Monte Carlo method*, BIPM [V, Titel und Gegenstand].
 - JCGM 106:2012, *The role of measurement uncertainty in conformity assessment* [U].
@@ -204,7 +204,7 @@ Schlüssel ohne Eintrag in `literatur/*.bib` sind zur Übernahme vorgesehen. [V]
 - `@din1313`: DIN 1313:1998-12, *Größen* [U].
 - `@iso6946_2017`: ISO 6946:2017 bzw. DIN EN ISO 6946:2018-03, *Bauteile – Wärmedurchlasswiderstand und Wärmedurchgangskoeffizient – Berechnungsverfahren*; 6.4, 6.5.2, 6.6, 6.7.1.1, 6.7.2.2 und Inhaltsverzeichnis über die Leseprobe des Normungsportals [V]; Absatznummern für oberen und unteren Grenzwert (6.7.2.3/6.7.2.4) [U].
 - `@iso6946`: DIN EN ISO 6946:2008-04, datierter Verweis in § 20 Abs. 6 GModG (Literaturdatenbank der Arbeit) [V laut Datenbank]; Angaberegel in dieser Ausgabe [U].
-- `@din1356-1`: DIN 1356-1:1995-02, *Bauzeichnungen – Teil 1: Arten, Inhalte und Grundregeln der Darstellung* [U].
+- `@din1356-1`: DIN EN ISO 7519:2025-01, *Technische Produktdokumentation – Baukonstruktionszeichnungen* (Nachfolge der zurückgezogenen DIN 1356-1:1995-02) [V].
 - `@iso128-1`: ISO 128-1:2020 und ISO 128-2:2020, *Technical product documentation – General principles of representation*; DIN 406-11 (Maßeintragung); ISO 3098 (Schrift); DIN EN ISO 7200 (Schriftfeld) [U].
 - `@smith2016softwarecitation`: Smith, A. M.; Katz, D. S.; Niemeyer, K. E.; FORCE11 Software Citation Working Group (2016): Software citation principles. *PeerJ Computer Science* 2:e86. doi:10.7717/peerj-cs.86 [V].
 - `@barker2022fair4rs`: Barker, M.; Chue Hong, N. P.; Katz, D. S.; Lamprecht, A.-L.; Martinez-Ortiz, C.; Psomopoulos, F.; Harrow, J.; Castro, L. J.; Gruenpeter, M.; Martinez, P. A.; Honeyman, T. (2022): Introducing the FAIR Principles for research software. *Scientific Data* 9, 622. doi:10.1038/s41597-022-01710-x [V].
