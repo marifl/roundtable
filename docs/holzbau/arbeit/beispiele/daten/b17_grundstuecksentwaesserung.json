@@ -137,6 +137,9 @@
     "kosten_innen_faktor": {"wert": 3.0, "quelle": "Kostenmodell (DIN 1986-100 6.1.1: Grundleitungen im Gebäude vermeiden)", "status": "eigene Annahme"},
     "kosten_innen_faktor_keller": {"wert": 1.5, "quelle": "Kostenmodell (Sammelleitung im Keller zugänglich)", "status": "eigene Annahme"},
     "kosten_fundament_faktor": {"wert": 2.0, "quelle": "Kostenmodell (Streifen 0-1 m am Gebäude)", "status": "eigene Annahme"},
+    "kosten_fundament_faktor_nw": {"wert": 1.2, "quelle": "Kostenmodell (NW-Leitung 0,8 m tief, Fallrohre stehen im Streifen)", "status": "eigene Annahme"},
+    "kosten_nahe_sw_faktor": {"wert": 2.0, "quelle": "Kostenmodell (NW-Leitung im 0,5-m-Streifen um SW-Leitungen)", "status": "eigene Annahme"},
+    "abstand_nw_sw": {"wert": 0.5, "quelle": "Planungsannahme (keine enge Parallelführung, Kreuzungen erlaubt)", "status": "U"},
     "kosten_kreuzung": {"wert": 5.0, "quelle": "Kostenmodell (Strafe je Kreuzung in m Äquivalent)", "status": "eigene Annahme"},
     "kosten_knick": {"wert": 0.5, "quelle": "Kostenmodell (Strafe je Formstück in m Äquivalent)", "status": "eigene Annahme"}
   },

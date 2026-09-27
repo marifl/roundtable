@@ -992,7 +992,7 @@ class IfcSchreiber:
     def schreibe(self, pfad: Path):
         h = self.f.header
         h.file_description.description = ("ViewDefinition [NotAssigned]",)
-        h.file_name.name = pfad.name
+        h.file_name.name = "b18_montage.ifc"    # fest, damit der Inhalt vom Zielpfad unabhängig ist
         h.file_name.time_stamp = self.pj["zeitstempel"]
         h.file_name.author = (self.pj["autor"],)
         h.file_name.organization = (self.pj["organisation"],)

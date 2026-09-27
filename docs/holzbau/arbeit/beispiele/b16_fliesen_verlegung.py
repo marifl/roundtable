@@ -527,6 +527,16 @@ def _pool_add(pool: list, geom, rohling: Polygon, rid: str, rest_min: float):
 # 5. Kennzahlen
 # ---------------------------------------------------------------------------
 
+def kleinstueck(poly: Polygon, soll_flaeche: float, regeln: dict, breite: float | None = None) -> dict:
+    """Handwerksregel (keine Norm): Schnittstück unter Mindest-Flächenanteil der
+    Sollform bzw. unter Mindestbreite (Inkreisdurchmesser); 'verlegbar' = breiter
+    als die Verfug-Grenze."""
+    b = inkreis_durchmesser(poly) if breite is None else breite
+    return {"unter_flaechenanteil": poly.area < regeln["min_flaechenanteil"] * soll_flaeche,
+            "unter_mindestbreite": b < regeln["min_breite_mm"],
+            "verlegbar": b >= regeln["verlegbar_min_breite_mm"]}
+
+
 def auswerten(raum: Raum, erg: dict, daten: dict, mit_greedy: bool = True) -> dict:
     muster: Muster = erg["muster"]
     fliesen = daten["fliesen"]
@@ -551,8 +561,9 @@ def auswerten(raum: Raum, erg: dict, daten: dict, mit_greedy: bool = True) -> di
             schnitt_l[a] += l
     zeit_min = sum(schnitt_n[a] * kalk["zeit_min_je_schnitt"][a] for a in SCHNITTARTEN)
 
-    klein_flaeche = [s for s in stuecke if not s.soll_ganz and s.poly.area < regeln["min_flaechenanteil"] * soll_fl[s.motiv]]
-    klein_breite = [s for s in stuecke if not s.soll_ganz and s.breite < regeln["min_breite_mm"]]
+    flags = [(s, kleinstueck(s.poly, soll_fl[s.motiv], regeln, s.breite)) for s in stuecke if not s.soll_ganz]
+    klein_flaeche = [s for s, fl in flags if fl["unter_flaechenanteil"]]
+    klein_breite = [s for s, fl in flags if fl["unter_mindestbreite"]]
 
     # (a) je Rasterposition ein Rohling
     n_pos = {a: 0 for a in rohlinge}

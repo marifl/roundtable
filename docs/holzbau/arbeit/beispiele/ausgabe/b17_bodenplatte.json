@@ -1,0 +1,952 @@
+{
+ "szenario": "bodenplatte",
+ "beschreibung": "EFH auf Bodenplatte (Regnauer-Standardfall angenommen), Gelände 2 % zur Straße",
+ "schmutzwasser": {
+  "haltungen": [
+   {
+    "von": "FL1",
+    "nach": "SW-W2",
+    "_u": "FL1",
+    "_v": "SW-K5",
+    "lage": "Gebäude",
+    "dn": 125,
+    "laenge": 3.27,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.005,
+    "sohle_oben": 519.102,
+    "sohle_unten": 518.938,
+    "gok_oben": 520.205,
+    "gok_unten": 520.138,
+    "q": 2.0,
+    "q_zul": 8.704,
+    "auslastung": 0.23,
+    "last": 6.4,
+    "kreuzungen": []
+   },
+   {
+    "von": "FL2",
+    "nach": "SW-W1",
+    "_u": "FL2",
+    "_v": "SW-K4",
+    "lage": "Gebäude",
+    "dn": 100,
+    "laenge": 2.0,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.005,
+    "sohle_oben": 519.195,
+    "sohle_unten": 519.095,
+    "gok_oben": 520.305,
+    "gok_unten": 520.295,
+    "q": 0.851,
+    "q_zul": 5.63,
+    "auslastung": 0.151,
+    "last": 2.9,
+    "kreuzungen": []
+   },
+   {
+    "von": "SW-W1",
+    "nach": "SW-S1",
+    "_u": "SW-K4",
+    "_v": "SW-K1",
+    "lage": "Erdreich",
+    "dn": 150,
+    "laenge": 1.05,
+    "gefaelle": 0.00667,
+    "gefaelle_min": 0.00667,
+    "sohle_oben": 519.095,
+    "sohle_unten": 519.088,
+    "gok_oben": 520.295,
+    "gok_unten": 520.29,
+    "q": 0.851,
+    "q_zul": 10.448,
+    "auslastung": 0.081,
+    "last": 2.9,
+    "kreuzungen": []
+   },
+   {
+    "von": "SW-S1",
+    "nach": "SW-S2",
+    "_u": "SW-K1",
+    "_v": "SW-K2",
+    "lage": "Erdreich",
+    "dn": 150,
+    "laenge": 10.55,
+    "gefaelle": 0.01983,
+    "gefaelle_min": 0.00667,
+    "sohle_oben": 519.088,
+    "sohle_unten": 518.879,
+    "gok_oben": 520.29,
+    "gok_unten": 520.079,
+    "q": 0.851,
+    "q_zul": 18.122,
+    "auslastung": 0.047,
+    "last": 2.9,
+    "kreuzungen": []
+   },
+   {
+    "von": "SW-S2",
+    "nach": "SW-S3",
+    "_u": "SW-K2",
+    "_v": "SW-K3",
+    "lage": "Erdreich",
+    "dn": 150,
+    "laenge": 7.0,
+    "gefaelle": 0.00928,
+    "gefaelle_min": 0.00667,
+    "sohle_oben": 518.879,
+    "sohle_unten": 518.814,
+    "gok_oben": 520.079,
+    "gok_unten": 520.014,
+    "q": 0.851,
+    "q_zul": 12.354,
+    "auslastung": 0.069,
+    "last": 2.9,
+    "kreuzungen": [
+     "HA Wasser/Strom/Telekom"
+    ]
+   },
+   {
+    "von": "SW-W2",
+    "nach": "SW-S3",
+    "_u": "SW-K5",
+    "_v": "SW-K3",
+    "lage": "Erdreich",
+    "dn": 150,
+    "laenge": 6.13,
+    "gefaelle": 0.02033,
+    "gefaelle_min": 0.00667,
+    "sohle_oben": 518.938,
+    "sohle_unten": 518.814,
+    "gok_oben": 520.138,
+    "gok_unten": 520.014,
+    "q": 2.0,
+    "q_zul": 18.351,
+    "auslastung": 0.109,
+    "last": 6.4,
+    "kreuzungen": []
+   },
+   {
+    "von": "SW-S3",
+    "nach": "SW-RS",
+    "_u": "SW-K3",
+    "_v": "SW-RS",
+    "lage": "Erdreich",
+    "dn": 150,
+    "laenge": 3.64,
+    "gefaelle": 0.00929,
+    "gefaelle_min": 0.00667,
+    "sohle_oben": 518.814,
+    "sohle_unten": 518.78,
+    "gok_oben": 520.014,
+    "gok_unten": 519.98,
+    "q": 2.0,
+    "q_zul": 12.358,
+    "auslastung": 0.162,
+    "last": 9.3,
+    "kreuzungen": []
+   }
+  ],
+  "anschlusskanal": {
+   "von": "SW-RS",
+   "nach": "Kanal-Einlass",
+   "dn": 150,
+   "laenge": 4.6,
+   "gefaelle": 0.43043,
+   "sohle_oben": 518.78,
+   "sohle_unten": 516.8,
+   "q_zul": 84.948
+  },
+  "schaechte": [
+   {
+    "id": "FL1",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 7.0,
+    "y": 12.0,
+    "deckel": 520.205,
+    "sohle": 519.102,
+    "tiefe": 1.103,
+    "dn": null,
+    "grund": "Fuß der Fallleitung",
+    "im_gebaeude": true
+   },
+   {
+    "id": "FL2",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 13.0,
+    "y": 18.5,
+    "deckel": 520.305,
+    "sohle": 519.195,
+    "tiefe": 1.11,
+    "dn": null,
+    "grund": "Fuß der Fallleitung",
+    "im_gebaeude": true
+   },
+   {
+    "id": "SW-S1",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 16.05,
+    "y": 18.5,
+    "deckel": 520.29,
+    "sohle": 519.088,
+    "tiefe": 1.202,
+    "dn": 600,
+    "grund": "Richtungsänderung 90° > 45°",
+    "im_gebaeude": false
+   },
+   {
+    "id": "SW-S2",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 16.05,
+    "y": 7.95,
+    "deckel": 520.079,
+    "sohle": 518.879,
+    "tiefe": 1.2,
+    "dn": 600,
+    "grund": "Richtungsänderung 49° > 45°",
+    "im_gebaeude": false
+   },
+   {
+    "id": "SW-S3",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 10.751,
+    "y": 3.376,
+    "deckel": 520.014,
+    "sohle": 518.814,
+    "tiefe": 1.2,
+    "dn": 600,
+    "grund": "Zusammenführung",
+    "im_gebaeude": false
+   },
+   {
+    "id": "SW-RS",
+    "bauwerk": "Revisionsschacht",
+    "art": "Revisionsschacht (Übergabeschacht)",
+    "x": 8.0,
+    "y": 1.0,
+    "deckel": 519.98,
+    "sohle": 518.78,
+    "tiefe": 1.2,
+    "dn": 1000,
+    "grund": "Ende der Grundstücksentwässerungsanlage (EWS § 8 Abs. 4)",
+    "im_gebaeude": false
+   }
+  ],
+  "routing": [
+   "FL2 -> SW-RS (Kosten 35.74 m-Äquivalent)",
+   "FL1 -> SW-K3 (Kosten 17.54 m-Äquivalent)"
+  ],
+  "l_gesamt": 38.24,
+  "l_im_gebaeude": 5.27
+ },
+ "niederschlagswasser": {
+  "a_e": 167.0,
+  "a_c": 131.2,
+  "a_c_spitze": 164.6,
+  "k_i": 7.200000000000001e-06,
+  "rigole": {
+   "reihen": 1,
+   "b": 0.8,
+   "h": 0.66,
+   "l_erforderlich": 9.294,
+   "l_gewaehlt": 9.6,
+   "elemente": 12,
+   "d_massgebend": 240,
+   "a_s": 14.54,
+   "q_s": 0.1047,
+   "v_erf": 4.606,
+   "v_vorh": 4.815,
+   "v_brutto": 5.069,
+   "entleerung_h": 12.22,
+   "lage": [
+    3.0,
+    12.0,
+    3.8,
+    21.6
+   ],
+   "orientierung": "y",
+   "zulauf": [
+    3.4,
+    21.6
+   ],
+   "oberkante": 519.008,
+   "sohle": 518.348,
+   "gok": 520.319,
+   "ueberdeckung": 1.311,
+   "sickerraum": 3.348,
+   "abstand_gebaeude": 1.2,
+   "abstand_gebaeude_erf": 1.2,
+   "l_tabelle": [
+    [
+     5,
+     370.0,
+     3.455
+    ],
+    [
+     10,
+     248.3,
+     4.601
+    ],
+    [
+     15,
+     193.3,
+     5.332
+    ],
+    [
+     20,
+     160.0,
+     5.839
+    ],
+    [
+     30,
+     121.7,
+     6.562
+    ],
+    [
+     45,
+     92.2,
+     7.294
+    ],
+    [
+     60,
+     75.6,
+     7.803
+    ],
+    [
+     90,
+     56.9,
+     8.448
+    ],
+    [
+     120,
+     46.4,
+     8.823
+    ],
+    [
+     180,
+     34.7,
+     9.173
+    ],
+    [
+     240,
+     28.3,
+     9.294
+    ],
+    [
+     360,
+     21.2,
+     9.186
+    ],
+    [
+     540,
+     15.8,
+     8.691
+    ],
+    [
+     720,
+     12.9,
+     8.195
+    ],
+    [
+     1080,
+     9.6,
+     7.201
+    ],
+    [
+     1440,
+     7.8,
+     6.419
+    ],
+    [
+     2880,
+     4.8,
+     4.576
+    ],
+    [
+     4320,
+     3.6,
+     3.582
+    ]
+   ]
+  },
+  "mulde_vergleich": {
+   "a_s_hydraulisch": 17.09,
+   "a_s_trengw": 11.13,
+   "a_s": 17.09,
+   "passt": true
+  },
+  "haltungen": [
+   {
+    "von": "HA1",
+    "nach": "NW-S3",
+    "_u": "HA1",
+    "_v": "NW-K5",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 1.99,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.224,
+    "sohle_unten": 519.124,
+    "gok_oben": 520.436,
+    "gok_unten": 520.396,
+    "q": 0.626,
+    "q_zul": 9.428,
+    "auslastung": 0.066,
+    "last": 0.626,
+    "kreuzungen": []
+   },
+   {
+    "von": "RF1",
+    "nach": "NW-B1",
+    "_u": "RF1",
+    "_v": "NW-K2",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 2.99,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.365,
+    "sohle_unten": 519.335,
+    "gok_oben": 520.165,
+    "gok_unten": 520.221,
+    "q": 1.037,
+    "q_zul": 4.183,
+    "auslastung": 0.248,
+    "last": 1.037,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-B1",
+    "nach": "NW-B2",
+    "_u": "NW-K2",
+    "_v": "NW-K3",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 10.1,
+    "gefaelle": 0.02255,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.335,
+    "sohle_unten": 519.107,
+    "gok_oben": 520.221,
+    "gok_unten": 520.423,
+    "q": 1.037,
+    "q_zul": 6.311,
+    "auslastung": 0.164,
+    "last": 1.037,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-B2",
+    "nach": "NW-FS",
+    "_u": "NW-K3",
+    "_v": "NW-FS",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 0.99,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.107,
+    "sohle_unten": 519.058,
+    "gok_oben": 520.423,
+    "gok_unten": 520.435,
+    "q": 1.037,
+    "q_zul": 9.428,
+    "auslastung": 0.11,
+    "last": 1.037,
+    "kreuzungen": []
+   },
+   {
+    "von": "RF2",
+    "nach": "NW-S4",
+    "_u": "RF2",
+    "_v": "NW-K6",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 1.95,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.167,
+    "sohle_unten": 519.069,
+    "gok_oben": 520.389,
+    "gok_unten": 520.428,
+    "q": 1.037,
+    "q_zul": 9.428,
+    "auslastung": 0.11,
+    "last": 1.037,
+    "kreuzungen": []
+   },
+   {
+    "von": "RF3",
+    "nach": "NW-S1",
+    "_u": "RF3",
+    "_v": "NW-K4",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 11.0,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.311,
+    "sohle_unten": 519.201,
+    "gok_oben": 520.111,
+    "gok_unten": 520.328,
+    "q": 1.037,
+    "q_zul": 4.183,
+    "auslastung": 0.248,
+    "last": 1.037,
+    "kreuzungen": [
+     "SW-Leitung"
+    ]
+   },
+   {
+    "von": "RF4",
+    "nach": "NW-S1",
+    "_u": "RF4",
+    "_v": "NW-K4",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 0.6,
+    "gefaelle": 0.05,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.231,
+    "sohle_unten": 519.201,
+    "gok_oben": 520.335,
+    "gok_unten": 520.328,
+    "q": 1.037,
+    "q_zul": 9.428,
+    "auslastung": 0.11,
+    "last": 1.037,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-S1",
+    "nach": "NW-S2",
+    "_u": "NW-K4",
+    "_v": "NW-K1",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 1.67,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.201,
+    "sohle_unten": 519.184,
+    "gok_oben": 520.328,
+    "gok_unten": 520.361,
+    "q": 2.074,
+    "q_zul": 4.183,
+    "auslastung": 0.496,
+    "last": 2.074,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-S2",
+    "nach": "NW-S3",
+    "_u": "NW-K1",
+    "_v": "NW-K5",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 6.0,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.184,
+    "sohle_unten": 519.124,
+    "gok_oben": 520.361,
+    "gok_unten": 520.396,
+    "q": 2.074,
+    "q_zul": 4.183,
+    "auslastung": 0.496,
+    "last": 2.074,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-S3",
+    "nach": "NW-S4",
+    "_u": "NW-K5",
+    "_v": "NW-K6",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 5.5,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.124,
+    "sohle_unten": 519.069,
+    "gok_oben": 520.396,
+    "gok_unten": 520.428,
+    "q": 2.7,
+    "q_zul": 4.183,
+    "auslastung": 0.645,
+    "last": 2.7,
+    "kreuzungen": []
+   },
+   {
+    "von": "NW-S4",
+    "nach": "NW-FS",
+    "_u": "NW-K6",
+    "_v": "NW-FS",
+    "lage": "Erdreich",
+    "dn": 100,
+    "laenge": 1.16,
+    "gefaelle": 0.01,
+    "gefaelle_min": 0.01,
+    "sohle_oben": 519.069,
+    "sohle_unten": 519.058,
+    "gok_oben": 520.428,
+    "gok_unten": 520.435,
+    "q": 3.737,
+    "q_zul": 4.183,
+    "auslastung": 0.893,
+    "last": 3.737,
+    "kreuzungen": []
+   }
+  ],
+  "schaechte": [
+   {
+    "id": "HA1",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 10.0,
+    "y": 24.3,
+    "deckel": 520.436,
+    "sohle": 519.224,
+    "tiefe": 1.212,
+    "dn": null,
+    "grund": "Standrohr mit Laubfangkorb (TRENGW Tab. 2)",
+    "im_gebaeude": false
+   },
+   {
+    "id": "RF1",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 4.6,
+    "y": 9.4,
+    "deckel": 520.165,
+    "sohle": 519.365,
+    "tiefe": 0.8,
+    "dn": null,
+    "grund": "Standrohr mit Laubfangkorb (TRENGW Tab. 2)",
+    "im_gebaeude": false
+   },
+   {
+    "id": "RF2",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 4.6,
+    "y": 20.6,
+    "deckel": 520.389,
+    "sohle": 519.167,
+    "tiefe": 1.222,
+    "dn": null,
+    "grund": "Standrohr mit Laubfangkorb (TRENGW Tab. 2)",
+    "im_gebaeude": false
+   },
+   {
+    "id": "RF3",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 15.4,
+    "y": 9.4,
+    "deckel": 520.111,
+    "sohle": 519.311,
+    "tiefe": 0.8,
+    "dn": null,
+    "grund": "Standrohr mit Laubfangkorb (TRENGW Tab. 2)",
+    "im_gebaeude": false
+   },
+   {
+    "id": "RF4",
+    "bauwerk": "Reinigungsöffnung",
+    "art": "Reinigungsrohr/-öffnung",
+    "x": 15.4,
+    "y": 20.6,
+    "deckel": 520.335,
+    "sohle": 519.231,
+    "tiefe": 1.104,
+    "dn": null,
+    "grund": "Standrohr mit Laubfangkorb (TRENGW Tab. 2)",
+    "im_gebaeude": false
+   },
+   {
+    "id": "NW-S1",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 15.964,
+    "y": 20.386,
+    "deckel": 520.328,
+    "sohle": 519.201,
+    "tiefe": 1.127,
+    "dn": 400,
+    "grund": "Zusammenführung",
+    "im_gebaeude": false
+   },
+   {
+    "id": "NW-S2",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 16.05,
+    "y": 22.05,
+    "deckel": 520.361,
+    "sohle": 519.184,
+    "tiefe": 1.176,
+    "dn": 400,
+    "grund": "Richtungsänderung 90° > 45°",
+    "im_gebaeude": false
+   },
+   {
+    "id": "NW-S3",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 10.056,
+    "y": 22.311,
+    "deckel": 520.396,
+    "sohle": 519.124,
+    "tiefe": 1.272,
+    "dn": 600,
+    "grund": "Zusammenführung",
+    "im_gebaeude": false
+   },
+   {
+    "id": "NW-S4",
+    "bauwerk": "Schacht",
+    "art": "Inspektionsöffnung",
+    "x": 4.561,
+    "y": 22.55,
+    "deckel": 520.428,
+    "sohle": 519.069,
+    "tiefe": 1.359,
+    "dn": 600,
+    "grund": "Zusammenführung",
+    "im_gebaeude": false
+   },
+   {
+    "id": "NW-FS",
+    "bauwerk": "Filterschacht",
+    "art": "Filterschacht (Vorreinigung)",
+    "x": 3.4,
+    "y": 22.6,
+    "deckel": 520.435,
+    "sohle": 519.058,
+    "tiefe": 1.377,
+    "dn": 600,
+    "grund": "Vorreinigung vor der Rigole (NWFreiV § 3 Abs. 2)",
+    "im_gebaeude": false
+   }
+  ],
+  "routing": [
+   "RF3 -> NW-FS (Kosten 37.36 m-Äquivalent)",
+   "RF1 -> NW-FS (Kosten 15.78 m-Äquivalent)",
+   "RF4 -> NW-K4 (Kosten 1.22 m-Äquivalent)",
+   "HA1 -> NW-K5 (Kosten 2.49 m-Äquivalent)",
+   "RF2 -> NW-K6 (Kosten 2.73 m-Äquivalent)"
+  ]
+ },
+ "pruefung": [
+  {
+   "id": "SW-01",
+   "regel": "Revisionsschacht am Ende der Anlage auf eigenem Grund",
+   "quelle": "EWS § 8 Abs. 4 [V]",
+   "status": "erfüllt",
+   "text": "Revisionsschacht DN 1000 bei (8.00; 1.00), Außenkante 0.40 m innerhalb der Grenze"
+  },
+  {
+   "id": "SW-02",
+   "regel": "Außenliegender Revisionsschacht nur bei >= 5 m zwischen Grenze und Gebäudekante",
+   "quelle": "MSE-Leitfaden 2.6 [V]",
+   "status": "erfüllt",
+   "text": "Abstand Straßengrenze-Gebäude 9.00 m"
+  },
+  {
+   "id": "SW-03",
+   "regel": "Frostfreie Tiefe 1,20 m (GOK bis Rohrsohle) für erdverlegte SW-Leitungen",
+   "quelle": "MSE-Leitfaden 2.7, EWS § 8 Abs. 3 [V]",
+   "status": "erfüllt",
+   "text": "alle Knoten >= 1,20 m"
+  },
+  {
+   "id": "SW-04",
+   "regel": "Mindestgefälle Grundleitungen (0,5 % im Gebäude, 1:DN außerhalb)",
+   "quelle": "DIN 1986-100 [V]",
+   "status": "erfüllt",
+   "text": "eingehalten"
+  },
+  {
+   "id": "SW-05",
+   "regel": "Höchstgefälle 1:20 (sonst Absturzbauwerk)",
+   "quelle": "kommunale Merkblätter [U]",
+   "status": "erfüllt",
+   "text": "eingehalten"
+  },
+  {
+   "id": "SW-06",
+   "regel": "Anschlusskanal geradlinig, ohne Gefällewechsel, Gefälle 1:DN bis 1:1",
+   "quelle": "MSE-Leitfaden 2.6 [V]",
+   "status": "erfüllt",
+   "text": "L = 4.60 m, Gefälle 43.0 % (zulässig 0.67-100 %)"
+  },
+  {
+   "id": "SW-07",
+   "regel": "Nennweite in Fließrichtung nicht verringern",
+   "quelle": "DIN 1986-100 6.1.8 [V]",
+   "status": "erfüllt",
+   "text": "eingehalten"
+  },
+  {
+   "id": "SW-08",
+   "regel": "Hydraulische Leistungsfähigkeit (Q_ww <= Q bei h/d 0,5 innen / 0,7 außen)",
+   "quelle": "DIN 1986-100 14.1.5 [V/U]",
+   "status": "erfüllt",
+   "text": "max. Auslastung 0.23"
+  },
+  {
+   "id": "SW-09",
+   "regel": "Reinigungsöffnungen an Fallleitungsfüßen, Zusammenführungen, Richtungsänderungen > 45°, Abstand <= 20/40 m",
+   "quelle": "DIN 1986-100 6.6 [U]",
+   "status": "erfüllt",
+   "text": "3 Schacht/Schächte außen, 2 Reinigungsöffnung(en), Revisionsschacht DN 1000"
+  },
+  {
+   "id": "SW-10",
+   "regel": "Ablaufstellen unter der Rückstauebene gegen Rückstau sichern",
+   "quelle": "EWS § 8 Abs. 6, MSE-Leitfaden 2.2 [V]",
+   "status": "erfüllt",
+   "text": "alle Ablaufstellen über RSE 519.95 m (FFB EG 520.55); keine Rückstausicherung nötig"
+  },
+  {
+   "id": "SW-11",
+   "regel": "Geschützte Gehölze <= 5 m zur Leitungsachse im Plan 1:100 darstellen, ggf. Stellungnahme Baumschutz",
+   "quelle": "MSE-Genehmigungsantrag Ziff. 3, MSE-Leitfaden 3.2 [V]",
+   "status": "erfüllt",
+   "text": "keine geschützten Gehölze im 5-m-Bereich"
+  },
+  {
+   "id": "SW-12",
+   "regel": "Kreuzungen mit Versorgungsleitungen im Plan eintragen, Abstände mit Netzbetreiber klären",
+   "quelle": "MSE-Leitfaden 3.2 (Sparten im Bereich von SW-Leitungen) [V], Abstandswerte [U]",
+   "status": "Hinweis",
+   "text": "SW-S2-SW-S3 x HA Wasser/Strom/Telekom"
+  },
+  {
+   "id": "SW-13",
+   "regel": "Grundleitungen innerhalb von Gebäuden vermeiden; in der Bodenplatte genehmigungspflichtig",
+   "quelle": "DIN 1986-100 6.1.1, MSE-Leitfaden 2.1 [V]",
+   "status": "Hinweis",
+   "text": "5.27 m Leitung im/unter dem Gebäude (Grundleitung unter Bodenplatte)"
+  },
+  {
+   "id": "NW-01",
+   "regel": "Durchlässigkeit im Bereich 1e-6 bis 1e-3 m/s",
+   "quelle": "DWA-A 138-1, MSE-Leitfaden 3.2 [V]",
+   "status": "erfüllt",
+   "text": "k_f = 1.0e-05 m/s, k_i = 7.20e-06 m/s (f_k = 0.72)"
+  },
+  {
+   "id": "NW-02",
+   "regel": "Sickerraum >= 1 m (Sohle bis MHGW)",
+   "quelle": "TRENGW Nr. 6, DWA-A 138-1 [V]",
+   "status": "erfüllt",
+   "text": "Sohle 518.35, MHGW 515.00 -> 3.35 m"
+  },
+  {
+   "id": "NW-03",
+   "regel": "Sohle der Versickerungsanlage <= 5 m unter GOK",
+   "quelle": "TRENGW Nr. 6 [V]",
+   "status": "erfüllt",
+   "text": "1.97 m"
+  },
+  {
+   "id": "NW-04",
+   "regel": "Angeschlossene befestigte Fläche je Anlage <= 1000 m²",
+   "quelle": "NWFreiV § 3 Abs. 1 [V]",
+   "status": "erfüllt",
+   "text": "A_E,b = 167.0 m²"
+  },
+  {
+   "id": "NW-05",
+   "regel": "Rigole nur, wenn flächenhafte Versickerung (Mulde) nicht möglich ist",
+   "quelle": "NWFreiV § 3 Abs. 2, TRENGW Nr. 4 [V]",
+   "status": "Hinweis",
+   "text": "Mulde mit A_S >= 17.1 m² (hydraulisch 17.1 m², TRENGW 1/15: 11.1 m²) passt auf das Grundstück -> Rigole begründen oder Mulde wählen"
+  },
+  {
+   "id": "NW-06",
+   "regel": "Vorreinigung vor unterirdischer Versickerung",
+   "quelle": "TRENGW Tab. 2 [V]; DWA-A 138-1 Tab. 7 [U]",
+   "status": "Hinweis",
+   "text": "Dach: Laubfangkörbe/Grobstoffrückhalt; Terrasse: Hofablauf mit Schlammeimer; Filterschacht NW-FS vor der Rigole. Nach DWA-A 138-1 sind auch Dachabflüsse zu behandeln (Gesamtwirkungsgrad je Flächenkategorie) – Produkt mit Nachweis wählen"
+  },
+  {
+   "id": "NW-07",
+   "regel": "Unbeschichtete Cu/Zn/Pb-Flächen > 50 m² nur über zugelassenen Filter",
+   "quelle": "NWFreiV § 3 Abs. 2 [V]",
+   "status": "erfüllt",
+   "text": "keine"
+  },
+  {
+   "id": "NW-08",
+   "regel": "Abstand Versickerungsanlage-Gebäude >= 1,5 x Baugruben-/Fundamenttiefe",
+   "quelle": "DWA-A 138-1 5.3.2 [V (Sekundärquelle)]",
+   "status": "erfüllt",
+   "text": "vorhanden 1.20 m, erforderlich 1.20 m (Fundamenttiefe 0.80 m)"
+  },
+  {
+   "id": "NW-09",
+   "regel": "Abstand zur Grundstücksgrenze >= 2 m",
+   "quelle": "kommunale Leitfäden [U]",
+   "status": "erfüllt",
+   "text": "3.00 m"
+  },
+  {
+   "id": "NW-10",
+   "regel": "Kein Überlauf der Versickerungsanlage an den städtischen Kanal",
+   "quelle": "MSE-Leitfaden 5.2 [V]",
+   "status": "erfüllt",
+   "text": "kein Notüberlauf zum Kanal vorgesehen"
+  },
+  {
+   "id": "NW-11",
+   "regel": "Überflutungsnachweis bei A_C > 800 m²",
+   "quelle": "DIN 1986-100 14.9, DWA-A 138-1 5.3.4 [V]",
+   "status": "erfüllt",
+   "text": "A_C (C_s) = 164.6 m² -> nicht erforderlich; nach DWA-A 138-1 Überflutungsfolgen trotzdem qualitativ bewerten"
+  },
+  {
+   "id": "NW-12",
+   "regel": "Frosttiefe 0,80 m für NW-Leitungen zur Versickerung",
+   "quelle": "MSE-Leitfaden 2.7 [V]",
+   "status": "erfüllt",
+   "text": "eingehalten"
+  },
+  {
+   "id": "NW-13",
+   "regel": "Erlaubnisfrei nur außerhalb von Wasserschutzgebieten und Altlastverdachtsflächen",
+   "quelle": "NWFreiV § 1 [V]",
+   "status": "erfüllt",
+   "text": "laut Technischem Formblatt (hier Beispielangabe: nein/nein)"
+  },
+  {
+   "id": "NW-14",
+   "regel": "Niederschlagswasser nicht in den städtischen Kanal einleiten (kein Anspruch)",
+   "quelle": "EWS § 4 Abs. 4, MSE-Leitfaden 2.4/5 [V]",
+   "status": "erfüllt",
+   "text": "vollständige Versickerung auf dem Grundstück"
+  },
+  {
+   "id": "NW-15",
+   "regel": "Speichernachweis der Rigole V_vorh >= V_erf",
+   "quelle": "DWA-A 138-1 Gl. 8 [V (Sekundärquelle)]",
+   "status": "erfüllt",
+   "text": "V_vorh = 4.82 m³ >= V_erf = 4.61 m³ (D = 240 min), Entleerung 12.2 h"
+  }
+ ],
+ "gebuehren": {
+  "grundstuecksflaeche": 600.0,
+  "gebietsabflussbeiwert": 0.35,
+  "reduzierte_flaeche": 210.0,
+  "nw_gebuehr_pauschal_eur_a": 371.7,
+  "nw_gebuehr_bei_vollversickerung_eur_a": 0.0,
+  "hinweis": "Pauschale nach EAS § 8 Abs. 2-3; bei vollständiger Versickerung Antrag nach § 8 Abs. 5 (tatsächliche Ableitungsfläche 0 m²). Sätze gelten bis 31.12.2026 (Kalkulationszeitraum)."
+ }
+}

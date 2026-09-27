@@ -407,8 +407,15 @@ def baue_baum(router: Router, praefix: str, quellen: list[dict], ziel: dict,
         if linien:
             bh = unary_union(linien).buffer(0.02)
             baum_hart = (bh, prep(bh))
-        pts = [rnd((q["x"], q["y"]))] + basis_knoten + ziele_xy
-        off = 1 + len(basis_knoten)
+        # Basisknoten, die auf dem bestehenden Baum liegen, würden ein Berühren ohne
+        # Anschluss erlauben -> entfernen (der Baum ist über die Abtastpunkte vertreten)
+        if linien:
+            bl = unary_union(linien)
+            basis_f = [p for p in basis_knoten if bl.distance(Point(p)) > 0.03]
+        else:
+            basis_f = list(basis_knoten)
+        pts = [rnd((q["x"], q["y"]))] + basis_f + ziele_xy
+        off = 1 + len(basis_f)
         r = router.weg(pts[0], pts, set(range(off, len(pts))), baum_hart)
         if r is None:
             raise RuntimeError(f"Quelle {q['id']} nicht an das Netz anschließbar")
@@ -630,6 +637,7 @@ def pruefe_abstaende(netz: Netz, d: dict, art: str) -> None:
             netz.knoten[j].update({"bauwerk": "Schacht", "label": f"{art}-SZ{n_extra}",
                                    "grund": f"Höchstabstand {limit:.0f} m", "gok": gok(d, *netz.xy(j)), "innen": False})
             netz.knoten[j]["sohle"] = netz.knoten[k]["sohle"] - t * (netz.knoten[k]["sohle"] - netz.knoten[v]["sohle"])
+            rest[j] = 0.0
 
 
 def schacht_tabelle(netz: Netz, d: dict, art: str) -> list[dict]:
@@ -733,7 +741,7 @@ def berechne(d: dict) -> dict:
     for reihen in range(1, rg["max_reihen"] + 1):
         b_r, h_r = reihen * rg["element_b"], rg["element_h"]
         l_req, d_mass, l_tab = rigole_laenge(a_c, serie, b_r, h_r, rg["s_r"], ki, rg["f_z"])
-        l_gew = math.ceil(l_req / rg["element_l"] - 1e-9) * rg["element_l"]
+        l_gew = round(math.ceil(l_req / rg["element_l"] - 1e-9) * rg["element_l"], 3)
         rect, orient = platziere_rechteck(erlaubt, l_gew, b_r, bezug)
         if rect is not None:
             sp = rigole_speicher(a_c, serie, b_r, h_r, l_gew, rg["s_r"], ki, rg["f_z"])
@@ -817,7 +825,10 @@ def berechne(d: dict) -> dict:
     hart_nw = unary_union(baum_zonen + [rect.buffer(0.2, join_style=2), gebaeude])
     kreuz_nw = [(LineString(s["linie"]), R(d, "kosten_kreuzung"), s["id"]) for s in sparten] + \
                [(ln, 2.0, "SW-Leitung") for ln in sw_linien]
-    router_nw = Router(grenze_leit, hart_nw, [zonen[1]], kreuz_nw, R(d, "kosten_knick"))
+    band = gebaeude.buffer(R(d, "abstand_fundament"), join_style=2).difference(gebaeude)
+    zonen_nw = [(band, R(d, "kosten_fundament_faktor_nw")),
+                (unary_union(sw_linien).buffer(R(d, "abstand_nw_sw")), R(d, "kosten_nahe_sw_faktor"))]
+    router_nw = Router(grenze_leit, hart_nw, zonen_nw, kreuz_nw, R(d, "kosten_knick"))
     basis_nw = versatz_ecken(gebaeude, R(d, "abstand_fundament") + 0.05) + versatz_ecken(rect.buffer(0.2, join_style=2), 0.05)
     for b in baeume:
         basis_nw += kreis_knoten(b["x"], b["y"], b["kronenradius"] + R(d, "baum_wurzelzuschlag"))
@@ -1068,7 +1079,25 @@ def svg_lageplan(d: dict, e: dict) -> str:
     rg = e["niederschlagswasser"]["rigole"]
     x0, y0, x1, y1 = rg["lage"]
     o.append(poly([(x0, y0), (x1, y0), (x1, y1), (x0, y1)], fill="#cfe8ff", stroke="#1f5fa8", stroke_width="1.5"))
-    o.append(text(x0, y1 + 0.3, f"Rigole {rg['l_gewaehlt']:.1f} x {rg['b']:.1f} x {rg['h']:.2f} m, V = {rg['v_vorh']:.1f} m³", fill="#1f5fa8"))
+    rtxt = f"Rigole {rg['l_gewaehlt']:.1f} x {rg['b']:.1f} x {rg['h']:.2f} m, V = {rg['v_vorh']:.1f} m³"
+    if rg["orientierung"] == "x":
+        o.append(text(x0, y1 + 0.3, rtxt, fill="#1f5fa8"))
+    else:                                   # längs beschriften (gedreht)
+        tx, ty = pt(x0 - 0.25, y0 + 0.3)
+        o.append(f'<text x="{tx:.1f}" y="{ty:.1f}" fill="#1f5fa8" transform="rotate(-90 {tx:.1f} {ty:.1f})">{rtxt}</text>')
+    belegt: list[tuple[float, float, float, float]] = []
+
+    def frei(x, y, t, groesse=0.55):
+        """Beschriftungsposition ohne Überlappung (einfaches Verschieben nach unten)."""
+        bw_, bh_ = len(t) * groesse * 0.55, groesse
+        for _ in range(8):
+            kasten = (x, y - bh_, x + bw_, y + 0.1)
+            if not any(not (kasten[2] < b[0] or kasten[0] > b[2] or kasten[3] < b[1] or kasten[1] > b[3]) for b in belegt):
+                belegt.append(kasten)
+                return x, y
+            y -= 0.7
+        belegt.append((x, y - bh_, x + bw_, y + 0.1))
+        return x, y
     for netz, farbe in ((N["sw"], "#8b4513"), (N["nw"], "#1f5fa8")):
         for u, v in netz.kanten():
             ka = netz._kante_attr[(u, v)]
@@ -1079,10 +1108,12 @@ def svg_lageplan(d: dict, e: dict) -> str:
             if bw in ("Schacht", "Revisionsschacht", "Filterschacht"):
                 r = max(4.0, (a.get("dn_schacht") or 400) / 2000.0 * s)
                 o.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="#fff" stroke="{farbe}" stroke-width="1.5"/>')
-                o.append(text(a["x"] + 0.5, a["y"] + 0.3, a["label"], fill=farbe, font_weight="bold"))
+                lx, ly = frei(a["x"] + 0.5, a["y"] + 0.3, a["label"])
+                o.append(text(lx, ly, a["label"], fill=farbe, font_weight="bold"))
             elif bw == "Reinigungsöffnung":
                 o.append(f'<rect x="{cx - 3:.1f}" y="{cy - 3:.1f}" width="6" height="6" fill="{farbe}"/>')
-                o.append(text(a["x"] + 0.3, a["y"] + 0.3, a["label"], fill=farbe, font_size="8"))
+                lx, ly = frei(a["x"] + 0.3, a["y"] + 0.3, a["label"], 0.45)
+                o.append(text(lx, ly, a["label"], fill=farbe, font_size="8"))
     ein = d["kanal"]["einlass"]
     rs = N["sw"].knoten["SW-RS"]
     o.append(line((rs["x"], rs["y"]), (ein["x"], ein["y"]), stroke="#8b4513", stroke_width="2.5", stroke_dasharray="5,2"))
@@ -1148,10 +1179,14 @@ def svg_abwicklung(d: dict, e: dict) -> str:
     o.append(pl([(0, rse), (xs[-1], rse)], stroke="#cc0000", stroke_dasharray="8,4"))
     x0, y0 = pt(0, rse)
     o.append(f'<text x="{x0 + 2:.1f}" y="{y0 - 3:.1f}" fill="#cc0000">Rückstauebene {rse:.2f}</text>')
-    for x, zs, zg, lb in zip(xs, sohlen, goks, labels):
+    ffb = d["gebaeude"]["ffb_eg"]
+    o.append(pl([(0, ffb), (xs[1], ffb)], stroke="#333", stroke_width="1.2"))
+    x0, y0 = pt(0, ffb)
+    o.append(f'<text x="{x0 + 2:.1f}" y="{y0 - 3:.1f}" fill="#333">FFB EG {ffb:.2f}</text>')
+    for i, (x, zs, zg, lb) in enumerate(zip(xs, sohlen, goks, labels)):
         a, b = pt(x, zs), pt(x, zg)
         o.append(f'<line x1="{a[0]:.1f}" y1="{a[1]:.1f}" x2="{b[0]:.1f}" y2="{b[1]:.1f}" stroke="#999" stroke-width="0.8"/>')
-        o.append(f'<text x="{a[0] + 2:.1f}" y="{a[1] + 11:.1f}" fill="#8b4513">{lb} {zs:.2f}</text>')
+        o.append(f'<text x="{a[0] + 2:.1f}" y="{a[1] + 11 + 11 * (i % 3):.1f}" fill="#8b4513">{lb} {zs:.2f}</text>')
     o.append(f'<text x="{m:.0f}" y="{h - 10:.0f}" font-weight="bold">B17 Abwicklung SW-Hauptstrang, Szenario „{e["szenario"]}“ '
              f'(Länge 1:{1000 / sx:.0f}, Höhe 1:{1000 / sz:.0f} überhöht; grün GOK, blau Frostgrenze 1,20 m)</text>')
     o.append("</svg>")
@@ -1221,7 +1256,7 @@ def erzeuge_ifc(d: dict, e: dict, pfad: Path) -> Path:
     # Gelände als IfcGeographicElement TERRAIN (Dreiecksnetz)
     par = d["grundstueck"]["polygon"]
     pts = f.createIfcCartesianPointList3D([[float(x * mm), float(y * mm), float(round(gok(d, x, y) * mm, 1))] for x, y in par])
-    tfs = f.createIfcTriangulatedFaceSet(pts, None, True, [[1, 2, 3], [1, 3, 4]], None)
+    tfs = f.createIfcTriangulatedFaceSet(Coordinates=pts, CoordIndex=[[1, 2, 3], [1, 3, 4]])
     terr = w.root("IfcGeographicElement", f"/{sz}/gelaende", Name="Gelände (Ebene aus DGM, Beispiel)", PredefinedType="TERRAIN",
                   ObjectPlacement=w.platzierung(site.ObjectPlacement), Representation=w.form(w.body, "Tessellation", [tfs]))
     enthalten.append(terr)
@@ -1296,12 +1331,12 @@ def erzeuge_ifc(d: dict, e: dict, pfad: Path) -> Path:
                     w.pset([el], pfad_, "Pset_DistributionChamberElementTypeManhole", {
                         "InvertLevel": ("IfcLengthMeasure", round(a["sohle"] * mm, 1)), "HasSteps": tiefe > 1.2,
                         "AccessLengthOrRadius": ("IfcPositiveLengthMeasure", 625.0 / 2.0), "IsShallow": tiefe <= 1.2,
-                        "AccessCoverLoadRating": "B 125 (Beispiel)"})
+                        "AccessCoverLoadRating": ("IfcText", "B 125 (Beispiel)")})
                 else:
                     w.pset([el], pfad_, "Pset_DistributionChamberElementTypeInspectionChamber", {
                         "InspectionChamberInvertLevel": ("IfcLengthMeasure", round(a["sohle"] * mm, 1)),
                         "ChamberLengthOrRadius": ("IfcPositiveLengthMeasure", dn / 2.0),
-                        "AccessCoverLoadRating": "B 125 (Beispiel)"})
+                        "AccessCoverLoadRating": ("IfcText", "B 125 (Beispiel)")})
             elif bw == "Filterschacht":
                 geo = w.zylinder(500.0, (a["gok"] - a["sohle"] + 0.3) * mm, (0.0, 0.0, -300.0))
                 el = w.root("IfcInterceptor", pfad_, Name=a["label"], PredefinedType="USERDEFINED",
@@ -1366,8 +1401,7 @@ def erzeuge_ifc(d: dict, e: dict, pfad: Path) -> Path:
         "MHGW_m": float(bo["mhgw"]), "Sickerraum_m": rg["sickerraum"], "Entleerung_h": rg["entleerung_h"]})
     pr = port(f"/{sz}/NW/rigole/zulauf", rig, "Zulauf", "SINK", "RAINWATER", (rg["zulauf"][0], rg["zulauf"][1], rg["oberkante"]))
     w.root("IfcRelNests", f"/{sz}/NW/rigole#ports", RelatingObject=rig, RelatedObjects=[pr])
-    fs_out = f.by_guid(w.ifcopenshell.guid.compress(uuid.uuid5(GUID_NAMENSRAUM, f"/{sz}/NW/knoten/NW-FS/ablauf").hex))
-    verbinde(f"/{sz}/NW/rigole#rel", fs_out, pr)
+    verbinde(f"/{sz}/NW/rigole#rel", aus_ports["NW-FS"], pr)
     mitglieder["NW"].append(rig)
     enthalten.append(rig)
     w.root("IfcRelAssociatesMaterial", f"/{sz}/material/pvc", RelatedObjects=rohre, RelatingMaterial=mat_pvc)

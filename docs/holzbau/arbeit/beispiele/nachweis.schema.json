@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/holzbau/nachweis.schema.json",
+  "title": "Nachweis und Nachweisheft (Holzrahmenbau-Entwurfsgenerator)",
+  "description": "Maschinenlesbares Format rechnerischer und grafischer Nachweise. Schema-Version 1.0. Ein Dokument ist entweder ein einzelner Nachweis (art = nachweis) oder ein Nachweisheft (art = nachweisheft).",
+  "oneOf": [
+    { "$ref": "#/$defs/nachweis" },
+    { "$ref": "#/$defs/nachweisheft" }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "zahl_oder_null": { "type": ["number", "null"] },
+    "text_oder_null": { "type": ["string", "null"] },
+    "rundung": {
+      "type": "object",
+      "required": ["art", "stellen", "verfahren", "text"],
+      "properties": {
+        "art": { "enum": ["signifikant", "dezimalstellen"] },
+        "stellen": { "type": "integer" },
+        "verfahren": { "enum": ["halb_auf", "halb_gerade", "auf", "ab"] },
+        "quelle": { "type": "string" },
+        "text": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "groesse": {
+      "type": "object",
+      "required": ["name", "symbol", "latex", "wert", "einheit", "quelle", "art", "anzeige"],
+      "properties": {
+        "name": { "type": "string" },
+        "symbol": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$" },
+        "latex": { "type": "string" },
+        "wert": { "type": ["number", "integer", "boolean", "string", "null"] },
+        "einheit": { "type": "string" },
+        "dimension": { "type": ["string", "null"] },
+        "quelle": { "type": "string" },
+        "art": { "enum": ["eingabe", "annahme", "konstante", "grenzwert", "zwischenergebnis", "ergebnis"] },
+        "unsicherheit": { "$ref": "#/$defs/zahl_oder_null", "description": "Standardunsicherheit u (k = 1) in der Einheit der Größe" },
+        "verteilung": { "enum": ["normal", "rechteck"] },
+        "bezug": { "$ref": "#/$defs/text_oder_null" },
+        "anzeige": { "type": "string" },
+        "rundung": { "oneOf": [{ "$ref": "#/$defs/rundung" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "schritt": {
+      "type": "object",
+      "required": ["nr", "beschreibung", "ausdruck", "formel_latex", "eingaben", "ergebnis", "norm_verweis"],
+      "properties": {
+        "nr": { "type": "integer", "minimum": 1 },
+        "beschreibung": { "type": "string" },
+        "ausdruck": { "$ref": "#/$defs/text_oder_null", "description": "Python-Ausdruck (Teilmenge: + − · / **, min, max, abs, sqrt, tan, sin, cos, atan, ceil, floor)" },
+        "formel_latex": { "$ref": "#/$defs/text_oder_null" },
+        "einsetzen_latex": { "$ref": "#/$defs/text_oder_null" },
+        "eingaben": { "type": "array", "items": { "type": "string" } },
+        "verfahren": { "$ref": "#/$defs/text_oder_null" },
+        "norm_verweis": { "type": "string" },
+        "ergebnis": { "$ref": "#/$defs/groesse" }
+      },
+      "anyOf": [
+        { "properties": { "ausdruck": { "type": "string" } } },
+        { "properties": { "verfahren": { "type": "string" } } }
+      ],
+      "additionalProperties": false
+    },
+    "kriterium": {
+      "type": "object",
+      "required": ["bezeichnung", "ist", "vergleich", "grenzwert", "ist_wert", "grenz_wert", "einheit", "erfuellt"],
+      "properties": {
+        "bezeichnung": { "type": "string" },
+        "ist": { "type": "string" },
+        "vergleich": { "enum": ["≤", "≥", "<", ">", "="] },
+        "grenzwert": { "type": "string" },
+        "norm_verweis": { "type": "string" },
+        "toleranz": { "type": "number", "minimum": 0 },
+        "ist_wert": { "type": "number" },
+        "grenz_wert": { "type": "number" },
+        "einheit": { "type": "string" },
+        "ausnutzung": { "$ref": "#/$defs/zahl_oder_null" },
+        "erfuellt": { "type": "boolean" },
+        "rundungsempfindlich": { "type": "boolean" },
+        "innerhalb_unsicherheit": { "type": ["boolean", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "grafik": {
+      "type": "object",
+      "required": ["id", "titel", "art", "sha256", "svg"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_\\-]+$" },
+        "titel": { "type": "string" },
+        "art": { "enum": ["diagramm", "lageplan", "schnitt", "ansicht", "grundriss"] },
+        "beschreibung": { "type": "string" },
+        "massstab": { "$ref": "#/$defs/text_oder_null" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "svg": { "type": "string", "pattern": "<svg" }
+      },
+      "additionalProperties": false
+    },
+    "regel": {
+      "type": "object",
+      "required": ["text", "quelle", "fassung", "regelwerk_profil", "verifikation"],
+      "properties": {
+        "text": { "type": "string" },
+        "quelle": { "type": "string" },
+        "fassung": { "type": "string" },
+        "fundstelle": { "type": "string" },
+        "verifikation": { "enum": ["[V]", "[U]"] },
+        "regelwerk_profil": {
+          "type": "object",
+          "required": ["name", "version"],
+          "properties": { "name": { "type": "string" }, "version": { "type": "string" } },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "gegenstand": {
+      "type": "object",
+      "required": ["bezeichnung", "ifc_guid"],
+      "properties": {
+        "bezeichnung": { "type": "string" },
+        "ifc_guid": { "oneOf": [{ "type": "string", "pattern": "^[0-9A-Za-z_$]{22}$" }, { "type": "null" }], "description": "IfcGloballyUniqueId (22 Zeichen, IFC-Base64)" },
+        "ifc_klasse": { "$ref": "#/$defs/text_oder_null" },
+        "ifc_datei": { "$ref": "#/$defs/text_oder_null" },
+        "ifc_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "weitere_guids": { "type": "array", "items": { "type": "string", "pattern": "^[0-9A-Za-z_$]{22}$" } }
+      },
+      "additionalProperties": false
+    },
+    "unsicherheit": {
+      "type": "object",
+      "required": ["methode", "k", "u_c", "U", "einheit", "beitraege", "anzeige"],
+      "properties": {
+        "methode": { "type": "string" },
+        "k": { "type": "number", "exclusiveMinimum": 0 },
+        "u_c": { "type": "number", "minimum": 0 },
+        "U": { "type": "number", "minimum": 0 },
+        "einheit": { "type": "string" },
+        "anzeige": { "type": "string" },
+        "nicht_fortgepflanzt": { "type": "array", "items": { "type": "string" } },
+        "beitraege": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["symbol", "u", "sensitivitaet", "beitrag", "anteil"],
+            "properties": {
+              "symbol": { "type": "string" }, "u": { "type": "number" }, "einheit": { "type": "string" },
+              "sensitivitaet": { "type": "number" }, "sensitivitaet_einheit": { "type": "string" },
+              "beitrag": { "type": "number" }, "anteil": { "type": "number", "minimum": 0, "maximum": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "monte_carlo": {
+          "type": "object",
+          "required": ["versuche", "seed", "mittelwert", "standardabweichung", "intervall_95"],
+          "properties": {
+            "methode": { "type": "string" }, "versuche": { "type": "integer", "minimum": 1 }, "seed": { "type": "integer" },
+            "mittelwert": { "type": "number" }, "standardabweichung": { "type": "number" },
+            "intervall_95": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "hash": {
+      "type": "object",
+      "required": ["algorithmus", "wert", "umfang"],
+      "properties": { "algorithmus": { "const": "SHA-256" }, "wert": { "$ref": "#/$defs/sha256" }, "umfang": { "type": "string" } },
+      "additionalProperties": false
+    },
+    "umgebung": {
+      "type": "object",
+      "required": ["nachweis_modul", "python", "einheiten_backend", "grafik_backend"],
+      "properties": {
+        "nachweis_modul": { "type": "string" }, "schema_version": { "type": "string" }, "python": { "type": "string" },
+        "einheiten_backend": { "enum": ["pint", "einfach"] }, "grafik_backend": { "enum": ["matplotlib", "svg"] },
+        "pakete": { "type": "object", "additionalProperties": { "type": ["string", "null"] } }
+      },
+      "additionalProperties": false
+    },
+    "status": { "enum": ["erfüllt", "nicht erfüllt", "Hinweis"] },
+    "nachweis": {
+      "type": "object",
+      "required": ["art", "schema_version", "id", "titel", "gegenstand", "regel", "eingaben", "schritte", "kriterien",
+                   "ergebnis", "grenzwert", "vergleich", "ausnutzung", "status", "annahmen", "hinweise", "grafiken", "hash"],
+      "properties": {
+        "art": { "const": "nachweis" },
+        "schema_version": { "const": "1.0" },
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_.\\-]+$" },
+        "titel": { "type": "string" },
+        "gegenstand": { "$ref": "#/$defs/gegenstand" },
+        "regel": { "$ref": "#/$defs/regel" },
+        "eingaben": { "type": "array", "items": { "$ref": "#/$defs/groesse" } },
+        "schritte": { "type": "array", "items": { "$ref": "#/$defs/schritt" } },
+        "kriterien": { "type": "array", "items": { "$ref": "#/$defs/kriterium" } },
+        "ergebnis": { "oneOf": [{ "$ref": "#/$defs/groesse" }, { "type": "null" }] },
+        "grenzwert": { "oneOf": [{ "$ref": "#/$defs/groesse" }, { "type": "null" }] },
+        "vergleich": { "oneOf": [{ "enum": ["≤", "≥", "<", ">", "="] }, { "type": "null" }] },
+        "ausnutzung": { "$ref": "#/$defs/zahl_oder_null" },
+        "status": { "$ref": "#/$defs/status" },
+        "annahmen": { "type": "array", "items": { "type": "string" } },
+        "hinweise": { "type": "array", "items": { "type": "string" } },
+        "unsicherheit": { "oneOf": [{ "$ref": "#/$defs/unsicherheit" }, { "type": "null" }] },
+        "gegenrechnungen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["symbol", "rechenkern", "wert_rechenkern", "wert_nachweis", "abweichung", "toleranz_abs", "uebereinstimmung"],
+            "properties": {
+              "symbol": { "type": "string" }, "rechenkern": { "type": "string" }, "wert_rechenkern": { "type": "number" },
+              "wert_nachweis": { "type": "number" }, "abweichung": { "type": "number", "minimum": 0 },
+              "toleranz_abs": { "type": "number", "minimum": 0 }, "uebereinstimmung": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "grafiken": { "type": "array", "items": { "$ref": "#/$defs/grafik" } },
+        "rundung_zwischenwerte": { "$ref": "#/$defs/rundung" },
+        "umgebung": { "$ref": "#/$defs/umgebung" },
+        "zeitstempel": { "oneOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }] },
+        "hash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "nachweisheft": {
+      "type": "object",
+      "required": ["art", "schema_version", "titel", "projekt", "regelwerk_profile", "zusammenfassung", "status", "inhalt", "nachweise", "hash"],
+      "properties": {
+        "art": { "const": "nachweisheft" },
+        "schema_version": { "const": "1.0" },
+        "titel": { "type": "string" },
+        "projekt": { "type": "object" },
+        "verfasser": { "type": "string" },
+        "vorbemerkung": { "type": "string" },
+        "regelwerk_profile": {
+          "type": "array",
+          "items": { "type": "object", "required": ["name", "version"], "properties": { "name": { "type": "string" }, "version": { "type": "string" } }, "additionalProperties": false }
+        },
+        "regelquellen": {
+          "type": "array",
+          "items": { "type": "object", "required": ["quelle", "fassung", "verifikation"], "properties": { "quelle": { "type": "string" }, "fassung": { "type": "string" }, "verifikation": { "enum": ["[V]", "[U]"] } }, "additionalProperties": false }
+        },
+        "zusammenfassung": {
+          "type": "object",
+          "required": ["erfüllt", "nicht erfüllt", "Hinweis"],
+          "properties": { "erfüllt": { "type": "integer" }, "nicht erfüllt": { "type": "integer" }, "Hinweis": { "type": "integer" } },
+          "additionalProperties": false
+        },
+        "status": { "$ref": "#/$defs/status" },
+        "inhalt": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "titel", "status", "ausnutzung", "hash", "gegenstand"],
+            "properties": {
+              "id": { "type": "string" }, "titel": { "type": "string" }, "status": { "$ref": "#/$defs/status" },
+              "ausnutzung": { "$ref": "#/$defs/zahl_oder_null" }, "hash": { "$ref": "#/$defs/sha256" },
+              "gegenstand": { "$ref": "#/$defs/text_oder_null" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "nachweise": { "type": "array", "items": { "$ref": "#/$defs/nachweis" }, "minItems": 1 },
+        "umgebung": { "$ref": "#/$defs/umgebung" },
+        "zeitstempel": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+        "hash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
