@@ -107,8 +107,8 @@ def test_monotonie_mit_abstand():
     werte = [sz.pegel((0.0, 0.0), 0.8, (d, 0.0), 4.3, 55.0) for d in (1, 2, 4, 8, 16, 32, 64, 128)]
     assert all(a > b for a, b in zip(werte, werte[1:]))
     gleich_hoch = [sz.pegel((0.0, 0.0), 2.0, (d, 0.0), 2.0, 55.0) for d in (8.0, 16.0)]
-    # gleiche Höhen, A_gr = 0: Differenz = 6,02 dB (A_div) − ΔD_Ω − ΔA_atm
-    soll = 20 * math.log10(2) - (10 * math.log10(1 + 64 / 80) - 10 * math.log10(1 + 256 / 272)) + ALPHA * 8 / 1000
+    # gleiche Höhen, A_gr = 0: L(8) − L(16) = ΔA_div (6,02 dB) + [D_Ω(8) − D_Ω(16)] + ΔA_atm
+    soll = 20 * math.log10(2) + (10 * math.log10(1 + 64 / 80) - 10 * math.log10(1 + 256 / 272)) + ALPHA * 8 / 1000
     assert gleich_hoch[0] - gleich_hoch[1] == pytest.approx(soll, abs=1e-9)
 
 

@@ -1819,7 +1819,7 @@ def _de_achsen(ax, y: bool = False) -> None:
     from matplotlib.ticker import FuncFormatter
 
     def fmt(v, _p):
-        return zahl_de(int(round(v))) if abs(v - round(v)) < 1e-9 else zahl_de(Decimal(repr(round(v, 10))).normalize())
+        return zahl_de(int(round(v))) if abs(v - round(v)) < 1e-9 else zahl_de(Decimal(repr(round(float(v), 10))).normalize())
     ax.xaxis.set_major_formatter(FuncFormatter(fmt))
     if y:
         ax.yaxis.set_major_formatter(FuncFormatter(fmt))
